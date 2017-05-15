@@ -6,7 +6,9 @@
 .demo-layout-transparent .mdl-layout__drawer-button {
 }
 .header-title{
+  display: inline-block;
   font-weight: bold;
-  color: #66D7E5;
   font-family: Impact Charcoal sans-serif;
+  font-size: 25px;
+  width: auto !important;
 }
