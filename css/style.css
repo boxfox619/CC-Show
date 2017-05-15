@@ -1,0 +1,12 @@
+
+.demo-layout-transparent {
+  background: url('http://cfile21.uf.tistory.com/image/274C663A5243CF181785F4') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+}
+.header-title{
+  font-weight: bold;
+  color: #66D7E5;
+  font-family: Impact Charcoal sans-serif;
+}
