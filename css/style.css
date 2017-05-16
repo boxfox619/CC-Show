@@ -1,4 +1,13 @@
 
+main, body{
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+   -khtml-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
 .demo-layout-transparent {
   background: url('http://cfile21.uf.tistory.com/image/274C663A5243CF181785F4') center / cover;
 }
@@ -11,4 +20,27 @@
   font-family: Impact Charcoal sans-serif;
   font-size: 25px;
   width: auto !important;
+}
+
+.mdl-layout__tab-bar-button, .mdl-layout__tab-bar, .mdl-layout__tab {
+  background-color: rgba( 255, 255, 255, 0.0 );
+}
+
+.card_title_bar{
+  position: relative;
+  padding: 5px;
+  background-color: rgba(30, 30, 30, 0.1);
+}
+.card_title_bar .move_control{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 17px;
+  height: 17px;
+  cursor: move;
+  background: url('https://cdn1.iconfinder.com/data/icons/business-cursor/512/move_2-512.png') center / contain;
+}
+
+.dragable-component{
+  position:absolute !important;
 }
