@@ -40,18 +40,26 @@ function initializeDragMouseEvent(){
       var height = controlComponent.height();
       var x = event.pageX-width+12;
       var y = event.pageY-rect.top-12;
+      if(event.pageX-width<0){
+        x=0;
+      }else if(event.pageX+12> $(document).width()){
+        x = $(document).width()-width;
+      }
+      if(y<0){
+        y =0;
+      }
       controlComponent.css({top: y, left: x, position:'absolute'});
     }
   });
-  $('main').mouseleave(function(){
+  $('body').mouseleave(function(){
+    controlComponent = null;
+  });
+  $('body').mouseup(function() {
     controlComponent = null;
   });
 }
 
 function initializeDragableComponent(component){
-  component.mouseup(function() {
-    controlComponent = null;
-  });
   component.mousedown(function() {
     controlComponent = component.closest('.dragable-component');
   });
