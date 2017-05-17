@@ -44,3 +44,8 @@ main, body{
 .dragable-component{
   position:absolute !important;
 }
+
+.accest{
+  position:absolute !important;
+  cursor: move;
+}
