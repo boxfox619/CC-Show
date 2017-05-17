@@ -82,6 +82,7 @@ function initializeDragableComponent(component){
   });
 }
 
+
 /* ---------- drag & drop accests -----------*/
 
 function createAccest(){
@@ -101,4 +102,12 @@ function initializeAccest(accest){
     xInElement = evt.pageX - offset.left;
     yInElement = evt.pageY - offset.top;
   });
+}
+
+
+/* ---------- save -----------*/
+
+function save(){
+  $('main').find( '.dragable-component' ).remove();
+  var mainHtml = $('main').html();
 }
