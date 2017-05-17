@@ -49,3 +49,7 @@ main, body{
   position:absolute !important;
   cursor: move;
 }
+
+.selected{
+  border: dashed 1px;
+}

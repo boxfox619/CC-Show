@@ -1,6 +1,7 @@
 $(function(){
   initializeTitleTextBar();
-  initializeDragableComponents();
+  initializeDragMouseEvent();
+  accestRightClick();
 });
 
 function initializeTitleTextBar(){
@@ -32,12 +33,9 @@ function initializeTitleTextBar(){
 
 /* ---------- drag & drop layout -----------*/
 
-var controlComponent;
+var controlComponent, selectComponent;
+var moved;
 var xInElement, yInElement;
-function initializeDragableComponents(){
-  initializeDragMouseEvent();
-  initializeDragableComponent($('.move_control'));
-}
 
 function initializeDragMouseEvent(){
   $('main').mousemove(function( event ) {
@@ -65,20 +63,36 @@ function initializeDragMouseEvent(){
       if(y<0){
         y =0;
       }
+      moved = true;
       controlComponent.css({top: y, left: x, position:'absolute'});
     }
   });
   $('body').mouseleave(function(){
     controlComponent = null;
   });
-  $('body').mouseup(function() {
-    controlComponent = null;
+  $('body').mousedown(function(e){
+    var target = $(e.target);
+    if(target.hasClass('move_control')){
+      controlComponent = target.closest('.dragable-component');
+      e.preventDefault();
+    }
+    if(target.hasClass('accest')){
+      controlComponent = target;
+      var offset = target.offset();
+      xInElement = e.pageX - offset.left;
+      yInElement = e.pageY - offset.top;
+      e.preventDefault();
+    }
+    moved = false;
   });
-}
-
-function initializeDragableComponent(component){
-  component.mousedown(function() {
-    controlComponent = component.closest('.dragable-component');
+  $('body').mouseup(function(e) {
+      var target = $(e.target);
+      if(!$('.selected').is(target))
+        $('.selected').removeClass('selected');
+      if(!moved && controlComponent!=null && controlComponent.is(target)){
+        target.addClass('selected');
+      }
+      controlComponent = null;
   });
 }
 
@@ -92,18 +106,17 @@ function createAccest(){
 
 function addAccest(accest){
   $('main').append(accest);
-  initializeAccest(accest);
 }
 
-function initializeAccest(accest){
-  accest.mousedown(function(evt) {
-    controlComponent = accest;
-    var offset = accest.offset();
-    xInElement = evt.pageX - offset.left;
-    yInElement = evt.pageY - offset.top;
-  });
-}
 
+function accestRightClick(){
+    document.addEventListener('contextmenu', function(e) {
+        var target = $( e.target );
+
+        e.preventDefault();
+    }, false);
+
+}
 
 /* ---------- save -----------*/
 
