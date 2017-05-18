@@ -51,5 +51,6 @@ main, body{
 }
 
 .selected{
-  border: dashed 1px;
+  padding: 1px;
+  border: Dotted 2px;
 }
