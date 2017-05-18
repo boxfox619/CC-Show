@@ -45,7 +45,7 @@ main, body{
   position:absolute !important;
 }
 
-.accest{
+accest{
   position:absolute !important;
   cursor: move;
 }
@@ -53,4 +53,8 @@ main, body{
 .selected{
   padding: 1px;
   border: Dotted 2px;
+}
+
+.mdl-textfield__input{
+  width: auto !important;
 }

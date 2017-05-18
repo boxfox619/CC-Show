@@ -4,6 +4,9 @@ $(function(){
   accestRightClick();
 });
 
+
+
+/* ---------- title text bar(page name) -----------*/
 function initializeTitleTextBar(){
   var replacement = $('.mdl-textfield__input.header-title');
   var headerTitle = $('.mdl-layout-title.header-title');
@@ -67,9 +70,12 @@ function initializeDragMouseEvent(){
       controlComponent.css({top: y, left: x, position:'absolute'});
     }
   });
+
+  //mouse going out of window
   $('body').mouseleave(function(){
     controlComponent = null;
   });
+
   $('body').mousedown(function(e){
     var target = $(e.target);
     if(!$('.selected').is(target))
@@ -78,7 +84,7 @@ function initializeDragMouseEvent(){
       controlComponent = target.closest('.dragable-component');
       e.preventDefault();
     }
-    if(target.hasClass('accest')){
+    if(target.prop("tagName").toLowerCase()=='accest'){
       controlComponent = target;
       var offset = target.offset();
       xInElement = e.pageX - offset.left;
@@ -88,6 +94,30 @@ function initializeDragMouseEvent(){
     }
     moved = false;
   });
+
+  $('body').on('dblclick', function(e){
+    var target = $(e.target);
+  if(target.prop("tagName").toLowerCase()=='accest'){
+    if(target.attr('type')=='text'){ //text accest edit text function
+      var input = $('<input type="'+ target.attr('type') +'" value="'+target.text()+'" class="'+target.attr('class')+' mdl-textfield__input" style="'+target.attr('style')+'">');
+      target.replaceWith(input);
+      input.focus();
+      input.focusout(function(){
+        target.text(input.val());
+        if(input.val().length>0)
+          input.replaceWith(target);
+        else input.remove();
+      });
+      input.keyup(function(e) {
+        if (e.keyCode == 13){
+          input.focusout();
+        }
+      });
+      e.preventDefault();
+    }
+  }
+  });
+
   $('body').mouseup(function(e) {
       controlComponent = null;
   });
@@ -97,7 +127,7 @@ function initializeDragMouseEvent(){
 /* ---------- drag & drop accests -----------*/
 
 function createAccest(){
-  var accest = $('<div class="accest">test asdaasd</div>');
+  var accest = $('<accest type="text" >test asdaasd</accest>');
   addAccest(accest);
 }
 
@@ -105,10 +135,8 @@ function addAccest(accest){
   $('main').append(accest);
 }
 
-
 function accestRightClick(){
     document.addEventListener('contextmenu', function(e) {
-        var target = $( e.target );
 
         e.preventDefault();
     }, false);
