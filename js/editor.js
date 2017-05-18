@@ -20,6 +20,7 @@ function eventSelectItem(target){
 
 function setFontSize(size){
   $('.selected').css('font-size',size+'px');
+    $('.selected').css('line-height',size+'px');
 }
 
 /* ---------- title text bar(page name) -----------*/
