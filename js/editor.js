@@ -72,6 +72,8 @@ function initializeDragMouseEvent(){
   });
   $('body').mousedown(function(e){
     var target = $(e.target);
+    if(!$('.selected').is(target))
+      $('.selected').removeClass('selected');
     if(target.hasClass('move_control')){
       controlComponent = target.closest('.dragable-component');
       e.preventDefault();
@@ -81,17 +83,12 @@ function initializeDragMouseEvent(){
       var offset = target.offset();
       xInElement = e.pageX - offset.left;
       yInElement = e.pageY - offset.top;
+      target.addClass('selected');
       e.preventDefault();
     }
     moved = false;
   });
   $('body').mouseup(function(e) {
-      var target = $(e.target);
-      if(!$('.selected').is(target))
-        $('.selected').removeClass('selected');
-      if(!moved && controlComponent!=null && controlComponent.is(target)){
-        target.addClass('selected');
-      }
       controlComponent = null;
   });
 }
