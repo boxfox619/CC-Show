@@ -45,6 +45,14 @@ main, body{
   position:absolute !important;
 }
 
+.accest-controller{
+  display: none;
+}
+
+.on{
+  display: block !important;
+}
+
 accest{
   position:absolute !important;
   cursor: move;

@@ -43,7 +43,9 @@
     <div class="demo-card-event mdl-card mdl-shadow--2dp dragable-component">
       <div class="card_title_bar">test <div class="move_control"></div></div>
       <div class="mdl-card__title mdl-card--expand">
-        test
+        <div id="text-attribute-controller" class="accest-controller">
+          <input id="font-size-controller" type="number" value="5" onchange="setFontSize(this.value)"/>px
+        </div>
     </div>
     <div class="mdl-card__actions mdl-card--border">
       <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
