@@ -7,7 +7,8 @@ $(function(){
 /* ---------- accest controller -----------*/
 
 function eventSelectItem(target){
-  if(target==null || target.prop('tagName').toLowerCase()!='accest'){
+  console.log(target);
+  if(target==null || !target.hasClass('selected')){
     $('.accest-controller').removeClass('on');
     return;
   }
@@ -95,7 +96,7 @@ function initializeDragMouseEvent(){
 
   $('body').mousedown(function(e){
     var target = $(e.target);
-    if(!target.hasClass('move_control')&&$('.selected').length>0&&$('.selected').prop('tagName').toLowerCase()=='accest'&&(target.hasClass('dragable-component')||target.parents('.dragable-component').length)){
+    if(!target.hasClass('move_control')&&$('.selected').length&&(target.hasClass('dragable-component')||target.parents('.dragable-component').length)){
 
       return;
     }
@@ -115,7 +116,10 @@ function initializeDragMouseEvent(){
       target.addClass('selected');
       e.preventDefault();
     }
-    eventSelectItem(controlComponent);
+    if(target.prop("tagName").toLowerCase()=='input'&&target.hasClass('selected')){
+      eventSelectItem(target);
+    }else
+      eventSelectItem(controlComponent);
     moved = false;
   });
 

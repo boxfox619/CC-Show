@@ -61,8 +61,11 @@ accest{
 }
 
 .selected{
-  padding: 1px;
   border: Dotted 2px;
+}
+
+input .selected{
+  border: Dotted 0px;
 }
 
 .mdl-textfield__input{
