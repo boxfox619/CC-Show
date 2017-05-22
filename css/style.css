@@ -62,6 +62,7 @@ accest{
 
 .selected{
   border: Dotted 2px;
+  border-color: #000000;
 }
 
 input .selected{

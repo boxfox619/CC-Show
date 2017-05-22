@@ -7,7 +7,6 @@ $(function(){
 /* ---------- accest controller -----------*/
 
 function eventSelectItem(target){
-  console.log(target);
   if(target==null || !target.hasClass('selected')){
     $('.accest-controller').removeClass('on');
     return;
@@ -15,13 +14,30 @@ function eventSelectItem(target){
   var accest = target;
     if(accest.attr('type')=='text'){
       $('#text-attribute-controller').addClass('on');
-      $('#font-size-controller').val(accest.css('font-size'));
+      $('#font-size-controller').val(parseFloat(accest.css('font-size')));
+      $('#font-color-picker').val(hexc(accest.css('color')));
     }
 }
 
 function setFontSize(size){
   $('.selected').css('font-size',size+'px');
     $('.selected').css('line-height',size+'px');
+}
+
+function setFontColor(color){
+    $('.selected').css('color', color);
+}
+
+function hexc(colorval) {
+    var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    delete(parts[0]);
+    for (var i = 1; i <= 3; ++i) {
+        parts[i] = parseInt(parts[i]).toString(16);
+        if (parts[i].length == 1) parts[i] = '0' + parts[i];
+    }
+    color = '#' + parts.join('');
+
+    return color;
 }
 
 /* ---------- title text bar(page name) -----------*/
@@ -76,7 +92,7 @@ function initializeDragMouseEvent(){
 
       var x = event.pageX-width+xNum;
       var y = event.pageY-rect.top+yNum;
-      if(event.pageX-width<0){
+      if(x<0){
         x=0;
       }else if(event.pageX+12> $(document).width()){
         x = $(document).width()-width;
@@ -165,7 +181,6 @@ function addAccest(accest){
 
 function accestRightClick(){
     document.addEventListener('contextmenu', function(e) {
-
         e.preventDefault();
     }, false);
 
