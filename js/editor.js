@@ -15,20 +15,29 @@ function eventSelectItem(target){
     if(accest.attr('type')=='text'){
       $('#text-attribute-controller').addClass('on');
       $('#font-size-controller').val(parseFloat(accest.css('font-size')));
-      $('#font-color-picker').val(hexc(accest.css('color')));
+      var colorCode = hexc(accest.css('color'));
+        if(colorCode == undefined){
+          colorCode = '#000000';
+        }
+      $('#font-color-textfield').val(colorCode);
+      $('#font-color-picker').val(colorCode);
     }
 }
 
 function setFontSize(size){
   $('.selected').css('font-size',size+'px');
-    $('.selected').css('line-height',size+'px');
+  $('.selected').css('line-height',size+'px');
 }
 
 function setFontColor(color){
     $('.selected').css('color', color);
+    $('#font-color-picker').val(color);
+    $('#font-color-textfield').val(color);
 }
 
 function hexc(colorval) {
+  var color;
+  try{
     var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
     delete(parts[0]);
     for (var i = 1; i <= 3; ++i) {
@@ -36,8 +45,8 @@ function hexc(colorval) {
         if (parts[i].length == 1) parts[i] = '0' + parts[i];
     }
     color = '#' + parts.join('');
-
-    return color;
+  }catch(err){}
+  return color;
 }
 
 /* ---------- title text bar(page name) -----------*/
