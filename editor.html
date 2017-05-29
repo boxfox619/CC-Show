@@ -53,6 +53,18 @@
               <option value="audi">Audi</option>
             </select>
           </div>
+          <div>
+            <table>
+              <tr>
+                <td>
+                  <label for="font-style-bold">bold</label><input id="font-style-bold" type="checkbox" value="bold">
+                </td>
+                <td>
+                  <label for="font-style-italic">italic</label><input id="font-style-italic" type="checkbox" value="italic">
+                </td>
+              </tr>
+            </table>
+          </div>
           <div><input id="font-size-controller" type="number" value="5" onchange="setFontSize(this.value)"/>px</div>
           <div><input id="font-color-textfield" onchange="setFontColor(this.value)" type="text"><input type="color" id="font-color-picker" onchange="setFontColor(this.value)"></div>
           <div></div>

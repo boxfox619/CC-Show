@@ -14,6 +14,20 @@ document.createElement('accest');
   }
   $('#text-field-text-preview').on('change', func);
   $('#text-field-text-preview').on('keyup', func);
+  $('#font-style-bold').change(function() {
+    if(this.checked) {
+      accest.css('font-weight', 'bold');
+    }else{
+      accest.css('font-weight', 'normal');
+    }
+  });
+  $('#font-style-italic').change(function() {
+    if(this.checked) {
+      accest.css('font-style', 'italic');
+    }else{
+      accest.css('font-style', 'normal');
+    }
+  });
 });
 function eventSelectItem(target){
   if(target==null || !target.hasClass('selected')){
