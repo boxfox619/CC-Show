@@ -60,6 +60,10 @@ accest{
   height: auto;
 }
 
+accest[type="text"]{
+  white-space: pre;
+}
+
 .selected{
   border: Dotted 2px;
   border-color: #000000;

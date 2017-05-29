@@ -5,13 +5,23 @@ $(function(){
 });
 
 /* ---------- accest controller -----------*/
-
+var accest;
+$(function(){
+document.createElement('accest');
+  var func = function(){
+    if(accest!=null)
+      accest.text($(this).val());
+  }
+  $('#text-field-text-preview').on('change', func);
+  $('#text-field-text-preview').on('keyup', func);
+});
 function eventSelectItem(target){
   if(target==null || !target.hasClass('selected')){
     $('.accest-controller').removeClass('on');
+    accest = null;
     return;
   }
-  var accest = target;
+  accest = target;
     if(accest.attr('type')=='text'){
       $('#text-attribute-controller').addClass('on');
       $('#font-size-controller').val(parseFloat(accest.css('font-size')));
@@ -19,6 +29,7 @@ function eventSelectItem(target){
         if(colorCode == undefined){
           colorCode = '#000000';
         }
+      $('#text-field-text-preview').val(accest.text());
       $('#font-color-textfield').val(colorCode);
       $('#font-color-picker').val(colorCode);
     }
@@ -151,23 +162,23 @@ function initializeDragMouseEvent(){
   $('body').on('dblclick', function(e){
     var target = $(e.target);
   if(target.prop("tagName").toLowerCase()=='accest'){
-    if(target.attr('type')=='text'){ //text accest edit text function
-      var input = $('<input type="'+ target.attr('type') +'" value="'+target.text()+'" class="'+target.attr('class')+' mdl-textfield__input" style="'+target.attr('style')+'">');
-      target.replaceWith(input);
-      input.focus();
-      input.focusout(function(){
-        target.text(input.val());
-        if(input.val().length>0)
-          input.replaceWith(target);
-        else input.remove();
-      });
-      input.keyup(function(e) {
-        if (e.keyCode == 13){
-          input.focusout();
-        }
-      });
-      e.preventDefault();
-    }
+    // if(target.attr('type')=='text'){ //text accest edit text function
+    //   var input = $('<input type="'+ target.attr('type') +'" value="'+target.text()+'" class="'+target.attr('class')+' mdl-textfield__input" style="'+target.attr('style')+'">');
+    //   target.replaceWith(input);
+    //   input.focus();
+    //   input.focusout(function(){
+    //     target.text(input.val());
+    //     if(input.val().length>0)
+    //       input.replaceWith(target);
+    //     else input.remove();
+    //   });
+    //   input.keyup(function(e) {
+    //     if (e.keyCode == 13){
+    //       input.focusout();
+    //     }
+    //   });
+    //   e.preventDefault();
+    // }
   }
   });
 
