@@ -60,6 +60,8 @@ function eventSelectItem(target){
       $('#font-color-picker').val(colorCode);
     }else  if(accest.attr('type')=='video'){
       $('#video-attribute-controller').addClass('on');
+      $('#video-url-controller').val('');
+      $('#video-preview-controller').prop('checked', false);
     }
 }
 
@@ -94,7 +96,15 @@ function hexc(colorval) {
 //video
 function setVideoUrl(url){
   var suburl = url.substring(url.lastIndexOf('/')+1, url.length);
-  $('.selected').find('iframe').attr('src', 'https://www.youtube.com/embed/QUQsqBqxoR4?list=PLObWV29udJjnCe6RUVY9CAXZvoSWJtFOf');
+  $('.selected').find('iframe').attr('src', 'https://www.youtube.com/embed/'+url+'?ecver=2');
+}
+
+function setVideoPreview(check){
+  if(check){
+    $('.selected').find('iframe').show();
+  }else{
+    $('.selected').find('iframe').hide();
+  }
 }
 
 
@@ -170,22 +180,18 @@ function initializeDragMouseEvent(){
 
   $('body').mousedown(function(e){
     var target = $(e.target);
+    $('iframe').hide();
     if(!target.hasClass('move_control')&&$('.selected').length&&(target.hasClass('dragable-component')||target.parents('.dragable-component').length)){
-
       return;
     }
 
-    if(!$('.selected').is(target))
+    if(!$('.selected').is(target)){
       $('.selected').removeClass('selected');
+    }
 
     if(target.hasClass('move_control')){
       controlComponent = target.closest('.dragable-component');
       e.preventDefault();
-    }
-
-    if(target.parent().prop("tagName")=='accest'){
-      console.log('test');
-      target = target.parent();
     }
 
     if(target.prop("tagName").toLowerCase()=='accest'){
@@ -235,7 +241,7 @@ function initializeDragMouseEvent(){
 /* ---------- drag & drop accests -----------*/
 
 function createAccest(type){
-  var accest = $('<accest type="'+type+'" style="width: 500px; height: 50px;" ><iframe src="" frameborder="0" allowfullscreen hidden></iframe></accest>');
+  var accest = $('<accest type="'+type+'" style="width: 500px; height: 50px;" ><iframe src="https://www.youtube.com/embed/Ogv9DOjk9Eo?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0; display:none;" allowfullscreen></iframe></accest>');
   addAccest(accest);
 }
 
