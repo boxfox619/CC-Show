@@ -16,7 +16,6 @@
 
 </head>
 <body>
-
 <div class="demo-layout-transparent mdl-layout mdl-js-layout">
   <header class="mdl-layout__header mdl-layout__header--transparent">
     <div class="mdl-layout__header-row">
@@ -31,7 +30,7 @@
     </div>
       <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
         <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Select</a>
-        <a href="#scroll-tab-2" class="mdl-layout__tab" onclick="createAccest()">Add</a>
+        <a href="#scroll-tab-2" class="mdl-layout__tab" onclick="createAccest('video')">Add</a>
         <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
         <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
         <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
@@ -46,7 +45,7 @@
         <div id="text-attribute-controller" class="accest-controller">
           <div><textarea id="text-field-text-preview"></textarea></div>
           <div>폰트
-            <select name="font-selection">
+            <select id="font-selection">
               <option value="volvo">Volvo</option>
               <option value="saab">Saab</option>
               <option value="opel">Opel</option>
@@ -69,6 +68,16 @@
           <div><input id="font-color-textfield" onchange="setFontColor(this.value)" type="text"><input type="color" id="font-color-picker" onchange="setFontColor(this.value)"></div>
           <div></div>
         </div>
+          <div id="video-attribute-controller" class="accest-controller">
+            <div><input id="video-url-controller" type="text" onchange="setVideoUrl(this.value)"/> </div>
+            <div>
+                <label class="switch">
+                  Preview
+                <input type="checkbox">
+                <div class="slider round"></div>
+                </label>
+              </div>
+          </div>
     </div>
   </div>
 
