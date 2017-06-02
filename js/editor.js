@@ -145,31 +145,16 @@ var xInElement, yInElement;
 function initializeDragMouseEvent(){
   $('main').mousemove(function( event ) {
     if(controlComponent!=null&&controlComponent!=undefined){
-      var xNum = 0;
-      var yNum = 0;
-      var rect = $('main')[0].getBoundingClientRect();
-      var width = controlComponent.width();
-      var height = controlComponent.height();
-      if(controlComponent.hasClass('dragable-component')){
-        xNum = 12;
-        yNum = -12;
-      }else{
-        xNum = controlComponent.width()-xInElement;
-        yNum = -(yInElement);
-      }
+      var x = event.pageX;
+      var y = event.pageY;
+      var afterX = parseInt(controlComponent.css('left')) + (x - xInElement);
+      var afterY = parseInt(controlComponent.css('top')) + (y - yInElement);
+      console.log((y - yInElement)+'  '+afterY);
+      xInElement = x;
+      yInElement = y;
 
-      var x = event.pageX-width+xNum;
-      var y = event.pageY-rect.top+yNum;
-      if(x<0){
-        x=0;
-      }else if(event.pageX+12> $(document).width()){
-        x = $(document).width()-width;
-      }
-      if(y<0){
-        y =0;
-      }
       moved = true;
-      controlComponent.css({top: y, left: x, position:'absolute'});
+      controlComponent.css({top: afterY, left: afterX, position:'absolute'});
     }
   });
 
@@ -184,6 +169,8 @@ function initializeDragMouseEvent(){
     if(!target.hasClass('move_control')&&$('.selected').length&&(target.hasClass('dragable-component')||target.parents('.dragable-component').length)){
       return;
     }
+    xInElement = e.pageX;
+    yInElement = e.pageY;
 
     if(!$('.selected').is(target)){
       $('.selected').removeClass('selected');
@@ -196,9 +183,6 @@ function initializeDragMouseEvent(){
 
     if(target.prop("tagName").toLowerCase()=='accest'){
       controlComponent = target;
-      var offset = target.offset();
-      xInElement = e.pageX - offset.left;
-      yInElement = e.pageY - offset.top;
       target.addClass('selected');
       e.preventDefault();
     }
