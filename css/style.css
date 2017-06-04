@@ -117,9 +117,11 @@ input:checked + .slider:before {
 accest{
   position:absolute !important;
   cursor: move;
+  display:inline-block;
   width: auto;
   height: auto;
 }
+
 
 accest[type="text"]{
   white-space: pre;

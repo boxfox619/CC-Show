@@ -225,7 +225,8 @@ function initializeDragMouseEvent(){
 /* ---------- drag & drop accests -----------*/
 
 function createAccest(type){
-  var accest = $('<accest type="'+type+'" style="width: 500px; height: 50px;" ><iframe src="https://www.youtube.com/embed/Ogv9DOjk9Eo?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0; display:none;" allowfullscreen></iframe></accest>');
+  var accest = $('<accest-warp><accest type="'+type+'" style="width: 500px; height: 50px;"><iframe src="https://www.youtube.com/embed/Ogv9DOjk9Eo?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0; display:none;" allowfullscreen></iframe></accest></accest-warp>');
+  accest.find('accest').resizable({ handles: 'n,s,e,w,ne,se,nw,sw' });
   addAccest(accest);
 }
 
