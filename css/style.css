@@ -8,12 +8,118 @@ main, body{
       -ms-user-select: none;
           user-select: none;
 }
+
+header{
+  background-color: rgba(255, 255, 255, 1) !important;
+  color: black !important;
+}
+
+header > div{
+  border-bottom: 1px solid black !important;
+}
+
+.mdl-layout__tab{
+color: black !important;
+}
+
+slider{
+    position:absolute !important;
+    display: inline-block;
+    background-color: rgba(100, 100, 100, 0.3);
+    min-height: 100%;
+    width: 20%;
+    overflow: hidden;
+}
+
+editor{
+    position:absolute !important;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    left: 20%;
+    height: 100%;
+    width: 80%;
+    overflow: hidden;
+}
+ul.slide-list{
+  padding: 20px;
+}
+ul.slide-list li{
+  list-style-type: none;
+  background-color: green;
+}
+
+ul.slide-list li .mdl-card{
+  min-height: 50px !important;
+  width: 100%;
+}
+
 .demo-layout-transparent {
   background: url('http://cfile21.uf.tistory.com/image/274C663A5243CF181785F4') center / cover;
 }
 .demo-layout-transparent .mdl-layout__header,
 .demo-layout-transparent .mdl-layout__drawer-button {
 }
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+
+
 .header-title{
   display: inline-block;
   font-weight: bold;
@@ -56,12 +162,35 @@ main, body{
 accest{
   position:absolute !important;
   cursor: move;
+  display:inline-block;
   width: auto;
   height: auto;
 }
 
 accest[type="text"]{
   white-space: pre;
+}
+
+accest[type="video"]{
+  background-color: black;
+}
+
+accest[type="shape"]{
+  background-color: #000000;
+}
+
+accest[type="shape"][shape="circle"]{
+	-moz-border-radius: 50000px;
+	-webkit-border-radius: 50000px;
+	border-radius: 50000px;
+}
+
+accest[type="shape"][shape="triangle"]{
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 100px solid red;
 }
 
 .selected{
