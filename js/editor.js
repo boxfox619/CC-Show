@@ -2,6 +2,9 @@ $(function(){
   initializeTitleTextBar();
   initializeDragMouseEvent();
   accestRightClick();
+
+    $( ".slide-list" ).sortable();
+    $( ".slide-list" ).disableSelection();
 });
 
 /* ---------- accest controller -----------*/
