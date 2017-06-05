@@ -7,6 +7,35 @@ $(function(){
     $( ".slide-list" ).disableSelection();
 });
 
+/* ---------- slide controller -----------*/
+var slide_html_list;
+var current_idx;
+var clearDoc;
+
+$(function(){
+  slide_html_list = new Array();
+  clearDoc = $('editor').clone();
+});
+
+function getClearPPT(){
+  var doc = $('editor').clone();
+  doc.remove(doc.find('#controller'));
+  return doc.html();
+}
+
+function createSlide(){
+  $('editor').html(clearDoc.html());
+  slide_html_list.append(clearDoc.html());
+  // slide controller append
+}
+
+function viewSlide(idx){
+slide_html_list[current_idx] = $('editor').html();
+  $('editor').html(slideHtmlList[idx]);
+    current_idx = idx;
+}
+
+
 /* ---------- accest controller -----------*/
 var accest;
 $(function(){
