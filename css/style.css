@@ -46,6 +46,7 @@ ul.slide-list{
 ul.slide-list li{
   list-style-type: none;
   background-color: green;
+  margin-bottom: 5px;
 }
 
 ul.slide-list li .mdl-card{
@@ -183,14 +184,6 @@ accest[type="shape"][shape="circle"]{
 	-moz-border-radius: 50000px;
 	-webkit-border-radius: 50000px;
 	border-radius: 50000px;
-}
-
-accest[type="shape"][shape="triangle"]{
-	width: 0;
-	height: 0;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
-	border-top: 100px solid red;
 }
 
 .selected{
