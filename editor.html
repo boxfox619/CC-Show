@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Special presentation make platform">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/cupertino/jquery-ui.css" />
+    <link rel="stylesheet" href="./css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script defer src="./js/editor.js"></script>
+
+</head>
+<body>
+<div class="demo-layout-transparent mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <div class="mdl-textfield__expandable-holder">
+          <span class="mdl-layout-title header-title">Test_PPT_01</span>
+          <input class="mdl-textfield__input header-title" maxlength="20">
+          <label class="mdl-textfield__label"></label></div>
+        </div>
+    </div>
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Select</a>
+        <a href="#scroll-tab-2" class="mdl-layout__tab" onclick="createAccest('shape', 'triangle')">Add</a>
+        <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
+        <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
+        <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
+        <a href="#scroll-tab-6" class="mdl-layout__tab" onclick="save()">Save</a>
+      </div>
+  </header>
+  <main class="mdl-layout__content">
+    <slider>
+      <ul class="slide-list">
+        <li><div class="mdl-card mdl-shadow--2dp">
+          asdasd
+        </div>
+        </li>
+      </ul>
+    </slider>
+    <editor>
+    <div class="demo-card-event mdl-card mdl-shadow--2dp dragable-component">
+      <div class="card_title_bar">test <div class="move_control"></div></div>
+      <div class="mdl-card__title mdl-card--expand">
+        <div id="text-attribute-controller" class="accest-controller">
+          <div><textarea id="text-field-text-preview"></textarea></div>
+          <div>폰트
+            <select id="font-selection">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="opel">Opel</option>
+              <option value="audi">Audi</option>
+            </select>
+          </div>
+          <div>
+            <table>
+              <tr>
+                <td>
+                  <label for="font-style-bold">bold</label><input id="font-style-bold" type="checkbox" value="bold">
+                </td>
+                <td>
+                  <label for="font-style-italic">italic</label><input id="font-style-italic" type="checkbox" value="italic">
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div><input id="font-size-controller" type="number" value="5" onchange="setFontSize(this.value)"/>px</div>
+          <div><input id="font-color-textfield" onchange="setFontColor(this.value)" type="text"><input type="color" id="font-color-picker" onchange="setFontColor(this.value)"></div>
+          <div></div>
+        </div>
+          <div id="video-attribute-controller" class="accest-controller">
+            <div><input id="video-url-controller" type="text" onchange="setVideoUrl(this.value)"/> </div>
+            <div>
+                <label class="switch">
+                <input id="video-preview-controller" onchange="setVideoPreview(this.checked)" type="checkbox">
+                <div class="slider round"></div>
+                </label>
+              </div>
+          </div>
+    </div>
+</div>
+  </editor>
+  </main>
+</div>
+</body>
+</html>
