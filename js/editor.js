@@ -143,7 +143,7 @@ var moved;
 var xInElement, yInElement;
 
 function initializeDragMouseEvent(){
-  $('main').mousemove(function( event ) {
+  $('editor').mousemove(function( event ) {
     if(controlComponent!=null&&controlComponent!=undefined){
       var x = event.pageX;
       var y = event.pageY;
@@ -224,14 +224,25 @@ function initializeDragMouseEvent(){
 
 /* ---------- drag & drop accests -----------*/
 
-function createAccest(type){
-  var accest = $('<accest-warp><accest type="'+type+'" style="width: 500px; height: 50px;"><iframe src="https://www.youtube.com/embed/Ogv9DOjk9Eo?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0; display:none;" allowfullscreen></iframe></accest></accest-warp>');
+function createAccest(type, attr){
+  var accest = $('<accest-warp><accest type="'+type+'"></accest></accest-warp>');
+  if(type=='video'){
+    accest.find('accest').css('width', '500px');
+    accest.find('accest').css('height', '50px');
+    accest.find('accest').append($('<iframe src="https://www.youtube.com/embed/Ogv9DOjk9Eo?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0; display:none;" allowfullscreen></iframe>'));
+  }else if(type=='text'){
+    accest.find('accest').text('text');
+  }else if(type=='shape'){
+    accest.find('accest').css('width', '50px');
+    accest.find('accest').css('height', '50px');
+    accest.find('accest').attr('shape', attr);
+  }
   accest.find('accest').resizable({ handles: 'n,s,e,w,ne,se,nw,sw' });
   addAccest(accest);
 }
 
 function addAccest(accest){
-  $('main').append(accest);
+  $('editor').append(accest);
 }
 
 function accestRightClick(){
@@ -243,6 +254,6 @@ function accestRightClick(){
 /* ---------- save -----------*/
 
 function save(){
-  $('main').find( '.dragable-component' ).remove();
-  var mainHtml = $('main').html();
+  $('editor').find( '.dragable-component' ).remove();
+  var editorHtml = $('editor').html();
 }
