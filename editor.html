@@ -39,27 +39,27 @@
     </div>
       <div class="mdl-layout__header-row">
 
-        <div id="insert-accest" class="controller is-selected">
-          <button data-type="text" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+        <div class="controller is-selected">
+          <button accest-type="text" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
             <i class="material-icons">title</i>
           </button>
-          <button data-type="video" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+          <button accest-type="video" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
             <i class="material-icons">local_movies</i>
           </button>
-          <button data-type="image" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+          <button accest-type="image" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
             <i class="material-icons">image</i>
           </button>
           <button id="insert-shape-accest" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
             <i class="material-icons">star rate</i>
           </button>
             <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="insert-shape-accest">
-              <li data-type="shape" attr="circle" class="accest-creator mdl-menu__item">Circle</li>
-              <li data-type="shape" attr="rectangle" class="accest-creator mdl-menu__item">Rectangle</li>
-              <li data-type="shape" attr="triangle" disabled class="accest-creator mdl-menu__item">Triangle</li>
+              <li accest-type="shape" attr="circle" class="accest-creator mdl-menu__item">Circle</li>
+              <li accest-type="shape" attr="rectangle" class="accest-creator mdl-menu__item">Rectangle</li>
+              <li accest-type="shape" attr="triangle" disabled class="accest-creator mdl-menu__item">Triangle</li>
             </ul>
         </div>
 
-        <div id="text" class="controller">
+        <div accest-type="text" class="controller">
         <div class="item">
           <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
             <input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input" checked>
@@ -72,7 +72,7 @@
         </div>
           <div class="item">
         <span id="font-chooser" class="mdl-chip mdl-chip--contact" style="cursor: pointer">
-          <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white chip__contact-text">Font</span>
+          <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons">format_size</i></span>
           <span class="mdl-chip__text">ㅁㄴㅇㅁㅇㅁㄴ</span>
         </span>
           <ul class="mdl-menu  mdl-js-menu mdl-js-ripple-effect" for="font-chooser">
@@ -80,11 +80,23 @@
             <li class="mdl-menu__item">Another Action</li>
             <li disabled class="mdl-menu__item">Disabled Action</li>
             <li class="mdl-menu__item">Yet Another Action</li>
+              <li class="mdl-menu__item">Some Action</li>
+              <li class="mdl-menu__item">Another Action</li>
+              <li disabled class="mdl-menu__item">Disabled Action</li>
+              <li class="mdl-menu__item">Yet Another Action</li>
+                <li class="mdl-menu__item">Some Action</li>
+                <li class="mdl-menu__item">Another Action</li>
+                <li disabled class="mdl-menu__item">Disabled Action</li>
+                <li class="mdl-menu__item">Yet Another Action</li>
+                  <li class="mdl-menu__item">Some Action</li>
+                  <li class="mdl-menu__item">Another Action</li>
+                  <li disabled class="mdl-menu__item">Disabled Action</li>
+                  <li class="mdl-menu__item">Yet Another Action</li>
           </ul>
         </div>
       </div>
 
-        <div id="video" class="controller">
+        <div accest-type="video" class="controller">
           <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
             <input type="checkbox" id="switch-2" class="mdl-switch__input">
             <span class="mdl-switch__label">Preview</span>

@@ -15,7 +15,7 @@ $(function(){
 /* ---------- header accest creator -----------*/
 $(function(){
   $('.accest-creator').on('click', function(){
-    createAccest($(this).attr('data-type'), $(this).attr('attr'));
+    createAccest($(this).attr('accest-type'), $(this).attr('attr'));
   });
 });
 
@@ -84,8 +84,10 @@ function eventSelectItem(target){
     return;
   }
   accest = target;
+    $('.controller').removeClass('is-selected');
+    $('.controller[accest-type="'+accest.attr('type')+'"]').addClass('is-selected');
     if(accest.attr('type')=='text'){
-      $('#text-attribute-controller').addClass('on');
+      $('#text').addClass('on');
       $('#font-size-controller').val(parseFloat(accest.css('font-size')));
       var colorCode = hexc(accest.css('color'));
         if(colorCode == undefined){

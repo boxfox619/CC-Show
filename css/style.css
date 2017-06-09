@@ -32,12 +32,6 @@ header .mdl-layout__tab{
     display: table;
 }
 
-.chip__contact-text{
-  width: auto;
-  font-size: 12px;
-  padding: 0 6px 0 4px;
-}
-
 .controller{
   display:none;
 }
@@ -50,6 +44,21 @@ header .mdl-layout__tab{
   display: inline-block;
 }
 
+
+.mdl-chip__contact i{
+  vertical-align: middle;
+}
+
+.mdl-chip__text{
+  vertical-align: top;
+}
+
+.mdl-chip {
+  font-size: 50%;
+}
+
+
+/* ----- slider ------ */
 slider{
     position:absolute !important;
     display: inline-block;
@@ -124,8 +133,9 @@ ul.slide-list li .mdl-card{
   display: none;
 }
 
-.on{
-  display: block !important;
+.mdl-menu{
+  max-height: 300px;
+  overflow: scroll;
 }
 
 accest{
