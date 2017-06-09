@@ -42,7 +42,7 @@ header .mdl-layout__tab{
   display:none;
 }
 
-.controller .is-select{
+.is-selected{
   display:block;
 }
 

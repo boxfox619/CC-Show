@@ -38,17 +38,25 @@
       </nav>
     </div>
       <div class="mdl-layout__header-row">
-        <span class="mdl-chip">
-          <span class="mdl-chip__text">Basic Chip</span>
-        </span>
-        <span class="mdl-chip">
-          <span class="mdl-chip__text">Basic Chip</span>
-        </span>
-        <span class="mdl-chip">
-          <span class="mdl-chip__text">Basic Chip</span>
-        </span>
 
         <div id="insert-accest" class="controller is-selected">
+          <button data-type="text" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+            <i class="material-icons">title</i>
+          </button>
+          <button data-type="video" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+            <i class="material-icons">local_movies</i>
+          </button>
+          <button data-type="image" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+            <i class="material-icons">image</i>
+          </button>
+          <button id="insert-shape-accest" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+            <i class="material-icons">star rate</i>
+          </button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="insert-shape-accest">
+              <li data-type="shape" attr="circle" class="accest-creator mdl-menu__item">Circle</li>
+              <li data-type="shape" attr="rectangle" class="accest-creator mdl-menu__item">Rectangle</li>
+              <li data-type="shape" attr="triangle" disabled class="accest-creator mdl-menu__item">Triangle</li>
+            </ul>
         </div>
 
         <div id="text" class="controller">

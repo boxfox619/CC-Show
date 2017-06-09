@@ -11,6 +11,14 @@ $(function(){
     });
 });
 
+
+/* ---------- header accest creator -----------*/
+$(function(){
+  $('.accest-creator').on('click', function(){
+    createAccest($(this).attr('data-type'), $(this).attr('attr'));
+  });
+});
+
 /* ---------- slide controller -----------*/
 var slide_html_list;
 var current_idx;
@@ -185,7 +193,6 @@ function initializeDragMouseEvent(){
       var y = event.pageY;
       var afterX = parseInt(controlComponent.css('left')) + (x - xInElement);
       var afterY = parseInt(controlComponent.css('top')) + (y - yInElement);
-      console.log((y - yInElement)+'  '+afterY);
       xInElement = x;
       yInElement = y;
 
