@@ -44,18 +44,15 @@ header .mdl-layout__tab{
   display: inline-block;
 }
 
-
+/*chip-styles*/
 .mdl-chip__contact i{
   vertical-align: middle;
-}
-
-.mdl-chip__text{
-  vertical-align: top;
 }
 
 .mdl-chip {
   font-size: 50%;
 }
+
 
 
 /* ----- slider ------ */

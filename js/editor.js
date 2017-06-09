@@ -11,13 +11,33 @@ $(function(){
     });
 });
 
+/* ---------- title text bar(page name) -----------*/
+function initializeTitleTextBar(){
+  var replacement = $('.mdl-textfield__input.header-title');
+  var headerTitle = $('.mdl-layout-title.header-title');
+    replacement.hide();
 
-/* ---------- header accest creator -----------*/
-$(function(){
-  $('.accest-creator').on('click', function(){
-    createAccest($(this).attr('accest-type'), $(this).attr('attr'));
-  });
-});
+    var focusout = function(){
+      replacement.hide();
+      headerTitle.text(replacement.val());
+      headerTitle.show();
+    };
+
+    var headerClick = function(){
+      replacement.val(headerTitle.text());
+      headerTitle.hide();
+      replacement.show();
+
+      replacement.focusout(focusout);
+      replacement.keyup(function(e) {
+        if (e.keyCode == 13) focusout();
+      });
+      replacement.focus();
+    };
+
+    headerTitle.on('click', headerClick);
+    headerTitle.css('cursor', 'pointer');
+}
 
 /* ---------- slide controller -----------*/
 var slide_html_list;
@@ -31,7 +51,6 @@ $(function(){
 
 function getClearPPT(){
   var doc = $('editor').clone();
-  doc.remove(doc.find('#controller'));
   return doc.html();
 }
 
@@ -61,18 +80,28 @@ document.createElement('accest');
   $('#font-selection').on('change', function(){
     accest.css('font-family', $('#font-selection').val());
   });
-  $('#font-style-bold').change(function() {
-    if(this.checked) {
-      accest.css('font-weight', 'bold');
-    }else{
-      accest.css('font-weight', 'normal');
-    }
+
+  //text align controller
+  $('#text-align-controller').find('input[type="checkbox"]').on('change',function(){
+    if(accest!=null)
+      accest.css('text-align', $(this).val());
   });
-  $('#font-style-italic').change(function() {
-    if(this.checked) {
+
+  //font style controller
+  $('#font-italic-toggle').on('change',function(){
+    if(accest!=null)
+    if($(this).prop('checked')) {
       accest.css('font-style', 'italic');
     }else{
       accest.css('font-style', 'normal');
+    }
+  });
+  $('#font-bold-toggle').on('change',function(){
+    if(accest!=null)
+    if($(this).prop('checked')) {
+      accest.css('font-weight', 'bold');
+    }else{
+      accest.css('font-weight', 'normal');
     }
   });
 });
@@ -83,24 +112,27 @@ function eventSelectItem(target){
     accest = null;
     return;
   }
-  accest = target;
+    accest = target;
     $('.controller').removeClass('is-selected');
     $('.controller[accest-type="'+accest.attr('type')+'"]').addClass('is-selected');
+
     if(accest.attr('type')=='text'){
       $('#text').addClass('on');
+
       $('#font-size-controller').val(parseFloat(accest.css('font-size')));
       var colorCode = hexc(accest.css('color'));
         if(colorCode == undefined){
           colorCode = '#000000';
         }
-          $('#font-style-bold').prop('checked', false);
-          $('#font-style-italic').prop('checked', false);
-          if(accest.css('font-weight')=='bold'){
-            $('#font-style-bold').prop('checked', true);
-          }
-            if(accest.css('font-style')=='italic'){
-              $('#font-style-italic').prop('checked', true);
-            }
+
+        imageToggleButtonPropChange('font-bold-toggle', false);
+        imageToggleButtonPropChange('font-italic-toggle', false);
+      if(accest.css('font-weight')=='bold'){
+        imageToggleButtonPropChange('font-bold-toggle', true);
+      }
+      if(accest.css('font-style')=='italic'){
+        imageToggleButtonPropChange('font-italic-toggle', true);
+      }
       $('#text-field-text-preview').val(accest.text());
       $('#font-color-textfield').val(colorCode);
       $('#font-color-picker').val(colorCode);
@@ -153,35 +185,6 @@ function setVideoPreview(check){
   }
 }
 
-
-/* ---------- title text bar(page name) -----------*/
-function initializeTitleTextBar(){
-  var replacement = $('.mdl-textfield__input.header-title');
-  var headerTitle = $('.mdl-layout-title.header-title');
-    replacement.hide();
-
-    var focusout = function(){
-      replacement.hide();
-      headerTitle.text(replacement.val());
-      headerTitle.show();
-    };
-
-    var headerClick = function(){
-      replacement.val(headerTitle.text());
-      headerTitle.hide();
-      replacement.show();
-
-      replacement.focusout(focusout);
-      replacement.keyup(function(e) {
-        if (e.keyCode == 13) focusout();
-      });
-      replacement.focus();
-    };
-
-    headerTitle.on('click', headerClick);
-    headerTitle.css('cursor', 'pointer');
-}
-
 /* ---------- drag & drop layout -----------*/
 
 var controlComponent, selectComponent;
@@ -211,7 +214,7 @@ function initializeDragMouseEvent(){
   $('body').mousedown(function(e){
     var target = $(e.target);
     $('iframe').hide();
-    if(!target.hasClass('move_control')&&$('.selected').length&&(target.hasClass('dragable-component')||target.parents('.dragable-component').length)){
+    if(target.parents('.controller').length||!target.hasClass('move_control')&&$('.selected').length&&(target.hasClass('dragable-component')||target.parents('.dragable-component').length)){
       return;
     }
     xInElement = e.pageX;
@@ -267,6 +270,19 @@ function initializeDragMouseEvent(){
 }
 
 
+/* ---------- header accest controller -----------*/
+$(function(){
+  //accest creator
+  $('.accest-creator').on('click', function(){
+    createAccest($(this).attr('accest-type'), $(this).attr('attr'));
+  });
+
+  $('.radio-button-group').find('input[type="checkbox"]').on('change', function(){
+    $(this).parent().parent().find('.mdl-icon-toggle').not($(this).parent()).removeClass('is-checked');
+    $(this).parent().parent().find('input[type="checkbox"]').prop('checked', false);
+  });
+});
+
 /* ---------- drag & drop accests -----------*/
 
 function createAccest(type, attr){
@@ -301,4 +317,15 @@ function accestRightClick(){
 function save(){
   $('editor').find( '.dragable-component' ).remove();
   var editorHtml = $('editor').html();
+}
+
+
+
+/* ---------- image toggle button util -----------*/
+function imageToggleButtonPropChange(id, val){
+  if(val)
+    $('#'+id).parent().addClass('is-checked');
+    else
+      $('#'+id).parent().removeClass('is-checked');
+    $('#'+id).prop('checked', val);
 }
