@@ -5,6 +5,10 @@ $(function(){
 
     $( ".slide-list" ).sortable();
     $( ".slide-list" ).disableSelection();
+    $('nav .mdl-layout__tab').on('click', function(){
+    $(this).addClass('is-active');
+      $('nav .mdl-layout__tab').not($(this)).removeClass('is-active');
+    });
 });
 
 /* ---------- slide controller -----------*/

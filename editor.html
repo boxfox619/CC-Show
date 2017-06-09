@@ -19,24 +19,28 @@
 </head>
 <body>
 <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-  <header class="mdl-layout__header mdl-layout__header--transparent">
+
+  <header class="mdl-layout__header mdl-layout__header--scroll">
     <div class="mdl-layout__header-row">
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-        <div class="mdl-textfield__expandable-holder">
-          <span class="mdl-layout-title header-title">Test_PPT_01</span>
-          <input class="mdl-textfield__input header-title" maxlength="20">
-          <label class="mdl-textfield__label"></label></div>
-        </div>
+      <!-- Title -->
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable2">
+          <div class="mdl-textfield__expandable-holder">
+            <span class="mdl-layout-title header-title">Test_PPT_01</span>
+            <input class="mdl-textfield__input header-title" maxlength="18" style="width: 90% !important;">
+            <label class="mdl-textfield__label"></label></div>
+          </div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a class="mdl-layout__tab is-active" href="#">삽입</a>
+        <a class="mdl-layout__tab" href="#">디자인</a>
+        <a class="mdl-layout__tab" href="#">test</a>
+        <a class="mdl-layout__tab" href="#">Link</a>
+      </nav>
     </div>
-      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-        <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Select</a>
-        <a href="#scroll-tab-2" class="mdl-layout__tab" onclick="createAccest('shape', 'triangle')">Add</a>
-        <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
-        <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
-        <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
-        <a href="#scroll-tab-6" class="mdl-layout__tab" onclick="save()">Save</a>
+      <div class="mdl-layout__header-row">
       </div>
   </header>
+
   <main class="mdl-layout__content">
     <slider>
       <ul class="slide-list">

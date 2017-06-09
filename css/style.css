@@ -18,8 +18,18 @@ header > div{
   border-bottom: 1px solid black !important;
 }
 
+header .mdl-layout__tab{
+  padding: 0 10px;
+}
+
 .mdl-layout__tab{
-color: black !important;
+  color: black !important;
+  text-decoration: none;
+}
+
+.mdl-textfield--expandable2{
+    min-width: 0;
+    display: table;
 }
 
 slider{
