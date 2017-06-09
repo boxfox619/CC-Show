@@ -5,9 +5,21 @@ $(function(){
 
     $( ".slide-list" ).sortable();
     $( ".slide-list" ).disableSelection();
+
     $('nav .mdl-layout__tab').on('click', function(){
-    $(this).addClass('is-active');
-      $('nav .mdl-layout__tab').not($(this)).removeClass('is-active');
+      if($(this).attr('view')!=null)
+        viewController($(this).attr('view'));
+    });
+
+    $('item-chooser').find('li').on('click', function(){
+      var target = $('#'+$(this).parents('item-chooser').attr('for')).find('.mdl-chip__text');
+      target.text($(this).text());
+      target.trigger('change');
+    });
+    $('item-chooser').find('input[type="number"]').on('change', function(){
+      var target = $('#'+$(this).parents('item-chooser').attr('for')).find('.mdl-chip__text');
+      target.text($(this).val());
+      target.trigger('change');
     });
 });
 
@@ -68,40 +80,49 @@ slide_html_list[current_idx] = $('editor').html();
 
 
 /* ---------- accest controller -----------*/
-var accest;
+
 $(function(){
 document.createElement('accest');
   var func = function(){
-    if(accest!=null)
-      accest.text($(this).val());
+    if($('.selected')!=null)
+      $('.selected').text($(this).val());
   }
   $('#text-field-text-preview').on('change', func);
   $('#text-field-text-preview').on('keyup', func);
   $('#font-selection').on('change', function(){
-    accest.css('font-family', $('#font-selection').val());
+    $('.selected').css('font-family', $('#font-selection').val());
   });
 
   //text align controller
   $('#text-align-controller').find('input[type="checkbox"]').on('change',function(){
-    if(accest!=null)
-      accest.css('text-align', $(this).val());
+    if($('.selected')!=null)
+      $('.selected').css('text-align', $(this).val());
   });
 
   //font style controller
   $('#font-italic-toggle').on('change',function(){
-    if(accest!=null)
+    if($('.selected')!=null)
     if($(this).prop('checked')) {
-      accest.css('font-style', 'italic');
+      $('.selected').css('font-style', 'italic');
     }else{
-      accest.css('font-style', 'normal');
+      $('.selected').css('font-style', 'normal');
     }
   });
   $('#font-bold-toggle').on('change',function(){
-    if(accest!=null)
+    if($('.selected')!=null)
     if($(this).prop('checked')) {
-      accest.css('font-weight', 'bold');
+      $('.selected').css('font-weight', 'bold');
     }else{
-      accest.css('font-weight', 'normal');
+      $('.selected').css('font-weight', 'normal');
+    }
+  });
+  $('#font-size-controller').find('.mdl-chip__text').on('change',function(){
+    if(!$(this).text().match(/px$/))
+      $(this).text($(this).text()+'px');
+    if($('.selected')!=null){
+      console.log($(this).text());
+        $('.selected').css('font-size',$(this).text());
+        $('.selected').css('line-height',$(this).text());
     }
   });
 });
@@ -109,44 +130,38 @@ document.createElement('accest');
 function eventSelectItem(target){
   if(target==null || !target.hasClass('selected')){
     $('.accest-controller').removeClass('on');
-    accest = null;
     return;
   }
-    accest = target;
-    $('.controller').removeClass('is-selected');
-    $('.controller[accest-type="'+accest.attr('type')+'"]').addClass('is-selected');
+    viewController($('.controller[accest-type="'+$('.selected').attr('type')+'"]').attr('id'));
 
-    if(accest.attr('type')=='text'){
+    if($('.selected').attr('type')=='text'){
       $('#text').addClass('on');
 
-      $('#font-size-controller').val(parseFloat(accest.css('font-size')));
-      var colorCode = hexc(accest.css('color'));
+      $('#font-size-controller').find('.mdl-chip__text').text($('.selected').css('font-size'));
+        var colorCode = hexc($('.selected').css('color'));
         if(colorCode == undefined){
           colorCode = '#000000';
         }
 
         imageToggleButtonPropChange('font-bold-toggle', false);
         imageToggleButtonPropChange('font-italic-toggle', false);
-      if(accest.css('font-weight')=='bold'){
+      if($('.selected').css('font-weight')=='bold'){
         imageToggleButtonPropChange('font-bold-toggle', true);
       }
-      if(accest.css('font-style')=='italic'){
+      if($('.selected').css('font-style')=='italic'){
         imageToggleButtonPropChange('font-italic-toggle', true);
       }
-      $('#text-field-text-preview').val(accest.text());
+
+      //need controller
+      $('#text-field-text-preview').val($('.selected').text());
       $('#font-color-textfield').val(colorCode);
       $('#font-color-picker').val(colorCode);
-    }else  if(accest.attr('type')=='video'){
+
+    }else  if($('.selected').attr('type')=='video'){
       $('#video-attribute-controller').addClass('on');
       $('#video-url-controller').val('');
       $('#video-preview-controller').prop('checked', false);
     }
-}
-
-//font
-function setFontSize(size){
-  $('.selected').css('font-size',size+'px');
-  $('.selected').css('line-height',size+'px');
 }
 
 function setFontColor(color){
@@ -222,6 +237,7 @@ function initializeDragMouseEvent(){
 
     if(!$('.selected').is(target)){
       $('.selected').removeClass('selected');
+      viewController('accest-creator');
     }
 
     if(target.hasClass('move_control')){
@@ -328,4 +344,11 @@ function imageToggleButtonPropChange(id, val){
     else
       $('#'+id).parent().removeClass('is-checked');
     $('#'+id).prop('checked', val);
+}
+
+function viewController(id){
+  $('nav .mdl-layout__tab').removeClass('is-active');
+  $('nav .mdl-layout__tab[view='+id+']').addClass('is-active');
+  $('.controller').removeClass('is-selected');
+  $('#'+id).addClass('is-selected');
 }

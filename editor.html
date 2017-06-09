@@ -31,15 +31,15 @@
           </div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
-        <a class="mdl-layout__tab is-active" href="#">삽입</a>
-        <a class="mdl-layout__tab" href="#">디자인</a>
+        <a class="mdl-layout__tab is-active" view="accest-creator">삽입</a>
+        <a class="mdl-layout__tab" view="designer">디자인</a>
         <a class="mdl-layout__tab" href="#">test</a>
         <a class="mdl-layout__tab" href="#">Link</a>
       </nav>
     </div>
       <div class="mdl-layout__header-row">
 
-        <div class="controller is-selected">
+        <div id="accest-creator" class="controller is-selected">
           <button accest-type="text" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
             <i class="material-icons">title</i>
           </button>
@@ -59,7 +59,7 @@
             </ul>
         </div>
 
-        <div accest-type="text" class="controller">
+        <div id="text-designer" accest-type="text" class="controller">
           <div id="text-align-controller" class="item radio-button-group">
             <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="text-align-left-toggle">
               <input type="checkbox" id="text-align-left-toggle" value="left" class="mdl-icon-toggle__input" checked>
@@ -85,11 +85,21 @@
           </label>
         </div>
           <div class="item">
-        <span id="font-chooser" class="mdl-chip mdl-chip--contact" style="cursor: pointer">
+          <span id="font-size-controller" class="mdl-chip mdl-chip--contact">
+            <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons" >format_size</i></span>
+            <span class="mdl-chip__text">15px</span>
+          </span>
+          <item-chooser class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="font-size-controller">
+            <li class="mdl-menu__item">2</li>
+            <input type="number" class="mdl-menu__item"/>
+          </item-chooser>
+        </div>
+          <div class="item">
+        <span id="font-chooser" class="mdl-chip mdl-chip--contact">
           <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons" >format_size</i></span>
           <span class="mdl-chip__text">ㅁㄴㅇㅁㅇㅁㄴ</span>
         </span>
-          <ul class="mdl-menu  mdl-js-menu mdl-js-ripple-effect" for="font-chooser">
+          <item-chooser class="mdl-menu  mdl-js-menu mdl-js-ripple-effect" for="font-chooser">
             <li class="mdl-menu__item">Some Action</li>
             <li class="mdl-menu__item">Another Action</li>
             <li disabled class="mdl-menu__item">Disabled Action</li>
@@ -106,11 +116,11 @@
                   <li class="mdl-menu__item">Another Action</li>
                   <li disabled class="mdl-menu__item">Disabled Action</li>
                   <li class="mdl-menu__item">Yet Another Action</li>
-          </ul>
+          </item-chooser>
         </div>
       </div>
 
-        <div accest-type="video" class="controller">
+        <div text="video-designer" accest-type="video" class="controller">
           <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
             <input type="checkbox" id="switch-2" class="mdl-switch__input">
             <span class="mdl-switch__label">Preview</span>
@@ -133,7 +143,7 @@
       </ul>
     </slider>
     <editor>
-      
+
   </editor>
   </main>
 </div>

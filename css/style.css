@@ -25,6 +25,7 @@ header .mdl-layout__tab{
 .mdl-layout__tab{
   color: black !important;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .mdl-textfield--expandable2{
@@ -51,8 +52,8 @@ header .mdl-layout__tab{
 
 .mdl-chip {
   font-size: 50%;
+  cursor: pointer;
 }
-
 
 
 /* ----- slider ------ */
