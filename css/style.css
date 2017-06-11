@@ -75,9 +75,11 @@ editor{
     width: 80%;
     overflow: hidden;
 }
+
 ul.slide-list{
   padding: 20px;
 }
+
 ul.slide-list li{
   list-style-type: none;
   background-color: green;
@@ -87,11 +89,12 @@ ul.slide-list li{
 ul.slide-list li .mdl-card{
   min-height: 50px !important;
   width: 100%;
+  padding: 5px;
 }
 
 ul.slide-list li div{
   box-shadow: 0 0 0 100px inset, 0 0 5px grey;
-  color: rgba(0, 0, 0, 0.3) ;
+  color: rgba(65, 102, 114, .3);
 
   transition: box-shadow 0.5s;
 }

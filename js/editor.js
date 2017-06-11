@@ -134,6 +134,11 @@ document.createElement('accest');
         $('.selected').css('line-height',$(this).text());
     }
   });
+
+
+  $('#video-preview-switch').on('change', function(){
+    setVideoPreview($(this).prop('checked'));
+  })
 });
 
 function eventSelectItem(target){
@@ -169,7 +174,8 @@ function eventSelectItem(target){
     }else  if($('.selected').attr('type')=='video'){
       $('#video-attribute-controller').addClass('on');
       $('#video-url-controller').val('');
-      $('#video-preview-controller').prop('checked', false);
+      $('#video-preview-switch').prop('checked', false);
+      $('#video-preview-switch').parent().removeClass('is-checked');
     }
 }
 
@@ -263,29 +269,29 @@ function initializeDragMouseEvent(){
       eventSelectItem(target);
     } else
       eventSelectItem(controlComponent);
-    moved = false;
+      moved = false;
   });
 
   $('body').on('dblclick', function(e){
     var target = $(e.target);
   if(target.prop("tagName").toLowerCase()=='accest'){
-    // if(target.attr('type')=='text'){ //text accest edit text function
-    //   var input = $('<input type="'+ target.attr('type') +'" value="'+target.text()+'" class="'+target.attr('class')+' mdl-textfield__input" style="'+target.attr('style')+'">');
-    //   target.replaceWith(input);
-    //   input.focus();
-    //   input.focusout(function(){
-    //     target.text(input.val());
-    //     if(input.val().length>0)
-    //       input.replaceWith(target);
-    //     else input.remove();
-    //   });
-    //   input.keyup(function(e) {
-    //     if (e.keyCode == 13){
-    //       input.focusout();
-    //     }
-    //   });
-    //   e.preventDefault();
-    // }
+     if(target.attr('type')=='text'){ //text accest edit text function
+       var input = $('<input type="'+ target.attr('type') +'" value="'+target.text()+'" class="'+target.attr('class')+' mdl-textfield__input" style="'+target.attr('style')+'">');
+       target.replaceWith(input);
+       input.focus();
+       input.focusout(function(){
+         target.text(input.val());
+         if(input.val().length>0)
+           input.replaceWith(target);
+        else input.remove();
+      });
+      input.keyup(function(e) {
+        if (e.keyCode == 13){
+          input.focusout();
+        }
+      });
+      e.preventDefault();
+    }
   }
   });
 
