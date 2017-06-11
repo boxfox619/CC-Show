@@ -12,6 +12,9 @@ db.once('open', function(){
 
 mongoose.connect('mongodb://username:password@host:port/database');
 
+var User = require('./models/user');
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
