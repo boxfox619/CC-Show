@@ -310,7 +310,7 @@ $(function(){
 
   $('.radio-button-group').find('input[type="checkbox"]').on('change', function(){
     $(this).parent().parent().find('.mdl-icon-toggle').not($(this).parent()).removeClass('is-checked');
-    $(this).parent().parent().find('input[type="checkbox"]').prop('checked', false);
+    $(this).parent().parent().find('input[type="checkbox"]').not($(this)).prop('checked', false);
   });
 });
 
