@@ -89,6 +89,29 @@ ul.slide-list li .mdl-card{
   width: 100%;
 }
 
+ul.slide-list li div{
+  box-shadow: 0 0 0 100px inset, 0 0 5px grey;
+  color: rgba(0, 0, 0, 0.3) ;
+
+  transition: box-shadow 0.5s;
+}
+
+ul.slide-list li div::after {
+  transition: opacity 1s .5s;
+}
+
+ul.slide-list li div.is-selected {
+  -webkit-transition: box-shadow 0.3s, color 0.3s 0.3s;
+  -moz-transition: box-shadow 0.3s, color 0.3s 0.3s;
+  -ms-transition: box-shadow 0.3s, color 0.3s 0.3s; /* IE10 is actually unprefixed */
+  -o-transition: box-shadow 0.3s, color 0.3s 0.3s;
+  transition: box-shadow 0.3s, color 0.3s 0.3s;
+  box-shadow: 0 0 0 0 inset,
+  0 0 0 grey,
+  0 0 0 grey inset;
+  color: rgba(0, 0, 0, 1);
+}
+
 .demo-layout-transparent {
   background: url('http://cfile21.uf.tistory.com/image/274C663A5243CF181785F4') center / cover;
 }

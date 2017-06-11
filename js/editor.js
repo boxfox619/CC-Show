@@ -3,9 +3,6 @@ $(function(){
   initializeDragMouseEvent();
   accestRightClick();
 
-    $( ".slide-list" ).sortable();
-    $( ".slide-list" ).disableSelection();
-
     $('nav .mdl-layout__tab').on('click', function(){
       if($(this).attr('view')!=null)
         viewController($(this).attr('view'));
@@ -53,12 +50,21 @@ function initializeTitleTextBar(){
 
 /* ---------- slide controller -----------*/
 var slide_html_list;
-var current_idx;
+var current_idx = 0;
 var clearDoc;
+var sliderCleanItem;
+var sliderItemClick;
 
 $(function(){
   slide_html_list = new Array();
+  sliderCleanItem = $( ".slide-list" ).children(0).clone();
+  $( '.slide-list li[idx="0"] div' ).addClass('is-selected');
+  sliderItemClick = function(){ viewSlide($(this).attr('idx')); };
   clearDoc = $('editor').clone();
+  $( ".slide-list" ).sortable();
+  $( ".slide-list" ).disableSelection();
+  $( ".slide-list li" ).on('click', sliderItemClick);
+  slide_html_list.push($('editor').html());
 });
 
 function getClearPPT(){
@@ -67,15 +73,18 @@ function getClearPPT(){
 }
 
 function createSlide(){
-  $('editor').html(clearDoc.html());
-  slide_html_list.append(clearDoc.html());
-  // slide controller append
+  var idx = slide_html_list.length;
+  $( ".slide-list" ).append(sliderCleanItem.clone().attr('idx', idx).on('click', sliderItemClick));
+  slide_html_list.push(clearDoc.html());
+  viewSlide(idx);
 }
 
 function viewSlide(idx){
-slide_html_list[current_idx] = $('editor').html();
-  $('editor').html(slideHtmlList[idx]);
-    current_idx = idx;
+  $('.slide-list li .is-selected').removeClass('is-selected');
+  $('.slide-list li[idx="'+idx+'"] div').addClass('is-selected');
+  slide_html_list[current_idx] = $('editor').html();
+  $('editor').html(slide_html_list[idx]);
+  current_idx = idx;
 }
 
 
