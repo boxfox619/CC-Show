@@ -7,18 +7,15 @@ $(function(){
       if($(this).attr('view')!=null)
         viewController($(this).attr('view'));
     });
-
-    $('item-chooser').find('li').on('click', function(){
-      var target = $('#'+$(this).parents('item-chooser').attr('for')).find('.mdl-chip__text');
-      target.text($(this).text());
-      target.trigger('change');
-    });
-    $('item-chooser').find('input[type="number"]').on('change', function(){
-      var target = $('#'+$(this).parents('item-chooser').attr('for')).find('.mdl-chip__text');
-      target.text($(this).val());
-      target.trigger('change');
-    });
 });
+
+/* ---------- font controller part values ----------*/
+var fontSizes = [2, 4, 6, 8, 12, 14, 24, 32, 64];
+var fontFamilyArr = ["Agency FB", "Antiqua", "Architect" , "Arial", "BankFuturistic", "BankGothic", "Blackletter", "Blagovest", "Calibri", "Comic Sans MS", "Courier", "Cursive", "Decorative", "Fantasy", "Fraktur", "Frosty", "Garamond", "Georgia", "Helvetica", "Impact", "Minion", "Modern", "Monospace", "Open Sans",
+"Palatino", "Roman", "Sans-serif", "Serif", "Script", "Swiss", "Times", "Times New Roman", "Tw Cen MT", "Verdana"];
+/* ---------- font controller part values end ----------*/
+
+
 
 /* ---------- title text bar(page name) -----------*/
 function initializeTitleTextBar(){
@@ -96,6 +93,11 @@ document.createElement('accest');
     if($('.selected')!=null)
       $('.selected').text($(this).val());
   }
+
+
+  /* ------------------------------------------
+     ---------- font controller part ----------
+     ------------------------------------------ */
   $('#text-field-text-preview').on('change', func);
   $('#text-field-text-preview').on('keyup', func);
   $('#font-selection').on('change', function(){
@@ -125,27 +127,71 @@ document.createElement('accest');
       $('.selected').css('font-weight', 'normal');
     }
   });
+
+  /* --------- font size controll ---------- */
   $('#font-size-controller').find('.mdl-chip__text').on('change',function(){
     if(!$(this).text().match(/px$/))
       $(this).text($(this).text()+'px');
     if($('.selected')!=null){
-      console.log($(this).text());
         $('.selected').css('font-size',$(this).text());
         $('.selected').css('line-height',$(this).text());
     }
   });
 
+  function onFontSizeSelect(){
+    var target = $('#'+$(this).parents('item-chooser').attr('for')).find('.mdl-chip__text');
+    target.text($(this).text());
+    target.trigger('change');
+  };
+
+  function onFontSizeChange(){
+    var target = $('#'+$(this).parents('item-chooser').attr('for')).find('.mdl-chip__text');
+    target.text($(this).val());
+    target.trigger('change');
+  };
+
+  fontSizes.forEach(function(element, index, array){
+    $('item-chooser[for="font-size-controller"]').append($('<li class="mdl-menu__item">'+element+'</li>').on('click', onFontSizeSelect));
+  })
+  $('item-chooser[for="font-size-controller"]').append($('<input type="number" class="mdl-menu__item"/>').on('change', onFontSizeChange));
+
+    /* --------- font size controll end ---------- */
+
+
+  /* --------- font family controll ---------- */
+  $('#font-family-controller').find('.mdl-chip__text').on('change',function(){
+    if($('.selected')!=null){
+        $('.selected').css('font-family',$(this).text());
+    }
+  });
+
+  function onFontSelect(){
+    var target = $('#'+$(this).parents('item-chooser').attr('for')).find('.mdl-chip__text');
+    target.text($(this).text());
+    target.trigger('change');
+  };
+
+  fontFamilyArr.forEach(function logArrayElements(element, index, array) {
+    $('item-chooser[for="font-family-controller"]').append($('<li class="mdl-menu__item" style="font-family:\''+element+'\'">'+element+'</li>').on('click', onFontSelect));
+  });
+    /* --------- font family controll end ---------- */
+
+
+  /* ------------------------------------------
+     ---------- font controller part end ----------
+     ------------------------------------------ */
+
 
   $('#video-preview-switch').on('change', function(){
     setVideoPreview($(this).prop('checked'));
-  })
-});
+    })
+  });
 
-function eventSelectItem(target){
-  if(target==null || !target.hasClass('selected')){
-    $('.accest-controller').removeClass('on');
-    return;
-  }
+  function eventSelectItem(target){
+    if(target==null || !target.hasClass('selected')){
+      $('.accest-controller').removeClass('on');
+      return;
+    }
     viewController($('.controller[accest-type="'+$('.selected').attr('type')+'"]').attr('id'));
 
     if($('.selected').attr('type')=='text'){

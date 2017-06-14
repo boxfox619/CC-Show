@@ -81,6 +81,7 @@ ul.slide-list{
 }
 
 ul.slide-list li{
+  cursor: pointer;
   list-style-type: none;
   background-color: green;
   margin-bottom: 5px;
