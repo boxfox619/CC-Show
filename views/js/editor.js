@@ -142,6 +142,7 @@ document.createElement('accest');
     var target = $('#'+$(this).parents('item-chooser').attr('for')).find('.mdl-chip__text');
     target.text($(this).text());
     target.trigger('change');
+    $('.is-visible').removeClass('is-visible');
   };
 
   function onFontSizeChange(){
@@ -190,6 +191,7 @@ document.createElement('accest');
   function eventSelectItem(target){
     if(target==null || !target.hasClass('selected')){
       $('.accest-controller').removeClass('on');
+      $('.color-picker').css("display", 'none');
       return;
     }
     viewController($('.controller[accest-type="'+$('.selected').attr('type')+'"]').attr('id'));
@@ -290,7 +292,7 @@ function initializeDragMouseEvent(){
   $('body').mousedown(function(e){
     var target = $(e.target);
     $('iframe').hide();
-    if(target.parents('.controller').length||!target.hasClass('move_control')&&$('.selected').length&&(target.hasClass('dragable-component')||target.parents('.dragable-component').length)){
+    if(target.parents('.controller').length||target.hasClass('controller')||!target.hasClass('move_control')&&$('.selected').length&&(target.hasClass('dragable-component')||target.parents('.dragable-component').length)){
       return;
     }
     xInElement = e.pageX;
@@ -413,3 +415,58 @@ function viewController(id){
   $('.controller').removeClass('is-selected');
   $('#'+id).addClass('is-selected');
 }
+
+
+
+
+
+
+
+/* ---------- color picker ---------- */
+$('#color-text').val($('#color-input').val());
+$('.color-pick').find('.mdl-chip__text').on('change', function(){
+  var color = $(this).text();
+  if($('.selected')!=null)
+    $('.selected').css('color', color);
+});
+
+$('#color-text').on('change', function() {
+  console.log('target.html()');
+  $('#color-input').val($('#color-text').val());
+  $('.color-picker').attr('data-value', $('#color-text').val());
+  var target = $('.color-pick').find('.mdl-chip__text');
+  console.log(target.html());
+  target.text($(this).val());
+  target.trigger('change');
+});
+
+$('#color-input').change(function() {
+  $('#color-text').val($(this).val().toUpperCase());
+  $('.color-picker').attr('data-value', $(this).val().toUpperCase());
+  $('#color-text').trigger('change');
+});
+
+$('.color-pick').click(function(e) {
+  var rect = $(this).offset();
+  $('.color-translate').css("transform", 'translate(' + (rect.left-150) + 'px, ' + (rect.top) + 'px)');
+  $('.color-picker').css("display", 'inline-flex');
+});
+
+$('#color-picker-close').click(function() {
+  $('.color-picker').css("display", 'none');
+});
+
+function rgb2hex(rgb) {
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    function hex(x) {
+        return ("0" + parseInt(x).toString(16)).slice(-2);
+    }
+    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+}
+
+$('.color-picker > div:not(#close)').click(function() {
+  let bg = $(this).css('background-color');
+  $('.paper-button').css('background-color', bg);
+  $('#color-input').val(rgb2hex($(this).css('background-color')));
+  $('#color-input').change();
+});
