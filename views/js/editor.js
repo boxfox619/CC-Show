@@ -435,7 +435,6 @@ $('#color-text').on('change', function() {
   $('#color-input').val($('#color-text').val());
   $('.color-picker').attr('data-value', $('#color-text').val());
   var target = $('.color-pick').find('.mdl-chip__text');
-  console.log(target.html());
   target.text($(this).val());
   target.trigger('change');
 });

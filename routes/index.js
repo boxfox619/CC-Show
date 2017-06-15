@@ -1,36 +1,38 @@
-module.exports = function(app)
-{
+module.exports = function (app, User) {
+
     app.get('/', function(req,res){
 
         res.end();
     });
 
     app.get('/api/login', function(req, res){
-      Book.findOne({email: req.body.email, password: req.body.password}, function(err, user){
-        if(err) return res.status(500).json({error: err});
-        if(!user) return res.status(404).json({error: 'book not found'});
-        res.json(user);
+      User.findOne({email: req.body.email, password: req.body.password}, function(err, user){
+        if(err) return res.status(500).send('Internal server err');
+        if(!user) return res.status(404).send('User not found');
+        res.status(200).send('Login success!');
       })
     });
 
     app.get('/api/register', function(req, res){
     var user = new User();
-    user.email = req.body.email;
-    user.password = req.body.password;
+    user.email = req.params['email'];
+    user.password = req.params['password'];
+    console.log(req.params['email']);
+    console.log(req.params['password']);
 
       user.save(function(err){
           if(err){
-            console.error(err);
-            res.json({result: 0});
+              console.error(err);
+              res.status(500).send('Fail Register!');
             return;
           }
-          res.json({result: 1});
-              res.end();
+          res.status(200).send('Success Register!');
+          res.end();
       });
     });
 
     app.put('/api/modifypwd', function(req, res){
-    Book.findOne({email: req.body.email, password: req.body.password }, function(err, user){
+    User.findOne({email: req.body.email, password: req.body.password }, function(err, user){
         if(err) return res.status(500).json({ error: 'database failure' });
         if(!user) return res.status(404).json({ error: 'book not found' });
 
