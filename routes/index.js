@@ -5,7 +5,8 @@ module.exports = function (app, User) {
         res.end();
     });
 
-    app.get('/api/login', function(req, res){
+    app.post('/api/login', function (req, res) {
+        console.log('login');
       User.findOne({email: req.body.email, password: req.body.password}, function(err, user){
         if(err) return res.status(500).send('Internal server err');
         if(!user) return res.status(404).send('User not found');
@@ -13,19 +14,16 @@ module.exports = function (app, User) {
       })
     });
 
-    app.get('/api/register', function(req, res){
+    app.post('/api/register', function(req, res){
     var user = new User();
-    user.email = req.params['email'];
-    user.password = req.params['password'];
-    console.log(req.params['email']);
-    console.log(req.params['password']);
+    user.email = req.body['email'];
+    user.password = req.body['password'];
 
       user.save(function(err){
           if(err){
               console.error(err);
               res.status(500).send('Fail Register!');
-            return;
-          }
+          }else
           res.status(200).send('Success Register!');
           res.end();
       });
