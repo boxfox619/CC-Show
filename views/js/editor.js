@@ -189,9 +189,23 @@ document.createElement('accest');
     })
     });
 $('#video-url-input').on('change', function () {
-    console.log('test');
+    var link = $(this).val();
+    setVideoUrl(link);
 });
-//url
+
+function setVideoUrl(url) {
+    var suburl = url.substring(url.lastIndexOf('/') + 1, url.length);
+    $('.selected').find('iframe').attr('src', 'https://www.youtube.com/embed/' + url + '?ecver=2');
+    $('.selected').find('iframe').contentDocument.location.reload(true);
+}
+
+function setVideoPreview(check) {
+    if (check) {
+        $('.selected').find('iframe').show();
+    } else {
+        $('.selected').find('iframe').hide();
+    }
+}
 
  /* --------- video control end ---------- */
 
@@ -252,22 +266,6 @@ function hexc(colorval) {
     color = '#' + parts.join('');
   }catch(err){}
   return color;
-}
-
-
-
-//video
-function setVideoUrl(url){
-  var suburl = url.substring(url.lastIndexOf('/')+1, url.length);
-  $('.selected').find('iframe').attr('src', 'https://www.youtube.com/embed/'+url+'?ecver=2');
-}
-
-function setVideoPreview(check){
-  if(check){
-    $('.selected').find('iframe').show();
-  }else{
-    $('.selected').find('iframe').hide();
-  }
 }
 
 /* ---------- drag & drop layout -----------*/
