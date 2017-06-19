@@ -183,10 +183,17 @@ document.createElement('accest');
      ------------------------------------------ */
 
 
+ /* --------- video control ---------- */
   $('#video-preview-switch').on('change', function(){
     setVideoPreview($(this).prop('checked'));
     })
-  });
+    });
+$('#video-url-input').on('change', function () {
+    console.log('test');
+});
+//url
+
+ /* --------- video control end ---------- */
 
   function eventSelectItem(target){
     if(target==null || !target.hasClass('selected')){

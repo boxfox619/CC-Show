@@ -1,0 +1,28 @@
+{
+  "name": "ppt_platform",
+  "version": "1.0.0",
+  "description": "creative ppt making platform",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlatjdfo112/PPT-platform.git"
+  },
+  "keywords": [
+    "boxfox"
+  ],
+  "author": "boxfox",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rlatjdfo112/PPT-platform/issues"
+  },
+  "homepage": "https://github.com/rlatjdfo112/PPT-platform#readme"
+}

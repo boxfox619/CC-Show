@@ -55,6 +55,15 @@ header .mdl-layout__tab{
   cursor: pointer;
 }
 
+.mdl-chip input{
+    background: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.mdl-chip input:focus {
+   outline: none;
+}
+
 
 /* ----- slider ------ */
 slider{

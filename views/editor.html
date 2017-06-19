@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -110,10 +110,20 @@
       </div>
 
         <div id="video-designer" accest-type="video" class="controller">
-          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="video-preview-switch">
-            <input type="checkbox" id="video-preview-switch" class="mdl-switch__input">
-            <span class="mdl-switch__label">Preview</span>
-          </label>
+            <div class="item">
+                <div style="padding-right: 40px;">
+                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="video-preview-switch">
+                        <input type="checkbox" id="video-preview-switch" class="mdl-switch__input">
+                        <span class="mdl-switch__label">Preview</span>
+                    </label>
+                </div>
+            </div>
+            <div class="item">
+                <span class="mdl-chip mdl-chip--contact">
+                    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons">format_size</i></span>
+                    <input id="video-url-input" class="mdl-chip__text" placeholder="Youtube URL"/>
+                </span>
+            </div>
         </div>
 
       <div id="shape-designer" accest-type="shape" class="controller">
