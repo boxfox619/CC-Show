@@ -7,7 +7,6 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error);
 db.once('open', function(){
-    // CONNECTED TO MONGODB SERVER
     console.log("Connected to mongod server");
 });
 
@@ -21,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var port = process.env.PORT || 8080;
 
 var router = require('./routes')(app, User);
+var router = require('./routes/assets')(app, User);
 
 var server = app.listen(port, function(){
  console.log("Express server has started on port " + port)

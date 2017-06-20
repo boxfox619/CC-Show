@@ -194,8 +194,10 @@ $('#video-url-input').on('change', function () {
 });
 
 function setVideoUrl(url) {
-    var suburl = url.substring(url.lastIndexOf('/') + 1, url.length);
-    $('.selected').find('iframe').attr('src', 'https://www.youtube.com/embed/' + url + '?ecver=2');
+    let params = new URL(url).searchParams;
+    var suburl = params.get('v');
+    console.log(suburl);
+    $('.selected').find('iframe').attr('src', 'https://www.youtube.com/embed/' + suburl + '?ecver=2');
     $('.selected').find('iframe').contentDocument.location.reload(true);
 }
 
