@@ -31,7 +31,7 @@
           </div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
-        <a class="mdl-layout__tab is-active" view="accest-creator">삽입</a>
+        <a class="mdl-layout__tab is-active" view="asset-creator">삽입</a>
         <a class="mdl-layout__tab" view="designer">디자인</a>
         <a class="mdl-layout__tab" onclick="createSlide()">test</a>
         <a class="mdl-layout__tab" href="#">Link</a>
@@ -39,27 +39,27 @@
     </div>
       <div class="mdl-layout__header-row">
 
-        <div id="accest-creator" class="controller is-selected">
-          <button accest-type="text" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+        <div id="asset-creator" class="controller is-selected">
+          <button asset-type="text" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
             <i class="material-icons">title</i>
           </button>
-          <button accest-type="video" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+          <button asset-type="video" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
             <i class="material-icons">local_movies</i>
           </button>
-          <button accest-type="image" class="accest-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+          <button asset-type="image" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
             <i class="material-icons">image</i>
           </button>
-          <button id="insert-shape-accest" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+          <button id="insert-shape-asset" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
             <i class="material-icons">star rate</i>
           </button>
-            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="insert-shape-accest">
-              <li accest-type="shape" attr="circle" class="accest-creator mdl-menu__item">Circle</li>
-              <li accest-type="shape" attr="rectangle" class="accest-creator mdl-menu__item">Rectangle</li>
-              <li accest-type="shape" attr="triangle" disabled class="accest-creator mdl-menu__item">Triangle</li>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="insert-shape-asset">
+              <li asset-type="shape" attr="circle" class="asset-creator mdl-menu__item">Circle</li>
+              <li asset-type="shape" attr="rectangle" class="asset-creator mdl-menu__item">Rectangle</li>
+              <li asset-type="shape" attr="triangle" disabled class="asset-creator mdl-menu__item">Triangle</li>
             </ul>
         </div>
 
-        <div id="text-designer" accest-type="text" class="controller">
+        <div id="text-designer" asset-type="text" class="controller">
           <div id="text-align-controller" class="item radio-button-group">
             <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="text-align-left-toggle">
               <input type="checkbox" id="text-align-left-toggle" value="left" class="mdl-icon-toggle__input" checked>
@@ -109,7 +109,7 @@
         </div>
       </div>
 
-        <div id="video-designer" accest-type="video" class="controller">
+        <div id="video-designer" asset-type="video" class="controller">
             <div class="item">
                 <div style="padding-right: 40px;">
                     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="video-preview-switch">
@@ -126,7 +126,7 @@
             </div>
         </div>
 
-      <div id="shape-designer" accest-type="shape" class="controller">
+      <div id="shape-designer" asset-type="shape" class="controller">
         <span class="mdl-chip mdl-chip--contact color-pick">
           <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons" >format_size</i></span>
           <span class="mdl-chip__text">색깔</span>

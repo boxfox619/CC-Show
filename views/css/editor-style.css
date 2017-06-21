@@ -156,7 +156,7 @@ ul.slide-list li div.is-selected {
   position:absolute !important;
 }
 
-.accest-controller{
+.asset-controller{
   display: none;
 }
 
@@ -165,7 +165,7 @@ ul.slide-list li div.is-selected {
   overflow: scroll;
 }
 
-accest{
+asset{
   position:absolute !important;
   cursor: move;
   display:inline-block;
@@ -173,19 +173,19 @@ accest{
   height: auto;
 }
 
-accest[type="text"]{
+asset[type="text"]{
   white-space: pre;
 }
 
-accest[type="video"]{
+asset[type="video"]{
   background-color: black;
 }
 
-accest[type="shape"]{
+asset[type="shape"]{
   background-color: #000000;
 }
 
-accest[type="shape"][shape="circle"]{
+asset[type="shape"][shape="circle"]{
 	-moz-border-radius: 50000px;
 	-webkit-border-radius: 50000px;
 	border-radius: 50000px;

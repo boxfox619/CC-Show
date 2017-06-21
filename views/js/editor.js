@@ -1,7 +1,7 @@
 $(function(){
   initializeTitleTextBar();
   initializeDragMouseEvent();
-  accestRightClick();
+  assetRightClick();
 
     $('nav .mdl-layout__tab').on('click', function(){
       if($(this).attr('view')!=null)
@@ -85,10 +85,10 @@ function viewSlide(idx){
 }
 
 
-/* ---------- accest controller -----------*/
+/* ---------- asset controller -----------*/
 
 $(function(){
-document.createElement('accest');
+document.createElement('asset');
   var func = function(){
     if($('.selected')!=null)
       $('.selected').text($(this).val());
@@ -187,18 +187,18 @@ document.createElement('accest');
   $('#video-preview-switch').on('change', function(){
     setVideoPreview($(this).prop('checked'));
     })
-    });
-$('#video-url-input').on('change', function () {
+  });
+  $('#video-url-input').on('change', function () {
     var link = $(this).val();
     setVideoUrl(link);
-});
+   });
 
 function setVideoUrl(url) {
     let params = new URL(url).searchParams;
     var suburl = params.get('v');
-    console.log(suburl);
     $('.selected').find('iframe').attr('src', 'https://www.youtube.com/embed/' + suburl + '?ecver=2');
     $('.selected').find('iframe').contentDocument.location.reload(true);
+    videoAssetClear();
 }
 
 function setVideoPreview(check) {
@@ -209,15 +209,20 @@ function setVideoPreview(check) {
     }
 }
 
+function videoAssetClear() {
+    setVideoPreview(false);
+    $('.mdl-switch[for=video-preview-switch]').removeClass('is-checked');
+}
+
  /* --------- video control end ---------- */
 
   function eventSelectItem(target){
     if(target==null || !target.hasClass('selected')){
-      $('.accest-controller').removeClass('on');
+      $('.asset-controller').removeClass('on');
       $('.color-picker').css("display", 'none');
       return;
     }
-    viewController($('.controller[accest-type="'+$('.selected').attr('type')+'"]').attr('id'));
+    viewController($('.controller[asset-type="'+$('.selected').attr('type')+'"]').attr('id'));
 
     if($('.selected').attr('type')=='text'){
       $('#text').addClass('on');
@@ -298,16 +303,16 @@ function initializeDragMouseEvent(){
 
   $('body').mousedown(function(e){
     var target = $(e.target);
-    $('iframe').hide();
-    if(target.parents('.controller').length||target.hasClass('controller')||!target.hasClass('move_control')&&$('.selected').length&&(target.hasClass('dragable-component')||target.parents('.dragable-component').length)){
+    if (target.parents('.controller').length || target.hasClass('controller') || !target.hasClass('move_control') && $('.selected').length && (target.hasClass('dragable-component') || target.parents('.dragable-component').length)) {
       return;
     }
     xInElement = e.pageX;
     yInElement = e.pageY;
 
     if(!$('.selected').is(target)){
+      videoAssetClear();
       $('.selected').removeClass('selected');
-      viewController('accest-creator');
+      viewController('asset-creator');
     }
 
     if(target.hasClass('move_control')){
@@ -315,7 +320,7 @@ function initializeDragMouseEvent(){
       e.preventDefault();
     }
 
-    if(target.prop("tagName").toLowerCase()=='accest'){
+    if(target.prop("tagName").toLowerCase()=='asset'){
       controlComponent = target;
       target.addClass('selected');
       e.preventDefault();
@@ -329,8 +334,8 @@ function initializeDragMouseEvent(){
 
   $('body').on('dblclick', function(e){
     var target = $(e.target);
-  if(target.prop("tagName").toLowerCase()=='accest'){
-     if(target.attr('type')=='text'){ //text accest edit text function
+  if(target.prop("tagName").toLowerCase()=='asset'){
+     if(target.attr('type')=='text'){ //text asset edit text function
        var input = $('<input type="'+ target.attr('type') +'" value="'+target.text()+'" class="'+target.attr('class')+' mdl-textfield__input" style="'+target.attr('style')+'">');
        target.replaceWith(input);
        input.focus();
@@ -356,11 +361,11 @@ function initializeDragMouseEvent(){
 }
 
 
-/* ---------- header accest controller -----------*/
+/* ---------- header asset controller -----------*/
 $(function(){
-  //accest creator
-  $('.accest-creator').on('click', function(){
-    createAccest($(this).attr('accest-type'), $(this).attr('attr'));
+  //asset creator
+  $('.asset-creator').on('click', function(){
+    createasset($(this).attr('asset-type'), $(this).attr('attr'));
   });
 
   $('.radio-button-group').find('input[type="checkbox"]').on('change', function(){
@@ -369,30 +374,30 @@ $(function(){
   });
 });
 
-/* ---------- drag & drop accests -----------*/
+/* ---------- drag & drop assets -----------*/
 
-function createAccest(type, attr){
-  var accest = $('<accest-warp><accest type="'+type+'"></accest></accest-warp>');
+function createasset(type, attr){
+  var asset = $('<asset-warp><asset type="'+type+'"></asset></asset-warp>');
   if(type=='video'){
-    accest.find('accest').css('width', '500px');
-    accest.find('accest').css('height', '50px');
-    accest.find('accest').append($('<iframe src="https://www.youtube.com/embed/Ogv9DOjk9Eo?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0; display:none;" allowfullscreen></iframe>'));
+    asset.find('asset').css('width', '500px');
+    asset.find('asset').css('height', '50px');
+    asset.find('asset').append($('<iframe src="https://www.youtube.com/embed/Ogv9DOjk9Eo?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0; display:none;" allowfullscreen></iframe>'));
   }else if(type=='text'){
-    accest.find('accest').text('text');
+    asset.find('asset').text('text');
   }else if(type=='shape'){
-    accest.find('accest').css('width', '50px');
-    accest.find('accest').css('height', '50px');
-    accest.find('accest').attr('shape', attr);
+    asset.find('asset').css('width', '50px');
+    asset.find('asset').css('height', '50px');
+    asset.find('asset').attr('shape', attr);
   }
-  accest.find('accest').resizable({ handles: 'n,s,e,w,ne,se,nw,sw' });
-  addAccest(accest);
+  asset.find('asset').resizable({ handles: 'n,s,e,w,ne,se,nw,sw' });
+  addasset(asset);
 }
 
-function addAccest(accest){
-  $('editor').append(accest);
+function addasset(asset){
+  $('editor').append(asset);
 }
 
-function accestRightClick(){
+function assetRightClick(){
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
     }, false);
