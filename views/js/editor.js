@@ -228,6 +228,9 @@ $(function () {
         console.log('test');
         fr.readAsDataURL($('#image-input').get(0).files[0]);
     });
+    $('#image-chooser').on('click', function () {
+        $('#image-input').trigger('click');
+    });
 });
 
 

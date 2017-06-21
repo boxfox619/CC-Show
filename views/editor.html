@@ -23,12 +23,12 @@
   <header class="mdl-layout__header mdl-layout__header--scroll">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable2">
-          <div class="mdl-textfield__expandable-holder">
-            <span class="mdl-layout-title header-title">Test_PPT_01</span>
-            <input class="mdl-textfield__input header-title" maxlength="18" style="width: 90% !important;">
-            <label class="mdl-textfield__label"></label></div>
-          </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable2">
+        <div class="mdl-textfield__expandable-holder">
+          <span class="mdl-layout-title header-title">Test_PPT_01</span>
+          <input class="mdl-textfield__input header-title" maxlength="18" style="width: 90% !important;">
+          <label class="mdl-textfield__label"></label></div>
+       </div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
         <a class="mdl-layout__tab is-active" view="asset-creator">삽입</a>
@@ -129,6 +129,11 @@
           <div id="image-designer" asset-type="image" class="controller">
               <div class="item">
                   <input id="image-input" type="file" name="name" style="display: none;" />
+              </div>
+              <div class="item">
+                  <button id="image-chooser" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                      <i class="material-icons">image</i>
+                  </button>
               </div>
           </div>
       <div id="shape-designer" asset-type="shape" class="controller">
