@@ -244,7 +244,8 @@ $(function () {
     }
     viewController($('.controller[asset-type="'+$('.selected').attr('type')+'"]').attr('id'));
 
-    if($('.selected').attr('type')=='text'){
+    var type = $('.selected').attr('type');
+    if (type=='text'){
       $('#text').addClass('on');
 
       $('#font-size-controller').find('.mdl-chip__text').text($('.selected').css('font-size'));
@@ -264,14 +265,22 @@ $(function () {
 
       //need controller
       $('#text-field-text-preview').val($('.selected').text());
-      $('#font-color-textfield').val(colorCode);
-      $('#font-color-picker').val(colorCode);
-
-    }else  if($('.selected').attr('type')=='video'){
+      $('#color-text').val(colorCode);
+      $('#color-input').val(colorCode);
+      $('.color-pick .mdl-chip__text').text(colorCode);
+    } else if (type=='video'){
       $('#video-attribute-controller').addClass('on');
       $('#video-url-controller').val('');
       $('#video-preview-switch').prop('checked', false);
       $('#video-preview-switch').parent().removeClass('is-checked');
+    } else if (type == 'shape'){
+        var colorCode = hexc($('.selected').css('background-color'));
+        if (colorCode == undefined) {
+            colorCode = '#000000';
+        }
+        $('#color-text').val(colorCode);
+        $('#color-input').val(colorCode);
+        $('.color-pick .mdl-chip__text').text(colorCode);
     }
 }
 
@@ -425,7 +434,8 @@ function addasset(asset) {
 }
 
 function assetRightClick(){
-    document.addEventListener('contextmenu', function(e) {
+    document.addEventListener('contextmenu', function (e) {
+        console.log('test');
         e.preventDefault();
     }, false);
 }
@@ -465,12 +475,15 @@ function viewController(id){
 $('#color-text').val($('#color-input').val());
 $('.color-pick').find('.mdl-chip__text').on('change', function(){
   var color = $(this).text();
-  if($('.selected')!=null)
-    $('.selected').css('color', color);
+  if ($('.selected') != null) {
+      if ($('.selected').attr('type')=='text')
+          $('.selected').css('color', color);
+      else if ($('.selected').attr('type') == 'shape')
+          $('.selected').css('background-color', color);
+  }
 });
 
 $('#color-text').on('change', function() {
-  console.log('target.html()');
   $('#color-input').val($('#color-text').val());
   $('.color-picker').attr('data-value', $('#color-text').val());
   var target = $('.color-pick').find('.mdl-chip__text');
