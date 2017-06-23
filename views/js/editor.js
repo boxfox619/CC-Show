@@ -45,6 +45,10 @@ function initializeTitleTextBar(){
     headerTitle.css('cursor', 'pointer');
 }
 
+
+/* ------------------------------------------
+   ---------- slider part ----------
+   ------------------------------------------ */
 /* ---------- slide controller -----------*/
 var slide_html_list;
 var current_idx = 0;
@@ -83,6 +87,25 @@ function viewSlide(idx){
   $('editor').html(slide_html_list[idx]);
   current_idx = idx;
 }
+
+function saveSlide() {
+    slide_html_list[current_idx] = $('editor').html();
+}
+
+/* ---------- slide controller end -----------*/
+
+function viewSlidePreview() {
+    saveSlide();
+    var myWindow = window.open();
+    console.log(slide_html_list[current_idx]);
+    myWindow.document.write(slide_html_list[current_idx]);
+}
+
+
+  /* ------------------------------------------
+     ---------- slider part end ----------
+     ------------------------------------------ */
+
 
 
 /* ---------- asset controller -----------*/
@@ -521,3 +544,4 @@ $('.color-picker > div:not(#close)').click(function() {
   $('#color-input').val(rgb2hex($(this).css('background-color')));
   $('#color-input').change();
 });
+
