@@ -98,7 +98,7 @@ function viewSlidePreview() {
     saveSlide();
     var myWindow = window.open();
     console.log(slide_html_list[current_idx]);
-    myWindow.document.write(slide_html_list[current_idx]);
+    myWindow.document.write($('head').clone().wrapAll("<div/>").parent().html()+slide_html_list[current_idx]);
 }
 
 
