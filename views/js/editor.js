@@ -76,20 +76,20 @@ function getClearPPT(){
 function createSlide(){
   var idx = slide_html_list.length;
   $( ".slide-list" ).append(sliderCleanItem.clone().attr('idx', idx).on('click', sliderItemClick));
-  slide_html_list.push(clearDoc.html());
+  slide_html_list.push(clearDoc.clone());
   viewSlide(idx);
 }
 
 function viewSlide(idx){
   $('.slide-list li .is-selected').removeClass('is-selected');
   $('.slide-list li[idx="'+idx+'"] div').addClass('is-selected');
-  slide_html_list[current_idx] = $('editor').html();
-  $('editor').html(slide_html_list[idx]);
+  slide_html_list[current_idx] = $('editor').clone();
+  $('editor').html(slide_html_list[idx].html());
   current_idx = idx;
 }
 
 function saveSlide() {
-    slide_html_list[current_idx] = $('editor').html();
+    slide_html_list[current_idx] = $('editor').clone();
 }
 
 /* ---------- slide controller end -----------*/
@@ -97,16 +97,15 @@ function saveSlide() {
 function viewSlidePreview() {
     saveSlide();
     var myWindow = window.open();
-    console.log(slide_html_list[current_idx]);
-    myWindow.document.write($('head').clone().wrapAll("<div/>").parent().html()+slide_html_list[current_idx]);
+    var target = slide_html_list[current_idx].clone();
+    target.find('asset').resizable({
+        disabled: true
+    });
+    myWindow.document.write('<html>' + $('head').append('<link rel="stylesheet" href="./css/viewer-style.css">').clone().wrapAll("<div/>").parent().html() + ("<body>") + target.html() + ("</body>") + '</html>');
 }
-
-
   /* ------------------------------------------
      ---------- slider part end ----------
      ------------------------------------------ */
-
-
 
 /* ---------- asset controller -----------*/
 
@@ -388,19 +387,16 @@ function initializeDragMouseEvent(){
     var target = $(e.target);
   if(target.prop("tagName").toLowerCase()=='asset'){
      if(target.attr('type')=='text'){ //text asset edit text function
-       var input = $('<input type="'+ target.attr('type') +'" value="'+target.text()+'" class="'+target.attr('class')+' mdl-textfield__input" style="'+target.attr('style')+'">');
+         var input = $('<textarea class="' + target.attr('class') + '" style="' + target.attr('style') + '">' + target.text()+'</textarea>');
        target.replaceWith(input);
        input.focus();
-       input.focusout(function(){
+       input.focusout(function () {
          target.text(input.val());
-         if(input.val().length>0)
-           input.replaceWith(target);
+         if (input.val().length > 0) {
+             input.replaceWith(target);
+             target.resizable({ handles: 'n,s,e,w,ne,se,nw,sw' });
+         }
         else input.remove();
-      });
-      input.keyup(function(e) {
-        if (e.keyCode == 13){
-          input.focusout();
-        }
       });
       e.preventDefault();
     }

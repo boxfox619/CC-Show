@@ -175,6 +175,7 @@ asset{
 
 asset[type="text"]{
   white-space: pre;
+  overflow: hidden;
 }
 
 asset[type="video"]{
