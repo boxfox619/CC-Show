@@ -352,10 +352,11 @@ function initializeDragMouseEvent(){
     controlComponent = null;
   });
 
-  $('body').mousedown(function(e){
-    var target = $(e.target);
-    if (target.parents('.controller').length || target.hasClass('controller') || !target.hasClass('move_control') && $('.selected').length && (target.hasClass('dragable-component') || target.parents('.dragable-component').length)) {
-      return;
+  $('body').mousedown(function (e) {
+      var target = $(e.target);
+      $('.context-menu').hide();
+      if (target.parents('.context-menu').length|| target.parents('.controller').length || target.hasClass('controller') || !target.hasClass('move_control') && $('.selected').length && (target.hasClass('dragable-component') || target.parents('.dragable-component').length)) {
+        return;
     }
     xInElement = e.pageX;
     yInElement = e.pageY;
@@ -408,7 +409,6 @@ function initializeDragMouseEvent(){
   });
 }
 
-
 /* ---------- header asset controller -----------*/
 $(function(){
   //asset creator
@@ -423,6 +423,10 @@ $(function(){
 });
 
 /* ---------- drag & drop assets -----------*/
+
+/* ------------------------------------------
+   ---------- font controller part end ----------
+   ------------------------------------------ */
 
 function createasset(type, attr){
   var asset = $('<asset-warp><asset type="'+type+'"></asset></asset-warp>');
@@ -452,11 +456,41 @@ function addasset(asset) {
     $('editor').append(asset);
 }
 
+var clipasset;
 function assetRightClick(){
     document.addEventListener('contextmenu', function (e) {
-        console.log('test');
-        e.preventDefault();
+        var target = $(event.target);
+        $('#asset-context-menu').find('tr').removeClass('disabled');
+        if (target.is("editor") || target.parents("editor").length) {
+            if (!target.is("asset")) {
+                $('#asset-context-menu').find('tr').addClass('disabled');
+            }
+            if (clipasset != null) {
+                $('#asset-context-menu').find('tr[action="paste"]').removeClass('disabled');
+            } else {
+                $('#asset-context-menu').find('tr[action="paste"]').addClass('disabled');
+            }
+            $('#asset-context-menu').show();
+            $('#asset-context-menu').css('top', event.pageY + "px");
+            $('#asset-context-menu').css('left', event.pageX + "px");
+            e.preventDefault();
+        }
     }, false);
+    $('#asset-context-menu').find('tr').mousedown( function (e) {
+        var action = $(this).attr('action');
+        if (action == 'delete') {
+            $('.selected').parents('asset-warp').remove();
+        } else if (action == 'copy') {
+            clipasset = $('.selected').parents('asset-warp').clone();
+        } else if (action == 'cut') {
+            clipasset = $('.selected').parents('asset-warp');
+            clipasset.detach();
+            console.log(clipasset.html());
+        } else if (action == 'paste') {
+            $('editor').append(clipasset);
+            clipasset = null;
+        }
+    });
 }
 
 /* ---------- save -----------*/
@@ -465,8 +499,6 @@ function save(){
   $('editor').find( '.dragable-component' ).remove();
   var editorHtml = $('editor').html();
 }
-
-
 
 /* ---------- image toggle button util -----------*/
 function imageToggleButtonPropChange(id, val){
@@ -483,9 +515,6 @@ function viewController(id){
   $('.controller').removeClass('is-selected');
   $('#'+id).addClass('is-selected');
 }
-
-
-
 
 
 

@@ -206,7 +206,6 @@ input .selected{
 }
 
 
-
 /* ----------- color picker ----------*/
 .color-picker {
   height:128px;
@@ -383,4 +382,40 @@ input[type=color]:active, input[type=color]:focus {
   z-index:99;
   left:155px;
   top:36px;
+}
+
+
+/* -------- color context menu ----------- */
+.context-menu {
+    z-index: 99;
+    position: fixed;
+    background: white;
+    border:solid;
+    border-width: 1px;
+    border-color: gray;
+}
+
+    .context-menu table {
+        margin: 3px;
+        border-collapse: collapse;
+    }
+
+.context-menu table tr{
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.context-menu table tr td {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.context-menu table tr:hover{
+    background: blue;
+    color: white;
+}
+.context-menu table tr.disabled:hover {
+    background:#eee;
+    cursor: not-allowed;
+    color: black;
 }
