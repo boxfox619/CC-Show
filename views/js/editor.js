@@ -213,7 +213,49 @@ document.createElement('asset');
   $('#video-url-input').on('change', function () {
     var link = $(this).val();
     setVideoUrl(link);
-   });
+});
+
+$('#video-autoplay-checkbox').on('change', function () {
+    var link = $(this).val();
+    if ($(this).prop('checked')) {
+        link = addQuery(link, 'autoplay=1');
+    } else {
+        link = removeQuery(link, 'autoplay=1');
+    }
+    setVideoUrl(link);
+});
+
+$('#video-controller-checkbox').on('change', function () {
+    var link = $(this).val();
+    if ($(this).prop('checked')) {
+        link = removeQuery(link, 'controls=0');
+    } else {
+        link = addQuery(link, 'controls=0');
+    }
+    setVideoUrl(link);
+});
+
+function addQuery(url, query) {
+    if (url.contains('?')) {
+        url += '&' + query;
+    } else {
+        url += '?' + query;
+    }
+    return url;
+}
+
+function removeQuery(url, query) {
+    if (url.contains('&')) {
+        if (url.contains('?' + query)) {
+            url = url.replace(query+'&');
+        } else {
+            url = url.replace('&' + query);
+        }
+    } else {
+        url = url.replace('?'+query, '');
+    }
+    return url;
+}
 
 function setVideoUrl(url) {
     let params = new URL(url).searchParams;
