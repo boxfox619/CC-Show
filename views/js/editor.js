@@ -211,12 +211,15 @@ document.createElement('asset');
     })
   });
   $('#video-url-input').on('change', function () {
-    var link = $(this).val();
+      var link = $(this).val();
+      let params = new URL(url).searchParams;
+      var suburl = params.get('v');
+      link = 'https://www.youtube.com/embed/' + suburl + '?ecver=2';
     setVideoUrl(link);
 });
 
 $('#video-autoplay-checkbox').on('change', function () {
-    var link = $(this).val();
+    var link = $('.selected').find('iframe').attr('src');
     if ($(this).prop('checked')) {
         link = addQuery(link, 'autoplay=1');
     } else {
@@ -226,17 +229,19 @@ $('#video-autoplay-checkbox').on('change', function () {
 });
 
 $('#video-controller-checkbox').on('change', function () {
-    var link = $(this).val();
-    if ($(this).prop('checked')) {
+    var link = $('.selected').find('iframe').attr('src');
+    if (!$(this).prop('checked')) {
+        link = removeQuery(link, 'showinfo=0');
         link = removeQuery(link, 'controls=0');
     } else {
+        link = addQuery(link, 'showinfo=0');
         link = addQuery(link, 'controls=0');
     }
     setVideoUrl(link);
 });
 
 function addQuery(url, query) {
-    if (url.contains('?')) {
+    if (url.includes('?')) {
         url += '&' + query;
     } else {
         url += '?' + query;
@@ -245,11 +250,11 @@ function addQuery(url, query) {
 }
 
 function removeQuery(url, query) {
-    if (url.contains('&')) {
-        if (url.contains('?' + query)) {
-            url = url.replace(query+'&');
+    if (url.includes('&')) {
+        if (url.includes('?' + query)) {
+            url = url.replace(query+'&', '');
         } else {
-            url = url.replace('&' + query);
+            url = url.replace('&' + query, '');
         }
     } else {
         url = url.replace('?'+query, '');
@@ -258,9 +263,8 @@ function removeQuery(url, query) {
 }
 
 function setVideoUrl(url) {
-    let params = new URL(url).searchParams;
-    var suburl = params.get('v');
-    $('.selected').find('iframe').attr('src', 'https://www.youtube.com/embed/' + suburl + '?ecver=2');
+    console.log(url);
+    $('.selected').find('iframe').attr('src', url);
     $('.selected').find('iframe').contentDocument.location.reload(true);
     videoAssetClear();
 }
