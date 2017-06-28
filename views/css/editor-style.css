@@ -66,27 +66,37 @@ header .mdl-layout__tab{
 
 
 /* ----- slider ------ */
-slider{
-    position:absolute !important;
+slider {
+    position: fixed !important;
     display: inline-block;
-    background-color: rgba(100, 100, 100, 0.3);
-    min-height: 100%;
-    width: 20%;
-    overflow: hidden;
+    z-index: 99;
+    background-color: rgba(123, 231, 221, 0.3);
+    height: 50%;
+    width: 10%;
+    bottom: 0;
+    border: solid black 1px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+slider .title {
+    background-color: rgba(123, 231, 221, 0.3);
+    padding-left: 5px;
+    color: white;
 }
 
 editor{
     position:absolute !important;
     background-color: rgba(255, 255, 255, 0.3);
     display: inline-block;
-    left: 20%;
     height: 100%;
-    width: 80%;
+    width: 100%;
     overflow: hidden;
 }
 
 ul.slide-list{
-  padding: 20px;
+  padding: 5px;
+  margin: 0;
 }
 
 ul.slide-list li{
