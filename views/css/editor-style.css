@@ -72,21 +72,43 @@ slider {
     z-index: 99;
     background-color: rgba(123, 231, 221, 0.3);
     height: 50%;
-    width: 10%;
+    width: 10vw;
     bottom: 0;
     border: solid black 1px;
     overflow-y: scroll;
     overflow-x: hidden;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
 }
 
+slider.hide {
+    transform: translate(-500px,0);
+    -webkit-transform: translate(-500px,0);
+    -o-transform: translate(-500px,0);
+    -moz-transform: translate(-500px,0);
+}
+
+/* need show button */
 slider .title {
     background-color: rgba(123, 231, 221, 0.3);
     padding-left: 5px;
     color: white;
 }
 
-editor{
-    position:absolute !important;
+    slider .title .hide {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+        background: url('data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0OTIgNDkyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0OTIgNDkyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTQ2NS4wNjQsMjA3LjU2MkgyNi45MDhDMTIuMDc2LDIwNy41NjIsMCwyMTkuNjk4LDAsMjM0LjUzdjIyLjgwNGMwLDE0LjgzMiwxMi4wNzIsMjcuMTA0LDI2LjkwOCwyNy4xMDRoNDM4LjE1NiAgICBjMTQuODQsMCwyNi45MzYtMTIuMjcyLDI2LjkzNi0yNy4xMDRWMjM0LjUzQzQ5MiwyMTkuNjk4LDQ3OS45MDQsMjA3LjU2Miw0NjUuMDY0LDIwNy41NjJ6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==') center / contain;
+    }
+
+editor {
+    position: absolute !important;
     background-color: rgba(255, 255, 255, 0.3);
     display: inline-block;
     height: 100%;
@@ -94,7 +116,7 @@ editor{
     overflow: hidden;
 }
 
-ul.slide-list{
+ul.slide-list {
   padding: 5px;
   margin: 0;
 }
@@ -145,25 +167,6 @@ ul.slide-list li div.is-selected {
 
 .mdl-layout__tab-bar-button, .mdl-layout__tab-bar, .mdl-layout__tab {
   background-color: rgba( 255, 255, 255, 0.0 );
-}
-
-.card_title_bar{
-  position: relative;
-  padding: 5px;
-  background-color: rgba(30, 30, 30, 0.1);
-}
-.card_title_bar .move_control{
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 17px;
-  height: 17px;
-  cursor: move;
-  background: url('https://cdn1.iconfinder.com/data/icons/business-cursor/512/move_2-512.png') center / contain;
-}
-
-.dragable-component{
-  position:absolute !important;
 }
 
 .asset-controller{

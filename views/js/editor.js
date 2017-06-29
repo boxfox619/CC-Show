@@ -66,6 +66,10 @@ $(function(){
   $( ".slide-list" ).disableSelection();
   $( ".slide-list li" ).on('click', sliderItemClick);
   slide_html_list.push($('editor').html());
+
+  $('slider .title .hide').on('click', function () {
+      $(this).parents('slider').addClass('hide');
+  });
 });
 
 function getClearPPT(){
