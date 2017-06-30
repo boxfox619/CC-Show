@@ -17,35 +17,6 @@ var fontFamilyArr = ["Agency FB", "Antiqua", "Architect" , "Arial", "BankFuturis
 
 
 
-/* ---------- title text bar(page name) -----------*/
-function initializeTitleTextBar(){
-  var replacement = $('.mdl-textfield__input.header-title');
-  var headerTitle = $('.mdl-layout-title.header-title');
-    replacement.hide();
-
-    var focusout = function(){
-      replacement.hide();
-      headerTitle.text(replacement.val());
-      headerTitle.show();
-    };
-
-    var headerClick = function(){
-      replacement.val(headerTitle.text());
-      headerTitle.hide();
-      replacement.show();
-
-      replacement.focusout(focusout);
-      replacement.keyup(function(e) {
-        if (e.keyCode == 13) focusout();
-      });
-      replacement.focus();
-    };
-
-    headerTitle.on('click', headerClick);
-    headerTitle.css('cursor', 'pointer');
-}
-
-
 /* ------------------------------------------
    ---------- slider part ----------
    ------------------------------------------ */

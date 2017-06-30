@@ -20,23 +20,24 @@
 <body>
 <div class="demo-layout-transparent mdl-layout mdl-js-layout">
 
-  <header class="mdl-layout__header mdl-layout__header--scroll">
-    <div class="mdl-layout__header-row">
+  <header>
+    <div>
       <!-- Title -->
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable2">
         <div class="mdl-textfield__expandable-holder">
-          <span class="mdl-layout-title header-title">Test_PPT_01</span>
-          <input class="mdl-textfield__input header-title" maxlength="18" style="width: 90% !important;">
-          <label class="mdl-textfield__label"></label></div>
+          <input class="mdl-textfield__input header-title" maxlength="18" value="Test_PPT_01">
        </div>
       <!-- Navigation -->
+        <!--
       <nav class="mdl-navigation">
         <a class="mdl-layout__tab is-active" view="asset-creator">삽입</a>
         <a class="mdl-layout__tab" view="designer">디자인</a>
         <a class="mdl-layout__tab" onclick="createSlide()">test</a>
         <a class="mdl-layout__tab" onclick="viewSlidePreview()">Link</a>
       </nav>
+            -->
     </div>
+      <!--
       <div class="mdl-layout__header-row">
 
         <div id="text-designer" asset-type="text" class="controller">
@@ -169,29 +170,43 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
   </header>
 
   <main class="mdl-layout__content">
       <div id="asset-creator">
-          <button asset-type="text" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-              <i class="material-icons">title</i>
-          </button>
-          <button asset-type="video" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-              <i class="material-icons">local_movies</i>
-          </button>
-          <button asset-type="image" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-              <i class="material-icons">image</i>
-          </button>
-          <button id="insert-shape-asset" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-              <i class="material-icons">star rate</i>
-          </button>
-          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="insert-shape-asset">
-              <li asset-type="shape" attr="circle" class="asset-creator mdl-menu__item">Circle</li>
-              <li asset-type="shape" attr="rectangle" class="asset-creator mdl-menu__item">Rectangle</li>
-              <li asset-type="shape" attr="triangle" disabled class="asset-creator mdl-menu__item">Triangle</li>
+          <ul>
+              <li>
+                  <button asset-type="text" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                      <i class="material-icons">title</i>
+                  </button>
+              </li>
+              <li>
+                  <button asset-type="video" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                      <i class="material-icons">local_movies</i>
+                  </button>
+              </li>
+               <li>
+                  <button asset-type="image" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                      <i class="material-icons">image</i>
+                  </button>
+              </li>
+               <li>
+                  <button id="insert-shape-asset" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                      <i class="material-icons">star rate</i>
+                  </button>
+                  <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="insert-shape-asset">
+                      <li asset-type="shape" attr="circle" class="asset-creator mdl-menu__item">Circle</li>
+                      <li asset-type="shape" attr="rectangle" class="asset-creator mdl-menu__item">Rectangle</li>
+                      <li asset-type="shape" attr="triangle" disabled class="asset-creator mdl-menu__item">Triangle</li>
+                  </ul>
+              </li>
+          </ul>
+          <ul class="bottom">
+              <li>t</li>
           </ul>
       </div>
+
     <slider>
         <div class="title">슬라이드<div class="hide"></div></div>
       <ul class="slide-list">

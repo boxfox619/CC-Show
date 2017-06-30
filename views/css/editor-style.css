@@ -11,6 +11,7 @@ main, body{
 }
 
 header{
+  text-align: center;
   background-color: rgba(255, 255, 255, 1) !important;
   color: black !important;
 }
@@ -19,24 +20,17 @@ header > div{
   border-bottom: 1px solid black !important;
 }
 
-header .mdl-layout__tab{
-  padding: 0 10px;
+.mdl-textfield {
+    padding: 0;
 }
 
-.mdl-layout__tab{
-  color: black !important;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.mdl-textfield--expandable2{
-    min-width: 0;
-    display: table;
+.mdl-textfield__input{
+    border: 0;
 }
 
 /*chip-styles*/
-.mdl-chip__contact i{
-  vertical-align: middle;
+.mdl-chip__contact i {
+    vertical-align: middle;
 }
 
 .mdl-chip {
@@ -109,48 +103,9 @@ scanvas {
     display: inline-block;
     height: 80%;
     width: 80%;
-    margin-left: 10%;
+    margin: 10%;
     overflow: hidden;
-}
-
-ul.slide-list {
-  padding: 5px;
-  margin: 0;
-}
-
-ul.slide-list li{
-  cursor: pointer;
-  list-style-type: none;
-  background-color: green;
-  margin-bottom: 5px;
-}
-
-ul.slide-list li .mdl-card{
-  min-height: 50px !important;
-  width: 100%;
-  border-radius: 1px;
-  background-color: gray;
-}
-
-ul.slide-list li div{
-  box-shadow: 0 0 0 100px inset, 0 0 5px grey;
-  color: rgba(65, 102, 114, .3);
-  transition: box-shadow 0.5s;
-}
-
-ul.slide-list li div::after {
-  transition: opacity 1s .5s;
-}
-
-ul.slide-list li div .actionbar{
-    width:100%;
-    height: 30px;
-    background-color: white;
-}
-
-ul.slide-list li div.is-selected {
-  -webkit-transition: box-shadow 0.3s, color 0.3s 0.3s;
-  -moz-transition: box-shadow 0.3s, color 0.3s 0.3s;
+}#ass
   -ms-transition: box-shadow 0.3s, color 0.3s 0.3s; /* IE10 is actually unprefixed */
   -o-transition: box-shadow 0.3s, color 0.3s 0.3s;
   transition: box-shadow 0.3s, color 0.3s 0.3s;
@@ -158,18 +113,6 @@ ul.slide-list li div.is-selected {
   0 0 0 grey,
   0 0 0 grey inset;
   color: rgba(0, 0, 0, 1);
-}
-
-.header-title{
-  display: inline-block;
-  font-weight: bold;
-  font-family: Impact Charcoal sans-serif;
-  font-size: 25px;
-  width: auto !important;
-}
-
-.mdl-layout__tab-bar-button, .mdl-layout__tab-bar, .mdl-layout__tab {
-  background-color: rgba( 255, 255, 255, 0.0 );
 }
 
 .mdl-menu{
@@ -181,18 +124,26 @@ ul.slide-list li div.is-selected {
 
 #asset-creator{
     width: 40px;
-    height: 100%;
+    height: 100vh;
     border-style: solid;
     border-width: 0 1px 0 0;
     border-color: gray;
     display: inline-block;
     float:left;
     background-color: white;
-    position: absolute;
+    position: relative;
+    text-align: center;
 }
 
-#asset-creator .item{
+#asset-creator ul{
+    list-style: none;
     display: block;
+    padding: 0;
+}
+
+#asset-creator ul .bottom {
+        position: absolute;
+        bottom: 0;
 }
 
 asset{
@@ -227,14 +178,9 @@ asset[type="shape"][shape="circle"]{
   border-color: #000000;
 }
 
-input .selected{
-  border: Dotted 0px;
+input .selected {
+    border: Dotted 0px;
 }
-
-.mdl-textfield__input{
-  width: auto !important;
-}
-
 
 /* ----------- color picker ----------*/
 .color-picker {
