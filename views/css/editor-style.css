@@ -7,6 +7,7 @@ main, body{
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+          background-color: lightgray;
 }
 
 header{
@@ -31,18 +32,6 @@ header .mdl-layout__tab{
 .mdl-textfield--expandable2{
     min-width: 0;
     display: table;
-}
-
-.controller{
-  display:none;
-}
-
-.is-selected{
-  display:block;
-}
-
-.controller .item{
-  display: inline-block;
 }
 
 /*chip-styles*/
@@ -80,6 +69,7 @@ slider {
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
+    display: none;
 }
 
 slider.hide {
@@ -106,12 +96,20 @@ slider .title .hide {
     background: url('data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0OTIgNDkyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0OTIgNDkyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTQ2NS4wNjQsMjA3LjU2MkgyNi45MDhDMTIuMDc2LDIwNy41NjIsMCwyMTkuNjk4LDAsMjM0LjUzdjIyLjgwNGMwLDE0LjgzMiwxMi4wNzIsMjcuMTA0LDI2LjkwOCwyNy4xMDRoNDM4LjE1NiAgICBjMTQuODQsMCwyNi45MzYtMTIuMjcyLDI2LjkzNi0yNy4xMDRWMjM0LjUzQzQ5MiwyMTkuNjk4LDQ3OS45MDQsMjA3LjU2Miw0NjUuMDY0LDIwNy41NjJ6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==') center / contain;
 }
 
-editor {
-    position: absolute !important;
-    background-color: rgba(255, 255, 255, 0.3);
+.editor {
     display: inline-block;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+scanvas {
+    position: relative;
+    background-color: rgba(255, 255, 255, 1);
+    display: inline-block;
+    height: 80%;
+    width: 80%;
+    margin-left: 10%;
     overflow: hidden;
 }
 
@@ -174,13 +172,27 @@ ul.slide-list li div.is-selected {
   background-color: rgba( 255, 255, 255, 0.0 );
 }
 
-.asset-controller{
-  display: none;
-}
-
 .mdl-menu{
   max-height: 300px;
   overflow: scroll;
+}
+
+/* ----- asset ----- */
+
+#asset-creator{
+    width: 40px;
+    height: 100%;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: gray;
+    display: inline-block;
+    float:left;
+    background-color: white;
+    position: absolute;
+}
+
+#asset-creator .item{
+    display: block;
 }
 
 asset{
@@ -411,6 +423,7 @@ input[type=color]:active, input[type=color]:focus {
     border:solid;
     border-width: 1px;
     border-color: gray;
+    display: none;
 }
 
     .context-menu table {

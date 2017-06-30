@@ -61,19 +61,19 @@ $(function(){
   sliderCleanItem = $( ".slide-list" ).children(0).clone();
   $( '.slide-list li[idx="0"] div' ).addClass('is-selected');
   sliderItemClick = function(){ viewSlide($(this).attr('idx')); };
-  clearDoc = $('editor').clone();
+  clearDoc = $('scanvas').clone();
   $( ".slide-list" ).sortable();
   $( ".slide-list" ).disableSelection();
   $( ".slide-list li" ).on('click', sliderItemClick);
-  slide_html_list.push($('editor').html());
-
+  slide_html_list.push($('scanvas').html());
+    
   $('slider .title .hide').on('click', function () {
       $(this).parents('slider').addClass('hide');
   });
 });
 
 function getClearPPT(){
-  var doc = $('editor').clone();
+  var doc = $('scanvas').clone();
   return doc.html();
 }
 
@@ -87,13 +87,13 @@ function createSlide(){
 function viewSlide(idx){
   $('.slide-list li .is-selected').removeClass('is-selected');
   $('.slide-list li[idx="'+idx+'"] div').addClass('is-selected');
-  slide_html_list[current_idx] = $('editor').clone();
-  $('editor').html(slide_html_list[idx].html());
+  slide_html_list[current_idx] = $('scanvas').clone();
+  $('scanvas').html(slide_html_list[idx].html());
   current_idx = idx;
 }
 
 function saveSlide() {
-    slide_html_list[current_idx] = $('editor').clone();
+    slide_html_list[current_idx] = $('scanvas').clone();
 }
 
 /* ---------- slide controller end -----------*/
@@ -383,7 +383,7 @@ var moved;
 var xInElement, yInElement;
 
 function initializeDragMouseEvent(){
-  $('editor').mousemove(function( event ) {
+  $('scanvas').mousemove(function( event ) {
     if(controlComponent!=null&&controlComponent!=undefined){
       var x = event.pageX;
       var y = event.pageY;
@@ -503,7 +503,7 @@ function createasset(type, attr){
 function addasset(asset) {
     $('.selected').removeClass('selected');
     asset.find('asset').addClass('selected');
-    $('editor').append(asset);
+    $('scanvas').append(asset);
 }
 
 var clipasset;
@@ -511,7 +511,7 @@ function assetRightClick(){
     document.addEventListener('contextmenu', function (e) {
         var target = $(event.target);
         $('#asset-context-menu').find('tr').removeClass('disabled');
-        if (target.is("editor") || target.parents("editor").length) {
+        if (target.is('scanvas') || target.parents('scanvas').length) {
             if (!target.is("asset")) {
                 $('#asset-context-menu').find('tr').addClass('disabled');
             }
@@ -537,7 +537,7 @@ function assetRightClick(){
             clipasset.detach();
             console.log(clipasset.html());
         } else if (action == 'paste') {
-            $('editor').append(clipasset);
+            $('scanvas').append(clipasset);
             clipasset = null;
         }
     });
@@ -546,8 +546,8 @@ function assetRightClick(){
 /* ---------- save -----------*/
 
 function save(){
-  $('editor').find( '.dragable-component' ).remove();
-  var editorHtml = $('editor').html();
+  $('scanvas').find( '.dragable-component' ).remove();
+  var editorHtml = $('scanvas').html();
 }
 
 /* ---------- image toggle button util -----------*/

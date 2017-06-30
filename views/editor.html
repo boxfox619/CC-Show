@@ -39,26 +39,6 @@
     </div>
       <div class="mdl-layout__header-row">
 
-        <div id="asset-creator" class="controller is-selected">
-          <button asset-type="text" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-            <i class="material-icons">title</i>
-          </button>
-          <button asset-type="video" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-            <i class="material-icons">local_movies</i>
-          </button>
-          <button asset-type="image" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-            <i class="material-icons">image</i>
-          </button>
-          <button id="insert-shape-asset" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-            <i class="material-icons">star rate</i>
-          </button>
-            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="insert-shape-asset">
-              <li asset-type="shape" attr="circle" class="asset-creator mdl-menu__item">Circle</li>
-              <li asset-type="shape" attr="rectangle" class="asset-creator mdl-menu__item">Rectangle</li>
-              <li asset-type="shape" attr="triangle" disabled class="asset-creator mdl-menu__item">Triangle</li>
-            </ul>
-        </div>
-
         <div id="text-designer" asset-type="text" class="controller">
           <div id="text-align-controller" class="item radio-button-group">
             <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="text-align-left-toggle">
@@ -193,6 +173,25 @@
   </header>
 
   <main class="mdl-layout__content">
+      <div id="asset-creator">
+          <button asset-type="text" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+              <i class="material-icons">title</i>
+          </button>
+          <button asset-type="video" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+              <i class="material-icons">local_movies</i>
+          </button>
+          <button asset-type="image" class="asset-creator mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+              <i class="material-icons">image</i>
+          </button>
+          <button id="insert-shape-asset" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+              <i class="material-icons">star rate</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="insert-shape-asset">
+              <li asset-type="shape" attr="circle" class="asset-creator mdl-menu__item">Circle</li>
+              <li asset-type="shape" attr="rectangle" class="asset-creator mdl-menu__item">Rectangle</li>
+              <li asset-type="shape" attr="triangle" disabled class="asset-creator mdl-menu__item">Triangle</li>
+          </ul>
+      </div>
     <slider>
         <div class="title">슬라이드<div class="hide"></div></div>
       <ul class="slide-list">
@@ -204,15 +203,27 @@
         </li>
       </ul>
     </slider>
-    <editor>
-  </editor>
+    <div class="editor">
+        <scanvas>
 
-      <div id="asset-context-menu" class="context-menu" style="display: none;">
+        </scanvas>
+  </div>
+
+      <div id="asset-context-menu" class="context-menu">
           <table>
               <tr action="delete"><td></td><td>삭제(Remove)</td><td>ctrl + d</td></tr>
               <tr action="copy"><td></td><td>복사(Copy)</td><td>ctrl + c</td></tr>
               <tr action="cut"><td></td><td>잘라내기(Cut)</td><td>ctrl + x</td></tr>
               <tr action="paste"><td></td><td>붙여넣기(Paste)</td><td>ctrl + v</td></tr>
+          </table>
+      </div>
+
+      <div id="editor-context-menu" class="context-menu">
+          <table>
+              <tr action="text"><td></td><td>Text</td><td>ctrl + d</td></tr>
+              <tr action="video"><td></td><td>Video</td><td>ctrl + c</td></tr>
+              <tr action="image"><td></td><td>Image</td><td>ctrl + x</td></tr>
+              <tr action="shape"><td></td><td>Paste</td><td>ctrl + v</td></tr>
           </table>
       </div>
   </main>
