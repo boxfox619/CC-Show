@@ -25,6 +25,7 @@ var current_idx = 0;
 var clearDoc;
 var sliderCleanItem;
 var sliderItemClick;
+var actionbarItemClick;
 
 $(function(){
   slide_html_list = new Array();
@@ -36,10 +37,30 @@ $(function(){
   $( ".slide-list" ).disableSelection();
   $( ".slide-list li" ).on('click', sliderItemClick);
   slide_html_list.push($('scanvas').html());
+
+  actionbarItemClick = function () {
+      var action = $(this).attr('action');
+      if (action == 'copy') {
+          var idx = slide_html_list.length;
+          var slide = $(this).parents('li').clone();
+          var slideHtml = slide_html_list[slide.attr('idx')].clone();
+          slide.attr('idx', idx);
+          slide.find('button').on('click', actionbarItemClick);
+          slide_html_list.push(slideHtml);
+          $(".slide-list").append(slide);
+      } else if (action == 'delete') {
+          var target = $(this).parents('li');
+          var idx = target.attr('idx');
+          slide_html_list.pop(idx);
+          $(".slide-list").remove(target);
+      }
+  };
+  $("slider > ul > li > .mdl-card .actionbar button").on('click', actionbarItemClick);
     
   $('slider .title .hide').on('click', function () {
       $(this).parents('slider').addClass('hide');
   });
+  viewSlide($(this).attr('idx'));
 });
 
 function getClearPPT(){

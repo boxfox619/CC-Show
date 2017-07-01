@@ -46,11 +46,11 @@ header {
 
 /* ----- slider ------ */
 slider {
-    position: absolute !important;
+    position: fixed !important;
     display: inline-block;
-    background-color: rgba(123, 231, 221, 0.3);
+    background-color: white;
     height: 100%;
-    width: 250px;
+    padding: 5px;
     padding-left: 40px;
     border: solid black 1px;
     overflow-y: scroll;
@@ -83,21 +83,44 @@ slider.hide {
         border: 2px solid #555555;
     }
 
-/* need show button */
+    slider > ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 10px;
+    }
+
+    slider > ul > li{
+        margin-bottom: 5px;
+    }
+
+        slider > ul > li > .mdl-card {
+            width: 200px;
+            min-height: 30px;
+            background-color: lightgray;
+        }
+
+            slider > ul > li > .mdl-card .preview {
+                height: 90px;
+                background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj_2LMyukGuSVuYytNDZCbk2O9KCeEenLv2a_1Xz3RGvX0E_KJNg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+        slider > ul > li > .mdl-card .actionbar {
+            background-color: white;
+            height: 30px;
+            display: inline-block;
+            text-align: right;
+            padding: 2px 0;
+        }
+            slider > ul > li > .mdl-card .actionbar .mdl-button.mdl-button--colored {
+                color: grey;
+            }
+
 slider .title {
-    background-color: rgba(123, 231, 221, 0.3);
     padding-left: 5px;
-    color: white;
-}
-
-slider>ul{
-    list-style-type: none;
-    padding:0;
-    margin: 5px;
-}
-
-slider>ul>li>.mdl-card{
-    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 slider .title .hide {
@@ -126,14 +149,6 @@ scanvas {
     width: 80%;
     margin: 10%;
     overflow: hidden;
-}#ass
-  -ms-transition: box-shadow 0.3s, color 0.3s 0.3s; /* IE10 is actually unprefixed */
-  -o-transition: box-shadow 0.3s, color 0.3s 0.3s;
-  transition: box-shadow 0.3s, color 0.3s 0.3s;
-  box-shadow: 0 0 0 0 inset,
-  0 0 0 grey,
-  0 0 0 grey inset;
-  color: rgba(0, 0, 0, 1);
 }
 
 .mdl-menu{
