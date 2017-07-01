@@ -1,5 +1,4 @@
 $(function(){
-  initializeTitleTextBar();
   initializeDragMouseEvent();
   assetRightClick();
 

@@ -21,7 +21,6 @@
 <div class="demo-layout-transparent mdl-layout mdl-js-layout">
 
   <header>
-    <div>
       <!-- Title -->
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable2">
         <div class="mdl-textfield__expandable-holder">
@@ -203,11 +202,15 @@
               </li>
           </ul>
           <ul class="bottom">
-              <li>t</li>
+              <li>
+                  <button onclick="$('slider').removeClass('hide')" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                      <i class="material-icons">slideshow</i>
+                  </button>
+              </li>
           </ul>
       </div>
 
-    <slider>
+    <slider class="hide">
         <div class="title">슬라이드<div class="hide"></div></div>
       <ul class="slide-list">
         <li idx="0">
@@ -222,7 +225,7 @@
         <scanvas>
 
         </scanvas>
-  </div>
+    </div>
 
       <div id="asset-context-menu" class="context-menu">
           <table>

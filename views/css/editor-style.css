@@ -10,14 +10,11 @@ main, body{
           background-color: lightgray;
 }
 
-header{
-  text-align: center;
-  background-color: rgba(255, 255, 255, 1) !important;
-  color: black !important;
-}
-
-header > div{
-  border-bottom: 1px solid black !important;
+header {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 1) !important;
+    color: black !important;
+    border-bottom: 1px solid black !important;
 }
 
 .mdl-textfield {
@@ -49,13 +46,12 @@ header > div{
 
 /* ----- slider ------ */
 slider {
-    position: fixed !important;
+    position: absolute !important;
     display: inline-block;
-    z-index: 99;
     background-color: rgba(123, 231, 221, 0.3);
     height: 100%;
     width: 250px;
-    bottom: 0;
+    padding-left: 40px;
     border: solid black 1px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -63,21 +59,45 @@ slider {
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
-    display: none;
 }
 
 slider.hide {
-    transform: translate(-500px,0);
-    -webkit-transform: translate(-500px,0);
-    -o-transform: translate(-500px,0);
-    -moz-transform: translate(-500px,0);
-}
+        transform: translate(-100%,0);
+        -webkit-transform: translate(-100%,0);
+        -o-transform: translate(-100%,0);
+        -moz-transform: translate(-100%,0);
+    }
+
+    slider::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+
+    slider::-webkit-scrollbar {
+        width: 10px;
+        background-color: #F5F5F5;
+    }
+
+    slider::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        border: 2px solid #555555;
+    }
 
 /* need show button */
 slider .title {
     background-color: rgba(123, 231, 221, 0.3);
     padding-left: 5px;
     color: white;
+}
+
+slider>ul{
+    list-style-type: none;
+    padding:0;
+    margin: 5px;
+}
+
+slider>ul>li>.mdl-card{
+    width: 100%;
 }
 
 slider .title .hide {
@@ -95,6 +115,7 @@ slider .title .hide {
     width: 100%;
     height: 100%;
     position: absolute;
+    z-index: -999;
 }
 
 scanvas {
@@ -131,8 +152,9 @@ scanvas {
     display: inline-block;
     float:left;
     background-color: white;
-    position: relative;
+    position: fixed;
     text-align: center;
+    z-index: 999;
 }
 
 #asset-creator ul{
