@@ -28,9 +28,9 @@ var sliderItemClick;
 var actionbarItemClick;
 
 $(function(){
-  slide_html_list = new Array();
-  sliderCleanItem = $( ".slide-list" ).children(0).clone();
-  $( '.slide-list li[idx="0"] div' ).addClass('is-selected');
+    slide_html_list = new Array();
+    sliderCleanItem = $(".slide-list").children(0).clone().removeClass('is-selected');
+    $('.slide-list li[idx="0"]').addClass('is-selected');
   sliderItemClick = function(){ viewSlide($(this).attr('idx')); };
   clearDoc = $('scanvas').clone();
   $( ".slide-list" ).sortable();
@@ -45,6 +45,7 @@ $(function(){
           var slide = $(this).parents('li').clone();
           var slideHtml = slide_html_list[slide.attr('idx')].clone();
           slide.attr('idx', idx);
+          slide.on('click', sliderItemClick);
           slide.find('button').on('click', actionbarItemClick);
           slide_html_list.push(slideHtml);
           $(".slide-list").append(slide);
@@ -60,7 +61,6 @@ $(function(){
   $('slider .title .hide').on('click', function () {
       $(this).parents('slider').addClass('hide');
   });
-  viewSlide($(this).attr('idx'));
 });
 
 function getClearPPT(){
@@ -75,9 +75,9 @@ function createSlide(){
   viewSlide(idx);
 }
 
-function viewSlide(idx){
-  $('.slide-list li .is-selected').removeClass('is-selected');
-  $('.slide-list li[idx="'+idx+'"] div').addClass('is-selected');
+function viewSlide(idx) {
+  $('.slide-list li.is-selected').removeClass('is-selected');
+  $('.slide-list li[idx="' + idx + '"]').addClass('is-selected');
   slide_html_list[current_idx] = $('scanvas').clone();
   $('scanvas').html(slide_html_list[idx].html());
   current_idx = idx;
