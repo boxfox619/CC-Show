@@ -173,6 +173,29 @@
         </header>
 
         <main class="mdl-layout__content">
+
+            <slider class="hide">
+                <div class="title">슬라이드<div class="hide"></div></div>
+                <ul class="slide-list">
+                    <li idx="0" class="is-selected">
+                        <div class="mdl-card mdl-shadow--2dp">
+                            <div class="preview"></div>
+                            <div class="actionbar">
+                                <button action="share" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                    <i class="material-icons">share</i>
+                                </button>
+                                <button action="copy" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                    <i class="material-icons">queue</i>
+                                </button>
+                                <button action="delete" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </slider>
+            <div class="controls">
             <div id="asset-creator">
                 <ul>
                     <li>
@@ -209,33 +232,16 @@
                     </li>
                 </ul>
             </div>
-
-            <slider class="hide">
-                <div class="title">슬라이드<div class="hide"></div></div>
-                <ul class="slide-list">
-                    <li idx="0" class="is-selected">
-                        <div class="mdl-card mdl-shadow--2dp">
-                            <div class="preview"></div>
-                            <div class="actionbar">
-                                <button action="share" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-                                    <i class="material-icons">share</i>
-                                </button>
-                                <button action="copy" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-                                    <i class="material-icons">queue</i>
-                                </button>
-                                <button action="delete" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-                                    <i class="material-icons">delete</i>
-                                </button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </slider>
             <div class="editor">
                 <scanvas>
 
                 </scanvas>
             </div>
+
+                <div id="asset-controller">
+
+                </div>
+                </div>
 
             <div id="asset-context-menu" class="context-menu">
                 <table>

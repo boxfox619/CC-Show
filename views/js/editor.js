@@ -52,8 +52,9 @@ $(function(){
       } else if (action == 'delete') {
           var slide = $(this).parents('li');
           var idx = slide.attr('idx');
-          slide_html_list[idx + '']=null;
+          slide_html_list[idx + ''] = null;
 
+          //view other slide
           var target = slide.next().attr('idx');
           if (target == undefined)
               target = slide.prev().attr('idx');
@@ -61,10 +62,10 @@ $(function(){
               createSlide();
           else
               viewSlide(target);
+
           slide.remove();
-
       } else if (action == 'share') {
-
+          //need server
       }
   };
   $("slider > ul > li > .mdl-card .actionbar button").on('click', actionbarItemClick);
