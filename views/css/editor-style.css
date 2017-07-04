@@ -232,6 +232,14 @@ main .controls{
     display: none;
 }
 
+.asset-controller{
+    display: none;
+}
+
+.asset-controller.on{
+    display: block;
+}
+
 asset {
     position: absolute !important;
     cursor: move;
@@ -270,11 +278,9 @@ input .selected {
 
 /* ----------- color picker ----------*/
 .color-picker {
-    height: 128px;
     width: 224px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.25);
-    background-color: #eee;
-    display: none;
+    position: relative;
+    display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
     transform-origin: bottom left;
@@ -439,10 +445,7 @@ input[type=color] {
 }
 
 .color-translate {
-    position: absolute;
-    z-index: 99;
-    left: 155px;
-    top: 36px;
+    position: relative;
 }
 
 

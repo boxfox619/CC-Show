@@ -39,55 +39,7 @@
             <!--
             <div class="mdl-layout__header-row">
 
-              <div id="text-designer" asset-type="text" class="controller">
-                <div id="text-align-controller" class="item radio-button-group">
-                  <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="text-align-left-toggle">
-                    <input type="checkbox" id="text-align-left-toggle" value="left" class="mdl-icon-toggle__input" checked>
-                    <i class="mdl-icon-toggle__label material-icons">format_align_left</i>
-                  </label>
-                  <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="text-align-center-toggle">
-                    <input type="checkbox" id="text-align-center-toggle" value="center" class="mdl-icon-toggle__input">
-                    <i class="mdl-icon-toggle__label material-icons">format_align_center</i>
-                  </label>
-                  <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="text-align-right-toggle">
-                    <input type="checkbox" id="text-align-right-toggle" value="right" class="mdl-icon-toggle__input">
-                    <i class="mdl-icon-toggle__label material-icons">format_align_right</i>
-                  </label>
-                </div>
-              <div class="item">
-                <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="font-bold-toggle">
-                  <input type="checkbox" id="font-bold-toggle" class="mdl-icon-toggle__input" checked>
-                  <i class="mdl-icon-toggle__label material-icons">format_bold</i>
-                </label>
-                <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="font-italic-toggle">
-                  <input type="checkbox" id="font-italic-toggle" class="mdl-icon-toggle__input">
-                  <i class="mdl-icon-toggle__label material-icons">format_italic</i>
-                </label>
-              </div>
-              <div class="item">
-                <span id="font-size-controller" class="mdl-chip mdl-chip--contact">
-                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons" >format_size</i></span>
-                  <span class="mdl-chip__text">15px</span>
-                </span>
-                <item-chooser class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="font-size-controller">
-                </item-chooser>
-              </div>
-                <div class="item">
-              <span id="font-family-controller" class="mdl-chip mdl-chip--contact">
-                <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons" >format_size</i></span>
-                <span class="mdl-chip__text">default</span>
-              </span>
-                <item-chooser id="font-chooser" class="mdl-menu  mdl-js-menu mdl-js-ripple-effect" for="font-family-controller">
-
-                </item-chooser>
-              </div>
-                <div class="item">
-              <span class="mdl-chip mdl-chip--contact color-pick">
-                <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons" >format_size</i></span>
-                <span class="mdl-chip__text">색깔</span>
-              </span>
-              </div>
-            </div>
+              
 
               <div id="video-designer" asset-type="video" class="controller">
                   <div class="item">
@@ -135,40 +87,6 @@
               </span>
             </div>
 
-              <div class="color-translate">
-                <div class="color-picker controller" data-value="#2196F3">
-                  <div class="red"></div>
-                  <div class="blue"></div>
-                  <div class="green"></div>
-                  <div class="indigo"></div>
-                  <div class="brown"></div>
-                  <div class="black"></div>
-                  <div class="teal"></div>
-                  <div class="deep-orange"></div>
-                  <div class="light-blue"></div>
-                  <div class="light-green"></div>
-                  <div class="deep-purple"></div>
-                  <div class="amber"></div>
-                  <div class="blue-gray"></div>
-                  <div class="pink"></div>
-                  <div class="orange"></div>
-                  <div class="cyan"></div>
-                  <div class="lime"></div>
-                  <div class="purple"></div>
-                  <div class="yellow"></div>
-                  <div class="gray"></div>
-                  <div class="white"></div>
-                  <div class="transparent"></div>
-                  <input type="color" id="color-input">
-                  <span class="hex">
-                    <input type="text" id="color-text">
-                    <div class="underline"></div>
-                  </span>
-                  <div id="color-picker-close">
-                    <i class="material-icons">close</i>
-                  </div>
-                </div>
-              </div>
             </div>-->
             <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
                 <input type="checkbox" id="asset-controller-toggle" class="mdl-icon-toggle__input" checked>
@@ -241,12 +159,89 @@
 
                 </scanvas>
             </div>
-
                 <div id="asset-controller">
+                    <div asset-type="text" class="asset-controller">
+                        <div id="text-align-controller" class="item radio-button-group">
+                            <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="text-align-left-toggle">
+                                <input type="checkbox" id="text-align-left-toggle" value="left" class="mdl-icon-toggle__input" checked>
+                                <i class="mdl-icon-toggle__label material-icons">format_align_left</i>
+                            </label>
+                            <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="text-align-center-toggle">
+                                <input type="checkbox" id="text-align-center-toggle" value="center" class="mdl-icon-toggle__input">
+                                <i class="mdl-icon-toggle__label material-icons">format_align_center</i>
+                            </label>
+                            <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="text-align-right-toggle">
+                                <input type="checkbox" id="text-align-right-toggle" value="right" class="mdl-icon-toggle__input">
+                                <i class="mdl-icon-toggle__label material-icons">format_align_right</i>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="font-bold-toggle">
+                                <input type="checkbox" id="font-bold-toggle" class="mdl-icon-toggle__input" checked>
+                                <i class="mdl-icon-toggle__label material-icons">format_bold</i>
+                            </label>
+                            <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="font-italic-toggle">
+                                <input type="checkbox" id="font-italic-toggle" class="mdl-icon-toggle__input">
+                                <i class="mdl-icon-toggle__label material-icons">format_italic</i>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <span id="font-size-controller" class="mdl-chip mdl-chip--contact">
+                                <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons">format_size</i></span>
+                                <span class="mdl-chip__text">15px</span>
+                            </span>
+                            <item-chooser class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="font-size-controller">
+                            </item-chooser>
+                        </div>
+                        <div class="item">
+                            <span id="font-family-controller" class="mdl-chip mdl-chip--contact">
+                                <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons">format_size</i></span>
+                                <span class="mdl-chip__text">default</span>
+                            </span>
+                            <item-chooser id="font-chooser" class="mdl-menu  mdl-js-menu mdl-js-ripple-effect" for="font-family-controller">
 
+                            </item-chooser>
+                        </div>
+                        <div class="item">
+                            <span class="mdl-chip mdl-chip--contact color-pick">
+                                <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><i class="material-icons">format_size</i></span>
+                                <span class="mdl-chip__text">색깔</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="color-translate">
+                        <div class="color-picker controller" style="display: inline-flex" data-value="#2196F3">
+                            <div class="red"></div>
+                            <div class="blue"></div>
+                            <div class="green"></div>
+                            <div class="indigo"></div>
+                            <div class="brown"></div>
+                            <div class="black"></div>
+                            <div class="teal"></div>
+                            <div class="deep-orange"></div>
+                            <div class="light-blue"></div>
+                            <div class="light-green"></div>
+                            <div class="deep-purple"></div>
+                            <div class="amber"></div>
+                            <div class="blue-gray"></div>
+                            <div class="pink"></div>
+                            <div class="orange"></div>
+                            <div class="cyan"></div>
+                            <div class="lime"></div>
+                            <div class="purple"></div>
+                            <div class="yellow"></div>
+                            <div class="gray"></div>
+                            <div class="white"></div>
+                            <div class="transparent"></div>
+                            <input type="color" id="color-input">
+                            <span class="hex">
+                                <input type="text" id="color-text">
+                                <div class="underline"></div>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                </div>
-
+            </div>
             <div id="asset-context-menu" class="context-menu">
                 <table>
                     <tr action="delete"><td></td><td>삭제(Remove)</td><td>ctrl + d</td></tr>
