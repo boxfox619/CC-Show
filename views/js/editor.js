@@ -121,9 +121,16 @@ document.createElement('asset');
   var func = function(){
     if($('.selected')!=null)
       $('.selected').text($(this).val());
-  }
+}
 
-
+  $('#asset-controller-toggle').on('change', function () {
+      if ($(this).prop('checked')) {
+          $('#asset-controller').removeClass('hide');
+      } else {
+          $('#asset-controller').addClass('hide');
+      }
+  });
+    
   /* ------------------------------------------
      ---------- font controller part ----------
      ------------------------------------------ */

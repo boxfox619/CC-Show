@@ -17,6 +17,10 @@ header {
     border-bottom: 1px solid black !important;
 }
 
+header .mdl-icon-toggle{
+    float: right;
+}
+
 .mdl-textfield__expandable-holder{
     margin-left: 0;
 }
@@ -222,6 +226,10 @@ main .controls{
     height: 100%;
     position: relative;
     background-color: white;
+}
+
+#asset-controller.hide{
+    display: none;
 }
 
 asset {
