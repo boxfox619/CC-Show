@@ -231,6 +231,11 @@ main .controls{
 #asset-controller.hide{
     display: none;
 }
+#asset-controller .item-title{
+    width: 100%;
+    padding-left: 3px;
+    border-bottom: 1px solid black;
+}
 
 .asset-controller{
     display: none;

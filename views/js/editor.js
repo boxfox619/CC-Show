@@ -343,7 +343,6 @@ $(function () {
       $('#text-field-text-preview').val($('.selected').text());
       $('#color-text').val(colorCode);
       $('#color-input').val(colorCode);
-      $('.color-pick .mdl-chip__text').text(colorCode);
     } else if (type=='video'){
       $('#video-attribute-controller').addClass('on');
       $('#video-url-controller').val('');
@@ -356,7 +355,6 @@ $(function () {
         }
         $('#color-text').val(colorCode);
         $('#color-input').val(colorCode);
-        $('.color-pick .mdl-chip__text').text(colorCode);
     }
 }
 
@@ -572,22 +570,17 @@ function viewController(controller){
 
 /* ---------- color picker ---------- */
 $('#color-text').val($('#color-input').val());
-$('.color-pick').find('.mdl-chip__text').on('change', function(){
-  var color = $(this).text();
-  if ($('.selected') != null) {
-      if ($('.selected').attr('type')=='text')
-          $('.selected').css('color', color);
-      else if ($('.selected').attr('type') == 'shape')
-          $('.selected').css('background-color', color);
-  }
-});
 
 $('#color-text').on('change', function() {
   $('#color-input').val($('#color-text').val());
   $('.color-picker').attr('data-value', $('#color-text').val());
-  var target = $('.color-pick').find('.mdl-chip__text');
-  target.text($(this).val());
-  target.trigger('change');
+  var color = $(this).val();
+  if ($('.selected') != null) {
+      if ($('.selected').attr('type') == 'text')
+          $('.selected').css('color', color);
+      else if ($('.selected').attr('type') == 'shape')
+          $('.selected').css('background-color', color);
+  }
 });
 
 $('#color-input').change(function() {
