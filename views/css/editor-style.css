@@ -17,11 +17,11 @@ header {
     border-bottom: 1px solid black !important;
 }
 
-header .mdl-icon-toggle{
-    float: right;
-}
+    header .mdl-icon-toggle {
+        float: right;
+    }
 
-.mdl-textfield__expandable-holder{
+.mdl-textfield__expandable-holder {
     margin-left: 0;
 }
 
@@ -168,7 +168,7 @@ slider .title {
 .editor {
     display: inline-block;
     height: 100%;
-    width:100%;
+    width: 100%;
     position: relative;
 }
 
