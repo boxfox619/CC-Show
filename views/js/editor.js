@@ -70,6 +70,12 @@ $(function () {
     });
 });
 
+function sliderFlip() {
+    if ($('slider').hasClass('hide'))
+        $('slider').removeClass('hide');
+    else $('slider').addClass('hide');
+}
+
 function getClearPPT() {
     var doc = $('scanvas').clone();
     return doc.html();

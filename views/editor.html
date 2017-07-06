@@ -26,22 +26,8 @@
                 <div class="mdl-textfield__expandable-holder">
                     <input class="mdl-textfield__input header-title" maxlength="18" value="Test_PPT_01">
                 </div>
-                <!-- Navigation -->
-                <!--
-                <nav class="mdl-navigation">
-                  <a class="mdl-layout__tab is-active" view="asset-creator">삽입</a>
-                  <a class="mdl-layout__tab" view="designer">디자인</a>
-                  <a class="mdl-layout__tab" onclick="createSlide()">test</a>
-                  <a class="mdl-layout__tab" onclick="viewSlidePreview()">Link</a>
-                </nav>
-                      -->
             </div>
-            <!--
-            <div class="mdl-layout__header-row">
-
-
-            </div>-->
-            <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
+            <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="asset-controller-toggle">
                 <input type="checkbox" id="asset-controller-toggle" class="mdl-icon-toggle__input" checked>
                 <i class="mdl-icon-toggle__label material-icons">menu</i>
             </label>
@@ -101,7 +87,7 @@
                     </ul>
                     <ul class="bottom">
                         <li>
-                            <button onclick="$('slider').removeClass('hide')" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                            <button onclick="sliderFlip()" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
                                 <i class="material-icons">slideshow</i>
                             </button>
                         </li>
