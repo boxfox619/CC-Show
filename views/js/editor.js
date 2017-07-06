@@ -309,7 +309,6 @@ $(function () {
             $('.selected').css('background-image', 'url("' + this.result + '")');
     };
     $('#image-input').on("change", function () {
-        console.log('test');
         fr.readAsDataURL($('#image-input').get(0).files[0]);
     });
     $('#image-chooser').on('click', function () {
@@ -369,9 +368,8 @@ function eventSelectItem(target) {
     }
 }
 
-function assetUpdate() {
+var assetUpdate = function() {
     if ($('.selected') != null) {
-        console.log($('.selected').css('height'));
         $('#asset-width').val($('.selected').css('width'));
         $('#asset-height').val($('.selected').css('height'));
         $('#asset-x').val($('.selected').css('left'));
@@ -406,8 +404,7 @@ function hexc(colorval) {
 
 /* ---------- drag & drop layout -----------*/
 
-var controlComponent, selectComponent;
-var moved;
+var controlComponent;
 var xInElement, yInElement;
 
 function initializeDragMouseEvent() {
@@ -420,7 +417,6 @@ function initializeDragMouseEvent() {
             xInElement = x;
             yInElement = y;
 
-            moved = true;
             controlComponent.css({ top: afterY, left: afterX, position: 'absolute' });
             assetUpdate();
         }
@@ -434,7 +430,11 @@ function initializeDragMouseEvent() {
     $('body').mousedown(function (e) {
         var target = $(e.target);
         $('.context-menu').hide();
-        if (target.parents('#asset-controller').length || target.parents('.context-menu').length || target.hasClass('controller') || !target.hasClass('move_control') && $('.selected').length && (target.hasClass('dragable-component') || target.parents('.dragable-component').length)) {
+        if (target.hasClass('ui-resizable-handle')) {
+            eventSelectItem(target.parents('asset').addClass('selected'));
+            return;
+        }
+        if (target.parents('#asset-controller').length || target.parents('.context-menu').length || target.hasClass('controller')) {
             return;
         }
         xInElement = e.pageX;
@@ -443,11 +443,6 @@ function initializeDragMouseEvent() {
         if (!$('.selected').is(target)) {
             videoAssetClear();
             $('.selected').removeClass('selected');
-        }
-
-        if (target.hasClass('move_control')) {
-            controlComponent = target.closest('.dragable-component');
-            e.preventDefault();
         }
 
         if (target.prop("tagName").toLowerCase() == 'asset') {
@@ -459,7 +454,6 @@ function initializeDragMouseEvent() {
             eventSelectItem(target);
         } else
             eventSelectItem(controlComponent);
-        moved = false;
     });
 
     $('body').on('dblclick', function (e) {
@@ -473,7 +467,7 @@ function initializeDragMouseEvent() {
                     target.text(input.val());
                     if (input.val().length > 0) {
                         input.replaceWith(target);
-                        target.resizable({ handles: 'n,s,e,w,ne,se,nw,sw' });
+                        target.resizable({ handles: 'n,s,e,w,ne,se,nw,sw', resize: assetUpdate });
                     }
                     else input.remove();
                 });
@@ -524,7 +518,7 @@ function createasset(type, attr) {
         asset.find('asset').css('background-position', 'center');
         $('#image-input').trigger('click');
     }
-    asset.find('asset').resizable({ handles: 'n,s,e,w,ne,se,nw,sw' });
+    asset.find('asset').resizable({ handles: 'n,s,e,w,ne,se,nw,sw', resize: assetUpdate });
     addasset(asset);
 }
 
@@ -574,7 +568,6 @@ function assetRightClick() {
 /* ---------- save -----------*/
 
 function save() {
-    $('scanvas').find('.dragable-component').remove();
     var editorHtml = $('scanvas').html();
 }
 
