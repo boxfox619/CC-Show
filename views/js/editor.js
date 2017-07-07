@@ -109,7 +109,7 @@ function viewSlidePreview() {
     target.find('asset').resizable({
         disabled: true
     });
-    myWindow.document.write('<html>' + $('head').append('<link rel="stylesheet" href="./css/viewer-style.css">').clone().wrapAll("<div/>").parent().html() + ("<body>") + target.html() + ("</body>") + '</html>');
+    myWindow.document.write('<html>' + $('head').clone().append('<link rel="stylesheet" href="./css/viewer-style.css"><script defer src="./js/slideshow.js"></script>').wrapAll("<div/>").parent().html() + ("<body>") + target.html() + ("</body>") + '</html>');
 }
 /* ------------------------------------------
    ---------- slider part end ----------
