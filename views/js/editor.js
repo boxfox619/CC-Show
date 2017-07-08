@@ -700,7 +700,7 @@ function saveToCloud() {
     $.ajax({
         type: "POST",
         url: '/show/upload',
-        data: { 'ShowCode': showCode, 'ShowData': slide_html_list.clearData() },
+        data: { 'showCode': showCode, 'showData': slide_html_list.clearData() },
         success: (arguments.length > 0) ? arguments[0] : (function () { }),
         error: (arguments.length > 1) ? arguments[1] : (function () { })
     });

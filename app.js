@@ -12,15 +12,12 @@ db.once('open', function(){
 
 mongoose.connect('mongodb://127.0.0.1:27017/ppt');
 
-var User = require('./models/user');
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var port = process.env.PORT || 8080;
 
-var router = require('./routes')(app, User);
-var router = require('./routes/assets')(app, User);
+var router = require('./routes')(app);
 
 var server = app.listen(port, function(){
  console.log("Express server has started on port " + port)
