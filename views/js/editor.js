@@ -65,6 +65,7 @@ SlideArray.prototype.clearData = function () {
     for (var i = 0; i < this.length; i++) {
         data.push({ 'name': this[i].name, 'html': this[i].clearHtml()});
     }
+    return data;
 }
 SlideArray.prototype.sort = function (orders) {
     for (var i = 0; i < orders.length; i++) {
@@ -128,11 +129,6 @@ function sliderFlip() {
     if ($('slider').hasClass('hide'))
         $('slider').removeClass('hide');
     else $('slider').addClass('hide');
-    var orders = new Array();
-    $('.slide-list li').each(function () {
-        orders.push($(this).attr('idx'));
-    });
-    slide_html_list.sort(orders);
 }
 
 function getClearPPT() {
@@ -621,12 +617,6 @@ function assetRightClick() {
     });
 }
 
-/* ---------- save -----------*/
-
-function save() {
-    var editorHtml = $('scanvas').html();
-}
-
 /* ---------- image toggle button util -----------*/
 function imageToggleButtonPropChange(id, val) {
     if (val)
@@ -640,8 +630,6 @@ function viewController(controller) {
     $('.asset-controller').removeClass('on');
     controller.addClass('on');
 }
-
-
 
 /* ---------- color picker ---------- */
 $('#color-text').val($('#color-input').val());
@@ -694,3 +682,36 @@ $('.color-picker > div:not(#close)').click(function () {
     $('#color-input').change();
 });
 
+/* ------------------------------------------
+   ---------- networking part ----------
+   ------------------------------------------ */
+
+/* ---------- save -----------*/
+var showCode;
+function saveToCloud() {
+    var orders = new Array();
+    $('.slide-list li').each(function () {
+        orders.push($(this).attr('idx'));
+    });
+    if (showCode == null) {
+        showCode = new Date().getTime();
+    }
+    slide_html_list.sort(orders);
+    $.ajax({
+        type: "POST",
+        url: '/show/upload',
+        data: { 'ShowCode': showCode, 'ShowData': slide_html_list.clearData() },
+        success: (arguments.length > 0) ? arguments[0] : (function () { }),
+        error: (arguments.length > 1) ? arguments[1] : (function () { })
+    });
+}
+
+function viewPreview() {
+    var err = fu
+    saveToCloud();
+
+}
+
+/* ------------------------------------------
+   ---------- networking part end ----------
+   ------------------------------------------ */
