@@ -48,14 +48,31 @@ function SlideArray() {
 SlideArray.prototype = new Array();
 SlideArray.prototype.constructor = SlideArray;
 SlideArray.prototype.getSlide = function (idx) {
-    for (var i = 0; i < slide_html_list.length; i++) {
-        if (slide_html_list[i].idx == idx)
+    for (var i = 0; i < this.length; i++) {
+        if (this[i].idx == idx)
             return slide_html_list[i];
     }
 }
 SlideArray.prototype.removeSlide = function (idx) {
-    var slide = this.getSlide(idx);
-    this.pop(slide);
+    for (var i = 0; i < this.length; i++) {
+        if (this[i].idx == idx) {
+            this.splice(i, 1);
+        }
+    }
+}
+SlideArray.prototype.clearData = function () {
+    var data = [];
+    for (var i = 0; i < this.length; i++) {
+        data.push({ 'name': this[i].name, 'html': this[i].clearHtml()});
+    }
+}
+SlideArray.prototype.sort = function (orders) {
+    for (var i = 0; i < orders.length; i++) {
+        var slide = this.getSlide(orders[i]);
+        var cloned = slide.clone();
+        this.removeSlide(orders[i]);
+        this.splice(i, 0, slide);
+    }
 }
 
 $(function () {
@@ -75,6 +92,7 @@ $(function () {
             var slideItem = $(this).parents('li').clone();
             var slideObject = slide_html_list.getSlide(slideItem.attr('idx')).clone();
             slideObject.idx = idx;
+            slideObject.name = 'TEST_PPT_' + idx;
             slideItem.attr('idx', idx);
             slideItem.on('click', sliderItemClick);
             slideItem.find('button').on('click', actionbarItemClick);
@@ -110,6 +128,11 @@ function sliderFlip() {
     if ($('slider').hasClass('hide'))
         $('slider').removeClass('hide');
     else $('slider').addClass('hide');
+    var orders = new Array();
+    $('.slide-list li').each(function () {
+        orders.push($(this).attr('idx'));
+    });
+    slide_html_list.sort(orders);
 }
 
 function getClearPPT() {
