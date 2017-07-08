@@ -23,12 +23,47 @@ var sliderItemClick;
 var actionbarItemClick;
 var slide_index = 0;
 
+function Slide() {
+    this.idx = arguments[0];
+    this.name = arguments[1];
+    if (arguments.length == 3)
+        this.scanvas = arguments[2].clone();
+    
+    this.clearHtml = function () {
+        var slideCanvas = this.scanvas.clone();
+        slideCanvas.find('asset').resizable({
+            disabled: true
+        });
+        return slideCanvas.html();
+    }
+    this.clone = function () {
+        var cloneObject = new Slide(this.idx, this.name, this.scanvas);
+        return cloneObject;
+    }
+}
+
+function SlideArray() {
+    Array.call(this);
+}
+SlideArray.prototype = new Array();
+SlideArray.prototype.constructor = SlideArray;
+SlideArray.prototype.getSlide = function (idx) {
+    for (var i = 0; i < slide_html_list.length; i++) {
+        if (slide_html_list[i].idx == idx)
+            return slide_html_list[i];
+    }
+}
+SlideArray.prototype.removeSlide = function (idx) {
+    var slide = this.getSlide(idx);
+    this.pop(slide);
+}
+
 $(function () {
-    slide_html_list = new Array();
+    slide_html_list = new SlideArray();
     sliderCleanItem = $(".slide-list").children(0).clone().removeClass('is-selected');
     sliderItemClick = function () { viewSlide($(this).attr('idx')); };
     clearDoc = $('scanvas').clone();
-    slide_html_list['0'] = ($('scanvas').clone());
+    slide_html_list.push(new Slide(0, 'Test_PPT_1', $('scanvas').clone()));
     $(".slide-list").sortable();
     $(".slide-list").disableSelection();
     $(".slide-list li").on('click', sliderItemClick);
@@ -37,18 +72,19 @@ $(function () {
         var action = $(this).attr('action');
         if (action == 'copy') {
             var idx = ++slide_index;
-            var slide = $(this).parents('li').clone();
-            var slideHtml = slide_html_list[slide.attr('idx') + ''].clone();
-            slide.attr('idx', idx);
-            slide.on('click', sliderItemClick);
-            slide.find('button').on('click', actionbarItemClick);
-            slide_html_list[idx + ''] = slideHtml;
-            $(".slide-list").append(slide);
+            var slideItem = $(this).parents('li').clone();
+            var slideObject = slide_html_list.getSlide(slideItem.attr('idx')).clone();
+            slideObject.idx = idx;
+            slideItem.attr('idx', idx);
+            slideItem.on('click', sliderItemClick);
+            slideItem.find('button').on('click', actionbarItemClick);
+            slide_html_list.push(slideObject);
+            $(".slide-list").append(slideItem);
+            viewSlide(idx);
         } else if (action == 'delete') {
             var slide = $(this).parents('li');
             var idx = slide.attr('idx');
-            slide_html_list[idx + ''] = null;
-
+            slide_html_list.removeSlide(idx);
             //view other slide
             var target = slide.next().attr('idx');
             if (target == undefined)
@@ -84,32 +120,29 @@ function getClearPPT() {
 function createSlide() {
     var idx = ++slide_index;
     $(".slide-list").append(sliderCleanItem.clone().attr('idx', idx).on('click', sliderItemClick));
-    slide_html_list['' + idx] = (clearDoc.clone());
+    slide_html_list.push(new Slide(idx, 'Test_Slide_'+slide_html_list.length, clearDoc.clone()));
     viewSlide(idx);
 }
 
 function viewSlide(idx) {
     $('.slide-list li.is-selected').removeClass('is-selected');
     $('.slide-list li[idx="' + idx + '"]').addClass('is-selected');
-    slide_html_list[current_idx + ''] = $('scanvas').clone();
-    $('scanvas').html(slide_html_list[idx + ''].html());
+    slide_html_list.getSlide(current_idx).scanvas = $('scanvas').clone();
+    $('scanvas').html(slide_html_list.getSlide(idx).scanvas.html());
     current_idx = idx;
 }
 
 function saveSlide() {
-    slide_html_list[current_idx] = $('scanvas').clone();
+    slide_html_list.getSlide(current_idx).scanvas = $('scanvas').clone();
 }
 
 /* ---------- slide controller end -----------*/
 
 function viewSlidePreview() {
     saveSlide();
-    var myWindow = window.open();
-    var target = slide_html_list[current_idx].clone();
-    target.find('asset').resizable({
-        disabled: true
-    });
-    myWindow.document.write('<html>' + $('head').clone().append('<link rel="stylesheet" href="./css/viewer-style.css"><script defer src="./js/slideshow.js"></script>').wrapAll("<div/>").parent().html() + ("<body>") + target.html() + ("</body>") + '</html>');
+    var myWindow = window.open('./preview.html', 'Preview', '');
+    myWindow.slide_html_list = slide_html_list;
+    myWindow.postMessage(slide_html_list[0], "*");
 }
 /* ------------------------------------------
    ---------- slider part end ----------
