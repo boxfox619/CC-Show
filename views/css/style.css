@@ -43,13 +43,23 @@ section .product-intro{
   margin: 10vh 0;
 }
 
+.feature-row{
+    margin: 15px 0;
+}
+
 .feature-row div{
     display: inline-block;
     text-align: center;
+    margin: 0 3px;
 }
 
 .feature-row div svg{
     display: block;
+    margin: auto;
+}
+
+.feature-row div .discriptiion{
+    display:block;
 }
 
 /**
