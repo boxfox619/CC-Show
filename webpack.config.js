@@ -22,12 +22,11 @@ module.exports = {
             loaders: [ //loader를 통해 es6, react js 형식을 일반 js형식으로 변환해줌
                 {
                     test: /\.js$/,
-                    loader: 'babel-loader',
-                    exclude: /node_modules/,
-                    query: {
+                    loader: ['react-hot-loader', 'babel-loader?' + JSON.stringify({
                         cacheDirectory: true,
                         presets: ['es2015', 'react']
-                    }
+                    })], //hot load가 되더라도 state를 유지시키기 위해 react hot loader 적용
+                    exclude: /node_modules/
                 }
             ]
         },
