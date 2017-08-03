@@ -1,5 +1,6 @@
 import React from 'react'
-import AssetCreateButton from './AssetCreateButton';
+import ClickableButton from './ClickableButton';
+import styles from './AssetCreator.css';
 
 
 class AssetCreator extends React.Component{
@@ -27,37 +28,43 @@ class AssetCreator extends React.Component{
   }
 
   render(){
-    defaultAssetTypeCreators = (data) => {
-      return data.map((assetType, i) =>{
-        return <AssetCreateButton AssetType={assetType} />
+    renderDefaultAssetCreators = (data) => {
+      return data.map((typeInfo, i) =>{
+        let onClick;
+        if(typeInfo.subTypes.length){
+          onClick = () => this.showDialog(typeInfo.subTypes);
+        }else{
+          onClick = ()=>this.createAsset(typeInfo.type);
+        }
+        return <ClickableButton icon={typeInfo.icon} onClick={onClick} />
       });
     };
     renderClickableItems = (data) =>{
       return data.map((item, i) => {
-        return <ClickableButton attribute={item} />
+        return <ClickableButton icon={item.icon} onClick={item.onClick}/>
       });
     };
     return (
       <div>
-      <div>
-      {defaultAssetTypeCreators(this.state.defaultAssetTypes)}
-      </div>
-      <div>
-      {}
-      </div>
+      <ul>
+      {renderDefaultAssetCreators(this.state.defaultAssetTypes)}
+      </ul>
+      <ul>
+      {renderClickableItems(this.state.defaultAssetTypes)}
+      </ul>
       </div>
     );
   }
 
-  showSlideController : function(){
+  showSlideController(){
     console.log('test');
   }
 
-  openAssetStore : function(){
+  openAssetStore(){
     console.log('test');
   }
 
-  showSlidePreview : function(){
+  showSlidePreview(){
     console.log('test');
   }
 
