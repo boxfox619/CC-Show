@@ -28,9 +28,9 @@ module.exports = {
                     })], //hot load가 되더라도 state를 유지시키기 위해 react hot loader 적용
                     exclude: /node_modules/
                 },
-                { //css loader
-                  test: /\.css$/,
-                  loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+                {
+                    test: /\.css$/,
+                    use: [ 'style-loader', 'css-loader' ]
                 }
             ]
         },

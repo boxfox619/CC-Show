@@ -2,29 +2,29 @@ import React from 'react';
 import ClickableButton from './clickable_button/ClickableButton';
 import styles from './AssetCreator.css';
 
-
 class AssetCreator extends React.Component{
+
   constructor(props){
     super(props);
-    this.state={
-      defaultAssetTypes: [
-        { type : 'Text', icon : 'text' },
-        { type : 'Image', icon : 'image' },
-        { type : 'Video', icon : 'video' },
-        { type : 'Shape', icon : 'shape',
-        subTypes: [
-          {type : 'Circle', displayName : '원'},
-          {type : 'Rectangle', displayName : '사각형'},
-          {type : 'Triangle', displayName : '삼각형'}
-        ]
-       },
-     ],
-     clickableItems: [
-       { icon : 'customAsset', onClick : this.openAssetStore},
-       { icon : 'slidePreview', onClick : this.showSlidePreview},
-       { icon : 'slideController', onClick : this.showSlideController}
-     ]
-    }
+
+      this.defaultAssetTypes = [
+          { type : 'Text', icon : 'text' },
+          { type : 'Image', icon : 'image' },
+          { type : 'Video', icon : 'video' },
+          { type : 'Shape', icon : 'shape',
+          subTypes: [
+            {type : 'Circle', displayName : '원'},
+            {type : 'Rectangle', displayName : '사각형'},
+            {type : 'Triangle', displayName : '삼각형'}
+          ]
+         }
+       ];
+
+       this.clickableItems = [
+         { icon : 'customAsset', onClick : this.openAssetStore},
+         { icon : 'slidePreview', onClick : this.showSlidePreview},
+         { icon : 'slideController', onClick : this.showSlideController}
+       ];
   }
 
   render(){
@@ -47,10 +47,10 @@ class AssetCreator extends React.Component{
     return (
       <div>
       <ul>
-      {renderDefaultAssetCreators(this.state.defaultAssetTypes)}
+      {renderDefaultAssetCreators(this.defaultAssetTypes)}
       </ul>
       <ul>
-      {renderClickableItems(this.state.clickableItems)}
+      {renderClickableItems(this.clickableItems)}
       </ul>
       </div>
     );
