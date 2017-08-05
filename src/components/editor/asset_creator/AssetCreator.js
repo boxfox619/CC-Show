@@ -1,5 +1,5 @@
-import React from 'react'
-import ClickableButton from './ClickableButton';
+import React from 'react';
+import ClickableButton from './clickable_button/ClickableButton';
 import styles from './AssetCreator.css';
 
 
@@ -13,8 +13,8 @@ class AssetCreator extends React.Component{
         { type : 'Video', icon : 'video' },
         { type : 'Shape', icon : 'shape',
         subTypes: [
-          {type : 'Circle', displayName : '원'}.
-          {type : 'Rectangle', displayName : '사각형'}.
+          {type : 'Circle', displayName : '원'},
+          {type : 'Rectangle', displayName : '사각형'},
           {type : 'Triangle', displayName : '삼각형'}
         ]
        },
@@ -28,20 +28,20 @@ class AssetCreator extends React.Component{
   }
 
   render(){
-    renderDefaultAssetCreators = (data) => {
+    let renderDefaultAssetCreators = (data, index) => {
       return data.map((typeInfo, i) =>{
         let onClick;
-        if(typeInfo.subTypes.length){
+        if(typeof typeInfo.subTypes != 'undefined'){
           onClick = () => this.showDialog(typeInfo.subTypes);
         }else{
           onClick = ()=>this.createAsset(typeInfo.type);
         }
-        return <ClickableButton icon={typeInfo.icon} onClick={onClick} />
+        return <ClickableButton key={index} icon={typeInfo.icon} onClick={onClick} />
       });
     };
-    renderClickableItems = (data) =>{
+    let renderClickableItems = (data, index) =>{
       return data.map((item, i) => {
-        return <ClickableButton icon={item.icon} onClick={item.onClick}/>
+        return <ClickableButton key={index} icon={item.icon} onClick={item.onClick}/>
       });
     };
     return (
@@ -50,7 +50,7 @@ class AssetCreator extends React.Component{
       {renderDefaultAssetCreators(this.state.defaultAssetTypes)}
       </ul>
       <ul>
-      {renderClickableItems(this.state.defaultAssetTypes)}
+      {renderClickableItems(this.state.clickableItems)}
       </ul>
       </div>
     );
@@ -66,6 +66,14 @@ class AssetCreator extends React.Component{
 
   showSlidePreview(){
     console.log('test');
+  }
+
+  showDialog(subTypes){
+    console.log(subTypes.length);
+  }
+
+  createAsset(type){
+    console.log(type);
   }
 
 }
