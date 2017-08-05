@@ -15,7 +15,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/ppt');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 var router = require('./routes')(app);
 
