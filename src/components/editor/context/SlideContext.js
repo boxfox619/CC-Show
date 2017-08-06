@@ -2,6 +2,10 @@ import React from 'react';
 import Asset from '../assets/Asset';
 import styles from './SlideContext.css';
 
+import store from '/store';
+
+import {connect} from 'react-redux';
+
 var SlideContext = React.createClass({
   constructor: function(props){
     constructor(props);
@@ -9,10 +13,7 @@ var SlideContext = React.createClass({
       attribute:{
         positionUnit: 'px', //위치 단위
         sizeUnit: 'px' //사이즈 단위
-      },
-      assets: [
-        {id: '1', type: 'text', value:'가나다라', width: 100, height: 100, x: 30, y: 20}
-      ]
+      }
     };
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -21,12 +22,12 @@ var SlideContext = React.createClass({
     render: function(){
       let assetsRendering = (assets) => {
         return data.map((assetData) =>{
-          return <Asset key={assetData.id} attribute={assetData} />
+          return <Asset attribute={assetData} />
         });
       };
       return (
-        <SlideContext onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove} className={styles.slideContext}>\
-        {assetsRendering(this.state.assets)}
+        <SlideContext onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove} className={styles.slideContext}>
+        {assetsRendering(store.getState().assets)}
         </SlideContext>
       );
     }
@@ -37,8 +38,8 @@ function handleMouseMove(){
 }
 
 function handleMouseDown(){
-
+  
 }
 
-
+SlideContext = connect(mapStateToProps)(SlideContext);
 export default SlideContext;
