@@ -2,11 +2,6 @@ import { reducers } from './reducers'
 import { createStore } as Redux from 'redux'
 
 const reduxStore = createStore(reducers);
-const subscribe: (callback) =>{
-  return reduxStore.subscribe(()=>{
-    callback();
-  });
-};
 
 const subscribe: (select,callback) =>{
   let prevState = select(reduxStore.getState());
