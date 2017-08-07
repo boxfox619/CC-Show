@@ -24,7 +24,8 @@ module.exports = {
                     test: /\.js$/,
                     loader: ['react-hot-loader', 'babel-loader?' + JSON.stringify({
                         cacheDirectory: true,
-                        presets: ['es2015', 'react']
+                        presets: ['es2015', 'react'],
+                        plugins: ["transform-object-rest-spread"]
                     })], //hot load가 되더라도 state를 유지시키기 위해 react hot loader 적용
                     exclude: /node_modules/
                 },

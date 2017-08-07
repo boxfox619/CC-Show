@@ -1,16 +1,21 @@
 import { reducers } from './reducers'
-import { createStore } as Redux from 'redux'
+import { createStore } from 'redux'
 
 const reduxStore = createStore(reducers);
 
-const subscribe: (select,callback) =>{
+const subscribe = function(select,callback){
   let prevState = select(reduxStore.getState());
   return reduxStore.subscribe(()=>{
-    if(prevState != select(reduxStore.getState()){
+    if(prevState != select(reduxStore.getState())){
       callback(select(reduxStore.getState()));
     }
   });
 };
 
-exports.subscribe subscribe;
-exports.default reduxStore;
+const dispatch = function(action){
+  store.dispatch(action);
+}
+
+exports.dispatch = dispatch;
+exports.subscribe = subscribe;
+export default store;
