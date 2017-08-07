@@ -1,54 +1,23 @@
 import React from 'react';
 import Asset from '../assets/Asset';
 import styles from './SlideContext.css';
+import { connect } from 'react-redux';
 
-import { setSizeUnit, setPositionUnit } from '../../../actions/slides'
-import { createAsset } from '../../../actions/assets'
-import { getState, dispatch, subscribe } from '../../../store';
+import * as slideActions from '../../../actions/slides'
+import * as assetsActions from '../../../actions/assets'
 
-class SlideContexts extends React.Component{
+class SlideContext extends React.Component{
   constructor(props){
     super(props);
-    this.state={
-      assets: getState().assets.assets
-    };
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
   }
 
-  componentWillMount(){
-    if(typeof getState().context === 'undefined'){
-      dispatch(setSizeUnit('px'));
-      dispatch(setPositionUnit('px'));
-    }
-  }
-
   componentDidMount(){
-    this.unSubscribe = subscribe(
-      (state)=>{return state.assets.assets},
-      (assets)=>{
-        this.setState({assets});
-      }
-    );
-
-    this.unSubscribeSlideContext = subscribe(
-      (state) => {return state.slideContext},
-      (slideContext) => {
-        //on unit change calculate % or px
-        //maybe put max width, height value in slideContext
-      }
-    );
-
-    //test code
-    dispatch(createAsset('text', 'https://www.google.co.kr/images/branding/googleg/1x/googleg_standard_color_128dp.png'));
-  }
-
-  componentWillUnmount(){
-    this.unSubscribe();
+    this.props.createAsset('text', 'https://www.google.co.kr/images/branding/googleg/1x/googleg_standard_color_128dp.png');
   }
 
     render(){
-      let currentAssets = this.state.assets;
       let renderingAssets = (assets) => {
         return assets.map((asset)=>{
           return <Asset key={asset.id} attribute={asset}/>
@@ -56,12 +25,13 @@ class SlideContexts extends React.Component{
       };
       return (
         <div id={'SlideContext'} onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove}>
-          {renderingAssets(this.state.assets)}
+          {renderingAssets(this.props.assets)}
         </div>
       );
     }
 
     handleMouseMove(e){
+
     }
 
     handleMouseDown(e){
@@ -69,4 +39,18 @@ class SlideContexts extends React.Component{
     }
 }
 
-export default SlideContexts;
+const mapStateToProps = (state) => {
+  return {
+    assets: state.assets.assets
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSizeUnit: (unit) => { dispatch(slideActions.setSizeUnit(unit))},
+    setPositionUnit: (unit) => { dispatch(slideActions.setPositionUnit(unit))},
+    createAsset: (type, value) => {dispatch(assetsActions.createAsset(type, value))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SlideContext);
