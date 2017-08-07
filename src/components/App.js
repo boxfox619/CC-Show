@@ -1,9 +1,10 @@
 import React from 'react'
+import SlideContext from './editor/context/SlideContext'
 
 class App extends React.Component{
   render(){
     return (
-      <h1>Hello CC Show!!!!!</h1>
+      <SlideContext/>
     );
   }
 
