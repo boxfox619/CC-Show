@@ -10,19 +10,27 @@ class Asset extends React.Component{
     }
 
   render(){
-    let value = this.props.attribute.value;
+      let assetTag;
     switch(this.props.attribute.type){
       case 'text':
-        return(<TextAsset styles={this.getStyle()} value={value}/>);
+        assetTag = TextAsset;
+        break;
       case 'image':
-        return(<ImageAsset styles={this.getStyle()} value={value}/>);
+        assetTag = ImageAsset;
+        break;
       case 'video':
-        return(<VideoAsset styles={this.getStyle()} value={value}/>);
+        assetTag = 'VideoAsset';
+        break;
       case 'shape':
-        return(<ShapeAsset styles={this.getStyle()} value={value}/>);
+        assetTag = 'ShapeAsset';
+        break;
       default:
-      return (<div>{value}</div>);
+        assetTag = 'TextAsset';
+        break;
     }
+    document.createElement('asset');
+    const AssetContext = assetTag;
+      return (<asest id={this.props.attribute.id}><AssetContext  styles={this.getStyle()} value={this.props.attribute.value}/></asest>);
   }
 
   getStyle(){

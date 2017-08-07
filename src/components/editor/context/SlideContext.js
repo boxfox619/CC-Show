@@ -40,7 +40,7 @@ class SlideContexts extends React.Component{
     );
 
     //test code
-    dispatch(createAsset('image', 'https://www.google.co.kr/images/branding/googleg/1x/googleg_standard_color_128dp.png'));
+    dispatch(createAsset('text', 'https://www.google.co.kr/images/branding/googleg/1x/googleg_standard_color_128dp.png'));
   }
 
   componentWillUnmount(){
@@ -55,18 +55,17 @@ class SlideContexts extends React.Component{
         })
       };
       return (
-        <div onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove}>
+        <div id={'SlideContext'} onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove}>
           {renderingAssets(this.state.assets)}
         </div>
       );
     }
 
-    handleMouseMove(){
-
+    handleMouseMove(e){
     }
 
-    handleMouseDown(){
-
+    handleMouseDown(e){
+      console.log(e.target.parentNode);
     }
 }
 

@@ -9,7 +9,6 @@ const propTypes = {
 class TextAsset extends React.Component{
 
   render() {
-    console.log('text asset rendering');
     return (
       <div style={this.props.styles}>
           {this.props.value}
