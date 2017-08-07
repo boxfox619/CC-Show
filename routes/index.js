@@ -5,5 +5,9 @@ module.exports = function (app) {
 
         res.end();
     });
+    app.get('/test', function(req, res){
+      console.log('asvasv');
+      res.end('asvav');
+    });
 
 }

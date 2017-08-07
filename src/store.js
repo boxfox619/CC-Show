@@ -19,3 +19,5 @@ export const dispatch = (action)=>{
 export const getState = ()=>{
   return store.getState();
 }
+
+export default store;

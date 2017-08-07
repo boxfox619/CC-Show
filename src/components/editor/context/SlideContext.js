@@ -2,6 +2,7 @@ import React from 'react';
 import Asset from '../assets/Asset';
 import styles from './SlideContext.css';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import * as slideActions from '../../../actions/slides'
 import * as assetsActions from '../../../actions/assets'
@@ -18,13 +19,16 @@ class SlideContext extends React.Component{
   }
 
     render(){
+      console.log('tesasc');
+      console.log(styles.slideContext);
       let renderingAssets = (assets) => {
         return assets.map((asset)=>{
+          console.log(asset);
           return <Asset key={asset.id} attribute={asset}/>
         })
       };
       return (
-        <div id={'SlideContext'} onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove}>
+        <div className={styles.slideContext} id={'SlideContext'} onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove}>
           {renderingAssets(this.props.assets)}
         </div>
       );
@@ -35,7 +39,12 @@ class SlideContext extends React.Component{
     }
 
     handleMouseDown(e){
-      console.log(e.target.parentNode);
+      if(e.target.parentNode.tagName==='asset'){
+        console.log(e.target.parentNode.id);
+          this.props.assetSelected(e.target.parentNode.id);
+      }else{
+        this.props.assetDeselected();
+      }
     }
 }
 
@@ -46,11 +55,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    setSizeUnit: (unit) => { dispatch(slideActions.setSizeUnit(unit))},
-    setPositionUnit: (unit) => { dispatch(slideActions.setPositionUnit(unit))},
-    createAsset: (type, value) => {dispatch(assetsActions.createAsset(type, value))}
-  }
+  return bindActionCreators(assetsActions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideContext);
