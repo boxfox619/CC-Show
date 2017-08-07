@@ -11,8 +11,9 @@ export const actionTypes = {
 };
 
 export const createAsset = (assetType, value) => {
+  console.log('CreateAsset type:'+assetType+'  value:'+value);
   return {
-    type: types.ASSET_CREATE,
+    type: actionTypes.ASSET_CREATE,
     assetType,
     value
   }

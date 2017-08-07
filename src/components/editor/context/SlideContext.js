@@ -1,60 +1,64 @@
 import React from 'react';
 import Asset from '../assets/Asset';
-import styles from './SlideContext.css';
 
 import { setSizeUnit, setPositionUnit } from '../../../actions/slides'
-import { store, dispatch, subscribe } from '../../../store';
+import { createAsset } from '../../../actions/assets'
+import { getState, dispatch, subscribe } from '../../../store';
 
-var SlideContext = React.createClass({
-  constructor: function(props){
-    constructor(props);
+class SlideContexts extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      assets: getState().assets.assets
+    };
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
-  },
+  }
 
-  componentWillMount: function(){
-    if(typeof store.getState().context === 'undefined'){
+  componentWillMount(){
+    if(typeof getState().context === 'undefined'){
       dispatch(setSizeUnit('px'));
       dispatch(setPositionUnit('px'));
     }
-    this.state.assets = store.getState().assets;
-  },
+  }
 
-  componentDidMount: function(){
+  componentDidMount(){
     this.unSubscribe = subscribe(
       (state)=>{return state.assets.assets},
       (assets)=>{
         if(Object.keys(assets).length!=Object.keys(this.state.assets).length){
-          this.state.setState({assets});
+          this.setState({assets});
         }
       }
     );
-  },
 
-  componentWillUnmount: function(){
+    //test code
+    dispatch(createAsset('text', 'value'));
+  }
+
+  componentWillUnmount(){
     this.unSubscribe();
-  },
+  }
 
-    render: function(){
-      let assetsRendering = (assets) => {
-        return data.map((assetData) =>{
-          return <Asset attribute={assetData} />
-        });
-      };
+    render(){
+      let currentAssets = this.state.assets;
       return (
-        <SlideContext onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove} className={styles.slideContext}>
-        {assetsRendering(this.state.assets)}
-        </SlideContext>
+        <div onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove}>
+          {Object.keys(currentAssets).map(function(key, index) {
+            return (<Asset key={key} attribute={currentAssets[key]} />);
+          })}
+        </div>
       );
     }
-});
 
-function handleMouseMove(){
+    handleMouseMove(){
 
+    }
+
+    handleMouseDown(){
+
+    }
 }
 
-function handleMouseDown(){
 
-}
-
-export default SlideContext;
+export default SlideContexts;

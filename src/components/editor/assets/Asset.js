@@ -5,43 +5,38 @@ import TextAsset from './TextAsset';
 
 import {subscribe} from '../../../store';
 
-React.propTypes.assetAttribute({
-  id: React.propTypes.string.isRequired,
-  type: React.propTypes.string.isRequired,
-  value: React.propTypes.string.isRequired,
-  width: React.propTypes.string.isRequired,
-  height: React.propTypes.string.isRequired,
-  left: React.propTypes.string.isRequired,
-  top: React.propTypes.string.isRequired,
-  styles: React.propTypes.object
-});
-
-const propTypes = {
-  attribute: React.propTypes.assetAttribute
-};
 
 class Asset extends React.Component{
+
   constructor(props){
     super(props);
+    this.state = {
+      id: props.attribute.id,
+        isSelected: false,
+        type: props.attribute.type,
+        width: props.attribute.width,
+        height: props.attribute.height,
+        left: props.attribute.left,
+        top: props.attribute.top,
+        value: props.attribute.value,
+        styles : props.attribute.styles
+    }
+
   }
 
   render(){
-    let targetElement;
     switch(this.props.attribute.type){
       case 'text':
-        targetElement = (<TextAsset styles={this.getStyle()} value={this.state.value}/>);
-      break;
+        return(<TextAsset styles={this.getStyle()} value={this.state.value}/>);
       case 'image':
-        targetElement = (<ImageAsset styles={this.getStyle()} value={this.state.value}/>);
-      break;
+        return(<ImageAsset styles={this.getStyle()} value={this.state.value}/>);
       case 'video':
-        targetElement = (<VideoAsset styles={this.getStyle()} value={this.state.value}/>);
-      break;
+        return(<VideoAsset styles={this.getStyle()} value={this.state.value}/>);
       case 'shape':
-        targetElement = (<ShapeAsset styles={this.getStyle()} value={this.state.value}/>);
-      break;
+        return(<ShapeAsset styles={this.getStyle()} value={this.state.value}/>);
+      default:
+      return (<div>{this.state.value}</div>);
     }
-    return {targetElement};
   }
 
   componentDidMount(){
@@ -61,7 +56,7 @@ class Asset extends React.Component{
       (state) => {return state.slideContext},
       (slideContext) => {
         //on unit change calculate % or px
-        //maybe put max width, height value in slideContext 
+        //maybe put max width, height value in slideContext
       }
     );
   }
@@ -82,7 +77,7 @@ class Asset extends React.Component{
         style[key] = this.state.styles[key];
       }
     }
-    return ;
+    return style;
   }
 }
 /*
@@ -100,6 +95,5 @@ class Asset extends React.Component{
 }
 */
 
-Asset.propTypes = propTypes;
 
 export default Asset;
