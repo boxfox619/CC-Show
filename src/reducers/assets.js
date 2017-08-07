@@ -3,7 +3,7 @@ import { getState } from '../store';
 
 const initialState = {
   assetIdCount: 0,
-  assets: {}
+  assets: []
 }
 
 const assets = (state = initialState, action) => {
@@ -14,8 +14,8 @@ const assets = (state = initialState, action) => {
       let currentId = state.assetIdCount+1;
       return {
         ...state,
-        assetIdCount: state.assetIdCount+1,
-        assets: {...assets, currentId : {
+        assetIdCount: currentId,
+        assets: [...assets, {
           id: currentId,
           type: action.assetType,
           value: action.value,
@@ -23,7 +23,7 @@ const assets = (state = initialState, action) => {
           width: '20'+sizeUnit,
           x: '0'+positionUnit,
           y: '0'+positionUnit
-        }}
+        }]
       }
     default:
       return state

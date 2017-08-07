@@ -1,5 +1,6 @@
 import React from 'react';
 import Asset from '../assets/Asset';
+import styles from './SlideContext.css';
 
 import { setSizeUnit, setPositionUnit } from '../../../actions/slides'
 import { createAsset } from '../../../actions/assets'
@@ -26,9 +27,15 @@ class SlideContexts extends React.Component{
     this.unSubscribe = subscribe(
       (state)=>{return state.assets.assets},
       (assets)=>{
-        if(Object.keys(assets).length!=Object.keys(this.state.assets).length){
-          this.setState({assets});
-        }
+        this.setState({assets});
+      }
+    );
+
+    this.unSubscribeSlideContext = subscribe(
+      (state) => {return state.slideContext},
+      (slideContext) => {
+        //on unit change calculate % or px
+        //maybe put max width, height value in slideContext
       }
     );
 
@@ -42,11 +49,14 @@ class SlideContexts extends React.Component{
 
     render(){
       let currentAssets = this.state.assets;
+      let renderingAssets = (assets) => {
+        return assets.map((asset)=>{
+          return <Asset key={asset.id} attribute={asset}/>
+        })
+      };
       return (
         <div onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove}>
-          {Object.keys(currentAssets).map(function(key, index) {
-            return (<Asset key={key} attribute={currentAssets[key]} />);
-          })}
+          {renderingAssets(this.state.assets)}
         </div>
       );
     }
@@ -59,6 +69,5 @@ class SlideContexts extends React.Component{
 
     }
 }
-
 
 export default SlideContexts;

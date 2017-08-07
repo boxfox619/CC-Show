@@ -1,80 +1,39 @@
 import React from 'react';
-import styles from './Assets.css';
 
 import TextAsset from './TextAsset';
-
-import {subscribe} from '../../../store';
-
 
 class Asset extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {
-      id: props.attribute.id,
-        isSelected: false,
-        type: props.attribute.type,
-        width: props.attribute.width,
-        height: props.attribute.height,
-        left: props.attribute.left,
-        top: props.attribute.top,
-        value: props.attribute.value,
-        styles : props.attribute.styles
     }
-
-  }
 
   render(){
+    let value = this.props.attribute.value;
     switch(this.props.attribute.type){
       case 'text':
-        return(<TextAsset styles={this.getStyle()} value={this.state.value}/>);
+        return(<TextAsset styles={this.getStyle()} value={value}/>);
       case 'image':
-        return(<ImageAsset styles={this.getStyle()} value={this.state.value}/>);
+        return(<ImageAsset styles={this.getStyle()} value={value}/>);
       case 'video':
-        return(<VideoAsset styles={this.getStyle()} value={this.state.value}/>);
+        return(<VideoAsset styles={this.getStyle()} value={value}/>);
       case 'shape':
-        return(<ShapeAsset styles={this.getStyle()} value={this.state.value}/>);
+        return(<ShapeAsset styles={this.getStyle()} value={value}/>);
       default:
-      return (<div>{this.state.value}</div>);
+      return (<div>{value}</div>);
     }
-  }
-
-  componentDidMount(){
-    this.unSubscribeAssetState = subscribe(
-      (state)=>{return state.assets[this.props.id]},
-      (assetAttribute)=>{
-        this.setState({
-          height: assetAttribute.height,
-          width: assetAttribute.width,
-          left: assetAttribute.left,
-          top: assetAttribute.top,
-          styles: assetAttribute.styles
-        });
-       }
-    );
-    this.unSubscribeSlideContext = subscribe(
-      (state) => {return state.slideContext},
-      (slideContext) => {
-        //on unit change calculate % or px
-        //maybe put max width, height value in slideContext
-      }
-    );
-  }
-
-  componentWillUnmount(){
-    this.unSubscribeAssetState();
   }
 
   getStyle(){
     let style = {
-      'height': this.state.height,
-      'width': this.state.width,
-      'left' : this.state.left,
-      'top' : this.state.top
+      'height': this.props.attribute.height,
+      'width': this.props.attribute.width,
+      'left' : this.props.attribute.left,
+      'top' : this.props.attribute.top
     };
-    if(this.state.styles != 'undefined'){
-      for (key in this.state.styles) {
-        style[key] = this.state.styles[key];
+    if(this.props.attribute.styles != 'undefined'){
+      for (key in this.props.attribute.styles) {
+        style[key] = this.props.attribute.styles[key];
       }
     }
     return style;

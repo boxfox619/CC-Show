@@ -6,16 +6,17 @@ const propTypes = {
   value: React.PropTypes.string.isRequired
 };
 
-const TextAsset = React.createClass({
+class TextAsset extends React.Component{
 
-  render: function() {
+  render() {
+    console.log('text asset rendering');
     return (
       <div style={this.props.styles}>
           {this.props.value}
       </div>
     )
   }
-});
+}
 
 TextAsset.propTypes = propTypes;
 
