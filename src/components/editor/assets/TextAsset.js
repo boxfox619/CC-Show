@@ -2,22 +2,20 @@ import React from 'react';
 import styles from './Assets.css';
 
 const propTypes = {
-  styles: React.propTypes.object.isRequired,
-  value: React.propTypes.string.isRequired
+  styles: React.PropTypes.object.isRequired,
+  value: React.PropTypes.string.isRequired
 };
 
-const TextAsset = React.createClass({
+class TextAsset extends React.Component{
 
-  render: function() {
+  render() {
     return (
-      <Asset style={this.props.styles}>
-        <Text>
-          this.props.value;
-        </Text>
-      </Asset>
+      <div style={this.props.styles}>
+          {this.props.value}
+      </div>
     )
   }
-});
+}
 
 TextAsset.propTypes = propTypes;
 

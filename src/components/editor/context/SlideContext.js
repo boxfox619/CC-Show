@@ -3,58 +3,70 @@ import Asset from '../assets/Asset';
 import styles from './SlideContext.css';
 
 import { setSizeUnit, setPositionUnit } from '../../../actions/slides'
-import { store, dispatch, subscribe } from '../../../store';
+import { createAsset } from '../../../actions/assets'
+import { getState, dispatch, subscribe } from '../../../store';
 
-var SlideContext = React.createClass({
-  constructor: function(props){
-    constructor(props);
+class SlideContexts extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      assets: getState().assets.assets
+    };
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
-  },
+  }
 
-  componentWillMount: function(){
-    if(typeof store.getState().context === 'undefined'){
+  componentWillMount(){
+    if(typeof getState().context === 'undefined'){
       dispatch(setSizeUnit('px'));
       dispatch(setPositionUnit('px'));
     }
-    this.state.assets = store.getState().assets;
-  },
+  }
 
-  componentDidMount: function(){
+  componentDidMount(){
     this.unSubscribe = subscribe(
       (state)=>{return state.assets.assets},
       (assets)=>{
-        if(Object.keys(assets).length!=Object.keys(this.state.assets).length){
-          this.state.setState({assets});
-        }
+        this.setState({assets});
       }
     );
-  },
 
-  componentWillUnmount: function(){
+    this.unSubscribeSlideContext = subscribe(
+      (state) => {return state.slideContext},
+      (slideContext) => {
+        //on unit change calculate % or px
+        //maybe put max width, height value in slideContext
+      }
+    );
+
+    //test code
+    dispatch(createAsset('text', 'https://www.google.co.kr/images/branding/googleg/1x/googleg_standard_color_128dp.png'));
+  }
+
+  componentWillUnmount(){
     this.unSubscribe();
-  },
+  }
 
-    render: function(){
-      let assetsRendering = (assets) => {
-        return data.map((assetData) =>{
-          return <Asset attribute={assetData} />
-        });
+    render(){
+      let currentAssets = this.state.assets;
+      let renderingAssets = (assets) => {
+        return assets.map((asset)=>{
+          return <Asset key={asset.id} attribute={asset}/>
+        })
       };
       return (
-        <SlideContext onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove} className={styles.slideContext}>
-        {assetsRendering(this.state.assets)}
-        </SlideContext>
+        <div id={'SlideContext'} onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove}>
+          {renderingAssets(this.state.assets)}
+        </div>
       );
     }
-});
 
-function handleMouseMove(){
+    handleMouseMove(e){
+    }
 
+    handleMouseDown(e){
+      console.log(e.target.parentNode);
+    }
 }
 
-function handleMouseDown(){
-
-}
-
-export default SlideContext;
+export default SlideContexts;

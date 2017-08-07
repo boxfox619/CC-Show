@@ -1,21 +1,22 @@
-import * as actionTypes from '../actions/assets';
+import { actionTypes } from '../actions/assets';
+import { getState } from '../store';
 
 const initialState = {
   assetIdCount: 0,
-  assets: {}
+  assets: []
 }
 
 const assets = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ASSET_CREATE:
-      let sizeUnit = state.context.sizeUnit;
-      let positionUnit = state.context.positionUnit;
-      var newArray = this.state.arr.slice();
-      newArray.push("new value");
+      let sizeUnit = getState().slideContext.sizeUnit;
+      let positionUnit = getState().slideContext.positionUnit;
+      let currentId = state.assetIdCount+1;
       return {
         ...state,
+        assetIdCount: currentId,
         assets: [...assets, {
-          id: ++assetIdCount+'',
+          id: currentId,
           type: action.assetType,
           value: action.value,
           height: '20'+sizeUnit,

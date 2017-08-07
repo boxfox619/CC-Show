@@ -1,88 +1,51 @@
 import React from 'react';
-import styles from './Assets.css';
 
 import TextAsset from './TextAsset';
-
-import {subscribe} from '../../../store';
-
-React.propTypes.assetAttribute({
-  id: React.propTypes.string.isRequired,
-  type: React.propTypes.string.isRequired,
-  value: React.propTypes.string.isRequired,
-  width: React.propTypes.string.isRequired,
-  height: React.propTypes.string.isRequired,
-  left: React.propTypes.string.isRequired,
-  top: React.propTypes.string.isRequired,
-  styles: React.propTypes.object
-});
-
-const propTypes = {
-  attribute: React.propTypes.assetAttribute
-};
+import ImageAsset from './ImageAsset';
 
 class Asset extends React.Component{
+
   constructor(props){
     super(props);
-  }
+    }
 
   render(){
-    let targetElement;
+      let assetTag;
     switch(this.props.attribute.type){
       case 'text':
-        targetElement = (<TextAsset styles={this.getStyle()} value={this.state.value}/>);
-      break;
+        assetTag = TextAsset;
+        break;
       case 'image':
-        targetElement = (<ImageAsset styles={this.getStyle()} value={this.state.value}/>);
-      break;
+        assetTag = ImageAsset;
+        break;
       case 'video':
-        targetElement = (<VideoAsset styles={this.getStyle()} value={this.state.value}/>);
-      break;
+        assetTag = 'VideoAsset';
+        break;
       case 'shape':
-        targetElement = (<ShapeAsset styles={this.getStyle()} value={this.state.value}/>);
-      break;
+        assetTag = 'ShapeAsset';
+        break;
+      default:
+        assetTag = 'TextAsset';
+        break;
     }
-    return {targetElement};
-  }
-
-  componentDidMount(){
-    this.unSubscribeAssetState = subscribe(
-      (state)=>{return state.assets[this.props.id]},
-      (assetAttribute)=>{
-        this.setState({
-          height: assetAttribute.height,
-          width: assetAttribute.width,
-          left: assetAttribute.left,
-          top: assetAttribute.top,
-          styles: assetAttribute.styles
-        });
-       }
-    );
-    this.unSubscribeSlideContext = subscribe(
-      (state) => {return state.slideContext},
-      (slideContext) => {
-        //on unit change calculate % or px
-        //maybe put max width, height value in slideContext 
-      }
-    );
-  }
-
-  componentWillUnmount(){
-    this.unSubscribeAssetState();
+    document.createElement('asset');
+    const AssetContext = assetTag;
+      return (<asest id={this.props.attribute.id}><AssetContext  styles={this.getStyle()} value={this.props.attribute.value}/></asest>);
   }
 
   getStyle(){
     let style = {
-      'height': this.state.height,
-      'width': this.state.width,
-      'left' : this.state.left,
-      'top' : this.state.top
+      'height': this.props.attribute.height,
+      'width': this.props.attribute.width,
+      'left' : this.props.attribute.left,
+      'top' : this.props.attribute.top
     };
-    if(this.state.styles != 'undefined'){
-      for (key in this.state.styles) {
-        style[key] = this.state.styles[key];
+    if(this.props.attribute.styles != 'undefined'){
+      for (key in this.props.attribute.styles) {
+        style[key] = this.props.attribute.styles[key];
       }
     }
-    return ;
+    return style;
   }
 }
 /*
@@ -100,6 +63,5 @@ class Asset extends React.Component{
 }
 */
 
-Asset.propTypes = propTypes;
 
 export default Asset;
