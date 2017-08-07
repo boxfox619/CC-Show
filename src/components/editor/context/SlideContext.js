@@ -40,7 +40,7 @@ class SlideContexts extends React.Component{
     );
 
     //test code
-    dispatch(createAsset('text', 'value'));
+    dispatch(createAsset('image', 'https://www.google.co.kr/images/branding/googleg/1x/googleg_standard_color_128dp.png'));
   }
 
   componentWillUnmount(){

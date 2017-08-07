@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TextAsset from './TextAsset';
+import ImageAsset from './ImageAsset';
 
 class Asset extends React.Component{
 
