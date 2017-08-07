@@ -1,31 +1,24 @@
 import React from 'react';
 import styles from './Assets.css';
 
-import {subscribe} from '/store';
+import TextAsset from './TextAsset';
 
-const propTypes: {
-  attribute: React.propTypes.assetAttribute({
-    id: React.propTypes.string.isRequired,
-    type: React.propTypes.string.isRequired,
-    value: React.propTypes.string.isRequired,
-    width: React.propTypes.string.isRequired,
-    height: React.propTypes.string.isRequired,
-    left: React.propTypes.string.isRequired,
-    top: React.propTypes.string.isRequired,
-    styles: React.propTypes.object
-  })
-}
+import {subscribe} from '../../../store';
 
-var AssetWrapper = React.createClass({
-    render: function(){
-      return (
-        <AssetWrapper>
-        {this.props.children}
-        </AssetWrapper>
-      );
-    }
+React.propTypes.assetAttribute({
+  id: React.propTypes.string.isRequired,
+  type: React.propTypes.string.isRequired,
+  value: React.propTypes.string.isRequired,
+  width: React.propTypes.string.isRequired,
+  height: React.propTypes.string.isRequired,
+  left: React.propTypes.string.isRequired,
+  top: React.propTypes.string.isRequired,
+  styles: React.propTypes.object
 });
 
+const propTypes = {
+  attribute: React.propTypes.assetAttribute
+};
 
 class Asset extends React.Component{
   constructor(props){
@@ -33,27 +26,26 @@ class Asset extends React.Component{
   }
 
   render(){
-    let style = getStyle();
     let targetElement;
     switch(this.props.attribute.type){
       case 'text':
-        targetElement = (<TextAsset styles={style} value={this.state.value}/>);
+        targetElement = (<TextAsset styles={this.getStyle()} value={this.state.value}/>);
       break;
       case 'image':
-        targetElement = (<ImageAsset styles={style} value={this.state.value}/>);
+        targetElement = (<ImageAsset styles={this.getStyle()} value={this.state.value}/>);
       break;
       case 'video':
-        targetElement = (<VideoAsset styles={style} value={this.state.value}/>);
+        targetElement = (<VideoAsset styles={this.getStyle()} value={this.state.value}/>);
       break;
       case 'shape':
-        targetElement = (<ShapeAsset styles={style} value={this.state.value}/>);
+        targetElement = (<ShapeAsset styles={this.getStyle()} value={this.state.value}/>);
       break;
     }
-    return <AssetWrapper>{targetElement}</AssetWrapper>;
+    return {targetElement};
   }
 
   componentDidMount(){
-    this.unSubscribe = subscribe(
+    this.unSubscribeAssetState = subscribe(
       (state)=>{return state.assets[this.props.id]},
       (assetAttribute)=>{
         this.setState({
@@ -64,11 +56,18 @@ class Asset extends React.Component{
           styles: assetAttribute.styles
         });
        }
-    )
+    );
+    this.unSubscribeSlideContext = subscribe(
+      (state) => {return state.slideContext},
+      (slideContext) => {
+        //on unit change calculate % or px
+        //maybe put max width, height value in slideContext 
+      }
+    );
   }
 
   componentWillUnmount(){
-    this.unSubscribe();
+    this.unSubscribeAssetState();
   }
 
   getStyle(){

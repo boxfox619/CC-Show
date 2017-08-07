@@ -2,21 +2,37 @@ import React from 'react';
 import Asset from '../assets/Asset';
 import styles from './SlideContext.css';
 
-import store from '/store';
-
-import {connect} from 'react-redux';
+import { setSizeUnit, setPositionUnit } from '../../../actions/slides'
+import { store, dispatch, subscribe } from '../../../store';
 
 var SlideContext = React.createClass({
   constructor: function(props){
     constructor(props);
-    this.state={
-      attribute:{
-        positionUnit: 'px', //위치 단위
-        sizeUnit: 'px' //사이즈 단위
-      }
-    };
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
+  },
+
+  componentWillMount: function(){
+    if(typeof store.getState().context === 'undefined'){
+      dispatch(setSizeUnit('px'));
+      dispatch(setPositionUnit('px'));
+    }
+    this.state.assets = store.getState().assets;
+  },
+
+  componentDidMount: function(){
+    this.unSubscribe = subscribe(
+      (state)=>{return state.assets.assets},
+      (assets)=>{
+        if(Object.keys(assets).length!=Object.keys(this.state.assets).length){
+          this.state.setState({assets});
+        }
+      }
+    );
+  },
+
+  componentWillUnmount: function(){
+    this.unSubscribe();
   },
 
     render: function(){
@@ -27,7 +43,7 @@ var SlideContext = React.createClass({
       };
       return (
         <SlideContext onMouseDown={this.handleMouseDown} onMouseMove={this.handleMouseMove} className={styles.slideContext}>
-        {assetsRendering(store.getState().assets)}
+        {assetsRendering(this.state.assets)}
         </SlideContext>
       );
     }
@@ -38,8 +54,7 @@ function handleMouseMove(){
 }
 
 function handleMouseDown(){
-  
+
 }
 
-SlideContext = connect(mapStateToProps)(SlideContext);
 export default SlideContext;
