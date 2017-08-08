@@ -36,35 +36,35 @@ export const assetDeselected = () => {
   }
 }
 
-export function setWidth() {
+export function setWidth(value) {
   return {
     type: actionTypes.ASSET_SET_WIDTH,
     value
   }
 }
 
-export function setHeight() {
+export function setHeight(value) {
   return {
     type: actionTypes.ASSET_SET_HEIGHT,
     value
   }
 }
 
-export function setX() {
+export function setX(value) {
   return {
     type: actionTypes.ASSET_SET_X_POSTION,
     value
   }
 }
 
-export function setY() {
+export function setY(value) {
   return {
     type: actionTypes.ASSET_Y_POSTION,
     value
   }
 }
 
-export function setAngle() {
+export function setAngle(value) {
   return {
     type: actionTypes.ASSET_SET_ANGLE,
     value
