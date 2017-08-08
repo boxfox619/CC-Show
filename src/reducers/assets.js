@@ -4,7 +4,6 @@ import {
 import {
   getState
 } from '../store';
-impo
 
 const initialState = {
   assetIdCount: 0,
