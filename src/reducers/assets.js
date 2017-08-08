@@ -37,7 +37,7 @@ const assets = (state = initialState, action) => {
         ...state,
         selectedAsset: action.assetId
       };
-    case actionTypes.MODIFY_WIDTH:
+    case actionTypes.ASSET_SET_WIDTH:
       let width = action.value;
       return {
         ...state,
@@ -45,7 +45,7 @@ const assets = (state = initialState, action) => {
           width: value
         }]
       }
-    case actionTypes.MODIFY_HEIGHT:
+    case actionTypes.ASSET_SET_HEIGHT:
      let height = action.value;
       return {
         ...state,
@@ -53,7 +53,7 @@ const assets = (state = initialState, action) => {
           height: height
         }]
       }
-    case actionTypes.MODIFY_X:
+    case actionTypes.ASSET_SET_X_POSTION:
      let x = action.value;
       return {
         ...state,
@@ -61,7 +61,7 @@ const assets = (state = initialState, action) => {
           x: x
         }]
       }
-    case actionTypes.MODIFY_Y:
+    case actionTypes.ASSET_SET_Y_POSTION:
      let y = action.value;
       return {
         ...state,
@@ -69,7 +69,7 @@ const assets = (state = initialState, action) => {
           y: y
         }]
       }
-    case actionTypes.MODIFY_ANGLE:
+    case actionTypes.ASSET_SET_ANGLE:
      let angle = action.value;
       return {
         ...state,

@@ -4,16 +4,14 @@ export const actionTypes = {
   ASSET_SET_WIDTH: "ASSET_SET_WIDTH",
   ASSET_SET_HEIGHT: "ASSET_SET_HEIGHT",
   ASSET_SET_VALUE: "ASSET_SET_VALUE",
+  ASSET_SET_X_POSTION: 'ASSET_SET_X_POSTION',
+  ASSET_Y_POSTION: 'ASSET_Y_POSTION',
+  ASSET_SET_ANGLE: 'ASSET_SET_ANGLE'
   ASSET_SET_BORDER_COLOR: "ASSET_SET_BORDER_COLOR",
   ASSET_SET_BORDER_WIDTH: "ASSET_SET_BORDER_WIDTH",
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
   ASSET_CREATE: "ASSET_CREATE",
   ASSET_SELECTED: "ASSET_SELECTED",
-  MODIFY_WIDTH: 'MODIFY_WIDTH',
-  MODIFY_HEIGHT: 'MODIFY_HEIGHT',
-  MODIFY_X: 'MODIFY_X',
-  MODIFY_Y: 'MODIFY_Y',
-  MODIFY_ANGLE: 'MODIFY_ANGLE'
 };
 
 export const createAsset = (assetType, value) => {
@@ -38,37 +36,37 @@ export const assetDeselected = () => {
   }
 }
 
-export function modifyWidth() {
+export function setWidth() {
   return {
-    type: actionTypes.MODIFY_WIDTH,
+    type: actionTypes.ASSET_SET_WIDTH,
     value
   }
 }
 
-export function modifyHeight() {
+export function setHeight() {
   return {
-    type: actionTypes.MODIFY_HEIGHT,
+    type: actionTypes.ASSET_SET_HEIGHT,
     value
   }
 }
 
-export function modifyX() {
+export function setX() {
   return {
-    type: actionTypes.MODIFY_X,
+    type: actionTypes.ASSET_SET_X_POSTION,
     value
   }
 }
 
-export function modifyY() {
+export function setY() {
   return {
-    type: actionTypes.MODIFY_Y,
+    type: actionTypes.ASSET_Y_POSTION,
     value
   }
 }
 
-export function modifyAngle() {
+export function setAngle() {
   return {
-    type: actionTypes.MODIFY_ANGLE,
+    type: actionTypes.ASSET_SET_ANGLE,
     value
   }
 }
