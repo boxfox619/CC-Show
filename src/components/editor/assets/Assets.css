@@ -3,5 +3,19 @@
 }
 
 .textAsset{
-  
+
+}
+
+.asset {
+  background-color: white;
+  display:block;
+  margin:0;
+  padding:0;
+  border:0;
+}
+
+.isSelected{
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
 }

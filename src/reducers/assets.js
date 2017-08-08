@@ -3,10 +3,12 @@ import { getState } from '../store';
 
 const initialState = {
   assetIdCount: 0,
+  selectedAsset: undefined,
   assets: []
 }
 
 const assets = (state = initialState, action) => {
+  console.log(action.type);
   switch (action.type) {
     case actionTypes.ASSET_CREATE:
       let sizeUnit = getState().slideContext.sizeUnit;
@@ -25,6 +27,11 @@ const assets = (state = initialState, action) => {
           y: '0'+positionUnit
         }]
       }
+    case actionTypes.ASSET_SELECTED:
+      return {
+        ...state,
+        selectedAsset : action.assetId
+      };
     default:
       return state
   }

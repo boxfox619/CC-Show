@@ -1,7 +1,18 @@
 import React from 'react';
 
+import styles from './Assets.css';
+
 import TextAsset from './TextAsset';
 import ImageAsset from './ImageAsset';
+
+const propTypes = {
+  attribute: React.PropTypes.object,
+  isSelected: React.PropTypes.bool
+}
+
+const defaultProps = {
+  isSelected: false
+}
 
 class Asset extends React.Component{
 
@@ -30,7 +41,10 @@ class Asset extends React.Component{
     }
     document.createElement('asset');
     const AssetContext = assetTag;
-      return (<asest id={this.props.attribute.id}><AssetContext  styles={this.getStyle()} value={this.props.attribute.value}/></asest>);
+    console.log(this.props.isSelected);
+      return (<asest id={this.props.attribute.id} className={styles.asset+((this.props.isSelected)?' is-selected':'')}>
+        <AssetContext  styles={this.getStyle()} value={this.props.attribute.value}/>
+      </asest>);
   }
 
   getStyle(){
@@ -48,6 +62,9 @@ class Asset extends React.Component{
     return style;
   }
 }
+
+Asset.propTypes = propTypes;
+Asset.defaultProps = defaultProps;
 /*
 { id: '123',
   isSelected: false,
