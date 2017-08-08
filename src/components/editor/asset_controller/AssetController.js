@@ -1,5 +1,13 @@
 import React from 'react';
 
+let asset_attribute={
+    width : 20,
+    height : 20,
+    x,
+    y,
+    angle
+};
+
 class AssetController extends React.Component {
     constructor(prop) {
         super(prop);
@@ -7,16 +15,31 @@ class AssetController extends React.Component {
             type: this.props.assetType
         }
     }
+
+    checkType(){
+
+    }
+
     render() {
-        if(this.state.type=='Text'){
-            return (
-                <TextController/>
-            );
-        }else{
-            return(
-                <VideoController/>
-            );
-        }
+        
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        width : state.assetAttribute.width,
+        height : state.assetAttribute.height,
+        x_location : state.assetAttribute.x,
+        y_location : state.assetAttribute.y,
+        angle : state.assetAttribute.angle
+    }
+}
+
+const mapDispathchToProps = (dispatch) =>  {
+    return {
+        handleText : () => {dispatch(actions.text())},
+        handleVideo : () => {dispatch(actions.Video())},
+        handleShape : () => {dispatch(actions.Shape())},
     }
 }
 //         text_sort : [ 
