@@ -4,7 +4,6 @@ import {
 import {
   getState
 } from '../store';
-impo
 
 const initialState = {
   assetIdCount: 0,
@@ -39,45 +38,44 @@ const assets = (state = initialState, action) => {
       };
     case actionTypes.ASSET_SET_WIDTH:
       let width = action.value;
-      return {
-        ...state,
-        assets: [...assets, {
-          width: value
-        }]
-      }
+      let assetId = state.selectedAsset;
+      return update(state, {
+        assets: {
+          assetId: {width: {$set: action.value}}
+        }
+      });
     case actionTypes.ASSET_SET_HEIGHT:
-     let height = action.value;
-      return {
-        ...state,
-        assets: [...assets, {
-          height: height
-        }]
-      }
+      let height = action.value;
+      let assetId = state.selectedAsset;
+      return update(state, {
+        assets: {
+          assetId: {width: {$set: height}}
+        }
+      });
     case actionTypes.ASSET_SET_X_POSTION:
-     let x = action.value;
-      return {
-        ...state,
-        assets: [...assets, {
-          x: x
-        }]
-      }
+      let x = action.value;
+      let assetId = state.selectedAsset;
+      return update(state, {
+        assets: {
+          assetId: {width: {$set: x}}
+        }
+      });
     case actionTypes.ASSET_SET_Y_POSTION:
-     let y = action.value;
-      return {
-        ...state,
-        assets: [...assets, {
-          y: y
-        }]
-      }
+      let y = action.value;
+      let assetId = state.selectedAsset;
+      return update(state, {
+        assets: {
+          assetId: {width: {$set: y}}
+        }
+      });
     case actionTypes.ASSET_SET_ANGLE:
-     let angle = action.value;
-      return {
-        ...state,
-        assets: [...assets, {
-          angle:angle
-        }]
-
-      }
+      let angle = action.value;
+      let assetId = state.selectedAsset;
+      return update(state, {
+        assets: {
+          assetId: {angle: {$set: angle}}
+        }
+      });
     default:
       return state;
   }
