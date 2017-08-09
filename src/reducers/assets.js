@@ -1,5 +1,16 @@
-import { actionTypes } from '../actions/assets';
-import { getState } from '../store';
+import {
+  actionTypes
+} from '../actions/assets';
+import {
+  getState
+} from '../store'; ===
+=== =
+import {
+  actionTypes
+} from '../actions/assets';
+import {
+  getState
+} from '../store';
 import update from 'react-addons-update';
 
 const initialState = {
@@ -18,8 +29,8 @@ const assets = (state = initialState, action) => {
         ...state,
         assetIdCount: currentId,
         assets: update(
-              state.assets,
-              { $push: [{
+          state.assets, {
+            $push: [{
               id: currentId,
               type: action.assetType,
               value: action.value,
@@ -43,8 +54,7 @@ const assets = (state = initialState, action) => {
                   [getAssetIndex(state, state.assetIdCount)]: {
                     width: { $set: parseInt(action.value)+getState().slideContext.sizeUnit }
                   }
-              })
-      }
+              })      }
     case actionTypes.ASSET_SET_HEIGHT:
       return {
         ...state,
@@ -89,22 +99,23 @@ const assets = (state = initialState, action) => {
     case actionTypes.ASSET_SET_ANGLE:
       return {
         ...state,
-        assets: update( state.assets,
-              {
-                  [getAssetIndex(state, state.assetIdCount)]: {
-                    angle: { $set: action.value }
-                  }
-              })
+        assets: update(state.assets, {
+          [getAssetIndex(state, state.assetIdCount)]: {
+            angle: {
+              $set: action.value
+            }
+          }
+        })
       }
     default:
       return state;
   }
 }
 
-function getAssetIndex(state, key){
+function getAssetIndex(state, key) {
   let index = -1;
-  state.assets.forEach( function( asset, i ){
-    if( asset.id === key ){
+  state.assets.forEach(function (asset, i) {
+    if (asset.id === key) {
       index = i;
     }
   });
