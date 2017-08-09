@@ -5,7 +5,8 @@ export const actionTypes = {
   ASSET_SET_HEIGHT: "ASSET_SET_HEIGHT",
   ASSET_SET_VALUE: "ASSET_SET_VALUE",
   ASSET_SET_X_POSTION: 'ASSET_SET_X_POSTION',
-  ASSET_Y_POSTION: 'ASSET_Y_POSTION',
+  ASSET_SET_Y_POSTION: 'ASSET_Y_POSTION',
+  ASSET_SET_BOTH_POSTION: 'ASSET_BOTH_POSTION',
   ASSET_SET_ANGLE: 'ASSET_SET_ANGLE',
   ASSET_SET_BORDER_COLOR: "ASSET_SET_BORDER_COLOR",
   ASSET_SET_BORDER_WIDTH: "ASSET_SET_BORDER_WIDTH",
@@ -36,35 +37,43 @@ export const assetDeselected = () => {
   }
 }
 
-export function setWidth(value) {
+export function setAssetWidth(value) {
   return {
     type: actionTypes.ASSET_SET_WIDTH,
     value
   }
 }
 
-export function setHeight(value) {
+export function setAssetHeight(value) {
   return {
     type: actionTypes.ASSET_SET_HEIGHT,
     value
   }
 }
 
-export function setX(value) {
+export function setAssetX(value) {
   return {
     type: actionTypes.ASSET_SET_X_POSTION,
     value
   }
 }
 
-export function setY(value) {
+export function setAssetY(value) {
   return {
-    type: actionTypes.ASSET_Y_POSTION,
+    type: actionTypes.ASSET_SET_Y_POSTION,
     value
   }
 }
 
-export function setAngle(value) {
+export const setAssetXY = (x, y) =>{
+  return {
+    type: actionTypes.ASSET_SET_BOTH_POSTION,
+    x,
+    y
+  }
+}
+
+export function setAssetAngle(value) {
   return {
     type: actionTypes.ASSET_SET_ANGLE,
     value

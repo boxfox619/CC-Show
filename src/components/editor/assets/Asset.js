@@ -41,8 +41,8 @@ class Asset extends React.Component{
     }
     document.createElement('asset');
     const AssetContext = assetTag;
-      return (<asset id={this.props.attribute.id} className={styles.asset+((this.props.isSelected)?' '+styles.isSelected:'')}>
-        <AssetContext styles={this.getStyle()} value={this.props.attribute.value}/>
+      return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset+((this.props.isSelected)?' '+styles.isSelected:'')}>
+        <AssetContext value={this.props.attribute.value}/>
       </asset>);
   }
 
@@ -50,8 +50,8 @@ class Asset extends React.Component{
     let style = {
       'height': this.props.attribute.height,
       'width': this.props.attribute.width,
-      'left' : this.props.attribute.left,
-      'top' : this.props.attribute.top
+      'left' : this.props.attribute.x,
+      'top' : this.props.attribute.y
     };
     if(this.props.attribute.styles != 'undefined'){
       for (key in this.props.attribute.styles) {

@@ -7,8 +7,10 @@
 }
 
 .asset {
-  background-color: white;
-  display:block;
+  position: absolute !important;
+  overflow: hidden;
+  cursor: move;
+  display: inline-block;
   margin:0;
   padding:0;
   border:0;

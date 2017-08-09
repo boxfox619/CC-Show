@@ -41,7 +41,7 @@ const assets = (state = initialState, action) => {
         assets: update( state.assets,
               {
                   [getAssetIndex(state, state.assetIdCount)]: {
-                    width: { $set: action.value }
+                    width: { $set: parseInt(action.value)+getState().slideContext.sizeUnit }
                   }
               })
       }
@@ -51,7 +51,7 @@ const assets = (state = initialState, action) => {
         assets: update( state.assets,
               {
                   [getAssetIndex(state, state.assetIdCount)]: {
-                    height: { $set: action.value }
+                    height: { $set: parseInt(action.value)+getState().slideContext.sizeUnit }
                   }
               })
       }
@@ -61,7 +61,7 @@ const assets = (state = initialState, action) => {
         assets: update( state.assets,
               {
                   [getAssetIndex(state, state.assetIdCount)]: {
-                    x: { $set: action.value }
+                    x: { $set: parseInt(action.value)+getState().slideContext.positionUnit }
                   }
               })
       }
@@ -71,7 +71,18 @@ const assets = (state = initialState, action) => {
         assets: update( state.assets,
               {
                   [getAssetIndex(state, state.assetIdCount)]: {
-                    y: { $set: action.value }
+                    y: { $set: parseInt(action.value)+getState().slideContext.positionUnit }
+                  }
+              })
+      }
+    case actionTypes.ASSET_SET_BOTH_POSTION:
+      return {
+        ...state,
+        assets: update( state.assets,
+              {
+                  [getAssetIndex(state, state.assetIdCount)]: {
+                    x: { $set: parseInt(action.x)+getState().slideContext.positionUnit },
+                    y: { $set: parseInt(action.y)+getState().slideContext.positionUnit }
                   }
               })
       }
