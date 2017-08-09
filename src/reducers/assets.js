@@ -3,7 +3,15 @@ import {
 } from '../actions/assets';
 import {
   getState
+} from '../store'; ===
+=== =
+import {
+  actionTypes
+} from '../actions/assets';
+import {
+  getState
 } from '../store';
+import update from 'react-addons-update';
 
 const initialState = {
   assetIdCount: 0,
@@ -12,7 +20,6 @@ const initialState = {
 }
 
 const assets = (state = initialState, action) => {
-  console.log(action.type);
   switch (action.type) {
     case actionTypes.ASSET_CREATE:
       let sizeUnit = getState().slideContext.sizeUnit;
@@ -21,15 +28,18 @@ const assets = (state = initialState, action) => {
       return {
         ...state,
         assetIdCount: currentId,
-        assets: [...assets, {
-          id: currentId,
-          type: action.assetType,
-          value: action.value,
-          height: '20' + sizeUnit,
-          width: '20' + sizeUnit,
-          x: '0' + positionUnit,
-          y: '0' + positionUnit
-        }]
+        assets: update(
+          state.assets, {
+            $push: [{
+              id: currentId,
+              type: action.assetType,
+              value: action.value,
+              height: '20' + sizeUnit,
+              width: '20' + sizeUnit,
+              x: '0' + positionUnit,
+              y: '0' + positionUnit
+            }]
+          })
       };
     case actionTypes.ASSET_SELECTED:
       return {
@@ -37,48 +47,73 @@ const assets = (state = initialState, action) => {
         selectedAsset: action.assetId
       };
     case actionTypes.ASSET_SET_WIDTH:
-      let width = action.value;
-      let assetId = state.selectedAsset;
-      return update(state, {
-        assets: {
-          assetId: {width: {$set: action.value}}
-        }
-      });
+      return {
+        ...state,
+        assets: update(state.assets, {
+          [getAssetIndex(state, state.assetIdCount)]: {
+            width: {
+              $set: action.value
+            }
+          }
+        })
+      }
     case actionTypes.ASSET_SET_HEIGHT:
-      let height = action.value;
-      let assetId = state.selectedAsset;
-      return update(state, {
-        assets: {
-          assetId: {width: {$set: height}}
-        }
-      });
+      return {
+        ...state,
+        assets: update(state.assets, {
+          [getAssetIndex(state, state.assetIdCount)]: {
+            height: {
+              $set: action.value
+            }
+          }
+        })
+      }
     case actionTypes.ASSET_SET_X_POSTION:
-      let x = action.value;
-      let assetId = state.selectedAsset;
-      return update(state, {
-        assets: {
-          assetId: {width: {$set: x}}
-        }
-      });
+      return {
+        ...state,
+        assets: update(state.assets, {
+          [getAssetIndex(state, state.assetIdCount)]: {
+            x: {
+              $set: action.value
+            }
+          }
+        })
+      }
     case actionTypes.ASSET_SET_Y_POSTION:
-      let y = action.value;
-      let assetId = state.selectedAsset;
-      return update(state, {
-        assets: {
-          assetId: {width: {$set: y}}
-        }
-      });
+      return {
+        ...state,
+        assets: update(state.assets, {
+          [getAssetIndex(state, state.assetIdCount)]: {
+            y: {
+              $set: action.value
+            }
+          }
+        })
+      }
     case actionTypes.ASSET_SET_ANGLE:
-      let angle = action.value;
-      let assetId = state.selectedAsset;
-      return update(state, {
-        assets: {
-          assetId: {angle: {$set: angle}}
-        }
-      });
+      return {
+        ...state,
+        assets: update(state.assets, {
+          [getAssetIndex(state, state.assetIdCount)]: {
+            angle: {
+              $set: action.value
+            }
+          }
+        })
+      }
     default:
       return state;
   }
+}
+
+function getAssetIndex(state, key) {
+  let index = -1;
+  state.assets.forEach(function (asset, i) {
+    if (asset.id === key) {
+      index = i;
+    }
+  });
+  return index;
 }
 
 export default assets

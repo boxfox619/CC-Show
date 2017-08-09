@@ -6,12 +6,12 @@ export const actionTypes = {
   ASSET_SET_VALUE: "ASSET_SET_VALUE",
   ASSET_SET_X_POSTION: 'ASSET_SET_X_POSTION',
   ASSET_Y_POSTION: 'ASSET_Y_POSTION',
-  ASSET_SET_ANGLE: 'ASSET_SET_ANGLE'
+  ASSET_SET_ANGLE: 'ASSET_SET_ANGLE',
   ASSET_SET_BORDER_COLOR: "ASSET_SET_BORDER_COLOR",
   ASSET_SET_BORDER_WIDTH: "ASSET_SET_BORDER_WIDTH",
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
   ASSET_CREATE: "ASSET_CREATE",
-  ASSET_SELECTED: "ASSET_SELECTED",
+  ASSET_SELECTED: "ASSET_SELECTED"
 };
 
 export const createAsset = (assetType, value) => {
@@ -22,7 +22,7 @@ export const createAsset = (assetType, value) => {
   }
 };
 
-export const setSelectedAsset = (assetId) => {
+export const assetSelected = (assetId) => {
   return {
     type: actionTypes.ASSET_SELECTED,
     assetId
