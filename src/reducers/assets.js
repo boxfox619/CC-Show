@@ -9,7 +9,6 @@ const initialState = {
 }
 
 const assets = (state = initialState, action) => {
-  console.log(action.type);
   switch (action.type) {
     case actionTypes.ASSET_CREATE:
       let sizeUnit = getState().slideContext.sizeUnit;
@@ -19,7 +18,7 @@ const assets = (state = initialState, action) => {
         ...state,
         assetIdCount: currentId,
         assets: update(
-              this.state.assets,
+              state.assets,
               { $push: [{
               id: currentId,
               type: action.assetType,
@@ -39,7 +38,7 @@ const assets = (state = initialState, action) => {
     case actionTypes.ASSET_SET_WIDTH:
       return {
         ...state,
-        assets: update( this.state.assets,
+        assets: update( state.assets,
               {
                   [getAssetIndex(state, state.assetIdCount)]: {
                     width: { $set: action.value }
@@ -49,7 +48,7 @@ const assets = (state = initialState, action) => {
     case actionTypes.ASSET_SET_HEIGHT:
       return {
         ...state,
-        assets: update( this.state.assets,
+        assets: update( state.assets,
               {
                   [getAssetIndex(state, state.assetIdCount)]: {
                     height: { $set: action.value }
@@ -59,7 +58,7 @@ const assets = (state = initialState, action) => {
     case actionTypes.ASSET_SET_X_POSTION:
       return {
         ...state,
-        assets: update( this.state.assets,
+        assets: update( state.assets,
               {
                   [getAssetIndex(state, state.assetIdCount)]: {
                     x: { $set: action.value }
@@ -69,7 +68,7 @@ const assets = (state = initialState, action) => {
     case actionTypes.ASSET_SET_Y_POSTION:
       return {
         ...state,
-        assets: update( this.state.assets,
+        assets: update( state.assets,
               {
                   [getAssetIndex(state, state.assetIdCount)]: {
                     y: { $set: action.value }
@@ -79,7 +78,7 @@ const assets = (state = initialState, action) => {
     case actionTypes.ASSET_SET_ANGLE:
       return {
         ...state,
-        assets: update( this.state.assets,
+        assets: update( state.assets,
               {
                   [getAssetIndex(state, state.assetIdCount)]: {
                     angle: { $set: action.value }

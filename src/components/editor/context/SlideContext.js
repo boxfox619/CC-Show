@@ -12,19 +12,14 @@ class SlideContext extends React.Component{
     super(props);
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
-  }
-
-  componentDidMount(){
     this.props.createAsset('text', 'https://www.google.co.kr/images/branding/googleg/1x/googleg_standard_color_128dp.png');
+
   }
 
     render(){
-      console.log('tesasc');
-      console.log(styles.slideContext);
       let renderingAssets = (assets) => {
         return assets.map((asset)=>{
-          console.log(asset);
-          return <Asset key={asset.id} attribute={asset}/>
+          return <Asset key={asset.id} isSelected={this.props.selectedAsset==asset.id} attribute={asset}/>
         })
       };
       return (
@@ -39,8 +34,7 @@ class SlideContext extends React.Component{
     }
 
     handleMouseDown(e){
-      if(e.target.parentNode.tagName==='asset'){
-        console.log(e.target.parentNode.id);
+      if(e.target.parentNode.tagName == 'ASSET'){
           this.props.assetSelected(e.target.parentNode.id);
       }else{
         this.props.assetDeselected();
@@ -50,6 +44,7 @@ class SlideContext extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
+    selectedAsset: state.assets.selectedAsset,
     assets: state.assets.assets
   }
 }

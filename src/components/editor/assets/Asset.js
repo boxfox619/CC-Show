@@ -41,10 +41,9 @@ class Asset extends React.Component{
     }
     document.createElement('asset');
     const AssetContext = assetTag;
-    console.log(this.props.isSelected);
-      return (<asest id={this.props.attribute.id} className={styles.asset+((this.props.isSelected)?' is-selected':'')}>
-        <AssetContext  styles={this.getStyle()} value={this.props.attribute.value}/>
-      </asest>);
+      return (<asset id={this.props.attribute.id} className={styles.asset+((this.props.isSelected)?' '+styles.isSelected:'')}>
+        <AssetContext styles={this.getStyle()} value={this.props.attribute.value}/>
+      </asset>);
   }
 
   getStyle(){
