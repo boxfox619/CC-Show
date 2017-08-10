@@ -58,27 +58,33 @@ class SlideContext extends React.Component{
         if(this.mouseAction=='move'){
           let x = e.pageX;
           let y = e.pageY;
-          let afterX = parseInt(this.selectedAsset.x) + (x - this.xInElement);
-          let afterY = parseInt(this.selectedAsset.y) + (y - this.yInElement);
+          let afterX = parseInt(this.percentWidthToPixel(this.selectedAsset.x)) + (x - this.xInElement) +'px';
+          let afterY = parseInt(this.percentHeightToPixel(this.selectedAsset.y)) + (y - this.yInElement) + 'px';
           this.xInElement = x;
           this.yInElement = y;
+          if(this.selectedAsset.x.endsWith('%')){
+            afterX = this.pixelWidthToPercent(afterX);
+            afterY = this.pixelHeightToPercent(afterY);
+          }
           this.props.setAssetXY(afterX, afterY);
         } else if(this.mouseAction=='resize'){
           let devX = (this.resizeTarget.includes('left'))? this.xInElement - e.pageX : e.pageX - this.xInElement;
           let devY = (this.resizeTarget.includes('top'))? this.yInElement - e.pageY : e.pageY - this.yInElement;
-          let currentX = this.percentHeightToPixel(this.selectedAsset.x);
-          let currentY = this.percentWidthToPixel(this.selectedAsset.y);
-          let currentWidth = this.percentWidthToPixel(this.selectedAsset.width);
-          let currentHeight = this.percentHeightToPixel(this.selectedAsset.height);
+          let currentX = parseInt(this.percentHeightToPixel(this.selectedAsset.x));
+          let currentY = parseInt(this.percentWidthToPixel(this.selectedAsset.y));
+          let currentWidth = parseInt(this.percentWidthToPixel(this.selectedAsset.width));
+          let currentHeight = parseInt(this.percentHeightToPixel(this.selectedAsset.height));
           let afterHeight = currentHeight+devY+'px';
           let afterWidth = currentWidth+devX+'px';
           let afterX = currentX-devX+'px';
           let afterY = currentY-devY+'px';
           if(this.selectedAsset.x.endsWith('%')){
-            afterHeight = this.pixelHeightToPercent(afterHeight);
-            afterWidth = this.pixelWidthToPercent(afterWidth);
             afterY = this.pixelHeightToPercent(afterY);
             afterX = this.pixelWidthToPercent(afterX);
+          }
+          if(this.selectedAsset.width.endsWith('%')){
+              afterHeight = this.pixelHeightToPercent(afterHeight);
+              afterWidth = this.pixelWidthToPercent(afterWidth);
           }
           let modifyAttrs;
           switch(this.resizeTarget){
@@ -139,14 +145,14 @@ class SlideContext extends React.Component{
       if(val.endsWith('%')){
         return parseInt(val)/100*parseInt(this.height) +'px';
       }
-      return parseInt(val);
+      return val;
     }
 
     percentWidthToPixel(val){
       if(val.endsWith('%')){
         return parseInt(val)/100*parseInt(this.width) +'px';
       }
-      return parseInt(val);
+      return val;
     }
 
 
@@ -154,14 +160,14 @@ class SlideContext extends React.Component{
       if(val.endsWith('px')){
         return parseInt(val)/parseInt(this.height)*100 +'%';
       }
-      return parseInt(val);
+      return val;
     }
 
     pixelWidthToPercent(val){
       if(val.endsWith('px')){
         return parseInt(val)/parseInt(this.width)*100 +'%';
       }
-      return parseInt(val);
+      return val;
     }
 
 
