@@ -43,7 +43,7 @@ class SlideContext extends React.Component{
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}
         onMouseUp={this.handleMouseRelese}
-        onMouseOut={this.handleMouseRelese}>
+        onMouseLeave={this.handleMouseRelese}>
           {renderingAssets(this.props.assets)}
         </div>
       );
@@ -74,7 +74,6 @@ class SlideContext extends React.Component{
     }
 
     handleMouseRelese(e){
-      console.log('test');
       this.mouseDowned = false;
     }
 

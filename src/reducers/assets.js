@@ -1,16 +1,5 @@
-import {
-  actionTypes
-} from '../actions/assets';
-import {
-  getState
-} from '../store'; ===
-=== =
-import {
-  actionTypes
-} from '../actions/assets';
-import {
-  getState
-} from '../store';
+import { actionTypes } from '../actions/assets';
+import { getState } from '../store';
 import update from 'react-addons-update';
 
 const initialState = {
