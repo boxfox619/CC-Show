@@ -11,6 +11,7 @@ export const actionTypes = {
   ASSET_SET_BORDER_COLOR: "ASSET_SET_BORDER_COLOR",
   ASSET_SET_BORDER_WIDTH: "ASSET_SET_BORDER_WIDTH",
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
+  ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
   ASSET_CREATE: "ASSET_CREATE",
   ASSET_SELECTED: "ASSET_SELECTED"
 };
@@ -79,4 +80,14 @@ export function setAssetAngle(value) {
     type: actionTypes.ASSET_SET_ANGLE,
     value
   }
+}
+
+export const setAttributes = (attrs) => {
+  Object.keys(attrs).map(function(key, index) {
+    attrs[key] = {$set: attrs[key]};
+  });
+   return {
+     type: actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE,
+     attrs
+   }
 }

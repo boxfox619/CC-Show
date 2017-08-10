@@ -40,7 +40,7 @@ const assets = (state = initialState, action) => {
         ...state,
         assets: update( state.assets,
               {
-                  [getAssetIndex(state, state.assetIdCount)]: {
+                  [getAssetIndex(state, state.selectedAsset)]: {
                     width: { $set: parseInt(action.value)+getState().slideContext.sizeUnit }
                   }
               })      }
@@ -49,7 +49,7 @@ const assets = (state = initialState, action) => {
         ...state,
         assets: update( state.assets,
               {
-                  [getAssetIndex(state, state.assetIdCount)]: {
+                  [getAssetIndex(state, state.selectedAsset)]: {
                     height: { $set: parseInt(action.value)+getState().slideContext.sizeUnit }
                   }
               })
@@ -59,7 +59,7 @@ const assets = (state = initialState, action) => {
         ...state,
         assets: update( state.assets,
               {
-                  [getAssetIndex(state, state.assetIdCount)]: {
+                  [getAssetIndex(state, state.selectedAsset)]: {
                     x: { $set: parseInt(action.value)+getState().slideContext.positionUnit }
                   }
               })
@@ -69,7 +69,7 @@ const assets = (state = initialState, action) => {
         ...state,
         assets: update( state.assets,
               {
-                  [getAssetIndex(state, state.assetIdCount)]: {
+                  [getAssetIndex(state, state.selectedAsset)]: {
                     y: { $set: parseInt(action.value)+getState().slideContext.positionUnit }
                   }
               })
@@ -79,7 +79,7 @@ const assets = (state = initialState, action) => {
         ...state,
         assets: update( state.assets,
               {
-                  [getAssetIndex(state, state.assetIdCount)]: {
+                  [getAssetIndex(state, state.selectedAsset)]: {
                     x: { $set: parseInt(action.x)+getState().slideContext.positionUnit },
                     y: { $set: parseInt(action.y)+getState().slideContext.positionUnit }
                   }
@@ -89,11 +89,18 @@ const assets = (state = initialState, action) => {
       return {
         ...state,
         assets: update(state.assets, {
-          [getAssetIndex(state, state.assetIdCount)]: {
+          [getAssetIndex(state, state.selectedAsset)]: {
             angle: {
               $set: action.value
             }
           }
+        })
+      }
+    case actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE:
+      return {
+        ...state,
+        assets: update(state.assets,{
+          [getAssetIndex(state, state.selectedAsset)]: action.attrs
         })
       }
     default:
@@ -104,7 +111,7 @@ const assets = (state = initialState, action) => {
 function getAssetIndex(state, key) {
   let index = -1;
   state.assets.forEach(function (asset, i) {
-    if (asset.id === key) {
+    if (asset.id == key) {
       index = i;
     }
   });

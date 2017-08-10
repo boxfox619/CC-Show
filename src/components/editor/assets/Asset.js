@@ -19,6 +19,8 @@ class Asset extends React.Component{
   constructor(props){
     super(props);
     this.getSubStyleClass = this.getSubStyleClass.bind(this);
+    this.getContextWidth = this.getContextWidth.bind(this);
+    this.getContextHeight = this.getContextHeight.bind(this);
     }
 
   render(){
@@ -41,20 +43,49 @@ class Asset extends React.Component{
         break;
     }
     document.createElement('asset');
+    document.createElement('selectordot');
+    document.createElement('selectorline');
     const AssetContext = assetTag;
+    const topLeftAttr = {'target': 'topleft'};
+    const topRightAttr = {'target': 'topright'};
+    const bottomLeftAttr = {'target': 'bottomleft'};
+    const bottomRightAttr = {'target': 'bottomright'};
+    const topAttr = {'target': 'top'};
+    const bottomAttr = {'target': 'bottom'};
+    const leftAttr = {'target': 'left'};
+    const rightAttr = {'target': 'right'};
       return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
-      <div style={{'width': this.props.attribute.width, 'height': this.props.attribute.height,'padding': '6px', 'position': 'absolute'}} >
-        <div style={{'top': '3px'}} className={styles.horizontalResizer+this.getSubStyleClass()}></div>
-        <div style={{'top': 'calc('+this.props.attribute.height+' + 7px)'}} className={styles.horizontalResizer+this.getSubStyleClass()}></div>
-        <div style={{'left': '3px'}} className={styles.verticalResizer+this.getSubStyleClass()}></div>
-        <div style={{'left': 'calc('+this.props.attribute.width+' + 7px)'}} className={styles.verticalResizer+this.getSubStyleClass()}></div>
-        <AssetContext styles={{'width':this.props.attribute.width, 'height': this.props.attribute.height,'overflow':'hidden', 'cursor' : 'move'}} value={this.props.attribute.value}/>
-        <div style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}></div>
-        <div style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+this.props.attribute.width+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}></div>
-        <div style={{'cursor': 'ne-resize', 'top': 'calc('+this.props.attribute.height+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}></div>
-        <div style={{'cursor': 'nw-resize', 'top': 'calc('+this.props.attribute.height+' + 3.5px)', 'left': 'calc('+this.props.attribute.width+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}></div>
+      <div style={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'padding': '6px', 'position': 'absolute'}} >
+        <selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer+this.getSubStyleClass()}/>
+        <selectorline {...bottomAttr} style={{'top': 'calc('+this.getContextHeight()+' + 7px)'}} className={styles.horizontalResizer+this.getSubStyleClass()}/>
+        <selectorline {...leftAttr} style={{'left': '3px'}} className={styles.verticalResizer+this.getSubStyleClass()}/>
+        <selectorline {...rightAttr} style={{'left': 'calc('+this.getContextWidth()+' + 7px)'}} className={styles.verticalResizer+this.getSubStyleClass()}/>
+        <AssetContext styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move'}} value={this.props.attribute.value}/>
+        <selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>
+        <selectordot {...topRightAttr} style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+this.getContextWidth()+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}/>
+        <selectordot {...bottomLeftAttr} style={{'cursor': 'ne-resize', 'top': 'calc('+this.getContextHeight()+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>
+        <selectordot {...bottomRightAttr} style={{'cursor': 'nw-resize', 'top': 'calc('+this.getContextHeight()+' + 3.5px)', 'left': 'calc('+this.getContextWidth()+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}/>
       </div>
       </asset>);
+  }
+
+  getContextWidth(){
+    if(this.props.attribute.width.endsWith('%')){
+        return 'calc(100% - 12px)';
+    }
+    return this.props.attribute.width;
+  }
+
+    getContextHeight(){
+      if(this.props.attribute.height.endsWith('%')){
+          return 'calc(100% - 12px)';
+      }
+      return this.props.attribute.height;
+    }
+
+
+  createAttrs(key, object){
+    return {key: object};
   }
 
   getStyle(){
