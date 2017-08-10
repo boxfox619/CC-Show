@@ -18,6 +18,7 @@ class Asset extends React.Component{
 
   constructor(props){
     super(props);
+    this.getSubStyleClass = this.getSubStyleClass.bind(this);
     }
 
   render(){
@@ -41,15 +42,25 @@ class Asset extends React.Component{
     }
     document.createElement('asset');
     const AssetContext = assetTag;
-      return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset+((this.props.isSelected)?' '+styles.isSelected:'')}>
-        <AssetContext value={this.props.attribute.value}/>
+      return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
+      <div style={{'width': this.props.attribute.width, 'height': this.props.attribute.height,'padding': '6px', 'position': 'absolute'}} >
+        <div style={{'top': '3px'}} className={styles.horizontalResizer+this.getSubStyleClass()}></div>
+        <div style={{'top': 'calc('+this.props.attribute.height+' + 7px)'}} className={styles.horizontalResizer+this.getSubStyleClass()}></div>
+        <div style={{'left': '3px'}} className={styles.verticalResizer+this.getSubStyleClass()}></div>
+        <div style={{'left': 'calc('+this.props.attribute.width+' + 7px)'}} className={styles.verticalResizer+this.getSubStyleClass()}></div>
+        <AssetContext styles={{'width':this.props.attribute.width, 'height': this.props.attribute.height,'overflow':'hidden', 'cursor' : 'move'}} value={this.props.attribute.value}/>
+        <div style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}></div>
+        <div style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+this.props.attribute.width+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}></div>
+        <div style={{'cursor': 'ne-resize', 'top': 'calc('+this.props.attribute.height+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}></div>
+        <div style={{'cursor': 'nw-resize', 'top': 'calc('+this.props.attribute.height+' + 3.5px)', 'left': 'calc('+this.props.attribute.width+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}></div>
+      </div>
       </asset>);
   }
 
   getStyle(){
     let style = {
-      'height': this.props.attribute.height,
-      'width': this.props.attribute.width,
+      'height': 'calc('+this.props.attribute.height+' + 12px)',
+      'width': 'calc('+this.props.attribute.width+' + 12px)',
       'left' : this.props.attribute.x,
       'top' : this.props.attribute.y
     };
@@ -59,6 +70,10 @@ class Asset extends React.Component{
       }
     }
     return style;
+  }
+
+  getSubStyleClass(){
+    return((this.props.isSelected)?' '+styles.isSelected:'');
   }
 }
 

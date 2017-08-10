@@ -63,8 +63,8 @@ class SlideContext extends React.Component{
 
     handleMouseDown(e){
       this.mouseDowned = true;
-      if(e.target.parentNode.tagName == 'ASSET'){
-          this.props.assetSelected(e.target.parentNode.id);
+      if(e.target.parentNode.parentNode.tagName == 'ASSET'){
+          this.props.assetSelected(e.target.parentNode.parentNode.id);
           this.xInElement = e.pageX;
           this.yInElement = e.pageY;
       }else{

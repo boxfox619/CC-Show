@@ -23,8 +23,8 @@ const assets = (state = initialState, action) => {
               id: currentId,
               type: action.assetType,
               value: action.value,
-              height: '20' + sizeUnit,
-              width: '20' + sizeUnit,
+              height: '50' + sizeUnit,
+              width: '50' + sizeUnit,
               x: '0' + positionUnit,
               y: '0' + positionUnit
             }]

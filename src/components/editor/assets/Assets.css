@@ -9,15 +9,45 @@
 .asset {
   position: absolute !important;
   overflow: hidden;
-  cursor: move;
   display: inline-block;
   margin:0;
   padding:0;
   border:0;
+  margin: 3px;
+}
+
+.assetContext{
+  position: absolute;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  cursor: move;
 }
 
 .isSelected{
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
+  background-color: #038AFD;
+}
+
+.selectorDot{
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+}
+
+.horizontalResizer{
+  position: absolute;
+  height: 2px;
+  width: calc( 100% - 10px );
+  cursor: ns-resize;
+  z-index: 99;
+}
+
+.verticalResizer{
+  position: absolute;
+  height: calc( 100% - 10px );
+  width: 2px;
+  cursor: ew-resize;
+  z-index: 99;
 }
