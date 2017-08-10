@@ -1,12 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-let asset_attribute={
-    width : 20,
-    height : 20,
-    x,
-    y,
-    angle
-};
+import * as actions from '../../../actions/assets';
 
 class AssetController extends React.Component {
     constructor(prop) {
@@ -27,21 +22,31 @@ class AssetController extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        width : state.assetAttribute.width,
-        height : state.assetAttribute.height,
-        x_location : state.assetAttribute.x,
-        y_location : state.assetAttribute.y,
-        angle : state.assetAttribute.angle
+       asset : state.assets.assets[getAssetIndex(state, state.selectedAsset)]
     }
 }
 
-const mapDispathchToProps = (dispatch) =>  {
-    return {
-        handleText : () => {dispatch(actions.text())},
-        handleVideo : () => {dispatch(actions.Video())},
-        handleShape : () => {dispatch(actions.Shape())},
-    }
+const mapDispathchToProps = (dispatch) => {
+     return {
+         setWidth : (width) => { dispatch(actions.setWidth(width)) },
+         setHeight : (height) => { dispatch(actions.setHeight(height)) },
+         setX : (x) => { dispatch(actions.setX(x)) },
+         setY : (y) => { dispatch(actions.setY(y)) },
+         setAngle : (angle) => { dispatch(actions.setAngle(angle)) }
+     }
 }
+
+function getAssetIndex(state, key) {
+  let index = -1;
+  state.assets.forEach(function (asset, i) {
+    if (asset.id === key) {
+      index = i;
+    }
+  });
+  return index;
+}
+
+export default AssetController;
 //         text_sort : [ 
 //     {type : 'left', displayName : '왼쪽 맞춤'},
 //     {type : 'middle', displayName : '가운데 맞춤'},

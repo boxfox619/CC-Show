@@ -36,10 +36,9 @@ export const assetDeselected = () => {
   }
 }
 
-export function setWidth(assetId, value) {
+export function setWidth(value) {
   return {
     type: actionTypes.ASSET_SET_WIDTH,
-
     value
   }
 }

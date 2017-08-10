@@ -50,7 +50,7 @@ const assets = (state = initialState, action) => {
       return {
         ...state,
         assets: update(state.assets, {
-          [getAssetIndex(state, state.assetIdCount)]: {
+          [getAssetIndex(state, state.selectedAsset)]: {
             width: {
               $set: action.value
             }
@@ -61,7 +61,7 @@ const assets = (state = initialState, action) => {
       return {
         ...state,
         assets: update(state.assets, {
-          [getAssetIndex(state, state.assetIdCount)]: {
+          [getAssetIndex(state, state.selectedAsset)]: {
             height: {
               $set: action.value
             }
@@ -72,7 +72,7 @@ const assets = (state = initialState, action) => {
       return {
         ...state,
         assets: update(state.assets, {
-          [getAssetIndex(state, state.assetIdCount)]: {
+          [getAssetIndex(state, state.selectedAsset)]: {
             x: {
               $set: action.value
             }
@@ -83,7 +83,7 @@ const assets = (state = initialState, action) => {
       return {
         ...state,
         assets: update(state.assets, {
-          [getAssetIndex(state, state.assetIdCount)]: {
+          [getAssetIndex(state, state.selectedAsset)]: {
             y: {
               $set: action.value
             }
@@ -94,7 +94,7 @@ const assets = (state = initialState, action) => {
       return {
         ...state,
         assets: update(state.assets, {
-          [getAssetIndex(state, state.assetIdCount)]: {
+          [getAssetIndex(state, state.selectedAsset)]: {
             angle: {
               $set: action.value
             }
