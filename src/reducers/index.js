@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import assets from './assets';
+import editor from './editor';
 import slideContext from './slideContext';
 
 const reducers = combineReducers({
-  assets, slideContext
+  editor, slideContext
 });
 
 export default reducers;

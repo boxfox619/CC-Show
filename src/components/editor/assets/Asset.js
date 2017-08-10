@@ -4,6 +4,7 @@ import styles from './Assets.css';
 
 import TextAsset from './TextAsset';
 import ImageAsset from './ImageAsset';
+import VideoAsset from './VideoAsset';
 
 const propTypes = {
   attribute: React.PropTypes.object,
@@ -33,7 +34,7 @@ class Asset extends React.Component{
         assetTag = ImageAsset;
         break;
       case 'video':
-        assetTag = 'VideoAsset';
+        assetTag = VideoAsset;
         break;
       case 'shape':
         assetTag = 'ShapeAsset';
