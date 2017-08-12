@@ -8,6 +8,14 @@ export const actionTypes = {
   ASSET_SET_Y_POSTION: 'ASSET_SET_Y_POSTION',
   ASSET_SET_BOTH_POSITION: 'ASSET_SET_BOTH_POSITION',
   ASSET_SET_ANGLE: 'ASSET_SET_ANGLE',
+  ASSET_SET_FONT: 'ASSET_SET_FONT',
+  ASSET_SET_FONT_SIZE: 'ASSET_SET_FONT_SIZE',
+  ASSET_SET_TEXT_SORT: 'ASSET_SET_TEXT_SORT',
+  ASSET_SET_FONT_BOLD: 'ASSET_SET_FONT_BOLD',
+  ASSET_SET_FONT_UNDERLINE: 'ASSET_SET_FONT_UNDERLINE',
+  ASSET_SET_FONT_ITALIC: 'ASSET_SET_FONT_ITALIC',
+  ASSET_SET_TEXT_FILL_COLOR: 'ASSET_SET_TEXT_FILL_COLOR',
+  ASSET_SET_TEXT_EDGE: 'ASSET_SET_TEXT_EDGE',
   ASSET_SET_BORDER_COLOR: "ASSET_SET_BORDER_COLOR",
   ASSET_SET_BORDER_WIDTH: "ASSET_SET_BORDER_WIDTH",
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
@@ -41,7 +49,6 @@ export const assetDeselected = () => {
 export function setAssetWidth(value) {
   return {
     type: actionTypes.ASSET_SET_WIDTH,
-
     value
   }
 }
@@ -67,7 +74,7 @@ export function setAssetY(value) {
   }
 }
 
-export const setAssetXY = (x, y) =>{
+export const setAssetXY = (x, y) => {
   return {
     type: actionTypes.ASSET_SET_BOTH_POSITION,
     x,
@@ -83,11 +90,70 @@ export function setAssetAngle(value) {
 }
 
 export const setAttributes = (attrs) => {
-  Object.keys(attrs).map(function(key, index) {
-    attrs[key] = {$set: attrs[key]};
+  Object.keys(attrs).map(function (key, index) {
+    attrs[key] = {
+      $set: attrs[key]
+    };
   });
-   return {
-     type: actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE,
-     attrs
-   }
+  return {
+    type: actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE,
+    attrs
+  }
+}
+
+export function setAssetFont(font) {
+  return{
+    type: actionTypes.ASSET_SET_FONT,
+    font
+  }
+}
+
+export function setAssetFontSize(fontSize) {
+  return{
+    type: actionTypes.ASSET_SET_FONT_SIZE,
+    fontSize
+  }
+}
+
+export function setAssetTextSort(sort) {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_SORT,
+    sort
+  }
+}
+
+export function setAssetFontBold(bold) {
+  return{
+    type: actionTypes.ASSET_SET_FONT_BOLD,
+    bold
+  }
+}
+
+export function setAssetFontUnderline(underline) {
+  return{
+    type: actionTypes.ASSET_SET_FONT_UNDERLINE,
+    underline
+  }
+}
+
+export function setAssetFontItalic(italic) {
+  return{
+    type: actionTypes.ASSET_SET_FONT_ITALIC,
+    italic
+  }
+}
+
+export function setAssetTextFillColor(color) {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_FILL_COLOR,
+    color
+  }
+}
+
+export function setAssetTextEdge(color, weight) {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_EDGE,
+    color,
+    weight
+  }
 }
