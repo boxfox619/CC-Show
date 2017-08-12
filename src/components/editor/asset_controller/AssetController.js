@@ -1,64 +1,91 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {
+    connect
+} from 'react-redux';
 
 import * as actions from '../../../actions/assets';
+
+import TextController from './TextController';
+import VideoController from './VideoController';
+import ImageController from './ImageController';
+import ShapeController from './ShapeController';
 
 class AssetController extends React.Component {
     constructor(prop) {
         super(prop);
-        this.state = {
-            type: this.props.assetType
-        }
-    }
-
-    checkType(){
-
     }
 
     render() {
-        
+        switch (this.props.type) {
+            case Text:
+                <TextController width = {this.props.width}
+                                height = {this.props.height}
+                                x = {this.props.x}
+                                y = {this.props.y}
+                                angle = {this.props.angle}
+                                font = {this.props.font}
+                                fontSize = {this.props.fontSize}
+                                sort = {this.props.sort}
+                                bold = {this.props.bold}
+                                underline = {this,props.underline}
+                                italic = {this.pros.italic}
+                                fill_color = {this.props.fill_color}
+                                edge = {this.props.edge}/>
+                break;
+            case Video:
+                <VideoController width = {this.props.width}
+                                height = {this.props.height}
+                                x = {this.props.x}
+                                y = {this.props.y}
+                                angle = {this.props.angle}/>
+                break;
+            case Shape:
+                <ShapeController width = {this.props.width}
+                                height = {this.props.height}
+                                x = {this.props.x}
+                                y = {this.props.y}
+                                angle = {this.props.angle}/>
+                break;
+            case Image:
+                <ImageController width = {this.props.width}
+                                height = {this.props.height}
+                                x = {this.props.x}
+                                y = {this.props.y}
+                                angle = {this.props.angle}/>
+                break;
+            default:
+                break;
+        }
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-       asset : state.assets.assets[getAssetIndex(state, state.selectedAsset)]
+        type: state.editor.slides.assets[state.editor.slides.selectedAsset].type,
+        width: state.editor.slides.assets[state.editor.slides.selectedAsset].width,
+        height: state.editor.slides.assets[state.editor.slides.selectedAsset].height,
+        x: state.editor.slides.assets[state.editor.slides.selectedAsset].x,
+        y: state.editor.slides.assets[state.editor.slides.selectedAsset].y,
+        angle: state.editor.slides.assets[state.editor.slides.selectedAsset].angle,
+        font : state.editor.slides.assets[state.editor.slides.selectedAsset].font,
+        size : state.editor.slides.assets[state.editor.slides.selectedAsset].fontSize,
+        sort : state.editor.slides.assets[state.editor.slides.selectedAsset].sort,
+        bold : state.editor.slides.assets[state.editor.slides.selectedAsset].bold,
+        underline : state.editor.slides.assets[state.editor.slides.selectedAsset].underline,
+        italic : state.editor.slides.assets[state.editor.slides.selectedAsset].italic,
+        fill_color : state.editor.slides.assets[state.editor.slides.selectedAsset].fill_color,
+        edge : state.editor.slides.assets[state.editor.slides.selectedAsset].edge
     }
-}
-
-const mapDispathchToProps = (dispatch) => {
-     return {
-         setWidth : (width) => { dispatch(actions.setWidth(width)) },
-         setHeight : (height) => { dispatch(actions.setHeight(height)) },
-         setX : (x) => { dispatch(actions.setX(x)) },
-         setY : (y) => { dispatch(actions.setY(y)) },
-         setAngle : (angle) => { dispatch(actions.setAngle(angle)) }
-     }
 }
 
 function getAssetIndex(state, key) {
-  let index = -1;
-  state.assets.forEach(function (asset, i) {
-    if (asset.id === key) {
-      index = i;
-    }
-  });
-  return index;
+    let index = -1;
+    state.editor.slides..forEach(function (asset, i) {
+        if (asset.id === key) {
+            index = i;
+        }
+    });
+    return index;
 }
 
-export default AssetController;
-//         text_sort : [ 
-//     {type : 'left', displayName : '왼쪽 맞춤'},
-//     {type : 'middle', displayName : '가운데 맞춤'},
-//     {type : 'right', displayName : '오른쪽 맞춤'}
-// ],
-// text_type : [ 
-//     {type : 'bold', displayName : '굵게'},
-//     {type : 'italic', displayName: '기울임 꼴'},
-//     {type : 'underline', displayName: '밑줄'}
-// ]
-
-// styles : [
-//     {type : 'Attribute', width : '0px', height : '0px', x : '0', y : '0', angle : '0'},
-//     {type : 'Text', font : '', size : ''}
-// ]
+export default connect(mapStateToProps)(AssetController);
