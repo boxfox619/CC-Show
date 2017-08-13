@@ -1,0 +1,33 @@
+.profile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profileImg{
+  border-radius: 50%;
+  width: 3em;
+  display: inline-block;
+}
+
+.textWrap{
+  display: inline-block;
+  text-align:left;
+  margin-left: 5px;
+}
+
+.name{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.subName{
+  font-size: 0.5em;
+}
+
+.hr{
+  display: block;
+  height: 1.5px;
+  background-color: rgba(33,33,33,0.1);
+  width: 23px;
+  margin: 15px 8px;
+}
