@@ -77,6 +77,9 @@ class SlideContext extends React.Component{
           let afterWidth = currentWidth+devX+'px';
           let afterX = currentX-devX+'px';
           let afterY = currentY-devY+'px';
+          if(parseInt(afterWidth)<5||parseInt(afterHeight)<5){
+            return;
+          }
           if(this.selectedAsset.x.endsWith('%')){
             afterY = this.pixelHeightToPercent(afterY);
             afterX = this.pixelWidthToPercent(afterX);
