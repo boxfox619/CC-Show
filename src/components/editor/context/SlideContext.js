@@ -1,6 +1,5 @@
 import React from 'react';
 import Asset from '../assets/Asset';
-import styles from './SlideContext.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -43,7 +42,7 @@ class SlideContext extends React.Component{
         })
       };
       return (
-        <div style={{'height':this.height, 'width':this.width}} className={styles.slideContext} id={'SlideContext'}
+        <div style={{'height':this.height, 'width':this.width}} className={this.props.className} id={'SlideContext'}
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}
         onMouseUp={this.handleMouseRelese}
@@ -78,6 +77,9 @@ class SlideContext extends React.Component{
           let afterWidth = currentWidth+devX+'px';
           let afterX = currentX-devX+'px';
           let afterY = currentY-devY+'px';
+          if(parseInt(afterWidth)<5||parseInt(afterHeight)<5){
+            return;
+          }
           if(this.selectedAsset.x.endsWith('%')){
             afterY = this.pixelHeightToPercent(afterY);
             afterX = this.pixelWidthToPercent(afterX);

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import styles from './ClickableButton.css';
 
 class ClickableButton extends React.Component{
   constructor(props){
@@ -7,11 +8,9 @@ class ClickableButton extends React.Component{
 
   render(){
     return (
-      <li key={this.props.key}>
-          <button onClick={this.props.onClick}>
-            <i>{this.props.icon}</i>
-          </button>
-      </li>
+      <div className={styles.clickableButton} onClick={this.props.onClick}>
+        {this.props.name}
+      </div>
     );
   }
 

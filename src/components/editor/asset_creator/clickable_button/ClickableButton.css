@@ -1,0 +1,13 @@
+.clickableButton{
+  display: block;
+  padding: 2px 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  moz-border-radius: 4px;
+  webkit-border-radius: 4px;
+}
+
+.clickableButton:hover{
+  background-color: purple;
+  color: white;
+}
