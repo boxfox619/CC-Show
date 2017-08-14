@@ -3,6 +3,11 @@ import React from 'react';
 class BasicController extends React.Component{
     constructor(prop) {
         super(prop);
+        this.setWidth=this.setWidth.bind(this);
+        this.setHeight=this.setHeight.bind(this);
+        this.setX_location=this.setX_location.bind(this);
+        this.setY_location=this.setY_location.bind(this);
+        this.setAngle=this.setAngle.bind(this);
     }
 
     render(){
@@ -18,40 +23,40 @@ class BasicController extends React.Component{
             </div>
         )
     }
-}
 
-function setWidth() {
-    if(event.keyCode==13) {
-        let value=document.getElementById().value;
-        this.props.setWidth(value);
+    setWidth() {
+        if(event.keyCode==13) {
+            let value=document.getElementById().value;
+            this.props.setWidth(value);
+        }
     }
-}
 
-function setHeight() {
-    if(event.keyCode==13) {
-        let value=document.getElementById().value;
-        this.props.setHeight(value);
+    setHeight() {
+        if(event.keyCode==13) {
+            let value=document.getElementById().value;
+            this.props.setHeight(value);
+        }
     }
-}
 
-function setX_location() {
-    if(event.keyCode==13){
-        let value=document.getElementById().value;
-        this.props.setY(value);
+    setX_location() {
+        if(event.keyCode==13){
+            let value=document.getElementById().value;
+            this.props.setY(value);
+        }
     }
-}
 
-function setY_location() {
-    if(event.keyCode==13){
-        let value=document.getElementById().value;
-        this.props.setX(value);
+    setY_location() {
+        if(event.keyCode==13){
+            let value=document.getElementById().value;
+            this.props.setX(value);
+        }
     }
-}
 
-function setAngle() {
-    if(event.keyCode==13){
-        let value=document.getElementById().value;
-        this.props.setAngle(value);
+    setAngle() {
+        if(event.keyCode==13){
+            let value=document.getElementById().value;
+            this.props.setAngle(value);
+        }
     }
 }
 
