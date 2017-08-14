@@ -295,8 +295,81 @@ const editor = (state = initialState, action) => {
                         }
                     })}
             }
-          })
-      }  
+          }
+        )
+      }
+    case actionTypes.ASSET_SET_VIDEO_URL:
+      return {
+        ...state,
+        slides: update(
+          state.slides,
+          {
+            [state.selectedSlide]:{
+              assets: {$set: update(
+                state.slides[state.selectedSlide].assets,
+                    {
+                        [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                          url: { $set: action.url }
+                        }
+                    })}
+            }
+          }
+        )
+      }
+    case actionTypes.ASSET_SET_VIDEO_CONTROLLER:
+      return {
+        ...state,
+        slides: update(
+          state.slides,
+          {
+            [state.selectedSlide]:{
+              assets: {$set: update(
+                state.slides[state.selectedSlide].assets,
+                    {
+                        [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                          controller: { $set: action.controller }
+                        }
+                    })}
+            }
+          }
+        )
+      }
+    case actionTypes.ASSET_SET_VIDEO_AUTOPLAY:
+      return {
+        ...state,
+        slides: update(
+          state.slides,
+          {
+            [state.selectedSlide]:{
+              assets: {$set: update(
+                state.slides[state.selectedSlide].assets,
+                    {
+                        [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                          autoplay: { $set: action.autoplay }
+                        }
+                    })}
+            }
+          }
+        )
+      }
+    case actionTypes.ASSET_SET_VIDEO_LOOP: 
+    return {
+        ...state,
+        slides: update(
+          state.slides,
+          {
+            [state.selectedSlide]:{
+              assets: {$set: update(
+                state.slides[state.selectedSlide].assets,
+                    {
+                        [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                          loop: { $set: action.loop }
+                        }
+                    })}
+            }
+          }
+        )
+      }
     case actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE:
       return {
         ...state,
@@ -348,8 +421,10 @@ const editor = (state = initialState, action) => {
         ...state,
         slides: update(
           state.slides,
-          [action.target]:{
-            name: { $set : action.name}
+          {
+            [action.target]:{
+              name: { $set : action.name}
+            }
           }
         )
       }

@@ -43,6 +43,10 @@ class AssetController extends React.Component {
                                      x = {this.props.x}
                                      y = {this.props.y}
                                      angle = {this.props.angle}/>
+                    <VideoController url = {this.props.url}
+                                     controller = {this.props.url}
+                                     autoplay = {this.props.autoplay}
+                                     loop = {this.props.loop} />
                 </div>
             )   
             case Shape:
@@ -86,7 +90,11 @@ const mapStateToProps = (state) => {
         underline : state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset].underline,
         italic : state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset].italic,
         fill_color : state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset].fill_color,
-        edge : state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset].edge
+        edge : state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset].edge,
+        url : state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset].url,
+        controller : state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset].controller,
+        autoplay : state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset].autoplay,
+        loop : state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset].loop
     }
 }
 

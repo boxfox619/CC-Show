@@ -16,6 +16,10 @@ export const actionTypes = {
   ASSET_SET_FONT_ITALIC: 'ASSET_SET_FONT_ITALIC',
   ASSET_SET_TEXT_FILL_COLOR: 'ASSET_SET_TEXT_FILL_COLOR',
   ASSET_SET_TEXT_EDGE: 'ASSET_SET_TEXT_EDGE',
+  ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
+  ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',
+  ASSET_SET_VIDEO_AUTOPLAY: 'ASSET_SET_VIDEO_AUTOPLAY',
+  ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP',
   ASSET_SET_BORDER_COLOR: "ASSET_SET_BORDER_COLOR",
   ASSET_SET_BORDER_WIDTH: "ASSET_SET_BORDER_WIDTH",
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
@@ -155,5 +159,33 @@ export function setAssetTextEdge(color, weight) {
     type: actionTypes.ASSET_SET_TEXT_EDGE,
     color,
     weight
+  }
+}
+
+export function setAssetVideoURL(url){
+  return{
+    type: actionTypes.ASSET_SET_VIDEO_URL,
+    url
+  }
+}
+
+export function setAssetVideoController(controller){
+  return{
+    type: actionTypes.ASSET_SET_VIDEO_CONTROLLER,
+    controller
+  }
+}
+
+export function setAssetVideoAutoplay(autoplay){
+  return{
+    type: actionTypes.ASSET_SET_VIDEO_AUTOPLAY,
+    autoplay
+  }
+}
+
+export function setAssetVideoLoop(loop){
+  return{
+    type: actionTypes.ASSET_SET_VIDEO_LOOP,
+    loop
   }
 }
