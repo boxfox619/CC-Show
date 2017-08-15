@@ -44,7 +44,7 @@ class AssetController extends React.Component {
                                      y = {this.props.y}
                                      angle = {this.props.angle}/>
                     <VideoController url = {this.props.url}
-                                     controller = {this.props.url}
+                                     controller = {this.props.controller}
                                      autoplay = {this.props.autoplay}
                                      loop = {this.props.loop} />
                 </div>
