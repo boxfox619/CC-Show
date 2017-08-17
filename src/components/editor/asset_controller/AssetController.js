@@ -57,6 +57,7 @@ class AssetController extends React.Component {
                                      x = {this.props.x}
                                      y = {this.props.y}
                                      angle = {this.props.angle}/>
+                    <ShapeController/>
                 </div>
             )
             case Image:
@@ -67,10 +68,13 @@ class AssetController extends React.Component {
                                      x = {this.props.x}
                                      y = {this.props.y}
                                      angle = {this.props.angle}/>
+                    <ImageController/>
                 </div>
             )
             default:
-                
+            return(
+                    <BasicController/>
+            )
         }
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class ShapeController extends React.Component{
     constructor(prop) {

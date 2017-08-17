@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class BasicController extends React.Component{
     constructor(prop) {
@@ -80,4 +81,4 @@ const mapStateToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps)(AssetController);
+export default connect(mapStateToProps)(BasicController);

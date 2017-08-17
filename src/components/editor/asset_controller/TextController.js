@@ -1,5 +1,6 @@
 import React from 'react';
 import actions from '../../../actions/assets';
+import { connect } from 'react-redux';
 
 class TextController extends React.Component{
     constructor(prop) {
@@ -33,7 +34,7 @@ class TextController extends React.Component{
     }
 }
 
-const mapDispathchToProps = (dispatch) => {
+const mapStateToProps = (dispatch) => {
     return {
         setFont: (font) => {
             dispatch(actions.setAssetFont(font))

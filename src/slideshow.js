@@ -6,7 +6,7 @@ $(function () {
             disabled: true
         });
     };
-    console.log(slide_html_list[current_page].html(j);
+    console.log(slide_html_list[current_page].html(j));
     $('body').append($('<div class="slide-page current">' + slide_html_list[current_page].html() + '</div>'));
     $('body').on('click', doNextSlide);
 });

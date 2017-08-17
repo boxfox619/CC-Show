@@ -1,6 +1,7 @@
 import React from 'react';
 import AssetCreator from './asset_creator/AssetCreator';
 import SlideContext from './context/SlideContext';
+import AssetController from './asset_controller/AssetController'
 
 import styles from './SlideEditor.css';
 
@@ -18,6 +19,7 @@ class SlideEditor extends React.Component{
         <div className={styles.contextWrap}>
           <SlideContext className={styles.slideContext}/>
         </div>
+      {/*<AssetController/>*/}
       </div>
     );
   }

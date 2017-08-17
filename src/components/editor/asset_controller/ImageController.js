@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class ImageController extends React.Component{
     constructor(prop) {

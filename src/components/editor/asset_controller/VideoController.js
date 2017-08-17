@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class VideoController extends React.Component {
     render() {
@@ -14,7 +15,7 @@ class VideoController extends React.Component {
         )
     }
 
-    check(){
+    componentWillUpdate(){
         if(this.props.controller) document.getElementById('controller').checked=true;
         else if(this.props.autoplay) document.getElementById('autoplay').checked=true;
         else if(this.props.loop) document.getElementById('loop').check=true;
