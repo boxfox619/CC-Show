@@ -5,16 +5,16 @@ const initialState = {
   visibleSlideManager: false
 }
 
-const editor = (state = initialState, action) => {
+const ui = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SLIDE_MANAGER:
       return {
         ...state,
-        visibleSlideManager : action.state
+        visibleSlideManager : !state.visibleSlideManager
       };
     default:
       return state;
   }
 }
 
-export default editor
+export default ui

@@ -5,6 +5,7 @@ import AssetController from './asset_controller/AssetController';
 import SlideManager from './slideManager/SlideManager';
 
 import styles from './SlideEditor.css';
+import { connect } from 'react-redux';
 
 
 class SlideEditor extends React.Component{
@@ -17,7 +18,7 @@ class SlideEditor extends React.Component{
     return (
       <div className={styles.slideEditor}>
       <AssetCreator className={styles.assetCreator}/>
-      <SlideManager className={styles.slideManager}/>
+      <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.slideManagerShow:'')}/>
         <div className={styles.contextWrap}>
           <SlideContext className={styles.slideContext}/>
         </div>
@@ -27,4 +28,10 @@ class SlideEditor extends React.Component{
   }
 }
 
-export default SlideEditor;
+const mapStateToProps = (state) => {
+  return {
+    visibleSlideManager: state.ui.visibleSlideManager
+  }
+}
+
+export default connect(mapStateToProps)(SlideEditor);

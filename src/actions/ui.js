@@ -2,16 +2,8 @@ export const actionTypes = {
   SLIDE_MANAGER : 'SLIDE_MANAGER'
 }
 
-export const showSlideManager = ()=>{
+export const toggleSlideManager = ()=>{
   return {
-    type: actionTypes.VISIBLE_SLIDE_MANAGER,
-    state: true
-  }
-}
-
-export const hideSlideManager = ()=>{
-  return {
-    type: actionTypes.SLIDE_MANAGER,
-    state: false
+    type: actionTypes.SLIDE_MANAGER
   }
 }
