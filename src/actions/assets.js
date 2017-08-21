@@ -25,7 +25,12 @@ export const actionTypes = {
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
   ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
   ASSET_CREATE: "ASSET_CREATE",
-  ASSET_SELECTED: "ASSET_SELECTED"
+  ASSET_SELECTED: "ASSET_SELECTED",
+
+  ASSET_TYPE_TEXT: 'ASSET_TYPE_TEXT',
+  ASSET_TYPE_IMAGE: 'ASSET_TYPE_IMAGE',
+  ASSET_TYPE_VIDEO: 'ASSET_TYPE_VIDEO',
+  ASSET_TYPE_SHAPE: 'ASSET_TYPE_SHAPE'
 };
 
 export const createAsset = (assetType, value) => {
@@ -35,6 +40,21 @@ export const createAsset = (assetType, value) => {
     value
   }
 };
+
+export const createAssetByType = (type) => {
+  switch(type){
+    case actionTypes.ASSET_TYPE_TEXT:
+      return createAsset('text', '텍스트를 입력해 주세요');
+    case actionTypes.ASSET_TYPE_IMAGE:
+      return createAsset('image', 'https://github.com/rlatjdfo112/CC-Show/blob/master/document/design/ICON/App%20Icon.png?raw=true');
+    case actionTypes.ASSET_TYPE_VIDEO:
+      return createAsset('video', 'https://www.youtube.com/watch?v=VQtonf1fv_s');
+    case actionTypes.ASSET_TYPE_SHAPE:
+      return createAsset('shape', '');
+    default:
+      return createAsset('text', 'asdasd');
+  }
+}
 
 export const assetSelected = (assetId) => {
   return {

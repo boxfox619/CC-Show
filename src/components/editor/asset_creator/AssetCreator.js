@@ -1,6 +1,12 @@
 import React from 'react';
 import ClickableButton from './clickable_button/ClickableButton';
+
 import styles from './AssetCreator.css';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as assetsActions from '../../../actions/assets';
+import { actionTypes } from '../../../actions/assets';
 
 const defaultProps = {
   id: 'rlatjdfo112@naver.com',
@@ -38,9 +44,9 @@ class AssetCreator extends React.Component{
         </div>
       </div>
       <span className={styles.hr}/>
-      <ClickableButton name={'텍스트'} onClick={()=>this.createAsset('text')} />
-      <ClickableButton name={'이미지'} onClick={()=>this.createAsset('image')} />
-      <ClickableButton name={'비디오'} onClick={()=>this.createAsset('video')} />
+      <ClickableButton name={'텍스트'} onClick={()=>this.createAsset(actionTypes.ASSET_TYPE_TEXT)} />
+      <ClickableButton name={'이미지'} onClick={()=>this.createAsset(actionTypes.ASSET_TYPE_IMAGE)} />
+      <ClickableButton name={'비디오'} onClick={()=>this.createAsset(actionTypes.ASSET_TYPE_VIDEO)} />
       <ClickableButton name={'도형'} onClick={()=>this.showDialog(this.shapeTypes)} />
       <ClickableButton name={'기타'} onClick={()=>this.createAsset('custom')} />
       <span className={styles.hr}/>
@@ -68,11 +74,22 @@ class AssetCreator extends React.Component{
   }
 
   createAsset(type){
-    console.log(type);
+    this.props.createAssetByType(type);
   }
 
 }
 
 AssetCreator.defaultProps = defaultProps;
 
-export default AssetCreator;
+const mapStateToProps = (state) => {
+  return {
+    name: state.account.name,
+    id: state.account.id
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(assetsActions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AssetCreator);

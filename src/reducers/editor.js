@@ -352,7 +352,7 @@ const editor = (state = initialState, action) => {
           }
         )
       }
-    case actionTypes.ASSET_SET_VIDEO_LOOP: 
+    case actionTypes.ASSET_SET_VIDEO_LOOP:
     return {
         ...state,
         slides: update(

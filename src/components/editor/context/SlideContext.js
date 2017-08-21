@@ -28,8 +28,6 @@ class SlideContext extends React.Component{
     this.width = '400px';
 
     //testcode
-    this.props.createAsset('text', 'https://www.google.co.kr/images/branding/googleg/1x/googleg_standard_color_128dp.png');
-
   }
 
     render(){
