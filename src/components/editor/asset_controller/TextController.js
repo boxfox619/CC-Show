@@ -1,5 +1,5 @@
 import React from 'react';
-import actions from '../../../actions/assets';
+import * as actions from '../../../actions/assets';
 import { connect } from 'react-redux';
 
 class TextController extends React.Component{
