@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as assetsActions from '../../../actions/assets';
-import { actionTypes } from '../../../actions/assets';
+import * as assetTypes from '../../../assetTypes';
 
 const defaultProps = {
   id: 'rlatjdfo112@naver.com',
@@ -44,9 +44,9 @@ class AssetCreator extends React.Component{
         </div>
       </div>
       <span className={styles.hr}/>
-      <ClickableButton name={'텍스트'} onClick={()=>this.createAsset(actionTypes.ASSET_TYPE_TEXT)} />
-      <ClickableButton name={'이미지'} onClick={()=>this.createAsset(actionTypes.ASSET_TYPE_IMAGE)} />
-      <ClickableButton name={'비디오'} onClick={()=>this.createAsset(actionTypes.ASSET_TYPE_VIDEO)} />
+      <ClickableButton name={'텍스트'} onClick={()=>this.createAsset(assetTypes.TYPE_TEXT)} />
+      <ClickableButton name={'이미지'} onClick={()=>this.createAsset(assetTypes.TYPE_IMAGE)} />
+      <ClickableButton name={'비디오'} onClick={()=>this.createAsset(assetTypes.TYPE_VIDEO)} />
       <ClickableButton name={'도형'} onClick={()=>this.showDialog(this.shapeTypes)} />
       <ClickableButton name={'기타'} onClick={()=>this.createAsset('custom')} />
       <span className={styles.hr}/>

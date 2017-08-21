@@ -27,8 +27,7 @@ SlideManager.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
   return {
-    slides: state.editor.slides,
-    selectedSlide: state.editor.selectedSlide,
+    visible: state.ui.visibleSlideManager
   }
 }
 

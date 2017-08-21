@@ -40,15 +40,15 @@ export const createAsset = (assetType, value) => {
 export const createAssetByType = (type) => {
   switch(type){
     case assetTypes.TYPE_TEXT:
-      return createAsset('text', '텍스트를 입력해 주세요');
+      return createAsset(type, '텍스트를 입력해 주세요');
     case assetTypes.TYPE_IMAGE:
-      return createAsset('image', 'https://github.com/rlatjdfo112/CC-Show/blob/master/document/design/ICON/App%20Icon.png?raw=true');
+      return createAsset(type, 'https://github.com/rlatjdfo112/CC-Show/blob/master/document/design/ICON/App%20Icon.png?raw=true');
     case assetTypes.TYPE_VIDEO:
-      return createAsset('video', 'https://www.youtube.com/watch?v=VQtonf1fv_s');
+      return createAsset(type, 'https://www.youtube.com/watch?v=VQtonf1fv_s');
     case assetTypes.TYPE_SHAPE:
-      return createAsset('shape', '');
+      return createAsset(type, '');
     default:
-      return createAsset('text', 'asdasd');
+      return createAsset(type, 'asdasd');
   }
 }
 
