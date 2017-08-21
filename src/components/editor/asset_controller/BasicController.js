@@ -13,15 +13,16 @@ class BasicController extends React.Component{
     }
 
     render(){
+        console.log(this.props.width, this.props.height);
         return(
             <div>
                 <h1>Attribute</h1>
                 <hr/>
-                <p>W</p> <input id="width" type="text" value={this.props.width} onKeyDown={this.props.setWidth()}/>
-                <p>H</p> <input id="height" type="text" value={this.props.heigth} onKeyDown={this.props.setHeight()}/>
-                <p>X</p> <input id="x-postion" type="text" value={this.props.x_location} onKeyDown={this.props.setX_location()}/>
-                <p>Y</p> <input id="y-postion" type="text" value={this.props.y_location} onKeyDown={this.props.setY_location()}/>
-                <p>아이콘</p> <input id="angle" type="text" value={this.props.angle} onKeyDown={this.props.setAngle()}/>
+                <p>W</p> <input id="width" type="text" value={this.props.width} onKeyDown={this.setWidth()}/>
+                <p>H</p> <input id="height" type="text" value={this.props.height} onKeyDown={this.setHeight()}/>
+                <p>X</p> <input id="x-postion" type="text" value={this.props.x} onKeyDown={this.setX_location()}/>
+                <p>Y</p> <input id="y-postion" type="text" value={this.props.y} onKeyDown={this.setY_location()}/>
+                <p>아이콘</p> <input id="angle" type="text" value={this.props.angle} onKeyDown={this.setAngle()}/>
             </div>
         )
     }
@@ -62,7 +63,13 @@ class BasicController extends React.Component{
     }
 }
 
-const mapStateToProps = (dispatch) => {
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
     return {
         setWidth: (width) => {
             dispatch(actions.setAssetWidth(width))
@@ -82,4 +89,4 @@ const mapStateToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps)(BasicController);
+export default connect(mapStateToProps, mapDispatchToProps)(BasicController);

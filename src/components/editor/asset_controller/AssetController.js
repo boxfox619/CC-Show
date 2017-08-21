@@ -15,60 +15,63 @@ class AssetController extends React.Component {
     }
 
     render() {
-        if(!!this.props.currentSilde.selectedAsset){
-            switch (this.props.type) {
-                case actionTypes.ASSET_TYPE_TEXT:
+        let selectedAsset=this.props.currentSilde.selectedAsset-1;
+        console.log(this.props.currentSilde.assets[selectedAsset]);
+        if(!!(selectedAsset+1)){
+            console.log(this.props.currentSilde.assets[selectedAsset].type);
+            switch (this.props.currentSilde.assets[selectedAsset].type) {
+                case actions.TYPE_TEXT:
                     return(
                         <div>
-                            <BasicController width = {this.props.width}
-                                             height = {this.props.height}
-                                             x = {this.props.x}
-                                             y = {this.props.y}
-                                             angle = {this.props.angle}/>
-                            <TextController font = {this.props.font}
-                                            fontSize = {this.props.fontSize}
-                                            sort = {this.props.sort}
-                                            bold = {this.props.bold}
-                                            underline = {this.props.underline}
-                                            italic = {this.pros.italic}
-                                            fill_color = {this.props.fill_color}
-                                            edge = {this.props.edge}/>
+                            <BasicController width = {this.props.currentSilde.assets[selectedAsset].width}
+                                             height = {this.props.currentSilde.assets[selectedAsset].height}
+                                             x = {this.props.currentSilde.assets[selectedAsset].x}
+                                             y = {this.props.currentSilde.assets[selectedAsset].y}
+                                             angle = {this.props.currentSilde.assets[selectedAsset].angle}/>
+                            <TextController font = {this.props.currentSilde.assets[selectedAsset].font}
+                                            fontSize = {this.props.currentSilde.assets[selectedAsset].fontSize}
+                                            sort = {this.props.currentSilde.assets[selectedAsset].sort}
+                                            bold = {this.props.currentSilde.assets[selectedAsset].bold}
+                                            underline = {this.props.currentSilde.assets[selectedAsset].underline}
+                                            italic = {this.props.currentSilde.assets[selectedAsset].italic}
+                                            fill_color = {this.props.currentSilde.assets[selectedAsset].fill_color}
+                                            edge = {this.props.currentSilde.assets[selectedAsset].edge}/>
 
                         </div>
                     )
-                case actionTypes.ASSET_TYPE_VIDEO:
+                case actions.TYPE_VIDEO:
                     return(
                         <div>
-                            <BasicController width = {this.props.width}
-                                             height = {this.props.height}
-                                             x = {this.props.x}
-                                             y = {this.props.y}
-                                             angle = {this.props.angle}/>
-                            <VideoController url = {this.props.url}
-                                             controller = {this.props.controller}
-                                             autoplay = {this.props.autoplay}
-                                             loop = {this.props.loop} />
+                            <BasicController width = {this.props.currentSilde.assets[selectedAsset].width}
+                                             height = {this.props.currentSilde.assets[selectedAsset].height}
+                                             x = {this.props.currentSilde.assets[selectedAsset].x}
+                                             y = {this.props.currentSilde.assets[selectedAsset].y}
+                                             angle = {this.props.currentSilde.assets[selectedAsset].angle}/>
+                            <VideoController url = {this.props.currentSilde.assets[selectedAsset].url}
+                                             controller = {this.props.currentSilde.assets[selectedAsset].controller}
+                                             autoplay = {this.props.currentSilde.assets[selectedAsset].autoplay}
+                                             loop = {this.props.currentSilde.assets[selectedAsset].loop} />
                         </div>
                     )   
-                case actionTypes.ASSET_TYPE_SHAPE:
+                case actions.TYPE_SHAPE:
                     return(
                         <div>
-                            <BasicController width = {this.props.width}
-                                             height = {this.props.height}
-                                             x = {this.props.x}
-                                             y = {this.props.y}
-                                             angle = {this.props.angle}/>
+                            <BasicController width = {this.props.currentSilde.assets[selectedAsset].width}
+                                             height = {this.props.currentSilde.assets[selectedAsset].height}
+                                             x = {this.props.currentSilde.assets[selectedAsset].x}
+                                             y = {this.props.currentSilde.assets[selectedAsset].y}
+                                             angle = {this.props.currentSilde.assets[selectedAsset].angle}/>
                             <ShapeController/>
                         </div>
                     )
-                case actionTypes.ASSET_TYPE_IMAGE:
+                case actions.TYPE_IMAGE:
                     return(
                         <div>
-                            <BasicController width = {this.props.width}
-                                             height = {this.props.height}
-                                             x = {this.props.x}
-                                             y = {this.props.y}
-                                             angle = {this.props.angle}/>
+                            <BasicController width = {this.props.currentSilde.assets[selectedAsset].width}
+                                             height = {this.props.currentSilde.assets[selectedAsset].height}
+                                             x = {this.props.currentSilde.assets[selectedAsset].x}
+                                             y = {this.props.currentSilde.assets[selectedAsset].y}
+                                             angle = {this.props.currentSilde.assets[selectedAsset].angle}/>
                             <ImageController/>
                         </div>
                     )
@@ -88,7 +91,6 @@ class AssetController extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    //let selectedAsset = state.editor.slides[state.editor.selectedSlide].selectedAsset;
     return {
         currentSilde : state.editor.slides[state.editor.selectedSlide]
     }
