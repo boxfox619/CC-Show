@@ -1,4 +1,5 @@
 import React from 'react';
+import * as actions from '../../../actions/assets';
 import { connect } from 'react-redux';
 
 class BasicController extends React.Component{

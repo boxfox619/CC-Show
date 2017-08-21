@@ -19,7 +19,7 @@ class SlideEditor extends React.Component{
         <div className={styles.contextWrap}>
           <SlideContext className={styles.slideContext}/>
         </div>
-      {/*<AssetController/>*/}
+      <AssetController/>
       </div>
     );
   }
