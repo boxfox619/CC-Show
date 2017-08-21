@@ -1,6 +1,6 @@
-import express from 'express';
-import WebpackDevServer from 'webpack-dev-server';
-import webpack from 'webpack';
+const express = require('express');
+const WebpackDevServer = require('webpack-dev-server');
+const webpack = require('webpack');
 
 const app = express();
 const port = 3000;

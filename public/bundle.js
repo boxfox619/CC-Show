@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c5e38a5755573d12c691"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1ac1de2e43da94bbcbf8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -8959,7 +8959,7 @@ exports = module.exports = __webpack_require__(33)(undefined);
 
 
 // module
-exports.push([module.i, ".SlideManager__title___gI79G{\r\n  font-size : 12px;\r\n  color : #5D87B5;\r\n  font-weight : bold;\r\n}\r\n\r\n.SlideManager__title___gI79G:before {\r\n    content: \"\";\r\n    display: block;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat;\r\n    width: 20px;\r\n    height: 20px;\r\n    float: left;\r\n    margin: 0 6px 0 0;\r\n}\r\n\r\n.SlideManager__hide___2crbu{\r\n  float: right;\r\n}\r\n", ""]);
+exports.push([module.i, ".SlideManager__title___gI79G{\r\n  font-size : 12px;\r\n  color : #5D87B5;\r\n  font-weight : bold;\r\n  vertical-align: middle;\r\n}\r\n\r\n.SlideManager__title___gI79G:before {\r\n    vertical-align: middle;\r\n    content: \"\";\r\n    display: block;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat;\r\n    width: 20px;\r\n    height: 20px;\r\n    float: left;\r\n    margin: 0 6px 0 0;\r\n}\r\n\r\n.SlideManager__hide___2crbu{\r\n  float: right;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -28289,60 +28289,63 @@ var AssetController = function (_React$Component) {
     _createClass(AssetController, [{
         key: 'render',
         value: function render() {
-            if (!!this.props.currentSilde.selectedAsset) {
-                switch (this.props.type) {
-                    case actionTypes.ASSET_TYPE_TEXT:
+            var selectedAsset = this.props.currentSilde.selectedAsset - 1;
+            console.log(this.props.currentSilde.assets[selectedAsset]);
+            if (!!(selectedAsset + 1)) {
+                console.log(this.props.currentSilde.assets[selectedAsset].type);
+                switch (this.props.currentSilde.assets[selectedAsset].type) {
+                    case actions.TYPE_TEXT:
                         return _react2.default.createElement(
                             'div',
                             null,
-                            _react2.default.createElement(_BasicController2.default, { width: this.props.width,
-                                height: this.props.height,
-                                x: this.props.x,
-                                y: this.props.y,
-                                angle: this.props.angle }),
-                            _react2.default.createElement(_TextController2.default, { font: this.props.font,
-                                fontSize: this.props.fontSize,
-                                sort: this.props.sort,
-                                bold: this.props.bold,
-                                underline: this.props.underline,
-                                italic: this.pros.italic,
-                                fill_color: this.props.fill_color,
-                                edge: this.props.edge })
+                            _react2.default.createElement(_BasicController2.default, { width: this.props.currentSilde.assets[selectedAsset].width,
+                                height: this.props.currentSilde.assets[selectedAsset].height,
+                                x: this.props.currentSilde.assets[selectedAsset].x,
+                                y: this.props.currentSilde.assets[selectedAsset].y,
+                                angle: this.props.currentSilde.assets[selectedAsset].angle }),
+                            _react2.default.createElement(_TextController2.default, { font: this.props.currentSilde.assets[selectedAsset].font,
+                                fontSize: this.props.currentSilde.assets[selectedAsset].fontSize,
+                                sort: this.props.currentSilde.assets[selectedAsset].sort,
+                                bold: this.props.currentSilde.assets[selectedAsset].bold,
+                                underline: this.props.currentSilde.assets[selectedAsset].underline,
+                                italic: this.props.currentSilde.assets[selectedAsset].italic,
+                                fill_color: this.props.currentSilde.assets[selectedAsset].fill_color,
+                                edge: this.props.currentSilde.assets[selectedAsset].edge })
                         );
-                    case actionTypes.ASSET_TYPE_VIDEO:
+                    case actions.TYPE_VIDEO:
                         return _react2.default.createElement(
                             'div',
                             null,
-                            _react2.default.createElement(_BasicController2.default, { width: this.props.width,
-                                height: this.props.height,
-                                x: this.props.x,
-                                y: this.props.y,
-                                angle: this.props.angle }),
-                            _react2.default.createElement(_VideoController2.default, { url: this.props.url,
-                                controller: this.props.controller,
-                                autoplay: this.props.autoplay,
-                                loop: this.props.loop })
+                            _react2.default.createElement(_BasicController2.default, { width: this.props.currentSilde.assets[selectedAsset].width,
+                                height: this.props.currentSilde.assets[selectedAsset].height,
+                                x: this.props.currentSilde.assets[selectedAsset].x,
+                                y: this.props.currentSilde.assets[selectedAsset].y,
+                                angle: this.props.currentSilde.assets[selectedAsset].angle }),
+                            _react2.default.createElement(_VideoController2.default, { url: this.props.currentSilde.assets[selectedAsset].url,
+                                controller: this.props.currentSilde.assets[selectedAsset].controller,
+                                autoplay: this.props.currentSilde.assets[selectedAsset].autoplay,
+                                loop: this.props.currentSilde.assets[selectedAsset].loop })
                         );
-                    case actionTypes.ASSET_TYPE_SHAPE:
+                    case actions.TYPE_SHAPE:
                         return _react2.default.createElement(
                             'div',
                             null,
-                            _react2.default.createElement(_BasicController2.default, { width: this.props.width,
-                                height: this.props.height,
-                                x: this.props.x,
-                                y: this.props.y,
-                                angle: this.props.angle }),
+                            _react2.default.createElement(_BasicController2.default, { width: this.props.currentSilde.assets[selectedAsset].width,
+                                height: this.props.currentSilde.assets[selectedAsset].height,
+                                x: this.props.currentSilde.assets[selectedAsset].x,
+                                y: this.props.currentSilde.assets[selectedAsset].y,
+                                angle: this.props.currentSilde.assets[selectedAsset].angle }),
                             _react2.default.createElement(_ShapeController2.default, null)
                         );
-                    case actionTypes.ASSET_TYPE_IMAGE:
+                    case actions.TYPE_IMAGE:
                         return _react2.default.createElement(
                             'div',
                             null,
-                            _react2.default.createElement(_BasicController2.default, { width: this.props.width,
-                                height: this.props.height,
-                                x: this.props.x,
-                                y: this.props.y,
-                                angle: this.props.angle }),
+                            _react2.default.createElement(_BasicController2.default, { width: this.props.currentSilde.assets[selectedAsset].width,
+                                height: this.props.currentSilde.assets[selectedAsset].height,
+                                x: this.props.currentSilde.assets[selectedAsset].x,
+                                y: this.props.currentSilde.assets[selectedAsset].y,
+                                angle: this.props.currentSilde.assets[selectedAsset].angle }),
                             _react2.default.createElement(_ImageController2.default, null)
                         );
                     default:
@@ -28362,7 +28365,6 @@ var AssetController = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    //let selectedAsset = state.editor.slides[state.editor.selectedSlide].selectedAsset;
     return {
         currentSilde: state.editor.slides[state.editor.selectedSlide]
     };
@@ -28451,7 +28453,6 @@ var TextController = function (_React$Component) {
                         _react2.default.createElement('option', { value: '' }),
                         _react2.default.createElement('option', { value: '' })
                     ),
-                    _react2.default.createElement('input', { id: 'width', type: 'text', value: this.props.width, onKeyUp: this.props.setWidth() }),
                     _react2.default.createElement('input', { id: 'sort', type: 'checkbox', value: 'left' }),
                     _react2.default.createElement('input', { id: 'sort', type: 'checkbox', value: 'middle' }),
                     _react2.default.createElement('input', { id: 'sort', type: 'checkbox', value: 'right' }),
@@ -28466,7 +28467,11 @@ var TextController = function (_React$Component) {
     return TextController;
 }(_react2.default.Component);
 
-var mapStateToProps = function mapStateToProps(dispatch) {
+var mapStateToProps = function mapStateToProps(state) {
+    return {};
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
         setFont: function setFont(font) {
             dispatch(actions.setAssetFont(font));
@@ -28495,7 +28500,7 @@ var mapStateToProps = function mapStateToProps(dispatch) {
     };
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(TextController);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TextController);
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(9); if (makeExportsHot(module, __webpack_require__(1))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "TextController.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)(module)))
@@ -28565,7 +28570,7 @@ var VideoController = function (_React$Component) {
     return VideoController;
 }(_react2.default.Component);
 
-var mapDispathchToProps = function mapDispathchToProps(dispatch) {
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
         setURL: function setURL(url) {
             dispatch(actions.setAssetVideoURL(url));
@@ -28752,6 +28757,7 @@ var BasicController = function (_React$Component) {
     _createClass(BasicController, [{
         key: 'render',
         value: function render() {
+            console.log(this.props.width, this.props.height);
             return _react2.default.createElement(
                 'div',
                 null,
@@ -28767,35 +28773,35 @@ var BasicController = function (_React$Component) {
                     'W'
                 ),
                 ' ',
-                _react2.default.createElement('input', { id: 'width', type: 'text', value: this.props.width, onKeyDown: this.props.setWidth() }),
+                _react2.default.createElement('input', { id: 'width', type: 'text', value: this.props.width, onKeyDown: this.setWidth() }),
                 _react2.default.createElement(
                     'p',
                     null,
                     'H'
                 ),
                 ' ',
-                _react2.default.createElement('input', { id: 'height', type: 'text', value: this.props.heigth, onKeyDown: this.props.setHeight() }),
+                _react2.default.createElement('input', { id: 'height', type: 'text', value: this.props.height, onKeyDown: this.setHeight() }),
                 _react2.default.createElement(
                     'p',
                     null,
                     'X'
                 ),
                 ' ',
-                _react2.default.createElement('input', { id: 'x-postion', type: 'text', value: this.props.x_location, onKeyDown: this.props.setX_location() }),
+                _react2.default.createElement('input', { id: 'x-postion', type: 'text', value: this.props.x, onKeyDown: this.setX_location() }),
                 _react2.default.createElement(
                     'p',
                     null,
                     'Y'
                 ),
                 ' ',
-                _react2.default.createElement('input', { id: 'y-postion', type: 'text', value: this.props.y_location, onKeyDown: this.props.setY_location() }),
+                _react2.default.createElement('input', { id: 'y-postion', type: 'text', value: this.props.y, onKeyDown: this.setY_location() }),
                 _react2.default.createElement(
                     'p',
                     null,
                     '\uC544\uC774\uCF58'
                 ),
                 ' ',
-                _react2.default.createElement('input', { id: 'angle', type: 'text', value: this.props.angle, onKeyDown: this.props.setAngle() })
+                _react2.default.createElement('input', { id: 'angle', type: 'text', value: this.props.angle, onKeyDown: this.setAngle() })
             );
         }
     }, {
@@ -28843,7 +28849,11 @@ var BasicController = function (_React$Component) {
     return BasicController;
 }(_react2.default.Component);
 
-var mapStateToProps = function mapStateToProps(dispatch) {
+var mapStateToProps = function mapStateToProps(state) {
+    return {};
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
         setWidth: function setWidth(width) {
             dispatch(actions.setAssetWidth(width));
@@ -28863,7 +28873,7 @@ var mapStateToProps = function mapStateToProps(dispatch) {
     };
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(BasicController);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(BasicController);
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(9); if (makeExportsHot(module, __webpack_require__(1))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "BasicController.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)(module)))
@@ -28933,7 +28943,7 @@ var SlideManager = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: _SlideManager2.default.title },
-            '\uC2AC\uB77C\uC774\uB4DC \uB9AC\uC2A4\uD2B8'
+            '\uC2AC\uB77C\uC774\uB4DC \uB9AC\uC2A4\uD2B8asdasd'
           )
         )
       );
