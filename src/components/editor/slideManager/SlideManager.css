@@ -1,0 +1,19 @@
+.title{
+  font-size : 12px;
+  color : #5D87B5;
+  font-weight : bold;
+}
+
+.title:before {
+    content: "";
+    display: block;
+    background: url("/images/ic_ellipse_gray.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0 6px 0 0;
+}
+
+.hide{
+  float: right;
+}

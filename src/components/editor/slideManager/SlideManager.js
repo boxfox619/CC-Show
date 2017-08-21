@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './SlideManager.css';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -18,6 +20,11 @@ class SlideManager extends React.Component{
   render(){
     return (
       <div className={this.props.className}>
+        <div style={{'padding': '20px'}}>
+          <div className={styles.title}>
+            슬라이드 리스트
+          </div>
+        </div>
       </div>
     );
   }

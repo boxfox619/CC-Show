@@ -26,8 +26,6 @@ class SlideContext extends React.Component{
 
     this.height = '400px';
     this.width = '400px';
-
-    //testcode
   }
 
     render(){
