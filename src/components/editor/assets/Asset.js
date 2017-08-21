@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from './Assets.css';
 
+import * as assetTypes from '../../../assetTypes';
+
 import TextAsset from './TextAsset';
 import ImageAsset from './ImageAsset';
 import VideoAsset from './VideoAsset';
@@ -27,16 +29,16 @@ class Asset extends React.Component{
   render(){
       let assetTag;
     switch(this.props.attribute.type){
-      case 'text':
+      case assetTypes.TYPE_TEXT:
         assetTag = TextAsset;
         break;
-      case 'image':
+      case assetTypes.TYPE_IMAGE:
         assetTag = ImageAsset;
         break;
-      case 'video':
+      case assetTypes.TYPE_VIDEO:
         assetTag = VideoAsset;
         break;
-      case 'shape':
+      case assetTypes.TYPE_SHAPE:
         assetTag = 'ShapeAsset';
         break;
       default:

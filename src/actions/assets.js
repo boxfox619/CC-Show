@@ -1,3 +1,4 @@
+import * as assetTypes from '../assetTypes';
 export const actionTypes = {
   ASSET_SET_LEFT: "ASSET_SET_LEFT",
   ASSET_SET_TOP: "ASSET_SET_TOP",
@@ -25,12 +26,7 @@ export const actionTypes = {
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
   ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
   ASSET_CREATE: "ASSET_CREATE",
-  ASSET_SELECTED: "ASSET_SELECTED",
-
-  ASSET_TYPE_TEXT: 'ASSET_TYPE_TEXT',
-  ASSET_TYPE_IMAGE: 'ASSET_TYPE_IMAGE',
-  ASSET_TYPE_VIDEO: 'ASSET_TYPE_VIDEO',
-  ASSET_TYPE_SHAPE: 'ASSET_TYPE_SHAPE'
+  ASSET_SELECTED: "ASSET_SELECTED"
 };
 
 export const createAsset = (assetType, value) => {
@@ -43,13 +39,13 @@ export const createAsset = (assetType, value) => {
 
 export const createAssetByType = (type) => {
   switch(type){
-    case actionTypes.ASSET_TYPE_TEXT:
+    case assetTypes.TYPE_TEXT:
       return createAsset('text', '텍스트를 입력해 주세요');
-    case actionTypes.ASSET_TYPE_IMAGE:
+    case assetTypes.TYPE_IMAGE:
       return createAsset('image', 'https://github.com/rlatjdfo112/CC-Show/blob/master/document/design/ICON/App%20Icon.png?raw=true');
-    case actionTypes.ASSET_TYPE_VIDEO:
+    case assetTypes.TYPE_VIDEO:
       return createAsset('video', 'https://www.youtube.com/watch?v=VQtonf1fv_s');
-    case actionTypes.ASSET_TYPE_SHAPE:
+    case assetTypes.TYPE_SHAPE:
       return createAsset('shape', '');
     default:
       return createAsset('text', 'asdasd');
