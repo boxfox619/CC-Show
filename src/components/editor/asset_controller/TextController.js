@@ -21,7 +21,6 @@ class TextController extends React.Component{
                         <option value=""></option>
                         <option value=""></option>  
                     </select>
-                    <input id="width" type="text" value={this.props.width} onKeyUp={this.props.setWidth()}/>
                     <input id="sort" type="checkbox" value="left"/>
                     <input id="sort" type="checkbox" value="middle"/>
                     <input id="sort" type="checkbox" value="right"/>
@@ -34,7 +33,13 @@ class TextController extends React.Component{
     }
 }
 
-const mapStateToProps = (dispatch) => {
+const mapStateToProps = (state) => {
+    return{
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
     return {
         setFont: (font) => {
             dispatch(actions.setAssetFont(font))
@@ -63,4 +68,4 @@ const mapStateToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps)(TextController);
+export default connect(mapStateToProps, mapDispatchToProps)(TextController);

@@ -22,7 +22,7 @@ class VideoController extends React.Component {
     }
 }
 
-const mapDispathchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         setURL: (url) => {
             dispatch(actions.setAssetVideoURL(url));
