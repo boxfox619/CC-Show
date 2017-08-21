@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {actionTypes} from '../../../actions/assets';
+import * as actions from '../../../assetTypes';
 
 import TextController from './TextController';
 import VideoController from './VideoController';
