@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './SlidePreview.css';
-import * as assetsActions from '../../actions/assets';
+import * as assetsActions from '../../../../actions/assets';
+import IconButton from './IconButton';
 
 const defaultProps = {
-  name: React.PropTypes.string.required,
-  no: React.PropTypes.number.required
+  name: React.PropTypes.string.isRequired,
+  no: React.PropTypes.number.isRequired
 };
 
 class SlidePreview extends React.Component{
@@ -20,7 +21,6 @@ class SlidePreview extends React.Component{
   render(){
     return (
       <div className={styles.slidePreview}>
-
         <div className={styles.controller}>
           <div className={styles.slideInfo}>
             <div className={styles.title}>
@@ -41,6 +41,14 @@ class SlidePreview extends React.Component{
   }
 
   share(){
+
+  }
+
+  copy(){
+
+  }
+
+  delete(){
 
   }
 }

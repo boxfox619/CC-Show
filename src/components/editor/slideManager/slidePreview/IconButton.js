@@ -1,11 +1,10 @@
 import React from 'react';
 
-import * as assetsActions from '../../../actions/assets';
-
+console.log(React.PropTypes.func);
 const defaultProps = {
-  icon: React.PropTypes.string.required,
-  onClick: React.PropTypes.function.required,
-  className: Reacat.PropTypes.string.required
+  icon: React.PropTypes.string.isRequired,
+  onClick: React.PropTypes.func.isRequired,
+  className: React.PropTypes.string.isRequired
 };
 
 class IconButton extends React.Component{
@@ -16,9 +15,7 @@ class IconButton extends React.Component{
 
   render(){
     return (
-      <div onClick={this.props.onClick} >
-
-      </div>
+      <img className={this.props.className} onClick={this.props.onClick} src={'/images/ic_'+this.props.icon+'_white.png'}/>
     );
   }
 }

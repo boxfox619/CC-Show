@@ -5,6 +5,7 @@ import styles from './SlideManager.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import SlidePreview from './slidePreview/SlidePreview';
 import * as assetsActions from '../../../actions/assets';
 
 const defaultProps = {
@@ -18,12 +19,20 @@ class SlideManager extends React.Component{
   }
 
   render(){
+      let renderSlidePreviews = (slides) => {
+        return slides.map((slide, idx)=>{
+          return <SlidePreview key={slide.name+idx} name={slide.name} no={1}/>
+        })
+      };
     return (
       <div className={this.props.className}>
-        <div style={{'padding': '20px'}}>
+        <div style={{'padding': '20px 13px'}}>
           <div className={styles.title}>
             슬라이드 리스트
           </div>
+          <div className={styles.hide}>
+          </div>
+          {renderSlidePreviews(this.props.slides)}
         </div>
       </div>
     );
@@ -34,7 +43,7 @@ SlideManager.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
   return {
-    visible: state.ui.visibleSlideManager
+    slides: state.editor.slides
   }
 }
 

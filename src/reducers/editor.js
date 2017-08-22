@@ -16,12 +16,23 @@ const initialState = {
 }
 
 const editor = (state = initialState, action) => {
-  console.log(action.type);
   switch (action.type) {
     case actionTypes.ASSET_CREATE:
       let sizeUnit = getState().slideContext.sizeUnit;
       let positionUnit = getState().slideContext.positionUnit;
       let currentId = state.slides[state.selectedSlide].assetIdCount + 1;
+      let newAsset = {
+        id: currentId,
+        type: action.assetType,
+        value: action.value,
+        height: '50' + sizeUnit,
+        width: '50' + sizeUnit,
+        x: '0' + positionUnit,
+        y: '0' + positionUnit
+      };
+
+      // 추가 style add
+
       return {
         ...state,
         slides:update(
@@ -31,15 +42,7 @@ const editor = (state = initialState, action) => {
               assetIdCount: {$set: currentId},
               assets: {$set: update(
                 state.slides[state.selectedSlide].assets, {
-                  $push: [{
-                    id: currentId,
-                    type: action.assetType,
-                    value: action.value,
-                    height: '50' + sizeUnit,
-                    width: '50' + sizeUnit,
-                    x: '0' + positionUnit,
-                    y: '0' + positionUnit
-                  }]
+                  $push: [newAsset]
                 })}
             }
           }
