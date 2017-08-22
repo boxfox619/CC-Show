@@ -7,8 +7,10 @@ const initialState = {
   sizeUnit: 'px',
   positionUnit: 'px',
   selectedSlide: 0,
+  slideIdCount: 0,
   slides:[{
       name: 'TEST-SLIDE',
+      id: 0,
       selectedAsset: undefined,
       assetIdCount: 0,
       assets: []
@@ -398,25 +400,45 @@ const editor = (state = initialState, action) => {
         ...state,
           positionUnit: action.unit
         }
-    case slideActionTypes.SLIDE_CREATE:
+    case slideActionTypes.SLIDE_COPY:
+      let target = action.target;
       return {
         ...state,
+        slideIdCount: state.slideIdCount+1,
         slides: update(
           state.slides,
           { $push : [{
-              name: 'NEW-SLIDE'+state.slides.length,
+            ...target,
+            id:state.slideIdCount+1
+          }]
+        })
+      }
+    case slideActionTypes.SLIDE_CREATE:
+      return {
+        ...state,
+        slideIdCount: state.slideIdCount+1,
+        slides: update(
+          state.slides,
+          { $push : [{
+              id: state.slideIdCount+1,
+              name: 'NEW-SLIDE'+(state.slideIdCount+1),
               selectedAsset: undefined,
               assetIdCount: 0,
               assets: []
           }]
         })
       }
-    case slideActionTypes.SLIDE_REMOVE:
+    case slideActionTypes.SLIDE_DELETE:
+      let selectedSlide = state.selectedSlide;
+        if(selectedSlide>state.slides.length&&selectedSlide>0){
+          selectedSlide -= 1;
+        }
       return {
         ...state,
+        selectedSlide,
         slides: update(
           state.slides,
-          {$splice: [[action.target, 1]]}
+          {$splice: [[getSlideIndex(state, action.target), 1]]}
         )
       }
     case slideActionTypes.SLIDE_RENAME:
@@ -425,7 +447,7 @@ const editor = (state = initialState, action) => {
         slides: update(
           state.slides,
           {
-            [action.target]:{
+            [getSlideIndex(state, action.target)]:{
               name: { $set : action.name}
             }
           }
@@ -434,11 +456,32 @@ const editor = (state = initialState, action) => {
     case slideActionTypes.SLIDE_SELECT:
       return {
         ...state,
-        selectedSlide: action.target
+        selectedSlide: getSlideIndex(state, action.target)
+      }
+    case slideActionTypes.EXCHANGE_SLIDE:
+      return {
+        ...state,
+        slides : insertItem(state.slides, action.to, state.slides.splice(action.from, 1)[0])
       }
     default:
       return state;
   }
+}
+
+function insertItem(array, index, item) {
+    let newArray = array.slice();
+    newArray.splice(index, 0, item);
+    return newArray;
+}
+
+function getSlideIndex(state, key) {
+  let index = -1;
+  state.slides.forEach(function (slide, i) {
+    if (slide.id == key) {
+      index = i;
+    }
+  });
+  return index;
 }
 
 function getAssetIndex(state, key) {

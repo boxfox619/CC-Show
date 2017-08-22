@@ -169,9 +169,16 @@ class SlideContext extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-  return {
-    selectedAsset: state.editor.slides[state.editor.selectedSlide].selectedAsset,
-    assets: state.editor.slides[state.editor.selectedSlide].assets
+  if(state.editor.slides.length > 0){
+    return {
+      selectedAsset: state.editor.slides[state.editor.selectedSlide].selectedAsset,
+      assets: state.editor.slides[state.editor.selectedSlide].assets
+    }
+  } else {
+    return{
+      selectedAsset: -1,
+      assets: []
+    }
   }
 }
 

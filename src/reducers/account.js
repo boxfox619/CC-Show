@@ -6,7 +6,6 @@ const initialState = {
 }
 
 const account = (state = initialState, action) => {
-  console.log(action.type);
   switch (action.type) {
     default:
       return state;

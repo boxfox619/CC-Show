@@ -7,11 +7,11 @@
 }
 
 .title:before {
-    content: "";
+  content: "";
   display: table-cell;
   vertical-align: middle;
-    background: url("/images/ic_ellipse_gray.png") no-repeat left center;
-    width: 23px;
+  background: url("/images/ic_ellipse_gray.png") no-repeat left center;
+  width: 23px;
 }
 
 .hide{
