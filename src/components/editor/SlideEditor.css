@@ -1,5 +1,14 @@
 body { margin:0; }
 
+asset {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
 .slideEditor{
       width: 100%;
       height: 100%;
@@ -8,13 +17,24 @@ body { margin:0; }
       flex-direction: row;
 }
 
-.assetCreator{
+.assetController{
     z-index: 3;
     min-width: 12em;
+    max-width: 12em;
     height: 100vh;
     background-color: white;
     position: relative;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26);
+    box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);
+}
+
+.assetCreator{
+    z-index: 3;
+    min-width: 12em;
+    max-width: 12em;
+    height: 100vh;
+    background-color: white;
+    position: relative;
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);
 }
 
 .slideManager{
@@ -45,20 +65,55 @@ body { margin:0; }
 
 .contextWrap{
     z-index: 1;
-    background-color: gray;
-    display: inline-block;
-    height: 100%;
+    background-color: #ECEEF2;
+    max-height: 100%;
+    max-height: 100%;
     width: 100%;
+    height: 100%;
+    max-width: calc(100% - 24em);
     position: relative;
+    overflow: scroll;
+}
+
+.contextWrap::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+	background-color: #ffffff;
+}
+
+.contextWrap::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #ffffff;
+}
+
+.contextWrap::-webkit-scrollbar-thumb
+{
+	background-color: #5D87B5;
+}
+
+.contextSpace{
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width:1480px){
+  .contextSpace{
+    height: 720px;
+    width: 1220px;
+  }
 }
 
 .slideContext {
-    position: relative;
+    height:620px;
+    width: 1080px;
     background-color: rgba(255, 255, 255, 1);
-    display: inline-block;
-    height: 80%;
-    width: 80%;
     overflow: hidden;
+    position: relative;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .assetCreator ul{

@@ -23,9 +23,6 @@ class SlideContext extends React.Component{
     this.yInElement = 0;
     this.selectedAsset = undefined;
     this.resizeTarget = undefined;
-
-    this.height = '400px';
-    this.width = '400px';
   }
 
     render(){
@@ -38,7 +35,7 @@ class SlideContext extends React.Component{
         })
       };
       return (
-        <div style={{'height':this.height, 'width':this.width}} className={this.props.className} id={'SlideContext'}
+        <div className={this.props.className} id={'SlideContext'}
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}
         onMouseUp={this.handleMouseRelese}

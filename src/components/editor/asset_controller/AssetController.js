@@ -52,7 +52,7 @@ class AssetController extends React.Component {
                                              autoplay = {this.props.currentSilde.assets[selectedAsset].autoplay}
                                              loop = {this.props.currentSilde.assets[selectedAsset].loop} />
                         </div>
-                    )   
+                    )
                 case actions.TYPE_SHAPE:
                     return(
                         <div>
@@ -82,7 +82,7 @@ class AssetController extends React.Component {
             }
         }else{
             return(
-                <div>
+                <div className={this.props.className}>
                     <input type="text" value={this.props.currentSilde.selectedAsset}/>
                 </div>
             )

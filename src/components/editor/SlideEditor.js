@@ -20,9 +20,11 @@ class SlideEditor extends React.Component{
       <AssetCreator className={styles.assetCreator}/>
       <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.slideManagerShow:'')}/>
         <div className={styles.contextWrap}>
-          <SlideContext className={styles.slideContext}/>
+          <div className={styles.contextSpace}>
+            <SlideContext className={styles.slideContext}/>
+          </div>
         </div>
-      <AssetController/>
+      <AssetController className={styles.assetController}/>
       </div>
     );
   }
