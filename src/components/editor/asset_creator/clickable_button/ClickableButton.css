@@ -1,6 +1,9 @@
 .clickableButton{
-  display: block;
-  padding: 2px 5px;
+  display: table;
+  width: 100%;
+  font-size: 0.7em;
+  font-weight: bold;
+  color : #5D87B5;
   cursor: pointer;
   border-radius: 4px;
   moz-border-radius: 4px;
@@ -13,7 +16,19 @@
   user-select: none;
 }
 
+.clickableButton div{
+  padding: 7px 8px;
+}
+
 .clickableButton:hover{
   background: url('/images/bg_active.png');
   color: white;
+}
+
+.clickableButton:hover:after{
+    content: "";
+    display: table-cell;
+    vertical-align: middle;
+    background: url("/images/ic_ellipse_white.png") no-repeat left center;
+    width: 23px;
 }

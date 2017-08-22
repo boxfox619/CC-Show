@@ -9,7 +9,9 @@ class ClickableButton extends React.Component{
   render(){
     return (
       <div className={styles.clickableButton} onClick={this.props.onClick}>
-        {this.props.name}
+        <div>
+          {this.props.name}
+        </div>
       </div>
     );
   }
