@@ -36,6 +36,7 @@ class SlideManager extends React.Component{
             onDragStart={this.dragStart}>
           <SlidePreview
           slide={slide}
+          idx={idx}
           shareSlide={this.props.shareSlide}
           copySlide={this.props.copySlide}
           deleteSlide={this.props.deleteSlide}
@@ -46,7 +47,7 @@ class SlideManager extends React.Component{
       };
     return (
       <div className={this.props.className}>
-        <div style={{'padding': '20px 13px', 'min-height': 'calc( 100% - 40px )'}}>
+        <div className={styles.inner}>
           <div className={styles.title}>
             슬라이드 리스트
           </div>
@@ -73,6 +74,7 @@ class SlideManager extends React.Component{
 
   dragEnd(e) {
     this.dragged.style.display = "block";
+    if(!this.dragged.parentNode.contains(placeholder))return;
     this.dragged.parentNode.removeChild(placeholder);
     var from = Number(this.dragged.dataset.id);
     var to = Number(this.over.dataset.id);

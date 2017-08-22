@@ -4,7 +4,8 @@ import * as slideActions from '../../../../actions/slides';
 import IconButton from './IconButton';
 
 const defaultProps = {
-  slide: React.PropTypes.object.isRequired
+  slide: React.PropTypes.object.isRequired,
+  idx: React.PropTypes.number.isRequired
 };
 
 class SlidePreview extends React.Component{
@@ -22,7 +23,7 @@ class SlidePreview extends React.Component{
               {this.props.slide.name}
             </div>
             <div className={styles.subTitle}>
-              슬라이드{this.props.slide.id}
+              슬라이드{this.props.idx}
             </div>
           </div>
           <div className={styles.actions}>
