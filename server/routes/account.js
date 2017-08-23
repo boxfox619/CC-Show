@@ -4,14 +4,30 @@ const Realm = require('realm');
 
 const UserSchema = {
   name: 'User',
-  primaryKey: 'key',
+  primaryKey: 'id',
   properties: {
-    key:  'string',
+    key: {type: 'string'},
     id: {type: 'string', optional: true},
     password: {type: 'string', optional: true},
     nickname: 'string'
   }
 };
+
+var crypto = require('crypto');
+
+function randomToken(howMany, chars) {
+    chars = chars
+        || "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+    var rnd = crypto.randomBytes(howMany)
+        , value = new Array(howMany)
+        , len = chars.length;
+
+    for (var i = 0; i < howMany; i++) {
+        value[i] = chars[rnd[i] % len]
+    };
+
+    return value.join('');
+}
 
 module.exports = function() {
 
@@ -34,7 +50,16 @@ module.exports = function() {
 
     router.post('/register/', (req, res) => {
         console.log(colors.green('[REQ]'), 'register', getIP(req));
-
+        Realm.open({schema: [UserSchema]}).then(realm => {
+          realm.write(() => {
+            let user = realm.create('User', {
+              key: generateUniqueId(),
+              id: req.body.id,
+              password: req.body.password,
+              nickname: req.body.nickname
+            });
+          });
+        });
         return res.json({number: 22});
     });
 

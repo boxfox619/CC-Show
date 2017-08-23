@@ -2,14 +2,20 @@ const express = require('express');
 const colors = require('colors');
 const Realm = require('realm');
 
-const UserSchema = {
-  name: 'User',
-  primaryKey: 'key',
+const AssetSchema = {
+  name: 'Asset',
+  primaryKey: 'id',
   properties: {
-    key:  'string',
-    id: {type: 'string', optional: true},
-    password: {type: 'string', optional: true},
-    nickname: 'string'
+    id: {type: 'int'},
+    title: {type: 'string'},
+    subTitle: {type: 'string'},
+    star: {type: 'float'},
+    openToStore: {type: 'boolean'},
+    thumbnail: {type: 'string'},
+    images: {type: 'list', objectType: 'string'},
+    content: {type: 'string'},
+    price: {type: 'int'},
+    license: {type: 'string'}
   }
 };
 
@@ -22,7 +28,6 @@ module.exports = function() {
     const router = express.Router();
 
     router.get('/', (req, res) => {
-      console.log('tesata');
         return res.json({number: 123});
     });
 
@@ -50,10 +55,30 @@ module.exports = function() {
         return res.json(result);
     });
 
-    router.post('/register/', (req, res) => {
-        console.log(colors.green('[REQ]'), 'register', getIP(req));
+    router.put('/upload/', (req, res) => {
+    console.log(colors.green('[REQ]'),getIP(req), 'upload asset', req.query.filter);
 
-        return res.json({number: 22});
+      if(typeof req.cookies['connect.sid'] === 'undefined') {
+        Realm.open({schema: [AssetSchema]}).then(realm => {
+          realm.write(() => {
+             realm.create('Asset', {
+              id: realm.objects('Asset').length,
+              title: req.body.title,
+              subTitle: req.cookies['connect.sid'].user.name,
+              star: 0,
+              openToStore: req.body.openToStore,
+              thumbnail: req.body.thumbnail,
+              images: req.body.images,
+              content: req.body.content,
+              price: req.body.price,
+              license: req.body.license
+              });
+            });
+          });
+        }else{
+          console.log('not logined');
+        }
+
     });
 
     return router;
