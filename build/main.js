@@ -18,9 +18,10 @@ if (process.env.NODE_ENV == 'development') {
 }
 app.use('/', express.static(__dirname + '/../public'));
 
-app.get('/test', (req, res) => {
-    return res.send('Can you hear me?');
-});
+const account = require('./routes/account');
+app.use('/account', account());
+const store = require('./routes/store');
+app.use('/store', store());
 
 const server = app.listen(port, () => {
     console.log('Express listening on port', port);
