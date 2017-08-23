@@ -1,6 +1,14 @@
 import React from 'react';
 import styles from './AssetItem.css';
 
+const propTypes = {
+  id: React.PropTypes.string.isRequired,
+  title: React.PropTypes.string.isRequired,
+  subTitle: React.PropTypes.string.isRequired,
+  star: React.PropTypes.number.isRequired,
+  thumbnail: React.PropTypes.string.isRequired
+}
+
 class AssetItem extends React.Component{
 
   constructor(props){
@@ -11,7 +19,7 @@ class AssetItem extends React.Component{
     console.log('test');
     return (
       <div className={styles.asset}>
-      <div className={styles.thumbnail}></div>
+      <div className={styles.thumbnail}><img src={this.props.thumbnail}/></div>
         <div className={styles.buttonHeader}>
           <div className={styles.imgBtn}><img src={'/images/ic_move_in_box_gray.png'}/></div>
           <div className={styles.imgBtn}><img src={'/images/ic_flag_white.png'}/></div>
@@ -20,8 +28,8 @@ class AssetItem extends React.Component{
         <div className={styles.bookmark}/>
         <div className={styles.footer}>
           <div className={styles.texts}>
-            <div className={styles.title}>심플한 디자인</div>
-            <div className={styles.subTitle}>치킨맥주</div>
+            <div className={styles.title}>{this.props.title}</div>
+            <div className={styles.subTitle}>{this.props.subTitle}</div>
           </div>
           <div className={styles.stars}>
             <div className={styles.star}/>
@@ -35,5 +43,7 @@ class AssetItem extends React.Component{
     );
   }
 }
+
+AssetItem.PropTypes = propTypes;
 
 export default AssetItem;
