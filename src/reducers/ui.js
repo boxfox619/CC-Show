@@ -13,6 +13,11 @@ const ui = (state = initialState, action) => {
         ...state,
         visibleSlideManager : !state.visibleSlideManager
       };
+    case actionTypes.ASSET_STORE:
+      return {
+        ...state,
+        visibleAssetStore : !state.visibleAssetStore
+      };
     default:
       return state;
   }

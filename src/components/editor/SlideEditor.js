@@ -3,6 +3,7 @@ import AssetCreator from './asset_creator/AssetCreator';
 import SlideContext from './context/SlideContext';
 import AssetController from './asset_controller/AssetController';
 import SlideManager from './slideManager/SlideManager';
+import AssetStore from './assetStore/AssetStore';
 
 import styles from './SlideEditor.css';
 import { connect } from 'react-redux';
@@ -17,11 +18,16 @@ class SlideEditor extends React.Component{
   }
 
   render(){
+    let renderAssetStore = ()=>{
+      if(this.props.visibleAssetStore)
+        return (<AssetStore className={styles.modal}/>);
+    }
     let contextDisabled = this.checkContextDisabled();
     return (
       <div className={styles.slideEditor}>
       <AssetCreator className={styles.assetCreator}/>
-      <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.slideManagerShow:'')}/>
+      <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
+      {renderAssetStore()}
         <div className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
           <div className={styles.contextSpace}>
             <SlideContext className={styles.slideContext}/>
