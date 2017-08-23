@@ -58,9 +58,9 @@ module.exports = function() {
     router.put('/upload/', (req, res) => {
     console.log(colors.green('[REQ]'),getIP(req), 'upload asset', req.query.filter);
 
-      if(typeof req.cookies['connect.sid'] === 'undefined') {
-        Realm.open({schema: [AssetSchema]}).then(realm => {
-          realm.write(() => {
+      if(typeof req.cookies['user'] !== 'undefined') {
+        return Realm.open({schema: [AssetSchema]}).then(realm => {
+          return realm.write(() => {
              realm.create('Asset', {
               id: realm.objects('Asset').length,
               title: req.body.title,
@@ -73,10 +73,11 @@ module.exports = function() {
               price: req.body.price,
               license: req.body.license
               });
+              return res.status(200).end('Success upload asset!');
             });
           });
         }else{
-          console.log('not logined');
+          return res.status(400).end('Not logined');
         }
 
     });
