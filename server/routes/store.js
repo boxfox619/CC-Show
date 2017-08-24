@@ -1,28 +1,18 @@
 const express = require('express');
 const colors = require('colors');
-const Realm = require('realm');
 
-const AssetSchema = {
-  name: 'Asset',
-  primaryKey: 'id',
-  properties: {
-    id: {type: 'int'},
-    title: {type: 'string'},
-    subTitle: {type: 'string'},
-    star: {type: 'float'},
-    openToStore: {type: 'boolean'},
-    thumbnail: {type: 'string'},
-    images: {type: 'list', objectType: 'string'},
-    content: {type: 'string'},
-    price: {type: 'int'},
-    license: {type: 'string'}
-  }
-};
-
-module.exports = function() {
+module.exports = function(realm) {
 
     function getIP(req) {
         return req.connection.remoteAddress.split(":").pop();
+    }
+
+    function imagesToArray(realmResult){
+      return realmResult.map(x => {
+        let asset = JSON.parse(JSON.stringify(x));
+        asset.images = JSON.parse(asset.images);
+        return asset;
+      });
     }
 
     const router = express.Router();
@@ -33,49 +23,43 @@ module.exports = function() {
 
     router.get('/assets/', (req, res) => {
         console.log(colors.green('[REQ]'),getIP(req), 'load asset filter=', req.query.filter);
-        let result = [];
-        switch(req.query.filter){
-          case 'recommend':
-            result = [{id: '123433', title: '심플한 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }];
+          switch(req.query.filter){
+            case 'recommend':
+              return res.json(imagesToArray(realm.objects('Asset')));
+            case 'new':
+              let d = new Date();
+              d.setDate(d.getDate()-6);
+              return res.json(imagesToArray(realm.objects('Asset').filtered('date > $0', d)));
+            case 'popular':
+              return res.json([{id: '123433', title: '저장된 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }]);
+            case 'linked':
+              return res.json([{id: '123433', title: '저장된 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }]);
+            case 'saved':
+              return res.json([{id: '123433', title: '저장된 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }]);
             break;
-          case 'new':
-            result = [{id: '123433', title: '새로운 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }];
-            break;
-          case 'popular':
-            result = [{id: '123433', title: '유명한 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }];
-            break;
-          case 'liked':
-            result = [{id: '123433', title: '좋아한 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }];
-            break;
-          case 'saved':
-            result = [{id: '123433', title: '저장된 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }];
-            break;
-        }
-
-        return res.json(result);
+          }
     });
 
     router.put('/upload/', (req, res) => {
-    console.log(colors.green('[REQ]'),getIP(req), 'upload asset', req.query.filter);
+    console.log(colors.green('[REQ]'),getIP(req), 'upload asset');
 
-      if(typeof req.cookies['user'] !== 'undefined') {
-        return Realm.open({schema: [AssetSchema]}).then(realm => {
+      if(!!req.signedCookies.user) {
+        console.log(req.signedCookies.user);
           return realm.write(() => {
              realm.create('Asset', {
               id: realm.objects('Asset').length,
               title: req.body.title,
-              subTitle: req.cookies['connect.sid'].user.name,
-              star: 0,
+              subTitle: JSON.parse(req.signedCookies.user).name,
+              date: new Date(),
               openToStore: req.body.openToStore,
               thumbnail: req.body.thumbnail,
-              images: req.body.images,
+              images: JSON.stringify(req.body.images),
               content: req.body.content,
               price: req.body.price,
               license: req.body.license
               });
               return res.status(200).end('Success upload asset!');
             });
-          });
         }else{
           return res.status(400).end('Not logined');
         }
