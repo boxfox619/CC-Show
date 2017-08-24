@@ -31,11 +31,13 @@ module.exports = function(realm) {
               d.setDate(d.getDate()-6);
               return res.json(imagesToArray(realm.objects('Asset').filtered('date > $0', d)));
             case 'popular':
-              return res.json([{id: '123433', title: '저장된 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }]);
-            case 'linked':
-              return res.json([{id: '123433', title: '저장된 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }]);
+              let assets = imagesToArray(realm.objects('Asset'));
+                assets = assets.sort((a,b)=>{return b.view-a.view}).slice(0, (assets.length>30)?30:assets.length);
+              return res.json(assets);
+            case 'liked':
+              return res.json(imagesToArray(realm.objects('Asset')));
             case 'saved':
-              return res.json([{id: '123433', title: '저장된 에셋', subTitle: '치킨맥주', star: 3.4, thumbnail:'/images/thumbnail_test.png' }]);
+              return res.json(imagesToArray(realm.objects('Asset')));
             break;
           }
     });
@@ -44,8 +46,9 @@ module.exports = function(realm) {
     console.log(colors.green('[REQ]'),getIP(req), 'upload asset');
 
       if(!!req.signedCookies.user) {
-        console.log(req.signedCookies.user);
           return realm.write(() => {
+            let tmp = realm.objects('Asset');
+            tmp[tmp.length-1].view = tmp.length+3;
              realm.create('Asset', {
               id: realm.objects('Asset').length,
               title: req.body.title,
