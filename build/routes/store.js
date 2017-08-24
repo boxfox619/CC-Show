@@ -34,7 +34,7 @@ module.exports = function (realm) {
         let assets = imagesToArray(realm.objects('Asset'));
         assets = assets.sort((a, b) => {
           return b.view - a.view;
-        }).slice(0, assets.length > 3 ? 3 : assets.length);
+        }).slice(0, assets.length > 30 ? 30 : assets.length);
         return res.json(assets);
       case 'liked':
         return res.json(imagesToArray(realm.objects('Asset')));
@@ -44,13 +44,21 @@ module.exports = function (realm) {
     }
   });
 
-  router.put('/upload/', (req, res) => {
-    console.log(colors.green('[REQ]'), getIP(req), 'upload asset');
+  router.get('/lookup/', (req, res) => {
+    console.log(colors.green('[REQ]'), getIP(req), 'asset lookup', req.query.asset);
+    if (!!req.query.asset) {
+      return realm.write(() => {
+        realm.objects('Asset').filtered('id=' + req.query.asset)[0].view += 1;
+        return res.status(200).end('Success asset lookup');
+      });
+    } else {
+      return res.status(400).end("Asset doesn't exists!");
+    }
+  });
 
+  router.put('/upload/', (req, res) => {
     if (!!req.signedCookies.user) {
       return realm.write(() => {
-        let tmp = realm.objects('Asset');
-        tmp[tmp.length - 1].view = tmp.length + 3;
         realm.create('Asset', {
           id: realm.objects('Asset').length,
           title: req.body.title,
