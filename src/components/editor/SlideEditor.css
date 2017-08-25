@@ -23,8 +23,8 @@ user-select: none;
 
 .assetController{
     z-index: 3;
-    min-width: 12em;
-    max-width: 12em;
+    min-width: 15em;
+    max-width: 15em;
     height: 100vh;
     background-color: white;
     position: relative;

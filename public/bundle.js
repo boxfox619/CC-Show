@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "975267317091fbff07d1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a639ffa1eed038b650ac"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -31475,7 +31475,7 @@ var AssetStore = function (_React$Component) {
       var _this3 = this;
 
       if (!!!this.props.assetData) {
-        _axios2.default.get('/store/new').then(function (response) {
+        _axios2.default.post('/store/new').then(function (response) {
           _this3.setState(_extends({}, state, {
             id: response.data.id
           }));
@@ -32145,7 +32145,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var initialState = {
   visibleSlideManager: false,
   visibleAssetStore: false,
-  visibleAssetEditor: true
+  visibleAssetEditor: false
 };
 
 var ui = function ui() {

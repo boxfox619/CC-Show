@@ -30,7 +30,6 @@ class SlideEditor extends React.Component{
       <div className={styles.slideEditor}>
       <AssetCreator className={styles.assetCreator}/>
       <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
-      <AssetEditor className={styles.modal}/>
       {renderAssetStore()}
         <div className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
           <div className={styles.contextSpace}>
