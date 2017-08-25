@@ -41,6 +41,17 @@ class AssetStore extends React.Component{
       });
     }
 
+    let renderEditors = () =>{
+      if(this.state.activeTab==0){
+        if(!!this.state.id){
+          return(
+            <Thumbnail id={this.state.id} />
+          )
+      }else{
+      }
+    }
+  }
+
     return (
       <div className={this.props.className}>
         <header>
@@ -51,7 +62,7 @@ class AssetStore extends React.Component{
         </header>
         <content>
           <div style={{'padding': '20px 2.5%'}}>
-          <Thumbnail className={styles.thumbnail}/>
+            {renderEditors()}
             {this.state.content}
           </div>
         </content>
@@ -61,7 +72,7 @@ class AssetStore extends React.Component{
 
   componentDidMount(){
     if(!(!!this.props.assetData)){
-      axios.get('/store/new').then(response => {
+      axios.post('/store/new').then(response => {
         this.setState({
           ...state,
           id: response.data.id

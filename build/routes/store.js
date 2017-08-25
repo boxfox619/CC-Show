@@ -58,7 +58,8 @@ module.exports = function (realm) {
     }
   });
 
-  router.put('/new/', (req, res) => {
+  router.post('/new/', (req, res) => {
+    console.log(colors.green('[REQ]'), getIP(req), 'new asset');
     if (!!req.signedCookies.user) {
       return realm.write(() => {
         let id = realm.objects('AssetScript').length;
@@ -75,6 +76,7 @@ module.exports = function (realm) {
   });
 
   router.put('/update/', (req, res) => {
+    console.log(colors.green('[REQ]'), getIP(req), 'asset update', req.body.id, req.body.target);
     if (!!req.signedCookies.user) {
       if (!!req.body.id && realm.objects('Asset').filtered('id=$0', req.body.id).length > 0) {
         let asset = realm.objects('Asset').filtered('id=$0', req.body.id);
