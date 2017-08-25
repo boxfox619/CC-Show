@@ -12,7 +12,7 @@ const AssetSchema = {
     star: {type: 'float', default: 0},
     openToStore: {type: 'bool', default: false},
     thumbnail: {type: 'string', default: ''},
-    images: {type: 'string', default: JSON.stringify([]])},
+    images: {type: 'string', default: JSON.stringify([])},
     content: {type: 'string', default: ''},
     price: {type: 'int', default: 0},
     license: {type: 'string', default: ''}

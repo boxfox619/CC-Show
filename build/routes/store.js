@@ -58,25 +58,37 @@ module.exports = function (realm) {
     }
   });
 
-  router.put('/upload/', (req, res) => {
+  router.put('/new/', (req, res) => {
     if (!!req.signedCookies.user) {
       return realm.write(() => {
-        let id = realm.objects('Asset').length;
+        let id = realm.objects('AssetScript').length;
         realm.create('Asset', {
           id,
-          title: req.body.title,
           subTitle: JSON.parse(req.signedCookies.user).name,
-          date: new Date(),
-          openToStore: req.body.openToStore,
-          thumbnail: req.body.thumbnail,
-          images: JSON.stringify(req.body.images),
-          content: req.body.content,
-          price: req.body.price,
-          license: req.body.license
+          date: new Date()
         });
-        realm.create('AssetScript', { id });
-        return res.status(200).end('Success upload asset!');
+        return res.json({ id });
       });
+    } else {
+      return res.status(400).end('You need login');
+    }
+  });
+
+  router.put('/update/', (req, res) => {
+    if (!!req.signedCookies.user) {
+      if (!!req.body.id && realm.objects('Asset').filtered('id=$0', req.body.id).length > 0) {
+        let asset = realm.objects('Asset').filtered('id=$0', req.body.id);
+        if (asset.subTitle === JSON.parse(req.signedCookies.user).name) {
+          return realm.write(() => {
+            asset[req.body.target] = req.body.data;
+            return res.status(200).end();
+          });
+        } else {
+          return res.status(400).end('You are not own this asset');
+        }
+      } else {
+        return res.status(400).end('Target not found');
+      }
     } else {
       return res.status(400).end('You need login');
     }
@@ -85,9 +97,15 @@ module.exports = function (realm) {
   router.put('/html/', (req, res) => {
     if (!!req.signedCookies.user) {
       if (!!req.body.id && realm.objects('AssetScript').filtered('id=$0', req.body.id).length > 0) {
-        return realm.write(() => {
-          realm.objects('AssetScript').filtered('id=$0', req.body.id).js = req.body.html;
-        });
+        let asset = realm.objects('Asset').filtered('id=$0', req.body.id);
+        if (asset.subTitle === JSON.parse(req.signedCookies.user).name) {
+          return realm.write(() => {
+            realm.objects('AssetScript').filtered('id=$0', req.body.id).html = req.body.html;
+            return res.status(200).end();
+          });
+        } else {
+          return res.status(400).end('You are not own this asset');
+        }
       } else {
         return res.status(400).end('Target not found');
       }
@@ -99,9 +117,15 @@ module.exports = function (realm) {
   router.put('/css/', (req, res) => {
     if (!!req.signedCookies.user) {
       if (!!req.body.id && realm.objects('AssetScript').filtered('id=$0', req.body.id).length > 0) {
-        return realm.write(() => {
-          realm.objects('AssetScript').filtered('id=$0', req.body.id).css = req.body.data;
-        });
+        let asset = realm.objects('Asset').filtered('id=$0', req.body.id);
+        if (asset.subTitle === JSON.parse(req.signedCookies.user).name) {
+          return realm.write(() => {
+            realm.objects('AssetScript').filtered('id=$0', req.body.id).css = req.body.css;
+            return res.status(200).end();
+          });
+        } else {
+          return res.status(400).end('You are not own this asset');
+        }
       } else {
         return res.status(400).end('Target not found');
       }
@@ -113,9 +137,15 @@ module.exports = function (realm) {
   router.put('/js/', (req, res) => {
     if (!!req.signedCookies.user) {
       if (!!req.body.id && realm.objects('AssetScript').filtered('id=$0', req.body.id).length > 0) {
-        return realm.write(() => {
-          realm.objects('AssetScript').filtered('id=$0', req.body.id).js = req.body.data;
-        });
+        let asset = realm.objects('Asset').filtered('id=$0', req.body.id);
+        if (asset.subTitle === JSON.parse(req.signedCookies.user).name) {
+          return realm.write(() => {
+            realm.objects('AssetScript').filtered('id=$0', req.body.id).js = req.body.js;
+            return res.status(200).end();
+          });
+        } else {
+          return res.status(400).end('You are not own this asset');
+        }
       } else {
         return res.status(400).end('Target not found');
       }

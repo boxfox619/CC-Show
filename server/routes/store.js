@@ -64,8 +64,8 @@ module.exports = function(realm) {
               id,
               subTitle: JSON.parse(req.signedCookies.user).name,
               date: new Date()
-             }
-            return res.status(200).end({id});
+            });
+            return res.json({id});
           });
       }else{
         return res.status(400).end('You need login');

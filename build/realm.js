@@ -6,16 +6,16 @@ const AssetSchema = {
   properties: {
     id: { type: 'int', indexed: true },
     view: { type: 'int', default: 0 },
-    title: { type: 'string' },
+    title: { type: 'string', default: '' },
     subTitle: { type: 'string' },
     date: { type: 'date' },
     star: { type: 'float', default: 0 },
-    openToStore: { type: 'bool' },
-    thumbnail: { type: 'string' },
-    images: { type: 'string' },
-    content: { type: 'string' },
-    price: { type: 'int' },
-    license: { type: 'string' }
+    openToStore: { type: 'bool', default: false },
+    thumbnail: { type: 'string', default: '' },
+    images: { type: 'string', default: JSON.stringify([]) },
+    content: { type: 'string', default: '' },
+    price: { type: 'int', default: 0 },
+    license: { type: 'string', default: '' }
   }
 };
 
