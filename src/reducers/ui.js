@@ -3,7 +3,8 @@ import update from 'react-addons-update';
 
 const initialState = {
   visibleSlideManager: false,
-  visibleAssetStore: false
+  visibleAssetStore: false,
+  visibleAssetEditor: true
 }
 
 const ui = (state = initialState, action) => {
@@ -17,6 +18,11 @@ const ui = (state = initialState, action) => {
       return {
         ...state,
         visibleAssetStore : !state.visibleAssetStore
+      };
+    case actionTypes.ASSET_EDITOR:
+      return {
+        ...state,
+        visibleAssetEditor : !state.visibleAssetEditor
       };
     default:
       return state;
