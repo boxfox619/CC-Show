@@ -19,6 +19,17 @@ const AssetSchema = {
   }
 };
 
+const AssetScriptSchema = {
+  name: 'AssetScript',
+  primaryKey: 'id',
+  properties: {
+    id: { type: 'int', indexed: true },
+    html: { type: 'string', default: '' },
+    css: { type: 'string', default: '' },
+    js: { type: 'string', default: '' }
+  }
+};
+
 const UserSchema = {
   name: 'User',
   primaryKey: 'id',

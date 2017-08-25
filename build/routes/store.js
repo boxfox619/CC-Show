@@ -49,6 +49,8 @@ module.exports = function (realm) {
     if (!!req.query.asset) {
       return realm.write(() => {
         realm.objects('Asset').filtered('id=' + req.query.asset)[0].view += 1;
+
+        //lookup data to response
         return res.status(200).end('Success asset lookup');
       });
     } else {
@@ -59,8 +61,9 @@ module.exports = function (realm) {
   router.put('/upload/', (req, res) => {
     if (!!req.signedCookies.user) {
       return realm.write(() => {
+        let id = realm.objects('Asset').length;
         realm.create('Asset', {
-          id: realm.objects('Asset').length,
+          id,
           title: req.body.title,
           subTitle: JSON.parse(req.signedCookies.user).name,
           date: new Date(),
@@ -71,10 +74,53 @@ module.exports = function (realm) {
           price: req.body.price,
           license: req.body.license
         });
+        realm.create('AssetScript', { id });
         return res.status(200).end('Success upload asset!');
       });
     } else {
-      return res.status(400).end('Not logined');
+      return res.status(400).end('You need login');
+    }
+  });
+
+  router.put('/html/', (req, res) => {
+    if (!!req.signedCookies.user) {
+      if (!!req.body.id && realm.objects('AssetScript').filtered('id=$0', req.body.id).length > 0) {
+        return realm.write(() => {
+          realm.objects('AssetScript').filtered('id=$0', req.body.id).js = req.body.html;
+        });
+      } else {
+        return res.status(400).end('Target not found');
+      }
+    } else {
+      return res.status(400).end('You need login');
+    }
+  });
+
+  router.put('/css/', (req, res) => {
+    if (!!req.signedCookies.user) {
+      if (!!req.body.id && realm.objects('AssetScript').filtered('id=$0', req.body.id).length > 0) {
+        return realm.write(() => {
+          realm.objects('AssetScript').filtered('id=$0', req.body.id).css = req.body.data;
+        });
+      } else {
+        return res.status(400).end('Target not found');
+      }
+    } else {
+      return res.status(400).end('You need login');
+    }
+  });
+
+  router.put('/js/', (req, res) => {
+    if (!!req.signedCookies.user) {
+      if (!!req.body.id && realm.objects('AssetScript').filtered('id=$0', req.body.id).length > 0) {
+        return realm.write(() => {
+          realm.objects('AssetScript').filtered('id=$0', req.body.id).js = req.body.data;
+        });
+      } else {
+        return res.status(400).end('Target not found');
+      }
+    } else {
+      return res.status(400).end('You need login');
     }
   });
 
