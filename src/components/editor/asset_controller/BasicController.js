@@ -2,6 +2,7 @@ import React from 'react';
 import * as actions from '../../../actions/assets';
 import { connect } from 'react-redux';
 
+import styles from './AssetController.css';
 class BasicController extends React.Component{
     constructor(prop) {
         super(prop);
@@ -16,14 +17,63 @@ class BasicController extends React.Component{
         console.log(this.props.width, this.props.height);
         return(
             <div>
-                <h1>Attribute</h1>
+                <div>
+                    <div className={styles.controller_sub_wrapper}>
+                        <img className={styles.ic_ellipse_gray} src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_ellipse_gray.png"/>
+                        <input className={styles.controller_sub_title} type="text" name="" value="속성" readonly/>
+                        <img onclick="attributeOn()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_up.png" id="attribute-on" className={styles.show_items_button}/>
+                        <img onclick="attributeOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="attribute-off"
+                        className={styles.show_items_button}/>
+                    </div>
+                    <div className={styles.items} id={styles.attribute_items}>
+                        <div className={styles.control_item}>
+                            <input className={styles.attribute_item_title} type="text" name="" value="W :" readonly/><input type="text" className={styles.attribute_item_input} value={this.props.width} onKeyDown={this.setWidth()}/>
+                        </div>
+                        <div className={styles.control_item}>
+                            <input className={styles.attribute_item_title} type="text" name="" value="H :" readonly/><input type="text" className={styles.attribute_item_input } value={this.props.height} onKeyDown={this.setHeight()}/>
+                        </div>
+                        <div className={styles.control_item}>
+                            <input className={styles.attribute_item_title} type="text" name="" value="x :" readonly/><input type="text" className={styles.attribute_item_input} value={this.props.x} onKeyDown={this.setX_location()}/>
+                        </div>
+                        <div className={styles.control_item}>
+                            <input className={styles.attribute_item_title} type="text" name="" value="Y :" readonly/><input type="text" className={styles.attribute_item_input} value={this.props.y} onKeyDown={this.setY_location()}/>
+                        </div>
+                        <div className={styles.control_item}>
+                            <input className={styles.attribute_item_title} type="text" name="" value="A :" readonly/><input type="text" className={styles.attribute_item_input} value={this.props.angle} onKeyDown={this.setAngle()}/>
+                        </div>
+                    </div>
+                </div>
                 <hr/>
-                <p>W</p> <input id="width" type="text" value={this.props.width} onKeyDown={this.setWidth()}/>
-                <p>H</p> <input id="height" type="text" value={this.props.height} onKeyDown={this.setHeight()}/>
-                <p>X</p> <input id="x-postion" type="text" value={this.props.x} onKeyDown={this.setX_location()}/>
-                <p>Y</p> <input id="y-postion" type="text" value={this.props.y} onKeyDown={this.setY_location()}/>
-                <p>아이콘</p> <input id="angle" type="text" value={this.props.angle} onKeyDown={this.setAngle()}/>
-            </div>
+                <div>
+                    <div className={styles.controller_sub_wrapper}>
+                        <img className={styles.ic_ellipse_gray} src="./resource/Dashboard_PPT Editor/ic_ellipse_gray.png"/>
+                        <input className={styles.controller_sub_title} type="text" name="" value="도형" readonly/>
+                        <img onclick="shapeOn()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_up.png" id="shape-on" className={styles.show_items_button}/>
+                        <img onclick="shapeOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="shape-off" className={styles.show_items_button}/>
+                    </div>
+                    <div className={styles.items} id={styles.shape_items}>
+                        <div className={styles.control_item}>
+                            asdfds
+                        </div>
+                        <div className={styles.control_item}>
+                            asdffsad
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div>
+                    <div>
+                    <div className={styles.controller_sub_wrapper}/>
+                        <img className={styles.ic_ellipse_gray} src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_ellipse_gray.png"/>
+                        <input className={styles.controller_sub_title} type="text" name="" value="스타일" readonly/>
+                        <img onclick="styleOn()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_up.png" id="style-on" className={styles.show_items_button}/>
+                        <img onclick="styleOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="style-off" className={styles.show_items_button}/>
+                    </div>
+                    <div className={styles.items} id={styles.style_items}>
+                        <textarea rows="" cols=""></textarea>
+                    </div>
+                </div>
+                </div>
         )
     }
 

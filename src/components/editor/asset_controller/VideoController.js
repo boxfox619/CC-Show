@@ -3,14 +3,31 @@ import { connect } from 'react-redux';
 
 class VideoController extends React.Component {
     render() {
-        return ( 
+        return (
             <div>
-            <h1> Video </h1> 
-            <br/>
-                <input value={this.props.url}/>
-                <input id="controller" type="checkbox" value="controller"/>
-                <input id="autoplay" type="checkbox" value="autuplay"/>
-                <input id="loop" type="checkbox" value="loop"/>
+                <div className={styles.controller_sub_wrapper}>
+                    <img className={styles.ic_ellipse_gray} src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_ellipse_gray.png"/>
+                    <input className={styles.controller_sub_title} type="text" name="" value="비디오" readonly/>
+                    <img onclick="textOn()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_up.png" id="video-on" className={styles.show_items_button}/>
+                    <img onclick="textOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="video-off" className={styles.show_items_button}/>
+                </div>
+                <div className={styles.items} id={styles.text_items}>
+                        <div className={styles.control_item}>
+                            <input className={styles.attribute_item_title} type="text" name="" value="URL :" readonly/><input type="text" className={styles.attribute_item_input} value={this.props.width} onKeyDown={this.setWidth()}/>
+                        </div>
+                        <div className={styles.control_item}>
+                            <input type="text" className={styles.attribute_item_input } value={this.props.height} onKeyDown={this.setHeight()}/>
+                        </div>
+                        <div className={styles.control_item}>
+                            <input type="text" className={styles.attribute_item_input} value={this.props.x} onKeyDown={this.setX_location()}/>
+                        </div>
+                        <div className={styles.control_item}>
+                            <input type="text" className={styles.attribute_item_input} value={this.props.y} onKeyDown={this.setY_location()}/>
+                        </div>
+                        <div className={styles.control_item}>
+                            <input type="text" className={styles.attribute_item_input} value={this.props.angle} onKeyDown={this.setAngle()}/>
+                        </div>
+                </div>
             </div>
         )
     }

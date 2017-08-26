@@ -2,6 +2,8 @@ import React from 'react';
 import * as actions from '../../../actions/assets';
 import { connect } from 'react-redux';
 
+import styles from './AssetController.css';
+
 class TextController extends React.Component{
     constructor(prop) {
         super(prop);
@@ -11,23 +13,85 @@ class TextController extends React.Component{
         return(
             <div>
                 <div>
-                    <h1>Text</h1>
-                    <hr/>
+            <div className={styles.controller_sub_wrapper}>
+                <img className={styles.ic_ellipse_gray} src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_ellipse_gray.png"/>
+                <input className={styles.controller_sub_title} type="text" name="" value="텍스트" readonly/>
+                <img onclick="textOn()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_up.png" id="text-on" className={styles.show_items_button}/>
+                <img onclick="textOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="text-off" className={styles.show_items_button}/>
+            </div>
+            <div className={styles.items} id={styles.text_items}>
+                <div className={styles.control_item}>
                     <select>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>  
-                    </select>
-                    <input id="sort" type="checkbox" value="left"/>
-                    <input id="sort" type="checkbox" value="middle"/>
-                    <input id="sort" type="checkbox" value="right"/>
-                    <button id="bold" onclike=""></button>
-                    <button id="underline" onclike=""></button>
-                    <button id="italic" onclike=""></button>
+                    <option value="">asdfasdf</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>  
+                </select>
                 </div>
+                
+                <div className={styles.control_item}>
+                    <select>
+                    <option value="">asdfasdf</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>  
+                </select>
+                </div>
+
+                <div className={styles.control_item}>
+                    <select>
+                    <option value="">asdfasdf</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>  
+                </select>
+                </div>
+
+                <div className={styles.control_item}>
+                    <select>
+                    <option value="">asdfasdf</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>  
+                </select>
+                </div>
+
+                <div className={styles.control_item}>
+                    <select>
+                    <option value="">asdfasdf</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>  
+                </select>
+                </div>
+
+                <div className={styles.control_item}>
+                    <select>
+                    <option value="">asdfasdf</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>  
+                </select>
+                </div>
+
+                <div className={styles.control_item}>
+
+                </div>
+            </div>
+        </div>
+        <hr/>
             </div>
         )
     }

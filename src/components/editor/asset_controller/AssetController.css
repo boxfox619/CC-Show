@@ -1,0 +1,102 @@
+items {
+    display: none;
+    float: left;
+    padding: 0;
+    margin: 0 0 2vh 1vw;
+}
+
+.controller_sub_wrapper {
+    margin: 20px;
+}
+
+.controller_sub_title {
+    border: 0;
+    color: #5a84b3;
+    width: 83%;
+}
+
+.ic_ellipse_gray {
+    width: 7px;
+}
+
+.control_item {
+    display: inline-block;
+    border: 1px solid #5a84b3;
+    border-radius: 20px;
+    padding: 3px 5px 3px 5px;
+    margin: 5px;
+    width: 5vw;
+}
+
+#style_items {}
+
+.attribute_item_title {
+    border: 0;
+    width: 15%;
+    color: #5a84b3;
+}
+
+.attribute_item_input {
+    width: 78%;
+    border: 0;
+    float: right;
+    clear: both;
+    margin: 1.5%;
+}
+
+#text_tems {
+    padding: 0;
+    color: #5a84b3;
+}
+
+#shape_items {
+    /*width: 95%;*/
+}
+
+.show_items_button {
+    width: 10px;
+    float: right;
+    clear: both;
+    margin: 5px;
+}
+
+button {
+    border: 0;
+    outline: 0;
+}
+
+hr {
+    border-top: 3px dotted #5a84b3;
+    background-color: #fff;
+    opacity: 0.3;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+textarea {
+    width: 12vw;
+    height: 15vh;
+    border-color: #5a84b3;
+    border-radius: 20px;
+}
+
+select{
+    border:0;border-radius:20px;
+}
+
+#attribute_off{
+    display: none;
+}
+
+#text_off{
+    display: none;
+}
+
+#shape_off{
+    display: none;
+}
+
+#style_off{
+    display: none;
+}

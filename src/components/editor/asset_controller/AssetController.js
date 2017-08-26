@@ -9,25 +9,18 @@ import ImageController from './ImageController';
 import ShapeController from './ShapeController';
 import BasicController from './BasicController';
 
+import styles from './AssetController.css';
+
 class AssetController extends React.Component {
     constructor(prop) {
         super(prop);
     }
 
-    render() {
-        let selectedAsset=this.props.currentSilde.selectedAsset-1;
-        console.log(this.props.currentSilde.assets[selectedAsset]);
-        if(!!(selectedAsset+1)){
+    ControllerSelector(selectedAsset) {
             console.log(this.props.currentSilde.assets[selectedAsset].type);
             switch (this.props.currentSilde.assets[selectedAsset].type) {
                 case actions.TYPE_TEXT:
                     return(
-                        <div>
-                            <BasicController width = {this.props.currentSilde.assets[selectedAsset].width}
-                                             height = {this.props.currentSilde.assets[selectedAsset].height}
-                                             x = {this.props.currentSilde.assets[selectedAsset].x}
-                                             y = {this.props.currentSilde.assets[selectedAsset].y}
-                                             angle = {this.props.currentSilde.assets[selectedAsset].angle}/>
                             <TextController font = {this.props.currentSilde.assets[selectedAsset].font}
                                             fontSize = {this.props.currentSilde.assets[selectedAsset].fontSize}
                                             sort = {this.props.currentSilde.assets[selectedAsset].sort}
@@ -36,54 +29,42 @@ class AssetController extends React.Component {
                                             italic = {this.props.currentSilde.assets[selectedAsset].italic}
                                             fill_color = {this.props.currentSilde.assets[selectedAsset].fill_color}
                                             edge = {this.props.currentSilde.assets[selectedAsset].edge}/>
-
-                        </div>
                     )
                 case actions.TYPE_VIDEO:
                     return(
-                        <div>
-                            <BasicController width = {this.props.currentSilde.assets[selectedAsset].width}
-                                             height = {this.props.currentSilde.assets[selectedAsset].height}
-                                             x = {this.props.currentSilde.assets[selectedAsset].x}
-                                             y = {this.props.currentSilde.assets[selectedAsset].y}
-                                             angle = {this.props.currentSilde.assets[selectedAsset].angle}/>
                             <VideoController url = {this.props.currentSilde.assets[selectedAsset].url}
                                              controller = {this.props.currentSilde.assets[selectedAsset].controller}
                                              autoplay = {this.props.currentSilde.assets[selectedAsset].autoplay}
                                              loop = {this.props.currentSilde.assets[selectedAsset].loop} />
-                        </div>
                     )
                 case actions.TYPE_SHAPE:
                     return(
-                        <div>
-                            <BasicController width = {this.props.currentSilde.assets[selectedAsset].width}
-                                             height = {this.props.currentSilde.assets[selectedAsset].height}
-                                             x = {this.props.currentSilde.assets[selectedAsset].x}
-                                             y = {this.props.currentSilde.assets[selectedAsset].y}
-                                             angle = {this.props.currentSilde.assets[selectedAsset].angle}/>
                             <ShapeController/>
-                        </div>
                     )
                 case actions.TYPE_IMAGE:
                     return(
-                        <div>
-                            <BasicController width = {this.props.currentSilde.assets[selectedAsset].width}
-                                             height = {this.props.currentSilde.assets[selectedAsset].height}
-                                             x = {this.props.currentSilde.assets[selectedAsset].x}
-                                             y = {this.props.currentSilde.assets[selectedAsset].y}
-                                             angle = {this.props.currentSilde.assets[selectedAsset].angle}/>
                             <ImageController/>
-                        </div>
-                    )
-                default:
-                    return(
-                        <BasicController/>
                     )
             }
+    }
+
+    render() {
+        let selectedAsset=this.props.currentSilde.selectedAsset-1;
+        console.log(this.props.currentSilde.assets[selectedAsset]);
+        if(!!(selectedAsset+1)){
+            return(
+                <div>
+                    {this.ControllerSelector(selectedAsset)}    
+                    <BasicController width = {parseInt(this.props.currentSilde.assets[selectedAsset].width)}
+                                     height = {parseInt(this.props.currentSilde.assets[selectedAsset].height)}
+                                     x = {parseInt(this.props.currentSilde.assets[selectedAsset].x)}
+                                     y = {parseInt(this.props.currentSilde.assets[selectedAsset].y)}
+                                     angle = {parseInt(this.props.currentSilde.assets[selectedAsset].angle)}/>
+                </div>
+            )
         }else{
             return(
-                <div className={this.props.className}>
-                    <input type="text" value={this.props.currentSilde.selectedAsset}/>
+                <div>
                 </div>
             )
         }
