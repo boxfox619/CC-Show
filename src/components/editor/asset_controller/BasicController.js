@@ -24,10 +24,9 @@ class BasicController extends React.Component{
             <div>
                 <div>
                     <div className={styles.controller_sub_wrapper}>
-                        <img className={styles.ic_ellipse_gray} src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_ellipse_gray.png"/>
-                        <input className={styles.controller_sub_title} type="text" name="" value="속성" readonly/>
-                        <img onclick="attributeOn()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_up.png" id="attribute-on" className={styles.show_items_button}/>
-                        <img onclick="attributeOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="attribute-off"
+                        <div className={styles.controller_sub_title}>속성</div>
+                        <img onclick="attributeOn()" src="/images/ic_arrow_up.png" id="attribute-on" className={styles.show_items_button}/>
+                        <img onclick="attributeOff()" src="/images/ic_arrow_down.png" id="attribute-off"
                         className={styles.show_items_button}/>
                     </div>
                     <div className={styles.items} id={styles.attribute_items}>
@@ -60,10 +59,9 @@ class BasicController extends React.Component{
                 <hr/>
                 <div>
                     <div className={styles.controller_sub_wrapper}>
-                        <img className={styles.ic_ellipse_gray} src="./resource/Dashboard_PPT Editor/ic_ellipse_gray.png"/>
-                        <input className={styles.controller_sub_title} type="text" name="" value="도형" readonly/>
-                        <img onclick="shapeOn()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_up.png" id="shape-on" className={styles.show_items_button}/>
-                        <img onclick="shapeOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="shape-off" className={styles.show_items_button}/>
+                            <div className={styles.controller_sub_title}>도형</div>
+                        <img onclick="shapeOn()" src="/images/ic_arrow_up.png" id="shape-on" className={styles.show_items_button}/>
+                        <img onclick="shapeOff()" src="/images/ic_arrow_down.png" id="shape-off" className={styles.show_items_button}/>
                     </div>
                     <div className={styles.items} id={styles.shape_items}>
                         <div className={styles.control_item}>
@@ -77,10 +75,9 @@ class BasicController extends React.Component{
                 <hr/>
                 <div>
                     <div className={styles.controller_sub_wrapper}>
-                        <img className={styles.ic_ellipse_gray} src="./resource/Dashboard_PPT Editor/ic_ellipse_gray.png"/>
-                        <input className={styles.controller_sub_title} type="text" name="" value="스타일" readonly/>
-                        <img onclick="shapeOn()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_up.png" id="shape-on" className={styles.show_items_button}/>
-                        <img onclick="shapeOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="shape-off" className={styles.show_items_button}/>
+                        <div className={styles.controller_sub_title}>스타일</div>
+                        <img onclick="shapeOn()" src="/images/ic_arrow_up.png" id="shape-on" className={styles.show_items_button}/>
+                        <img onclick="shapeOff()" src="/images/ic_arrow_down.png" id="shape-off" className={styles.show_items_button}/>
                     </div>
                     <div className={styles.items} id={styles.shape_items}>
                         <div>

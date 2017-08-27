@@ -14,8 +14,7 @@ class TextController extends React.Component{
             <div>
                 <div>
             <div className={styles.controller_sub_wrapper}>
-                <img className={styles.ic_ellipse_gray} src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_ellipse_gray.png"/>
-                <input className={styles.controller_sub_title} type="text" name="" value="텍스트" readonly/>
+                <div className={styles.controller_sub_title}>텍스트</div>
                 <img onclick="textOn()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_up.png" id="text-on" className={styles.show_items_button}/>
                 <img onclick="textOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="text-off" className={styles.show_items_button}/>
             </div>
@@ -28,7 +27,7 @@ class TextController extends React.Component{
                     <option value=""></option>
                     <option value=""></option>
                     <option value=""></option>
-                    <option value=""></option>  
+                    <option value=""></option>
                     </select>
                     </div>
 
@@ -39,12 +38,12 @@ class TextController extends React.Component{
                     <option value=""></option>
                     <option value=""></option>
                     <option value=""></option>
-                    <option value=""></option>  
+                    <option value=""></option>
                     </select>
                     </div>
                 </div>
-                
-                
+
+
                 <div>
                     <div className={styles.control_item}>
                     <select>
@@ -53,7 +52,7 @@ class TextController extends React.Component{
                     <option value=""></option>
                     <option value=""></option>
                     <option value=""></option>
-                    <option value=""></option>  
+                    <option value=""></option>
                 </select>
                 </div>
 
@@ -64,7 +63,7 @@ class TextController extends React.Component{
                     <option value=""></option>
                     <option value=""></option>
                     <option value=""></option>
-                    <option value=""></option>  
+                    <option value=""></option>
                 </select>
                 </div>
                 </div>
@@ -77,7 +76,7 @@ class TextController extends React.Component{
                     <option value=""></option>
                     <option value=""></option>
                     <option value=""></option>
-                    <option value=""></option>  
+                    <option value=""></option>
                 </select>
                 </div>
 
@@ -88,11 +87,11 @@ class TextController extends React.Component{
                     <option value=""></option>
                     <option value=""></option>
                     <option value=""></option>
-                    <option value=""></option>  
+                    <option value=""></option>
                 </select>
                 </div>
                 </div>
-                
+
 
                 <div className={styles.control_item}>
 
