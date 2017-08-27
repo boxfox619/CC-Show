@@ -25,32 +25,23 @@ items {
     border-radius: 20px;
     padding: 3px 5px 3px 5px;
     margin: 5px;
-    width: 5vw;
+    width: 40%;
 }
-
-#style_items {}
 
 .attribute_item_title {
     border: 0;
+    margin: 0;
     width: 15%;
     color: #5a84b3;
 }
 
 .attribute_item_input {
-    width: 78%;
+    width: 60%;
+    text-align: right;
     border: 0;
-    float: right;
+    display: inline;
     clear: both;
     margin: 1.5%;
-}
-
-#text_tems {
-    padding: 0;
-    color: #5a84b3;
-}
-
-#shape_items {
-    /*width: 95%;*/
 }
 
 .show_items_button {
@@ -75,28 +66,31 @@ hr {
 }
 
 textarea {
-    width: 12vw;
+    width: 90%;
     height: 15vh;
     border-color: #5a84b3;
     border-radius: 20px;
+    margin-left: 5px;
 }
 
-select{
-    border:0;border-radius:20px;
+select {
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
 }
 
-#attribute_off{
+#attribute_off {
     display: none;
 }
 
-#text_off{
+#text_off {
     display: none;
 }
 
-#shape_off{
+#shape_off {
     display: none;
 }
 
-#style_off{
+#style_off {
     display: none;
 }

@@ -28,7 +28,7 @@ user-select: none;
     height: 100vh;
     background-color: white;
     position: relative;
-    dow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);
 }
 
 .assetCreator{

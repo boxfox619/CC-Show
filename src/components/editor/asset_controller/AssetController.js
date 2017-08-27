@@ -53,7 +53,7 @@ class AssetController extends React.Component {
         console.log(this.props.currentSilde.assets[selectedAsset]);
         if(!!(selectedAsset+1)){
             return(
-                <div>
+                <div className={this.props.className}>
                     {this.ControllerSelector(selectedAsset)}    
                     <BasicController width = {parseInt(this.props.currentSilde.assets[selectedAsset].width)}
                                      height = {parseInt(this.props.currentSilde.assets[selectedAsset].height)}
@@ -64,7 +64,7 @@ class AssetController extends React.Component {
             )
         }else{
             return(
-                <div>
+                <div className={this.props.className}>
                 </div>
             )
         }

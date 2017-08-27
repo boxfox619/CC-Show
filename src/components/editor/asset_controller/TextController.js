@@ -20,7 +20,8 @@ class TextController extends React.Component{
                 <img onclick="textOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="text-off" className={styles.show_items_button}/>
             </div>
             <div className={styles.items} id={styles.text_items}>
-                <div className={styles.control_item}>
+                <div>
+                    <div className={styles.control_item}>
                     <select>
                     <option value="">asdfasdf</option>
                     <option value=""></option>
@@ -28,10 +29,24 @@ class TextController extends React.Component{
                     <option value=""></option>
                     <option value=""></option>
                     <option value=""></option>  
-                </select>
+                    </select>
+                    </div>
+
+                    <div className={styles.control_item}>
+                    <select>
+                    <option value="">asdfasdf</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>  
+                    </select>
+                    </div>
                 </div>
                 
-                <div className={styles.control_item}>
+                
+                <div>
+                    <div className={styles.control_item}>
                     <select>
                     <option value="">asdfasdf</option>
                     <option value=""></option>
@@ -52,8 +67,10 @@ class TextController extends React.Component{
                     <option value=""></option>  
                 </select>
                 </div>
+                </div>
 
-                <div className={styles.control_item}>
+                <div>
+                    <div className={styles.control_item}>
                     <select>
                     <option value="">asdfasdf</option>
                     <option value=""></option>
@@ -74,17 +91,8 @@ class TextController extends React.Component{
                     <option value=""></option>  
                 </select>
                 </div>
-
-                <div className={styles.control_item}>
-                    <select>
-                    <option value="">asdfasdf</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>  
-                </select>
                 </div>
+                
 
                 <div className={styles.control_item}>
 
