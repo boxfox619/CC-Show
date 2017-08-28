@@ -22,8 +22,10 @@ body{
   font-family: 'NanumSquare';
   padding: 0;
   margin: 0;
-  background: #000000;
+  height: 100vh;
 }
+
+/*  ------ header ------ */
 
 header{
   position: fixed;
@@ -73,18 +75,86 @@ header li a img{
   height: 100%;
 }
 
+/*  ------ header end ------ */
 
 section{
-
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  color: white;
+}
+section:after{
+  content: '';
+  display:block;
+  width:100%;
+  height:100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
 }
 
-section#introduce{
-  width: 50%;
-  height:50%;
-  margin: auto;
-  background: #ffffff;
+section .content>div{
+  margin: 15px 0;
 }
 
-section .tag{
+section>.background{
+  width: 100%;
+  height: 100%;
+}
+
+section .tags{
+  width: 30em;
+}
+
+section .tags .tag{
+  font-size: 3em;
   font-family: 'NanumSquareEB';
+  display: inline-block;
+}
+
+
+/*  ------ fist section ------ */
+section#intro{
+  background: url('./images/bg/intro.jpg') no-repeat center;
+}
+
+section#intro .content{
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-30%, -50%);
+}
+
+@media screen and (max-width: 925px){
+
+  section .tags{
+    width: 20em;
+  }
+
+  section#intro .content{
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%, -50%);
+  }
+  section .tags .tag{
+    font-size: 2em;
+  }
+}
+
+/*  ------ fist end ------ */
+
+
+
+/*  ------ component ------ */
+.whiteButton{
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9em;
+  padding: 5px 35px;
+  border-color: white;
+  border-radius: 1em;
+  border-style: solid;
+  border-width: 2px;
 }
