@@ -23,13 +23,14 @@ user-select: none;
 
 .assetController{
     z-index: 3;
-    min-width: 14em;
-    max-width: 14em;
+    /*min-width: 14em;
+    max-width: 14em;*/
     min-height: 40em;
     height: 100vh;
     background-color: white;
     position: relative;
     box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);
+    width: 25vw;
 }
 
 .assetCreator{
