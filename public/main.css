@@ -106,6 +106,11 @@ section:after{
   background: rgba(0, 0, 0, 0.3);
 }
 
+section .content{
+    margin: 0 auto;
+    position: absolute;
+}
+
 section .content>div{
   margin: 15px 0;
 }
@@ -132,18 +137,21 @@ section#intro{
 }
 
 section#intro .content{
-  margin: 0 auto;
-  position: absolute;
-  top: 50%;
-  left: 30%;
-  transform: translate(-30%, -50%);
+    top: 50%;
+    left: 30%;
+    transform: translate(-30%, -50%);
 }
-
 /*  ------ fist end ------ */
 
 /*  ------ second section ------ */
 section#start{
   background: url('./images/bg/intro.jpg') no-repeat center;
+}
+
+section#start .content{
+    top: 50%;
+    left: 30%;
+    transform: translate(-30%, -50%);
 }
 
 section#start .content{
@@ -163,9 +171,7 @@ section#merit{
 }
 
 section#merit .content{
-  margin: 0 auto;
-  position: absolute;
-  width: 90%;
+  width: 80%;
   height: 70%;
   top: 50%;
   left: 50%;
@@ -242,6 +248,110 @@ ul.merits::-webkit-scrollbar-thumb
 }
 
 /*  ------ third end ------ */
+
+
+/*  ------ four start ------ */
+section#developers{
+  background: url('./images/bg/intro.jpg') no-repeat center;
+}
+
+section#developers .content{
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section#developers .thumbnail{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: solid white 2px;
+  margin: 0 auto;
+}
+
+section#developers .thumbnail img{
+  position: absolute;
+  width: calc(100% - 5px);
+  height: calc(100% - 5px);
+  left: 3px;
+  top: 3px;
+}
+
+section#developers .name{
+  margin: 30px 0;
+}
+
+section#developers .name h1, section#developers .name h5{
+  padding: 0;
+  margin: 0;
+}
+
+.developers{
+  width:  100%;
+  display: table;
+}
+
+section#developers .content::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.3);
+}
+
+section#developers .content::-webkit-scrollbar
+{
+	width: 2px;
+}
+
+section#developers .content::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #ffffff;
+}
+
+.developers .developer{
+  display: table-cell;
+  text-align: center;
+}
+
+ul.role{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.role li{
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+@media screen and (max-width: 854px) {
+  section#developers .thumbnail{
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  section#developers .content{
+    overflow: auto;
+  }
+
+  section#developers .thumbnail{
+    width: 200px;
+    height: 200px;
+  }
+  div{
+    width: 80vw;
+  }
+}
+
+/*  ------ four end ------ */
 
 @media screen and (max-width: 925px){
 
