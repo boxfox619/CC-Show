@@ -1,0 +1,411 @@
+@font-face {
+    font-family: 'NanumSquare';
+    src: url('./fonts/NanumSquareR_0.ttf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'NanumSquare';
+    src: url('./fonts/NanumSquareB.ttf');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'NanumSquareL';
+    src: url('./fonts/NanumSquareL.ttf');
+}
+@font-face {
+    font-family: 'NanumSquareEB';
+    src: url('./fonts/NanumSquareEB_0.ttf');
+}
+
+
+body{
+  font-family: 'NanumSquare';
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+
+body::-webkit-scrollbar
+{
+	width: 0px;
+}
+
+/*  ------ header ------ */
+
+header{
+  z-index: 100;
+  position: fixed;
+  width: 100vw;
+  top:0;
+  left:0;
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+header li {
+    float: right;
+}
+
+header li a:not(.titleIcon):not(.navIcon){
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.8em;
+  margin: 30px 10px;
+}
+header .navIcon{
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  height: 1em;
+  margin: calc( 30px - 0.1em) 10px;
+}
+
+header .titleIcon{
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+    height: 1.6em;
+    margin: calc(30px - 0.3em) 16px;
+}
+
+header li a img{
+  height: 100%;
+}
+
+/*  ------ header end ------ */
+
+/* -------------------------
+   ----- section start -----
+   ------------------------- */
+
+section{
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  color: white;
+  line-height: 1.4em;
+  position: relative;
+}
+section:after{
+  content: '';
+  display:block;
+  width:100%;
+  height:100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+section .content{
+    margin: 0 auto;
+    position: absolute;
+}
+
+section .content>div{
+  margin: 15px 0;
+}
+
+section>.background{
+  width: 100%;
+  height: 100%;
+}
+
+section .tags{
+  width: 30em;
+}
+
+section .tags .tag{
+  font-size: 3em;
+  line-height: 1.1em;
+  font-family: 'NanumSquareEB';
+  display: inline-block;
+}
+
+/*  ------ fist section ------ */
+section#intro{
+  background: url('./images/bg/intro.jpg') no-repeat center;
+}
+
+section#intro .content{
+    top: 50%;
+    left: 30%;
+    transform: translate(-30%, -50%);
+}
+/*  ------ fist end ------ */
+
+/*  ------ second section ------ */
+section#start{
+  background: url('./images/bg/intro.jpg') no-repeat center;
+}
+
+section#start .content{
+    top: 50%;
+    left: 30%;
+    transform: translate(-30%, -50%);
+}
+
+section#start .content{
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-30%, -50%);
+}
+
+/*  ------ second end ------ */
+
+
+/*  ------ third section ------ */
+section#merit{
+  background: url('./images/bg/intro.jpg') no-repeat center;
+}
+
+section#merit .content{
+  width: 80%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ul.merits{
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  margin:0;
+}
+
+ul.merits li img{
+  display: block;
+  height: 5em;
+  margin-bottom: 6%;
+  margin: 0 auto;
+  margin-bottom: 10%;
+}
+
+ul.merits li{
+  display: inline-flex;
+  align-items: center;
+  width: 28%;
+  height: 40%;
+  margin: 2.5%;
+  text-align: center;
+  font-size: 0.7em;
+  line-height: 1.2em;
+}
+
+ul.merits::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.3);
+}
+
+ul.merits::-webkit-scrollbar
+{
+	width: 2px;
+}
+
+ul.merits::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #ffffff;
+}
+
+@media screen and (max-height: 500px){
+  ul.merits{
+    overflow: auto;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 900px){
+  ul.merits{
+  overflow: auto;
+    display: flex;
+    align-items: center;
+  }
+  ul.merits li{
+    width: 100%;
+  }
+
+  ul.merits li div{
+    width: 1000px;
+  }
+}
+
+/*  ------ third end ------ */
+
+
+/*  ------ four start ------ */
+section#developers{
+  background: url('./images/bg/intro.jpg') no-repeat center;
+}
+
+section#developers .content{
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section#developers .thumbnail{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: solid white 2px;
+  margin: 0 auto;
+}
+
+section#developers .thumbnail img{
+  position: absolute;
+  width: calc(100% - 5px);
+  height: calc(100% - 5px);
+  left: 3px;
+  top: 3px;
+}
+
+section#developers .name{
+  margin: 30px 0;
+}
+
+section#developers .name h1, section#developers .name h5{
+  padding: 0;
+  margin: 0;
+}
+
+.developers{
+  width:  100%;
+  display: table;
+}
+
+section#developers .content::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.3);
+}
+
+section#developers .content::-webkit-scrollbar
+{
+	width: 2px;
+}
+
+section#developers .content::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #ffffff;
+}
+
+.developers .developer{
+  display: table-cell;
+  text-align: center;
+}
+
+ul.role{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.role li{
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+@media screen and (max-width: 854px) {
+  section#developers .thumbnail{
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  section#developers .content{
+    overflow: auto;
+  }
+
+  section#developers .thumbnail{
+    width: 200px;
+    height: 200px;
+  }
+  div{
+    width: 80vw;
+  }
+}
+
+/*  ------ four end ------ */
+
+@media screen and (max-width: 925px){
+
+  section .tags{
+    width: 20em;
+  }
+
+  section#intro .content,section#start .content{
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%, -50%);
+  }
+  section .tags .tag{
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 383px){
+
+  section .tags{
+    width: 20em;
+  }
+
+  section#intro .content,section#start .content{
+    width: 90%;
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%, -50%);
+  }
+  section .tags .tag{
+    font-size: 2em;
+  }
+}
+
+
+/* -------------------------
+   ------- section end -----
+   ------------------------- */
+
+
+/*  ------ component ------ */
+.whiteButton{
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9em;
+  padding: 5px 35px;
+  border-color: white;
+  border-radius: 1em;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.whiteButton:hover{
+  background: rgba(255, 255, 255, 0.9);
+  color:black;
+}
