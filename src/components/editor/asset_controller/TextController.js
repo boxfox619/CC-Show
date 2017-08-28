@@ -14,9 +14,10 @@ class TextController extends React.Component{
             <div>
                 <div>
             <div className={styles.controller_sub_wrapper}>
-                <div className={styles.controller_sub_title}>텍스트</div>
-                <img onclick="textOn()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_up.png" id="text-on" className={styles.show_items_button}/>
-                <img onclick="textOff()" src="../../../../../document/design/RESOURCE/Dashboard_PPT Editor/ic_arrow_down.png" id="text-off" className={styles.show_items_button}/>
+                <div className={styles.controller_sub_title}>텍스트
+                    <img onclick={this.textOn()} src="images/ic_arrow_up.png" id={styles.text_on} className={styles.show_items_button}/>
+                    <img onclick={this.textOff()} src="images/ic_arrow_down.png" id={styles.text_off} className={styles.show_items_button}/>
+                </div>
             </div>
             <div className={styles.items} id={styles.text_items}>
                 <div>
@@ -91,17 +92,28 @@ class TextController extends React.Component{
                 </select>
                 </div>
                 </div>
-
-
-                <div className={styles.control_item}>
-
-                </div>
             </div>
         </div>
         <hr/>
             </div>
         )
     }
+    textOff() {
+        console.log('this is textOff');
+        let d = document;
+        d.getElementById('text-off').style.display = "none"
+        d.getElementById('text-on').style.display = "block"
+        d.getElementById('text-items').style.display = "none";
+    }
+
+    textOn() {
+        console.log('this is textOn');
+        let d = document;
+        d.getElementById('text-on').style.display = "none"
+        d.getElementById('text-off').style.display = "block"
+        d.getElementById('text-items').style.display = "block";
+    }
+
 }
 
 const mapStateToProps = (state) => {

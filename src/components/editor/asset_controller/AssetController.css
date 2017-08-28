@@ -1,32 +1,28 @@
-items {
-    display: none;
-    float: left;
+.items {
     padding: 0;
-    margin: 0 0 2vh 1vw;
+    margin: 0 0 2vh 15px;
 }
 
 .controller_sub_wrapper {
     margin: 20px;
 }
 
-.controller_sub_title{
-  font-size : 12px;
-  color : #5D87B5;
-  font-weight : bold;
-  vertical-align: middle;
-  display: table;
+.controller_sub_title {
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+    color: #5D87B5;
+    font-weight: bold;
+    vertical-align: middle;
+    display: table;
 }
 
 .controller_sub_title:before {
-  content: "";
-  display: table-cell;
-  vertical-align: middle;
-  background: url("/images/ic_ellipse_gray.png") no-repeat left center;
-  width: 23px;
-}
-
-.ic_ellipse_gray {
-    width: 7px;
+    content: "";
+    display: table-cell;
+    vertical-align: middle;
+    background: url("/images/ic_ellipse_gray.png") no-repeat left center;
+    width: 23px;
 }
 
 .control_item {
@@ -34,14 +30,15 @@ items {
     border: 1px solid #5a84b3;
     border-radius: 20px;
     padding: 3px 5px 3px 5px;
-    margin: 5px;
-    width: 40%;
+    margin: 3px;
+    width: 7vw;
 }
 
 .attribute_item_title {
     border: 0;
-    margin: 0;
+    margin: 0 0 0 5px;
     width: 15%;
+    font-size: 15px;
     color: #5a84b3;
 }
 
@@ -56,10 +53,11 @@ items {
 }
 
 .show_items_button {
+    position: absolute;
+    cursor: pointer;
     width: 10px;
-    float: right;
-    clear: both;
-    margin: 5px;
+    margin: 3px;
+    right: 0;
 }
 
 button {
@@ -73,7 +71,7 @@ hr {
     opacity: 0.3;
 }
 
-textarea {
+#input_style {
     width: 90%;
     height: 15vh;
     border-color: #5a84b3;
@@ -100,5 +98,25 @@ select {
 }
 
 #style_off {
+    display: none;
+}
+
+#text_items{
+    display: none;
+}
+
+#attribute_items{
+    display: none;
+}
+
+#shape_items{
+    display: none;
+}
+
+#style_items{
+    display: none;
+}
+
+#video_items{
     display: none;
 }

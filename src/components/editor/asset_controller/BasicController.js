@@ -15,7 +15,6 @@ class BasicController extends React.Component{
         this.setX_location=this.setX_location.bind(this);
         this.setY_location=this.setY_location.bind(this);
         this.setAngle=this.setAngle.bind(this);
-        this.loadImage = this.loadImage.bind(this);
     }
 
     render(){
@@ -24,10 +23,11 @@ class BasicController extends React.Component{
             <div>
                 <div>
                     <div className={styles.controller_sub_wrapper}>
-                        <div className={styles.controller_sub_title}>속성</div>
-                        <img onclick="attributeOn()" src="/images/ic_arrow_up.png" id="attribute-on" className={styles.show_items_button}/>
-                        <img onclick="attributeOff()" src="/images/ic_arrow_down.png" id="attribute-off"
-                        className={styles.show_items_button}/>
+                        <div className={styles.controller_sub_title}>속성
+
+                        <img onclick={this.attributeOn()} src="/images/ic_arrow_up.png" id={styles.attribute_on}  className={styles.show_items_button}/>
+                        <img onclick={this.attributeOff()} src="/images/ic_arrow_down.png" id={styles.attribute_off}className={styles.show_items_button}/>
+                        </div>
                     </div>
                     <div className={styles.items} id={styles.attribute_items}>
                         <div>
@@ -59,9 +59,10 @@ class BasicController extends React.Component{
                 <hr/>
                 <div>
                     <div className={styles.controller_sub_wrapper}>
-                            <div className={styles.controller_sub_title}>도형</div>
-                        <img onclick="shapeOn()" src="/images/ic_arrow_up.png" id="shape-on" className={styles.show_items_button}/>
-                        <img onclick="shapeOff()" src="/images/ic_arrow_down.png" id="shape-off" className={styles.show_items_button}/>
+                            <div className={styles.controller_sub_title}>도형
+                                <img onclick={this.shapeOn()} src="/images/ic_arrow_up.png" id={styles.shape_on} className={styles.show_items_button}/>
+                                <img onclick={this.shapeOff()} src="/images/ic_arrow_down.png" id={styles.shape_off} className={styles.show_items_button}/>
+                            </div>
                     </div>
                     <div className={styles.items} id={styles.shape_items}>
                         <div className={styles.control_item}>
@@ -75,44 +76,20 @@ class BasicController extends React.Component{
                 <hr/>
                 <div>
                     <div className={styles.controller_sub_wrapper}>
-                        <div className={styles.controller_sub_title}>스타일</div>
-                        <img onclick="shapeOn()" src="/images/ic_arrow_up.png" id="shape-on" className={styles.show_items_button}/>
-                        <img onclick="shapeOff()" src="/images/ic_arrow_down.png" id="shape-off" className={styles.show_items_button}/>
+                        <div className={styles.controller_sub_title}>스타일
+                            <img onclick={this.shapeOn()} src="/images/ic_arrow_up.png" id={styles.shape_on} className={styles.show_items_button}/>
+                            <img onclick={this.shapeOff()} src="/images/ic_arrow_down.png" id={styles.shape_off} className={styles.show_items_button}/>
+                        </div>
                     </div>
-                    <div className={styles.items} id={styles.shape_items}>
+                    <div className={styles.items} id={styles.style_items}>
                         <div>
-                            <textarea rows="" cols=""></textarea>
+                            <textarea id={styles.input_style} rows="" cols=""></textarea>
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
-
-    loadImage(){
-        var fr = new FileReader();
-        fr.onload = (e)=> {
-        this.setState({
-            ...this.state,
-            src: e.target.result
-        });
-        axios.put('/store/update/',{
-            id: this.props.id,
-            target: 'thumbnail',
-            data: e.target.result
-        }).then(response => {
-            console.log('test');
-        });
-        };
-        var inputElement = document.createElement("input");
-        inputElement.type = "file";
-        inputElement.addEventListener("change", function(){
-            fr.readAsDataURL(inputElement.files[0]);
-        });
-        inputElement.dispatchEvent(new MouseEvent("click"));
-
-    }
-
     setWidth() {
         if(event.keyCode==13) {
             let value=document.getElementById().value;
@@ -147,6 +124,55 @@ class BasicController extends React.Component{
             this.props.setAngle(value);
         }
     }
+    
+    attributeOn() {
+        console.log('this is attributeOn');
+        let d = document;
+        d.getElementById('attribute_on').style.display = "none";
+        d.getElementById('attribute_off').style.display = "block";
+        d.getElementById('attribute_items').style.display = "block";
+    }
+
+    shapeOn() {
+        console.log('this is shapeOn');
+        let d = document;
+        d.getElementById('shape_on').style.display = "none"
+        d.getElementById('shape_off').style.display = "block"
+        d.getElementById('shape_items').style.display = "block";
+    }
+
+    styleOn() {
+        console.log('this is styleOn');
+        let d = document;
+        d.getElementById('style_on').style.display = "none"
+        d.getElementById('style_off').style.display = "block"
+        d.getElementById('style_items').style.display = "block";
+    }
+
+    attributeOff() {
+        console.log('this is attributeOff');
+        let d = document;
+        d.getElementById('attribute_off').style.display = "none"
+        d.getElementById('attribute_on').style.display = "block"
+        d.getElementById('attribute_items').style.display = "none";
+    }
+
+    shapeOff() {
+        console.log('this is shapeOff');
+        let d = document;
+        d.getElementById('shape_off').style.display = "none"
+        d.getElementById('shape_on').style.display = "block"
+        d.getElementById('shape_items').style.display = "none";
+    }
+
+    styleOff() {
+        console.log('this is style');
+        let d = document;
+        d.getElementById('style_off').style.display = "none"
+        d.getElementById('style_on').style.display = "block"
+        d.getElementById('style_items').style.display = "none";
+    }
+
 }
 
 const mapStateToProps = (state) => {

@@ -95,6 +95,7 @@ section{
   color: white;
   line-height: 1.4em;
   position: relative;
+      width: 100vw;
 }
 section:after{
   content: '';
@@ -133,7 +134,7 @@ section .tags .tag{
 
 /*  ------ fist section ------ */
 section#intro{
-  background: url('./images/bg/intro.jpg') no-repeat center;
+  background: url('./../images/bg/intro.jpg') no-repeat center;
 }
 
 section#intro .content{
@@ -145,7 +146,7 @@ section#intro .content{
 
 /*  ------ second section ------ */
 section#start{
-  background: url('./images/bg/intro.jpg') no-repeat center;
+  background: url('./../images/bg/intro.jpg') no-repeat center;
 }
 
 section#start .content{
@@ -167,7 +168,7 @@ section#start .content{
 
 /*  ------ third section ------ */
 section#merit{
-  background: url('./images/bg/intro.jpg') no-repeat center;
+  background: url('./../images/bg/intro.jpg') no-repeat center;
 }
 
 section#merit .content{
@@ -252,7 +253,7 @@ ul.merits::-webkit-scrollbar-thumb
 
 /*  ------ four start ------ */
 section#developers{
-  background: url('./images/bg/intro.jpg') no-repeat center;
+  background: url('./../images/bg/intro.jpg') no-repeat center;
 }
 
 section#developers .content{
@@ -355,11 +356,11 @@ ul.role li{
 
 /*  ------ final start ------ */
 section#final{
-  background: url('./images/bg/intro.jpg') no-repeat center;
+  background: url('./../images/bg/intro.jpg') no-repeat center;
 }
 
 section#final .content{
-  width: 100%;
+  width: 100vw;
   height: 90%;
   bottom: 0;
     text-align: center;
@@ -405,7 +406,7 @@ section#final .slider-wrap .slides{
   height: 100%;
 }
 
-section#final .slider-wrap .slide{
+section#final .slider-wrap .imgSlide{
   display: inline-block;
   width: 27.4vw;
   margin: 0 0.5%;
@@ -449,14 +450,14 @@ section#final .footer .sns img{
 
 @media screen and (max-width: 1222px){
 
-  section#final .slider-wrap .slide{
+  section#final .slider-wrap .imgSlide{
     width: 41vw;
   }
 }
 
 @media screen and (max-width: 940px){
 
-  section#final .slider-wrap .slide{
+  section#final .slider-wrap .imgSlide{
     width: 83vw;
   }
 }

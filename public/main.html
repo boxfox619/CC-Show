@@ -5,12 +5,13 @@
         <meta charset="utf-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="./main.js"></script>
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <script src="./js/javascript.fullPage.js"></script>
+        <script src="./js/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <link rel="stylesheet" type="text/css" href="./css/javascript.fullPage.css">
         <title>CC Show</title>
     </head>
 
-    <body>
       <header>
         <ul>
           <li style="float:left"><a class="titleIcon" href=""><img src="./images/main/ic_cc_show.png"/></a></li>
@@ -19,7 +20,10 @@
           <li><a href="#about">KO</a></li>
       </ul>
       </header>
-      <section id="intro">
+
+    <body>
+      <div  id="fullpage">
+      <section class="section" id="intro">
         <div class="content">
         <div class="tags">
           <div>
@@ -41,7 +45,7 @@
     </div>
       </section>
 
-      <section id="start">
+      <section class="section" id="start">
         <div class="content">
         <div class="tags">
           <div>
@@ -61,7 +65,7 @@
       </div>
     </div>
       </section>
-      <section id="merit">
+      <section class="section" id="merit">
         <div class="content">
           <ul class="merits">
             <li>
@@ -108,7 +112,7 @@
           </ul>
         </div>
       </section>
-      <section id="developers">
+      <section class="section" id="developers">
         <div class="content">
           <div class="developers">
             <div class="developer">
@@ -159,7 +163,7 @@
         </div>
       </section>
 
-      <section id="final">
+      <section class="section" id="final">
         <div class="content">
           <div class="title">생각을 모두 표현하세요!</div>
           <hr class="hrline"/>
@@ -173,21 +177,21 @@
           <div id="sliderLeft" class="sliderController" style="left:0;"><img src="./images/main/ic_left_arrow.png"/></div>
           <div class="slider-wrap">
           <div class="slides">
-            <div class="slide">
+            <div class="imgSlide">
             </div>
-            <div class="slide">
+            <div class="imgSlide">
             </div>
-            <div class="slide">
+            <div class="imgSlide">
             </div>
-            <div class="slide">
+            <div class="imgSlide">
             </div>
-            <div class="slide">
+            <div class="imgSlide">
             </div>
-            <div class="slide">
+            <div class="imgSlide">
             </div>
-            <div class="slide">
+            <div class="imgSlide">
             </div>
-            <div class="slide">
+            <div class="imgSlide">
             </div>
           </div>
           </div>
@@ -208,5 +212,6 @@
           </div>
         </div>
       </section>
+    </div>
     </body>
 </html>

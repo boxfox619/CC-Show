@@ -1,4 +1,11 @@
 $(function() {
+
+
+try{
+  	fullpage.initialize('#fullpage', {
+  	});
+  }catch(err){}
+
  let currentSlide = 0;
   var width = $(window).width();
   $(window).on('resize', function(){
@@ -6,16 +13,37 @@ $(function() {
       currentSlide = 0;
  });
   $('#sliderLeft').click(function() {
-    if(currentSlide+3==$('.slide').length) return;
+    console.log("teast121212113");
+    if(currentSlide+3==$('.imgSlide').length) return;
         $(".slides").animate({ 'left': '-='+getAmount()}, 'slow');
         currentSlide+=1;
   });
   $('#sliderRight').click(function() {
+    console.log("teast12123");
     if(currentSlide==0) return;
         $(".slides").animate({ 'left': '+='+getAmount()}, 'slow');
         currentSlide-=1;
   });
 });
+
+var currentHash = 'intro';
+
+function scrollDown(){
+  if($('#'+currentHash).next().length>0){
+    scrollTo($('#'+currentHash).next().attr('id'));
+  }
+}
+
+function scrollUp(){
+  if($('#'+currentHash).prev().length>0){
+    scrollTo($('#'+currentHash).prev().attr('id'));
+  }
+}
+
+function scrollTo(hash) {
+    currentHash = hash;
+    location.hash = "#" + hash;
+}
 
 function getAmount(){
       let amount = '30.2vw';

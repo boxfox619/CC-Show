@@ -6,9 +6,10 @@ class VideoController extends React.Component {
         return (
             <div>
                 <div className={styles.controller_sub_wrapper}>
-                    <div className={styles.controller_sub_title}>비디오</div>
-                    <img onclick="textOn()" src="/images/ic_arrow_up.png" id="video-on" className={styles.show_items_button}/>
-                    <img onclick="textOff()" src="/images/ic_arrow_down.png" id="video-off" className={styles.show_items_button}/>
+                    <div className={styles.controller_sub_title}>비디오
+                        <img onclick="textOn()" src="/images/ic_arrow_up.png" id="video-on" className={styles.show_items_button}/>
+                        <img onclick="textOff()" src="/images/ic_arrow_down.png" id="video-off" className={styles.show_items_button}/>
+                    </div>
                 </div>
                 <div className={styles.items} id={styles.text_items}>
                         <div className={styles.control_item}>
