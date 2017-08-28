@@ -25,6 +25,12 @@ body{
   height: 100vh;
 }
 
+
+body::-webkit-scrollbar
+{
+	width: 0px;
+}
+
 /*  ------ header ------ */
 
 header{
@@ -78,6 +84,10 @@ header li a img{
 
 /*  ------ header end ------ */
 
+/* -------------------------
+   ----- section start -----
+   ------------------------- */
+
 section{
   width: 100%;
   height: 100%;
@@ -129,22 +139,6 @@ section#intro .content{
   transform: translate(-30%, -50%);
 }
 
-@media screen and (max-width: 925px){
-
-  section .tags{
-    width: 20em;
-  }
-
-  section#intro .content{
-    top: 50%;
-    left: 20%;
-    transform: translate(-20%, -50%);
-  }
-  section .tags .tag{
-    font-size: 2em;
-  }
-}
-
 /*  ------ fist end ------ */
 
 /*  ------ second section ------ */
@@ -163,6 +157,129 @@ section#start .content{
 /*  ------ second end ------ */
 
 
+/*  ------ third section ------ */
+section#merit{
+  background: url('./images/bg/intro.jpg') no-repeat center;
+}
+
+section#merit .content{
+  margin: 0 auto;
+  position: absolute;
+  width: 90%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ul.merits{
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  margin:0;
+}
+
+ul.merits li img{
+  display: block;
+  height: 5em;
+  margin-bottom: 6%;
+  margin: 0 auto;
+  margin-bottom: 10%;
+}
+
+ul.merits li{
+  display: inline-flex;
+  align-items: center;
+  width: 28%;
+  height: 40%;
+  margin: 2.5%;
+  text-align: center;
+  font-size: 0.7em;
+  line-height: 1.2em;
+}
+
+ul.merits::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.3);
+}
+
+ul.merits::-webkit-scrollbar
+{
+	width: 2px;
+}
+
+ul.merits::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #ffffff;
+}
+
+@media screen and (max-height: 500px){
+  ul.merits{
+    overflow: auto;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 900px){
+  ul.merits{
+  overflow: auto;
+    display: flex;
+    align-items: center;
+  }
+  ul.merits li{
+    width: 100%;
+  }
+
+  ul.merits li div{
+    width: 1000px;
+  }
+}
+
+/*  ------ third end ------ */
+
+@media screen and (max-width: 925px){
+
+  section .tags{
+    width: 20em;
+  }
+
+  section#intro .content,section#start .content{
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%, -50%);
+  }
+  section .tags .tag{
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 383px){
+
+  section .tags{
+    width: 20em;
+  }
+
+  section#intro .content,section#start .content{
+    width: 90%;
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%, -50%);
+  }
+  section .tags .tag{
+    font-size: 2em;
+  }
+}
+
+
+/* -------------------------
+   ------- section end -----
+   ------------------------- */
 
 
 /*  ------ component ------ */
