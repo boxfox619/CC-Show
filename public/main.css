@@ -353,6 +353,156 @@ ul.role li{
 
 /*  ------ four end ------ */
 
+/*  ------ final start ------ */
+section#final{
+  background: url('./images/bg/intro.jpg') no-repeat center;
+}
+
+section#final .content{
+  width: 100%;
+  height: 90%;
+  bottom: 0;
+    text-align: center;
+}
+
+section#final .title{
+  font-family: 'NanumSquareEB';
+  font-size: 3em;
+}
+
+section#final .hrline{
+  width: 4em;
+  height: 2px;
+  background: white;
+  margin: 2em auto;
+}
+
+section#final .slider{
+  position: relative;
+  margin: 5% auto 0 auto;
+  height: 300px;
+  width: 95%;
+}
+
+section#final .sliderController{
+  cursor: pointer;
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+section#final .slider-wrap{
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 95%;
+  height: 100%;
+}
+section#final .slider-wrap .slides{
+  position: absolute;
+  white-space: nowrap;
+  height: 100%;
+}
+
+section#final .slider-wrap .slide{
+  display: inline-block;
+  width: 27.4vw;
+  margin: 0 0.5%;
+  height: 90%;
+  border: solid 2px white;
+}
+
+section#final .footer{
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 1vw;
+  width: 98vw;
+  padding-top: 15px;
+  border-top: solid white 2px;
+  font-size: 10px;
+  line-height: 13px;
+}
+
+
+section#final .footer .serviceIcon{
+  height: 3.5em;
+  margin: 0  15px 0 0;
+}
+
+section#final .footer .copyright{
+  font-family: 'NanumSquareL';
+  display: inline-block;
+}
+
+section#final .footer .sns{
+  float:right;
+  text-decoration: none;
+  margin-top: 0.3em;
+}
+
+section#final .footer .sns img{
+  margin: auto 3px;
+  height: 3em;
+}
+
+@media screen and (max-width: 1222px){
+
+  section#final .slider-wrap .slide{
+    width: 41vw;
+  }
+}
+
+@media screen and (max-width: 940px){
+
+  section#final .slider-wrap .slide{
+    width: 83vw;
+  }
+}
+
+@media screen and (max-height: 613px){
+
+  section#final .slider{
+    height: 40vh;
+  }
+}
+
+@media screen and (max-height: 528px){
+
+    section#final .slider{
+      display: none;
+    }
+
+    section#final .title{
+      margin-top: 13vw;
+    }
+}
+
+@media screen and (max-width: 585px){
+  section#final .footer .serviceIcon, section#final .footer .sns{
+    display: none;
+  }
+
+      section#final .title{
+        font-size: 1.5em;
+      }
+            section#final .title{
+              font-size: 1.5em;
+              margin: 13vw auto 0 auto;
+            }
+            section#final .subText{
+              font-size: 0.8em;
+              margin: 0 auto 0 auto;
+            }
+            section#final .hrline{
+              margin: 1em auto;
+            }
+}
+
+
+/*  ------ final end------ */
+
 @media screen and (max-width: 925px){
 
   section .tags{
@@ -381,6 +531,7 @@ ul.role li{
     left: 20%;
     transform: translate(-20%, -50%);
   }
+
   section .tags .tag{
     font-size: 2em;
   }
