@@ -19,8 +19,8 @@ class VideoController extends React.Component {
             <div>
                 <div className={styles.controller_sub_wrapper}>
                     <div className={styles.controller_sub_title}>비디오
-                        <img onclick={this.videoOn()} src="/images/ic_arrow_up.png" style={this.state.video_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
-                        <img onclick={this.videoOff()} src="/images/ic_arrow_down.png" style={this.state.video_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onclick={this.videoOn.bind()} src="/images/ic_arrow_up.png" style={this.state.video_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onclick={this.videoOff.bind()} src="/images/ic_arrow_down.png" style={this.state.video_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
                     </div>
                 </div>
                 <div className={styles.items} style={this.state.video ? {} : {display:'none'}}>

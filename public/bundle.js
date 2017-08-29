@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "569ef2043fc2dac678df"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "17c0d9bee3fcecf66f6f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -29360,13 +29360,13 @@ var TextController = function (_React$Component) {
                             'div',
                             { className: _AssetController2.default.controller_sub_title },
                             '\uD14D\uC2A4\uD2B8',
-                            _react2.default.createElement('img', { onclick: this.textOn(), src: 'images/ic_arrow_up.png', style: this.state.text_arrow_up ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button }),
-                            _react2.default.createElement('img', { onclick: this.textOff(), src: 'images/ic_arrow_down.png', style: this.state.text_arrow_down ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button })
+                            _react2.default.createElement('img', { onclick: this.textOn(), src: 'images/ic_arrow_up.png', style: this.state.text_arrow_up ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button }),
+                            _react2.default.createElement('img', { onclick: this.textOff(), src: 'images/ic_arrow_down.png', style: this.state.text_arrow_down ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button })
                         )
                     ),
                     _react2.default.createElement(
                         'div',
-                        { style: this.state.text ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.items },
+                        { style: this.state.text ? {} : { display: 'none' }, className: _AssetController2.default.items },
                         _react2.default.createElement(
                             'div',
                             null,
@@ -29567,6 +29567,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -29586,10 +29588,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var VideoController = function (_React$Component) {
     _inherits(VideoController, _React$Component);
 
-    function VideoController() {
+    function VideoController(props) {
         _classCallCheck(this, VideoController);
 
-        return _possibleConstructorReturn(this, (VideoController.__proto__ || Object.getPrototypeOf(VideoController)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (VideoController.__proto__ || Object.getPrototypeOf(VideoController)).call(this, props));
+
+        _this.state = {
+            video: false,
+            video_arrow_up: true,
+            video_arrow_down: false
+        };
+
+        _this.videoOn = _this.videoOn.bind(_this);
+        _this.videoOff = _this.videoOff.bind(_this);
+        return _this;
     }
 
     _createClass(VideoController, [{
@@ -29605,13 +29617,13 @@ var VideoController = function (_React$Component) {
                         'div',
                         { className: styles.controller_sub_title },
                         '\uBE44\uB514\uC624',
-                        _react2.default.createElement('img', { onclick: 'textOn()', src: '/images/ic_arrow_up.png', id: 'video-on', className: styles.show_items_button }),
-                        _react2.default.createElement('img', { onclick: 'textOff()', src: '/images/ic_arrow_down.png', id: 'video-off', className: styles.show_items_button })
+                        _react2.default.createElement('img', { onclick: this.videoOn(), src: '/images/ic_arrow_up.png', style: this.state.video_arrow_up ? {} : { display: 'none' }, className: styles.show_items_button }),
+                        _react2.default.createElement('img', { onclick: this.videoOff(), src: '/images/ic_arrow_down.png', style: this.state.video_arrow_down ? {} : { display: 'none' }, className: styles.show_items_button })
                     )
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: styles.items, id: styles.text_items },
+                    { className: styles.items, style: this.state.video ? {} : { display: 'none' } },
                     _react2.default.createElement(
                         'div',
                         { className: styles.control_item },
@@ -29640,6 +29652,24 @@ var VideoController = function (_React$Component) {
                     )
                 )
             );
+        }
+    }, {
+        key: 'videoOn',
+        value: function videoOn() {
+            this.setState(_extends({}, this.state, {
+                video: true,
+                video_arrow_up: false,
+                video_arrow_down: true
+            }));
+        }
+    }, {
+        key: 'videoOff',
+        value: function videoOff() {
+            this.setState(_extends({}, this.state, {
+                video: false,
+                video_arrow_up: true,
+                video_arrow_down: false
+            }));
         }
     }, {
         key: 'componentWillUpdate',
@@ -29685,6 +29715,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -29707,24 +29739,90 @@ var ImageController = function (_React$Component) {
     function ImageController(prop) {
         _classCallCheck(this, ImageController);
 
-        return _possibleConstructorReturn(this, (ImageController.__proto__ || Object.getPrototypeOf(ImageController)).call(this, prop));
+        var _this = _possibleConstructorReturn(this, (ImageController.__proto__ || Object.getPrototypeOf(ImageController)).call(this, prop));
+
+        _this.state = {
+            image: false,
+            image_arrow_up: true,
+            image_arrow_down: false
+        };
+
+        _this.videoOn = _this.videoOn.bind(_this);
+        _this.videoOff = _this.videoOff.bind(_this);
+        return _this;
     }
 
     _createClass(ImageController, [{
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', null);
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: styles.controller_sub_wrapper },
+                    _react2.default.createElement(
+                        'div',
+                        { className: styles.controller_sub_title },
+                        '\uC774\uBBF8\uC9C0',
+                        _react2.default.createElement('img', { onclick: this.imageOn(), src: '/images/ic_arrow_up.png', style: this.state.image_arrow_up ? {} : { display: 'none' }, className: styles.show_items_button }),
+                        _react2.default.createElement('img', { onclick: this.imageOff(), src: '/images/ic_arrow_down.png', style: this.state.image_arrow_down ? {} : { display: 'none' }, className: styles.show_items_button })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: styles.items, style: this.state.image ? {} : { display: 'none' } },
+                    _react2.default.createElement(
+                        'div',
+                        { className: styles.control_item },
+                        _react2.default.createElement('input', { className: styles.attribute_item_title, type: 'text', name: '', value: 'URL :', readonly: true }),
+                        _react2.default.createElement('input', { type: 'text', className: styles.attribute_item_input, value: this.props.width, onKeyDown: this.setWidth() })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: styles.control_item },
+                        _react2.default.createElement('input', { type: 'text', className: styles.attribute_item_input, value: this.props.height, onKeyDown: this.setHeight() })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: styles.control_item },
+                        _react2.default.createElement('input', { type: 'text', className: styles.attribute_item_input, value: this.props.x, onKeyDown: this.setX_location() })
+                    )
+                )
+            );
+        }
+    }, {
+        key: 'imageOn',
+        value: function imageOn() {
+            this.setState(_extends({}, this.state, {
+                image: true,
+                image_arrow_up: false,
+                image_arrow_down: true
+            }));
+        }
+    }, {
+        key: 'imageOff',
+        value: function imageOff() {
+            this.setState(_extends({}, this.state, {
+                image: false,
+                image_arrow_up: true,
+                image_arrow_down: false
+            }));
         }
     }]);
 
     return ImageController;
 }(_react2.default.Component);
 
-var mapDispathchToProps = function mapDispathchToProps(dispatch) {
+var mapStateToProps = function mapStateToProps(state) {
     return {};
 };
 
-exports.default = ImageController;
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ImageController);
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(8); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ImageController.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
@@ -29776,11 +29874,15 @@ var ShapeController = function (_React$Component) {
     return ShapeController;
 }(_react2.default.Component);
 
-var mapDispathchToProps = function mapDispathchToProps(dispatch) {
+var mapStateToProps = function mapStateToProps(state) {
     return {};
 };
 
-exports.default = ShapeController;
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ShapeController);
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(8); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ShapeController.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))

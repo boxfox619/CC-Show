@@ -20,8 +20,8 @@ class ImageController extends React.Component{
             <div>
                 <div className={styles.controller_sub_wrapper}>
                     <div className={styles.controller_sub_title}>이미지
-                        <img onclick={this.imageOn()} src="/images/ic_arrow_up.png" style={this.state.image_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
-                        <img onclick={this.imageOff()} src="/images/ic_arrow_down.png" style={this.state.image_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onclick={this.imageOn.bind()} src="/images/ic_arrow_up.png" style={this.state.image_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onclick={this.imageOff.bind()} src="/images/ic_arrow_down.png" style={this.state.image_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
                     </div>
                 </div>
                 <div className={styles.items} style={this.state.image ? {} : {display:'none'}}>

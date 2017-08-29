@@ -25,8 +25,8 @@ class TextController extends React.Component{
                 <div>
                     <div className={styles.controller_sub_wrapper}>
                     <div className={styles.controller_sub_title}>텍스트
-                        <img onclick={this.textOn()} src="images/ic_arrow_up.png" style={this.state.text_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
-                        <img onclick={this.textOff()} src="images/ic_arrow_down.png" style={this.state.text_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onclick={this.textOn.bind()} src="images/ic_arrow_up.png" style={this.state.text_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onclick={this.textOff.bind()} src="images/ic_arrow_down.png" style={this.state.text_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
                     </div>
                 </div>
                 <div style={this.state.text ? {} : {display:'none'}} className={styles.items}>
