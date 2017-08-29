@@ -55,3 +55,7 @@ hr {
 p {
     display: inline-block;
 }
+
+img{
+    cursor: pointer;
+}
