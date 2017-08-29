@@ -1,0 +1,57 @@
+#silde_contents {
+    background-color: gray;
+    height: 75vh;
+    margin: 0;
+    padding: 0;
+}
+
+#prev_silde{
+    cursor: pointer;
+}
+
+#next_silde{
+    cursor: pointer;
+}
+
+#silde_sub_contents {
+    height: 25vh;
+    margin: 0;
+    padding: 0;
+}
+
+#silde_show_note {
+    height: 70%;
+    width: 100vw;
+    padding: 0;
+}
+
+#silde_note_contents {
+    border: 0;
+    display: table-cell;
+    width: 95vw;
+    margin: 40px 2vw 0 2vw;
+}
+
+#silde_number_wrapper {
+    text-align: center;
+}
+
+#silde_number_contents {
+    display: inline;
+}
+
+#silde_option_button {
+    float: right;
+    cursor: pointer;
+}
+
+hr {
+    margin: 0;
+    padding: 0;
+    width: 97vw;
+    margin: auto;
+}
+
+p {
+    display: inline-block;
+}

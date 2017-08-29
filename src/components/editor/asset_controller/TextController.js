@@ -7,90 +7,99 @@ import styles from './AssetController.css';
 class TextController extends React.Component{
     constructor(prop) {
         super(prop);
+
+        this.state={
+            text:false,
+            text_arrow_up:true,
+            text_arrow_down:false
+        };
+
+        this.textOn=this.textOn.bind(this);
+        this.textOff=this.textOff.bind(this);
+
     }
 
     render(){
         return(
             <div>
                 <div>
-            <div className={styles.controller_sub_wrapper}>
-                <div className={styles.controller_sub_title}>텍스트
-                    <img onclick={this.textOn()} src="images/ic_arrow_up.png" id={styles.text_on} className={styles.show_items_button}/>
-                    <img onclick={this.textOff()} src="images/ic_arrow_down.png" id={styles.text_off} className={styles.show_items_button}/>
+                    <div className={styles.controller_sub_wrapper}>
+                    <div className={styles.controller_sub_title}>텍스트
+                        <img onclick={this.textOn()} src="images/ic_arrow_up.png" style={this.state.text_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onclick={this.textOff()} src="images/ic_arrow_down.png" style={this.state.text_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
+                    </div>
                 </div>
-            </div>
-            <div className={styles.items} id={styles.text_items}>
+                <div style={this.state.text ? {} : {display:'none'}} className={styles.items}>
                 <div>
                     <div className={styles.control_item}>
-                    <select>
-                    <option value="">asdfasdf</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    </select>
+                        <select>
+                            <option value="">asdfasdf</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
                     </div>
 
                     <div className={styles.control_item}>
-                    <select>
-                    <option value="">asdfasdf</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    </select>
+                        <select>
+                            <option value="">asdfasdf</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
                     </div>
                 </div>
 
+                <div>
+                    <div className={styles.control_item}>
+                        <select>
+                            <option value="">asdfasdf</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div className={styles.control_item}>
+                        <select>
+                            <option value="">asdfasdf</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
 
                 <div>
                     <div className={styles.control_item}>
-                    <select>
-                    <option value="">asdfasdf</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-                </div>
+                        <select>
+                            <option value="">asdfasdf</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
 
-                <div className={styles.control_item}>
-                    <select>
-                    <option value="">asdfasdf</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-                </div>
-                </div>
-
-                <div>
                     <div className={styles.control_item}>
-                    <select>
-                    <option value="">asdfasdf</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-                </div>
-
-                <div className={styles.control_item}>
-                    <select>
-                    <option value="">asdfasdf</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-                </div>
+                        <select>
+                            <option value="">asdfasdf</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,22 +107,26 @@ class TextController extends React.Component{
             </div>
         )
     }
-    textOff() {
-        console.log('this is textOff');
-        let d = document;
-        d.getElementById('text-off').style.display = "none"
-        d.getElementById('text-on').style.display = "block"
-        d.getElementById('text-items').style.display = "none";
-    }
 
     textOn() {
-        console.log('this is textOn');
-        let d = document;
-        d.getElementById('text-on').style.display = "none"
-        d.getElementById('text-off').style.display = "block"
-        d.getElementById('text-items').style.display = "block";
+        console.log('a');
+        this.setState({
+            ...this.state,
+            text:true,
+            text_arrow_up:false,
+            text_arrow_down:true
+        });
     }
 
+    textOff() {
+        console.log('a');
+        this.setState({
+            ...this.state,
+            text:false,
+            text_arrow_up:true,
+            text_arrow_down:false
+        });
+    }
 }
 
 const mapStateToProps = (state) => {

@@ -15,10 +15,16 @@ class ShapeController extends React.Component{
     }
 }
 
-const mapDispathchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
     return {
 
     }
 }
 
-export default ShapeController;
+const mapDispatchToProps = (dispatch) => {
+    return {
+       
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShapeController);
