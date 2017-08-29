@@ -41,8 +41,8 @@ class BasicController extends React.Component{
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>속성
 
-                        <img onclick={this.attributeOn.bind()} src="/images/ic_arrow_up.png" style={this.state.attribute_arrow_up ? {display:'block'} : {display:'none'}} className={styles.show_items_button}/>
-                        <img onclick={this.attributeOff.bind()} src="/images/ic_arrow_down.png" style={this.state.attribute_arrow_down ? {display:'block'} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onClick={this.attributeOn.bind()} src="/images/ic_arrow_up.png" style={this.state.attribute_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onClick={this.attributeOff.bind()} src="/images/ic_arrow_down.png" style={this.state.attribute_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
                         </div>
                     </div>
                     <div style={this.state.attribute ? {} : {display:'none'}} className={styles.items} >
@@ -76,8 +76,8 @@ class BasicController extends React.Component{
                 <div>
                     <div className={styles.controller_sub_wrapper}>
                             <div className={styles.controller_sub_title}>도형
-                                <img onclick={this.shapeOn.bind()} src="/images/ic_arrow_up.png" style={this.state.shape_arrow_up ? {display:'block'} : {display:'none'}} className={styles.show_items_button}/>
-                                <img onclick={this.shapeOff.bind()} src="/images/ic_arrow_down.png" style={this.state.shape_arrow_down ? {display:'block'} : {display:'none'}} className={styles.show_items_button}/>
+                                <img onClick={this.shapeOn.bind()} src="/images/ic_arrow_up.png" style={this.state.shape_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                                <img onClick={this.shapeOff.bind()} src="/images/ic_arrow_down.png" style={this.state.shape_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
                             </div>
                     </div>
                     <div style={this.state.shape ? {} : {display:'none'}} className={styles.items}>
@@ -93,8 +93,8 @@ class BasicController extends React.Component{
                 <div>
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>스타일
-                            <img onclick={this.styleOn.bind()} src="/images/ic_arrow_up.png" style={this.state.style_arrow_up ? {display:'block'} : {display:'none'}} className={styles.show_items_button}/>
-                            <img onclick={this.styleOff.bind()} src="/images/ic_arrow_down.png" style={this.state.style_arrow_down ? {display:'block'} : {display:'none'}} className={styles.show_items_button}/>
+                            <img onClick={this.styleOn.bind()} src="/images/ic_arrow_up.png" style={this.state.style_arrow_up ? {display:'block'} : {display:'none'}} className={styles.show_items_button}/>
+                            <img onClick={this.styleOff.bind()} src="/images/ic_arrow_down.png" style={this.state.style_arrow_down ? {display:'block'} : {display:'none'}} className={styles.show_items_button}/>
                         </div>
                     </div>
                     <div style={this.state.style ? {} : {display:'none'}} className={styles.items}>

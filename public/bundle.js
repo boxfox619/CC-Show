@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "17c0d9bee3fcecf66f6f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5030e3cd43501dfbb44d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -29360,8 +29360,8 @@ var TextController = function (_React$Component) {
                             'div',
                             { className: _AssetController2.default.controller_sub_title },
                             '\uD14D\uC2A4\uD2B8',
-                            _react2.default.createElement('img', { onclick: this.textOn(), src: 'images/ic_arrow_up.png', style: this.state.text_arrow_up ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button }),
-                            _react2.default.createElement('img', { onclick: this.textOff(), src: 'images/ic_arrow_down.png', style: this.state.text_arrow_down ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button })
+                            _react2.default.createElement('img', { onClick: this.textOn.bind(), src: 'images/ic_arrow_up.png', style: this.state.text_arrow_up ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button }),
+                            _react2.default.createElement('img', { onClick: this.textOff.bind(), src: 'images/ic_arrow_down.png', style: this.state.text_arrow_down ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button })
                         )
                     ),
                     _react2.default.createElement(
@@ -29617,8 +29617,8 @@ var VideoController = function (_React$Component) {
                         'div',
                         { className: styles.controller_sub_title },
                         '\uBE44\uB514\uC624',
-                        _react2.default.createElement('img', { onclick: this.videoOn(), src: '/images/ic_arrow_up.png', style: this.state.video_arrow_up ? {} : { display: 'none' }, className: styles.show_items_button }),
-                        _react2.default.createElement('img', { onclick: this.videoOff(), src: '/images/ic_arrow_down.png', style: this.state.video_arrow_down ? {} : { display: 'none' }, className: styles.show_items_button })
+                        _react2.default.createElement('img', { onClick: this.videoOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.video_arrow_up ? {} : { display: 'none' }, className: styles.show_items_button }),
+                        _react2.default.createElement('img', { onClick: this.videoOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.video_arrow_down ? {} : { display: 'none' }, className: styles.show_items_button })
                     )
                 ),
                 _react2.default.createElement(
@@ -29765,8 +29765,8 @@ var ImageController = function (_React$Component) {
                         'div',
                         { className: styles.controller_sub_title },
                         '\uC774\uBBF8\uC9C0',
-                        _react2.default.createElement('img', { onclick: this.imageOn(), src: '/images/ic_arrow_up.png', style: this.state.image_arrow_up ? {} : { display: 'none' }, className: styles.show_items_button }),
-                        _react2.default.createElement('img', { onclick: this.imageOff(), src: '/images/ic_arrow_down.png', style: this.state.image_arrow_down ? {} : { display: 'none' }, className: styles.show_items_button })
+                        _react2.default.createElement('img', { onClick: this.imageOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.image_arrow_up ? {} : { display: 'none' }, className: styles.show_items_button }),
+                        _react2.default.createElement('img', { onClick: this.imageOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.image_arrow_down ? {} : { display: 'none' }, className: styles.show_items_button })
                     )
                 ),
                 _react2.default.createElement(
@@ -29980,8 +29980,8 @@ var BasicController = function (_React$Component) {
                             'div',
                             { className: _AssetController2.default.controller_sub_title },
                             '\uC18D\uC131',
-                            _react2.default.createElement('img', { onclick: this.attributeOn(), src: '/images/ic_arrow_up.png', style: this.state.attribute_arrow_up ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button }),
-                            _react2.default.createElement('img', { onclick: this.attributeOff(), src: '/images/ic_arrow_down.png', style: this.state.attribute_arrow_down ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button })
+                            _react2.default.createElement('img', { onClick: this.attributeOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.attribute_arrow_up ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button }),
+                            _react2.default.createElement('img', { onClick: this.attributeOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.attribute_arrow_down ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button })
                         )
                     ),
                     _react2.default.createElement(
@@ -30058,8 +30058,8 @@ var BasicController = function (_React$Component) {
                             'div',
                             { className: _AssetController2.default.controller_sub_title },
                             '\uB3C4\uD615',
-                            _react2.default.createElement('img', { onclick: this.shapeOn(), src: '/images/ic_arrow_up.png', style: this.state.shape_arrow_up ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button }),
-                            _react2.default.createElement('img', { onclick: this.shapeOff(), src: '/images/ic_arrow_down.png', style: this.state.shape_arrow_down ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button })
+                            _react2.default.createElement('img', { onClick: this.shapeOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.shape_arrow_up ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button }),
+                            _react2.default.createElement('img', { onClick: this.shapeOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.shape_arrow_down ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button })
                         )
                     ),
                     _react2.default.createElement(
@@ -30088,8 +30088,8 @@ var BasicController = function (_React$Component) {
                             'div',
                             { className: _AssetController2.default.controller_sub_title },
                             '\uC2A4\uD0C0\uC77C',
-                            _react2.default.createElement('img', { onclick: this.styleOn(), src: '/images/ic_arrow_up.png', style: this.state.style_arrow_up ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button }),
-                            _react2.default.createElement('img', { onclick: this.styleOff(), src: '/images/ic_arrow_down.png', style: this.state.style_arrow_down ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button })
+                            _react2.default.createElement('img', { onClick: this.styleOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.style_arrow_up ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button }),
+                            _react2.default.createElement('img', { onClick: this.styleOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.style_arrow_down ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button })
                         )
                     ),
                     _react2.default.createElement(
