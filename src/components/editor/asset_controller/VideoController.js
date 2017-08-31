@@ -1,18 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styles from './AssetController.css';
 
 class VideoController extends React.Component {
     constructor(props){
         super(props);
         
         this.state={
-            video:false,
-            video_arrow_up:true,
-            video_arrow_down:false    
+            video:true,
+            video_arrow_up:false,
+            video_arrow_down:true,
+            video_controller: this.props.controller,
+            video_autoplay: this.props.autoplay,
+            video_loop:this.props.loop    
         };
 
         this.videoOn=this.videoOn.bind(this);
         this.videoOff=this.videoOff.bind(this);
+        this.controllerOnClick =this.controllerOnClick.bind(this);
+        this.autoplayOnClick=this.autoplayOnClick.bind(this);
+        this.loopOnClick=this.loopOnClick.bind(this);
     }
     render() {
         return (
@@ -24,22 +31,22 @@ class VideoController extends React.Component {
                     </div>
                 </div>
                 <div className={styles.items} style={this.state.video ? {} : {display:'none'}}>
-                        <div className={styles.control_item}>
-                            <input className={styles.attribute_item_title} type="text" name="" value="URL :" readonly/><input type="text" className={styles.attribute_item_input} value={this.props.width} onKeyDown={this.setWidth()}/>
+                        <div className={styles.control_item+' '+styles.video_URL}>
+                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" className={styles.attribute_item_input}/>
                         </div>
-                        <div className={styles.control_item}>
-                            <input type="text" className={styles.attribute_item_input } value={this.props.height} onKeyDown={this.setHeight()}/>
+                        <div>
+                        <div onClick={this.controllerOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.state.video_controller ? {'background-color': '#5a84b3'} : {}}>
+                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.state.video_controller ? {color:'#fff'} : {}}>컨트롤러</span>
                         </div>
-                        <div className={styles.control_item}>
-                            <input type="text" className={styles.attribute_item_input} value={this.props.x} onKeyDown={this.setX_location()}/>
+                        <div onClick={this.autoplayOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.state.video_autoplay ? {'background-color': '#5a84b3'} : {}}>
+                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.state.video_autoplay ? {color:'#fff'} : {}}>자동재생</span>
                         </div>
-                        <div className={styles.control_item}>
-                            <input type="text" className={styles.attribute_item_input} value={this.props.y} onKeyDown={this.setY_location()}/>
+                        <div onClick={this.loopOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.state.video_loop ? {'background-color': '#5a84b3'} : {}}>
+                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.state.video_loop ? {color:'#fff'} : {}}>반복</span>
                         </div>
-                        <div className={styles.control_item}>
-                            <input type="text" className={styles.attribute_item_input} value={this.props.angle} onKeyDown={this.setAngle()}/>
-                        </div>
+                    </div>
                 </div>
+                <hr/>
             </div>
         )
     }
@@ -62,10 +69,16 @@ class VideoController extends React.Component {
         });
     }
 
-    componentWillUpdate(){
-        if(this.props.controller) document.getElementById('controller').checked=true;
-        else if(this.props.autoplay) document.getElementById('autoplay').checked=true;
-        else if(this.props.loop) document.getElementById('loop').check=true;
+    controllerOnClick(){
+        this.props.setURL(!this.state.video_controller);
+    }
+
+    loopOnClick(){
+        this.props.setURL(!this.state.video_loop);
+    }
+
+    autoplayOnClick(){
+            this.props.setURL(!this.state.video_autoplay);
     }
 }
 

@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styles from './AssetController.css';
 
 class ImageController extends React.Component{
     constructor(prop) {
         super(prop);
 
         this.state={
-            image:false,
-            image_arrow_up:true,
-            image_arrow_down:false    
+            image:true,
+            image_arrow_up:false,
+            image_arrow_down:true    
         };
 
         this.videoOn=this.videoOn.bind(this);
@@ -29,10 +30,10 @@ class ImageController extends React.Component{
                             <input className={styles.attribute_item_title} type="text" name="" value="URL :" readonly/><input type="text" className={styles.attribute_item_input} value={this.props.width} onKeyDown={this.setWidth()}/>
                         </div>
                         <div className={styles.control_item}>
-                            <input type="text" className={styles.attribute_item_input } value={this.props.height} onKeyDown={this.setHeight()}/>
+                            <input type="text" className={styles.attribute_item_input } value={this.props.height}/>
                         </div>
                         <div className={styles.control_item}>
-                            <input type="text" className={styles.attribute_item_input} value={this.props.x} onKeyDown={this.setX_location()}/>
+                            <input type="text" className={styles.attribute_item_input} value={this.props.x}/>
                         </div>
                 </div>
             </div>
