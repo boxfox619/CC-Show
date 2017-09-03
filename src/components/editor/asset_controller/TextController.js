@@ -9,9 +9,9 @@ class TextController extends React.Component{
         super(prop);
 
         this.state={
-            text:false,
-            text_arrow_up:true,
-            text_arrow_down:false
+            text:true,
+            text_arrow_up:false,
+            text_arrow_down:true
         };
 
         this.textOn=this.textOn.bind(this);
@@ -101,6 +101,17 @@ class TextController extends React.Component{
                         </select>
                     </div>
                 </div>
+
+                <div>
+                    <img src=""/>
+                    <img src=""/>
+                    <img src=""/>
+                    <img src=""/>
+                    <img src=""/>
+                    <img src=""/>
+                    <img src=""/>
+                    <img src=""/>
+                </div>
             </div>
         </div>
         <hr/>
@@ -109,7 +120,6 @@ class TextController extends React.Component{
     }
 
     textOn() {
-        console.log('a');
         this.setState({
             ...this.state,
             text:true,
@@ -119,7 +129,6 @@ class TextController extends React.Component{
     }
 
     textOff() {
-        console.log('a');
         this.setState({
             ...this.state,
             text:false,

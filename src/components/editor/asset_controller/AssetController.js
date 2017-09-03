@@ -32,7 +32,7 @@ class AssetController extends React.Component {
                     )
                 case actions.TYPE_VIDEO:
                     return(
-                            <VideoController url = {this.props.currentSilde.assets[selectedAsset].url}
+                            <VideoController video_url = {this.props.currentSilde.assets[selectedAsset].url}
                                              controller = {this.props.currentSilde.assets[selectedAsset].controller}
                                              autoplay = {this.props.currentSilde.assets[selectedAsset].autoplay}
                                              loop = {this.props.currentSilde.assets[selectedAsset].loop} />
@@ -43,7 +43,7 @@ class AssetController extends React.Component {
                     )
                 case actions.TYPE_IMAGE:
                     return(
-                            <ImageController/>
+                            <ImageController img_url = {this.props.currentSilde.assets[selectedAsset].url}/>
                     )
             }
     }

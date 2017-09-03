@@ -7,15 +7,15 @@ class BasicController extends React.Component{
     constructor(prop) {
         super(prop);
         this.state = {
-            attribute_arrow_up:true,
-            attribute_arrow_down:false,
-            attribute:false,
-            shape_arrow_up:true,
-            shape_arrow_down:false,
-            shape:false,
-            style_arrow_up:true,
-            style_arrow_down:false,
-            style:false
+            attribute_arrow_up:false,
+            attribute_arrow_down:true,
+            attribute:true,
+            shape_arrow_up:false,
+            shape_arrow_down:true,
+            shape:true,
+            style_arrow_up:false,
+            style_arrow_down:true,
+            style:true
         };
 
         this.setWidth=this.setWidth.bind(this);
@@ -49,26 +49,26 @@ class BasicController extends React.Component{
                         <div>
                             <div className={styles.control_item}>
                                 <span className={styles.attribute_item_title}>H :</span>
-                                <input type="text" className={styles.attribute_item_input} value={this.props.width} onKeyDown={this.setWidth()}/>
+                                <input type="text" className={styles.attribute_item_input} value={this.props.height} onChange={this.setHeight}/>
                             </div>
                             <div className={styles.control_item}>
                                 <span className={styles.attribute_item_title}>W :</span>
-                                <input type="text" className={styles.attribute_item_input } value={this.props.height} onKeyDown={this.setHeight()}/>
+                                <input type="text" className={styles.attribute_item_input} value={this.props.width} onChange={this.setWidth}/>
                             </div>
                         </div>
                         <div>
                             <div className={styles.control_item}>
                                 <span className={styles.attribute_item_title}>X :</span>
-                                <input type="text" className={styles.attribute_item_input} value={this.props.x} onKeyDown={this.setX_location()}/>
+                                <input type="text" className={styles.attribute_item_input} value={this.props.x} onChange={this.setX_location}/>
                             </div>
                             <div className={styles.control_item}>
                                 <span className={styles.attribute_item_title}>Y :</span>
-                                <input type="text" className={styles.attribute_item_input} value={this.props.y} onKeyDown={this.setY_location()}/>
+                                <input type="text" className={styles.attribute_item_input} value={this.props.y} onChange={this.setY_location}/>
                             </div>
                         </div>
                         <div className={styles.control_item}>
                             <span className={styles.attribute_item_title}>A :</span>
-                            <input type="text" className={styles.attribute_item_input} value={this.props.angle} onKeyDown={this.setAngle()}/>
+                            <input type="text" className={styles.attribute_item_input} value={this.props.angle} onChange={this.setAngle}/>
                         </div>
                     </div>
                 </div>
@@ -106,39 +106,49 @@ class BasicController extends React.Component{
             </div>
         )
     }
-    setWidth() {
-        if(event.keyCode==13) {
-            let value=document.getElementById().value;
-            this.props.setWidth(value);
+    setHeight(event) {
+        let {value}=event.target;
+        let intValue=parseInt(value);
+        if(isNaN(intValue)){
+            intValue=0;
         }
+        this.props.setHeight(intValue);
     }
 
-    setHeight() {
-        if(event.keyCode==13) {
-            let value=document.getElementById().value;
-            this.props.setHeight(value);
+    setWidth(event) {
+        let {value}=event.target;
+        let intValue=parseInt(value);
+        if(isNaN(intValue)){
+            intValue=0;
         }
+        this.props.setWidth(intValue);
     }
 
-    setX_location() {
-        if(event.keyCode==13){
-            let value=document.getElementById().value;
-            this.props.setY(value);
+    setX_location(event) {
+        let {value}=event.target;
+        let intValue=parseInt(value);
+        if(isNaN(intValue)){
+            intValue=0;
         }
+        this.props.setX(intValue);
     }
 
-    setY_location() {
-        if(event.keyCode==13){
-            let value=document.getElementById().value;
-            this.props.setX(value);
+    setY_location(event) {
+        let {value}=event.target;
+        let intValue=parseInt(value);
+        if(isNaN(intValue)){
+            intValue=0;
         }
+        this.props.setY(intValue);
     }
 
-    setAngle() {
-        if(event.keyCode==13){
-            let value=document.getElementById().value;
-            this.props.setAngle(value);
+    setAngle(event) {
+        let {value}=event.target;
+        let intValue=parseInt(value);
+        if(isNaN(intValue)){
+            intValue=0;
         }
+        this.props.setAngle(intValue); 
     }
     
     attributeOn() {

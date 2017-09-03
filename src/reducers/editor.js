@@ -30,7 +30,9 @@ const editor = (state = initialState, action) => {
         height: '50' + sizeUnit,
         width: '50' + sizeUnit,
         x: '0' + positionUnit,
-        y: '0' + positionUnit
+        y: '0' + positionUnit,
+        angle: '0',
+        style: {}
       };
 
       // 추가 style add
@@ -494,4 +496,4 @@ function getAssetIndex(state, key) {
   return index;
 }
 
-export default editor
+export default editor;
