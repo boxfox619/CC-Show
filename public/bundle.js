@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4e47da591676563ef8e7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5030e3cd43501dfbb44d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -9500,7 +9500,7 @@ exports = module.exports = __webpack_require__(21)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetController__items___12-Ka {\r\n    padding: 0;\r\n    margin: 0 0 2vh 15px;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 12px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-block;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 7vw;\r\n}\r\n\r\n.AssetController__attribute_item_title___1gZe5 {\r\n    border: 0;\r\n    margin: 0 0 0 5px;\r\n    width: 15%;\r\n    font-size: 15px;\r\n    color: #5a84b3;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 60%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    clear: both;\r\n    margin: 1.5%;\r\n    outline-width: 0;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\nhr {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 90%;\r\n    height: 15vh;\r\n    border-color: #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n}\r\n\r\n#AssetController__attribute_off___1YH40 {\r\n    display: none;\r\n}\r\n\r\n#AssetController__text_off___2PYqk {\r\n    display: none;\r\n}\r\n\r\n#AssetController__shape_off___1iGOi {\r\n    display: none;\r\n}\r\n\r\n#AssetController__style_off___2QB4S {\r\n    display: none;\r\n}", ""]);
+exports.push([module.i, ".AssetController__items___12-Ka {\r\n    padding: 0;\r\n    margin: 0 0 2vh 15px;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 12px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-block;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 7vw;\r\n}\r\n\r\n.AssetController__attribute_item_title___1gZe5 {\r\n    border: 0;\r\n    margin: 0 0 0 5px;\r\n    width: 15%;\r\n    font-size: 15px;\r\n    color: #5a84b3;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 60%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    clear: both;\r\n    margin: 1.5%;\r\n    outline-width: 0;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\nhr {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 90%;\r\n    height: 15vh;\r\n    border-color: #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n}", ""]);
 
 // exports
 exports.locals = {
@@ -9511,11 +9511,7 @@ exports.locals = {
 	"attribute_item_title": "AssetController__attribute_item_title___1gZe5",
 	"attribute_item_input": "AssetController__attribute_item_input___j1bys",
 	"show_items_button": "AssetController__show_items_button___3Ip6L",
-	"input_style": "AssetController__input_style___2TP9Y",
-	"attribute_off": "AssetController__attribute_off___1YH40",
-	"text_off": "AssetController__text_off___2PYqk",
-	"shape_off": "AssetController__shape_off___1iGOi",
-	"style_off": "AssetController__style_off___2QB4S"
+	"input_style": "AssetController__input_style___2TP9Y"
 };
 
 /***/ }),
@@ -29300,6 +29296,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -29332,7 +29330,18 @@ var TextController = function (_React$Component) {
     function TextController(prop) {
         _classCallCheck(this, TextController);
 
-        return _possibleConstructorReturn(this, (TextController.__proto__ || Object.getPrototypeOf(TextController)).call(this, prop));
+        var _this = _possibleConstructorReturn(this, (TextController.__proto__ || Object.getPrototypeOf(TextController)).call(this, prop));
+
+        _this.state = {
+            text: false,
+            text_arrow_up: true,
+            text_arrow_down: false
+        };
+
+        _this.textOn = _this.textOn.bind(_this);
+        _this.textOff = _this.textOff.bind(_this);
+
+        return _this;
     }
 
     _createClass(TextController, [{
@@ -29351,13 +29360,13 @@ var TextController = function (_React$Component) {
                             'div',
                             { className: _AssetController2.default.controller_sub_title },
                             '\uD14D\uC2A4\uD2B8',
-                            _react2.default.createElement('img', { onclick: this.textOn(), src: 'images/ic_arrow_up.png', id: _AssetController2.default.text_on, className: _AssetController2.default.show_items_button }),
-                            _react2.default.createElement('img', { onclick: this.textOff(), src: 'images/ic_arrow_down.png', id: _AssetController2.default.text_off, className: _AssetController2.default.show_items_button })
+                            _react2.default.createElement('img', { onClick: this.textOn.bind(), src: 'images/ic_arrow_up.png', style: this.state.text_arrow_up ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button }),
+                            _react2.default.createElement('img', { onClick: this.textOff.bind(), src: 'images/ic_arrow_down.png', style: this.state.text_arrow_down ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button })
                         )
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: _AssetController2.default.items, id: _AssetController2.default.text_items },
+                        { style: this.state.text ? {} : { display: 'none' }, className: _AssetController2.default.items },
                         _react2.default.createElement(
                             'div',
                             null,
@@ -29484,22 +29493,24 @@ var TextController = function (_React$Component) {
             );
         }
     }, {
-        key: 'textOff',
-        value: function textOff() {
-            console.log('this is textOff');
-            var d = document;
-            d.getElementById('text-off').style.display = "none";
-            d.getElementById('text-on').style.display = "block";
-            d.getElementById('text-items').style.display = "none";
-        }
-    }, {
         key: 'textOn',
         value: function textOn() {
-            console.log('this is textOn');
-            var d = document;
-            d.getElementById('text-on').style.display = "none";
-            d.getElementById('text-off').style.display = "block";
-            d.getElementById('text-items').style.display = "block";
+            console.log('a');
+            this.setState(_extends({}, this.state, {
+                text: true,
+                text_arrow_up: false,
+                text_arrow_down: true
+            }));
+        }
+    }, {
+        key: 'textOff',
+        value: function textOff() {
+            console.log('a');
+            this.setState(_extends({}, this.state, {
+                text: false,
+                text_arrow_up: true,
+                text_arrow_down: false
+            }));
         }
     }]);
 
@@ -29556,6 +29567,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -29575,10 +29588,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var VideoController = function (_React$Component) {
     _inherits(VideoController, _React$Component);
 
-    function VideoController() {
+    function VideoController(props) {
         _classCallCheck(this, VideoController);
 
-        return _possibleConstructorReturn(this, (VideoController.__proto__ || Object.getPrototypeOf(VideoController)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (VideoController.__proto__ || Object.getPrototypeOf(VideoController)).call(this, props));
+
+        _this.state = {
+            video: false,
+            video_arrow_up: true,
+            video_arrow_down: false
+        };
+
+        _this.videoOn = _this.videoOn.bind(_this);
+        _this.videoOff = _this.videoOff.bind(_this);
+        return _this;
     }
 
     _createClass(VideoController, [{
@@ -29594,13 +29617,13 @@ var VideoController = function (_React$Component) {
                         'div',
                         { className: styles.controller_sub_title },
                         '\uBE44\uB514\uC624',
-                        _react2.default.createElement('img', { onclick: 'textOn()', src: '/images/ic_arrow_up.png', id: 'video-on', className: styles.show_items_button }),
-                        _react2.default.createElement('img', { onclick: 'textOff()', src: '/images/ic_arrow_down.png', id: 'video-off', className: styles.show_items_button })
+                        _react2.default.createElement('img', { onClick: this.videoOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.video_arrow_up ? {} : { display: 'none' }, className: styles.show_items_button }),
+                        _react2.default.createElement('img', { onClick: this.videoOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.video_arrow_down ? {} : { display: 'none' }, className: styles.show_items_button })
                     )
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: styles.items, id: styles.text_items },
+                    { className: styles.items, style: this.state.video ? {} : { display: 'none' } },
                     _react2.default.createElement(
                         'div',
                         { className: styles.control_item },
@@ -29629,6 +29652,24 @@ var VideoController = function (_React$Component) {
                     )
                 )
             );
+        }
+    }, {
+        key: 'videoOn',
+        value: function videoOn() {
+            this.setState(_extends({}, this.state, {
+                video: true,
+                video_arrow_up: false,
+                video_arrow_down: true
+            }));
+        }
+    }, {
+        key: 'videoOff',
+        value: function videoOff() {
+            this.setState(_extends({}, this.state, {
+                video: false,
+                video_arrow_up: true,
+                video_arrow_down: false
+            }));
         }
     }, {
         key: 'componentWillUpdate',
@@ -29674,6 +29715,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -29696,24 +29739,90 @@ var ImageController = function (_React$Component) {
     function ImageController(prop) {
         _classCallCheck(this, ImageController);
 
-        return _possibleConstructorReturn(this, (ImageController.__proto__ || Object.getPrototypeOf(ImageController)).call(this, prop));
+        var _this = _possibleConstructorReturn(this, (ImageController.__proto__ || Object.getPrototypeOf(ImageController)).call(this, prop));
+
+        _this.state = {
+            image: false,
+            image_arrow_up: true,
+            image_arrow_down: false
+        };
+
+        _this.videoOn = _this.videoOn.bind(_this);
+        _this.videoOff = _this.videoOff.bind(_this);
+        return _this;
     }
 
     _createClass(ImageController, [{
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', null);
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: styles.controller_sub_wrapper },
+                    _react2.default.createElement(
+                        'div',
+                        { className: styles.controller_sub_title },
+                        '\uC774\uBBF8\uC9C0',
+                        _react2.default.createElement('img', { onClick: this.imageOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.image_arrow_up ? {} : { display: 'none' }, className: styles.show_items_button }),
+                        _react2.default.createElement('img', { onClick: this.imageOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.image_arrow_down ? {} : { display: 'none' }, className: styles.show_items_button })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: styles.items, style: this.state.image ? {} : { display: 'none' } },
+                    _react2.default.createElement(
+                        'div',
+                        { className: styles.control_item },
+                        _react2.default.createElement('input', { className: styles.attribute_item_title, type: 'text', name: '', value: 'URL :', readonly: true }),
+                        _react2.default.createElement('input', { type: 'text', className: styles.attribute_item_input, value: this.props.width, onKeyDown: this.setWidth() })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: styles.control_item },
+                        _react2.default.createElement('input', { type: 'text', className: styles.attribute_item_input, value: this.props.height, onKeyDown: this.setHeight() })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: styles.control_item },
+                        _react2.default.createElement('input', { type: 'text', className: styles.attribute_item_input, value: this.props.x, onKeyDown: this.setX_location() })
+                    )
+                )
+            );
+        }
+    }, {
+        key: 'imageOn',
+        value: function imageOn() {
+            this.setState(_extends({}, this.state, {
+                image: true,
+                image_arrow_up: false,
+                image_arrow_down: true
+            }));
+        }
+    }, {
+        key: 'imageOff',
+        value: function imageOff() {
+            this.setState(_extends({}, this.state, {
+                image: false,
+                image_arrow_up: true,
+                image_arrow_down: false
+            }));
         }
     }]);
 
     return ImageController;
 }(_react2.default.Component);
 
-var mapDispathchToProps = function mapDispathchToProps(dispatch) {
+var mapStateToProps = function mapStateToProps(state) {
     return {};
 };
 
-exports.default = ImageController;
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ImageController);
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(8); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ImageController.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
@@ -29765,11 +29874,15 @@ var ShapeController = function (_React$Component) {
     return ShapeController;
 }(_react2.default.Component);
 
-var mapDispathchToProps = function mapDispathchToProps(dispatch) {
+var mapStateToProps = function mapStateToProps(state) {
     return {};
 };
 
-exports.default = ShapeController;
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ShapeController);
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(8); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ShapeController.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
@@ -29785,6 +29898,8 @@ exports.default = ShapeController;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -29821,7 +29936,15 @@ var BasicController = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (BasicController.__proto__ || Object.getPrototypeOf(BasicController)).call(this, prop));
 
         _this.state = {
-            src: ''
+            attribute_arrow_up: true,
+            attribute_arrow_down: false,
+            attribute: false,
+            shape_arrow_up: true,
+            shape_arrow_down: false,
+            shape: false,
+            style_arrow_up: true,
+            style_arrow_down: false,
+            style: false
         };
 
         _this.setWidth = _this.setWidth.bind(_this);
@@ -29829,6 +29952,14 @@ var BasicController = function (_React$Component) {
         _this.setX_location = _this.setX_location.bind(_this);
         _this.setY_location = _this.setY_location.bind(_this);
         _this.setAngle = _this.setAngle.bind(_this);
+
+        _this.attributeOn = _this.attributeOn.bind(_this);
+        _this.attributeOff = _this.attributeOff.bind(_this);
+        _this.shapeOn = _this.shapeOn.bind(_this);
+        _this.shapeOff = _this.shapeOff.bind(_this);
+        _this.styleOn = _this.styleOn.bind(_this);
+        _this.styleOff = _this.styleOff.bind(_this);
+
         return _this;
     }
 
@@ -29849,13 +29980,13 @@ var BasicController = function (_React$Component) {
                             'div',
                             { className: _AssetController2.default.controller_sub_title },
                             '\uC18D\uC131',
-                            _react2.default.createElement('img', { onclick: this.attributeOn(), src: '/images/ic_arrow_up.png', id: _AssetController2.default.attribute_on, className: _AssetController2.default.show_items_button }),
-                            _react2.default.createElement('img', { onclick: this.attributeOff(), src: '/images/ic_arrow_down.png', id: _AssetController2.default.attribute_off, className: _AssetController2.default.show_items_button })
+                            _react2.default.createElement('img', { onClick: this.attributeOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.attribute_arrow_up ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button }),
+                            _react2.default.createElement('img', { onClick: this.attributeOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.attribute_arrow_down ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button })
                         )
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: _AssetController2.default.items },
+                        { style: this.state.attribute ? {} : { display: 'none' }, className: _AssetController2.default.items },
                         _react2.default.createElement(
                             'div',
                             null,
@@ -29927,13 +30058,13 @@ var BasicController = function (_React$Component) {
                             'div',
                             { className: _AssetController2.default.controller_sub_title },
                             '\uB3C4\uD615',
-                            _react2.default.createElement('img', { onclick: this.shapeOn(), src: '/images/ic_arrow_up.png', id: _AssetController2.default.shape_on, className: _AssetController2.default.show_items_button }),
-                            _react2.default.createElement('img', { onclick: this.shapeOff(), src: '/images/ic_arrow_down.png', id: _AssetController2.default.shape_off, className: _AssetController2.default.show_items_button })
+                            _react2.default.createElement('img', { onClick: this.shapeOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.shape_arrow_up ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button }),
+                            _react2.default.createElement('img', { onClick: this.shapeOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.shape_arrow_down ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button })
                         )
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: _AssetController2.default.items },
+                        { style: this.state.shape ? {} : { display: 'none' }, className: _AssetController2.default.items },
                         _react2.default.createElement(
                             'div',
                             { className: _AssetController2.default.control_item },
@@ -29957,13 +30088,13 @@ var BasicController = function (_React$Component) {
                             'div',
                             { className: _AssetController2.default.controller_sub_title },
                             '\uC2A4\uD0C0\uC77C',
-                            _react2.default.createElement('img', { onclick: this.shapeOn(), src: '/images/ic_arrow_up.png', id: _AssetController2.default.shape_on, className: _AssetController2.default.show_items_button }),
-                            _react2.default.createElement('img', { onclick: this.shapeOff(), src: '/images/ic_arrow_down.png', id: _AssetController2.default.shape_off, className: _AssetController2.default.show_items_button })
+                            _react2.default.createElement('img', { onClick: this.styleOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.style_arrow_up ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button }),
+                            _react2.default.createElement('img', { onClick: this.styleOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.style_arrow_down ? { display: 'block' } : { display: 'none' }, className: _AssetController2.default.show_items_button })
                         )
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: _AssetController2.default.items },
+                        { style: this.state.style ? {} : { display: 'none' }, className: _AssetController2.default.items },
                         _react2.default.createElement(
                             'div',
                             null,
@@ -30016,56 +30147,56 @@ var BasicController = function (_React$Component) {
     }, {
         key: 'attributeOn',
         value: function attributeOn() {
-            console.log('this is attributeOn');
-            var d = document;
-            d.getElementById('attribute_on').style.display = "none";
-            d.getElementById('attribute_off').style.display = "block";
-            d.getElementById('attribute_items').style.display = "block";
+            this.setState(_extends({}, this.state, {
+                attribute: true,
+                attribute_arrow_up: false,
+                attribute_arrow_down: true
+            }));
         }
     }, {
         key: 'shapeOn',
         value: function shapeOn() {
-            console.log('this is shapeOn');
-            var d = document;
-            d.getElementById('shape_on').style.display = "none";
-            d.getElementById('shape_off').style.display = "block";
-            d.getElementById('shape_items').style.display = "block";
+            this.setState(_extends({}, this.state, {
+                shape: true,
+                shape_arrow_up: false,
+                shape_arrow_down: true
+            }));
         }
     }, {
         key: 'styleOn',
         value: function styleOn() {
-            console.log('this is styleOn');
-            var d = document;
-            d.getElementById('style_on').style.display = "none";
-            d.getElementById('style_off').style.display = "block";
-            d.getElementById('style_items').style.display = "block";
+            this.setState(_extends({}, this.state, {
+                style: true,
+                style_arrow_up: false,
+                style_arrow_down: true
+            }));
         }
     }, {
         key: 'attributeOff',
         value: function attributeOff() {
-            console.log('this is attributeOff');
-            var d = document;
-            d.getElementById('attribute_off').style.display = "none";
-            d.getElementById('attribute_on').style.display = "block";
-            d.getElementById('attribute_items').style.display = "none";
+            this.setState(_extends({}, this.state, {
+                attribute: false,
+                attribute_arrow_up: true,
+                attribute_arrow_down: false
+            }));
         }
     }, {
         key: 'shapeOff',
         value: function shapeOff() {
-            console.log('this is shapeOff');
-            var d = document;
-            d.getElementById('shape_off').style.display = "none";
-            d.getElementById('shape_on').style.display = "block";
-            d.getElementById('shape_items').style.display = "none";
+            this.setState(_extends({}, this.state, {
+                shape: false,
+                shape_arrow_up: true,
+                shape_arrow_down: false
+            }));
         }
     }, {
         key: 'styleOff',
         value: function styleOff() {
-            console.log('this is style');
-            var d = document;
-            d.getElementById('style_off').style.display = "none";
-            d.getElementById('style_on').style.display = "block";
-            d.getElementById('style_items').style.display = "none";
+            this.setState(_extends({}, this.state, {
+                style: false,
+                style_arrow_up: true,
+                style_arrow_down: false
+            }));
         }
     }]);
 

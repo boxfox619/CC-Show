@@ -2,16 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class VideoController extends React.Component {
+    constructor(props){
+        super(props);
+        
+        this.state={
+            video:false,
+            video_arrow_up:true,
+            video_arrow_down:false    
+        };
+
+        this.videoOn=this.videoOn.bind(this);
+        this.videoOff=this.videoOff.bind(this);
+    }
     render() {
         return (
             <div>
                 <div className={styles.controller_sub_wrapper}>
                     <div className={styles.controller_sub_title}>비디오
-                        <img onclick="textOn()" src="/images/ic_arrow_up.png" id="video-on" className={styles.show_items_button}/>
-                        <img onclick="textOff()" src="/images/ic_arrow_down.png" id="video-off" className={styles.show_items_button}/>
+                        <img onClick={this.videoOn.bind()} src="/images/ic_arrow_up.png" style={this.state.video_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onClick={this.videoOff.bind()} src="/images/ic_arrow_down.png" style={this.state.video_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
                     </div>
                 </div>
-                <div className={styles.items} id={styles.text_items}>
+                <div className={styles.items} style={this.state.video ? {} : {display:'none'}}>
                         <div className={styles.control_item}>
                             <input className={styles.attribute_item_title} type="text" name="" value="URL :" readonly/><input type="text" className={styles.attribute_item_input} value={this.props.width} onKeyDown={this.setWidth()}/>
                         </div>
@@ -30,6 +42,24 @@ class VideoController extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    videoOn(){
+        this.setState({
+            ...this.state,
+            video:true,
+            video_arrow_up:false,
+            video_arrow_down:true
+        });
+    }
+
+    videoOff(){
+        this.setState({
+            ...this.state,
+            video:false,
+            video_arrow_up:true,
+            video_arrow_down:false
+        });
     }
 
     componentWillUpdate(){

@@ -84,39 +84,3 @@ select {
     border: 0;
     border-radius: 20px;
 }
-
-#attribute_off {
-    display: none;
-}
-
-#text_off {
-    display: none;
-}
-
-#shape_off {
-    display: none;
-}
-
-#style_off {
-    display: none;
-}
-
-#text_items{
-    display: none;
-}
-
-#attribute_items{
-    display: none;
-}
-
-#shape_items{
-    display: none;
-}
-
-#style_items{
-    display: none;
-}
-
-#video_items{
-    display: none;
-}

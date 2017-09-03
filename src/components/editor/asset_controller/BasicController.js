@@ -7,14 +7,30 @@ class BasicController extends React.Component{
     constructor(prop) {
         super(prop);
         this.state = {
-            src: ''
-        }
+            attribute_arrow_up:true,
+            attribute_arrow_down:false,
+            attribute:false,
+            shape_arrow_up:true,
+            shape_arrow_down:false,
+            shape:false,
+            style_arrow_up:true,
+            style_arrow_down:false,
+            style:false
+        };
 
         this.setWidth=this.setWidth.bind(this);
         this.setHeight=this.setHeight.bind(this);
         this.setX_location=this.setX_location.bind(this);
         this.setY_location=this.setY_location.bind(this);
         this.setAngle=this.setAngle.bind(this);
+
+        this.attributeOn=this.attributeOn.bind(this);
+        this.attributeOff=this.attributeOff.bind(this);
+        this.shapeOn=this.shapeOn.bind(this);
+        this.shapeOff=this.shapeOff.bind(this);
+        this.styleOn=this.styleOn.bind(this);
+        this.styleOff=this.styleOff.bind(this);
+
     }
 
     render(){
@@ -25,11 +41,11 @@ class BasicController extends React.Component{
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>속성
 
-                        <img onclick={this.attributeOn()} src="/images/ic_arrow_up.png" id={styles.attribute_on}  className={styles.show_items_button}/>
-                        <img onclick={this.attributeOff()} src="/images/ic_arrow_down.png" id={styles.attribute_off}className={styles.show_items_button}/>
+                        <img onClick={this.attributeOn.bind()} src="/images/ic_arrow_up.png" style={this.state.attribute_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onClick={this.attributeOff.bind()} src="/images/ic_arrow_down.png" style={this.state.attribute_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
                         </div>
                     </div>
-                    <div className={styles.items} id={styles.attribute_items}>
+                    <div style={this.state.attribute ? {} : {display:'none'}} className={styles.items} >
                         <div>
                             <div className={styles.control_item}>
                                 <span className={styles.attribute_item_title}>H :</span>
@@ -60,11 +76,11 @@ class BasicController extends React.Component{
                 <div>
                     <div className={styles.controller_sub_wrapper}>
                             <div className={styles.controller_sub_title}>도형
-                                <img onclick={this.shapeOn()} src="/images/ic_arrow_up.png" id={styles.shape_on} className={styles.show_items_button}/>
-                                <img onclick={this.shapeOff()} src="/images/ic_arrow_down.png" id={styles.shape_off} className={styles.show_items_button}/>
+                                <img onClick={this.shapeOn.bind()} src="/images/ic_arrow_up.png" style={this.state.shape_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                                <img onClick={this.shapeOff.bind()} src="/images/ic_arrow_down.png" style={this.state.shape_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
                             </div>
                     </div>
-                    <div className={styles.items} id={styles.shape_items}>
+                    <div style={this.state.shape ? {} : {display:'none'}} className={styles.items}>
                         <div className={styles.control_item}>
                             asdfds
                         </div>
@@ -77,11 +93,11 @@ class BasicController extends React.Component{
                 <div>
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>스타일
-                            <img onclick={this.shapeOn()} src="/images/ic_arrow_up.png" id={styles.shape_on} className={styles.show_items_button}/>
-                            <img onclick={this.shapeOff()} src="/images/ic_arrow_down.png" id={styles.shape_off} className={styles.show_items_button}/>
+                            <img onClick={this.styleOn.bind()} src="/images/ic_arrow_up.png" style={this.state.style_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                            <img onClick={this.styleOff.bind()} src="/images/ic_arrow_down.png" style={this.state.style_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
                         </div>
                     </div>
-                    <div className={styles.items} id={styles.style_items}>
+                    <div style={this.state.style ? {} : {display:'none'}} className={styles.items}>
                         <div>
                             <textarea id={styles.input_style} rows="" cols=""></textarea>
                         </div>
@@ -126,53 +142,58 @@ class BasicController extends React.Component{
     }
     
     attributeOn() {
-        console.log('this is attributeOn');
-        let d = document;
-        d.getElementById('attribute_on').style.display = "none";
-        d.getElementById('attribute_off').style.display = "block";
-        d.getElementById('attribute_items').style.display = "block";
+        this.setState({
+            ...this.state,
+            attribute:true,
+            attribute_arrow_up:false,
+            attribute_arrow_down:true
+        });
     }
 
     shapeOn() {
-        console.log('this is shapeOn');
-        let d = document;
-        d.getElementById('shape_on').style.display = "none"
-        d.getElementById('shape_off').style.display = "block"
-        d.getElementById('shape_items').style.display = "block";
+        this.setState({
+            ...this.state,
+            shape:true,
+            shape_arrow_up:false,
+            shape_arrow_down:true
+        });
     }
 
     styleOn() {
-        console.log('this is styleOn');
-        let d = document;
-        d.getElementById('style_on').style.display = "none"
-        d.getElementById('style_off').style.display = "block"
-        d.getElementById('style_items').style.display = "block";
+        this.setState({
+            ...this.state,
+            style:true,
+            style_arrow_up:false,
+            style_arrow_down:true
+        });
     }
 
     attributeOff() {
-        console.log('this is attributeOff');
-        let d = document;
-        d.getElementById('attribute_off').style.display = "none"
-        d.getElementById('attribute_on').style.display = "block"
-        d.getElementById('attribute_items').style.display = "none";
+        this.setState({
+            ...this.state,
+            attribute:false,
+            attribute_arrow_up:true,
+            attribute_arrow_down:false
+        });
     }
 
     shapeOff() {
-        console.log('this is shapeOff');
-        let d = document;
-        d.getElementById('shape_off').style.display = "none"
-        d.getElementById('shape_on').style.display = "block"
-        d.getElementById('shape_items').style.display = "none";
+        this.setState({
+            ...this.state,
+            shape:false,
+            shape_arrow_up:true,
+            shape_arrow_down:false
+        });
     }
 
     styleOff() {
-        console.log('this is style');
-        let d = document;
-        d.getElementById('style_off').style.display = "none"
-        d.getElementById('style_on').style.display = "block"
-        d.getElementById('style_items').style.display = "none";
+        this.setState({
+            ...this.state,
+            style:false,
+            style_arrow_up:true,
+            style_arrow_down:false
+        });
     }
-
 }
 
 const mapStateToProps = (state) => {
