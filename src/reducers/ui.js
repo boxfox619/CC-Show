@@ -4,7 +4,8 @@ import update from 'react-addons-update';
 const initialState = {
   visibleSlideManager: false,
   visibleAssetStore: false,
-  visibleAssetEditor: true
+  visibleAssetEditor: false,
+  visibleAccountDialog: true,
 }
 
 const ui = (state = initialState, action) => {
@@ -23,6 +24,11 @@ const ui = (state = initialState, action) => {
       return {
         ...state,
         visibleAssetEditor : !state.visibleAssetEditor
+      };
+    case actionTypes.ACCOUNT_DIALOG:
+      return {
+        ...state,
+        visibleAccountDialog : !state.visibleAssetEditor
       };
     default:
       return state;

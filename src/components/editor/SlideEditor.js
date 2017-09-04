@@ -5,6 +5,7 @@ import AssetController from './asset_controller/AssetController';
 import SlideManager from './slideManager/SlideManager';
 import AssetStore from './assetStore/AssetStore';
 import AssetEditor from './assetEditor/AssetEditor';
+import AccountDialog from './accountDialog/AccountDialog';
 
 import styles from './SlideEditor.css';
 import { connect } from 'react-redux';
@@ -20,6 +21,7 @@ class SlideEditor extends React.Component{
 
   render(){
     let renderAssetStore = ()=>{
+      return (<AccountDialog className={styles.modal}/>);
       if(this.props.visibleAssetStore)
         return (<AssetStore className={styles.modal}/>);
       else if(this.props.visibleAssetEditor)
