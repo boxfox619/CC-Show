@@ -1,9 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import axios from 'axios';
 
 const responseGoogle = (response) => {
-  console.log(response);
+  let accessToken = response.accessToken;
+  let name = response.w3.ig;
+  let email = response.w3.U3;
+  let profile = response.w3.Paa;
+  requestLoginWithSNS('google', accessToken, name, email, profile);
+}
+
+const responseFacebook = (response) => {
+  let accessToken = response.accessToken;
+  let name = response.name;
+  let email = response.email;
+  let profile = response.picture.data.url;
+  requestLoginWithSNS('facebook', accessToken, name, email, profile);
+}
+
+const requestLoginWithSNS = (platform, accessToken, name, email, profile) =>{
+  axios.post('/account/'+platform, {
+    accessToken,
+    name,
+    email,
+    profile
+  }).then(response => {
+    console.log(response);
+  });
 }
 
 class AccountDialog extends React.Component{
@@ -21,6 +46,11 @@ class AccountDialog extends React.Component{
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
     />
+    <FacebookLogin
+      appId="126194874696091"
+      autoLoad={true}
+      fields="name,email,picture"
+      callback={responseFacebook} />,
     </content>
   </div>
   );

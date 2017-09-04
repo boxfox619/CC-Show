@@ -20,19 +20,22 @@ class SlideEditor extends React.Component{
   }
 
   render(){
-    let renderAssetStore = ()=>{
-      return (<AccountDialog className={styles.modal}/>);
+    let renderDialogs = ()=>{
       if(this.props.visibleAssetStore)
         return (<AssetStore className={styles.modal}/>);
       else if(this.props.visibleAssetEditor)
         return (<AssetEditor className={styles.modal}/>);
+      else if(this.props.visibleAssetEditor)
+        return (<AssetEditor className={styles.modal}/>);
+      else if(this.props.visibleAccountDialog)
+        return (<AccountDialog className={styles.modal}/>);
     }
     let contextDisabled = this.checkContextDisabled();
     return (
       <div className={styles.slideEditor}>
       <AssetCreator className={styles.assetCreator}/>
       <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
-      {renderAssetStore()}
+      {renderDialogs()}
         <div className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
           <div className={styles.contextSpace}>
             <SlideContext className={styles.slideContext}/>
