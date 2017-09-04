@@ -31,10 +31,10 @@ class VideoController extends React.Component {
                     </div>
                 </div>
                 <div className={styles.items} style={this.state.video ? {} : {display:'none'}}>
-                        <div className={styles.control_item+' '+styles.video_URL}>
-                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value="video_url" className={styles.attribute_item_input}/>
-                        </div>
-                        <div>
+                    <div className={styles.control_item+' '+styles.video_URL}>
+                        <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value="video_url" className={styles.attribute_item_input}/>
+                    </div>
+                    <div>
                         <div onClick={this.controllerOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.state.video_controller ? {'background-color': '#5a84b3'} : {}}>
                             <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.state.video_controller ? {color:'#fff'} : {}}>컨트롤러</span>
                         </div>
