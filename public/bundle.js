@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9a29f56f697b29dbaca5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "32095e48cc7a39a3044a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -9500,7 +9500,7 @@ exports = module.exports = __webpack_require__(21)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetController__items___12-Ka {\r\n    padding: 0;\r\n    margin: 0 0 2vh 15px;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 12px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-block;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 7vw; \r\n}\r\n\r\n.AssetController__video___1YT3H{\r\n    text-align : center;\r\n     width:25%;\r\n}\r\n.AssetController__attribute_item_title___1gZe5 {\r\n    border: 0;\r\n    margin: 0 0 0 5px;\r\n    width: 15%;\r\n    font-size: 15px;\r\n    color: #5a84b3;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 60%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    clear: both;\r\n    margin: 1.5%;\r\n    outline-width: 0;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\nhr {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 90%;\r\n    height: 15vh;\r\n    border-color: #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n    margin: 3px;\r\n}", ""]);
+exports.push([module.i, ".AssetController__items___12-Ka {\r\n    padding: 0;\r\n    margin: 0 0 2vh 15px;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 12px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-block;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 7vw;\r\n}\r\n\r\n.AssetController__video_URL___2D2b1 {\r\n    width: 86%;\r\n    padding-bottom: 0;\r\n    padding-top: 0;\r\n}\r\n\r\n.AssetController__video_margin_zero___1ZJDF {\r\n    margin: 0;\r\n}\r\n\r\n.AssetController__video___1YT3H {\r\n    text-align: center;\r\n    width: 25%;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetController__attribute_item_title___1gZe5 {\r\n    border: 0;\r\n    margin: 0 0 0 5px;\r\n    width: 15%;\r\n    font-size: 15px;\r\n    color: #5a84b3;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 60%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    clear: both;\r\n    margin: 1.5%;\r\n    outline-width: 0;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\nhr {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 90%;\r\n    height: 15vh;\r\n    border-color: #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n    margin: 3px;\r\n}", ""]);
 
 // exports
 exports.locals = {
@@ -9508,6 +9508,8 @@ exports.locals = {
 	"controller_sub_wrapper": "AssetController__controller_sub_wrapper___d9Gul",
 	"controller_sub_title": "AssetController__controller_sub_title___2UB9H",
 	"control_item": "AssetController__control_item___1Maaq",
+	"video_URL": "AssetController__video_URL___2D2b1",
+	"video_margin_zero": "AssetController__video_margin_zero___1ZJDF",
 	"video": "AssetController__video___1YT3H",
 	"attribute_item_title": "AssetController__attribute_item_title___1gZe5",
 	"attribute_item_input": "AssetController__attribute_item_input___j1bys",
@@ -29229,14 +29231,14 @@ var AssetController = function (_React$Component) {
                         fill_color: this.props.currentSilde.assets[selectedAsset].fill_color,
                         edge: this.props.currentSilde.assets[selectedAsset].edge });
                 case actions.TYPE_VIDEO:
-                    return _react2.default.createElement(_VideoController2.default, { url: this.props.currentSilde.assets[selectedAsset].url,
+                    return _react2.default.createElement(_VideoController2.default, { video_url: this.props.currentSilde.assets[selectedAsset].url,
                         controller: this.props.currentSilde.assets[selectedAsset].controller,
                         autoplay: this.props.currentSilde.assets[selectedAsset].autoplay,
                         loop: this.props.currentSilde.assets[selectedAsset].loop });
                 case actions.TYPE_SHAPE:
                     return _react2.default.createElement(_ShapeController2.default, null);
                 case actions.TYPE_IMAGE:
-                    return _react2.default.createElement(_ImageController2.default, null);
+                    return _react2.default.createElement(_ImageController2.default, { img_url: this.props.currentSilde.assets[selectedAsset].url });
             }
         }
     }, {
@@ -29600,8 +29602,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var videoClassName = classNames(_AssetController2.default.control_item, _AssetController2.default.video);
-
 var VideoController = function (_React$Component) {
     _inherits(VideoController, _React$Component);
 
@@ -29614,13 +29614,16 @@ var VideoController = function (_React$Component) {
             video: true,
             video_arrow_up: false,
             video_arrow_down: true,
-            video_controller: false,
-            video_autoplay: false,
-            video_loop: false
+            video_controller: _this.props.controller,
+            video_autoplay: _this.props.autoplay,
+            video_loop: _this.props.loop
         };
 
         _this.videoOn = _this.videoOn.bind(_this);
         _this.videoOff = _this.videoOff.bind(_this);
+        _this.controllerOnClick = _this.controllerOnClick.bind(_this);
+        _this.autoplayOnClick = _this.autoplayOnClick.bind(_this);
+        _this.loopOnClick = _this.loopOnClick.bind(_this);
         return _this;
     }
 
@@ -29646,42 +29649,42 @@ var VideoController = function (_React$Component) {
                     { className: _AssetController2.default.items, style: this.state.video ? {} : { display: 'none' } },
                     _react2.default.createElement(
                         'div',
-                        { className: _AssetController2.default.control_item, style: { width: '87%' } },
+                        { className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video_URL },
                         _react2.default.createElement(
                             'span',
-                            { className: _AssetController2.default.attribute_item_title, style: { margin: '0' } },
+                            { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero },
                             'URL :'
                         ),
                         ' ',
-                        _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input })
+                        _react2.default.createElement('input', { type: 'text', value: 'video_url', className: _AssetController2.default.attribute_item_input })
                     ),
                     _react2.default.createElement(
                         'div',
                         null,
                         _react2.default.createElement(
                             'div',
-                            { className: videoClassName },
+                            { onClick: this.controllerOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.state.video_controller ? { 'background-color': '#5a84b3' } : {} },
                             _react2.default.createElement(
                                 'span',
-                                { className: _AssetController2.default.attribute_item_title, style: { margin: '0' } },
+                                { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.state.video_controller ? { color: '#fff' } : {} },
                                 '\uCEE8\uD2B8\uB864\uB7EC'
                             )
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: videoClassName },
+                            { onClick: this.autoplayOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.state.video_autoplay ? { 'background-color': '#5a84b3' } : {} },
                             _react2.default.createElement(
                                 'span',
-                                { className: _AssetController2.default.attribute_item_title, style: { margin: '0' } },
+                                { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.state.video_autoplay ? { color: '#fff' } : {} },
                                 '\uC790\uB3D9\uC7AC\uC0DD'
                             )
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: videoClassName },
+                            { onClick: this.loopOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.state.video_loop ? { 'background-color': '#5a84b3' } : {} },
                             _react2.default.createElement(
                                 'span',
-                                { className: _AssetController2.default.attribute_item_title, style: { margin: '0' } },
+                                { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.state.video_loop ? { color: '#fff' } : {} },
                                 '\uBC18\uBCF5'
                             )
                         )
@@ -29709,9 +29712,19 @@ var VideoController = function (_React$Component) {
             }));
         }
     }, {
-        key: 'componentWillUpdate',
-        value: function componentWillUpdate() {
-            if (this.props.controller) document.getElementById('controller').checked = true;else if (this.props.autoplay) document.getElementById('autoplay').checked = true;else if (this.props.loop) document.getElementById('loop').check = true;
+        key: 'controllerOnClick',
+        value: function controllerOnClick() {
+            this.props.setURL(!this.state.video_controller);
+        }
+    }, {
+        key: 'loopOnClick',
+        value: function loopOnClick() {
+            this.props.setURL(!this.state.video_loop);
+        }
+    }, {
+        key: 'autoplayOnClick',
+        value: function autoplayOnClick() {
+            this.props.setURL(!this.state.video_autoplay);
         }
     }]);
 
@@ -29788,8 +29801,8 @@ var ImageController = function (_React$Component) {
             image_arrow_down: true
         };
 
-        _this.videoOn = _this.videoOn.bind(_this);
-        _this.videoOff = _this.videoOff.bind(_this);
+        _this.videoOn = _this.imageOn.bind(_this);
+        _this.videoOff = _this.imageOff.bind(_this);
         return _this;
     }
 
@@ -29815,19 +29828,14 @@ var ImageController = function (_React$Component) {
                     { className: _AssetController2.default.items, style: this.state.image ? {} : { display: 'none' } },
                     _react2.default.createElement(
                         'div',
-                        { className: _AssetController2.default.control_item },
-                        _react2.default.createElement('input', { className: _AssetController2.default.attribute_item_title, type: 'text', name: '', value: 'URL :', readonly: true }),
-                        _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.width, onKeyDown: this.setWidth() })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: _AssetController2.default.control_item },
-                        _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.height, onKeyDown: this.setHeight() })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: _AssetController2.default.control_item },
-                        _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.x, onKeyDown: this.setX_location() })
+                        { className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video_URL },
+                        _react2.default.createElement(
+                            'span',
+                            { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero },
+                            'URL :'
+                        ),
+                        ' ',
+                        _react2.default.createElement('input', { type: 'text', value: 'video_url', className: _AssetController2.default.attribute_item_input })
                     )
                 )
             );
@@ -30043,7 +30051,7 @@ var BasicController = function (_React$Component) {
                                     { className: _AssetController2.default.attribute_item_title },
                                     'H :'
                                 ),
-                                _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.width, onKeyDown: this.setWidth(event) })
+                                _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.height, onChange: this.setHeight })
                             ),
                             _react2.default.createElement(
                                 'div',
@@ -30053,7 +30061,7 @@ var BasicController = function (_React$Component) {
                                     { className: _AssetController2.default.attribute_item_title },
                                     'W :'
                                 ),
-                                _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.height, onKeyDown: this.setHeight(event) })
+                                _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.width, onChange: this.setWidth })
                             )
                         ),
                         _react2.default.createElement(
@@ -30067,7 +30075,7 @@ var BasicController = function (_React$Component) {
                                     { className: _AssetController2.default.attribute_item_title },
                                     'X :'
                                 ),
-                                _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.x, onKeyDown: this.setX_location(event) })
+                                _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.x, onChange: this.setX_location })
                             ),
                             _react2.default.createElement(
                                 'div',
@@ -30077,7 +30085,7 @@ var BasicController = function (_React$Component) {
                                     { className: _AssetController2.default.attribute_item_title },
                                     'Y :'
                                 ),
-                                _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.y, onKeyDown: this.setY_location(event) })
+                                _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.y, onChange: this.setY_location })
                             )
                         ),
                         _react2.default.createElement(
@@ -30088,7 +30096,7 @@ var BasicController = function (_React$Component) {
                                 { className: _AssetController2.default.attribute_item_title },
                                 'A :'
                             ),
-                            _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.angle, onKeyDown: this.setAngle(event) })
+                            _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input, value: this.props.angle, onChange: this.setAngle })
                         )
                     )
                 ),
@@ -30113,7 +30121,8 @@ var BasicController = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { className: _AssetController2.default.control_item },
-                            'asdfds'
+                            _react2.default.createElement('input', { type: 'button' }),
+                            _react2.default.createElement('div', null)
                         ),
                         _react2.default.createElement(
                             'div',
@@ -30150,44 +30159,59 @@ var BasicController = function (_React$Component) {
             );
         }
     }, {
-        key: 'setWidth',
-        value: function setWidth(event) {
-            if (event.keyCode === 13) {
-                var value = document.getElementById().value;
-                this.props.setWidth(value);
-            }
-        }
-    }, {
         key: 'setHeight',
         value: function setHeight(event) {
-            if (event.keyCode === 13) {
-                var value = document.getElementById().value;
-                this.props.setHeight(value);
+            var value = event.target.value;
+
+            var intValue = parseInt(value);
+            if (isNaN(intValue)) {
+                intValue = 0;
             }
+            this.props.setHeight(intValue);
+        }
+    }, {
+        key: 'setWidth',
+        value: function setWidth(event) {
+            var value = event.target.value;
+
+            var intValue = parseInt(value);
+            if (isNaN(intValue)) {
+                intValue = 0;
+            }
+            this.props.setWidth(intValue);
         }
     }, {
         key: 'setX_location',
         value: function setX_location(event) {
-            if (event.keyCode === 13) {
-                var value = document.getElementById().value;
-                this.props.setY(value);
+            var value = event.target.value;
+
+            var intValue = parseInt(value);
+            if (isNaN(intValue)) {
+                intValue = 0;
             }
+            this.props.setX(intValue);
         }
     }, {
         key: 'setY_location',
         value: function setY_location(event) {
-            if (event.keyCode === 13) {
-                var value = document.getElementById().value;
-                this.props.setX(value);
+            var value = event.target.value;
+
+            var intValue = parseInt(value);
+            if (isNaN(intValue)) {
+                intValue = 0;
             }
+            this.props.setY(intValue);
         }
     }, {
         key: 'setAngle',
         value: function setAngle(event) {
-            if (event.keyCode === 13) {
-                var value = document.getElementById().value;
-                this.props.setAngle(value);
+            var value = event.target.value;
+
+            var intValue = parseInt(value);
+            if (isNaN(intValue)) {
+                intValue = 0;
             }
+            this.props.setAngle(intValue);
         }
     }, {
         key: 'attributeOn',
@@ -32416,9 +32440,7 @@ var editor = function editor() {
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: {
-                font: { $set: action.font }
-              }
+              font: { $set: action.font }
             })) }
         }))
       });
@@ -32426,7 +32448,7 @@ var editor = function editor() {
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { $set: action.fontSize }
+              fontSize: { $set: action.fontSize }
             })) }
         }))
       });
