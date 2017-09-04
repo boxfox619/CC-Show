@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux';
 import SlidePreview from './slidePreview/SlidePreview';
 import * as assetsActions from '../../../actions/assets';
 import * as slideActions from '../../../actions/slides';
+import * as uiActions from '../../../actions/ui';
 
 const defaultProps = {
   className: React.PropTypes.string.required
@@ -51,7 +52,7 @@ class SlideManager extends React.Component{
           <div className={styles.title}>
             슬라이드 리스트
           </div>
-          <div className={styles.hide}>
+          <div className={styles.hide} onClick={this.props.toggleSlideManager}>
           </div>
           <ul onDragOver={this.dragOver}>
           {renderSlidePreviews(this.props.slides)}
@@ -121,7 +122,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ ...assetsActions, ...slideActions }, dispatch);
+  return bindActionCreators({ ...assetsActions, ...slideActions, ...uiActions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideManager);
