@@ -1,5 +1,8 @@
 const express = require('express');
 const colors = require('colors');
+const request = require('request');
+
+const FACEBOOK_ACCESSTOKEN_CHECK_URL = 'https://graph.facebook.com/oauth/access_token_info?access_token=';
 
 var crypto = require('crypto');
 
@@ -64,6 +67,20 @@ module.exports = function(realm) {
             });
             return res.status(200).end('Success the register user');
           });
+    });
+
+    router.post('/facebook/', (req, res) => {
+      let checkUrl = FACEBOOK_ACCESSTOKEN_CHECK_URL+ req.body.accessToken;
+      request(checkUrl, function (error, response, body) {
+        if(error){
+
+        }else{
+          let result = JSON.parse(body);
+          if(!result.error){
+            //success
+          }
+        }
+      });
     });
 
     return router;
