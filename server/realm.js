@@ -35,7 +35,7 @@ const UserSchema = {
   primaryKey: 'id',
   properties: {
     key: {type: 'string'},
-    id: {type: 'string', optional: true},
+    id: {type: 'string'},
     password: {type: 'string', optional: true},
     nickname: 'string'
   }
