@@ -28,7 +28,7 @@ class SlideEditor extends React.Component{
       else if(this.props.visibleAssetEditor)
         return (<AssetEditor className={styles.modal}/>);
       else if(this.props.visibleAccountDialog)
-        return (<AccountDialog className={styles.modal}/>);
+          return (<AccountDialog className={styles.modal}/>);
     }
     let contextDisabled = this.checkContextDisabled();
     return (
@@ -58,7 +58,9 @@ class SlideEditor extends React.Component{
 const mapStateToProps = (state) => {
   return {
     visibleSlideManager: state.ui.visibleSlideManager,
-    visibleAssetStore: state.ui.visibleAssetStore
+    visibleAssetStore: state.ui.visibleAssetStore,
+    visibleAssetEditor: state.ui.visibleAssetEditor,
+    visibleAccountDialog: state.ui.visibleAccountDialog
   }
 }
 
