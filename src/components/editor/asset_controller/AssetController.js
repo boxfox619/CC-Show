@@ -59,7 +59,10 @@ class AssetController extends React.Component {
                                      height = {parseInt(this.props.currentSilde.assets[selectedAsset].height)}
                                      x = {parseInt(this.props.currentSilde.assets[selectedAsset].x)}
                                      y = {parseInt(this.props.currentSilde.assets[selectedAsset].y)}
-                                     angle = {parseInt(this.props.currentSilde.assets[selectedAsset].angle)}/>
+                                     angle = {parseInt(this.props.currentSilde.assets[selectedAsset].angle)}
+                                     fill_color = {parseInt(this.props.currentSilde.assets[selectedAsset].fill_color)}
+                                     edge_color = {parseInt(this.props.currentSilde.assets[selectedAsset].edge_color)}
+                                     edge_size = {parseInt(this.props.currentSilde.assets[selectedAsset].edge_size)}/>
                 </div>
             )
         }else{

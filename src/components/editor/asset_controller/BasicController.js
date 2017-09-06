@@ -82,13 +82,12 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.shape ? {} : {display:'none'}} className={styles.items}>
                         <div className={styles.control_item}>
-                            <input type="button" />
-                            <div>
-                                
-                            </div>
+                            <input type="text"/>
+                            <input type="button"/>
                         </div>
                         <div className={styles.control_item}>
-                            asdffsad
+                            <input type="text"/>
+                            <input type="button"/>
                         </div>
                     </div>
                 </div>

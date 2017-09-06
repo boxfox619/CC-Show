@@ -15,8 +15,8 @@ export const actionTypes = {
   ASSET_SET_FONT_BOLD: 'ASSET_SET_FONT_BOLD',
   ASSET_SET_FONT_UNDERLINE: 'ASSET_SET_FONT_UNDERLINE',
   ASSET_SET_FONT_ITALIC: 'ASSET_SET_FONT_ITALIC',
-  ASSET_SET_TEXT_FILL_COLOR: 'ASSET_SET_TEXT_FILL_COLOR',
-  ASSET_SET_TEXT_EDGE: 'ASSET_SET_TEXT_EDGE',
+  ASSET_SET_FILL_COLOR: 'ASSET_SET_FILL_COLOR',
+  ASSET_SET_EDGE: 'ASSET_SET_EDGE',
   ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
   ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',
   ASSET_SET_VIDEO_AUTOPLAY: 'ASSET_SET_VIDEO_AUTOPLAY',
@@ -164,16 +164,16 @@ export function setAssetFontItalic(italic) {
   }
 }
 
-export function setAssetTextFillColor(color) {
+export function setAssetFillColor(color) {
   return{
-    type: actionTypes.ASSET_SET_TEXT_FILL_COLOR,
-    color
+    type: actionTypes.ASSET_SET_FILL_COLOR,
+    fillColor
   }
 }
 
-export function setAssetTextEdge(color, weight) {
+export function setAssetEdge(color, weight) {
   return{
-    type: actionTypes.ASSET_SET_TEXT_EDGE,
+    type: actionTypes.ASSET_SET_EDGE,
     color,
     weight
   }
