@@ -9,6 +9,7 @@ import ImageController from './ImageController';
 import ShapeController from './ShapeController';
 import BasicController from './BasicController';
 
+
 import styles from './AssetController.css';
 
 class AssetController extends React.Component {
@@ -59,10 +60,15 @@ class AssetController extends React.Component {
                                      height = {parseInt(this.props.currentSilde.assets[selectedAsset].height)}
                                      x = {parseInt(this.props.currentSilde.assets[selectedAsset].x)}
                                      y = {parseInt(this.props.currentSilde.assets[selectedAsset].y)}
+<<<<<<< HEAD
                                      angle = {parseInt(this.props.currentSilde.assets[selectedAsset].angle)}
                                      fill_color = {parseInt(this.props.currentSilde.assets[selectedAsset].fill_color)}
                                      edge_color = {parseInt(this.props.currentSilde.assets[selectedAsset].edge_color)}
                                      edge_size = {parseInt(this.props.currentSilde.assets[selectedAsset].edge_size)}/>
+=======
+                                     angle = {parseInt(this.props.currentSilde.assets[selectedAsset].angle)}/>
+                   
+>>>>>>> 47c0590f2e1f62dac68fe51a5e85fee5bff93f37
                 </div>
             )
         }else{
