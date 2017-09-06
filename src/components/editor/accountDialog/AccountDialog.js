@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 
 class AccountDialog extends React.Component{
 
-const responseGoogle = (response) => {
+responseGoogle(response){
   let accessToken = response.accessToken;
   let name = response.w3.ig;
   let email = response.w3.U3;
@@ -17,7 +17,7 @@ const responseGoogle = (response) => {
   return requestLoginWithSNS('google', accessToken, name, email, profile);
 }
 
-const responseFacebook = (response) => {
+responseFacebook(response){
   let accessToken = response.accessToken;
   let name = response.name;
   let email = response.email;
