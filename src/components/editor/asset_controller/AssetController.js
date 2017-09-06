@@ -9,6 +9,7 @@ import ImageController from './ImageController';
 import ShapeController from './ShapeController';
 import BasicController from './BasicController';
 
+
 import styles from './AssetController.css';
 
 class AssetController extends React.Component {
@@ -60,6 +61,7 @@ class AssetController extends React.Component {
                                      x = {parseInt(this.props.currentSilde.assets[selectedAsset].x)}
                                      y = {parseInt(this.props.currentSilde.assets[selectedAsset].y)}
                                      angle = {parseInt(this.props.currentSilde.assets[selectedAsset].angle)}/>
+                   
                 </div>
             )
         }else{
