@@ -11,6 +11,7 @@ export const dialogs = {
 }
 
 export const toggleSlideManager = ()=>{
+  console.log('a');
   return {
     type: actionTypes.TOGGLE_SLIDE_MANAGER
   }
@@ -24,6 +25,7 @@ export const toggleAssetStore = ()=>{
 }
 
 export const toggleAssetEditor = ()=>{
+  console.log('a');
   return {
     type: actionTypes.TOGGLE_DIALOG,
     target: dialogs.ASSET_EDITOR
@@ -31,6 +33,7 @@ export const toggleAssetEditor = ()=>{
 }
 
 export const toggleAccountDialog = ()=>{
+
   return {
     type: actionTypes.TOGGLE_DIALOG,
     target: dialogs.ACCOUNT_WITH_SNS
