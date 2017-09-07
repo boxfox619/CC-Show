@@ -2,12 +2,13 @@ import React from 'react';
 import ClickableButton from './clickable_button/ClickableButton';
 
 import styles from './AssetCreator.css';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect, bindActionCreators } from 'react-redux';
 
 import * as assetsActions from '../../../actions/assets';
 import * as assetTypes from '../../../assetTypes';
 import * as uiActions from '../../../actions/ui';
+
+import AssetEditor from '../assetEditor/AssetEditor';
 
 const defaultProps = {
   id: 'rlatjdfo112@naver.com',
@@ -51,7 +52,7 @@ class AssetCreator extends React.Component{
       <ClickableButton name={'도형'} onClick={()=>this.showDialog(this.shapeTypes)} />
       <ClickableButton name={'기타'} onClick={()=>this.props.toggleAssetStore()} />
       <span className={styles.hr}/>
-      <ClickableButton name={'슬라이드 리스트'} onClick={this.props.toggleSlideManager} />
+      <ClickableButton name={'슬라이드 리스트'} onClick={this.props.toggleSlideManager()} />
       <ClickableButton name={'슬라이드 쇼'} onClick={this.showSlideController} />
       </div>
       <div className={styles.logo}/>
@@ -87,7 +88,14 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ ...assetsActions, ...uiActions }, dispatch);
+  return {
+    toggleAssetEditor : () => {
+      dispatch(uiActions.toggleAssetEditor())
+    },
+    toggleSlideManager : () => {
+      dispatch(uiActions.toggleSlideManager());
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AssetCreator);

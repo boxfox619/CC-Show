@@ -1,38 +1,27 @@
-import { actionTypes } from '../actions/ui';
+import { actionTypes, dialogs } from '../actions/ui';
 import update from 'react-addons-update';
 
 const initialState = {
-  visibleSlideManager: false,
-  visibleAssetStore: false,
-  visibleAssetEditor: false,
-  visibleAccountDialog: true,
+  dialog: undefined,
+  visibleSlideManager: false
 }
 
 const ui = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SLIDE_MANAGER:
+    case actionTypes.TOGGLE_DIALOG:
+      return {
+        ...state,
+        dialog : (state.dialog!=action.target)? action.target : undefined
+      };
+    case actionTypes.TOGGLE_SLIDE_MANAGER:
       return {
         ...state,
         visibleSlideManager : !state.visibleSlideManager
       };
-    case actionTypes.ASSET_STORE:
-      return {
-        ...state,
-        visibleAssetStore : !state.visibleAssetStore
-      };
-    case actionTypes.ASSET_EDITOR:
-      return {
-        ...state,
-        visibleAssetEditor : !state.visibleAssetEditor
-      };
-    case actionTypes.ACCOUNT_DIALOG:
-      return {
-        ...state,
-        visibleAccountDialog : !state.visibleAssetEditor
-      };
+      break;
     default:
       return state;
   }
 }
 
-export default ui
+export default ui;

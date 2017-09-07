@@ -1,0 +1,329 @@
+.AssetEditor_left{
+    width: 60%;
+    height: 35em ;
+    margin-left: 2em;
+    float: left;
+    
+}
+.AssetEditor_preview{
+ width: 48%;
+ height: 10em;
+ border: 1.7px solid #1998E5;
+ float: left;
+ clear: both;
+ display: inline-block;
+ margin: 0 0.5em 0em 0;
+}
+.preview_text{
+    color: #DFDFDF;
+    margin-right: auto;
+    margin-left: auto;
+    display: table;
+    margin-top: 8em;
+    font-size: 5px;
+}
+.AssetEditor_topbar{
+    width: 100%;
+    height: 2em;
+    display: table;
+    background-color: #1998E5;
+}
+.topbar_title{
+    font-size: 10px;
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 1em;
+    color: white;
+}
+
+.AssetEditor_setting{
+width: 48%;
+height: 10em;
+display: inline-block;
+
+}
+
+.AssetEditor_description{
+
+width: 97.8%;
+height: 24em;
+border: 1px solid #1898E5;
+margin: 0.5em 1em 0 0;
+
+}
+
+.AssetEditor_content{
+    width: 99%;
+}
+
+.description_content{
+    width: 97%;
+    height : 27em;
+    overflow: hidden;
+    resize: none;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    margin: 1em;
+}
+
+
+.AssetEditor_right{
+ width: 33%;
+ height: 33em;
+ overflow-x: hidden;
+ overflow-y: auto;
+ display: inline-block;
+ margin-left: 1em;
+}
+
+.select_license{
+    width: 100%;
+    height: 2.3em;
+    border: 1px solid #1998E5;
+    margin-bottom: 0.7em;
+    background-color: #1998E5;
+    text-align: center;
+    display: table;
+}
+.select_license_text{
+    color: white;
+    font-size: 3px;
+    vertical-align: middle;
+    display: table-cell;
+}
+.dropdownButt{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #1997e5 transparent transparent transparent;
+    float: right;
+    vertical-align: middle;
+    display: table-cell;
+    margin: 1em;
+}
+
+.license_content{
+    width: 99%;
+    height: 2.3em;
+    border: 1.7px solid #1998E5;
+    margin-bottom: 0.7em;
+    display: table;
+    background-color: white;
+    cursor: pointer;
+}
+
+.license_text{
+    color: #1998E5;
+    font-size: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 1em;
+    
+}
+
+.dropdownContent{
+    width: 99%;
+    height: 5em;
+    border: 1px solid red;
+}
+
+.CCL_top{
+    width: 100%;
+    height: 2.3em;
+    background-color: #1998E5;
+}
+.CCL_content{
+
+}
+.AssetEditor_isAsset{
+width: 35%;
+height: 10em;
+border: 1px solid #1998E5;
+display: inline-block;
+margin-bottom: 0.3em;
+}
+.AssetEditor_Process{
+width: 35%;
+height: 9.5em;
+border: 1px solid#1998E5;
+display: inline-block;
+margin-bottom: 0.5em;
+}
+
+.AssetEditor_agreement{
+
+}
+
+.AssetEditor_agreeButton{
+
+}
+
+.isAsset_Header{
+    background-color: #1998E5;
+    width: 100%;
+    height: 2.3em;
+    display: table;
+
+}
+.isAsset_titleText{
+    color: white;
+    font-size: 4px;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 1em;
+}
+
+.AssetEditor_agreeButton{
+    width: 35%;
+    height: 4.6em;
+    color: white;
+    background-color:#1998E5; 
+  cursor: pointer;
+}
+
+.setting_first{
+    width: 96%;
+    height : 2.5em;
+    font-family: inherit;
+}
+.title{
+    border : none;
+    height: 2.9em;
+    padding-top: 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0.1em;
+    width: 99%;
+    outline: none;
+}
+.title2{
+    border : none;
+    height: 2.9em;
+    padding-top: 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0.1em;
+    width: 96%;
+    outline: none;
+}
+.cover{
+    /* margin-top: 0em; */
+    width: 99%;
+    height: 2em;
+    background-color: #1998E5;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    
+}
+.cover2{
+    width: 90%;
+    height: 2em;
+    background-color: #1998E5;
+    display: table;
+}
+.setting_second{
+
+}
+.setting_third{
+
+}
+.frontTitle{
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 2px;
+    padding : 0 7px 0 9px;
+    width: 20px;
+}
+.frontTitle2{
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 2px;
+    padding : 0 7px 0 7px;
+    width: 20px;
+    text-align: center;
+}
+.setting_second{
+    margin-left: 0em;
+    display: table;
+}
+.openStore{
+    width: 30%;
+    height: 3em;
+    border: 1px solid #1998E5;
+    display: table-cell;
+    vertical-align: middle;
+    color: #1998E5;
+    font-size: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+.changeCharge{
+    width: 30%;
+    height: 3em;
+    border: 1px solid #1998E5;
+    display: table-cell;
+    vertical-align: middle;
+    color: #1998E5;
+    font-size: 3px;
+    text-align: center;
+    cursor: pointer;
+   
+}
+.text{
+    padding: 1em;
+}
+
+.formargin{
+    margin-right: 0.5em;
+}
+
+.box{
+
+}
+
+/* .input_image{
+    width: 200px;
+    height: 100px;
+    font-weight: 600;
+    border-radius: 3px;
+    border-color: transparent;
+    font-size: 25px;
+    background-color:hotpink;
+    color: #1998E5;
+    cursor: pointer;
+    opacity: 0;
+    position: relative;
+} */
+/* button.box{
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    border-radius: 3px;
+    font-weight: 600;
+    border: 1px solid #1998E5;
+    border-color: transparent;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: hotpink;
+}
+
+
+button.box{
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    border-radius: 3px;
+    font-weight: 600;
+    border: 1px solid #1998E5;
+    border-color: transparent;
+    font-size: 25px;
+    cursor: pointer;
+} */
+
+
