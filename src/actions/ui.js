@@ -1,33 +1,41 @@
 export const actionTypes = {
-  SLIDE_MANAGER : 'SLIDE_MANAGER',
-  ASSET_STORE: 'ASSET_STORE',
-  ASSET_EDITOR: 'ASSET_EDITOR',
-  ACCOUNT_DIALOG: 'ACCOUNT_DIALOG'
+  TOGGLE_DIALOG: 'TOGGLE_DIALOG',
+  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER'
+}
+
+export const dialogs = {
+  SLIDE_MANAGER: 'SlideManager',
+  ASSET_STORE: 'AssetStore',
+  ASSET_EDITOR: 'AssetEditor',
+  ACCOUNT_WITH_SNS: 'AccountDialog'
 }
 
 export const toggleSlideManager = ()=>{
   console.log('a');
   return {
-    type: actionTypes.SLIDE_MANAGER
+    type: actionTypes.TOGGLE_SLIDE_MANAGER
   }
 }
 
 export const toggleAssetStore = ()=>{
   return {
-    type: actionTypes.ASSET_STORE
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.ASSET_STORE
   }
 }
 
 export const toggleAssetEditor = ()=>{
   console.log('a');
   return {
-    type: actionTypes.ASSET_EDITOR
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.ASSET_EDITOR
   }
 }
 
 export const toggleAccountDialog = ()=>{
 
   return {
-    type: actionTypes.ACCOUNT_DIALOG
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.ACCOUNT_WITH_SNS
   }
 }

@@ -9,14 +9,15 @@ export const actionTypes = {
   ASSET_SET_Y_POSTION: 'ASSET_SET_Y_POSTION',
   ASSET_SET_BOTH_POSITION: 'ASSET_SET_BOTH_POSITION',
   ASSET_SET_ANGLE: 'ASSET_SET_ANGLE',
+  ASSET_SET_STYLE: 'ASSET_SET_STYLE',
   ASSET_SET_FONT: 'ASSET_SET_FONT',
   ASSET_SET_FONT_SIZE: 'ASSET_SET_FONT_SIZE',
   ASSET_SET_TEXT_SORT: 'ASSET_SET_TEXT_SORT',
   ASSET_SET_FONT_BOLD: 'ASSET_SET_FONT_BOLD',
   ASSET_SET_FONT_UNDERLINE: 'ASSET_SET_FONT_UNDERLINE',
   ASSET_SET_FONT_ITALIC: 'ASSET_SET_FONT_ITALIC',
-  ASSET_SET_TEXT_FILL_COLOR: 'ASSET_SET_TEXT_FILL_COLOR',
-  ASSET_SET_TEXT_EDGE: 'ASSET_SET_TEXT_EDGE',
+  ASSET_SET_FILL_COLOR: 'ASSET_SET_FILL_COLOR',
+  ASSET_SET_EDGE: 'ASSET_SET_EDGE',
   ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
   ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',
   ASSET_SET_VIDEO_AUTOPLAY: 'ASSET_SET_VIDEO_AUTOPLAY',
@@ -110,6 +111,13 @@ export function setAssetAngle(value) {
   }
 }
 
+export function setAssetStyle(style) {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_SORT,
+    style
+  }
+}
+
 export const setAttributes = (attrs) => {
   Object.keys(attrs).map(function (key, index) {
     attrs[key] = {
@@ -164,16 +172,16 @@ export function setAssetFontItalic(italic) {
   }
 }
 
-export function setAssetTextFillColor(color) {
+export function setAssetFillColor(color) {
   return{
-    type: actionTypes.ASSET_SET_TEXT_FILL_COLOR,
-    color
+    type: actionTypes.ASSET_SET_FILL_COLOR,
+    fillColor
   }
 }
 
-export function setAssetTextEdge(color, weight) {
+export function setAssetEdge(color, weight) {
   return{
-    type: actionTypes.ASSET_SET_TEXT_EDGE,
+    type: actionTypes.ASSET_SET_EDGE,
     color,
     weight
   }

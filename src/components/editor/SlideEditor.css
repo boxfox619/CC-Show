@@ -21,6 +21,23 @@ user-select: none;
       flex-direction: row;
 }
 
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+	background-color: #ffffff;
+}
+
+body::-webkit-scrollbar
+{
+	width: 1px;
+	background-color: #ffffff;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	background-color: #5D87B5;
+}
+
 .assetController{
     z-index: 3;
     /*min-width: 14em;
@@ -30,8 +47,28 @@ user-select: none;
     background-color: white;
     position: relative;
     box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);
-    width: 25vw;
+    width: 22vw;
+    overflow: auto;
 }
+
+
+.assetController::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+	background-color: #ffffff;
+}
+
+.assetController::-webkit-scrollbar
+{
+	width: 1px;
+	background-color: #ffffff;
+}
+
+.assetController::-webkit-scrollbar-thumb
+{
+	background-color: #5D87B5;
+}
+
 
 .assetCreator{
     z-index: 3;
