@@ -5,7 +5,7 @@ const initialState = {
   visibleSlideManager: false,
   visibleAssetStore: false,
   visibleAssetEditor: false,
-  visibleAccountDialog: true,
+  visibleAccountDialog: false,
 }
 
 const ui = (state = initialState, action) => {
