@@ -60,14 +60,14 @@ requestLoginWithSNS(platform, accessToken, name, email, profile){
     <GoogleLogin
       clientId="201742033376-s4258t2qoo2be1aej3lb1qturs6kgsp3.apps.googleusercontent.com"
       buttonText="Login"
-      onSuccess={responseGoogle}
-      onFailure={responseGoogle}
+      onSuccess={this.responseGoogle}
+      onFailure={this.responseGoogle}
     />
     <FacebookLogin
       appId="126194874696091"
       autoLoad={true}
       fields="name,email,picture"
-      callback={responseFacebook} />,
+      callback={this.responseFacebook} />,
     </content>
   </div>
   );
