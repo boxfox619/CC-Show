@@ -1,8 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import update from 'react-addons-update';
 import AssetItem from './assetItem/AssetItem';
+import ActionItem from './assetItem/ActionItem';
 import axios from 'axios';
+
+import * as assetsActions from '../../../actions/assets';
+import * as uiActions from '../../../actions/ui';
 
 const tabs = [
 {name:'추천', filter: 'recommend'},
@@ -39,6 +44,13 @@ class AssetStore extends React.Component{
       });
     }
 
+    let renderActionItem = () => {
+      if(this.state.activeTab==tabs.length-1){
+        console.log(this.props);
+        return (<ActionItem img={'/images/ic_add_white.png'} text={'새 에셋 만들기'} onClick={()=>this.props.toggleAssetEditor()}/>);
+      }
+    }
+
     return (
       <div className={this.props.className}>
         <header>
@@ -49,6 +61,7 @@ class AssetStore extends React.Component{
         </header>
         <content>
           <div style={{'padding': '20px 2.5%'}}>
+            {renderActionItem()}
             {renderAssetItems(this.state.assets)}
           </div>
         </content>
@@ -95,4 +108,4 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ ...assetsActions, ...uiActions }, dispatch);
 }
 
-export default connect(mapStateToProps)(AssetStore);
+export default connect(mapStateToProps, mapDispatchToProps)(AssetStore);

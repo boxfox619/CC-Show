@@ -11,7 +11,7 @@ const ui = (state = initialState, action) => {
     case actionTypes.TOGGLE_DIALOG:
       return {
         ...state,
-        dialog : (state.dialog==undefined)? action.target : undefined
+        dialog : (state.dialog!=action.target)? action.target : undefined
       };
     case actionTypes.TOGGLE_SLIDE_MANAGER:
       return {
