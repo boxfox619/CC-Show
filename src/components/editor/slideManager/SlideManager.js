@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import SlidePreview from './slidePreview/SlidePreview';
+import SlideCreator from './SlideCreator';
 import * as assetsActions from '../../../actions/assets';
 import * as slideActions from '../../../actions/slides';
 import * as uiActions from '../../../actions/ui';
@@ -57,6 +58,7 @@ class SlideManager extends React.Component{
           <ul onDragOver={this.dragOver}>
           {renderSlidePreviews(this.props.slides)}
           </ul>
+          <SlideCreator/>
         </div>
       </div>
     );
