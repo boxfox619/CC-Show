@@ -22,7 +22,6 @@ class SlideEditor extends React.Component{
   }
 
   render(){
-    console.log(this.props.visibleAssetEditor);
     let renderDialogs = ()=>{
       if(this.props.dialog!=undefined){
         switch(this.props.dialog){

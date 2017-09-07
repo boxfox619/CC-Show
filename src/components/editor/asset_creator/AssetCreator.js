@@ -12,12 +12,6 @@ import * as uiActions from '../../../actions/ui';
 
 import AssetEditor from '../assetEditor/AssetEditor';
 
-const defaultProps = {
-  id: 'rlatjdfo112@naver.com',
-  name: '홍길동',
-  profileImgUrl: 'https://www.abeautifulsite.net/uploads/2017/06/cory-nh.jpg?thumbnail=256&key=efa40634dcf49513bdf8fbd309d47806105e22c6542db12e54866590a371efe1'
-}
-
 class AssetCreator extends React.Component{
 
   constructor(props){
@@ -41,10 +35,12 @@ class AssetCreator extends React.Component{
       <div className={this.props.className}>
       <div style={{'width': '80%', 'margin': '20px 10%'}}>
       <div className={styles.profile}>
-        <img className={styles.profileImg} src={this.props.profileImgUrl}/>
+        <div className={styles.profileImgCover}>
+          <img className={styles.profileImg} src={this.props.profile}/>
+        </div>
         <div className={styles.textWrap}>
           <div className={styles.name}>{this.props.name}</div>
-          <div className={styles.subName}>{this.props.id}</div>
+          <div className={styles.subName}>{this.props.email}</div>
         </div>
       </div>
       <span className={styles.hr}/>
@@ -80,12 +76,11 @@ class AssetCreator extends React.Component{
 
 }
 
-AssetCreator.defaultProps = defaultProps;
-
 const mapStateToProps = (state) => {
   return {
     name: state.account.name,
-    id: state.account.id
+    email: state.account.email,
+    profile: state.account.profile
   }
 }
 

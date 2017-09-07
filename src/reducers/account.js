@@ -3,8 +3,8 @@ import update from 'react-addons-update';
 
 const initialState = {
   name: 'Guest',
-  email: 'Guest',
-  profile: ''
+  email: '로그인이 필요합니다',
+  profile: '/images/ic_cc_show.png'
 }
 
 const account = (state = initialState, action) => {

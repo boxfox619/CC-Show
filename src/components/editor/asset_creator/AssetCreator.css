@@ -5,10 +5,20 @@
   margin-bottom: 30px;
 }
 
-.profileImg{
+.profileImgCover{
   border-radius: 50%;
   width: 3em;
+  height: 3em;
   display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+.profileImgCover img{
+  position: absolute;
+  width: 3em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .textWrap{
