@@ -20,11 +20,10 @@ class SlideEditor extends React.Component{
   }
 
   render(){
+    console.log(this.props.visibleAssetEditor);
     let renderDialogs = ()=>{
       if(this.props.visibleAssetStore)
         return (<AssetStore className={styles.modal}/>);
-      else if(this.props.visibleAssetEditor)
-        return (<AssetEditor className={styles.modal}/>);
       else if(this.props.visibleAssetEditor)
         return (<AssetEditor className={styles.modal}/>);
       else if(this.props.visibleAccountDialog)
@@ -58,7 +57,8 @@ class SlideEditor extends React.Component{
 const mapStateToProps = (state) => {
   return {
     visibleSlideManager: state.ui.visibleSlideManager,
-    visibleAssetStore: state.ui.visibleAssetStore
+    visibleAssetStore: state.ui.visibleAssetStore,
+    visibleAssetEditor: state.ui.visibleAssetEditor
   }
 }
 

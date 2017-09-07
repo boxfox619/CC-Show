@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './AssetEditor.css';
 import Thumbnail from './Thumbnail';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import AssetEditorItem from './assetEditorItem/AssetEditorItem';
 
 const tabs = [
 {name:'Details'},
@@ -11,7 +13,7 @@ const defaultProps = {
   assetData: React.PropTypes.object
 }
 
-class AssetStore extends React.Component{
+class AssetEditor extends React.Component{
 
   constructor(props){
     super(props);
@@ -45,8 +47,11 @@ class AssetStore extends React.Component{
       if(this.state.activeTab==0){
         if(!!this.state.id){
           return(
+            <div>
             <Thumbnail id={this.state.id} />
-          )
+           
+            </div>
+          );
       }else{
       }
     }
@@ -61,10 +66,11 @@ class AssetStore extends React.Component{
           </tabholder>
         </header>
         <content>
-          <div style={{'padding': '20px 2.5%'}}>
+          <div style={{'padding': '10px 2.5%'}}>
             {renderEditors()}
             {this.state.content}
           </div>
+          <AssetEditorItem />
         </content>
       </div>
     );
@@ -108,4 +114,11 @@ class AssetStore extends React.Component{
 
   }
 }
-export default AssetStore;
+
+const mapStateToProps = (state) => {
+  return {
+    visible : state.ui.visibleAssetEditor
+  }
+}
+
+export default connect(mapStateToProps)(AssetEditor);

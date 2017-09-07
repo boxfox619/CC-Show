@@ -6,6 +6,7 @@ export const actionTypes = {
 }
 
 export const toggleSlideManager = ()=>{
+  console.log('a');
   return {
     type: actionTypes.SLIDE_MANAGER
   }
@@ -18,12 +19,14 @@ export const toggleAssetStore = ()=>{
 }
 
 export const toggleAssetEditor = ()=>{
+  console.log('a');
   return {
     type: actionTypes.ASSET_EDITOR
   }
 }
 
 export const toggleAccountDialog = ()=>{
+
   return {
     type: actionTypes.ACCOUNT_DIALOG
   }
