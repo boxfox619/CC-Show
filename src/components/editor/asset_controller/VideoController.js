@@ -31,7 +31,7 @@ class VideoController extends React.Component {
                     </div>
                 </div>
                 <div className={styles.items} style={this.state.video ? {} : {display:'none'}}>
-                    <div className={styles.control_item+' '+styles.video_URL}>
+                    <div className={styles.control_item+' '+styles.URL_controller}>
                         <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value="video_url" className={styles.attribute_item_input}/>
                     </div>
                     <div>
@@ -78,7 +78,7 @@ class VideoController extends React.Component {
     }
 
     autoplayOnClick(){
-            this.props.setURL(!this.state.video_autoplay);
+        this.props.setURL(!this.state.video_autoplay);
     }
 }
 

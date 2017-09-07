@@ -270,7 +270,7 @@ const editor = (state = initialState, action) => {
             }
           })
         }
-    case actionTypes.ASSET_SET_TEXT_FILL_COLOR:
+    case actionTypes.ASSET_SET_FILL_COLOR:
       return {
         ...state,
         slides: update(
@@ -281,13 +281,13 @@ const editor = (state = initialState, action) => {
                 state.slides[state.selectedSlide].assets,
                     {
                         [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
-                          textFillColor: { $set: action.color }
+                          fillColor: { $set: action.fillColor }
                         }
                     })}
             }
           })
         }
-    case actionTypes.ASSET_SET_TEXT_EDGE:
+    case actionTypes.ASSET_SET_EDGE_COLOR:
       return {
         ...state,
         slides: update(
@@ -298,7 +298,25 @@ const editor = (state = initialState, action) => {
                 state.slides[state.selectedSlide].assets,
                     {
                         [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
-                          edge: { $set: action.edge }
+                          edgeColor: { $set: action.edgeColor }
+                        }
+                    })}
+            }
+          }
+        )
+      }
+      case actionTypes.ASSET_SET_EDGE_SIZE:
+      return {
+        ...state,
+        slides: update(
+          state.slides,
+          {
+            [state.selectedSlide]:{
+              assets: {$set: update(
+                state.slides[state.selectedSlide].assets,
+                    {
+                        [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                          edgeSize: { $set: action.edgeSize }
                         }
                     })}
             }

@@ -2,32 +2,39 @@ const express = require('express');
 const colors = require('colors');
 const request = require('request');
 
+<<<<<<< HEAD
+const FACEBOOK_ACCESSTOKEN_CHECK_URL = 'https://graph.facebook.com/oauth/access_token_info?access_token=';
+=======
 const CLIENT_ID = '201742033376-s4258t2qoo2be1aej3lb1qturs6kgsp3.apps.googleusercontent.com';
 
 const FACEBOOK_ACCESSTOKEN_CHECK_URL = 'https://graph.facebook.com/oauth/access_token_info?access_token=';
 const GOOGLE_ACCESSTOKEN_CHECK_URL = 'https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=';
+>>>>>>> 6bf0f6e49285e852360ce463928aa9a49d9dea96
 
 var crypto = require('crypto');
 
 function randomToken(howMany, chars) {
-  chars = chars || "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
-  var rnd = crypto.randomBytes(howMany),
-      value = new Array(howMany),
-      len = chars.length;
+    chars = chars || "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+    var rnd = crypto.randomBytes(howMany),
+        value = new Array(howMany),
+        len = chars.length;
 
-  for (var i = 0; i < howMany; i++) {
-    value[i] = chars[rnd[i] % len];
-  };
+    for (var i = 0; i < howMany; i++) {
+        value[i] = chars[rnd[i] % len];
+    };
 
-  return value.join('');
+    return value.join('');
 }
 
 module.exports = function (realm) {
 
-  function getIP(req) {
-    return req.connection.remoteAddress.split(":").pop();
-  }
+    function getIP(req) {
+        return req.connection.remoteAddress.split(":").pop();
+    }
 
+<<<<<<< HEAD
+    const router = express.Router();
+=======
   function setCookie(res, user) {
     return res.cookie('user', JSON.stringify({
       "name": user.nickname,
@@ -37,12 +44,61 @@ module.exports = function (realm) {
   }
 
   const router = express.Router();
+>>>>>>> 6bf0f6e49285e852360ce463928aa9a49d9dea96
 
-  router.get('/', (req, res) => {
-    console.log('tesata');
-    return res.json({ number: 123 });
-  });
+    router.get('/', (req, res) => {
+        console.log('tesata');
+        return res.json({ number: 123 });
+    });
 
+<<<<<<< HEAD
+    router.post('/login/', (req, res) => {
+        console.log(colors.green('[REQ]'), 'login', getIP(req));
+        let user = realm.objects('User').filtered('id = "' + req.body.id + '"');
+        if (user.length == 0) {
+            return res.status(500).end('User does not exists!');
+        }
+        if (user[0].password !== req.body.password) {
+            return res.status(400).end('Password dose not match!');
+        }
+        return res.cookie('user', JSON.stringify({
+            "name": user[0].nickname,
+            "id": user[0].id,
+            "status": "user"
+        }), { 'signed': true }).status(200).end('Login success!');
+    });
+
+    router.post('/register/', (req, res) => {
+        console.log(colors.green('[REQ]'), 'register', getIP(req));
+        if (realm.objects('User').filtered('id = "' + req.body.id + '"').length > 0) {
+            return res.status(500).end('User already exists.');
+        }
+        let randomKey = randomToken(20);
+        while (realm.objects('User').filtered('key = "' + randomKey + '"').length > 0) {
+            randomKey = randomToken(20);
+        }
+        return realm.write(() => {
+            let user = realm.create('User', {
+                key: randomKey,
+                id: req.body.id,
+                password: req.body.password,
+                nickname: req.body.nickname
+            });
+            return res.status(200).end('Success the register user');
+        });
+    });
+
+    router.post('/facebook/', (req, res) => {
+        let checkUrl = FACEBOOK_ACCESSTOKEN_CHECK_URL + req.body.accessToken;
+        request(checkUrl, function (error, response, body) {
+            if (error) {} else {
+                let result = JSON.parse(body);
+                if (!result.error) {
+                    //success
+                }
+            }
+        });
+=======
   router.post('/login/', (req, res) => {
     console.log(colors.green('[REQ]'), 'login', getIP(req));
     let user = realm.objects('User').filtered('id = "' + req.body.id + '"');
@@ -126,8 +182,8 @@ module.exports = function (realm) {
         }
       };
       res.status(result()).end();
+>>>>>>> 6bf0f6e49285e852360ce463928aa9a49d9dea96
     });
-  });
 
-  return router;
+    return router;
 };

@@ -20,6 +20,8 @@ class TextController extends React.Component{
     }
 
     render(){
+        let selectedAsset=this.props.currentSilde.selectedAsset-1;
+        let textStyles=this.props.currentSilde.assets[selectedAsset].style
         return(
             <div>
                 <div>
@@ -91,26 +93,36 @@ class TextController extends React.Component{
                     </div>
 
                     <div className={styles.control_item}>
-                        <select>
-                            <option value="">asdfasdf</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
+                        <img src="/images/ic_color.png"/>
+                        <div className={styles.change_color}> 
+                        </div>
                     </div>
                 </div>
 
-                <div>
-                    <img src=""/>
-                    <img src=""/>
-                    <img src=""/>
-                    <img src=""/>
-                    <img src=""/>
-                    <img src=""/>
-                    <img src=""/>
-                    <img src=""/>
+                <div className={styles.control_text_attribute}>
+                    <img src="/images/ic_format_align_left.png" style={textStyles.sort==='left' ? {display : 'none'} : { }} onClick/>
+                    <img src="/images/ic_format_align_left_apply.png" style={textStyles.sort==='left' ? {} : {display : 'none'}} onClick/>
+
+                    <img src="/images/ic_format_align_center.png" style={textStyles.sort==='center' ? {display : 'none'} : { }} onClick/>
+                    <img src="/images/ic_format_align_center_apply.png" style={textStyles.sort==='center' ? {} : {display : 'none'}} onClick/>
+                    
+                    <img src="/images/ic_format_align_right.png" style={textStyles.sort==='right' ? {} : {display : 'none'}} onClick/>
+                    <img src="/images/ic_format_align_right_apply.png" style={textStyles.sort==='right' ? {} : {display : 'none'}} onClick/>
+                    
+                    <img src="/images/ic_format_align_justify.png" style={textStyles.sort==='justify' ? {display : 'none'} : { }} onClick/>
+                    <img src="/images/ic_format_align_justify_apply.png" style={textStyles.sort==='justify' ? {} : {display : 'none'}} onClick/>
+                    
+                    <img src="/images/ic_format_bold.png" style={textStyles.bold ? {display : 'none'} : { }}/>
+                    <img src="/images/ic_format_bold_apply.png" style={textStyles.bold ? {} : {display : 'none'}}/>
+                    
+                    <img src="/images/ic_format_italic.png" style={textStyles.italic ? {display : 'none'} : { }}/>
+                    <img src="/images/ic_format_italic_apply.png" style={textStyles.italic ? {} : {display : 'none'}}/>
+                    
+                    <img src="/images/ic_format_underlined.png" style={textStyles.underline ? {display : 'none'} : { }}/>
+                    <img src="/images/ic_format_underlined_apply.png" style={textStyles.underline ? {} : {display : 'none'}}/>
+                    
+                    <img src="/images/ic_format_strikethrough.png" style={textStyles ? {display : 'none'} : { }}/>
+                    <img src="/images/ic_format_strikethrough_apply.png" style={textStyles ? {} : {display : 'none'}}/>
                 </div>
             </div>
         </div>
@@ -136,11 +148,39 @@ class TextController extends React.Component{
             text_arrow_down:false
         });
     }
+
+    clickAlignLeft() {
+        this.props.setTextSort('left');
+    }
+
+    clickAlignRight() {
+        this.props.setTextSort('right');
+    }
+
+    clickAlignCenter() {
+        this.props.setTextSort('center');
+    }
+
+    clickAlignJustify() {
+        this.props.setTextSort('justify');
+    }
+
+    clickAlignBold(textStyles) {
+        this.props.setFontBold(!textStyles.bold);
+    }
+
+    clickAlignItalic(textStyles) {
+        this.props.setFontItalic(!textStyles.italic);
+    }
+
+    clickAlignUnderline(textStyles) {
+        this.props.setFontUnderline(!textStyles.underline);
+    }
 }
 
 const mapStateToProps = (state) => {
     return{
-
+        currentSilde : state.editor.slides[state.editor.selectedSlide]
     }
 }
 

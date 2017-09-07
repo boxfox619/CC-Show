@@ -23,6 +23,7 @@ class BasicController extends React.Component{
         this.setX_location=this.setX_location.bind(this);
         this.setY_location=this.setY_location.bind(this);
         this.setAngle=this.setAngle.bind(this);
+        this.setStyle=this.setStyle.bind(this);
 
         this.attributeOn=this.attributeOn.bind(this);
         this.attributeOff=this.attributeOff.bind(this);
@@ -82,13 +83,12 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.shape ? {} : {display:'none'}} className={styles.items}>
                         <div className={styles.control_item}>
-                            <input type="button" />
-                            <div>
-                                
-                            </div>
+                            <img src="/images/ic_color.png"/>
+                            <div className={styles.change_color}> </div>
                         </div>
                         <div className={styles.control_item}>
-                            asdffsad
+                            <img src="/images/ic_color.png"/>
+                            <div className={styles.change_color}> </div>
                         </div>
                     </div>
                 </div>
@@ -101,8 +101,8 @@ class BasicController extends React.Component{
                         </div>
                     </div>
                     <div style={this.state.style ? {} : {display:'none'}} className={styles.items}>
-                        <div>
-                            <textarea id={styles.input_style} rows="" cols=""></textarea>
+                        <div id={styles.input_style}>
+                            <textarea onChange={this.setStyle} rows="" cols=""></textarea>
                         </div>
                     </div>
                 </div>
@@ -143,6 +143,11 @@ class BasicController extends React.Component{
             intValue=0;
         }
         this.props.setY(intValue);
+    }
+
+    setStyle(event) {
+        let {value}=event.target;
+        this.props.setStyle(value); 
     }
 
     setAngle(event) {
@@ -231,6 +236,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         setAngle: (angle) => {
             dispatch(actions.setAssetAngle(angle))
+        },
+        setStyle: (style) => {
+            dispatch(actions.setAssetStyle(angle))
         }
     }
 }
