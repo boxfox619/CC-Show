@@ -26,8 +26,8 @@ class ImageController extends React.Component{
                     </div>
                 </div>
                 <div className={styles.items} style={this.state.image ? {} : {display:'none'}}>
-                       <div className={styles.control_item+' '+styles.video_URL}>
-                        <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value="video_url" className={styles.attribute_item_input}/>
+                       <div className={styles.control_item+' '+styles.URL_controller}>
+                        <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" className={styles.attribute_item_input}/>
                     </div>
                 </div>
             </div>

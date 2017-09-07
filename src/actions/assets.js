@@ -9,6 +9,7 @@ export const actionTypes = {
   ASSET_SET_Y_POSTION: 'ASSET_SET_Y_POSTION',
   ASSET_SET_BOTH_POSITION: 'ASSET_SET_BOTH_POSITION',
   ASSET_SET_ANGLE: 'ASSET_SET_ANGLE',
+  ASSET_SET_STYLE: 'ASSET_SET_STYLE',
   ASSET_SET_FONT: 'ASSET_SET_FONT',
   ASSET_SET_FONT_SIZE: 'ASSET_SET_FONT_SIZE',
   ASSET_SET_TEXT_SORT: 'ASSET_SET_TEXT_SORT',
@@ -107,6 +108,13 @@ export function setAssetAngle(value) {
   return {
     type: actionTypes.ASSET_SET_ANGLE,
     value
+  }
+}
+
+export function setAssetStyle(style) {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_SORT,
+    style
   }
 }
 
