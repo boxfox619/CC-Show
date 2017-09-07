@@ -2,30 +2,29 @@ import React from 'react';
 import styles from './AssetEditorItem.css';
 import ReactDOM from 'react-dom';
 // import { findDOMNode } from 'react-dom';
-import $ from 'jquery';
 
 class FreeAsset extends React.Component{
     constructor(props){
         super(props)
-    
+
     }
 
     render(){
 
 
-        
+
         return(
             <div className = {styles.AssetEditor_right}>
             <div className = {styles.select_license}>
                 <span className = {styles.select_license_text}>라이센스를 선택하세요. (GPI, LGPI, BSD, MIT, CCL 중 택1)</span>
                 <div className = {styles.dropdownButt}></div>
             </div>
-            
+
 
              <div>
                 <div className = {styles.license_content}>
                     <span className = {styles.license_text}>GPI</span>
-                    <div className = {styles.dropdownButt}></div>         
+                    <div className = {styles.dropdownButt}></div>
                 </div>
             {/* <div className = {styles.dropdownContent}></div> */}
             </div>
@@ -47,12 +46,12 @@ class FreeAsset extends React.Component{
                 {/* <div className = {styles.CCL_top}></div>
                 <div className = {styles.CCL_content}></div> */}
             </div>
-            
+
       </div>
         );
     }
 
- 
+
 }
 export default FreeAsset;
 {/* <script>
@@ -62,4 +61,3 @@ export default FreeAsset;
         })
     });
 </script> */}
-

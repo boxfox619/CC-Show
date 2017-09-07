@@ -24,14 +24,6 @@ class SlideEditor extends React.Component{
   render(){
     console.log(this.props.visibleAssetEditor);
     let renderDialogs = ()=>{
-<<<<<<< HEAD
-      if(this.props.visibleAssetStore)
-        return (<AssetStore className={styles.modal}/>);
-      else if(this.props.visibleAssetEditor)
-        return (<AssetEditor className={styles.modal}/>);
-      else if(this.props.visibleAccountDialog)
-        return (<AccountDialog className={styles.modal}/>);
-=======
       if(this.props.dialog!=undefined){
         switch(this.props.dialog){
           case dialogs.ASSET_STORE:
@@ -42,7 +34,6 @@ class SlideEditor extends React.Component{
             return (<AccountDialog className={styles.modal}/>);
         }
       }
->>>>>>> 67d28467ae314b53e1fdd5dab02dfb76446e7d41
     }
     let contextDisabled = this.checkContextDisabled();
     return (
@@ -71,14 +62,8 @@ class SlideEditor extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-<<<<<<< HEAD
-    visibleSlideManager: state.ui.visibleSlideManager,
-    visibleAssetStore: state.ui.visibleAssetStore,
-    visibleAssetEditor: state.ui.visibleAssetEditor
-=======
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager
->>>>>>> 67d28467ae314b53e1fdd5dab02dfb76446e7d41
   }
 }
 
