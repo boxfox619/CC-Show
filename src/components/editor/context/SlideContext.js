@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import * as slideActions from '../../../actions/slides'
 import * as assetsActions from '../../../actions/assets'
 
+import SlideTitle from './slideTitle/SlideTitle';
+
 class SlideContext extends React.Component{
 
   /* mouseDowned
@@ -40,6 +42,7 @@ class SlideContext extends React.Component{
         onMouseMove={this.handleMouseMove}
         onMouseUp={this.handleMouseRelese}
         onMouseLeave={this.handleMouseRelese}>
+        <SlideTitle/>
           {renderingAssets(this.props.assets)}
         </div>
       );
