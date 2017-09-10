@@ -18,7 +18,6 @@ const ui = (state = initialState, action) => {
         ...state,
         visibleSlideManager : !state.visibleSlideManager
       };
-      break;
     default:
       return state;
   }

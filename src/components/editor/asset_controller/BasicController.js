@@ -1,6 +1,8 @@
 import React from 'react';
-import * as actions from '../../../actions/assets';
+import * as assetsActions from '../../../actions/assets';
+import * as uiActions from '../../../actions/ui';
 import { connect } from 'react-redux';
+import { SketchPicker } from 'react-color';
 
 import styles from './AssetController.css';
 class BasicController extends React.Component{
@@ -15,7 +17,9 @@ class BasicController extends React.Component{
             shape:true,
             style_arrow_up:false,
             style_arrow_down:true,
-            style:true
+            style:true,
+            fill_color_picker: false,
+            edge_color_picker: false
         };
 
         this.setWidth=this.setWidth.bind(this);
@@ -31,10 +35,10 @@ class BasicController extends React.Component{
         this.shapeOff=this.shapeOff.bind(this);
         this.styleOn=this.styleOn.bind(this);
         this.styleOff=this.styleOff.bind(this);
-
     }
 
     render(){
+        console.log(this.state.edge_color_picker);
         console.log(this.props.width, this.props.height);
         return(
             <div>
@@ -83,12 +87,12 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.shape ? {} : {display:'none'}} className={styles.items}>
                         <div className={styles.control_item}>
-                            <img src="/images/ic_color.png"/>
-                            <div className={styles.change_color}> </div>
+                            <span><img src="/images/ic_color.png"/></span>
+                            <div className={styles.change_color} onClick={this.props.fillColorPickerOnClick} > </div>
                         </div>
                         <div className={styles.control_item}>
-                            <img src="/images/ic_color.png"/>
-                            <div className={styles.change_color}> </div>
+                            <span></span>
+                            <div className={styles.change_color} onClick={this.props.edgeColorPickerOnClick}> </div>
                         </div>
                     </div>
                 </div>
@@ -158,6 +162,14 @@ class BasicController extends React.Component{
         }
         this.props.setAngle(intValue); 
     }
+
+    setFillColor(color) {
+        this.props.setFillColor(color.hex);
+    }
+
+    setEdgeColor(color) {
+        this.props.setEdgeColor(color.hex);
+    }
     
     attributeOn() {
         this.setState({
@@ -169,6 +181,7 @@ class BasicController extends React.Component{
     }
 
     shapeOn() {
+        console.log('a');
         this.setState({
             ...this.state,
             shape:true,
@@ -178,6 +191,7 @@ class BasicController extends React.Component{
     }
 
     styleOn() {
+        console.log('a');
         this.setState({
             ...this.state,
             style:true,
@@ -205,6 +219,7 @@ class BasicController extends React.Component{
     }
 
     styleOff() {
+        console.log('a');
         this.setState({
             ...this.state,
             style:false,
@@ -223,22 +238,28 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         setWidth: (width) => {
-            dispatch(actions.setAssetWidth(width))
+            dispatch(assetsActions.setAssetWidth(width))
         },
         setHeight: (height) => {
-            dispatch(actions.setAssetHeight(height))
+            dispatch(assetsActions.setAssetHeight(height))
         },
         setX: (x) => {
-            dispatch(actions.setAssetX(x))
+            dispatch(assetsActions.setAssetX(x))
         },
         setY: (y) => {
-            dispatch(actions.setAssetY(y))
+            dispatch(assetsActions.setAssetY(y))
         },
         setAngle: (angle) => {
-            dispatch(actions.setAssetAngle(angle))
+            dispatch(assetsActions.setAssetAngle(angle))
         },
         setStyle: (style) => {
-            dispatch(actions.setAssetStyle(angle))
+            dispatch(assetsActions.setAssetStyle(angle))
+        },
+        fillColorPickerOnClick: () => {
+            dispatch(uiActions.toggleFillColorPicker())
+        },
+        edgeColorPickerOnClick: () => {
+            dispatch(uiActions.toggleEdgeColorPicker())
         }
     }
 }

@@ -33,6 +33,7 @@
     margin: 3px;
     width: 40%;
     height: 20px;
+    float: left;
 }
 
 .URL_controller {
@@ -132,4 +133,10 @@ select {
     float: right;
     display: inline-block;
     background: hotpink;
+}
+
+.color_picker_modal{
+    position: absolute;
+    left: 40%;
+    top: 40%;
 }
