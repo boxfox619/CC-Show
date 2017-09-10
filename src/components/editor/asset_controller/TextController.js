@@ -121,8 +121,8 @@ class TextController extends React.Component{
                     <img src="/images/ic_format_underlined.png" style={textStyles.underline ? {display : 'none'} : { }}/>
                     <img src="/images/ic_format_underlined_apply.png" style={textStyles.underline ? {} : {display : 'none'}}/>
                     
-                    <img src="/images/ic_format_strikethrough.png" style={textStyles ? {display : 'none'} : { }}/>
-                    <img src="/images/ic_format_strikethrough_apply.png" style={textStyles ? {} : {display : 'none'}}/>
+                    <img src="/images/ic_format_strikethrough.png" style={textStyles.strikethrough ? {display : 'none'} : { }}/>
+                    <img src="/images/ic_format_strikethrough_apply.png" style={textStyles.strikethrough ? {} : {display : 'none'}}/>
                 </div>
             </div>
         </div>
@@ -175,6 +175,10 @@ class TextController extends React.Component{
 
     clickAlignUnderline(textStyles) {
         this.props.setFontUnderline(!textStyles.underline);
+    }
+
+    clickAlignStrikethrough(textStyles) {
+        this.props.setFontUnderline(!textStyles.strikethrough);
     }
 }
 
