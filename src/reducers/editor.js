@@ -11,6 +11,7 @@ const initialState = {
   slides:[{
       name: 'TEST-SLIDE',
       id: 0,
+      thumbnail: '',
       selectedAsset: undefined,
       assetIdCount: 0,
       assets: []
@@ -477,6 +478,18 @@ const editor = (state = initialState, action) => {
       return {
         ...state,
         selectedSlide: getSlideIndex(state, action.target)
+      }
+    case slideActionTypes.SLIDE_SET_THUMBNAIL:
+      return {
+        ...state,
+        slides:update(
+          state.slides,
+          {
+            [getSlideIndex(state, action.target)]:{
+              thumbnail: {$set: action.thumbnail}
+            }
+          }
+        )
       }
     case slideActionTypes.EXCHANGE_SLIDE:
       return {
