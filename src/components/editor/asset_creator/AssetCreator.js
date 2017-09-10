@@ -51,7 +51,7 @@ class AssetCreator extends React.Component{
       <ClickableButton name={'기타'} onClick={()=>this.props.toggleAssetStore()} />
       <span className={styles.hr}/>
       <ClickableButton name={'슬라이드 리스트'} onClick={()=>this.props.toggleSlideManager()} />
-      <ClickableButton name={'슬라이드 쇼'} onClick={this.showSlideController} />
+      <ClickableButton name={'슬라이드 쇼'} onClick={()=>this.props.toggleSlideShow()} />
       </div>
       <div className={styles.logo}/>
       </div>
