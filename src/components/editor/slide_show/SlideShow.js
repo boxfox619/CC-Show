@@ -1,16 +1,18 @@
 import React from 'react';
 
-import styles from './SilcdeShow.css';
+import { connect } from 'react-redux';
 
-class SildeShow extends React.Component{
+import styles from './SlideShow.css';
+
+class SlideShow extends React.Component{
     constructor(prop) {
-        
+        super(props);
     }
 
     render(){
         return(
             <div>
-                <div id={styles.silde_contents}>
+                <div id={styles.slide_contents}>
                     <div>
                         <img src="images/ic_arrow_left_big.png"/>
                     </div>
@@ -21,22 +23,22 @@ class SildeShow extends React.Component{
                     <img src="images/ic_arrow_right_big.png"/>
                 </div>
                 </div>
-                <div id={styles.silde_sub_contents}>
-                    <div id={styles.silde_show_note}>
-                        <input type="text" id={styles.silde_note_contents} placeholder="쇼 노트를 입력하세요"/>
+                <div id={styles.slide_sub_contents}>
+                    <div id={styles.slide_show_note}>
+                        <input type="text" id={styles.slide_note_contents} placeholder="쇼 노트를 입력하세요"/>
                     </div>
                     <hr/>   
-                    <div id={styles.silde_number_wrapper}>
-                        <div id={styles.silde_number_contents}>
+                    <div id={styles.slide_number_wrapper}>
+                        <div id={styles.slide_number_contents}>
                             <img src="images/ic_arrow_left_small.png"/>
                             <input type="text"/>
                             <p>/</p>
                             <input type="text"/>
                             <img src="images/ic_arrow_left_small.png"/>
                         </div>
-                        <div id={styles.silde_option_button}>
+                        <div id={styles.slide_option_button}>
                             <img src="images/ic_fullscreen.png"/>
-                            <img src="images/ic_silde_show.png"/>
+                            <img src="images/ic_slide_show.png"/>
                         </div>
                     </div>
                 </div>
@@ -57,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SildeShow);
+export default connect(mapStateToProps, mapDispatchToProps)(SlideShow);

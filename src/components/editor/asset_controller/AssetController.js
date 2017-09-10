@@ -18,7 +18,6 @@ class AssetController extends React.Component {
     }
 
     ControllerSelector(selectedAsset) {
-            console.log(this.props.currentSilde.assets[selectedAsset].type);
             switch (this.props.currentSilde.assets[selectedAsset].type) {
                 case actions.TYPE_TEXT:
                     return(
@@ -51,11 +50,10 @@ class AssetController extends React.Component {
 
     render() {
         let selectedAsset=this.props.currentSilde.selectedAsset-1;
-        console.log(this.props.currentSilde.assets[selectedAsset]);
         if(!!(selectedAsset+1)){
             return(
                 <div className={this.props.className}>
-                    {this.ControllerSelector(selectedAsset)}    
+                    {this.ControllerSelector(selectedAsset)}
                     <BasicController width = {parseInt(this.props.currentSilde.assets[selectedAsset].width)}
                                      height = {parseInt(this.props.currentSilde.assets[selectedAsset].height)}
                                      x = {parseInt(this.props.currentSilde.assets[selectedAsset].x)}

@@ -83,7 +83,7 @@ class TextController extends React.Component{
                 <div>
                     <div className={styles.control_item}>
                         <select>
-                            <option value="">asdfasdf</option>
+                            <option value="">자동</option>
                             <option value=""></option>
                             <option value=""></option>
                             <option value=""></option>
@@ -100,17 +100,17 @@ class TextController extends React.Component{
                 </div>
 
                 <div className={styles.control_text_attribute}>
-                    <img src="/images/ic_format_align_left.png" style={textStyles.sort==='left' ? {display : 'none'} : { }} onClick/>
-                    <img src="/images/ic_format_align_left_apply.png" style={textStyles.sort==='left' ? {} : {display : 'none'}} onClick/>
+                    <img src="/images/ic_format_align_left.png" style={textStyles.sort==='left' ? {display : 'none'} : { }} />
+                    <img src="/images/ic_format_align_left_apply.png" style={textStyles.sort==='left' ? {} : {display : 'none'}} />
 
-                    <img src="/images/ic_format_align_center.png" style={textStyles.sort==='center' ? {display : 'none'} : { }} onClick/>
-                    <img src="/images/ic_format_align_center_apply.png" style={textStyles.sort==='center' ? {} : {display : 'none'}} onClick/>
+                    <img src="/images/ic_format_align_center.png" style={textStyles.sort==='center' ? {display : 'none'} : { }} />
+                    <img src="/images/ic_format_align_center_apply.png" style={textStyles.sort==='center' ? {} : {display : 'none'}} />
                     
-                    <img src="/images/ic_format_align_right.png" style={textStyles.sort==='right' ? {} : {display : 'none'}} onClick/>
-                    <img src="/images/ic_format_align_right_apply.png" style={textStyles.sort==='right' ? {} : {display : 'none'}} onClick/>
+                    <img src="/images/ic_format_align_right.png" style={textStyles.sort==='right' ? {} : {display : 'none'}} />
+                    <img src="/images/ic_format_align_right_apply.png" style={textStyles.sort==='right' ? {} : {display : 'none'}} />
                     
-                    <img src="/images/ic_format_align_justify.png" style={textStyles.sort==='justify' ? {display : 'none'} : { }} onClick/>
-                    <img src="/images/ic_format_align_justify_apply.png" style={textStyles.sort==='justify' ? {} : {display : 'none'}} onClick/>
+                    <img src="/images/ic_format_align_justify.png" style={textStyles.sort==='justify' ? {display : 'none'} : { }} />
+                    <img src="/images/ic_format_align_justify_apply.png" style={textStyles.sort==='justify' ? {} : {display : 'none'}} />
                     
                     <img src="/images/ic_format_bold.png" style={textStyles.bold ? {display : 'none'} : { }}/>
                     <img src="/images/ic_format_bold_apply.png" style={textStyles.bold ? {} : {display : 'none'}}/>
@@ -121,8 +121,8 @@ class TextController extends React.Component{
                     <img src="/images/ic_format_underlined.png" style={textStyles.underline ? {display : 'none'} : { }}/>
                     <img src="/images/ic_format_underlined_apply.png" style={textStyles.underline ? {} : {display : 'none'}}/>
                     
-                    <img src="/images/ic_format_strikethrough.png" style={textStyles ? {display : 'none'} : { }}/>
-                    <img src="/images/ic_format_strikethrough_apply.png" style={textStyles ? {} : {display : 'none'}}/>
+                    <img src="/images/ic_format_strikethrough.png" style={textStyles.strikethrough ? {display : 'none'} : { }}/>
+                    <img src="/images/ic_format_strikethrough_apply.png" style={textStyles.strikethrough ? {} : {display : 'none'}}/>
                 </div>
             </div>
         </div>
@@ -175,6 +175,10 @@ class TextController extends React.Component{
 
     clickAlignUnderline(textStyles) {
         this.props.setFontUnderline(!textStyles.underline);
+    }
+
+    clickAlignStrikethrough(textStyles) {
+        this.props.setFontUnderline(!textStyles.strikethrough);
     }
 }
 

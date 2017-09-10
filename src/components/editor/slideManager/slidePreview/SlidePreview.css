@@ -1,10 +1,30 @@
 .slidePreview{
+  overflow: hidden;
   height: 140px;
   margin-top: 20px;
   position: relative;
   background: white;
   border-radius: 10px;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.26);
+}
+
+.thumbnail{
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.thumbnail .content{
+  left: 0px;
+  margin-top: -12px;
+  width: 100%;
+  height: calc( 100% + 12px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
 }
 
 .controller{

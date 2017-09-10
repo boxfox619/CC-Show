@@ -183,7 +183,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(assetsActions, dispatch);
+  return bindActionCreators({...assetsActions, ...slideActions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideContext);

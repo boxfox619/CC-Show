@@ -6,6 +6,7 @@ export const actionTypes = {
   SLIDE_DELETE : 'SLIDE_DELETE',
   SLIDE_RENAME : 'SLIDE_RENAME',
   SLIDE_SELECT : 'SLIDE_SELECT',
+  SLIDE_SET_THUMBNAIL: 'SLIDE_SET_THUMBNAIL',
   EXCHANGE_SLIDE : 'EXCHANGE_SLIDE'
 };
 
@@ -56,6 +57,14 @@ export const selectSlide = (target) =>{
   return {
     type: actionTypes.SLIDE_SELECT,
     target: target.id
+  }
+}
+
+export const updateThumbnailSlide = (target, thumbnail) => {
+  return {
+    type: actionTypes.SLIDE_SET_THUMBNAIL,
+    target,
+    thumbnail
   }
 }
 

@@ -4,6 +4,7 @@ import styles from './SlideManager.css';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import domtoimage from 'dom-to-image';
 
 import SlidePreview from './slidePreview/SlidePreview';
 import SlideCreator from './SlideCreator';
@@ -25,6 +26,8 @@ class SlideManager extends React.Component{
     this.dragStart = this.dragStart.bind(this);
     this.dragEnd = this.dragEnd.bind(this);
     this.dragOver = this.dragOver.bind(this);
+    this.selectSlide = this.selectSlide.bind(this);
+    this.updateThumbnailSlide = this.updateThumbnailSlide.bind(this);
   }
 
   render(){
@@ -42,11 +45,14 @@ class SlideManager extends React.Component{
           shareSlide={this.props.shareSlide}
           copySlide={this.props.copySlide}
           deleteSlide={this.props.deleteSlide}
-          onClick={this.props.selectSlide}
+          onClick={this.selectSlide}
           />
           </li>
         })
       };
+
+      if(this.props.className.includes('show'))
+        this.updateThumbnailSlide();
     return (
       <div className={this.props.className}>
         <div className={styles.inner}>
@@ -62,6 +68,27 @@ class SlideManager extends React.Component{
         </div>
       </div>
     );
+  }
+
+  updateThumbnailSlide(){
+      let node = document.getElementById('SlideContext');
+      let self = this;
+      let currentSilde = this.props.currentSilde;
+      domtoimage.toPng(node)
+      .then(function (dataUrl) {
+          self.props.updateThumbnailSlide(currentSilde, dataUrl);
+      })
+      .catch(function (error) {
+          console.error(error);
+      });
+  }
+
+  componentDidMount(){
+    this.updateThumbnailSlide();
+  }
+
+  selectSlide(target){
+    this.props.selectSlide(target);
   }
 
   dragStart(e) {
@@ -119,7 +146,8 @@ SlideManager.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
   return {
-    slides: state.editor.slides
+    slides: state.editor.slides,
+    currentSilde: state.editor.selectedSlide
   }
 }
 
