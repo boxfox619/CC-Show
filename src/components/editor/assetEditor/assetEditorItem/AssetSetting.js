@@ -2,6 +2,14 @@ import React from 'react';
 import styles from './AssetEditorItem.css';
 
 class AssetSetting extends React.Component{
+
+    getInitialState(){
+    
+    }
+
+    componentWillMount(){
+        
+    }
     render(){
         return(
      <div className = {styles.AssetEditor_left}>
