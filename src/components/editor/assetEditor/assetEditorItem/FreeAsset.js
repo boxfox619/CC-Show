@@ -17,7 +17,7 @@ class FreeAsset extends React.Component{
             <div className = {styles.AssetEditor_right}>
             <div className = {styles.select_license}>
                 <span className = {styles.select_license_text}>라이센스를 선택하세요. (GPI, LGPI, BSD, MIT, CCL 중 택1)</span>
-                <div className = {styles.dropdownButt}></div>
+                
             </div>
 
 

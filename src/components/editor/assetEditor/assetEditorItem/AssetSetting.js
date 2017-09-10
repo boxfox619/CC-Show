@@ -21,7 +21,7 @@ class AssetSetting extends React.Component{
 
                 <div className = {styles.setting_first}>
                     <div className = {styles.cover}><span className = {styles.frontTitle}>제목</span>
-                        <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요"/>
+                        {/* <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요"/> */}
                     </div>
                 </div>
 
@@ -46,11 +46,9 @@ class AssetSetting extends React.Component{
                     <div className = {styles.imagePreview}><span className = {styles.previewText}>사진첨부</span></div>
                     <div className = {styles.imagePreview}><span className = {styles.previewText}>사진첨부</span></div>
                     <button className = {styles.filebutton}><input type = "file" className = {styles.filefile}/></button>
-
                 </div> 
 
         </div>
-
             <div className = {styles.AssetEditor_description}>
                 <div className = {styles.AssetEditor_topbar}>
                     <span className = {styles.topbar_title}>부가설명</span>
