@@ -55,11 +55,13 @@ margin: 0.5em 1em 0 0;
 
 .AssetEditor_content{
     width: 99%;
+    height: 21em;
 }
 
 .description_content{
-    width: 97%;
-    height : 27em;
+    width: 97.8%;
+    height: 100%;
+    box-sizing:border-box;
     overflow: hidden;
     resize: none;
     border: none;
@@ -324,7 +326,7 @@ margin-bottom: 0.5em;
 }
 .filefile{
     width: 100%;
-    height: 20em;
+    height: 7em;
     background-color: #1998E5;
     cursor: pointer;
     opacity: 0;
