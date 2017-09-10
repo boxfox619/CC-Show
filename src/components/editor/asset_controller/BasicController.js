@@ -4,6 +4,8 @@ import * as uiActions from '../../../actions/ui';
 import { connect } from 'react-redux';
 import { SketchPicker } from 'react-color';
 
+import { bindActionCreators } from 'redux';
+
 import styles from './AssetController.css';
 class BasicController extends React.Component{
     constructor(prop) {
@@ -88,11 +90,11 @@ class BasicController extends React.Component{
                     <div style={this.state.shape ? {} : {display:'none'}} className={styles.items}>
                         <div className={styles.control_item}>
                             <span><img src="/images/ic_color.png"/></span>
-                            <div className={styles.change_color} onClick={this.props.fillColorPickerOnClick} > </div>
+                            <div className={styles.change_color} onClick={this.props.toggleFillColorPicker} > </div>
                         </div>
                         <div className={styles.control_item}>
                             <span></span>
-                            <div className={styles.change_color} onClick={this.props.edgeColorPickerOnClick}> </div>
+                            <div className={styles.change_color} onClick={this.props.toggleEdgeColorPicker}> </div>
                         </div>
                     </div>
                 </div>
@@ -119,7 +121,7 @@ class BasicController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setHeight(intValue);
+        this.props.setAssetHeight(intValue);
     }
 
     setWidth(event) {
@@ -128,7 +130,7 @@ class BasicController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setWidth(intValue);
+        this.props.setAssetWidth(intValue);
     }
 
     setX_location(event) {
@@ -137,7 +139,7 @@ class BasicController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setX(intValue);
+        this.props.setAssetX(intValue);
     }
 
     setY_location(event) {
@@ -146,12 +148,12 @@ class BasicController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setY(intValue);
+        this.props.setAssetY(intValue);
     }
 
     setStyle(event) {
         let {value}=event.target;
-        this.props.setStyle(value); 
+        this.props.setAssetStyle(value); 
     }
 
     setAngle(event) {
@@ -160,7 +162,7 @@ class BasicController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setAngle(intValue); 
+        this.props.setAssetAngle(intValue); 
     }
 
     setFillColor(color) {
@@ -236,32 +238,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        setWidth: (width) => {
-            dispatch(assetsActions.setAssetWidth(width))
-        },
-        setHeight: (height) => {
-            dispatch(assetsActions.setAssetHeight(height))
-        },
-        setX: (x) => {
-            dispatch(assetsActions.setAssetX(x))
-        },
-        setY: (y) => {
-            dispatch(assetsActions.setAssetY(y))
-        },
-        setAngle: (angle) => {
-            dispatch(assetsActions.setAssetAngle(angle))
-        },
-        setStyle: (style) => {
-            dispatch(assetsActions.setAssetStyle(angle))
-        },
-        fillColorPickerOnClick: () => {
-            dispatch(uiActions.toggleFillColorPicker())
-        },
-        edgeColorPickerOnClick: () => {
-            dispatch(uiActions.toggleEdgeColorPicker())
-        }
-    }
+    return bindActionCreators({ ...assetsActions, ...uiActions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BasicController);
