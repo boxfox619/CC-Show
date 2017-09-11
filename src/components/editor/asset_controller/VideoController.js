@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../../actions/assets';
+
+import { bindActionCreators } from 'redux';
 import styles from './AssetController.css';
 
 class VideoController extends React.Component {
@@ -9,10 +12,7 @@ class VideoController extends React.Component {
         this.state={
             video:true,
             video_arrow_up:false,
-            video_arrow_down:true,
-            video_controller: this.props.controller,
-            video_autoplay: this.props.autoplay,
-            video_loop:this.props.loop    
+            video_arrow_down:true
         };
 
         this.videoOn=this.videoOn.bind(this);
@@ -22,6 +22,8 @@ class VideoController extends React.Component {
         this.loopOnClick=this.loopOnClick.bind(this);
     }
     render() {
+        let selectedAsset=this.props.currentSilde.selectedAsset-1;
+        let videoStyles=this.props.currentSilde.assets[selectedAsset].style.video;
         return (
             <div>
                 <div className={styles.controller_sub_wrapper}>
@@ -69,34 +71,27 @@ class VideoController extends React.Component {
         });
     }
 
-    controllerOnClick(){
-        this.props.setURL(!this.state.video_controller);
+    controllerOnClick(videoStyles){
+        this.props.setAssetVideoController(!videoStyles.videoController);
     }
 
-    loopOnClick(){
-        this.props.setURL(!this.state.video_loop);
+    loopOnClick(videoStyles){
+        this.props.setAssetVideoAutoplay(!videoStyles.videoLoop);
     }
 
-    autoplayOnClick(){
-        this.props.setURL(!this.state.video_autoplay);
+    autoplayOnClick(videoStyles){
+        this.props.setAssetVideoURL(!videoStyles.videoAutoplay);
+    }
+}
+
+const mapStateToProps = (state) => {
+    return{
+        currentSilde : state.editor.slides[state.editor.selectedSlide]
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        setURL: (url) => {
-            dispatch(actions.setAssetVideoURL(url));
-        },
-        setcontroller: (controller) => {
-            dispatch(actions.setAssetVideoURL(controller));
-        },
-        setAutoplay: (autoplay) => {
-            dispatch(actions.setAssetVideoURL(autoplay));
-        },
-        setLoop: (loop) => {
-            dispatch(actions.setAssetVideoURL(loop));
-        }
-    }
+    return bindActionCreators({ ...actions }, dispatch);
 }
 
-export default VideoController;
+export default connect(mapStateToProps, mapDispatchToProps)(VideoController);

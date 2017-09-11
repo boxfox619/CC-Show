@@ -17,13 +17,25 @@ const initialState = {
       assets: [],
       style: {
         text:{
+          font: '',
+          fontsize: '0',
+          sort: '',
+          fontBold: false,
+          fontItalic: false,
+          fontUnderline: false
         },video:{
-
+          url: '',
+          controller: false,
+          loop: false,
+          autoplay: false
         },image:{
 
         },shape:{
 
-        }
+        },
+        fillColor: '',
+        borderColor: '',
+        borderWeight: '0'
       }
     }]
 }
