@@ -3,7 +3,6 @@
     height: 70vh ;
     margin-left: 2em;
     float: left;
-    
 }
 .AssetEditor_preview{
  width: 48%;
@@ -24,7 +23,7 @@
 }
 .AssetEditor_topbar{
     width: 100%;
-    height: 4vh;
+    height: 30px;
     display: table;
     background-color: #1998E5;
 }
@@ -45,12 +44,11 @@ display: inline-block;
 }
 
 .AssetEditor_description{
-
 width: 97.8%;
-height: 48vh;
+height: 380px;
 border: 1px solid #1898E5;
 margin: 0.5em 1em 0 0;
-
+display: inline-block;
 }
 
 .AssetEditor_content{
@@ -60,7 +58,7 @@ margin: 0.5em 1em 0 0;
 
 .description_content{
     width: 97.8%;
-    height: 100%;
+    height: 310px;
     box-sizing:border-box;
     overflow: hidden;
     resize: none;
@@ -73,7 +71,7 @@ margin: 0.5em 1em 0 0;
 
 .AssetEditor_right{
  width: 33%;
- height: 73vh;
+ /* height: 73vh; */
  overflow-x: hidden;
  overflow-y: auto;
  display: inline-block;
@@ -92,7 +90,7 @@ margin: 0.5em 1em 0 0;
 
 .select_license_text{
     color: white;
-    font-size: 3px;
+    font-size: 0.7em;
     vertical-align: middle;
     display: table-cell;
 }
@@ -120,7 +118,7 @@ margin: 0.5em 1em 0 0;
 
 .license_text{
     color: #1998E5;
-    font-size: 10px;
+    font-size: 0.7em;
     display: table-cell;
     vertical-align: middle;
     padding-left: 1em;
@@ -142,21 +140,22 @@ margin: 0.5em 1em 0 0;
 
 }
 .AssetEditor_isAsset{
-width: 35%;
+width: 99.7%;
 height: 10em;
 border: 1px solid #1998E5;
 display: inline-block;
 margin-bottom: 0.3em;
-position: absolute;
+/* position: absolute; */
 }
 .AssetEditor_Process{
-width: 35%;
+width: 99.7%;
 height: 9.5em;
 border: 1px solid#1998E5;
 display: inline-block;
-margin-bottom: 0.5em;
-position: absolute;
+/* margin-bottom: 0.5em; */
+/* position: absolute; */
 }
+
 
 .AssetEditor_agreement{
 
@@ -175,14 +174,14 @@ position: absolute;
 }
 .isAsset_titleText{
     color: white;
-    font-size: 4px;
+    font-size: 0.2em;
     display: table-cell;
     vertical-align: middle;
     padding-left: 1em;
 }
 
 .AssetEditor_agreeButton{
-    width: 35%;
+    width: 33%;
     height: 4.6em;
     color: white;
     background-color:#1998E5; 
@@ -192,7 +191,7 @@ position: absolute;
 
 .setting_first{
     width: 96%;
-    height : 2.5em;
+    height : 40px;
     font-family: inherit;
 }
 .title{
@@ -237,7 +236,7 @@ position: absolute;
     color: white;
     display: table-cell;
     vertical-align: middle;
-    font-size: 2px;
+    font-size: 0.5em;
     padding : 0 7px 0 9px;
     width: 20px;
 }
@@ -317,7 +316,7 @@ position: absolute;
 }
 .previewText{
     color: #E2E2E2;
-    font-size: 10px;
+    font-size: 0.5em;
     display: table-cell;
     vertical-align: middle;
     text-align: center;

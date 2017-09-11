@@ -8,8 +8,8 @@ class AssetEditorItem extends React.Component{
         return(
           <div>
                 <AssetSetting />
-                <FreeAsset />
-                {/* <ChargeAsset /> */}
+                {/* <FreeAsset /> */}
+                <ChargeAsset />
           </div>  
         );
     }
