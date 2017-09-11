@@ -37,14 +37,13 @@ class SlideContext extends React.Component{
         })
       };
       return (
-        <div className={this.props.className} id={'SlideContext'}
+        <div className={this.props.className} id={'SlideContext'}>
+        <SlideTitle/>
+        <scanvas
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}
         onMouseUp={this.handleMouseRelese}
-        onMouseLeave={this.handleMouseRelese}
-        onDrag={this.blockDrag}>
-        <SlideTitle/>
-        <scanvas>
+        onMouseLeave={this.handleMouseRelese}>
           {renderingAssets(this.props.assets)}
           </scanvas>
         </div>
@@ -121,10 +120,6 @@ class SlideContext extends React.Component{
       }
     }
 
-    blockDrag(e){
-      e.preventdefault();
-    }
-
     handleMouseDown(e){
       this.mouseDowned = true;
       if(e.target.parentNode.parentNode.tagName == 'ASSET'){
@@ -139,6 +134,7 @@ class SlideContext extends React.Component{
       }else{
         this.props.assetDeselected();
       }
+      e.preventDefault();
     }
 
     handleMouseRelese(e){
