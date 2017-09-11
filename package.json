@@ -22,7 +22,8 @@
     "react-redux": "^5.0.5",
     "realm": "^1.10.3",
     "redux": "^3.7.2",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "supervisor": "^0.12.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -42,7 +43,8 @@
     "clean": "rm -rf build public/bundle.js",
     "build": "babel server --out-dir build && webpack",
     "start": "set NODE_ENV=production&&node ./build/main.js",
-    "dev": "set NODE_ENV=development&&node ./build/main.js"
+    "dev": "set NODE_ENV=development&&node ./build/main.js",
+    "mac-dev": "export NODE_ENV=development&&node ./build/main.js"
   },
   "repository": {
     "type": "git",

@@ -2,6 +2,14 @@ import React from 'react';
 import styles from './AssetEditorItem.css';
 
 class AssetSetting extends React.Component{
+
+    getInitialState(){
+    
+    }
+
+    componentWillMount(){
+        
+    }
     render(){
         return(
      <div className = {styles.AssetEditor_left}>
@@ -38,11 +46,9 @@ class AssetSetting extends React.Component{
                     <div className = {styles.imagePreview}><span className = {styles.previewText}>사진첨부</span></div>
                     <div className = {styles.imagePreview}><span className = {styles.previewText}>사진첨부</span></div>
                     <button className = {styles.filebutton}><input type = "file" className = {styles.filefile}/></button>
-
                 </div> 
 
         </div>
-
             <div className = {styles.AssetEditor_description}>
                 <div className = {styles.AssetEditor_topbar}>
                     <span className = {styles.topbar_title}>부가설명</span>

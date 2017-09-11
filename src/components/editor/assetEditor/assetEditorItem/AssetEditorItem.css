@@ -1,9 +1,8 @@
 .AssetEditor_left{
     width: 60%;
-    height: 35em ;
+    height: 70vh ;
     margin-left: 2em;
     float: left;
-    
 }
 .AssetEditor_preview{
  width: 48%;
@@ -24,7 +23,7 @@
 }
 .AssetEditor_topbar{
     width: 100%;
-    height: 2em;
+    height: 30px;
     display: table;
     background-color: #1998E5;
 }
@@ -39,28 +38,27 @@
 
 .AssetEditor_setting{
 width: 50%;
-height: 10em;
+height: 28%;
 display: inline-block;
 
 }
 
 .AssetEditor_description{
-
 width: 97.8%;
-height: 24em;
+height: 380px;
 border: 1px solid #1898E5;
 margin: 0.5em 1em 0 0;
-
+display: inline-block;
 }
 
 .AssetEditor_content{
     width: 99%;
-    height: 21em;
+    height: 40vh;
 }
 
 .description_content{
     width: 97.8%;
-    height: 100%;
+    height: 310px;
     box-sizing:border-box;
     overflow: hidden;
     resize: none;
@@ -73,25 +71,26 @@ margin: 0.5em 1em 0 0;
 
 .AssetEditor_right{
  width: 33%;
- height: 33em;
+ /* height: 73vh; */
  overflow-x: hidden;
  overflow-y: auto;
  display: inline-block;
  margin-left: 1em;
-}
+} 
 
 .select_license{
     width: 100%;
-    height: 2.3em;
+    height: 5vh;
     border: 1px solid #1998E5;
     margin-bottom: 0.7em;
     background-color: #1998E5;
     text-align: center;
     display: table;
 }
+
 .select_license_text{
     color: white;
-    font-size: 3px;
+    font-size: 0.7em;
     vertical-align: middle;
     display: table-cell;
 }
@@ -109,7 +108,7 @@ margin: 0.5em 1em 0 0;
 
 .license_content{
     width: 99%;
-    height: 2.3em;
+    height: 4.5vh;
     border: 1.7px solid #1998E5;
     margin-bottom: 0.7em;
     display: table;
@@ -119,7 +118,7 @@ margin: 0.5em 1em 0 0;
 
 .license_text{
     color: #1998E5;
-    font-size: 10px;
+    font-size: 0.7em;
     display: table-cell;
     vertical-align: middle;
     padding-left: 1em;
@@ -141,19 +140,22 @@ margin: 0.5em 1em 0 0;
 
 }
 .AssetEditor_isAsset{
-width: 35%;
+width: 99.7%;
 height: 10em;
 border: 1px solid #1998E5;
 display: inline-block;
 margin-bottom: 0.3em;
+/* position: absolute; */
 }
 .AssetEditor_Process{
-width: 35%;
+width: 99.7%;
 height: 9.5em;
 border: 1px solid#1998E5;
 display: inline-block;
-margin-bottom: 0.5em;
+/* margin-bottom: 0.5em; */
+/* position: absolute; */
 }
+
 
 .AssetEditor_agreement{
 
@@ -172,23 +174,24 @@ margin-bottom: 0.5em;
 }
 .isAsset_titleText{
     color: white;
-    font-size: 4px;
+    font-size: 0.2em;
     display: table-cell;
     vertical-align: middle;
     padding-left: 1em;
 }
 
 .AssetEditor_agreeButton{
-    width: 35%;
+    width: 33%;
     height: 4.6em;
     color: white;
     background-color:#1998E5; 
-  cursor: pointer;
+    cursor: pointer;
+    position: absolute;
 }
 
 .setting_first{
     width: 96%;
-    height : 2.5em;
+    height : 40px;
     font-family: inherit;
 }
 .title{
@@ -214,7 +217,7 @@ margin-bottom: 0.5em;
 .cover{
     /* margin-top: 0em; */
     width: 100%;
-    height: 2.3em;
+    height: 30%;
     background-color: #1998E5;
     margin-left: auto;
     margin-right: auto;
@@ -233,7 +236,7 @@ margin-bottom: 0.5em;
     color: white;
     display: table-cell;
     vertical-align: middle;
-    font-size: 2px;
+    font-size: 0.5em;
     padding : 0 7px 0 9px;
     width: 20px;
 }
@@ -313,7 +316,7 @@ margin-bottom: 0.5em;
 }
 .previewText{
     color: #E2E2E2;
-    font-size: 10px;
+    font-size: 0.5em;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
