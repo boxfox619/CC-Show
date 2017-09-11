@@ -12,8 +12,8 @@ class ImageController extends React.Component{
             image_arrow_down:true    
         };
 
-        this.videoOn=this.imageOn.bind(this);
-        this.videoOff=this.imageOff.bind(this);
+        this.imageOn=this.imageOn.bind(this);
+        this.imageOff=this.imageOff.bind(this);
     }
 
     render(){

@@ -15,6 +15,7 @@ export const actionTypes = {
   ASSET_SET_TEXT_FONT_BOLD: 'ASSET_SET_TEXT_FONT_BOLD',
   ASSET_SET_TEXT_FONT_UNDERLINE: 'ASSET_SET_TEXT_FONT_UNDERLINE',
   ASSET_SET_TEXT_FONT_ITALIC: 'ASSET_SET_TEXT_FONT_ITALIC',
+  ASSET_SET_TEXT_FONT_STRIKETHROUGH: 'ASSET_SET_TEXT_FONT_STRIKETHROUGH',
   ASSET_SET_TEXT_COLOR: 'ASSET_SET_TEXT_COLOR',
   ASSET_SET_FILL_COLOR: 'ASSET_SET_FILL_COLOR',
   ASSET_SET_BORDER_COLOR: 'ASSET_SET_EDGE_COLOR',
@@ -156,7 +157,13 @@ export function setAssetFontBold() {
   }
 }
 
-export function setAssetFontUnderline() {
+export function setAssetFontStrikethrough() {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH
+  }
+}
+
+export function setAssetFont() {
   return{
     type: actionTypes.ASSET_SET_TEXT_FONT_UNDERLINE
   }
@@ -165,6 +172,12 @@ export function setAssetFontUnderline() {
 export function setAssetFontItalic() {
   return{
     type: actionTypes.ASSET_SET_TEXT_FONT_ITALIC
+  }
+}
+
+export function setFontStrikethrough() {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH
   }
 }
 

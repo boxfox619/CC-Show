@@ -22,8 +22,6 @@ class VideoController extends React.Component {
         this.loopOnClick=this.loopOnClick.bind(this);
     }
     render() {
-        let selectedAsset=this.props.currentSilde.selectedAsset-1;
-        let videoStyles=this.props.currentSilde.assets[selectedAsset].style.video;
         return (
             <div>
                 <div className={styles.controller_sub_wrapper}>
@@ -34,17 +32,17 @@ class VideoController extends React.Component {
                 </div>
                 <div className={styles.items} style={this.state.video ? {} : {display:'none'}}>
                     <div className={styles.control_item+' '+styles.URL_controller}>
-                        <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value="video_url" className={styles.attribute_item_input}/>
+                        <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value={this.props.url} className={styles.attribute_item_input}/>
                     </div>
                     <div>
-                        <div onClick={this.controllerOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.state.video_controller ? {'background-color': '#5a84b3'} : {}}>
-                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.state.video_controller ? {color:'#fff'} : {}}>컨트롤러</span>
+                        <div onClick={this.controllerOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.props.videoController ? {'background-color': '#5a84b3'} : {}}>
+                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.props.videoController ? {color:'#fff'} : {}}>컨트롤러</span>
                         </div>
-                        <div onClick={this.autoplayOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.state.video_autoplay ? {'background-color': '#5a84b3'} : {}}>
-                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.state.video_autoplay ? {color:'#fff'} : {}}>자동재생</span>
+                        <div onClick={this.autoplayOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.props.videoAutoplay ? {'background-color': '#5a84b3'} : {}}>
+                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.props.videoAutoplay ? {color:'#fff'} : {}}>자동재생</span>
                         </div>
-                        <div onClick={this.loopOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.state.video_loop ? {'background-color': '#5a84b3'} : {}}>
-                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.state.video_loop ? {color:'#fff'} : {}}>반복</span>
+                        <div onClick={this.loopOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.props.videoLoop ? {'background-color': '#5a84b3'} : {}}>
+                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.props.videoLoop ? {color:'#fff'} : {}}>반복</span>
                         </div>
                     </div>
                 </div>
@@ -76,17 +74,16 @@ class VideoController extends React.Component {
     }
 
     loopOnClick(videoStyles){
-        this.props.setAssetVideoAutoplay(!videoStyles.videoLoop);
+        this.props.setAssetVideoLoop(!videoStyles.videoLoop);
     }
 
     autoplayOnClick(videoStyles){
-        this.props.setAssetVideoURL(!videoStyles.videoAutoplay);
+        this.props.setAssetVideoAutoplay(!videoStyles.videoAutoplay);
     }
 }
 
 const mapStateToProps = (state) => {
     return{
-        currentSilde : state.editor.slides[state.editor.selectedSlide]
     }
 }
 

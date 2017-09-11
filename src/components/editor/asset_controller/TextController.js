@@ -17,12 +17,14 @@ class TextController extends React.Component{
 
         this.textOn=this.textOn.bind(this);
         this.textOff=this.textOff.bind(this);
-
+        
+        this.clickAlignItalic=this.clickAlignItalic.bind(this);
+        this.clickAlignBold=this.clickAlignBold.bind(this);
+        this.clickAlignUnderline=this.clickAlignUnderline.bind(this);
+        this.clickAlignStrikethrough=this.clickAlignStrikethrough.bind(this);
     }
 
     render(){
-        let selectedAsset=this.props.currentSilde.selectedAsset-1;
-        let textStyles=this.props.currentSilde.assets[selectedAsset].style.text;
         return(
             <div>
                 <div>
@@ -101,29 +103,29 @@ class TextController extends React.Component{
                 </div>
 
                 <div className={styles.control_text_attribute}>
-                    <img src="/images/ic_format_align_left.png" style={textStyles.sort==='left' ? {display : 'none'} : { }} onClick={this.props.setAssetTextSort.bind(textStyles, 'left')}/>
-                    <img src="/images/ic_format_align_left_apply.png" style={textStyles.sort==='left' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort.bind(textStyles, 'left')} />
+                    <img src="/images/ic_format_align_left.png" style={this.props.sort==='left' ? {display : 'none'} : { }} onClick={this.setAssetTextSort.bind('left')}/>
+                    <img src="/images/ic_format_align_left_apply.png" style={this.props.sort==='left' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('left')} />
 
-                    <img src="/images/ic_format_align_center.png" style={textStyles.sort==='center' ? {display : 'none'} : { }}  onClick={this.props.setAssetTextSort.bind(textStyles, 'center')}/>
-                    <img src="/images/ic_format_align_center_apply.png" style={textStyles.sort==='center' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort.bind(textStyles, 'center')}/>
+                    <img src="/images/ic_format_align_center.png" style={this.props.sort==='center' ? {display : 'none'} : { }}  onClick={this.setAssetTextSort.bind('center')}/>
+                    <img src="/images/ic_format_align_center_apply.png" style={this.props.sort==='center' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('center')}/>
                     
-                    <img src="/images/ic_format_align_right.png" style={textStyles.sort==='right' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort.bind(textStyles, 'right')}/>
-                    <img src="/images/ic_format_align_right_apply.png" style={textStyles.sort==='right' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort.bind(textStyles, 'right')}/>
+                    <img src="/images/ic_format_align_right.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('right')}/>
+                    <img src="/images/ic_format_align_right_apply.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('right')}/>
                     
-                    <img src="/images/ic_format_align_justify.png" style={textStyles.sort==='justify' ? {display : 'none'} : { }}  onClick={this.props.setAssetTextSort.bind(textStyles, 'justify')}/>
-                    <img src="/images/ic_format_align_justify_apply.png" style={textStyles.sort==='justify' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort.bind(textStyles, 'justify')}/>
+                    <img src="/images/ic_format_align_justify.png" style={this.props.sort==='justify' ? {display : 'none'} : { }}  onClick={this.setAssetTextSort.bind('justify')}/>
+                    <img src="/images/ic_format_align_justify_apply.png" style={this.props.sort==='justify' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('justify')}/>
                     
-                    <img src="/images/ic_format_bold.png" style={textStyles.bold ? {display : 'none'} : { }} onClick={this.props.clickAlignBold.bind(textStyles)}/>
-                    <img src="/images/ic_format_bold_apply.png" style={textStyles.bold ? {} : {display : 'none'}} onClick={this.props.clickAlignBold.bind(textStyles)}/>
+                    <img src="/images/ic_format_bold.png" style={this.props.bold ? {display : 'none'} : { }} onClick={this.clickAlignBold}/>
+                    <img src="/images/ic_format_bold_apply.png" style={this.props.bold ? {} : {display : 'none'}} onClick={this.clickAlignBold}/>
                     
-                    <img src="/images/ic_format_italic.png" style={textStyles.italic ? {display : 'none'} : { }} onClick={this.props.clickAlignItalic.bind(textStyles)}/>
-                    <img src="/images/ic_format_italic_apply.png" style={textStyles.italic ? {} : {display : 'none'}} onClick={this.props.clickAlignItalic.bind(textStyles)}/>
+                    <img src="/images/ic_format_italic.png" style={this.props.italic ? {display : 'none'} : { }} onClick={this.clickAlignItalic}/>
+                    <img src="/images/ic_format_italic_apply.png" style={this.props.italic ? {} : {display : 'none'}} onClick={this.clickAlignItalic}/>
                     
-                    <img src="/images/ic_format_underlined.png" style={textStyles.underline ? {display : 'none'} : { }} onClick={this.props.clickAlignUnderline.bind(textStyles)}/>
-                    <img src="/images/ic_format_underlined_apply.png" style={textStyles.underline ? {} : {display : 'none'}} onClick={this.props.clickAlignUnderline.bind(textStyles)}/>
+                    <img src="/images/ic_format_underlined.png" style={this.props.underline ? {display : 'none'} : { }} onClick={this.clickAlignUnderline}/>
+                    <img src="/images/ic_format_underlined_apply.png" style={this.props.underline ? {} : {display : 'none'}} onClick={this.clickAlignUnderline}/>
                     
-                    <img src="/images/ic_format_strikethrough.png" style={textStyles.strikethrough ? {display : 'none'} : { }} onClick={this.props.clickAlignStrikethrough.bind(textStyles)}/>
-                    <img src="/images/ic_format_strikethrough_apply.png" style={textStyles.strikethrough ? {} : {display : 'none'}} onClick={this.props.clickAlignStrikethrough.bind(textStyles)}/>
+                    <img src="/images/ic_format_strikethrough.png" style={this.props.strikethrough ? {display : 'none'} : { }} onClick={this.clickAlignStrikethrough}/>
+                    <img src="/images/ic_format_strikethrough_apply.png" style={this.props.strikethrough ? {} : {display : 'none'}} onClick={this.clickAlignStrikethrough}/>
                 </div>
             </div>
         </div>
@@ -151,24 +153,25 @@ class TextController extends React.Component{
     }
 
     setAssetTextSort(textStyles, sort) {
+        console.log(actions);
         if(textStyles.sort===sort) sort = '';
         this.props.setAssetTextSort(sort);
     }
 
     clickAlignBold(textStyles) {
-        this.props.setAssetFontBold(!textStyles.bold);
+        this.props.setAssetFontBold(!this.props.bold);
     }
 
     clickAlignItalic(textStyles) {
-        this.props.setAssetFontBold(!textStyles.italic);
+        this.props.setAssetFontBold(!this.props.italic);
     }
 
     clickAlignUnderline(textStyles) {
-        this.props.setFontUnderline(!textStyles.underline);
+        this.props.setFontUnderline(!this.props.underline);
     }
 
     clickAlignStrikethrough(textStyles) {
-        this.props.setFontUnderline(!textStyles.strikethrough);
+        this.props.setFontStrikethrough(this.props.strikethrough);
     }
 }
 
@@ -179,7 +182,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...actions }, dispatch);
+    return bindActionCreators({...actions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextController);

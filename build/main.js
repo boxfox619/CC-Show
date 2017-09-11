@@ -19,6 +19,7 @@ app.use(function (req, res, next) {
     next();
 });
 
+console.log(process.env.NODE_ENV == 'development');
 if (process.env.NODE_ENV == 'development') {
     console.log('Server is running on development mode');
 
