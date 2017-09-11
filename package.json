@@ -15,7 +15,7 @@
     "react": "^15.6.1",
     "react-addons-update": "^15.6.0",
     "react-codemirror": "^1.0.0",
-    "react-color": "^2.13.7",
+    "react-color": "^2.13.8",
     "react-dom": "^15.6.1",
     "react-facebook-login": "^3.6.2",
     "react-google-login": "^2.9.3",
@@ -42,7 +42,8 @@
     "clean": "rm -rf build public/bundle.js",
     "build": "babel server --out-dir build && webpack",
     "start": "set NODE_ENV=production&&node ./build/main.js",
-    "dev": "set NODE_ENV=development&&node ./build/main.js"
+    "dev": "set NODE_ENV=development&&node ./build/main.js",
+    "mac-dev": "export NODE_ENV=development&&node ./build/main.js"
   },
   "repository": {
     "type": "git",

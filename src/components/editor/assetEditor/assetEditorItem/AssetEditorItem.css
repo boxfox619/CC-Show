@@ -1,13 +1,13 @@
 .AssetEditor_left{
     width: 60%;
-    height: 35em ;
+    height: 70vh ;
     margin-left: 2em;
     float: left;
     
 }
 .AssetEditor_preview{
  width: 48%;
- height: 10em;
+ height: 20vh;
  border: 1.7px solid #1998E5;
  float: left;
  clear: both;
@@ -24,7 +24,7 @@
 }
 .AssetEditor_topbar{
     width: 100%;
-    height: 2em;
+    height: 4vh;
     display: table;
     background-color: #1998E5;
 }
@@ -39,7 +39,7 @@
 
 .AssetEditor_setting{
 width: 50%;
-height: 10em;
+height: 28%;
 display: inline-block;
 
 }
@@ -47,7 +47,7 @@ display: inline-block;
 .AssetEditor_description{
 
 width: 97.8%;
-height: 24em;
+height: 47vh;
 border: 1px solid #1898E5;
 margin: 0.5em 1em 0 0;
 
@@ -55,7 +55,7 @@ margin: 0.5em 1em 0 0;
 
 .AssetEditor_content{
     width: 99%;
-    height: 21em;
+    height: 40vh;
 }
 
 .description_content{
@@ -73,16 +73,16 @@ margin: 0.5em 1em 0 0;
 
 .AssetEditor_right{
  width: 33%;
- height: 33em;
+ height: 70vh;
  overflow-x: hidden;
  overflow-y: auto;
  display: inline-block;
  margin-left: 1em;
-}
+} 
 
 .select_license{
     width: 100%;
-    height: 2.3em;
+    height: 5vh;
     border: 1px solid #1998E5;
     margin-bottom: 0.7em;
     background-color: #1998E5;
@@ -109,7 +109,7 @@ margin: 0.5em 1em 0 0;
 
 .license_content{
     width: 99%;
-    height: 2.3em;
+    height: 4.5vh;
     border: 1.7px solid #1998E5;
     margin-bottom: 0.7em;
     display: table;
@@ -214,7 +214,7 @@ margin-bottom: 0.5em;
 .cover{
     /* margin-top: 0em; */
     width: 100%;
-    height: 2.3em;
+    height: 30%;
     background-color: #1998E5;
     margin-left: auto;
     margin-right: auto;
