@@ -132,7 +132,6 @@ class SlideContext extends React.Component{
       }else{
         this.props.assetDeselected();
       }
-      e.preventDefault();
     }
 
     handleMouseRelese(e){

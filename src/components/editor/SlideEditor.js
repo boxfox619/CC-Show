@@ -6,8 +6,6 @@ import SlideManager from './slideManager/SlideManager';
 import AssetStore from './assetStore/AssetStore';
 import AssetEditor from './assetEditor/AssetEditor';
 import AccountDialog from './accountDialog/AccountDialog';
-import SlideShow from './slide_show/SlideShow'
-import { SketchPicker } from 'react-color';
 
 import { dialogs } from '../../actions/ui';
 
@@ -33,12 +31,6 @@ class SlideEditor extends React.Component{
             return (<AssetEditor className={styles.modal}/>);
           case dialogs.ACCOUNT_WITH_SNS:
             return (<AccountDialog className={styles.modal}/>);
-          case dialogs.SLIDE_SHOW:
-            return (<SlideShow/>)
-          case dialogs.FILL_COLOR_PICKER:
-            return (<span className={styles.color_picker}><SketchPicker onChangeComplete={ this.setEdgeColor }/></span> )
-          case dialogs.EDGE_COLOR_PICKER:
-            return (<span className={styles.color_picker}><SketchPicker onChangeComplete={ this.setEdgeColor }/></span> )
         }
       }
     }
