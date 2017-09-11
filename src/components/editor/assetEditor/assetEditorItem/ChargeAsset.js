@@ -4,7 +4,7 @@ import styles from './AssetEditorItem.css';
 class ChargeAsset extends React.Component{
     render(){
         return(
-        <div>
+        <div className = {styles.AssetEditor_right}>
             <div className = {styles.AssetEditor_isAsset}>
                 <div className = {styles.isAsset_Header}>
                     <span className = {styles.isAsset_titleText}>유효 에셋 라이센스 안내</span>
