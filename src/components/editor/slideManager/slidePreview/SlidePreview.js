@@ -28,9 +28,9 @@ class SlidePreview extends React.Component{
             </div>
           </div>
           <div className={styles.actions}>
-            <IconButton icon={'share'} onClick={()=>this.props.shareSlide(this.props.slide)} className={styles.iconButton}/>
+            <IconButton icon={'share'} onClick={()=>this.props.shareSlide(this.props.slide.id)} className={styles.iconButton}/>
             <IconButton icon={'copy'} onClick={()=>this.props.copySlide(this.props.slide)} className={styles.iconButton}/>
-            <IconButton icon={'delete'} onClick={()=>this.props.deleteSlide(this.props.slide)} className={styles.iconButton}/>
+            <IconButton icon={'delete'} onClick={()=>this.props.deleteSlide(this.props.slide.id)} className={styles.iconButton}/>
           </div>
         </div>
       </div>

@@ -41,14 +41,14 @@ export const copySlide = (target) => {
 export const deleteSlide = (target) =>{
   return {
     type: actionTypes.SLIDE_DELETE,
-    target: target.id
+    target: target
   }
 }
 
 export const renameSlide = (target, name) =>{
   return {
     type: actionTypes.SLIDE_RENAME,
-    target: target.id,
+    target: target,
     name
   }
 }

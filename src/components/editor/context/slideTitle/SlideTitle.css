@@ -14,6 +14,7 @@
   position: relative;
   width: calc( 100% - 10px );
   height: 100%;
+  outline: none;
   border: none;
   line-height: 50px;
   text-align: center;

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as slideActions from '../../../../actions/slides';
 
 import styles from './SlideTitle.css';
 
@@ -9,30 +10,31 @@ class SlideTitle extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {value: 'tesata'};
 
-    this.onChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   render(){
     return(
       <div className={styles.slideTitle}>
-        <input type="text" onChange={this.handleChange} value={this.state.value}/>
+        <input id="slide_title_input" type="text" onChange={this.handleChange} value={this.props.title}/>
       </div>
     );
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.props.renameSlide(this.props.currentSlide, event.target.value);
   }
 }
 
 const mapStateToProps = (state) => {
-  return{}
+  return{
+    currentSlide : state.editor.selectedSlide,
+    title : state.editor.slides[state.editor.selectedSlide].name }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators({...slideActions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideTitle);
