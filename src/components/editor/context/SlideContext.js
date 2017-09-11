@@ -41,9 +41,12 @@ class SlideContext extends React.Component{
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}
         onMouseUp={this.handleMouseRelese}
-        onMouseLeave={this.handleMouseRelese}>
+        onMouseLeave={this.handleMouseRelese}
+        onDrag={this.blockDrag}>
         <SlideTitle/>
+        <scanvas>
           {renderingAssets(this.props.assets)}
+          </scanvas>
         </div>
       );
     }
@@ -116,6 +119,10 @@ class SlideContext extends React.Component{
           this.yInElement = e.pageY;
         }
       }
+    }
+
+    blockDrag(e){
+      e.preventdefault();
     }
 
     handleMouseDown(e){
