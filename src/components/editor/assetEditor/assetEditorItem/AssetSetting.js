@@ -21,7 +21,7 @@ class AssetSetting extends React.Component{
 
                 <div className = {styles.setting_first}>
                     <div className = {styles.cover}><span className = {styles.frontTitle}>제목</span>
-                        {/* <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요"/> */}
+                        <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요"/>
                     </div>
                 </div>
 

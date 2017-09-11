@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8208b3cf222a7744df1f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f19617f158b9f941807f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -4523,8 +4523,10 @@ exports.setAssetFontSize = setAssetFontSize;
 exports.setAssetTextLineSpacing = setAssetTextLineSpacing;
 exports.setAssetTextSort = setAssetTextSort;
 exports.setAssetFontBold = setAssetFontBold;
-exports.setAssetFontUnderline = setAssetFontUnderline;
+exports.setAssetFontStrikethrough = setAssetFontStrikethrough;
+exports.setAssetFont = setAssetFont;
 exports.setAssetFontItalic = setAssetFontItalic;
+exports.setFontStrikethrough = setFontStrikethrough;
 exports.setAssetTextColor = setAssetTextColor;
 exports.setAssetFillColor = setAssetFillColor;
 exports.setAssetBorderColor = setAssetBorderColor;
@@ -4556,6 +4558,7 @@ var actionTypes = exports.actionTypes = {
   ASSET_SET_TEXT_FONT_BOLD: 'ASSET_SET_TEXT_FONT_BOLD',
   ASSET_SET_TEXT_FONT_UNDERLINE: 'ASSET_SET_TEXT_FONT_UNDERLINE',
   ASSET_SET_TEXT_FONT_ITALIC: 'ASSET_SET_TEXT_FONT_ITALIC',
+  ASSET_SET_TEXT_FONT_STRIKETHROUGH: 'ASSET_SET_TEXT_FONT_STRIKETHROUGH',
   ASSET_SET_TEXT_COLOR: 'ASSET_SET_TEXT_COLOR',
   ASSET_SET_FILL_COLOR: 'ASSET_SET_FILL_COLOR',
   ASSET_SET_BORDER_COLOR: 'ASSET_SET_EDGE_COLOR',
@@ -4699,7 +4702,13 @@ function setAssetFontBold() {
   };
 }
 
-function setAssetFontUnderline() {
+function setAssetFontStrikethrough() {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH
+  };
+}
+
+function setAssetFont() {
   return {
     type: actionTypes.ASSET_SET_TEXT_FONT_UNDERLINE
   };
@@ -4708,6 +4717,12 @@ function setAssetFontUnderline() {
 function setAssetFontItalic() {
   return {
     type: actionTypes.ASSET_SET_TEXT_FONT_ITALIC
+  };
+}
+
+function setFontStrikethrough() {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH
   };
 }
 
@@ -10548,7 +10563,7 @@ exports = module.exports = __webpack_require__(20)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetEditorItem__AssetEditor_left___1NVam{\r\n    width: 60%;\r\n    height: 70vh ;\r\n    margin-left: 2em;\r\n    float: left;\r\n    \r\n}\r\n.AssetEditorItem__AssetEditor_preview___1X-MG{\r\n width: 48%;\r\n height: 20vh;\r\n border: 1.7px solid #1998E5;\r\n float: left;\r\n clear: both;\r\n display: inline-block;\r\n margin: 0 0.5em 0em 0;\r\n}\r\n.AssetEditorItem__preview_text___8UuQe{\r\n    color: #DFDFDF;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n    display: table;\r\n    margin-top: 8em;\r\n    font-size: 5px;\r\n}\r\n.AssetEditorItem__AssetEditor_topbar___2IFnZ{\r\n    width: 100%;\r\n    height: 4vh;\r\n    display: table;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__topbar_title___QSygj{\r\n    font-size: 10px;\r\n    margin: 0;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    color: white;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_setting___HdB3H{\r\nwidth: 50%;\r\nheight: 28%;\r\ndisplay: inline-block;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_description___1DU6n{\r\n\r\nwidth: 97.8%;\r\nheight: 47vh;\r\nborder: 1px solid #1898E5;\r\nmargin: 0.5em 1em 0 0;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_content___3x0Q-{\r\n    width: 99%;\r\n    height: 40vh;\r\n}\r\n\r\n.AssetEditorItem__description_content___iUN_A{\r\n    width: 97.8%;\r\n    height: 100%;\r\n    box-sizing:border-box;\r\n    overflow: hidden;\r\n    resize: none;\r\n    border: none;\r\n    outline: none;\r\n    font-family: inherit;\r\n    margin: 1em;\r\n}\r\n\r\n\r\n.AssetEditorItem__AssetEditor_right___2nZNW{\r\n width: 33%;\r\n height: 70vh;\r\n overflow-x: hidden;\r\n overflow-y: auto;\r\n display: inline-block;\r\n margin-left: 1em;\r\n} \r\n\r\n.AssetEditorItem__select_license___d77ab{\r\n    width: 100%;\r\n    height: 5vh;\r\n    border: 1px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    background-color: #1998E5;\r\n    text-align: center;\r\n    display: table;\r\n}\r\n.AssetEditorItem__select_license_text___1133Y{\r\n    color: white;\r\n    font-size: 3px;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n}\r\n.AssetEditorItem__dropdownButt___2Ur2L{\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-width: 6px 6px 0 6px;\r\n    border-color: #1997e5 transparent transparent transparent;\r\n    float: right;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n    margin: 1em;\r\n}\r\n\r\n.AssetEditorItem__license_content___187lz{\r\n    width: 99%;\r\n    height: 4.5vh;\r\n    border: 1.7px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    display: table;\r\n    background-color: white;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetEditorItem__license_text___1H8I9{\r\n    color: #1998E5;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    \r\n}\r\n\r\n.AssetEditorItem__dropdownContent___aepHJ{\r\n    width: 99%;\r\n    height: 5em;\r\n    border: 1px solid red;\r\n}\r\n\r\n.AssetEditorItem__CCL_top___3L9Bt{\r\n    width: 100%;\r\n    height: 2.3em;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__CCL_content___TxhZM{\r\n\r\n}\r\n.AssetEditorItem__AssetEditor_isAsset___1GKZ9{\r\nwidth: 35%;\r\nheight: 10em;\r\nborder: 1px solid #1998E5;\r\ndisplay: inline-block;\r\nmargin-bottom: 0.3em;\r\n}\r\n.AssetEditorItem__AssetEditor_Process___2wYmd{\r\nwidth: 35%;\r\nheight: 9.5em;\r\nborder: 1px solid#1998E5;\r\ndisplay: inline-block;\r\nmargin-bottom: 0.5em;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreement___2H1gA{\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n\r\n}\r\n\r\n.AssetEditorItem__isAsset_Header___1qTLe{\r\n    background-color: #1998E5;\r\n    width: 100%;\r\n    height: 2.3em;\r\n    display: table;\r\n\r\n}\r\n.AssetEditorItem__isAsset_titleText___1n5ld{\r\n    color: white;\r\n    font-size: 4px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n    width: 35%;\r\n    height: 4.6em;\r\n    color: white;\r\n    background-color:#1998E5; \r\n  cursor: pointer;\r\n}\r\n\r\n.AssetEditorItem__setting_first___wQ0KM{\r\n    width: 96%;\r\n    height : 2.5em;\r\n    font-family: inherit;\r\n}\r\n.AssetEditorItem__title___c96HW{\r\n    border : none;\r\n    height: 3em;\r\n    padding-top: 0;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin-top: 0.1em;\r\n    width: 99%;\r\n    outline: none;\r\n}\r\n.AssetEditorItem__title2___283G8{\r\n    border : none;\r\n    height: 2.9em;\r\n    padding-top: 0;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin-top: 0.1em;\r\n    width: 96%;\r\n    outline: none;\r\n}\r\n.AssetEditorItem__cover___2GfD6{\r\n    /* margin-top: 0em; */\r\n    width: 100%;\r\n    height: 30%;\r\n    background-color: #1998E5;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    display: table;\r\n    border: 1px solid #1998E5;\r\n}\r\n.AssetEditorItem__cover2___3-H2J{\r\n    width: 35%;\r\n    height: 2em;\r\n    background-color: #1998E5;\r\n    display: table;\r\n    border: 1px solid #1998E5;\r\n}\r\n\r\n.AssetEditorItem__frontTitle___1uMc5{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 2px;\r\n    padding : 0 7px 0 9px;\r\n    width: 20px;\r\n}\r\n.AssetEditorItem__frontTitle2___3d4Y_{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 2px;\r\n    padding : 0 7px 0 7px;\r\n    width: 20px;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__setting_second___2h3vv{\r\n    width: 99%;\r\n    margin-top: 5px;\r\n    height: 2em;\r\n}\r\n/* .openStore{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    \r\n} */\r\n\r\n.AssetEditorItem__openStoreDiv___3yiNY{\r\n    width: 30%;\r\n    height: 40px;\r\n    float: left;\r\n    margin-right: 4px;\r\n}\r\n\r\n.AssetEditorItem__openStoreButton___19rPQ{\r\n    width: 100%;\r\n    height: 3.3em;\r\n    background-color: white;\r\n    border: 1.5px solid #1998E5;\r\n    color: #1998E5;\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.AssetEditorItem__changeCharge___225HO{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n   \r\n}\r\n.AssetEditorItem__text___38jIY{\r\n    padding: 1em;\r\n}\r\n\r\n.AssetEditorItem__setting_third___Q-Uhb{\r\n    width: 99%;\r\n    margin-top: 10px;\r\n    height: 4em;\r\n}\r\n\r\n.AssetEditorItem__imagePreview___1mVgS{\r\n    width: 38%;\r\n    height: 4.5em;\r\n    border: 1.7px solid #1998E5;\r\n    float: left;\r\n    margin-right: 5px;\r\n    display: table;\r\n}\r\n.AssetEditorItem__previewText___1MttC{\r\n    color: #E2E2E2;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__filebutton___3Bsvd{\r\n    width: 5%;\r\n    height: 6.8em;\r\n    position: absolute;\r\n    background-color: #1998E5\r\n}\r\n.AssetEditorItem__filefile___2gxp2{\r\n    width: 100%;\r\n    height: 7em;\r\n    background-color: #1998E5;\r\n    cursor: pointer;\r\n    opacity: 0;\r\n    position: relative;\r\n}", ""]);
+exports.push([module.i, ".AssetEditorItem__AssetEditor_left___1NVam{\r\n    width: 60%;\r\n    height: 70vh ;\r\n    margin-left: 2em;\r\n    float: left;\r\n    \r\n}\r\n.AssetEditorItem__AssetEditor_preview___1X-MG{\r\n width: 48%;\r\n height: 10em;\r\n border: 1.7px solid #1998E5;\r\n float: left;\r\n clear: both;\r\n display: inline-block;\r\n margin: 0 0.5em 0em 0;\r\n}\r\n.AssetEditorItem__preview_text___8UuQe{\r\n    color: #DFDFDF;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n    display: table;\r\n    margin-top: 8em;\r\n    font-size: 5px;\r\n}\r\n.AssetEditorItem__AssetEditor_topbar___2IFnZ{\r\n    width: 100%;\r\n    height: 4vh;\r\n    display: table;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__topbar_title___QSygj{\r\n    font-size: 10px;\r\n    margin: 0;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    color: white;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_setting___HdB3H{\r\nwidth: 50%;\r\nheight: 28%;\r\ndisplay: inline-block;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_description___1DU6n{\r\n\r\nwidth: 97.8%;\r\nheight: 48vh;\r\nborder: 1px solid #1898E5;\r\nmargin: 0.5em 1em 0 0;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_content___3x0Q-{\r\n    width: 99%;\r\n    height: 40vh;\r\n}\r\n\r\n.AssetEditorItem__description_content___iUN_A{\r\n    width: 97.8%;\r\n    height: 100%;\r\n    box-sizing:border-box;\r\n    overflow: hidden;\r\n    resize: none;\r\n    border: none;\r\n    outline: none;\r\n    font-family: inherit;\r\n    margin: 1em;\r\n}\r\n\r\n\r\n.AssetEditorItem__AssetEditor_right___2nZNW{\r\n width: 33%;\r\n height: 73vh;\r\n overflow-x: hidden;\r\n overflow-y: auto;\r\n display: inline-block;\r\n margin-left: 1em;\r\n} \r\n\r\n.AssetEditorItem__select_license___d77ab{\r\n    width: 100%;\r\n    height: 5vh;\r\n    border: 1px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    background-color: #1998E5;\r\n    text-align: center;\r\n    display: table;\r\n}\r\n\r\n.AssetEditorItem__select_license_text___1133Y{\r\n    color: white;\r\n    font-size: 3px;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n}\r\n.AssetEditorItem__dropdownButt___2Ur2L{\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-width: 6px 6px 0 6px;\r\n    border-color: #1997e5 transparent transparent transparent;\r\n    float: right;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n    margin: 1em;\r\n}\r\n\r\n.AssetEditorItem__license_content___187lz{\r\n    width: 99%;\r\n    height: 4.5vh;\r\n    border: 1.7px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    display: table;\r\n    background-color: white;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetEditorItem__license_text___1H8I9{\r\n    color: #1998E5;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    \r\n}\r\n\r\n.AssetEditorItem__dropdownContent___aepHJ{\r\n    width: 99%;\r\n    height: 5em;\r\n    border: 1px solid red;\r\n}\r\n\r\n.AssetEditorItem__CCL_top___3L9Bt{\r\n    width: 100%;\r\n    height: 2.3em;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__CCL_content___TxhZM{\r\n\r\n}\r\n.AssetEditorItem__AssetEditor_isAsset___1GKZ9{\r\nwidth: 35%;\r\nheight: 10em;\r\nborder: 1px solid #1998E5;\r\ndisplay: inline-block;\r\nmargin-bottom: 0.3em;\r\nposition: absolute;\r\n}\r\n.AssetEditorItem__AssetEditor_Process___2wYmd{\r\nwidth: 35%;\r\nheight: 9.5em;\r\nborder: 1px solid#1998E5;\r\ndisplay: inline-block;\r\nmargin-bottom: 0.5em;\r\nposition: absolute;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreement___2H1gA{\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n\r\n}\r\n\r\n.AssetEditorItem__isAsset_Header___1qTLe{\r\n    background-color: #1998E5;\r\n    width: 100%;\r\n    height: 2.3em;\r\n    display: table;\r\n\r\n}\r\n.AssetEditorItem__isAsset_titleText___1n5ld{\r\n    color: white;\r\n    font-size: 4px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n    width: 35%;\r\n    height: 4.6em;\r\n    color: white;\r\n    background-color:#1998E5; \r\n    cursor: pointer;\r\n    position: absolute;\r\n}\r\n\r\n.AssetEditorItem__setting_first___wQ0KM{\r\n    width: 96%;\r\n    height : 2.5em;\r\n    font-family: inherit;\r\n}\r\n.AssetEditorItem__title___c96HW{\r\n    border : none;\r\n    height: 3em;\r\n    padding-top: 0;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin-top: 0.1em;\r\n    width: 99%;\r\n    outline: none;\r\n}\r\n.AssetEditorItem__title2___283G8{\r\n    border : none;\r\n    height: 2.9em;\r\n    padding-top: 0;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    margin-top: 0.1em;\r\n    width: 96%;\r\n    outline: none;\r\n}\r\n.AssetEditorItem__cover___2GfD6{\r\n    /* margin-top: 0em; */\r\n    width: 100%;\r\n    height: 30%;\r\n    background-color: #1998E5;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    display: table;\r\n    border: 1px solid #1998E5;\r\n}\r\n.AssetEditorItem__cover2___3-H2J{\r\n    width: 35%;\r\n    height: 2em;\r\n    background-color: #1998E5;\r\n    display: table;\r\n    border: 1px solid #1998E5;\r\n}\r\n\r\n.AssetEditorItem__frontTitle___1uMc5{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 2px;\r\n    padding : 0 7px 0 9px;\r\n    width: 20px;\r\n}\r\n.AssetEditorItem__frontTitle2___3d4Y_{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 2px;\r\n    padding : 0 7px 0 7px;\r\n    width: 20px;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__setting_second___2h3vv{\r\n    width: 99%;\r\n    margin-top: 5px;\r\n    height: 2em;\r\n}\r\n/* .openStore{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    \r\n} */\r\n\r\n.AssetEditorItem__openStoreDiv___3yiNY{\r\n    width: 30%;\r\n    height: 40px;\r\n    float: left;\r\n    margin-right: 4px;\r\n}\r\n\r\n.AssetEditorItem__openStoreButton___19rPQ{\r\n    width: 100%;\r\n    height: 3.3em;\r\n    background-color: white;\r\n    border: 1.5px solid #1998E5;\r\n    color: #1998E5;\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.AssetEditorItem__changeCharge___225HO{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n   \r\n}\r\n.AssetEditorItem__text___38jIY{\r\n    padding: 1em;\r\n}\r\n\r\n.AssetEditorItem__setting_third___Q-Uhb{\r\n    width: 99%;\r\n    margin-top: 10px;\r\n    height: 4em;\r\n}\r\n\r\n.AssetEditorItem__imagePreview___1mVgS{\r\n    width: 38%;\r\n    height: 4.5em;\r\n    border: 1.7px solid #1998E5;\r\n    float: left;\r\n    margin-right: 5px;\r\n    display: table;\r\n}\r\n.AssetEditorItem__previewText___1MttC{\r\n    color: #E2E2E2;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__filebutton___3Bsvd{\r\n    width: 5%;\r\n    height: 6.8em;\r\n    position: absolute;\r\n    background-color: #1998E5\r\n}\r\n.AssetEditorItem__filefile___2gxp2{\r\n    width: 100%;\r\n    height: 7em;\r\n    background-color: #1998E5;\r\n    cursor: pointer;\r\n    opacity: 0;\r\n    position: relative;\r\n}", ""]);
 
 // exports
 exports.locals = {
@@ -10643,7 +10658,7 @@ exports = module.exports = __webpack_require__(20)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetController__items___12-Ka {\r\n    padding: 0;\r\n    margin: 0 0 1em 0.4em;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 12px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-block;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 40%;\r\n    height: 20px;\r\n    float: left;\r\n}\r\n\r\n.AssetController__URL_controller___8MQ6H {\r\n    width: 90%;\r\n    display: table;\r\n    padding: 1px 0 1px 2px;\r\n}\r\n\r\n.AssetController__video_margin_zero___1ZJDF {\r\n    margin: 0;\r\n}\r\n\r\n.AssetController__video___1YT3H {\r\n    text-align: center;\r\n    width: 25%;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetController__attribute_item_title___1gZe5 {\r\n    border: 0;\r\n    margin: 0 0 0 5px;\r\n    width: 15%;\r\n    font-size: 15px;\r\n    color: #5a84b3;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 60%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    clear: both;\r\n    outline-width: 0;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\nhr {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 85%;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n    padding: 5px;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y textarea{\r\n    width: 98%;\r\n    height: 15vh;\r\n    border: 0;\r\n}\r\n\r\ntextarea:focus{\r\n    outline: 0;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n    margin: 3px;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz{\r\n}\r\n\r\n.AssetController__control_item___1Maaq img{\r\n    margin: 3px 0 0 5px;;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz img{\r\n    cursor: pointer;\r\n    margin : 10px;\r\n}\r\n\r\n.AssetController__change_color___1dCnR{\r\n    cursor: pointer;\r\n    width:20px;\r\n    height: 20px;\r\n    border-radius: 20px;\r\n    float: right;\r\n    display: inline-block;\r\n    background: hotpink;\r\n}\r\n\r\n.AssetController__color_picker_modal___2_yyP{\r\n    position: absolute;\r\n    left: 40%;\r\n    top: 40%;\r\n}", ""]);
+exports.push([module.i, ".AssetController__items___12-Ka {\r\n    padding: 0;\r\n    margin: 0 0 1em 0.4em;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 12px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-block;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 40%;\r\n    height: 20px;\r\n    float: left;\r\n}\r\n\r\n.AssetController__URL_controller___8MQ6H {\r\n    width: 90%;\r\n    display: table;\r\n    padding: 1px 0 1px 2px;\r\n}\r\n\r\n.AssetController__video_margin_zero___1ZJDF {\r\n    margin: 0;\r\n}\r\n\r\n.AssetController__video___1YT3H {\r\n    text-align: center;\r\n    width: 25%;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetController__attribute_item_title___1gZe5 {\r\n    border: 0;\r\n    margin: 0 0 0 5px;\r\n    width: 15%;\r\n    font-size: 15px;\r\n    color: #5a84b3;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 60%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    clear: both;\r\n    outline-width: 0;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\nhr {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 85%;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n    padding: 5px;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y textarea{\r\n    width: 98%;\r\n    height: 15vh;\r\n    border: 0;\r\n}\r\n\r\ntextarea:focus{\r\n    outline: 0;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n    margin: 3px;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz{\r\n}\r\n\r\n.AssetController__control_item___1Maaq img{\r\n    margin: 3px 0 0 5px;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz img{\r\n    cursor: pointer;\r\n    margin : 10px;\r\n}\r\n\r\n.AssetController__change_color___1dCnR{\r\n    cursor: pointer;\r\n    width:20px;\r\n    height: 20px;\r\n    border-radius: 20px;\r\n    float: right;\r\n    display: inline-block;\r\n    background: hotpink;\r\n}\r\n\r\n.AssetController__color_picker_modal___2_yyP{\r\n    position: absolute;\r\n    left: 40%;\r\n    top: 40%;\r\n}", ""]);
 
 // exports
 exports.locals = {
@@ -32911,7 +32926,7 @@ var AssetEditorItem = function (_React$Component) {
                 'div',
                 null,
                 _react2.default.createElement(_AssetSetting2.default, null),
-                _react2.default.createElement(_ChargeAsset2.default, null)
+                _react2.default.createElement(_FreeAsset2.default, null)
             );
         }
     }]);
@@ -33132,7 +33147,8 @@ var AssetSetting = function (_React$Component) {
                                 'span',
                                 { className: _AssetEditorItem2.default.frontTitle },
                                 '\uC81C\uBAA9'
-                            )
+                            ),
+                            _react2.default.createElement('input', { type: 'text', className: _AssetEditorItem2.default.title, placeholder: ' \uD0C0\uC774\uD2C0\uC744 \uC785\uB825\uD558\uC138\uC694' })
                         )
                     ),
                     _react2.default.createElement(
@@ -34153,19 +34169,18 @@ var AssetController = function (_React$Component) {
         value: function ControllerSelector(selectedAsset) {
             switch (this.props.currentSilde.assets[selectedAsset].type) {
                 case actions.TYPE_TEXT:
-                    return _react2.default.createElement(_TextController2.default, { font: this.props.currentSilde.assets[selectedAsset].font,
-                        fontSize: this.props.currentSilde.assets[selectedAsset].fontSize,
-                        sort: this.props.currentSilde.assets[selectedAsset].sort,
-                        bold: this.props.currentSilde.assets[selectedAsset].bold,
-                        underline: this.props.currentSilde.assets[selectedAsset].underline,
-                        italic: this.props.currentSilde.assets[selectedAsset].italic,
-                        fill_color: this.props.currentSilde.assets[selectedAsset].fill_color,
-                        edge: this.props.currentSilde.assets[selectedAsset].edge });
+                    return _react2.default.createElement(_TextController2.default, { font: this.props.currentSilde.assets[selectedAsset].style.text.font,
+                        fontSize: this.props.currentSilde.assets[selectedAsset].style.text.fontSize,
+                        sort: this.props.currentSilde.assets[selectedAsset].style.text.sort,
+                        bold: this.props.currentSilde.assets[selectedAsset].style.text.fontBold,
+                        underline: this.props.currentSilde.assets[selectedAsset].style.text.fontUnderline,
+                        italic: this.props.currentSilde.assets[selectedAsset].style.text.fontItalic,
+                        strikethrough: this.props.currentSilde.assets[selectedAsset].style.text.fontStrikethrough });
                 case actions.TYPE_VIDEO:
-                    return _react2.default.createElement(_VideoController2.default, { video_url: this.props.currentSilde.assets[selectedAsset].url,
-                        controller: this.props.currentSilde.assets[selectedAsset].controller,
-                        autoplay: this.props.currentSilde.assets[selectedAsset].autoplay,
-                        loop: this.props.currentSilde.assets[selectedAsset].loop });
+                    return _react2.default.createElement(_VideoController2.default, { url: this.props.currentSilde.assets[selectedAsset].style.video.url,
+                        videoController: this.props.currentSilde.assets[selectedAsset].style.video.videoController,
+                        videoAutoplay: this.props.currentSilde.assets[selectedAsset].style.video.videoAutoplay,
+                        videoLoop: this.props.currentSilde.assets[selectedAsset].style.video.videoLoop });
                 case actions.TYPE_SHAPE:
                     return _react2.default.createElement(_ShapeController2.default, null);
                 case actions.TYPE_IMAGE:
@@ -34279,15 +34294,16 @@ var TextController = function (_React$Component) {
         _this.textOn = _this.textOn.bind(_this);
         _this.textOff = _this.textOff.bind(_this);
 
+        _this.clickAlignItalic = _this.clickAlignItalic.bind(_this);
+        _this.clickAlignBold = _this.clickAlignBold.bind(_this);
+        _this.clickAlignUnderline = _this.clickAlignUnderline.bind(_this);
+        _this.clickAlignStrikethrough = _this.clickAlignStrikethrough.bind(_this);
         return _this;
     }
 
     _createClass(TextController, [{
         key: 'render',
         value: function render() {
-            var selectedAsset = this.props.currentSilde.selectedAsset - 1;
-            var textStyles = this.props.currentSilde.assets[selectedAsset].style.text;
-            console.log(textStyles);
             return _react2.default.createElement(
                 'div',
                 null,
@@ -34419,22 +34435,22 @@ var TextController = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { className: _AssetController2.default.control_text_attribute },
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_left.png', style: textStyles.sort === 'left' ? { display: 'none' } : {}, onClick: this.setAssetTextSort(textStyles, 'left') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_left_apply.png', style: textStyles.sort === 'left' ? {} : { display: 'none' }, onClick: this.setAssetTextSort(textStyles, 'left') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_center.png', style: textStyles.sort === 'center' ? { display: 'none' } : {}, onClick: this.setAssetTextSort(textStyles, 'center') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_center_apply.png', style: textStyles.sort === 'center' ? {} : { display: 'none' }, onClick: this.setAssetTextSort(textStyles, 'center') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_right.png', style: textStyles.sort === 'right' ? {} : { display: 'none' }, onClick: this.setAssetTextSort(textStyles, 'right') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_right_apply.png', style: textStyles.sort === 'right' ? {} : { display: 'none' }, onClick: this.setAssetTextSort(textStyles, 'right') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_justify.png', style: textStyles.sort === 'justify' ? { display: 'none' } : {}, onClick: this.setAssetTextSort(textStyles, 'justify') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_justify_apply.png', style: textStyles.sort === 'justify' ? {} : { display: 'none' }, onClick: this.setAssetTextSort(textStyles, 'justify') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_bold.png', style: textStyles.bold ? { display: 'none' } : {}, onClick: this.clickAlignBold(textStyles) }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_bold_apply.png', style: textStyles.bold ? {} : { display: 'none' }, onClick: this.clickAlignBold(textStyles) }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_italic.png', style: textStyles.italic ? { display: 'none' } : {}, onClick: this.clickAlignItalic(textStyles) }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_italic_apply.png', style: textStyles.italic ? {} : { display: 'none' }, onClick: this.clickAlignItalic(textStyles) }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_underlined.png', style: textStyles.underline ? { display: 'none' } : {}, onClick: this.clickAlignUnderline(textStyles) }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_underlined_apply.png', style: textStyles.underline ? {} : { display: 'none' }, onClick: this.clickAlignUnderline(textStyles) }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_strikethrough.png', style: textStyles.strikethrough ? { display: 'none' } : {}, onClick: this.clickAlignStrikethrough(textStyles) }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_strikethrough_apply.png', style: textStyles.strikethrough ? {} : { display: 'none' }, onClick: this.clickAlignStrikethrough(textStyles) })
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_left.png', style: this.props.sort === 'left' ? { display: 'none' } : {}, onClick: this.setAssetTextSort.bind('left') }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_left_apply.png', style: this.props.sort === 'left' ? {} : { display: 'none' }, onClick: this.setAssetTextSort.bind('left') }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_center.png', style: this.props.sort === 'center' ? { display: 'none' } : {}, onClick: this.setAssetTextSort.bind('center') }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_center_apply.png', style: this.props.sort === 'center' ? {} : { display: 'none' }, onClick: this.setAssetTextSort.bind('center') }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_right.png', style: this.props.sort === 'right' ? {} : { display: 'none' }, onClick: this.setAssetTextSort.bind('right') }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_right_apply.png', style: this.props.sort === 'right' ? {} : { display: 'none' }, onClick: this.setAssetTextSort.bind('right') }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_justify.png', style: this.props.sort === 'justify' ? { display: 'none' } : {}, onClick: this.setAssetTextSort.bind('justify') }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_justify_apply.png', style: this.props.sort === 'justify' ? {} : { display: 'none' }, onClick: this.setAssetTextSort.bind('justify') }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_bold.png', style: this.props.bold ? { display: 'none' } : {}, onClick: this.clickAlignBold }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_bold_apply.png', style: this.props.bold ? {} : { display: 'none' }, onClick: this.clickAlignBold }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_italic.png', style: this.props.italic ? { display: 'none' } : {}, onClick: this.clickAlignItalic }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_italic_apply.png', style: this.props.italic ? {} : { display: 'none' }, onClick: this.clickAlignItalic }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_underlined.png', style: this.props.underline ? { display: 'none' } : {}, onClick: this.clickAlignUnderline }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_underlined_apply.png', style: this.props.underline ? {} : { display: 'none' }, onClick: this.clickAlignUnderline }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_strikethrough.png', style: this.props.strikethrough ? { display: 'none' } : {}, onClick: this.clickAlignStrikethrough }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_strikethrough_apply.png', style: this.props.strikethrough ? {} : { display: 'none' }, onClick: this.clickAlignStrikethrough })
                         )
                     )
                 ),
@@ -34462,28 +34478,29 @@ var TextController = function (_React$Component) {
     }, {
         key: 'setAssetTextSort',
         value: function setAssetTextSort(textStyles, sort) {
+            console.log(actions);
             if (textStyles.sort === sort) sort = '';
             this.props.setAssetTextSort(sort);
         }
     }, {
         key: 'clickAlignBold',
         value: function clickAlignBold(textStyles) {
-            this.props.setAssetFontBold(!textStyles.bold);
+            this.props.setAssetFontBold(!this.props.bold);
         }
     }, {
         key: 'clickAlignItalic',
         value: function clickAlignItalic(textStyles) {
-            this.props.setAssetFontBold(!textStyles.italic);
+            this.props.setAssetFontBold(!this.props.italic);
         }
     }, {
         key: 'clickAlignUnderline',
         value: function clickAlignUnderline(textStyles) {
-            this.props.setFontUnderline(!textStyles.underline);
+            this.props.setFontUnderline(!this.props.underline);
         }
     }, {
         key: 'clickAlignStrikethrough',
         value: function clickAlignStrikethrough(textStyles) {
-            this.props.setFontUnderline(!textStyles.strikethrough);
+            this.props.setFontStrikethrough(this.props.strikethrough);
         }
     }]);
 
@@ -34572,9 +34589,6 @@ var VideoController = function (_React$Component) {
     _createClass(VideoController, [{
         key: 'render',
         value: function render() {
-            var selectedAsset = this.props.currentSilde.selectedAsset - 1;
-            var videoStyles = this.props.currentSilde.assets[selectedAsset].style.video;
-            console.log(videoStyles);
             return _react2.default.createElement(
                 'div',
                 null,
@@ -34601,35 +34615,35 @@ var VideoController = function (_React$Component) {
                             'URL :'
                         ),
                         ' ',
-                        _react2.default.createElement('input', { type: 'text', value: 'video_url', className: _AssetController2.default.attribute_item_input })
+                        _react2.default.createElement('input', { type: 'text', value: this.props.url, className: _AssetController2.default.attribute_item_input })
                     ),
                     _react2.default.createElement(
                         'div',
                         null,
                         _react2.default.createElement(
                             'div',
-                            { onClick: this.controllerOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.state.video_controller ? { 'background-color': '#5a84b3' } : {} },
+                            { onClick: this.controllerOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoController ? { 'background-color': '#5a84b3' } : {} },
                             _react2.default.createElement(
                                 'span',
-                                { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.state.video_controller ? { color: '#fff' } : {} },
+                                { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.props.videoController ? { color: '#fff' } : {} },
                                 '\uCEE8\uD2B8\uB864\uB7EC'
                             )
                         ),
                         _react2.default.createElement(
                             'div',
-                            { onClick: this.autoplayOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.state.video_autoplay ? { 'background-color': '#5a84b3' } : {} },
+                            { onClick: this.autoplayOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoAutoplay ? { 'background-color': '#5a84b3' } : {} },
                             _react2.default.createElement(
                                 'span',
-                                { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.state.video_autoplay ? { color: '#fff' } : {} },
+                                { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.props.videoAutoplay ? { color: '#fff' } : {} },
                                 '\uC790\uB3D9\uC7AC\uC0DD'
                             )
                         ),
                         _react2.default.createElement(
                             'div',
-                            { onClick: this.loopOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.state.video_loop ? { 'background-color': '#5a84b3' } : {} },
+                            { onClick: this.loopOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoLoop ? { 'background-color': '#5a84b3' } : {} },
                             _react2.default.createElement(
                                 'span',
-                                { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.state.video_loop ? { color: '#fff' } : {} },
+                                { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.props.videoLoop ? { color: '#fff' } : {} },
                                 '\uBC18\uBCF5'
                             )
                         )
@@ -34659,20 +34673,17 @@ var VideoController = function (_React$Component) {
     }, {
         key: 'controllerOnClick',
         value: function controllerOnClick(videoStyles) {
-            console.log('asdf');
             this.props.setAssetVideoController(!videoStyles.videoController);
         }
     }, {
         key: 'loopOnClick',
         value: function loopOnClick(videoStyles) {
-            console.log('asdf');
-            this.props.setAssetVideoAutoplay(!videoStyles.videoLoop);
+            this.props.setAssetVideoLoop(!videoStyles.videoLoop);
         }
     }, {
         key: 'autoplayOnClick',
         value: function autoplayOnClick(videoStyles) {
-            console.log('asdf');
-            this.props.setAssetVideoURL(!videoStyles.videoAutoplay);
+            this.props.setAssetVideoAutoplay(!videoStyles.videoAutoplay);
         }
     }]);
 
@@ -34680,9 +34691,7 @@ var VideoController = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    return {
-        currentSilde: state.editor.slides[state.editor.selectedSlide]
-    };
+    return {};
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -34742,8 +34751,8 @@ var ImageController = function (_React$Component) {
             image_arrow_down: true
         };
 
-        _this.videoOn = _this.imageOn.bind(_this);
-        _this.videoOff = _this.imageOff.bind(_this);
+        _this.imageOn = _this.imageOn.bind(_this);
+        _this.imageOff = _this.imageOff.bind(_this);
         return _this;
     }
 
@@ -48256,7 +48265,8 @@ var editor = function editor() {
             sort: '',
             fontBold: false,
             fontItalic: false,
-            fontUnderline: false
+            fontUnderline: false,
+            fontStrikethrough: false
           }, video: {
             url: '',
             videoController: false,
@@ -48364,7 +48374,7 @@ var editor = function editor() {
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontBold: { text: { fontsize: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontBold } } }
+              fontBold: { text: { fontBold: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontBold } } }
             })) }
         }))
       });
@@ -48372,7 +48382,7 @@ var editor = function editor() {
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontUnderline: { text: { fontsize: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontUnderline } } }
+              fontUnderline: { text: { fontUnderline: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontUnderline } } }
             })) }
         }))
       });
@@ -48380,7 +48390,15 @@ var editor = function editor() {
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontItalic: { text: { fontsize: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontItalic } } }
+              fontItalic: { text: { fontItalic: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontItalic } } }
+            })) }
+        }))
+      });
+    case _assets.actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH:
+      return _extends({}, state, {
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
+          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              fontStrikethrough: { text: { fontStrikethrough: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontStrikethrough } } }
             })) }
         }))
       });
