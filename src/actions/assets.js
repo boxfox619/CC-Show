@@ -9,21 +9,20 @@ export const actionTypes = {
   ASSET_SET_Y_POSTION: 'ASSET_SET_Y_POSTION',
   ASSET_SET_BOTH_POSITION: 'ASSET_SET_BOTH_POSITION',
   ASSET_SET_ANGLE: 'ASSET_SET_ANGLE',
-  ASSET_SET_STYLE: 'ASSET_SET_STYLE',
-  ASSET_SET_FONT: 'ASSET_SET_FONT',
-  ASSET_SET_FONT_SIZE: 'ASSET_SET_FONT_SIZE',
+  ASSET_SET_TEXT_FONT: 'ASSET_SET_TEXT_FONT',
+  ASSET_SET_TEXT_FONT_SIZE: 'ASSET_SET_TEXT_FONT_SIZE',
   ASSET_SET_TEXT_SORT: 'ASSET_SET_TEXT_SORT',
-  ASSET_SET_FONT_BOLD: 'ASSET_SET_FONT_BOLD',
-  ASSET_SET_FONT_UNDERLINE: 'ASSET_SET_FONT_UNDERLINE',
-  ASSET_SET_FONT_ITALIC: 'ASSET_SET_FONT_ITALIC',
+  ASSET_SET_TEXT_FONT_BOLD: 'ASSET_SET_TEXT_FONT_BOLD',
+  ASSET_SET_TEXT_FONT_UNDERLINE: 'ASSET_SET_TEXT_FONT_UNDERLINE',
+  ASSET_SET_TEXT_FONT_ITALIC: 'ASSET_SET_TEXT_FONT_ITALIC',
+  ASSET_SET_TEXT_COLOR: 'ASSET_SET_TEXT_COLOR',
   ASSET_SET_FILL_COLOR: 'ASSET_SET_FILL_COLOR',
-  ASSET_SET_EDGE: 'ASSET_SET_EDGE',
+  ASSET_SET_BORDER_COLOR: 'ASSET_SET_EDGE_COLOR',
+  ASSET_SET_BORDER_WEIGHT: 'ASSET_SET_EDGE_WEIGHT',
   ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
   ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',
   ASSET_SET_VIDEO_AUTOPLAY: 'ASSET_SET_VIDEO_AUTOPLAY',
   ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP',
-  ASSET_SET_BORDER_COLOR: "ASSET_SET_BORDER_COLOR",
-  ASSET_SET_BORDER_WIDTH: "ASSET_SET_BORDER_WIDTH",
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
   ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
   ASSET_CREATE: "ASSET_CREATE",
@@ -111,13 +110,6 @@ export function setAssetAngle(value) {
   }
 }
 
-export function setAssetStyle(style) {
-  return{
-    type: actionTypes.ASSET_SET_TEXT_SORT,
-    style
-  }
-}
-
 export const setAttributes = (attrs) => {
   Object.keys(attrs).map(function (key, index) {
     attrs[key] = {
@@ -130,17 +122,24 @@ export const setAttributes = (attrs) => {
   }
 }
 
-export function setAssetFont(font) {
+export function setAssetTextFont(font) {
   return{
-    type: actionTypes.ASSET_SET_FONT,
+    type: actionTypes.ASSET_SET_TEXT_FONT,
     font
   }
 }
 
 export function setAssetFontSize(fontSize) {
   return{
-    type: actionTypes.ASSET_SET_FONT_SIZE,
+    type: actionTypes.ASSET_SET_TEXT_FONT_SIZE,
     fontSize
+  }
+}
+
+export function setAssetTextLineSpacing(value) {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_LINESPACING,
+    value
   }
 }
 
@@ -151,24 +150,28 @@ export function setAssetTextSort(sort) {
   }
 }
 
-export function setAssetFontBold(bold) {
+export function setAssetFontBold() {
   return{
-    type: actionTypes.ASSET_SET_FONT_BOLD,
-    bold
+    type: actionTypes.ASSET_SET_TEXT_FONT_BOLD
   }
 }
 
-export function setAssetFontUnderline(underline) {
+export function setAssetFontUnderline() {
   return{
-    type: actionTypes.ASSET_SET_FONT_UNDERLINE,
-    underline
+    type: actionTypes.ASSET_SET_TEXT_FONT_UNDERLINE
   }
 }
 
-export function setAssetFontItalic(italic) {
+export function setAssetFontItalic() {
   return{
-    type: actionTypes.ASSET_SET_FONT_ITALIC,
-    italic
+    type: actionTypes.ASSET_SET_TEXT_FONT_ITALIC
+  }
+}
+
+export function setAssetTextColor(color) {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_COLOR,
+    color
   }
 }
 
@@ -179,11 +182,17 @@ export function setAssetFillColor(color) {
   }
 }
 
-export function setAssetEdge(color, weight) {
+export function setAssetBorderColor(borderColor) {
   return{
-    type: actionTypes.ASSET_SET_EDGE,
-    color,
-    weight
+    type: actionTypes.ASSET_SET_BORDER_COLOR,
+    borderColor
+  }
+}
+
+export function setAssetEdgeWeight(weight) {
+  return{
+    type: actionTypes.ASSET_SET_BORDER_WEIGHT,
+    borderWeight
   }
 }
 
@@ -194,23 +203,20 @@ export function setAssetVideoURL(url){
   }
 }
 
-export function setAssetVideoController(controller){
+export function setAssetVideoController(){
   return{
-    type: actionTypes.ASSET_SET_VIDEO_CONTROLLER,
-    controller
+    type: actionTypes.ASSET_SET_VIDEO_CONTROLLER
   }
 }
 
-export function setAssetVideoAutoplay(autoplay){
+export function setAssetVideoAutoplay(){
   return{
-    type: actionTypes.ASSET_SET_VIDEO_AUTOPLAY,
-    autoplay
+    type: actionTypes.ASSET_SET_VIDEO_AUTOPLAY
   }
 }
 
-export function setAssetVideoLoop(loop){
+export function setAssetVideoLoop(){
   return{
-    type: actionTypes.ASSET_SET_VIDEO_LOOP,
-    loop
+    type: actionTypes.ASSET_SET_VIDEO_LOOP
   }
 }

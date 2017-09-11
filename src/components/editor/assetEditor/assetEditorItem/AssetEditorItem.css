@@ -7,7 +7,7 @@
 }
 .AssetEditor_preview{
  width: 48%;
- height: 20vh;
+ height: 10em;
  border: 1.7px solid #1998E5;
  float: left;
  clear: both;
@@ -47,7 +47,7 @@ display: inline-block;
 .AssetEditor_description{
 
 width: 97.8%;
-height: 47vh;
+height: 60vh;
 border: 1px solid #1898E5;
 margin: 0.5em 1em 0 0;
 
@@ -73,7 +73,7 @@ margin: 0.5em 1em 0 0;
 
 .AssetEditor_right{
  width: 33%;
- height: 70vh;
+ height: 73vh;
  overflow-x: hidden;
  overflow-y: auto;
  display: inline-block;
