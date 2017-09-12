@@ -181,14 +181,14 @@ export function setFontStrikethrough() {
   }
 }
 
-export function setAssetTextColor(color) {
+export function setAssetTextColor(textColor) {
   return{
     type: actionTypes.ASSET_SET_TEXT_COLOR,
-    color
+    textColor
   }
 }
 
-export function setAssetFillColor(color) {
+export function setAssetFillColor(fillColor) {
   return{
     type: actionTypes.ASSET_SET_FILL_COLOR,
     fillColor
