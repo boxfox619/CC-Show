@@ -8,7 +8,6 @@ export const dialogs = {
   ASSET_STORE: 'AssetStore',
   ASSET_EDITOR: 'AssetEditor',
   ACCOUNT_WITH_SNS: 'AccountDialog',
-  SLIDE_SHOW: 'SlideShow',
   FILL_COLOR_PICKER: 'FillColorPicker',
   EDGE_COLOR_PICKER: 'EdgeColorPicker'
 }
@@ -38,13 +37,6 @@ export const toggleAccountDialog = () => {
   return {
     type: actionTypes.TOGGLE_DIALOG,
     target: dialogs.ACCOUNT_WITH_SNS
-  }
-}
-
-export const toggleSlideShow = () => {
-  return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.SLIDE_SHOW
   }
 }
 

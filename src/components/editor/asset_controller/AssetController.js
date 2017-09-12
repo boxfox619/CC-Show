@@ -21,21 +21,20 @@ class AssetController extends React.Component {
             switch (this.props.currentSilde.assets[selectedAsset].type) {
                 case actions.TYPE_TEXT:
                     return(
-                            <TextController font = {this.props.currentSilde.assets[selectedAsset].font}
-                                            fontSize = {this.props.currentSilde.assets[selectedAsset].fontSize}
-                                            sort = {this.props.currentSilde.assets[selectedAsset].sort}
-                                            bold = {this.props.currentSilde.assets[selectedAsset].bold}
-                                            underline = {this.props.currentSilde.assets[selectedAsset].underline}
-                                            italic = {this.props.currentSilde.assets[selectedAsset].italic}
-                                            fill_color = {this.props.currentSilde.assets[selectedAsset].fill_color}
-                                            edge = {this.props.currentSilde.assets[selectedAsset].edge}/>
+                            <TextController font = {this.props.currentSilde.assets[selectedAsset].style.text.font}
+                                            fontSize = {this.props.currentSilde.assets[selectedAsset].style.text.fontSize}
+                                            sort = {this.props.currentSilde.assets[selectedAsset].style.text.sort}
+                                            bold = {this.props.currentSilde.assets[selectedAsset].style.text.fontBold}
+                                            underline = {this.props.currentSilde.assets[selectedAsset].style.text.fontUnderline}
+                                            italic = {this.props.currentSilde.assets[selectedAsset].style.text.fontItalic}
+                                            strikethrough = {this.props.currentSilde.assets[selectedAsset].style.text.fontStrikethrough}/>
                     )
                 case actions.TYPE_VIDEO:
                     return(
-                            <VideoController video_url = {this.props.currentSilde.assets[selectedAsset].url}
-                                             controller = {this.props.currentSilde.assets[selectedAsset].controller}
-                                             autoplay = {this.props.currentSilde.assets[selectedAsset].autoplay}
-                                             loop = {this.props.currentSilde.assets[selectedAsset].loop} />
+                            <VideoController url = {this.props.currentSilde.assets[selectedAsset].style.video.url}
+                                             videoController = {this.props.currentSilde.assets[selectedAsset].style.video.videoController}
+                                             videoAutoplay = {this.props.currentSilde.assets[selectedAsset].style.video.videoAutoplay}
+                                             videoLoop = {this.props.currentSilde.assets[selectedAsset].style.video.videoLoop} />
                     )
                 case actions.TYPE_SHAPE:
                     return(

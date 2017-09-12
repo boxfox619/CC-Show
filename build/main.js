@@ -7,7 +7,7 @@ const realm = require('./realm');
 
 const app = express();
 const port = 3000;
-const devPort = 4000;
+const devPort = 3001;
 
 app.use(bodyParser.json());
 app.use(cookieParser("secret"));
