@@ -9,6 +9,7 @@ import { bindActionCreators } from 'redux';
 import * as assetsActions from '../../../actions/assets';
 import * as assetTypes from '../../../assetTypes';
 import * as uiActions from '../../../actions/ui';
+import * as slideShowActions from '../../../actions/slideshow';
 
 import AssetEditor from '../assetEditor/AssetEditor';
 
@@ -51,7 +52,7 @@ class AssetCreator extends React.Component{
       <ClickableButton name={'기타'} onClick={()=>this.props.toggleAssetStore()} />
       <span className={styles.hr}/>
       <ClickableButton name={'슬라이드 리스트'} onClick={()=>this.props.toggleSlideManager()} />
-      <ClickableButton name={'슬라이드 쇼'} onClick={()=>this.props.toggleSlideShow()} />
+      <ClickableButton name={'슬라이드 쇼'} onClick={()=>this.props.slideshow()} />
       </div>
       <div className={styles.logo}/>
       </div>
@@ -85,7 +86,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ ...assetsActions, ...uiActions }, dispatch);
+  return bindActionCreators({ ...assetsActions, ...uiActions, ...slideShowActions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AssetCreator);

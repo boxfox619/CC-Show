@@ -6,7 +6,7 @@ import SlideManager from './slideManager/SlideManager';
 import AssetStore from './assetStore/AssetStore';
 import AssetEditor from './assetEditor/AssetEditor';
 import AccountDialog from './accountDialog/AccountDialog';
-
+import SlideShow from './slide_show/SlideShow'
 import { dialogs } from '../../actions/ui';
 
 import styles from './SlideEditor.css';
@@ -31,21 +31,34 @@ class SlideEditor extends React.Component{
             return (<AssetEditor className={styles.modal}/>);
           case dialogs.ACCOUNT_WITH_SNS:
             return (<AccountDialog className={styles.modal}/>);
+          case dialogs.SLIDE_SHOW:
+            return(<SlideShow/>)
         }
       }
     }
     let contextDisabled = this.checkContextDisabled();
-    return (
-      <div className={styles.slideEditor}>
-      <AssetCreator className={styles.assetCreator}/>
-      <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
-      {renderDialogs()}
-        <div className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
-          <div className={styles.contextSpace}>
-            <SlideContext className={styles.slideContext}/>
+    let isSlideShow = ()=>{
+      if(this.props.visibleSlideShow){
+        return(<SlideShow/>);
+      }else{
+        return(
+          <div className={styles.slideEditor}>
+            <AssetCreator className={styles.assetCreator}/>
+            <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
+            {renderDialogs()}
+            <div className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
+              <div className={styles.contextSpace}>
+                <SlideContext className={styles.slideContext}/>
+              </div>
+            </div>
+            <AssetController className={styles.assetController}/>
           </div>
-        </div>
-      <AssetController className={styles.assetController}/>
+        );
+      }
+    }
+    return (
+      <div>
+        {isSlideShow()}
       </div>
     );
   }
@@ -62,7 +75,8 @@ class SlideEditor extends React.Component{
 const mapStateToProps = (state) => {
   return {
     dialog: state.ui.dialog,
-    visibleSlideManager: state.ui.visibleSlideManager
+    visibleSlideManager: state.ui.visibleSlideManager,
+    visibleSlideShow: state.slideshow.visibleSlideShow
   }
 }
 

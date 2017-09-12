@@ -5,9 +5,7 @@ import { connect } from 'react-redux';
 import styles from './SlideShow.css';
 
 class SlideShow extends React.Component{
-    constructor(prop) {
-        super(props);
-    }
+    
 
     render(){
         return(
@@ -34,7 +32,7 @@ class SlideShow extends React.Component{
                             <input type="text"/>
                             <p>/</p>
                             <input type="text"/>
-                            <img src="images/ic_arrow_left_small.png"/>
+                            <img src="images/ic_arrow_right_small.png"/>
                         </div>
                         <div id={styles.slide_option_button}>
                             <img src="images/ic_fullscreen.png"/>
