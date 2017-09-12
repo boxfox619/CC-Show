@@ -40,8 +40,6 @@ class BasicController extends React.Component{
     }
 
     render(){
-        console.log(this.state.edge_color_picker);
-        console.log(this.props.width, this.props.height);
         return(
             <div>
                 <div>
@@ -90,11 +88,11 @@ class BasicController extends React.Component{
                     <div style={this.state.shape ? {} : {display:'none'}} className={styles.items}>
                         <div className={styles.control_item}>
                             <span><img src="/images/ic_color.png"/></span>
-                            <div className={styles.change_color} onClick={this.props.toggleFillColorPicker} > </div>
+                            <div className={styles.change_color} onClick={this.props.toggleFillColorPicker} style={{backgroundColor:this.props.fillColor}} > </div>
                         </div>
                         <div className={styles.control_item}>
                             <span></span>
-                            <div className={styles.change_color} onClick={this.props.toggleEdgeColorPicker}> </div>
+                            <div className={styles.change_color} onClick={this.props.toggleBorderColorPicker} style={{backgroundColor:this.props.borderColor}}> </div>
                         </div>
                     </div>
                 </div>
@@ -108,7 +106,7 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.style ? {} : {display:'none'}} className={styles.items}>
                         <div id={styles.input_style}>
-                            <textarea onChange={this.setStyle} rows="" cols=""></textarea>
+                            <textarea onChange={this.setStyle} rows="" cols="">{this.props.styles}</textarea>
                         </div>
                     </div>
                 </div>

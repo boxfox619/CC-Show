@@ -2,6 +2,7 @@ import React from 'react';
 import Asset from '../assets/Asset';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import ContextMenu from './contextMenu/ContextMenu';
 
 import * as slideActions from '../../../actions/slides'
 import * as assetsActions from '../../../actions/assets'
@@ -39,6 +40,7 @@ class SlideContext extends React.Component{
       return (
         <div className={this.props.className} id={'SlideContext'}>
         <SlideTitle/>
+        <ContextMenu/>
         <scanvas
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}
@@ -48,6 +50,10 @@ class SlideContext extends React.Component{
           </scanvas>
         </div>
       );
+    }
+
+    componentDidMount(){
+
     }
 
     handleMouseMove(e){

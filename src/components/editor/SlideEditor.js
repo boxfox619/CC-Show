@@ -7,7 +7,11 @@ import AssetStore from './assetStore/AssetStore';
 import AssetEditor from './assetEditor/AssetEditor';
 import AccountDialog from './accountDialog/AccountDialog';
 import SlideShow from './slide_show/SlideShow'
-import { dialogs } from '../../actions/ui';
+import { dialogs, colorPicker } from '../../actions/ui';
+
+import { SketchPicker } from 'react-color';
+import * as assetsActions from '../../actions/assets';
+import { bindActionCreators } from 'redux';
 
 import styles from './SlideEditor.css';
 import { connect } from 'react-redux';
@@ -19,9 +23,26 @@ class SlideEditor extends React.Component{
     super(props);
 
     this.checkContextDisabled = this.checkContextDisabled.bind(this);
+
+    this.handleBorderColor = this.handleBorderColor.bind(this);
+    this.handleFillColor = this.handleFillColor.bind(this);
+    this.handleTextColor = this.handleTextColor.bind(this);
   }
 
   render(){
+    console.log(this.props.colorPicker);
+    let kindsOfcolorPicker= () =>{
+       if(this.props.colorPicker!=undefined){
+         switch(this.props.colorPicker){
+           case colorPicker.TEXT_COLOR:
+            return (this.handleTextColor)
+           case colorPicker.FILL_COLOR:
+            return (this.handleFillColor)
+           case colorPicker.BORDER_COLOR:
+            return (this.handleBorderColor)
+         }
+       }
+    }
     let renderDialogs = ()=>{
       if(this.props.dialog!=undefined){
         switch(this.props.dialog){
@@ -31,8 +52,8 @@ class SlideEditor extends React.Component{
             return (<AssetEditor className={styles.modal}/>);
           case dialogs.ACCOUNT_WITH_SNS:
             return (<AccountDialog className={styles.modal}/>);
-          case dialogs.SLIDE_SHOW:
-            return(<SlideShow/>)
+          case dialogs.COLOR_PICKER:
+            return (<div className={styles.color_picker}><SketchPicker onChangeComplete={kindsOfcolorPicker()}/></div>)
         }
       }
     }
@@ -70,14 +91,31 @@ class SlideEditor extends React.Component{
     }
     return check;
   }
+
+  handleFillColor(color){
+    console.log('asdf');
+    this.props.setAssetFillColor(color.hex);
+  };
+
+  handleBorderColor(color){
+    this.props.setAssetBorderColor(color.hex);
+  };
+  handleTextColor(color){
+    this.props.setAssetTextColor(color.hex);
+  };
 }
 
 const mapStateToProps = (state) => {
   return {
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager,
-    visibleSlideShow: state.slideshow.visibleSlideShow
+    visibleSlideShow: state.ui.visibleSlideShow,
+    colorPicker: state.ui.colorPicker
   }
 }
 
-export default connect(mapStateToProps)(SlideEditor);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ ...assetsActions}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SlideEditor);

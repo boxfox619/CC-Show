@@ -1,5 +1,6 @@
 import React from 'react';
-import * as actions from '../../../actions/assets';
+import * as assetsActions from '../../../actions/assets';
+import * as uiActions from '../../../actions/ui';
 import { connect } from 'react-redux';
 
 import { bindActionCreators } from 'redux';
@@ -97,7 +98,7 @@ class TextController extends React.Component{
 
                     <div className={styles.control_item}>
                         <img src="/images/ic_color.png"/>
-                        <div className={styles.change_color}> 
+                        <div className={styles.change_color} onClick={this.props.toggleTextColorPicker} style={{backgroundColor:this.props.textColor}}> 
                         </div>
                     </div>
                 </div>
@@ -153,7 +154,6 @@ class TextController extends React.Component{
     }
 
     setAssetTextSort(textStyles, sort) {
-        console.log(actions);
         if(textStyles.sort===sort) sort = '';
         this.props.setAssetTextSort(sort);
     }
@@ -182,7 +182,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({...actions}, dispatch);
+    return bindActionCreators({ ...assetsActions, ...uiActions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextController);

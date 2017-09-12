@@ -27,7 +27,8 @@ class AssetController extends React.Component {
                                             bold = {this.props.currentSilde.assets[selectedAsset].style.text.fontBold}
                                             underline = {this.props.currentSilde.assets[selectedAsset].style.text.fontUnderline}
                                             italic = {this.props.currentSilde.assets[selectedAsset].style.text.fontItalic}
-                                            strikethrough = {this.props.currentSilde.assets[selectedAsset].style.text.fontStrikethrough}/>
+                                            strikethrough = {this.props.currentSilde.assets[selectedAsset].style.text.fontStrikethrough}
+                                            textColor = {this.props.currentSilde.assets[selectedAsset].style.text.textColor}/>
                     )
                 case actions.TYPE_VIDEO:
                     return(
@@ -58,9 +59,10 @@ class AssetController extends React.Component {
                                      x = {parseInt(this.props.currentSilde.assets[selectedAsset].x)}
                                      y = {parseInt(this.props.currentSilde.assets[selectedAsset].y)}
                                      angle = {parseInt(this.props.currentSilde.assets[selectedAsset].angle)}
-                                     fill_color = {parseInt(this.props.currentSilde.assets[selectedAsset].fill_color)}
-                                     edge_color = {parseInt(this.props.currentSilde.assets[selectedAsset].edge_color)}
-                                     edge_size = {parseInt(this.props.currentSilde.assets[selectedAsset].edge_size)}/>
+                                     fillColor = {this.props.currentSilde.assets[selectedAsset].style.fillColor}
+                                     borderColor = {this.props.currentSilde.assets[selectedAsset].style.borderColor}
+                                     borderWeight = {this.props.currentSilde.assets[selectedAsset].style.borderWeight}
+                                     styles = {this.props.currentSilde.assets[selectedAsset].style}/>
                 </div>
             )
         }else{

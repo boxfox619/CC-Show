@@ -14,13 +14,7 @@ const initialState = {
       thumbnail: '',
       selectedAsset: undefined,
       assetIdCount: 0,
-      assets: [],
-      style: {
-        text:{},
-        video:{},
-        image:{},
-        shape:{}
-      }
+      assets: []
     }]
 }
 
@@ -47,7 +41,8 @@ const editor = (state = initialState, action) => {
             fontBold: false,
             fontItalic: false,
             fontUnderline: false,
-            fontStrikethrough: false
+            fontStrikethrough: false,
+            textColor: ' '
           },video:{
             url: '',
             videoController: false,
@@ -58,8 +53,8 @@ const editor = (state = initialState, action) => {
           },shape:{
           
           },
-          fillColor: ' ',
-          edgeColor: ' ',
+          fillColor: 'withe',
+          borderColor: 'withe',
           edgeWeight: '0'
       }
       };
@@ -208,6 +203,25 @@ const editor = (state = initialState, action) => {
             }
           )
       }
+    case actionTypes.ASSET_SET_TEXT_COLOR:
+      return {
+          ...state,
+          slides : update(
+            state.slides,
+            {
+              [state.selectedSlide] : {
+                assets: { $set: update(
+                  state.slides[state.selectedSlide].assets,
+                  {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
+                    style: {text : {textColor: {$set : action.textColor}}}
+                    }
+                  }
+                )}
+              }
+            }
+          )
+      }  
     case actionTypes.ASSET_SET_TEXT_FONT:
       return {
           ...state,
