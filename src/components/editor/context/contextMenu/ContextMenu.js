@@ -31,13 +31,15 @@ class ContextMenu extends React.Component {
 
         return(visible || null) &&
             <div ref={root => {this.root = root}} style={{'left':this.state.x, 'top':this.state.y}} className={styles.contextMenu}>
-                <div className={styles.option}>Share this</div>
-                <div className={styles.option}>New window</div>
-                <div className={styles.option}>Visit official site</div>
-                <div className={styles.option}>View full version</div>
-                <div className={styles.option}>Settings</div>
+              <div className={styles.content}>
+                <div className={styles.option}>복사<div className={styles.shortcut}>Ctrl + C</div></div>
+                <div className={styles.option}>붙여넣기<div className={styles.shortcut}>Ctrl + V</div></div>
+                <div className={styles.option}>삭제<div className={styles.shortcut}>Ctrl + D</div></div>
+                <div className={styles.option}>자르기<div className={styles.shortcut}>Ctrl + X</div></div>
                 <div className={styles.separator}/>
-                <div className={styles.option}>About this app</div>
+                <div className={styles.option}>변형<div className={styles.submenu}></div></div>
+                <div className={styles.option}>정돈<div className={styles.submenu}></div></div>
+                </div>
             </div>
     }
 
