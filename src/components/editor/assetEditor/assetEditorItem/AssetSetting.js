@@ -2,20 +2,30 @@ import React from 'react';
 import styles from './AssetEditorItem.css';
 
 class AssetSetting extends React.Component{
+    constructor(prop){
+        super(prop);
 
-    getInitialState(){
+        this.previewImage = this.previewImage.bind(this);
+    };
+
     
-    }
+
 
     componentWillMount(){
         
     }
+
+    componentDidMount(){
+        this.previewImage();
+    }
     render(){
         return(
      <div className = {styles.AssetEditor_left}>
-            <div className = {styles.AssetEditor_preview}>
-                <span className = {styles.preview_text}>미리보기</span>
+            <div className = {styles.previewDiv}>
+                <input type = "file" value = "파일 업로드" className = {styles.previewFile} onChange = {this.previewImage.bind()}/>
+                <button className = {styles.AssetEditor_preview}>미리보기</button>
             </div>
+            <img height = "200" alt = "이미지 미리보기" className = {styles.preview_Image}/>
             
             <div className = {styles.AssetEditor_setting}>
 
@@ -60,5 +70,26 @@ class AssetSetting extends React.Component{
     </div>
         );
     }
+
+    previewImage() {
+        // var preview = document.querySelector('.preview_image');
+        // var file = document.querySelector('.previewFile').files[0];
+        // var reader = new FileReader();
+
+        // reader.addEventListener("load", function(){
+        //     preview.src = reader.result;
+        // }, false);
+        // if(file){
+        //     reader.readAsDataURL(file);
+        // }
+        
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementsByClassName('.preview_image');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+
 }
 export default AssetSetting;
