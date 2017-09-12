@@ -132,7 +132,6 @@ select {
     border-radius: 20px;
     float: right;
     display: inline-block;
-    background: hotpink;
 }
 
 .color_picker_modal{

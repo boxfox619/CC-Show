@@ -5,8 +5,10 @@ import { connect } from 'react-redux';
 import styles from './SlideShow.css';
 
 class SlideShow extends React.Component{
+    constructor(props){
+        super(props);
+    }
     
-
     render(){
         return(
             <div>
