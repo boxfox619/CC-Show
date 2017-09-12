@@ -9,7 +9,6 @@ import { bindActionCreators } from 'redux';
 import * as assetsActions from '../../../actions/assets';
 import * as assetTypes from '../../../assetTypes';
 import * as uiActions from '../../../actions/ui';
-import * as slideShowActions from '../../../actions/slideshow';
 
 import AssetEditor from '../assetEditor/AssetEditor';
 
@@ -86,7 +85,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ ...assetsActions, ...uiActions, ...slideShowActions }, dispatch);
+  return bindActionCreators({ ...assetsActions, ...uiActions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AssetCreator);
