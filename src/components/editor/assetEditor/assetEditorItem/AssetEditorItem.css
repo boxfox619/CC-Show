@@ -73,7 +73,7 @@ display: inline-block;
 }
 
 .AssetEditor_description{
-width: 97.8%;
+
 height: 380px;
 border: 1px solid #1898E5;
 margin: 0.5em 1em 0 0;
@@ -100,7 +100,6 @@ display: inline-block;
 
 .AssetEditor_right{
  width: 33%;
- /* height: 73vh; */
  overflow-x: hidden;
  overflow-y: auto;
  display: inline-block;
@@ -173,7 +172,7 @@ width: 367px;
 height: 10em;
 border: 1px solid #1998E5;
 display: block;
-margin-bottom: 0.3em;
+margin-bottom: 10px;
 /* position: absolute; */
 }
 .AssetEditor_Process{
@@ -181,9 +180,12 @@ width: 367px;
 height: 9.5em;
 border: 1px solid#1998E5;
 display: block;
-margin-bottom: 0.3em;
+margin-bottom: 10px;
 /* margin-bottom: 0.5em; */
 /* position: absolute; */
+}
+.AssetEditor_Precess :nth-child(2){
+    margin-bottom: 20px;
 }
 
 
@@ -218,6 +220,7 @@ margin-bottom: 0.3em;
     cursor: pointer;
     position: absolute;
     font-size: 11px;
+    margin-top: 2px;
     }
 
 .setting_first{
@@ -231,20 +234,22 @@ margin-bottom: 0.3em;
     padding-top: 0;
     display: inline-block;
     vertical-align: middle;
-    width: 280px;
+    width: 288px;
     outline: none;
+    float: right;
     /* margin-left: 4px; */
     /* text-align: center; */
 }
 .title2{
     border : none;
     height: 34px;
-    padding-top: 0;
+    /* padding-top: 0; */
     display: table-cell;
     vertical-align: middle;
     /* margin-top: 0.1em; */
     width: 80px;
     outline: none;
+    float: right;
 }
 .cover{
     /* margin-top: 0em; */
@@ -254,14 +259,14 @@ margin-bottom: 0.3em;
     margin-left: auto;
     margin-right: auto;
     display: table;
-    border: 1px solid #1998E5;
+    border: 2px solid #1998E5;
 }
 .cover2{
     width: 35%;
     height: 36px;
     background-color: #1998E5;
     display: table;
-    border: 1px solid #1998E5;
+    border: 2px solid #1998E5;
 }
 
 .frontTitle{
@@ -310,7 +315,7 @@ margin-bottom: 0.3em;
 
 .openStoreButton{
     width: 100%;
-    height: 38px;
+    height: 40px;
     background-color: white;
     border: 1.5px solid #1998E5;
     color: #1998E5;
@@ -336,7 +341,7 @@ margin-bottom: 0.3em;
 
 .setting_third{
     width: 99%;
-    margin-top: 10px;
+    margin-top: 12px;
     height: 4em;
 }
 
@@ -356,7 +361,7 @@ margin-bottom: 0.3em;
     text-align: center;
 }
 .filebutton{
-    width: 5%;
+    width: 64px;
     height: 76px;
     position: absolute;
     background-color: #1998E5
