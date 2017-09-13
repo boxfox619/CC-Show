@@ -59,7 +59,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "27970818baae8ce061ef"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d4a89c1a34649275c7d8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -4191,7 +4191,7 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setAttributes = exports.setAssetXY = exports.assetDeselected = exports.assetSelected = exports.createAssetByType = exports.createAsset = exports.actionTypes = undefined;
+exports.setAttributes = exports.setAssetXY = exports.assetDeselected = exports.assetSelected = exports.createAssetByType = exports.setAssetValue = exports.createAsset = exports.actionTypes = undefined;
 exports.setAssetWidth = setAssetWidth;
 exports.setAssetHeight = setAssetHeight;
 exports.setAssetX = setAssetX;
@@ -4260,6 +4260,14 @@ var createAsset = exports.createAsset = function createAsset(assetType, value) {
     assetType: assetType,
     value: value,
     style: style
+  };
+};
+
+var setAssetValue = exports.setAssetValue = function setAssetValue(id, value) {
+  return {
+    type: actionTypes.ASSET_SET_VALUE,
+    id: id,
+    value: value
   };
 };
 
@@ -10577,7 +10585,7 @@ exports = module.exports = __webpack_require__(18)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetEditorItem__AssetEditor_left___33A0j{\n    width: 60%;\n    height: 70vh ;\n    margin-left: 2em;\n    float: left;\n}\n.AssetEditorItem__AssetEditor_preview___2jY-U{\n width: 100%;\n height: 100%;\n    z-index: 1;\n    position: absolute;\n    background-color: white;\n}\n.AssetEditorItem__previewFile___3MPT9{\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    position: absolute;\n    z-index: 100;\n    padding: none;\n\n}\n\n.AssetEditorItem__AssetEditor_preview___2jY-U img{\n    width: 100%;\n    height: 90%;\n}\n\n.AssetEditorItem__previewDiv___3ZvTJ{\n    width: 48%;\n    height: 30%;\n    border: 1.7px solid #1998E5;\n    float: left;\n    margin: 0 0.5em 0em 0;\n    display: table;\n    \n    color: #E2E2E2;\n    background-color: white;\n    position: relative;\n}\n/* .preview_text{\n    color: #DFDFDF;\n    margin-right: auto;\n    margin-left: auto;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 0.5em;\n    text-align: center;\n} */\n\n\n.AssetEditorItem__AssetEditor_topbar___2XKpb{\n    width: 100%;\n    height: 30px;\n    display: table;\n    background-color: #1998E5;\n}\n.AssetEditorItem__topbar_title___2T_R1{\n    font-size: 10px;\n    margin: 0;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n    color: white;\n}\n\n.AssetEditorItem__AssetEditor_setting___1w7Ix{\nwidth: 50%;\nheight: 28%;\ndisplay: inline-block;\n\n}\n\n.AssetEditorItem__AssetEditor_description___32OKc{\nwidth: 97.8%;\nheight: 380px;\nborder: 1px solid #1898E5;\nmargin: 0.5em 1em 0 0;\ndisplay: inline-block;\n}\n\n.AssetEditorItem__AssetEditor_content___1jf4y{\n    width: 99%;\n    height: 40vh;\n}\n\n.AssetEditorItem__description_content___21mlv{\n    width: 97.8%;\n    height: 310px;\n    box-sizing:border-box;\n    overflow: hidden;\n    resize: none;\n    border: none;\n    outline: none;\n    font-family: inherit;\n    margin: 1em;\n}\n\n\n.AssetEditorItem__AssetEditor_right___2kgHv{\n width: 33%;\n /* height: 73vh; */\n overflow-x: hidden;\n overflow-y: auto;\n display: inline-block;\n margin-left: 1em;\n} \n\n.AssetEditorItem__select_license___QrZnT{\n    width: 100%;\n    height: 5vh;\n    border: 1px solid #1998E5;\n    margin-bottom: 0.7em;\n    background-color: #1998E5;\n    text-align: center;\n    display: table;\n}\n\n.AssetEditorItem__select_license_text___3Nqm9{\n    color: white;\n    font-size: 0.7em;\n    vertical-align: middle;\n    display: table-cell;\n}\n.AssetEditorItem__dropdownButt___2LUaC{\n    width: 0;\n    height: 0;\n    border-style: solid;\n    border-width: 6px 6px 0 6px;\n    border-color: #1997e5 transparent transparent transparent;\n    float: right;\n    vertical-align: middle;\n    display: table-cell;\n    margin: 1em;\n}\n\n.AssetEditorItem__license_content___UErM_{\n    width: 99%;\n    height: 4.5vh;\n    border: 1.7px solid #1998E5;\n    margin-bottom: 0.7em;\n    display: table;\n    background-color: white;\n    cursor: pointer;\n}\n\n.AssetEditorItem__license_text___1492w{\n    color: #1998E5;\n    font-size: 0.7em;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n    \n}\n\n.AssetEditorItem__dropdownContent___isoji{\n    width: 99%;\n    height: 5em;\n    border: 1px solid red;\n}\n\n.AssetEditorItem__CCL_top___2tSNn{\n    width: 100%;\n    height: 2.3em;\n    background-color: #1998E5;\n}\n.AssetEditorItem__CCL_content___fRJtg{\n\n}\n.AssetEditorItem__AssetEditor_isAsset___2GQ1j{\nwidth: 99.7%;\nheight: 10em;\nborder: 1px solid #1998E5;\ndisplay: inline-block;\nmargin-bottom: 0.3em;\n/* position: absolute; */\n}\n.AssetEditorItem__AssetEditor_Process___1njT3{\nwidth: 99.7%;\nheight: 9.5em;\nborder: 1px solid#1998E5;\ndisplay: inline-block;\n/* margin-bottom: 0.5em; */\n/* position: absolute; */\n}\n\n\n.AssetEditorItem__AssetEditor_agreement___X-QSp{\n\n}\n\n.AssetEditorItem__AssetEditor_agreeButton___3bIIw{\n\n}\n\n.AssetEditorItem__isAsset_Header___qurgL{\n    background-color: #1998E5;\n    width: 100%;\n    height: 2.3em;\n    display: table;\n\n}\n.AssetEditorItem__isAsset_titleText___2gFrR{\n    color: white;\n    font-size: 0.2em;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n}\n\n.AssetEditorItem__AssetEditor_agreeButton___3bIIw{\n    width: 33%;\n    height: 4.6em;\n    color: white;\n    background-color:#1998E5; \n    cursor: pointer;\n    position: absolute;\n}\n\n.AssetEditorItem__setting_first___1lmHa{\n    width: 96%;\n    height : 40px;\n    font-family: inherit;\n}\n.AssetEditorItem__title___iAu3c{\n    border : none;\n    height: 3em;\n    padding-top: 0;\n    display: inline-block;\n    vertical-align: middle;\n    margin-top: 0.1em;\n    width: 99%;\n    outline: none;\n}\n.AssetEditorItem__title2___3U66I{\n    border : none;\n    height: 2.9em;\n    padding-top: 0;\n    display: inline-block;\n    vertical-align: middle;\n    margin-top: 0.1em;\n    width: 96%;\n    outline: none;\n}\n.AssetEditorItem__cover___BFqoc{\n    /* margin-top: 0em; */\n    width: 100%;\n    height: 30%;\n    background-color: #1998E5;\n    margin-left: auto;\n    margin-right: auto;\n    display: table;\n    border: 1px solid #1998E5;\n}\n.AssetEditorItem__cover2___GY3of{\n    width: 35%;\n    height: 2em;\n    background-color: #1998E5;\n    display: table;\n    border: 1px solid #1998E5;\n}\n\n.AssetEditorItem__frontTitle___1XAz4{\n    color: white;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 0.5em;\n    padding : 0 7px 0 9px;\n    width: 20px;\n}\n.AssetEditorItem__frontTitle2___1s13O{\n    color: white;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 2px;\n    padding : 0 7px 0 7px;\n    width: 20px;\n    text-align: center;\n}\n.AssetEditorItem__setting_second___2CgNG{\n    width: 99%;\n    margin-top: 5px;\n    height: 2em;\n}\n/* .openStore{\n    width: 30%;\n    height: 3em;\n    border: 1px solid #1998E5;\n    display: table-cell;\n    vertical-align: middle;\n    color: #1998E5;\n    font-size: 3px;\n    text-align: center;\n    cursor: pointer;\n    \n} */\n\n.AssetEditorItem__openStoreDiv___2rKYZ{\n    width: 30%;\n    height: 40px;\n    float: left;\n    margin-right: 4px;\n}\n\n.AssetEditorItem__openStoreButton___28ftM{\n    width: 100%;\n    height: 3.3em;\n    background-color: white;\n    border: 1.5px solid #1998E5;\n    color: #1998E5;\n    cursor: pointer;\n}\n\n\n.AssetEditorItem__changeCharge___2A6R0{\n    width: 30%;\n    height: 3em;\n    border: 1px solid #1998E5;\n    display: table-cell;\n    vertical-align: middle;\n    color: #1998E5;\n    font-size: 3px;\n    text-align: center;\n    cursor: pointer;\n   \n}\n.AssetEditorItem__text___2xPZE{\n    padding: 1em;\n}\n\n.AssetEditorItem__setting_third___1JNlf{\n    width: 99%;\n    margin-top: 10px;\n    height: 4em;\n}\n\n.AssetEditorItem__imagePreview___2BIMn{\n    width: 38%;\n    height: 4.5em;\n    border: 1.7px solid #1998E5;\n    float: left;\n    margin-right: 5px;\n    display: table;\n}\n.AssetEditorItem__previewText___3duVS{\n    color: #E2E2E2;\n    font-size: 0.5em;\n    display: table-cell;\n    vertical-align: middle;\n    text-align: center;\n}\n.AssetEditorItem__filebutton___2OoDJ{\n    width: 5%;\n    height: 6.8em;\n    position: absolute;\n    background-color: #1998E5\n}\n.AssetEditorItem__filefile___2FrV_{\n    width: 100%;\n    height: 7em;\n    background-color: #1998E5;\n    cursor: pointer;\n    opacity: 0;\n    position: relative;\n}", ""]);
+exports.push([module.i, ".AssetEditorItem__AssetEditor_left___33A0j{\n    width: 60%;\n    height: 70vh ;\n    margin-left: 2em;\n    float: left;\n}\n.AssetEditorItem__AssetEditor_preview___2jY-U{\n width: 100%;\n height: 100%;\n    z-index: 1;\n    position: absolute;\n    background-color: white;\n}\n.AssetEditorItem__previewFile___3MPT9{\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    position: absolute;\n    z-index: 100;\n    padding: none;\n\n}\n\n.AssetEditorItem__AssetEditor_preview___2jY-U img{\n    width: 100%;\n    height: 90%;\n    /* position: absolute; */\n}\n\n\n.AssetEditorItem__previewDiv___3ZvTJ{\n    width: 48%;\n    height: 160px;\n    border: 1.7px solid #1998E5;\n    float: left;\n    margin: 0 0.5em 0em 0;\n    display: table;\n    color: #E2E2E2;\n    background-color: white;\n    position: relative;\n}\n/* .preview_text{\n    color: #DFDFDF;\n    margin-right: auto;\n    margin-left: auto;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 0.5em;\n    text-align: center;\n} */\n\n\n.AssetEditorItem__AssetEditor_topbar___2XKpb{\n    width: 100%;\n    height: 30px;\n    display: table;\n    background-color: #1998E5;\n}\n.AssetEditorItem__topbar_title___2T_R1{\n    font-size: 10px;\n    margin: 0;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n    color: white;\n}\n\n.AssetEditorItem__AssetEditor_setting___1w7Ix{\nwidth: 50%;\nheight: 160px;\ndisplay: inline-block;\n\n}\n\n.AssetEditorItem__AssetEditor_description___32OKc{\nwidth: 97.8%;\nheight: 380px;\nborder: 1px solid #1898E5;\nmargin: 0.5em 1em 0 0;\ndisplay: inline-block;\n}\n\n.AssetEditorItem__AssetEditor_content___1jf4y{\n    width: 99%;\n    height: 40vh;\n}\n\n.AssetEditorItem__description_content___21mlv{\n    width: 97.8%;\n    height: 310px;\n    box-sizing:border-box;\n    overflow: hidden;\n    resize: none;\n    border: none;\n    outline: none;\n    font-family: inherit;\n    margin: 1em;\n}\n\n\n.AssetEditorItem__AssetEditor_right___2kgHv{\n width: 33%;\n /* height: 73vh; */\n overflow-x: hidden;\n overflow-y: auto;\n display: inline-block;\n margin-left: 1em;\n} \n\n.AssetEditorItem__select_license___QrZnT{\n    width: 100%;\n    height: 5vh;\n    border: 1px solid #1998E5;\n    margin-bottom: 0.7em;\n    background-color: #1998E5;\n    text-align: center;\n    display: table;\n}\n\n.AssetEditorItem__select_license_text___3Nqm9{\n    color: white;\n    font-size: 0.7em;\n    vertical-align: middle;\n    display: table-cell;\n}\n.AssetEditorItem__dropdownButt___2LUaC{\n    width: 0;\n    height: 0;\n    border-style: solid;\n    border-width: 6px 6px 0 6px;\n    border-color: #1997e5 transparent transparent transparent;\n    float: right;\n    vertical-align: middle;\n    display: table-cell;\n    margin: 1em;\n}\n\n.AssetEditorItem__license_content___UErM_{\n    width: 99%;\n    height: 4.5vh;\n    border: 1.7px solid #1998E5;\n    margin-bottom: 0.7em;\n    display: table;\n    background-color: white;\n    cursor: pointer;\n}\n\n.AssetEditorItem__license_text___1492w{\n    color: #1998E5;\n    font-size: 0.7em;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n    \n}\n\n.AssetEditorItem__dropdownContent___isoji{\n    width: 99%;\n    height: 5em;\n    border: 1px solid red;\n}\n\n.AssetEditorItem__CCL_top___2tSNn{\n    width: 100%;\n    height: 2.3em;\n    background-color: #1998E5;\n}\n.AssetEditorItem__CCL_content___fRJtg{\n\n}\n.AssetEditorItem__AssetEditor_isAsset___2GQ1j{\nwidth: 367px;\nheight: 10em;\nborder: 1px solid #1998E5;\ndisplay: block;\nmargin-bottom: 0.3em;\n/* position: absolute; */\n}\n.AssetEditorItem__AssetEditor_Process___1njT3{\nwidth: 367px;\nheight: 9.5em;\nborder: 1px solid#1998E5;\ndisplay: block;\nmargin-bottom: 0.3em;\n/* margin-bottom: 0.5em; */\n/* position: absolute; */\n}\n\n\n.AssetEditorItem__AssetEditor_agreement___X-QSp{\n\n}\n\n.AssetEditorItem__AssetEditor_agreeButton___3bIIw{\n\n}\n\n.AssetEditorItem__isAsset_Header___qurgL{\n    background-color: #1998E5;\n    width: 100%;\n    height: 2.3em;\n    display: table;\n\n}\n.AssetEditorItem__isAsset_titleText___2gFrR{\n    color: white;\n    font-size: 10px;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n}\n\n.AssetEditorItem__AssetEditor_agreeButton___3bIIw{\n    width: 33%;\n    height: 4.6em;\n    color: white;\n    background-color:#1998E5; \n    cursor: pointer;\n    position: absolute;\n    font-size: 11px;\n    }\n\n.AssetEditorItem__setting_first___1lmHa{\n    width: 96%;\n    height : 40px;\n    font-family: inherit;\n}\n.AssetEditorItem__title___iAu3c{\n    border : none;\n    height: 35px;\n    padding-top: 0;\n    display: inline-block;\n    vertical-align: middle;\n    width: 280px;\n    outline: none;\n    /* margin-left: 4px; */\n    /* text-align: center; */\n}\n.AssetEditorItem__title2___3U66I{\n    border : none;\n    height: 34px;\n    padding-top: 0;\n    display: table-cell;\n    vertical-align: middle;\n    /* margin-top: 0.1em; */\n    width: 80px;\n    outline: none;\n}\n.AssetEditorItem__cover___BFqoc{\n    /* margin-top: 0em; */\n    width: 100%;\n    height: 30px;\n    background-color: #1998E5;\n    margin-left: auto;\n    margin-right: auto;\n    display: table;\n    border: 1px solid #1998E5;\n}\n.AssetEditorItem__cover2___GY3of{\n    width: 35%;\n    height: 36px;\n    background-color: #1998E5;\n    display: table;\n    border: 1px solid #1998E5;\n}\n\n.AssetEditorItem__frontTitle___1XAz4{\n    color: white;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 0.5em;\n    /* padding : 0 7px 0 9px; */\n    width: 40px;\n    margin-left: 1em;\n    text-align: center;\n}\n.AssetEditorItem__frontTitle2___1s13O{\n    color: white;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 4px;\n    padding : 0 7px 0 7px;\n    width: 20px;\n    text-align: center;\n}\n.AssetEditorItem__setting_second___2CgNG{\n    width: 99%;\n    margin-top: 5px;\n    height: 2em;\n}\n/* .openStore{\n    width: 30%;\n    height: 3em;\n    border: 1px solid #1998E5;\n    display: table-cell;\n    vertical-align: middle;\n    color: #1998E5;\n    font-size: 3px;\n    text-align: center;\n    cursor: pointer;\n    \n} */\n\n.AssetEditorItem__openStoreDiv___2rKYZ{\n    width: 30%;\n    height: 40px;\n    float: left;\n    margin-right: 4px;\n}\n\n.AssetEditorItem__openStoreButton___28ftM{\n    width: 100%;\n    height: 38px;\n    background-color: white;\n    border: 1.5px solid #1998E5;\n    color: #1998E5;\n    cursor: pointer;\n}\n\n\n.AssetEditorItem__changeCharge___2A6R0{\n    width: 30%;\n    height: 3em;\n    border: 1px solid #1998E5;\n    display: table-cell;\n    vertical-align: middle;\n    color: #1998E5;\n    font-size: 3px;\n    text-align: center;\n    cursor: pointer;\n   \n}\n.AssetEditorItem__text___2xPZE{\n    padding: 1em;\n}\n\n.AssetEditorItem__setting_third___1JNlf{\n    width: 99%;\n    margin-top: 10px;\n    height: 4em;\n}\n\n.AssetEditorItem__imagePreview___2BIMn{\n    width: 38%;\n    height: 73px;\n    border: 1.7px solid #1998E5;\n    float: left;\n    margin-right: 5px;\n    display: table;\n}\n.AssetEditorItem__previewText___3duVS{\n    color: #E2E2E2;\n    font-size: 10px;\n    display: table-cell;\n    vertical-align: middle;\n    text-align: center;\n}\n.AssetEditorItem__filebutton___2OoDJ{\n    width: 5%;\n    height: 76px;\n    position: absolute;\n    background-color: #1998E5\n}\n.AssetEditorItem__filefile___2FrV_{\n    width: 100%;\n    height: 75px;\n    background-color: #1998E5;\n    cursor: pointer;\n    opacity: 0;\n    position: relative;\n}", ""]);
 
 // exports
 exports.locals = {
@@ -10634,7 +10642,7 @@ exports = module.exports = __webpack_require__(18)(undefined);
 
 
 // module
-exports.push([module.i, ".Assets__assetWrapper___3fBa-{\n\n}\n\n.Assets__textAsset___20A0S{\n\n}\n\n.Assets__asset___1byzk {\n  position: absolute !important;\n  overflow: hidden;\n  display: inline-block;\n  margin:0;\n  padding:0;\n  border:0;\n  margin: 3px;\n}\n\n.Assets__assetContext___1knIQ{\n  position: absolute;\n  width: calc(100% - 2px);\n  height: calc(100% - 2px);\n  cursor: move;\n}\n\n.Assets__isSelected___1BhWO{\n  background-color: #038AFD;\n}\n\n.Assets__selectorDot___2xBZu{\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  -webkit-border-radius: 25px;\n  -moz-border-radius: 25px;\n  border-radius: 25px;\n}\n\n.Assets__horizontalResizer___1BBOt{\n  position: absolute;\n  height: 2px;\n  width: calc( 100% - 10px );\n  cursor: ns-resize;\n  z-index: 99;\n}\n\n.Assets__verticalResizer___296Me{\n  position: absolute;\n  height: calc( 100% - 10px );\n  width: 2px;\n  cursor: ew-resize;\n  z-index: 99;\n}\n", ""]);
+exports.push([module.i, ".Assets__assetWrapper___3fBa-{\n\n}\n\n.Assets__textAsset___20A0S{\n\n}\n\nasset textarea{\n  border-style: none;\n  resize: none;\n  font-family: 'NanumSquare', sans-serif;\n}\n\n.Assets__asset___1byzk {\n  position: absolute !important;\n  overflow: hidden;\n  display: inline-block;\n  margin:0;\n  padding:0;\n  border:0;\n  margin: 3px;\n}\n\n.Assets__assetContext___1knIQ{\n  position: absolute;\n  width: calc(100% - 2px);\n  height: calc(100% - 2px);\n  cursor: move;\n}\n\n.Assets__isSelected___1BhWO{\n  background-color: #038AFD;\n}\n\n.Assets__selectorDot___2xBZu{\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  -webkit-border-radius: 25px;\n  -moz-border-radius: 25px;\n  border-radius: 25px;\n}\n\n.Assets__horizontalResizer___1BBOt{\n  position: absolute;\n  height: 2px;\n  width: calc( 100% - 10px );\n  cursor: ns-resize;\n  z-index: 99;\n}\n\n.Assets__verticalResizer___296Me{\n  position: absolute;\n  height: calc( 100% - 10px );\n  width: 2px;\n  cursor: ew-resize;\n  z-index: 99;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -33171,7 +33179,7 @@ var AssetSetting = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.previewImage();
+            // this.previewImage();
         }
     }, {
         key: 'render',
@@ -33506,7 +33514,7 @@ var SlideContext = function (_React$Component) {
           if (_this2.props.selectedAsset == asset.id) {
             _this2.selectedAsset = asset;
           }
-          return _react2.default.createElement(_Asset2.default, { key: asset.id, isSelected: _this2.props.selectedAsset == asset.id, attribute: asset });
+          return _react2.default.createElement(_Asset2.default, { key: asset.id, isSelected: _this2.props.selectedAsset == asset.id, handleValueChange: _this2.props.setAssetValue, attribute: asset });
         });
       };
       return _react2.default.createElement(
@@ -33602,6 +33610,8 @@ var SlideContext = function (_React$Component) {
   }, {
     key: 'handleMouseDown',
     value: function handleMouseDown(e) {
+      document.activeElement.blur();
+      e.target.focus();
       this.mouseDowned = true;
       if (e.target.parentNode.parentNode.tagName == 'ASSET') {
         this.props.assetSelected(e.target.parentNode.parentNode.id);
@@ -33734,7 +33744,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var propTypes = {
   attribute: _react2.default.PropTypes.object,
-  isSelected: _react2.default.PropTypes.bool
+  isSelected: _react2.default.PropTypes.bool,
+  handleValueChange: _react2.default.PropTypes.func
 };
 
 var defaultProps = {
@@ -33752,6 +33763,7 @@ var Asset = function (_React$Component) {
     _this.getSubStyleClass = _this.getSubStyleClass.bind(_this);
     _this.getContextWidth = _this.getContextWidth.bind(_this);
     _this.getContextHeight = _this.getContextHeight.bind(_this);
+    _this.handleInputChange = _this.handleInputChange.bind(_this);
     return _this;
   }
 
@@ -33776,9 +33788,6 @@ var Asset = function (_React$Component) {
           assetTag = 'TextAsset';
           break;
       }
-      document.createElement('asset');
-      document.createElement('selectordot');
-      document.createElement('selectorline');
       var AssetContext = assetTag;
       var topLeftAttr = { 'target': 'topleft' };
       var topRightAttr = { 'target': 'topright' };
@@ -33798,13 +33807,18 @@ var Asset = function (_React$Component) {
           _react2.default.createElement('selectorline', _extends({}, bottomAttr, { style: { 'top': 'calc(' + this.getContextHeight() + ' + 7px)' }, className: _Assets2.default.horizontalResizer + this.getSubStyleClass() })),
           _react2.default.createElement('selectorline', _extends({}, leftAttr, { style: { 'left': '3px' }, className: _Assets2.default.verticalResizer + this.getSubStyleClass() })),
           _react2.default.createElement('selectorline', _extends({}, rightAttr, { style: { 'left': 'calc(' + this.getContextWidth() + ' + 7px)' }, className: _Assets2.default.verticalResizer + this.getSubStyleClass() })),
-          _react2.default.createElement(AssetContext, { styles: { 'width': this.getContextWidth(), 'height': this.getContextHeight(), 'overflow': 'hidden', 'cursor': 'move' }, value: this.props.attribute.value }),
+          _react2.default.createElement(AssetContext, { onChange: this.handleInputChange, styles: { 'width': this.getContextWidth(), 'height': this.getContextHeight(), 'overflow': 'hidden', 'cursor': 'move' }, value: this.props.attribute.value }),
           _react2.default.createElement('selectordot', _extends({}, topLeftAttr, { style: { 'cursor': 'nw-resize', 'top': '0px', 'left': '0px' }, className: _Assets2.default.selectorDot + this.getSubStyleClass() })),
           _react2.default.createElement('selectordot', _extends({}, topRightAttr, { style: { 'cursor': 'ne-resize', 'top': '0px', 'left': 'calc(' + this.getContextWidth() + ' + 3.5px)' }, className: _Assets2.default.selectorDot + this.getSubStyleClass() })),
           _react2.default.createElement('selectordot', _extends({}, bottomLeftAttr, { style: { 'cursor': 'ne-resize', 'top': 'calc(' + this.getContextHeight() + ' + 3.5px)', 'left': '0px' }, className: _Assets2.default.selectorDot + this.getSubStyleClass() })),
           _react2.default.createElement('selectordot', _extends({}, bottomRightAttr, { style: { 'cursor': 'nw-resize', 'top': 'calc(' + this.getContextHeight() + ' + 3.5px)', 'left': 'calc(' + this.getContextWidth() + ' + 3.5px)' }, className: _Assets2.default.selectorDot + this.getSubStyleClass() }))
         )
       );
+    }
+  }, {
+    key: 'handleInputChange',
+    value: function handleInputChange(event) {
+      this.props.handleValueChange(this.props.attribute.id, event.target.value);
     }
   }, {
     key: 'getContextWidth',
@@ -33913,20 +33927,16 @@ var propTypes = {
 var TextAsset = function (_React$Component) {
   _inherits(TextAsset, _React$Component);
 
-  function TextAsset() {
+  function TextAsset(props) {
     _classCallCheck(this, TextAsset);
 
-    return _possibleConstructorReturn(this, (TextAsset.__proto__ || Object.getPrototypeOf(TextAsset)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (TextAsset.__proto__ || Object.getPrototypeOf(TextAsset)).call(this, props));
   }
 
   _createClass(TextAsset, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { style: this.props.styles },
-        this.props.value
-      );
+      return _react2.default.createElement('textarea', { onChange: this.props.onChange, style: this.props.styles, defaultValue: this.props.value });
     }
   }]);
 
@@ -47946,6 +47956,37 @@ var initialState = {
   }]
 };
 
+var defaultAsset = {
+  id: '',
+  type: '',
+  value: '',
+  height: '50px',
+  width: '50px',
+  x: '0px',
+  y: '0px',
+  angle: '0',
+  style: {
+    text: {
+      font: '',
+      fontsize: '0',
+      sort: '',
+      fontBold: false,
+      fontItalic: false,
+      fontUnderline: false,
+      fontStrikethrough: false,
+      textColor: ' '
+    }, video: {
+      url: '',
+      videoController: false,
+      videoLoop: false,
+      videoAutoplay: false
+    }, image: {}, shape: {},
+    fillColor: 'withe',
+    borderColor: 'withe',
+    edgeWeight: '0'
+  }
+};
+
 var editor = function editor() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments[1];
@@ -47955,39 +47996,14 @@ var editor = function editor() {
       var sizeUnit = (0, _store.getState)().slideContext.sizeUnit;
       var positionUnit = (0, _store.getState)().slideContext.positionUnit;
       var currentId = state.slides[state.selectedSlide].assetIdCount + 1;
-      var newAsset = {
+      var newAsset = _extends({}, defaultAsset, {
         id: currentId,
         type: action.assetType,
         value: action.value,
         height: '50' + sizeUnit,
         width: '50' + sizeUnit,
         x: '0' + positionUnit,
-        y: '0' + positionUnit,
-        angle: '0',
-        style: {
-          text: {
-            font: '',
-            fontsize: '0',
-            sort: '',
-            fontBold: false,
-            fontItalic: false,
-            fontUnderline: false,
-            fontStrikethrough: false,
-            textColor: ' '
-          }, video: {
-            url: '',
-            videoController: false,
-            videoLoop: false,
-            videoAutoplay: false
-          }, image: {}, shape: {},
-          fillColor: 'withe',
-          borderColor: 'withe',
-          edgeWeight: '0'
-        }
-      };
-
-      // 추가 style add
-
+        y: '0' + positionUnit });
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assetIdCount: { $set: currentId },
@@ -47996,6 +48012,15 @@ var editor = function editor() {
             }) }
         }))
 
+      });
+    case _assets.actionTypes.SET_VALUE:
+      console.log(action.value);
+      return _extends({}, state, {
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
+          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, action.id), {
+              value: { $set: action.value }
+            })) }
+        }))
       });
     case _assets.actionTypes.ASSET_SELECTED:
       return _extends({}, state, {
