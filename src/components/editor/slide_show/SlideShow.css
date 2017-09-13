@@ -110,10 +110,6 @@
 .split {
     margin: 0;
     padding: 0;
-    width: 97vw;
+    width: 100%;
     margin: auto;
-}
-
-p {
-    display: inline-block;
 }
