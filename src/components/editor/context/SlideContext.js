@@ -34,7 +34,7 @@ class SlideContext extends React.Component{
           if(this.props.selectedAsset==asset.id){
             this.selectedAsset = asset;
           }
-          return <Asset key={asset.id} isSelected={this.props.selectedAsset==asset.id} attribute={asset}/>
+          return <Asset key={asset.id} isSelected={this.props.selectedAsset==asset.id} handleValueChange={this.props.setAssetValue} attribute={asset}/>
         })
       };
       return (
@@ -127,6 +127,8 @@ class SlideContext extends React.Component{
     }
 
     handleMouseDown(e){
+      document.activeElement.blur();
+      e.target.focus();
       this.mouseDowned = true;
       if(e.target.parentNode.parentNode.tagName == 'ASSET'){
           this.props.assetSelected(e.target.parentNode.parentNode.id);

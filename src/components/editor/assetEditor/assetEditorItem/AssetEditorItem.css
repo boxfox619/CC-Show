@@ -17,22 +17,24 @@
     opacity: 0;
     position: absolute;
     z-index: 100;
+    padding: none;
 
 }
 
 .AssetEditor_preview img{
     width: 100%;
     height: 90%;
+    position: absolute;
 }
+
 
 .previewDiv{
     width: 48%;
-    height: 30%;
+    height: 160px;
     border: 1.7px solid #1998E5;
     float: left;
     margin: 0 0.5em 0em 0;
     display: table;
-    
     color: #E2E2E2;
     background-color: white;
     position: relative;
@@ -65,7 +67,7 @@
 
 .AssetEditor_setting{
 width: 50%;
-height: 28%;
+height: 160px;
 display: inline-block;
 
 }
@@ -223,37 +225,38 @@ display: inline-block;
 }
 .title{
     border : none;
-    height: 3em;
+    height: 35px;
     padding-top: 0;
     display: inline-block;
     vertical-align: middle;
-    margin-top: 0.1em;
-    width: 99%;
+    width: 280px;
     outline: none;
+    /* margin-left: 4px; */
+    /* text-align: center; */
 }
 .title2{
     border : none;
-    height: 2.9em;
+    height: 34px;
     padding-top: 0;
-    display: inline-block;
+    display: table-cell;
     vertical-align: middle;
-    margin-top: 0.1em;
-    width: 96%;
+    /* margin-top: 0.1em; */
+    width: 80px;
     outline: none;
 }
 .cover{
     /* margin-top: 0em; */
     width: 100%;
-    height: 30%;
+    height: 30px;
     background-color: #1998E5;
     margin-left: auto;
     margin-right: auto;
     display: table;
-    border: 1px solid #1998E5;
+    border: 2px solid #1998E5;
 }
 .cover2{
     width: 35%;
-    height: 2em;
+    height: 36px;
     background-color: #1998E5;
     display: table;
     border: 1px solid #1998E5;
@@ -264,8 +267,10 @@ display: inline-block;
     display: table-cell;
     vertical-align: middle;
     font-size: 0.5em;
-    padding : 0 7px 0 9px;
-    width: 20px;
+    /* padding : 0 7px 0 9px; */
+    width: 40px;
+    margin-left: 1em;
+    text-align: center;
 }
 .frontTitle2{
     color: white;
@@ -303,7 +308,7 @@ display: inline-block;
 
 .openStoreButton{
     width: 100%;
-    height: 3.3em;
+    height: 38px;
     background-color: white;
     border: 1.5px solid #1998E5;
     color: #1998E5;
@@ -335,7 +340,7 @@ display: inline-block;
 
 .imagePreview{
     width: 38%;
-    height: 4.5em;
+    height: 73px;
     border: 1.7px solid #1998E5;
     float: left;
     margin-right: 5px;
@@ -350,7 +355,7 @@ display: inline-block;
 }
 .filebutton{
     width: 5%;
-    height: 6.8em;
+    height: 76px;
     position: absolute;
     background-color: #1998E5
 }
