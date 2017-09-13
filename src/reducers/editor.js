@@ -18,6 +18,41 @@ const initialState = {
     }]
 }
 
+const defaultAsset = {
+  id: '',
+  type: '',
+  value: '',
+  height: '50px',
+  width: '50px',
+  x: '0px',
+  y: '0px',
+  angle: '0',
+  style: {
+    text:{
+      font: '',
+      fontsize: '0',
+      sort: '',
+      fontBold: false,
+      fontItalic: false,
+      fontUnderline: false,
+      fontStrikethrough: false,
+      textColor: ' '
+    },video:{
+      url: '',
+      videoController: false,
+      videoLoop: false,
+      videoAutoplay: false
+    },image:{
+
+    },shape:{
+
+    },
+    fillColor: 'withe',
+    borderColor: 'withe',
+    edgeWeight: '0'
+}
+};
+
 const editor = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ASSET_CREATE:
@@ -25,42 +60,14 @@ const editor = (state = initialState, action) => {
       let positionUnit = getState().slideContext.positionUnit;
       let currentId = state.slides[state.selectedSlide].assetIdCount + 1;
       let newAsset = {
+        ...defaultAsset,
         id: currentId,
         type: action.assetType,
         value: action.value,
         height: '50' + sizeUnit,
         width: '50' + sizeUnit,
         x: '0' + positionUnit,
-        y: '0' + positionUnit,
-        angle: '0',
-        style: {
-          text:{
-            font: '',
-            fontsize: '0',
-            sort: '',
-            fontBold: false,
-            fontItalic: false,
-            fontUnderline: false,
-            fontStrikethrough: false,
-            textColor: ' '
-          },video:{
-            url: '',
-            videoController: false,
-            videoLoop: false,
-            videoAutoplay: false
-          },image:{
-
-          },shape:{
-          
-          },
-          fillColor: 'withe',
-          borderColor: 'withe',
-          edgeWeight: '0'
-      }
-      };
-
-      // 추가 style add
-
+        y: '0' + positionUnit};
       return {
         ...state,
         slides:update(
@@ -77,6 +84,26 @@ const editor = (state = initialState, action) => {
         )
 
       };
+    case actionTypes.SET_VALUE:
+    console.log(action.value);
+    return {
+        ...state,
+        slides : update(
+          state.slides,
+          {
+            [state.selectedSlide] : {
+              assets: { $set: update(
+                state.slides[state.selectedSlide].assets,
+                {
+                  [getAssetIndex(state, action.id)] : {
+                    value: { $set: action.value }
+                  }
+                }
+              )}
+            }
+          }
+        )
+    }
     case actionTypes.ASSET_SELECTED:
       return {
         ...state,
@@ -221,7 +248,7 @@ const editor = (state = initialState, action) => {
               }
             }
           )
-      }  
+      }
     case actionTypes.ASSET_SET_TEXT_FONT:
       return {
           ...state,
