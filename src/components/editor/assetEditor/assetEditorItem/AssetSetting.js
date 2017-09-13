@@ -2,21 +2,52 @@ import React from 'react';
 import styles from './AssetEditorItem.css';
 
 class AssetSetting extends React.Component{
+    constructor(prop){
+        super(prop);
 
-    getInitialState(){
+        // this.previewImage = this.previewImage.bind(this);
+        this.state = {file : ' ' , imagePreviewUrl: ''};
+    };
+
+    ImageChange(e) {
+        e.preventDefault();
     
-    }
+        let reader = new FileReader();
+        let file = e.target.files[0];
+    
+        reader.onloadend = () => {
+          this.setState({
+            file: file,
+            imagePreviewUrl: reader.result
+          });
+        }
+    
+        reader.readAsDataURL(file)
+      }
+
 
     componentWillMount(){
         
     }
+    
+    componentDidMount(){
+        this.previewImage();
+    }
     render(){
+        let {imagePreviewUrl} = this.state;
+        let $imagePreview = null;
+        if (imagePreviewUrl) {
+          $imagePreview = (<img src={imagePreviewUrl} />);
+        } else {
+          $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
+        }
         return(
      <div className = {styles.AssetEditor_left}>
-            <div className = {styles.AssetEditor_preview}>
-                <span className = {styles.preview_text}>미리보기</span>
+            <div className = {styles.previewDiv}>
+                <input type = "file" className = {styles.previewFile} onChange = {(e)=>this.ImageChange(e)}/>
+                <button className = {styles.AssetEditor_preview}>{$imagePreview}</button>
             </div>
-            
+            {/* <div className = {styles.preview_Image}>{$imagePreview}</div> */}
             <div className = {styles.AssetEditor_setting}>
 
                 <div className = {styles.setting_first}>
@@ -60,5 +91,7 @@ class AssetSetting extends React.Component{
     </div>
         );
     }
+
+    
 }
 export default AssetSetting;

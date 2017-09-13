@@ -231,6 +231,7 @@ user-select: none;
   transform: translate(-50%, -50%);
   -webkit-animation: modaldown 0.5s forwards;
 }
+
 @-webkit-keyframes modaldown{
     from { top: -100%; }
     to { top: 50%; }

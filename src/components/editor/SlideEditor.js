@@ -109,7 +109,7 @@ const mapStateToProps = (state) => {
   return {
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager,
-    visibleSlideShow: state.slideshow.visibleSlideShow,
+    visibleSlideShow: state.ui.visibleSlideShow,
     colorPicker: state.ui.colorPicker
   }
 }

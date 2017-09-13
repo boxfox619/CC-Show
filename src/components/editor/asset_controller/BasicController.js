@@ -219,7 +219,6 @@ class BasicController extends React.Component{
     }
 
     styleOff() {
-        console.log('a');
         this.setState({
             ...this.state,
             style:false,

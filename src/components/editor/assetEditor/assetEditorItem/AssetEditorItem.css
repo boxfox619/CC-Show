@@ -5,22 +5,49 @@
     float: left;
 }
 .AssetEditor_preview{
- width: 48%;
- height: 10em;
- border: 1.7px solid #1998E5;
- float: left;
- clear: both;
- display: inline-block;
- margin: 0 0.5em 0em 0;
+ width: 100%;
+ height: 100%;
+    z-index: 1;
+    position: absolute;
+    background-color: white;
 }
-.preview_text{
+.previewFile{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    z-index: 100;
+
+}
+
+.AssetEditor_preview img{
+    width: 100%;
+    height: 90%;
+}
+
+.previewDiv{
+    width: 48%;
+    height: 30%;
+    border: 1.7px solid #1998E5;
+    float: left;
+    margin: 0 0.5em 0em 0;
+    display: table;
+    
+    color: #E2E2E2;
+    background-color: white;
+    position: relative;
+}
+/* .preview_text{
     color: #DFDFDF;
     margin-right: auto;
     margin-left: auto;
-    display: table;
-    margin-top: 8em;
-    font-size: 5px;
-}
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 0.5em;
+    text-align: center;
+} */
+
+
 .AssetEditor_topbar{
     width: 100%;
     height: 30px;

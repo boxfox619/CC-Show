@@ -1,6 +1,7 @@
 export const actionTypes = {
   TOGGLE_DIALOG: 'TOGGLE_DIALOG',
-  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER'
+  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER',
+  SLIDE_SHOW: 'SLIDE_SHOW'
 }
 
 export const dialogs = {
@@ -66,5 +67,11 @@ export const toggleTextColorPicker = () => {
     type: actionTypes.TOGGLE_DIALOG,
     target: dialogs.COLOR_PICKER,
     colorPicker: colorPicker.TEXT_COLOR
+  }
+}
+
+export const slideshow = () => {
+  return {
+    type: actionTypes.SLIDE_SHOW
   }
 }
