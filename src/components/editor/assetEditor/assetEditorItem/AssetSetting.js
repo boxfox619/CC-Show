@@ -5,28 +5,49 @@ class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
 
-        this.previewImage = this.previewImage.bind(this);
+        // this.previewImage = this.previewImage.bind(this);
+        this.state = {file : ' ' , imagePreviewUrl: ''};
     };
 
+    ImageChange(e) {
+        e.preventDefault();
     
+        let reader = new FileReader();
+        let file = e.target.files[0];
+    
+        reader.onloadend = () => {
+          this.setState({
+            file: file,
+            imagePreviewUrl: reader.result
+          });
+        }
+    
+        reader.readAsDataURL(file)
+      }
 
 
     componentWillMount(){
         
     }
-
+    
     componentDidMount(){
         this.previewImage();
     }
     render(){
+        let {imagePreviewUrl} = this.state;
+        let $imagePreview = null;
+        if (imagePreviewUrl) {
+          $imagePreview = (<img src={imagePreviewUrl} />);
+        } else {
+          $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
+        }
         return(
      <div className = {styles.AssetEditor_left}>
             <div className = {styles.previewDiv}>
-                <input type = "file" value = "파일 업로드" className = {styles.previewFile} onChange = {this.previewImage.bind()}/>
-                <button className = {styles.AssetEditor_preview}>미리보기</button>
+                <input type = "file" className = {styles.previewFile} onChange = {(e)=>this.ImageChange(e)}/>
+                <button className = {styles.AssetEditor_preview}>{$imagePreview}</button>
             </div>
-            <img height = "200" alt = "이미지 미리보기" className = {styles.preview_Image}/>
-            
+            {/* <div className = {styles.preview_Image}>{$imagePreview}</div> */}
             <div className = {styles.AssetEditor_setting}>
 
                 <div className = {styles.setting_first}>
@@ -71,25 +92,6 @@ class AssetSetting extends React.Component{
         );
     }
 
-    previewImage() {
-        // var preview = document.querySelector('.preview_image');
-        // var file = document.querySelector('.previewFile').files[0];
-        // var reader = new FileReader();
-
-        // reader.addEventListener("load", function(){
-        //     preview.src = reader.result;
-        // }, false);
-        // if(file){
-        //     reader.readAsDataURL(file);
-        // }
-        
-        var reader = new FileReader();
-        reader.onload = function(){
-            var output = document.getElementsByClassName('.preview_image');
-            output.src = reader.result;
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    }
-
+    
 }
 export default AssetSetting;
