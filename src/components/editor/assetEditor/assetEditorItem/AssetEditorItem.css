@@ -169,18 +169,19 @@ display: inline-block;
 
 }
 .AssetEditor_isAsset{
-width: 99.7%;
+width: 367px;
 height: 10em;
 border: 1px solid #1998E5;
-display: inline-block;
+display: block;
 margin-bottom: 0.3em;
 /* position: absolute; */
 }
 .AssetEditor_Process{
-width: 99.7%;
+width: 367px;
 height: 9.5em;
 border: 1px solid#1998E5;
-display: inline-block;
+display: block;
+margin-bottom: 0.3em;
 /* margin-bottom: 0.5em; */
 /* position: absolute; */
 }
