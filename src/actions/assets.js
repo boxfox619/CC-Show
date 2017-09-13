@@ -39,6 +39,14 @@ export const createAsset = (assetType, value, style = {}) => {
   }
 };
 
+export const setAssetValue = (id, value) =>{
+  return {
+    type: actionTypes.ASSET_SET_VALUE,
+    id,
+    value
+  }
+}
+
 export const createAssetByType = (type) => {
   switch(type){
     case assetTypes.TYPE_TEXT:
