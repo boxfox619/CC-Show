@@ -9,7 +9,7 @@ class AssetSetting extends React.Component{
         this.state = {file : ' ' , imagePreviewUrl: ''};
     };
 
-    _handleImageChange(e) {
+    ImageChange(e) {
         e.preventDefault();
     
         let reader = new FileReader();
@@ -39,13 +39,13 @@ class AssetSetting extends React.Component{
         if (imagePreviewUrl) {
           $imagePreview = (<img src={imagePreviewUrl} />);
         } else {
-          $imagePreview = (<div className="preview_Image">Please select an Image for Preview</div>);
+          $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
         }
         return(
      <div className = {styles.AssetEditor_left}>
             <div className = {styles.previewDiv}>
-                <input type = "file" className = {styles.previewFile} onChange = {(e)=>this._handleImageChange(e)}/>
-                <button className = {styles.AssetEditor_preview}>미리보기{$imagePreview}</button>
+                <input type = "file" className = {styles.previewFile} onChange = {(e)=>this.ImageChange(e)}/>
+                <button className = {styles.AssetEditor_preview}>{$imagePreview}</button>
             </div>
             {/* <div className = {styles.preview_Image}>{$imagePreview}</div> */}
             <div className = {styles.AssetEditor_setting}>
