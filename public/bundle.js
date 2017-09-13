@@ -59,7 +59,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ebbde406a9da93e49aae"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "27970818baae8ce061ef"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -10577,7 +10577,7 @@ exports = module.exports = __webpack_require__(18)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetEditorItem__AssetEditor_left___33A0j{\n    width: 60%;\n    height: 70vh ;\n    margin-left: 2em;\n    float: left;\n}\n.AssetEditorItem__AssetEditor_preview___2jY-U{\n width: 100%;\n height: 100%;\n    z-index: 1;\n    position: absolute;\n    background-color: white;\n}\n.AssetEditorItem__previewFile___3MPT9{\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    position: absolute;\n    z-index: 100;\n\n}\n\n.AssetEditorItem__previewDiv___3ZvTJ{\n    width: 48%;\n    height: 30%;\n    border: 1.7px solid #1998E5;\n    float: left;\n    margin: 0 0.5em 0em 0;\n    display: table;\n    \n    color: #E2E2E2;\n    background-color: white;\n    position: relative;\n}\n/* .preview_text{\n    color: #DFDFDF;\n    margin-right: auto;\n    margin-left: auto;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 0.5em;\n    text-align: center;\n} */\n\n\n.AssetEditorItem__AssetEditor_topbar___2XKpb{\n    width: 100%;\n    height: 30px;\n    display: table;\n    background-color: #1998E5;\n}\n.AssetEditorItem__topbar_title___2T_R1{\n    font-size: 10px;\n    margin: 0;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n    color: white;\n}\n\n.AssetEditorItem__AssetEditor_setting___1w7Ix{\nwidth: 50%;\nheight: 28%;\ndisplay: inline-block;\n\n}\n\n.AssetEditorItem__AssetEditor_description___32OKc{\nwidth: 97.8%;\nheight: 380px;\nborder: 1px solid #1898E5;\nmargin: 0.5em 1em 0 0;\ndisplay: inline-block;\n}\n\n.AssetEditorItem__AssetEditor_content___1jf4y{\n    width: 99%;\n    height: 40vh;\n}\n\n.AssetEditorItem__description_content___21mlv{\n    width: 97.8%;\n    height: 310px;\n    box-sizing:border-box;\n    overflow: hidden;\n    resize: none;\n    border: none;\n    outline: none;\n    font-family: inherit;\n    margin: 1em;\n}\n\n\n.AssetEditorItem__AssetEditor_right___2kgHv{\n width: 33%;\n /* height: 73vh; */\n overflow-x: hidden;\n overflow-y: auto;\n display: inline-block;\n margin-left: 1em;\n} \n\n.AssetEditorItem__select_license___QrZnT{\n    width: 100%;\n    height: 5vh;\n    border: 1px solid #1998E5;\n    margin-bottom: 0.7em;\n    background-color: #1998E5;\n    text-align: center;\n    display: table;\n}\n\n.AssetEditorItem__select_license_text___3Nqm9{\n    color: white;\n    font-size: 0.7em;\n    vertical-align: middle;\n    display: table-cell;\n}\n.AssetEditorItem__dropdownButt___2LUaC{\n    width: 0;\n    height: 0;\n    border-style: solid;\n    border-width: 6px 6px 0 6px;\n    border-color: #1997e5 transparent transparent transparent;\n    float: right;\n    vertical-align: middle;\n    display: table-cell;\n    margin: 1em;\n}\n\n.AssetEditorItem__license_content___UErM_{\n    width: 99%;\n    height: 4.5vh;\n    border: 1.7px solid #1998E5;\n    margin-bottom: 0.7em;\n    display: table;\n    background-color: white;\n    cursor: pointer;\n}\n\n.AssetEditorItem__license_text___1492w{\n    color: #1998E5;\n    font-size: 0.7em;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n    \n}\n\n.AssetEditorItem__dropdownContent___isoji{\n    width: 99%;\n    height: 5em;\n    border: 1px solid red;\n}\n\n.AssetEditorItem__CCL_top___2tSNn{\n    width: 100%;\n    height: 2.3em;\n    background-color: #1998E5;\n}\n.AssetEditorItem__CCL_content___fRJtg{\n\n}\n.AssetEditorItem__AssetEditor_isAsset___2GQ1j{\nwidth: 99.7%;\nheight: 10em;\nborder: 1px solid #1998E5;\ndisplay: inline-block;\nmargin-bottom: 0.3em;\n/* position: absolute; */\n}\n.AssetEditorItem__AssetEditor_Process___1njT3{\nwidth: 99.7%;\nheight: 9.5em;\nborder: 1px solid#1998E5;\ndisplay: inline-block;\n/* margin-bottom: 0.5em; */\n/* position: absolute; */\n}\n\n\n.AssetEditorItem__AssetEditor_agreement___X-QSp{\n\n}\n\n.AssetEditorItem__AssetEditor_agreeButton___3bIIw{\n\n}\n\n.AssetEditorItem__isAsset_Header___qurgL{\n    background-color: #1998E5;\n    width: 100%;\n    height: 2.3em;\n    display: table;\n\n}\n.AssetEditorItem__isAsset_titleText___2gFrR{\n    color: white;\n    font-size: 0.2em;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n}\n\n.AssetEditorItem__AssetEditor_agreeButton___3bIIw{\n    width: 33%;\n    height: 4.6em;\n    color: white;\n    background-color:#1998E5; \n    cursor: pointer;\n    position: absolute;\n}\n\n.AssetEditorItem__setting_first___1lmHa{\n    width: 96%;\n    height : 40px;\n    font-family: inherit;\n}\n.AssetEditorItem__title___iAu3c{\n    border : none;\n    height: 3em;\n    padding-top: 0;\n    display: inline-block;\n    vertical-align: middle;\n    margin-top: 0.1em;\n    width: 99%;\n    outline: none;\n}\n.AssetEditorItem__title2___3U66I{\n    border : none;\n    height: 2.9em;\n    padding-top: 0;\n    display: inline-block;\n    vertical-align: middle;\n    margin-top: 0.1em;\n    width: 96%;\n    outline: none;\n}\n.AssetEditorItem__cover___BFqoc{\n    /* margin-top: 0em; */\n    width: 100%;\n    height: 30%;\n    background-color: #1998E5;\n    margin-left: auto;\n    margin-right: auto;\n    display: table;\n    border: 1px solid #1998E5;\n}\n.AssetEditorItem__cover2___GY3of{\n    width: 35%;\n    height: 2em;\n    background-color: #1998E5;\n    display: table;\n    border: 1px solid #1998E5;\n}\n\n.AssetEditorItem__frontTitle___1XAz4{\n    color: white;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 0.5em;\n    padding : 0 7px 0 9px;\n    width: 20px;\n}\n.AssetEditorItem__frontTitle2___1s13O{\n    color: white;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 2px;\n    padding : 0 7px 0 7px;\n    width: 20px;\n    text-align: center;\n}\n.AssetEditorItem__setting_second___2CgNG{\n    width: 99%;\n    margin-top: 5px;\n    height: 2em;\n}\n/* .openStore{\n    width: 30%;\n    height: 3em;\n    border: 1px solid #1998E5;\n    display: table-cell;\n    vertical-align: middle;\n    color: #1998E5;\n    font-size: 3px;\n    text-align: center;\n    cursor: pointer;\n    \n} */\n\n.AssetEditorItem__openStoreDiv___2rKYZ{\n    width: 30%;\n    height: 40px;\n    float: left;\n    margin-right: 4px;\n}\n\n.AssetEditorItem__openStoreButton___28ftM{\n    width: 100%;\n    height: 3.3em;\n    background-color: white;\n    border: 1.5px solid #1998E5;\n    color: #1998E5;\n    cursor: pointer;\n}\n\n\n.AssetEditorItem__changeCharge___2A6R0{\n    width: 30%;\n    height: 3em;\n    border: 1px solid #1998E5;\n    display: table-cell;\n    vertical-align: middle;\n    color: #1998E5;\n    font-size: 3px;\n    text-align: center;\n    cursor: pointer;\n   \n}\n.AssetEditorItem__text___2xPZE{\n    padding: 1em;\n}\n\n.AssetEditorItem__setting_third___1JNlf{\n    width: 99%;\n    margin-top: 10px;\n    height: 4em;\n}\n\n.AssetEditorItem__imagePreview___2BIMn{\n    width: 38%;\n    height: 4.5em;\n    border: 1.7px solid #1998E5;\n    float: left;\n    margin-right: 5px;\n    display: table;\n}\n.AssetEditorItem__previewText___3duVS{\n    color: #E2E2E2;\n    font-size: 0.5em;\n    display: table-cell;\n    vertical-align: middle;\n    text-align: center;\n}\n.AssetEditorItem__filebutton___2OoDJ{\n    width: 5%;\n    height: 6.8em;\n    position: absolute;\n    background-color: #1998E5\n}\n.AssetEditorItem__filefile___2FrV_{\n    width: 100%;\n    height: 7em;\n    background-color: #1998E5;\n    cursor: pointer;\n    opacity: 0;\n    position: relative;\n}", ""]);
+exports.push([module.i, ".AssetEditorItem__AssetEditor_left___33A0j{\n    width: 60%;\n    height: 70vh ;\n    margin-left: 2em;\n    float: left;\n}\n.AssetEditorItem__AssetEditor_preview___2jY-U{\n width: 100%;\n height: 100%;\n    z-index: 1;\n    position: absolute;\n    background-color: white;\n}\n.AssetEditorItem__previewFile___3MPT9{\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    position: absolute;\n    z-index: 100;\n    padding: none;\n\n}\n\n.AssetEditorItem__AssetEditor_preview___2jY-U img{\n    width: 100%;\n    height: 90%;\n}\n\n.AssetEditorItem__previewDiv___3ZvTJ{\n    width: 48%;\n    height: 30%;\n    border: 1.7px solid #1998E5;\n    float: left;\n    margin: 0 0.5em 0em 0;\n    display: table;\n    \n    color: #E2E2E2;\n    background-color: white;\n    position: relative;\n}\n/* .preview_text{\n    color: #DFDFDF;\n    margin-right: auto;\n    margin-left: auto;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 0.5em;\n    text-align: center;\n} */\n\n\n.AssetEditorItem__AssetEditor_topbar___2XKpb{\n    width: 100%;\n    height: 30px;\n    display: table;\n    background-color: #1998E5;\n}\n.AssetEditorItem__topbar_title___2T_R1{\n    font-size: 10px;\n    margin: 0;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n    color: white;\n}\n\n.AssetEditorItem__AssetEditor_setting___1w7Ix{\nwidth: 50%;\nheight: 28%;\ndisplay: inline-block;\n\n}\n\n.AssetEditorItem__AssetEditor_description___32OKc{\nwidth: 97.8%;\nheight: 380px;\nborder: 1px solid #1898E5;\nmargin: 0.5em 1em 0 0;\ndisplay: inline-block;\n}\n\n.AssetEditorItem__AssetEditor_content___1jf4y{\n    width: 99%;\n    height: 40vh;\n}\n\n.AssetEditorItem__description_content___21mlv{\n    width: 97.8%;\n    height: 310px;\n    box-sizing:border-box;\n    overflow: hidden;\n    resize: none;\n    border: none;\n    outline: none;\n    font-family: inherit;\n    margin: 1em;\n}\n\n\n.AssetEditorItem__AssetEditor_right___2kgHv{\n width: 33%;\n /* height: 73vh; */\n overflow-x: hidden;\n overflow-y: auto;\n display: inline-block;\n margin-left: 1em;\n} \n\n.AssetEditorItem__select_license___QrZnT{\n    width: 100%;\n    height: 5vh;\n    border: 1px solid #1998E5;\n    margin-bottom: 0.7em;\n    background-color: #1998E5;\n    text-align: center;\n    display: table;\n}\n\n.AssetEditorItem__select_license_text___3Nqm9{\n    color: white;\n    font-size: 0.7em;\n    vertical-align: middle;\n    display: table-cell;\n}\n.AssetEditorItem__dropdownButt___2LUaC{\n    width: 0;\n    height: 0;\n    border-style: solid;\n    border-width: 6px 6px 0 6px;\n    border-color: #1997e5 transparent transparent transparent;\n    float: right;\n    vertical-align: middle;\n    display: table-cell;\n    margin: 1em;\n}\n\n.AssetEditorItem__license_content___UErM_{\n    width: 99%;\n    height: 4.5vh;\n    border: 1.7px solid #1998E5;\n    margin-bottom: 0.7em;\n    display: table;\n    background-color: white;\n    cursor: pointer;\n}\n\n.AssetEditorItem__license_text___1492w{\n    color: #1998E5;\n    font-size: 0.7em;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n    \n}\n\n.AssetEditorItem__dropdownContent___isoji{\n    width: 99%;\n    height: 5em;\n    border: 1px solid red;\n}\n\n.AssetEditorItem__CCL_top___2tSNn{\n    width: 100%;\n    height: 2.3em;\n    background-color: #1998E5;\n}\n.AssetEditorItem__CCL_content___fRJtg{\n\n}\n.AssetEditorItem__AssetEditor_isAsset___2GQ1j{\nwidth: 99.7%;\nheight: 10em;\nborder: 1px solid #1998E5;\ndisplay: inline-block;\nmargin-bottom: 0.3em;\n/* position: absolute; */\n}\n.AssetEditorItem__AssetEditor_Process___1njT3{\nwidth: 99.7%;\nheight: 9.5em;\nborder: 1px solid#1998E5;\ndisplay: inline-block;\n/* margin-bottom: 0.5em; */\n/* position: absolute; */\n}\n\n\n.AssetEditorItem__AssetEditor_agreement___X-QSp{\n\n}\n\n.AssetEditorItem__AssetEditor_agreeButton___3bIIw{\n\n}\n\n.AssetEditorItem__isAsset_Header___qurgL{\n    background-color: #1998E5;\n    width: 100%;\n    height: 2.3em;\n    display: table;\n\n}\n.AssetEditorItem__isAsset_titleText___2gFrR{\n    color: white;\n    font-size: 0.2em;\n    display: table-cell;\n    vertical-align: middle;\n    padding-left: 1em;\n}\n\n.AssetEditorItem__AssetEditor_agreeButton___3bIIw{\n    width: 33%;\n    height: 4.6em;\n    color: white;\n    background-color:#1998E5; \n    cursor: pointer;\n    position: absolute;\n}\n\n.AssetEditorItem__setting_first___1lmHa{\n    width: 96%;\n    height : 40px;\n    font-family: inherit;\n}\n.AssetEditorItem__title___iAu3c{\n    border : none;\n    height: 3em;\n    padding-top: 0;\n    display: inline-block;\n    vertical-align: middle;\n    margin-top: 0.1em;\n    width: 99%;\n    outline: none;\n}\n.AssetEditorItem__title2___3U66I{\n    border : none;\n    height: 2.9em;\n    padding-top: 0;\n    display: inline-block;\n    vertical-align: middle;\n    margin-top: 0.1em;\n    width: 96%;\n    outline: none;\n}\n.AssetEditorItem__cover___BFqoc{\n    /* margin-top: 0em; */\n    width: 100%;\n    height: 30%;\n    background-color: #1998E5;\n    margin-left: auto;\n    margin-right: auto;\n    display: table;\n    border: 1px solid #1998E5;\n}\n.AssetEditorItem__cover2___GY3of{\n    width: 35%;\n    height: 2em;\n    background-color: #1998E5;\n    display: table;\n    border: 1px solid #1998E5;\n}\n\n.AssetEditorItem__frontTitle___1XAz4{\n    color: white;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 0.5em;\n    padding : 0 7px 0 9px;\n    width: 20px;\n}\n.AssetEditorItem__frontTitle2___1s13O{\n    color: white;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 2px;\n    padding : 0 7px 0 7px;\n    width: 20px;\n    text-align: center;\n}\n.AssetEditorItem__setting_second___2CgNG{\n    width: 99%;\n    margin-top: 5px;\n    height: 2em;\n}\n/* .openStore{\n    width: 30%;\n    height: 3em;\n    border: 1px solid #1998E5;\n    display: table-cell;\n    vertical-align: middle;\n    color: #1998E5;\n    font-size: 3px;\n    text-align: center;\n    cursor: pointer;\n    \n} */\n\n.AssetEditorItem__openStoreDiv___2rKYZ{\n    width: 30%;\n    height: 40px;\n    float: left;\n    margin-right: 4px;\n}\n\n.AssetEditorItem__openStoreButton___28ftM{\n    width: 100%;\n    height: 3.3em;\n    background-color: white;\n    border: 1.5px solid #1998E5;\n    color: #1998E5;\n    cursor: pointer;\n}\n\n\n.AssetEditorItem__changeCharge___2A6R0{\n    width: 30%;\n    height: 3em;\n    border: 1px solid #1998E5;\n    display: table-cell;\n    vertical-align: middle;\n    color: #1998E5;\n    font-size: 3px;\n    text-align: center;\n    cursor: pointer;\n   \n}\n.AssetEditorItem__text___2xPZE{\n    padding: 1em;\n}\n\n.AssetEditorItem__setting_third___1JNlf{\n    width: 99%;\n    margin-top: 10px;\n    height: 4em;\n}\n\n.AssetEditorItem__imagePreview___2BIMn{\n    width: 38%;\n    height: 4.5em;\n    border: 1.7px solid #1998E5;\n    float: left;\n    margin-right: 5px;\n    display: table;\n}\n.AssetEditorItem__previewText___3duVS{\n    color: #E2E2E2;\n    font-size: 0.5em;\n    display: table-cell;\n    vertical-align: middle;\n    text-align: center;\n}\n.AssetEditorItem__filebutton___2OoDJ{\n    width: 5%;\n    height: 6.8em;\n    position: absolute;\n    background-color: #1998E5\n}\n.AssetEditorItem__filefile___2FrV_{\n    width: 100%;\n    height: 7em;\n    background-color: #1998E5;\n    cursor: pointer;\n    opacity: 0;\n    position: relative;\n}", ""]);
 
 // exports
 exports.locals = {
@@ -33139,37 +33139,74 @@ var AssetSetting = function (_React$Component) {
     function AssetSetting(prop) {
         _classCallCheck(this, AssetSetting);
 
+        // this.previewImage = this.previewImage.bind(this);
         var _this = _possibleConstructorReturn(this, (AssetSetting.__proto__ || Object.getPrototypeOf(AssetSetting)).call(this, prop));
 
-        _this.previewImage = _this.previewImage.bind(_this);
+        _this.state = { file: ' ', imagePreviewUrl: '' };
         return _this;
     }
 
     _createClass(AssetSetting, [{
+        key: 'ImageChange',
+        value: function ImageChange(e) {
+            var _this2 = this;
+
+            e.preventDefault();
+
+            var reader = new FileReader();
+            var file = e.target.files[0];
+
+            reader.onloadend = function () {
+                _this2.setState({
+                    file: file,
+                    imagePreviewUrl: reader.result
+                });
+            };
+
+            reader.readAsDataURL(file);
+        }
+    }, {
         key: 'componentWillMount',
         value: function componentWillMount() {}
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.previewImage.bind();
+            this.previewImage();
         }
     }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
+            var imagePreviewUrl = this.state.imagePreviewUrl;
+
+            var $imagePreview = null;
+            if (imagePreviewUrl) {
+                $imagePreview = _react2.default.createElement('img', { src: imagePreviewUrl, accept: 'image/*' });
+            } else {
+                $imagePreview = _react2.default.createElement(
+                    'div',
+                    { className: 'preview_Image' },
+                    '\uBBF8\uB9AC\uBCF4\uAE30',
+                    _react2.default.createElement('br', null),
+                    '(\uD30C\uC77C\uC744 \uC120\uD0DD\uD558\uC138\uC694)'
+                );
+            }
             return _react2.default.createElement(
                 'div',
                 { className: _AssetEditorItem2.default.AssetEditor_left },
                 _react2.default.createElement(
                     'div',
                     { className: _AssetEditorItem2.default.previewDiv },
-                    _react2.default.createElement('input', { type: 'file', value: '\uD30C\uC77C \uC5C5\uB85C\uB4DC', className: _AssetEditorItem2.default.previewFile, onChange: this.previewImage.bind() }),
+                    _react2.default.createElement('input', { type: 'file', className: _AssetEditorItem2.default.previewFile, onChange: function onChange(e) {
+                            return _this3.ImageChange(e);
+                        } }),
                     _react2.default.createElement(
                         'button',
                         { className: _AssetEditorItem2.default.AssetEditor_preview },
-                        '\uBBF8\uB9AC\uBCF4\uAE30'
+                        $imagePreview
                     )
                 ),
-                _react2.default.createElement('img', { height: '200', alt: '\uC774\uBBF8\uC9C0 \uBBF8\uB9AC\uBCF4\uAE30', className: _AssetEditorItem2.default.preview_Image }),
                 _react2.default.createElement(
                     'div',
                     { className: _AssetEditorItem2.default.AssetEditor_setting },
@@ -33266,27 +33303,6 @@ var AssetSetting = function (_React$Component) {
                     )
                 )
             );
-        }
-    }, {
-        key: 'previewImage',
-        value: function previewImage() {
-            // var preview = document.querySelector('.preview_image');
-            // var file = document.querySelector('.previewFile').files[0];
-            // var reader = new FileReader();
-
-            // reader.addEventListener("load", function(){
-            //     preview.src = reader.result;
-            // }, false);
-            // if(file){
-            //     reader.readAsDataURL(file);
-            // }
-
-            var reader = new FileReader();
-            reader.onload = function () {
-                var output = document.getElementsByClassName('.preview_image');
-                output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
         }
     }]);
 

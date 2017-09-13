@@ -31,13 +31,13 @@ class AssetSetting extends React.Component{
     }
     
     componentDidMount(){
-        this.previewImage();
+        // this.previewImage();
     }
     render(){
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
-          $imagePreview = (<img src={imagePreviewUrl} />);
+          $imagePreview = (<img src={imagePreviewUrl} accept="image/*"/>);
         } else {
           $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
         }
