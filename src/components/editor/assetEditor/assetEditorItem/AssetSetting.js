@@ -92,25 +92,6 @@ class AssetSetting extends React.Component{
         );
     }
 
-    // previewImage() {
-    //     // var preview = document.querySelector('.preview_image');
-    //     // var file = document.querySelector('.previewFile').files[0];
-    //     // var reader = new FileReader();
-
-    //     // reader.addEventListener("load", function(){
-    //     //     preview.src = reader.result;
-    //     // }, false);
-    //     // if(file){
-    //     //     reader.readAsDataURL(file);
-    //     // }
-
-    //     var reader = new FileReader();
-    //     reader.onload = function(){
-    //         var output = document.getElementsByClassName('.preview_image');
-    //         output.src = reader.result;
-    //     };
-    //     reader.readAsDataURL(event.target.files[0]);
-    // }
     
 }
 export default AssetSetting;
