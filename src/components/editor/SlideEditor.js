@@ -30,7 +30,6 @@ class SlideEditor extends React.Component{
   }
 
   render(){
-    console.log(this.props.colorPicker);
     let kindsOfcolorPicker= () =>{
        if(this.props.colorPicker!=undefined){
          switch(this.props.colorPicker){
@@ -54,6 +53,8 @@ class SlideEditor extends React.Component{
             return (<AccountDialog className={styles.modal}/>);
           case dialogs.COLOR_PICKER:
             return (<div className={styles.color_picker}><SketchPicker onChangeComplete={kindsOfcolorPicker()}/></div>)
+          case dialogs.SLIDE_SHOW:
+            return (<SlideShow className={styles.modal}/>);
         }
       }
     }

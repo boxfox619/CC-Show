@@ -21,11 +21,6 @@ const ui = (state = initialState, action) => {
         ...state,
         visibleSlideManager : !state.visibleSlideManager
       };
-    case actionTypes.SLIDE_SHOW:
-      return {
-        ...state,
-        visibleSlideShow: !state.visibleSlideShow
-      }
     default:
       return state;
   }
