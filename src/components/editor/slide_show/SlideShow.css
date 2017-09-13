@@ -1,9 +1,25 @@
-#slide_contents {
+.slideShow{
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  height: 96%;
+  padding-top: 0.5%;
+}
+.slide_contents {
     background-color: gray;
-    height: 75vh;
+    height: 75%;
     margin: 0;
     padding: 0;
     position: relative;
+}
+
+.slideSubContents {
+    height: 25%;
+    margin: 0;
+    padding: 0;
 }
 
 .slideController{
@@ -22,44 +38,76 @@
     cursor: pointer;
     right: 10px;
 }
-
-.slide_sub_contents {
-    height: 25vh;
-    margin: 0;
-    padding: 0;
+.slideShowNote {
+    height: 60%;
+    width: 100%;
+    position: relative;
 }
 
-.slide_show_note {
-    height: 70%;
-    width: 100vw;
-}
-
-.slide_note_contents {
+.slideShowNote_content {
+    position: absolute;
     border: 0;
-    display: table-cell;
-    height: calc( 100% - 60px );
+    height: calc( 60% );
     width: 95%;
-    margin: 30px;
+    margin: 20px;
     resize: none;
 }
 
-.slide_number_wrapper {
-  height: 25%;
+.slideShowNote_content::-webkit-scrollbar-track
+{
+	background-color: #ffffff;
+}
+
+.slideShowNote_content::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #ffffff;
+}
+
+.slideShowNote_content::-webkit-scrollbar-thumb
+{
+	background-color: #5D87B5;
+}
+
+.slideNumberWrapper {
+  position: absolute;
   width: 100%;
-  display: table;
   text-align: center;
+  height: 6.5%;
 }
 
-.slide_number_contents * {
-  display: table-cell;
+.slideNumberContext {
+  position: relative;
+  display: inline-block;
+  width: 30%;
+  height: 100%;
 }
 
-.slide_option_button {
-    float: right;
-    cursor: pointer;
+.slideNumberContext_counter{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-hr {
+.slideOptionButton {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100%;
+  top:0;
+  right:0;
+}
+
+.slideOptionButton img{
+  height: 60%;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.split {
     margin: 0;
     padding: 0;
     width: 97vw;
@@ -68,8 +116,4 @@ hr {
 
 p {
     display: inline-block;
-}
-
-img{
-    cursor: pointer;
 }
