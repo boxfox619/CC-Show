@@ -1,6 +1,7 @@
 export const actionTypes = {
   TOGGLE_DIALOG: 'TOGGLE_DIALOG',
-  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER',
+  RELEASE_DIALOG: 'RELEASE_DIALOG',
+  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER'
 }
 
 export const dialogs = {
@@ -52,6 +53,14 @@ export const toggleAccountDialog = () => {
     target: dialogs.ACCOUNT_WITH_SNS
   }
 }
+
+export const releaseDialog = () => {
+
+  return {
+    type: actionTypes.RELEASE_DIALOG
+  }
+}
+
 
 export const toggleFillColorPicker = () => {
   return {
