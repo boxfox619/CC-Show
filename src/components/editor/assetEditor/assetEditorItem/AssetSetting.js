@@ -74,8 +74,14 @@ class AssetSetting extends React.Component{
                 </div>
 
                 <div className = {styles.setting_third}>
-                    <div className = {styles.imagePreview}><span className = {styles.previewText}>사진첨부</span></div>
-                    <div className = {styles.imagePreview}><span className = {styles.previewText}>사진첨부</span></div>
+                    <div className = {styles.imagePreview}>
+                        <input type = "file" className = {styles.inputImage}/>
+                        <button className = {styles.previewText}>사진첨부</button>
+                    </div>
+                    <div className = {styles.imagePreview}>
+                        <input type = "file" className = {styles.inputImage}/>
+                        <button className = {styles.previewText}>사진첨부</button>
+                    </div>
                     <button className = {styles.filebutton}><input type = "file" className = {styles.filefile}/></button>
                 </div> 
 

@@ -353,11 +353,18 @@ margin-bottom: 10px;
     display: table;
 }
 .previewText{
+    width: 120px;
+    height: 65px;
+    margin-left: 4px;
+    margin-top: 5px;
     color: #E2E2E2;
+    background-color: white;
     font-size: 10px;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+    position: relative;
+    z-index: -1;
 }
 .filebutton{
     width: 64px;
@@ -372,4 +379,16 @@ margin-bottom: 10px;
     cursor: pointer;
     opacity: 0;
     position: relative;
+}
+
+.inputImage{
+    width: 125px;
+    position: absolute;
+    height: 75px;
+    z-index: 1;
+    opacity: 0;
+}
+
+.inputimg{
+    position: absolute;
 }
