@@ -305,10 +305,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        text: {
-                          font: {
-                            $set: action.font
-                          }
+                        font: {
+                          $set: action.font
                         }
                       }
                     }
@@ -330,10 +328,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        text: {
-                          fontsize: {
-                            $set: action.fontSize
-                          }
+                        fontsize: {
+                          $set: action.fontSize
                         }
                       }
                     }
@@ -355,10 +351,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        text: {
-                          sort: {
-                            $set: action.sort
-                          }
+                        sort: {
+                          $set: action.sort
                         }
                       }
                     }
@@ -380,10 +374,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       fontBold: {
-                        text: {
-                          fontBold: {
-                            $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontBold
-                          }
+                        fontBold: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontBold
                         }
                       }
                     }
@@ -405,10 +397,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       fontUnderline: {
-                        text: {
-                          fontUnderline: {
-                            $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontUnderline
-                          }
+                        fontUnderline: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontUnderline
                         }
                       }
                     }
@@ -430,10 +420,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       fontItalic: {
-                        text: {
-                          fontItalic: {
-                            $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontItalic
-                          }
+                        fontItalic: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontItalic
                         }
                       }
                     }
@@ -455,10 +443,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       fontStrikethrough: {
-                        text: {
-                          fontStrikethrough: {
-                            $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontStrikethrough
-                          }
+                        fontStrikethrough: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontStrikethrough
                         }
                       }
                     }
@@ -548,12 +534,8 @@ const editor = (state = initialState, action) => {
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
-                      style: {
-                        video: {
-                          url: {
-                            $set: action.url
-                          }
-                        }
+                      value: {
+                        $set: action.url
                       }
                     }
                   }
@@ -599,10 +581,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        video: {
-                          videoAutoplay: {
-                            $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoAutoplay
-                          }
+                        videoAutoplay: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoAutoplay
                         }
                       }
                     }
@@ -624,10 +604,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        video: {
-                          videoLoop: {
-                            $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoLoop
-                          }
+                        videoLoop: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoLoop
                         }
                       }
                     }
