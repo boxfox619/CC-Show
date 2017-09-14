@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "accbc5f79f98f7aa2e4e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a1532ab398e4f96e5f32"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1035,7 +1035,7 @@ var _prodInvariant = __webpack_require__(10);
 var DOMLazyTree = __webpack_require__(41);
 var DOMProperty = __webpack_require__(32);
 var React = __webpack_require__(42);
-var ReactBrowserEventEmitter = __webpack_require__(57);
+var ReactBrowserEventEmitter = __webpack_require__(58);
 var ReactCurrentOwner = __webpack_require__(26);
 var ReactDOMComponentTree = __webpack_require__(13);
 var ReactDOMContainerInfo = __webpack_require__(236);
@@ -1048,10 +1048,10 @@ var ReactReconciler = __webpack_require__(44);
 var ReactUpdateQueue = __webpack_require__(82);
 var ReactUpdates = __webpack_require__(27);
 
-var emptyObject = __webpack_require__(56);
+var emptyObject = __webpack_require__(57);
 var instantiateReactComponent = __webpack_require__(136);
 var invariant = __webpack_require__(3);
-var setInnerHTML = __webpack_require__(53);
+var setInnerHTML = __webpack_require__(54);
 var shouldUpdateReactComponent = __webpack_require__(85);
 var warning = __webpack_require__(9);
 
@@ -3675,7 +3675,7 @@ var CallbackQueue = __webpack_require__(135);
 var PooledClass = __webpack_require__(35);
 var ReactFeatureFlags = __webpack_require__(134);
 var ReactReconciler = __webpack_require__(44);
-var Transaction = __webpack_require__(59);
+var Transaction = __webpack_require__(60);
 
 var invariant = __webpack_require__(3);
 
@@ -4215,7 +4215,7 @@ exports.setAssetVideoController = setAssetVideoController;
 exports.setAssetVideoAutoplay = setAssetVideoAutoplay;
 exports.setAssetVideoLoop = setAssetVideoLoop;
 
-var _assetTypes = __webpack_require__(62);
+var _assetTypes = __webpack_require__(51);
 
 var assetTypes = _interopRequireWildcard(_assetTypes);
 
@@ -4871,7 +4871,7 @@ var _assign = __webpack_require__(12);
 var ReactCurrentOwner = __webpack_require__(26);
 
 var warning = __webpack_require__(9);
-var canDefineProperty = __webpack_require__(55);
+var canDefineProperty = __webpack_require__(56);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 var REACT_ELEMENT_TYPE = __webpack_require__(125);
@@ -5327,6 +5327,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var actionTypes = exports.actionTypes = {
   TOGGLE_DIALOG: 'TOGGLE_DIALOG',
+  RELEASE_DIALOG: 'RELEASE_DIALOG',
   TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER'
 };
 
@@ -5377,6 +5378,13 @@ var toggleAccountDialog = exports.toggleAccountDialog = function toggleAccountDi
   return {
     type: actionTypes.TOGGLE_DIALOG,
     target: dialogs.ACCOUNT_WITH_SNS
+  };
+};
+
+var releaseDialog = exports.releaseDialog = function releaseDialog() {
+
+  return {
+    type: actionTypes.RELEASE_DIALOG
   };
 };
 
@@ -5502,7 +5510,7 @@ var exchangeSlide = exports.exchangeSlide = function exchangeSlide(to, from) {
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(51),
+var Symbol = __webpack_require__(52),
     getRawTag = __webpack_require__(395),
     objectToString = __webpack_require__(396);
 
@@ -5608,7 +5616,7 @@ module.exports = getNative;
 
 
 var DOMNamespaces = __webpack_require__(74);
-var setInnerHTML = __webpack_require__(53);
+var setInnerHTML = __webpack_require__(54);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(75);
 var setTextContent = __webpack_require__(122);
@@ -5748,7 +5756,7 @@ var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
   var lowPriorityWarning = __webpack_require__(76);
-  var canDefineProperty = __webpack_require__(55);
+  var canDefineProperty = __webpack_require__(56);
   var ReactElementValidator = __webpack_require__(127);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
@@ -6123,7 +6131,7 @@ if(true) {
 
 var _prodInvariant = __webpack_require__(10);
 
-var EventPluginRegistry = __webpack_require__(58);
+var EventPluginRegistry = __webpack_require__(59);
 var EventPluginUtils = __webpack_require__(78);
 var ReactErrorUtils = __webpack_require__(79);
 
@@ -6643,6 +6651,25 @@ module.exports = SyntheticUIEvent;
 /* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(5), RootInstanceProvider = __webpack_require__(6), ReactMount = __webpack_require__(4), React = __webpack_require__(0); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var TYPE_TEXT = exports.TYPE_TEXT = 'ASSET_TYPE_TEXT';
+var TYPE_IMAGE = exports.TYPE_IMAGE = 'ASSET_TYPE_IMAGE';
+var TYPE_VIDEO = exports.TYPE_VIDEO = 'ASSET_TYPE_VIDEO';
+var TYPE_SHAPE = exports.TYPE_SHAPE = 'ASSET_TYPE_SHAPE';
+
+/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(7); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "assetTypes.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var root = __webpack_require__(24);
 
 /** Built-in value references. */
@@ -6652,7 +6679,7 @@ module.exports = Symbol;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayLikeKeys = __webpack_require__(172),
@@ -6695,7 +6722,7 @@ module.exports = keys;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6798,7 +6825,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6925,7 +6952,7 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6957,7 +6984,7 @@ module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6983,7 +7010,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7001,7 +7028,7 @@ module.exports = emptyObject;
 
 var _assign = __webpack_require__(12);
 
-var EventPluginRegistry = __webpack_require__(58);
+var EventPluginRegistry = __webpack_require__(59);
 var ReactEventEmitterMixin = __webpack_require__(234);
 var ViewportMetrics = __webpack_require__(132);
 
@@ -7312,7 +7339,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 module.exports = ReactBrowserEventEmitter;
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7571,7 +7598,7 @@ module.exports = EventPluginRegistry;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7805,7 +7832,7 @@ module.exports = TransactionImpl;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7815,7 +7842,7 @@ module.exports = __webpack_require__(251);
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7890,25 +7917,6 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 
 module.exports = SyntheticMouseEvent;
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(5), RootInstanceProvider = __webpack_require__(6), ReactMount = __webpack_require__(4), React = __webpack_require__(0); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var TYPE_TEXT = exports.TYPE_TEXT = 'ASSET_TYPE_TEXT';
-var TYPE_IMAGE = exports.TYPE_IMAGE = 'ASSET_TYPE_IMAGE';
-var TYPE_VIDEO = exports.TYPE_VIDEO = 'ASSET_TYPE_VIDEO';
-var TYPE_SHAPE = exports.TYPE_SHAPE = 'ASSET_TYPE_SHAPE';
-
-/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(7); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "assetTypes.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
 
 /***/ }),
 /* 63 */
@@ -9824,7 +9832,7 @@ var ReactDOMComponentTree = __webpack_require__(13);
 var ReactInstrumentation = __webpack_require__(21);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(75);
-var setInnerHTML = __webpack_require__(53);
+var setInnerHTML = __webpack_require__(54);
 var setTextContent = __webpack_require__(122);
 
 function getNodeAfter(parentNode, node) {
@@ -10644,7 +10652,7 @@ exports = module.exports = __webpack_require__(19)(undefined);
 
 
 // module
-exports.push([module.i, ".Assets__assetWrapper___2r_zj{\r\n\r\n}\r\n\r\n.Assets__textAsset___iEZh8{\r\n\r\n}\r\n\r\nasset textarea{\r\n  border-style: none;\r\n  resize: none;\r\n  font-family: 'NanumSquare', sans-serif;\r\n}\r\n\r\n.Assets__asset___3bgLj {\r\n  position: absolute !important;\r\n  overflow: hidden;\r\n  display: inline-block;\r\n  margin:0;\r\n  padding:0;\r\n  border:0;\r\n  margin: 3px;\r\n}\r\n\r\n.Assets__assetContext___wvH67{\r\n  position: absolute;\r\n  width: calc(100% - 2px);\r\n  height: calc(100% - 2px);\r\n  cursor: move;\r\n}\r\n\r\n.Assets__isSelected___19Koj{\r\n  background-color: #038AFD;\r\n}\r\n\r\n.Assets__selectorDot___3Lumh{\r\n  position: absolute;\r\n  width: 8px;\r\n  height: 8px;\r\n  -webkit-border-radius: 25px;\r\n  -moz-border-radius: 25px;\r\n  border-radius: 25px;\r\n}\r\n\r\n.Assets__horizontalResizer___2498-{\r\n  position: absolute;\r\n  height: 2px;\r\n  width: calc( 100% - 10px );\r\n  cursor: ns-resize;\r\n  z-index: 99;\r\n}\r\n\r\n.Assets__verticalResizer___3nhqi{\r\n  position: absolute;\r\n  height: calc( 100% - 10px );\r\n  width: 2px;\r\n  cursor: ew-resize;\r\n  z-index: 99;\r\n}\r\n", ""]);
+exports.push([module.i, ".Assets__assetWrapper___2r_zj{\r\n\r\n}\r\n\r\n.Assets__textAsset___iEZh8{\r\n\r\n}\r\n\r\nasset textarea{\r\n  border-style: none;\r\n  resize: none;\r\n}\r\n\r\n.Assets__asset___3bgLj {\r\n  position: absolute !important;\r\n  overflow: hidden;\r\n  display: inline-block;\r\n  margin:0;\r\n  padding:0;\r\n  border:0;\r\n  margin: 3px;\r\n}\r\n\r\n.Assets__assetContext___wvH67{\r\n  position: absolute;\r\n  width: calc(100% - 2px);\r\n  height: calc(100% - 2px);\r\n  cursor: move;\r\n}\r\n\r\n.Assets__isSelected___19Koj{\r\n  background-color: #038AFD;\r\n}\r\n\r\n.Assets__selectorDot___3Lumh{\r\n  position: absolute;\r\n  width: 8px;\r\n  height: 8px;\r\n  -webkit-border-radius: 25px;\r\n  -moz-border-radius: 25px;\r\n  border-radius: 25px;\r\n}\r\n\r\n.Assets__horizontalResizer___2498-{\r\n  position: absolute;\r\n  height: 2px;\r\n  width: calc( 100% - 10px );\r\n  cursor: ns-resize;\r\n  z-index: 99;\r\n}\r\n\r\n.Assets__verticalResizer___3nhqi{\r\n  position: absolute;\r\n  height: calc( 100% - 10px );\r\n  width: 2px;\r\n  cursor: ew-resize;\r\n  z-index: 99;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -11213,7 +11221,7 @@ exports = module.exports = __webpack_require__(19)(undefined);
 
 
 // module
-exports.push([module.i, ".SlideShow__slideShow___2IRp3{\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  height: 96%;\r\n  padding-top: 0.5%;\r\n}\r\n.SlideShow__slide_contents___CXkmV {\r\n    background-color: gray;\r\n    height: 75%;\r\n    margin: 0;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slideSubContents___1GDb6 {\r\n    height: 25%;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.SlideShow__slideController___1Aicc{\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translate(0, -50%);\r\n}\r\n\r\n.SlideShow__prev_slide___146rd{\r\n    cursor: pointer;\r\n    left: 10px;\r\n}\r\n\r\n.SlideShow__next_slide___2ZpNM{\r\n    cursor: pointer;\r\n    right: 10px;\r\n}\r\n.SlideShow__slideShowNote___1AbYm {\r\n    height: 60%;\r\n    width: 100%;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E {\r\n    position: absolute;\r\n    border: 0;\r\n    height: calc( 60% );\r\n    width: 95%;\r\n    margin: 20px;\r\n    resize: none;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar-track\r\n{\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar\r\n{\r\n\twidth: 5px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.SlideShow__slideNumberWrapper___2d9fo {\r\n  position: absolute;\r\n  width: 100%;\r\n  text-align: center;\r\n  height: 6.5%;\r\n}\r\n\r\n.SlideShow__slideNumberContext___1Nc9M {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 30%;\r\n  height: 100%;\r\n}\r\n\r\n.SlideShow__slideNumberContext_counter___3XgCX{\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.SlideShow__slideOptionButton___VvBly {\r\n  position: absolute;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 100px;\r\n  height: 100%;\r\n  top:0;\r\n  right:0;\r\n}\r\n\r\n.SlideShow__slideOptionButton___VvBly img{\r\n  height: 60%;\r\n  margin: 0 3px;\r\n  cursor: pointer;\r\n}\r\n\r\n.SlideShow__split___15XQ8 {\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 97vw;\r\n    margin: auto;\r\n}\r\n\r\np {\r\n    display: inline-block;\r\n}\r\n", ""]);
+exports.push([module.i, ".SlideShow__slideShow___2IRp3{\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  height: 96%;\r\n  padding-top: 0.5%;\r\n}\r\n.SlideShow__slide_contents___CXkmV {\r\n    background-color: gray;\r\n    height: 75%;\r\n    margin: 0;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slideSubContents___1GDb6 {\r\n    height: 25%;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.SlideShow__slideController___1Aicc{\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translate(0, -50%);\r\n}\r\n\r\n.SlideShow__prev_slide___146rd{\r\n    cursor: pointer;\r\n    left: 10px;\r\n}\r\n\r\n.SlideShow__next_slide___2ZpNM{\r\n    cursor: pointer;\r\n    right: 10px;\r\n}\r\n.SlideShow__slideShowNote___1AbYm {\r\n    height: 60%;\r\n    width: 100%;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E {\r\n    position: absolute;\r\n    border: 0;\r\n    height: calc( 60% );\r\n    width: 95%;\r\n    margin: 20px;\r\n    resize: none;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar-track\r\n{\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar\r\n{\r\n\twidth: 5px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.SlideShow__slideNumberWrapper___2d9fo {\r\n  position: absolute;\r\n  width: 100%;\r\n  text-align: center;\r\n  height: 6.5%;\r\n}\r\n\r\n.SlideShow__slideNumberContext___1Nc9M {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 30%;\r\n  height: 100%;\r\n}\r\n\r\n.SlideShow__slideNumberContext_counter___3XgCX{\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.SlideShow__slideOptionButton___VvBly {\r\n  position: absolute;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 100px;\r\n  height: 100%;\r\n  top:0;\r\n  right:0;\r\n}\r\n\r\n.SlideShow__slideOptionButton___VvBly img{\r\n  height: 60%;\r\n  margin: 0 3px;\r\n  cursor: pointer;\r\n}\r\n\r\n.SlideShow__split___15XQ8 {\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100%;\r\n    margin: auto;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -11278,8 +11286,8 @@ exports.locals = {
 
 
 var ExecutionEnvironment = __webpack_require__(14);
-var escapeTextContentForBrowser = __webpack_require__(54);
-var setInnerHTML = __webpack_require__(53);
+var escapeTextContentForBrowser = __webpack_require__(55);
+var setInnerHTML = __webpack_require__(54);
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -11339,8 +11347,8 @@ var _prodInvariant = __webpack_require__(43),
 
 var ReactNoopUpdateQueue = __webpack_require__(124);
 
-var canDefineProperty = __webpack_require__(55);
-var emptyObject = __webpack_require__(56);
+var canDefineProperty = __webpack_require__(56);
+var emptyObject = __webpack_require__(57);
 var invariant = __webpack_require__(3);
 var lowPriorityWarning = __webpack_require__(76);
 
@@ -11668,7 +11676,7 @@ var ReactElement = __webpack_require__(34);
 
 var checkReactTypeSpec = __webpack_require__(225);
 
-var canDefineProperty = __webpack_require__(55);
+var canDefineProperty = __webpack_require__(56);
 var getIteratorFn = __webpack_require__(126);
 var warning = __webpack_require__(9);
 var lowPriorityWarning = __webpack_require__(76);
@@ -15873,7 +15881,7 @@ module.exports = freeGlobal;
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseFor = __webpack_require__(397),
-    keys = __webpack_require__(52);
+    keys = __webpack_require__(53);
 
 /**
  * The base implementation of `_.forOwn` without support for iteratee shorthands.
@@ -16407,7 +16415,7 @@ module.exports = setToArray;
 
 var baseGetAllKeys = __webpack_require__(188),
     getSymbols = __webpack_require__(113),
-    keys = __webpack_require__(52);
+    keys = __webpack_require__(53);
 
 /**
  * Creates an array of own enumerable property names and symbols of `object`.
@@ -17481,7 +17489,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(60);
+var _reactDom = __webpack_require__(61);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -18904,7 +18912,7 @@ module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 var _assign = __webpack_require__(12);
 
-var emptyObject = __webpack_require__(56);
+var emptyObject = __webpack_require__(57);
 var _invariant = __webpack_require__(3);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -20861,7 +20869,7 @@ if (process.env.NODE_ENV !== 'production') {
   var checkReactTypeSpec = __webpack_require__(248);
 }
 
-var emptyObject = __webpack_require__(56);
+var emptyObject = __webpack_require__(57);
 var invariant = __webpack_require__(3);
 var shallowEqual = __webpack_require__(84);
 var shouldUpdateReactComponent = __webpack_require__(85);
@@ -23110,7 +23118,7 @@ module.exports = DefaultEventPluginOrder;
 
 var EventPropagators = __webpack_require__(49);
 var ReactDOMComponentTree = __webpack_require__(13);
-var SyntheticMouseEvent = __webpack_require__(61);
+var SyntheticMouseEvent = __webpack_require__(62);
 
 var eventTypes = {
   mouseEnter: {
@@ -23911,8 +23919,8 @@ var DOMNamespaces = __webpack_require__(74);
 var DOMProperty = __webpack_require__(32);
 var DOMPropertyOperations = __webpack_require__(146);
 var EventPluginHub = __webpack_require__(47);
-var EventPluginRegistry = __webpack_require__(58);
-var ReactBrowserEventEmitter = __webpack_require__(57);
+var EventPluginRegistry = __webpack_require__(59);
+var ReactBrowserEventEmitter = __webpack_require__(58);
 var ReactDOMComponentFlags = __webpack_require__(133);
 var ReactDOMComponentTree = __webpack_require__(13);
 var ReactDOMInput = __webpack_require__(278);
@@ -23924,7 +23932,7 @@ var ReactMultiChild = __webpack_require__(281);
 var ReactServerRenderingTransaction = __webpack_require__(286);
 
 var emptyFunction = __webpack_require__(17);
-var escapeTextContentForBrowser = __webpack_require__(54);
+var escapeTextContentForBrowser = __webpack_require__(55);
 var invariant = __webpack_require__(3);
 var isEventSupported = __webpack_require__(80);
 var shallowEqual = __webpack_require__(84);
@@ -25449,7 +25457,7 @@ module.exports = memoizeStringOnly;
 
 
 
-var escapeTextContentForBrowser = __webpack_require__(54);
+var escapeTextContentForBrowser = __webpack_require__(55);
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -26834,7 +26842,7 @@ module.exports = flattenChildren;
 var _assign = __webpack_require__(12);
 
 var PooledClass = __webpack_require__(35);
-var Transaction = __webpack_require__(59);
+var Transaction = __webpack_require__(60);
 var ReactInstrumentation = __webpack_require__(21);
 var ReactServerUpdateQueue = __webpack_require__(287);
 
@@ -27286,7 +27294,7 @@ var DOMChildrenOperations = __webpack_require__(88);
 var DOMLazyTree = __webpack_require__(41);
 var ReactDOMComponentTree = __webpack_require__(13);
 
-var escapeTextContentForBrowser = __webpack_require__(54);
+var escapeTextContentForBrowser = __webpack_require__(55);
 var invariant = __webpack_require__(3);
 var validateDOMNesting = __webpack_require__(81);
 
@@ -27450,7 +27458,7 @@ module.exports = ReactDOMTextComponent;
 var _assign = __webpack_require__(12);
 
 var ReactUpdates = __webpack_require__(27);
-var Transaction = __webpack_require__(59);
+var Transaction = __webpack_require__(60);
 
 var emptyFunction = __webpack_require__(17);
 
@@ -27729,7 +27737,7 @@ var EventPluginHub = __webpack_require__(47);
 var EventPluginUtils = __webpack_require__(78);
 var ReactComponentEnvironment = __webpack_require__(83);
 var ReactEmptyComponent = __webpack_require__(139);
-var ReactBrowserEventEmitter = __webpack_require__(57);
+var ReactBrowserEventEmitter = __webpack_require__(58);
 var ReactHostComponent = __webpack_require__(140);
 var ReactUpdates = __webpack_require__(27);
 
@@ -27767,10 +27775,10 @@ var _assign = __webpack_require__(12);
 
 var CallbackQueue = __webpack_require__(135);
 var PooledClass = __webpack_require__(35);
-var ReactBrowserEventEmitter = __webpack_require__(57);
+var ReactBrowserEventEmitter = __webpack_require__(58);
 var ReactInputSelection = __webpack_require__(150);
 var ReactInstrumentation = __webpack_require__(21);
-var Transaction = __webpack_require__(59);
+var Transaction = __webpack_require__(60);
 var ReactUpdateQueue = __webpack_require__(82);
 
 /**
@@ -28859,7 +28867,7 @@ var SyntheticClipboardEvent = __webpack_require__(305);
 var SyntheticEvent = __webpack_require__(28);
 var SyntheticFocusEvent = __webpack_require__(306);
 var SyntheticKeyboardEvent = __webpack_require__(307);
-var SyntheticMouseEvent = __webpack_require__(61);
+var SyntheticMouseEvent = __webpack_require__(62);
 var SyntheticDragEvent = __webpack_require__(309);
 var SyntheticTouchEvent = __webpack_require__(310);
 var SyntheticTransitionEvent = __webpack_require__(311);
@@ -29414,7 +29422,7 @@ module.exports = getEventKey;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(61);
+var SyntheticMouseEvent = __webpack_require__(62);
 
 /**
  * @interface DragEvent
@@ -29549,7 +29557,7 @@ module.exports = SyntheticTransitionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(61);
+var SyntheticMouseEvent = __webpack_require__(62);
 
 /**
  * @interface WheelEvent
@@ -29712,7 +29720,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 var DOMProperty = __webpack_require__(32);
-var EventPluginRegistry = __webpack_require__(58);
+var EventPluginRegistry = __webpack_require__(59);
 var ReactComponentTreeHook = __webpack_require__(18);
 
 var warning = __webpack_require__(9);
@@ -30078,6 +30086,8 @@ var _SlideShow2 = _interopRequireDefault(_SlideShow);
 
 var _ui = __webpack_require__(36);
 
+var uiActions = _interopRequireWildcard(_ui);
+
 var _reactColor = __webpack_require__(169);
 
 var _assets = __webpack_require__(29);
@@ -30111,6 +30121,7 @@ var SlideEditor = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (SlideEditor.__proto__ || Object.getPrototypeOf(SlideEditor)).call(this, props));
 
     _this.checkContextDisabled = _this.checkContextDisabled.bind(_this);
+    _this.handleClick = _this.handleClick.bind(_this);
 
     _this.handleBorderColor = _this.handleBorderColor.bind(_this);
     _this.handleFillColor = _this.handleFillColor.bind(_this);
@@ -30162,13 +30173,15 @@ var SlideEditor = function (_React$Component) {
         } else {
           return _react2.default.createElement(
             'div',
-            { className: _SlideEditor2.default.slideEditor },
+            { ref: function ref(root) {
+                _this2.root = root;
+              }, className: _SlideEditor2.default.slideEditor },
             _react2.default.createElement(_AssetCreator2.default, { className: _SlideEditor2.default.assetCreator }),
             _react2.default.createElement(_SlideManager2.default, { className: _SlideEditor2.default.slideManager + ' ' + (_this2.props.visibleSlideManager ? _SlideEditor2.default.show : '') }),
             renderDialogs(),
             _react2.default.createElement(
               'div',
-              { className: _SlideEditor2.default.contextWrap + ' ' + (contextDisabled ? _SlideEditor2.default.disabled : '') },
+              { onClick: _this2.handleClick, className: _SlideEditor2.default.contextWrap + ' ' + (contextDisabled ? _SlideEditor2.default.disabled : '') },
               _react2.default.createElement(
                 'div',
                 { className: _SlideEditor2.default.contextSpace },
@@ -30184,6 +30197,14 @@ var SlideEditor = function (_React$Component) {
         null,
         isSlideShow()
       );
+    }
+  }, {
+    key: 'handleClick',
+    value: function handleClick(event) {
+      console.log(event.target);
+      if (this.checkContextDisabled()) {
+        this.props.releaseDialog();
+      }
     }
   }, {
     key: 'checkContextDisabled',
@@ -30225,7 +30246,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return (0, _redux.bindActionCreators)(_extends({}, assetsActions), dispatch);
+  return (0, _redux.bindActionCreators)(_extends({}, assetsActions, uiActions), dispatch);
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SlideEditor);
@@ -30269,7 +30290,7 @@ var _assets = __webpack_require__(29);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
-var _assetTypes = __webpack_require__(62);
+var _assetTypes = __webpack_require__(51);
 
 var assetTypes = _interopRequireWildcard(_assetTypes);
 
@@ -33064,7 +33085,7 @@ var _AssetEditorItem = __webpack_require__(63);
 
 var _AssetEditorItem2 = _interopRequireDefault(_AssetEditorItem);
 
-var _reactDom = __webpack_require__(60);
+var _reactDom = __webpack_require__(61);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -33782,7 +33803,7 @@ var _Assets = __webpack_require__(64);
 
 var _Assets2 = _interopRequireDefault(_Assets);
 
-var _assetTypes = __webpack_require__(62);
+var _assetTypes = __webpack_require__(51);
 
 var assetTypes = _interopRequireWildcard(_assetTypes);
 
@@ -33873,7 +33894,7 @@ var Asset = function (_React$Component) {
           _react2.default.createElement('selectorline', _extends({}, bottomAttr, { style: { 'top': 'calc(' + this.getContextHeight() + ' + 7px)' }, className: _Assets2.default.horizontalResizer + this.getSubStyleClass() })),
           _react2.default.createElement('selectorline', _extends({}, leftAttr, { style: { 'left': '3px' }, className: _Assets2.default.verticalResizer + this.getSubStyleClass() })),
           _react2.default.createElement('selectorline', _extends({}, rightAttr, { style: { 'left': 'calc(' + this.getContextWidth() + ' + 7px)' }, className: _Assets2.default.verticalResizer + this.getSubStyleClass() })),
-          _react2.default.createElement(AssetContext, { onChange: this.handleInputChange, styles: { 'width': this.getContextWidth(), 'height': this.getContextHeight(), 'overflow': 'hidden', 'cursor': 'move' }, value: this.props.attribute.value }),
+          _react2.default.createElement(AssetContext, { handleChange: this.handleInputChange, styles: { 'width': this.getContextWidth(), 'height': this.getContextHeight(), 'overflow': 'hidden', 'cursor': 'move' }, value: this.props.attribute.value }),
           _react2.default.createElement('selectordot', _extends({}, topLeftAttr, { style: { 'cursor': 'nw-resize', 'top': '0px', 'left': '0px' }, className: _Assets2.default.selectorDot + this.getSubStyleClass() })),
           _react2.default.createElement('selectordot', _extends({}, topRightAttr, { style: { 'cursor': 'ne-resize', 'top': '0px', 'left': 'calc(' + this.getContextWidth() + ' + 3.5px)' }, className: _Assets2.default.selectorDot + this.getSubStyleClass() })),
           _react2.default.createElement('selectordot', _extends({}, bottomLeftAttr, { style: { 'cursor': 'ne-resize', 'top': 'calc(' + this.getContextHeight() + ' + 3.5px)', 'left': '0px' }, className: _Assets2.default.selectorDot + this.getSubStyleClass() })),
@@ -33884,6 +33905,7 @@ var Asset = function (_React$Component) {
   }, {
     key: 'handleInputChange',
     value: function handleInputChange(event) {
+      console.log(event.target.value);
       this.props.handleValueChange(this.props.attribute.id, event.target.value);
     }
   }, {
@@ -33993,16 +34015,16 @@ var propTypes = {
 var TextAsset = function (_React$Component) {
   _inherits(TextAsset, _React$Component);
 
-  function TextAsset(props) {
+  function TextAsset() {
     _classCallCheck(this, TextAsset);
 
-    return _possibleConstructorReturn(this, (TextAsset.__proto__ || Object.getPrototypeOf(TextAsset)).call(this, props));
+    return _possibleConstructorReturn(this, (TextAsset.__proto__ || Object.getPrototypeOf(TextAsset)).apply(this, arguments));
   }
 
   _createClass(TextAsset, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('textarea', { onChange: this.props.onChange, style: this.props.styles, defaultValue: this.props.value });
+      return _react2.default.createElement('textarea', { style: this.props.styles, onChange: this.props.handleChange, defaultValue: this.props.value });
     }
   }]);
 
@@ -34165,7 +34187,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(60);
+var _reactDom = __webpack_require__(61);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -34586,7 +34608,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(15);
 
-var _assetTypes = __webpack_require__(62);
+var _assetTypes = __webpack_require__(51);
 
 var actions = _interopRequireWildcard(_assetTypes);
 
@@ -34638,19 +34660,19 @@ var AssetController = function (_React$Component) {
         value: function ControllerSelector(selectedAsset) {
             switch (this.props.currentSilde.assets[selectedAsset].type) {
                 case actions.TYPE_TEXT:
-                    return _react2.default.createElement(_TextController2.default, { font: this.props.currentSilde.assets[selectedAsset].style.text.font,
-                        fontSize: this.props.currentSilde.assets[selectedAsset].style.text.fontSize,
-                        sort: this.props.currentSilde.assets[selectedAsset].style.text.sort,
-                        bold: this.props.currentSilde.assets[selectedAsset].style.text.fontBold,
-                        underline: this.props.currentSilde.assets[selectedAsset].style.text.fontUnderline,
-                        italic: this.props.currentSilde.assets[selectedAsset].style.text.fontItalic,
-                        strikethrough: this.props.currentSilde.assets[selectedAsset].style.text.fontStrikethrough,
-                        textColor: this.props.currentSilde.assets[selectedAsset].style.text.textColor });
+                    return _react2.default.createElement(_TextController2.default, { font: this.props.currentSilde.assets[selectedAsset].style.font,
+                        fontSize: this.props.currentSilde.assets[selectedAsset].style.fontSize,
+                        sort: this.props.currentSilde.assets[selectedAsset].style.sort,
+                        bold: this.props.currentSilde.assets[selectedAsset].style.fontBold,
+                        underline: this.props.currentSilde.assets[selectedAsset].style.fontUnderline,
+                        italic: this.props.currentSilde.assets[selectedAsset].style.fontItalic,
+                        strikethrough: this.props.currentSilde.assets[selectedAsset].style.fontStrikethrough,
+                        textColor: this.props.currentSilde.assets[selectedAsset].style.textColor });
                 case actions.TYPE_VIDEO:
-                    return _react2.default.createElement(_VideoController2.default, { url: this.props.currentSilde.assets[selectedAsset].style.video.url,
-                        videoController: this.props.currentSilde.assets[selectedAsset].style.video.videoController,
-                        videoAutoplay: this.props.currentSilde.assets[selectedAsset].style.video.videoAutoplay,
-                        videoLoop: this.props.currentSilde.assets[selectedAsset].style.video.videoLoop });
+                    return _react2.default.createElement(_VideoController2.default, { url: this.props.currentSilde.assets[selectedAsset].style.url,
+                        videoController: this.props.currentSilde.assets[selectedAsset].style.videoController,
+                        videoAutoplay: this.props.currentSilde.assets[selectedAsset].style.videoAutoplay,
+                        videoLoop: this.props.currentSilde.assets[selectedAsset].style.videoLoop });
                 case actions.TYPE_SHAPE:
                     return _react2.default.createElement(_ShapeController2.default, null);
                 case actions.TYPE_IMAGE:
@@ -35929,7 +35951,7 @@ module.exports = isString;
 /* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(51);
+var Symbol = __webpack_require__(52);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -37409,7 +37431,7 @@ module.exports = cacheHas;
 /* 443 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(51),
+var Symbol = __webpack_require__(52),
     Uint8Array = __webpack_require__(184),
     eq = __webpack_require__(110),
     equalArrays = __webpack_require__(183),
@@ -37706,7 +37728,7 @@ module.exports = WeakMap;
 /***/ (function(module, exports, __webpack_require__) {
 
 var isStrictComparable = __webpack_require__(192),
-    keys = __webpack_require__(52);
+    keys = __webpack_require__(53);
 
 /**
  * Gets the property names, values, and compare flags of `object`.
@@ -37992,7 +38014,7 @@ module.exports = toString;
 /* 457 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(51),
+var Symbol = __webpack_require__(52),
     arrayMap = __webpack_require__(180),
     isArray = __webpack_require__(23),
     isSymbol = __webpack_require__(70);
@@ -38385,7 +38407,7 @@ var Stack = __webpack_require__(109),
     isArray = __webpack_require__(23),
     isBuffer = __webpack_require__(105),
     isObject = __webpack_require__(30),
-    keys = __webpack_require__(52);
+    keys = __webpack_require__(53);
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_DEEP_FLAG = 1,
@@ -38544,7 +38566,7 @@ module.exports = defineProperty;
 /***/ (function(module, exports, __webpack_require__) {
 
 var copyObject = __webpack_require__(72),
-    keys = __webpack_require__(52);
+    keys = __webpack_require__(53);
 
 /**
  * The base implementation of `_.assign` without support for multiple sources
@@ -39050,7 +39072,7 @@ module.exports = addSetEntry;
 /* 487 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(51);
+var Symbol = __webpack_require__(52);
 
 /** Used to convert symbols to primitives and strings. */
 var symbolProto = Symbol ? Symbol.prototype : undefined,
@@ -48296,7 +48318,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(60);
+var _reactDom = __webpack_require__(61);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -48704,6 +48726,12 @@ var _reactAddonsUpdate = __webpack_require__(73);
 
 var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
 
+var _assetTypes = __webpack_require__(51);
+
+var assetTypes = _interopRequireWildcard(_assetTypes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -48732,32 +48760,14 @@ var defaultAsset = {
   x: '0px',
   y: '0px',
   angle: '0',
-  style: {
-    text: {
-      font: '',
-      fontsize: '0',
-      sort: '',
-      fontBold: false,
-      fontItalic: false,
-      fontUnderline: false,
-      fontStrikethrough: false,
-      textColor: ' '
-    }, video: {
-      url: '',
-      videoController: false,
-      videoLoop: false,
-      videoAutoplay: false
-    }, image: {}, shape: {},
-    fillColor: 'withe',
-    borderColor: 'withe',
-    edgeWeight: '0'
-  }
+  style: {}
 };
 
 var editor = function editor() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments[1];
 
+  console.log('asd' + assetTypes);
   switch (action.type) {
     case _assets.actionTypes.ASSET_CREATE:
       var sizeUnit = (0, _store.getState)().slideContext.sizeUnit;
@@ -48770,205 +48780,372 @@ var editor = function editor() {
         height: '50' + sizeUnit,
         width: '50' + sizeUnit,
         x: '0' + positionUnit,
-        y: '0' + positionUnit });
+        y: '0' + positionUnit,
+        style: {
+          fillColor: 'withe',
+          borderColor: 'withe',
+          edgeWeight: '0'
+        }
+      });
+      if (action.assetType === assetTypes.TYPE_TEXT) {
+        newAsset = _extends({}, newAsset, {
+          style: {
+            font: '',
+            fontsize: '0',
+            sort: '',
+            fontBold: false,
+            fontItalic: false,
+            fontUnderline: false,
+            fontStrikethrough: false,
+            textColor: ' '
+          }
+        });
+      } else if (action.assetType === assetTypes.TYPE_VIDEO) {
+        newAsset = _extends({}, newAsset, {
+          style: {
+            videoController: false,
+            videoLoop: false,
+            videoAutoplay: false
+          }
+        });
+      } else if (action.assetType === assetTypes.TYPE_IMAGE) {
+        newAsset = _extends({}, newAsset, {
+          style: {}
+        });
+      } else if (action.assetType === assetTypes.TYPE_SHAPE) {
+        newAsset = _extends({}, newAsset, {
+          style: {}
+        });
+      } else {
+        alert('type error');
+      }
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assetIdCount: { $set: currentId },
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, {
+          assetIdCount: {
+            $set: currentId
+          },
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, {
               $push: [newAsset]
-            }) }
+            })
+          }
         }))
-
       });
     case _assets.actionTypes.SET_VALUE:
       console.log(action.value);
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, action.id), {
-              value: { $set: action.value }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, action.id), {
+              value: {
+                $set: action.value
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SELECTED:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          selectedAsset: { $set: action.assetId }
+          selectedAsset: {
+            $set: action.assetId
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_WIDTH:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              width: { $set: parseInt(action.value) + (0, _store.getState)().slideContext.sizeUnit }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              width: {
+                $set: parseInt(action.value) + (0, _store.getState)().slideContext.sizeUnit
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_HEIGHT:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              height: { $set: parseInt(action.value) + (0, _store.getState)().slideContext.sizeUnit }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              height: {
+                $set: parseInt(action.value) + (0, _store.getState)().slideContext.sizeUnit
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_X_POSTION:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              x: { $set: parseInt(action.value) + (0, _store.getState)().slideContext.positionUnit }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              x: {
+                $set: parseInt(action.value) + (0, _store.getState)().slideContext.positionUnit
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_Y_POSTION:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              y: { $set: parseInt(action.value) + (0, _store.getState)().slideContext.positionUnit }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              y: {
+                $set: parseInt(action.value) + (0, _store.getState)().slideContext.positionUnit
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_BOTH_POSITION:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              x: { $set: parseInt(action.x) + (0, _store.getState)().slideContext.positionUnit },
-              y: { $set: parseInt(action.y) + (0, _store.getState)().slideContext.positionUnit }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              x: {
+                $set: parseInt(action.x) + (0, _store.getState)().slideContext.positionUnit
+              },
+              y: {
+                $set: parseInt(action.y) + (0, _store.getState)().slideContext.positionUnit
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_ANGLE:
     case _assets.actionTypes.ASSET_SET_X_POSTION:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              angle: { $set: action.value }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              angle: {
+                $set: action.value
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_TEXT_COLOR:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { text: { textColor: { $set: action.textColor } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                text: {
+                  textColor: {
+                    $set: action.textColor
+                  }
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_TEXT_FONT:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { text: { font: { $set: action.font } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                font: {
+                  $set: action.font
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_TEXT_FONT_SIZE:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { text: { fontsize: { $set: action.fontSize } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                fontsize: {
+                  $set: action.fontSize
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_TEXT_SORT:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { text: { sort: { $set: action.sort } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                sort: {
+                  $set: action.sort
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_TEXT_FONT_BOLD:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontBold: { text: { fontBold: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontBold } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              fontBold: {
+                fontBold: {
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontBold
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_TEXT_FONT_UNDERLINE:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontUnderline: { text: { fontUnderline: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontUnderline } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              fontUnderline: {
+                fontUnderline: {
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontUnderline
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_TEXT_FONT_ITALIC:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontItalic: { text: { fontItalic: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontItalic } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              fontItalic: {
+                fontItalic: {
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontItalic
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontStrikethrough: { text: { fontStrikethrough: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontStrikethrough } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              fontStrikethrough: {
+                fontStrikethrough: {
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontStrikethrough
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_FILL_COLOR:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { fillColor: { $set: action.fillColor } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                fillColor: {
+                  $set: action.fillColor
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_BORDER_COLOR:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { borderColor: { $set: action.borderColor } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                borderColor: {
+                  $set: action.borderColor
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_BORDER_WEIGHT:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { borderWeight: { $set: action.borderWeight } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                borderWeight: {
+                  $set: action.borderWeight
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_VIDEO_URL:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { video: { url: { $set: action.url } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              value: {
+                $set: action.url
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_VIDEO_CONTROLLER:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { video: { videoController: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoController } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                video: {
+                  videoController: {
+                    $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoController
+                  }
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_VIDEO_AUTOPLAY:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { video: { videoAutoplay: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoAutoplay } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                videoAutoplay: {
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoAutoplay
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_VIDEO_LOOP:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              style: { video: { videoLoop: { $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoLoop } } }
-            })) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                videoLoop: {
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoLoop
+                }
+              }
+            }))
+          }
         }))
       });
     case _assets.actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
-          assets: { $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), action.attrs)) }
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), action.attrs))
+          }
         }))
       });
     case _slides.actionTypes.SLIDE_CONTEXT_SET_SIZE_UNIT:
@@ -48983,7 +49160,8 @@ var editor = function editor() {
       var target = action.target;
       return _extends({}, state, {
         slideIdCount: state.slideIdCount + 1,
-        slides: (0, _reactAddonsUpdate2.default)(state.slides, { $push: [_extends({}, target, {
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, {
+          $push: [_extends({}, target, {
             id: state.slideIdCount + 1
           })]
         })
@@ -48991,7 +49169,8 @@ var editor = function editor() {
     case _slides.actionTypes.SLIDE_CREATE:
       return _extends({}, state, {
         slideIdCount: state.slideIdCount + 1,
-        slides: (0, _reactAddonsUpdate2.default)(state.slides, { $push: [{
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, {
+          $push: [{
             id: state.slideIdCount + 1,
             name: 'NEW-SLIDE' + (state.slideIdCount + 1),
             selectedAsset: undefined,
@@ -49007,12 +49186,16 @@ var editor = function editor() {
       }
       return _extends({}, state, {
         selectedSlide: selectedSlide,
-        slides: (0, _reactAddonsUpdate2.default)(state.slides, { $splice: [[getSlideIndex(state, action.target), 1]] })
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, {
+          $splice: [[getSlideIndex(state, action.target), 1]]
+        })
       });
     case _slides.actionTypes.SLIDE_RENAME:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, getSlideIndex(state, action.target), {
-          name: { $set: action.name }
+          name: {
+            $set: action.name
+          }
         }))
       });
     case _slides.actionTypes.SLIDE_SELECT:
@@ -49022,7 +49205,9 @@ var editor = function editor() {
     case _slides.actionTypes.SLIDE_SET_THUMBNAIL:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, getSlideIndex(state, action.target), {
-          thumbnail: { $set: action.thumbnail }
+          thumbnail: {
+            $set: action.thumbnail
+          }
         }))
       });
     case _slides.actionTypes.EXCHANGE_SLIDE:
@@ -49184,8 +49369,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var initialState = {
   dialog: undefined,
   visibleSlideManager: false,
-  colorPicker: undefined,
-  visibleSlideShow: false
+  colorPicker: undefined
 };
 
 var ui = function ui() {
@@ -49197,6 +49381,11 @@ var ui = function ui() {
       return _extends({}, state, {
         dialog: state.dialog != action.target ? action.target : undefined,
         colorPicker: state.colorPicker === action.colorPicker ? state.colorPicker : action.colorPicker
+      });
+    case _ui.actionTypes.RELEASE_DIALOG:
+      return _extends({}, state, {
+        dialog: undefined,
+        visibleSlideManager: false
       });
     case _ui.actionTypes.TOGGLE_SLIDE_MANAGER:
       return _extends({}, state, {
