@@ -8,13 +8,9 @@ const propTypes = {
 
 class TextAsset extends React.Component{
 
-  constructor(props){
-    super(props);
-  }
-
   render() {
     return (
-      <textarea onChange={this.props.onChange} style={this.props.styles} defaultValue={this.props.value}>
+      <textarea style={this.props.styles} onChange={this.props.handleChange} defaultValue={this.props.value}>
       </textarea>
     )
   }

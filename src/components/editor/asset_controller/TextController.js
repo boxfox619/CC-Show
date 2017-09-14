@@ -116,17 +116,17 @@ class TextController extends React.Component{
                     <img src="/images/ic_format_align_justify.png" style={this.props.sort==='justify' ? {display : 'none'} : { }}  onClick={this.setAssetTextSort.bind('justify')}/>
                     <img src="/images/ic_format_align_justify_apply.png" style={this.props.sort==='justify' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('justify')}/>
                     
-                    <img src="/images/ic_format_bold.png" style={this.props.bold ? {display : 'none'} : { }} onClick={this.clickAlignBold}/>
-                    <img src="/images/ic_format_bold_apply.png" style={this.props.bold ? {} : {display : 'none'}} onClick={this.clickAlignBold}/>
+                    <img src="/images/ic_format_bold.png" style={this.props.bold ? {display : 'none'} : { }} onClick={this.props.clickAlignBold}/>
+                    <img src="/images/ic_format_bold_apply.png" style={this.props.bold ? {} : {display : 'none'}} onClick={this.props.clickAlignBold}/>
                     
-                    <img src="/images/ic_format_italic.png" style={this.props.italic ? {display : 'none'} : { }} onClick={this.clickAlignItalic}/>
-                    <img src="/images/ic_format_italic_apply.png" style={this.props.italic ? {} : {display : 'none'}} onClick={this.clickAlignItalic}/>
+                    <img src="/images/ic_format_italic.png" style={this.props.italic ? {display : 'none'} : { }} onClick={this.props.clickAlignItalic}/>
+                    <img src="/images/ic_format_italic_apply.png" style={this.props.italic ? {} : {display : 'none'}} onClick={this.props.clickAlignItalic}/>
                     
-                    <img src="/images/ic_format_underlined.png" style={this.props.underline ? {display : 'none'} : { }} onClick={this.clickAlignUnderline}/>
-                    <img src="/images/ic_format_underlined_apply.png" style={this.props.underline ? {} : {display : 'none'}} onClick={this.clickAlignUnderline}/>
+                    <img src="/images/ic_format_underlined.png" style={this.props.underline ? {display : 'none'} : { }} onClick={this.props.clickAlignUnderline}/>
+                    <img src="/images/ic_format_underlined_apply.png" style={this.props.underline ? {} : {display : 'none'}} onClick={this.props.clickAlignUnderline}/>
                     
-                    <img src="/images/ic_format_strikethrough.png" style={this.props.strikethrough ? {display : 'none'} : { }} onClick={this.clickAlignStrikethrough}/>
-                    <img src="/images/ic_format_strikethrough_apply.png" style={this.props.strikethrough ? {} : {display : 'none'}} onClick={this.clickAlignStrikethrough}/>
+                    <img src="/images/ic_format_strikethrough.png" style={this.props.strikethrough ? {display : 'none'} : { }} onClick={this.props.clickAlignStrikethrough}/>
+                    <img src="/images/ic_format_strikethrough_apply.png" style={this.props.strikethrough ? {} : {display : 'none'}} onClick={this.props.clickAlignStrikethrough}/>
                 </div>
             </div>
         </div>

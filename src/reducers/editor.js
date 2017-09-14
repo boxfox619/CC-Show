@@ -1,21 +1,22 @@
-import { actionTypes } from '../actions/assets';
-import { actionTypes as slideActionTypes } from '../actions/slides';
-import { getState } from '../store';
+import {actionTypes} from '../actions/assets';
+import {actionTypes as slideActionTypes} from '../actions/slides';
+import {getState} from '../store';
 import update from 'react-addons-update';
+import assetTypes from '../assetTypes'
 
 const initialState = {
   sizeUnit: 'px',
   positionUnit: 'px',
   selectedSlide: 0,
   slideIdCount: 0,
-  slides:[{
-      name: 'TEST-SLIDE',
-      id: 0,
-      thumbnail: '',
-      selectedAsset: undefined,
-      assetIdCount: 0,
-      assets: []
-    }]
+  slides: [{
+    name: 'TEST-SLIDE',
+    id: 0,
+    thumbnail: '',
+    selectedAsset: undefined,
+    assetIdCount: 0,
+    assets: []
+  }]
 }
 
 const defaultAsset = {
@@ -27,30 +28,7 @@ const defaultAsset = {
   x: '0px',
   y: '0px',
   angle: '0',
-  style: {
-    text:{
-      font: '',
-      fontsize: '0',
-      sort: '',
-      fontBold: false,
-      fontItalic: false,
-      fontUnderline: false,
-      fontStrikethrough: false,
-      textColor: ' '
-    },video:{
-      url: '',
-      videoController: false,
-      videoLoop: false,
-      videoAutoplay: false
-    },image:{
-
-    },shape:{
-
-    },
-    fillColor: 'withe',
-    borderColor: 'withe',
-    edgeWeight: '0'
-}
+  style: {}
 };
 
 const editor = (state = initialState, action) => {
@@ -60,476 +38,599 @@ const editor = (state = initialState, action) => {
       let positionUnit = getState().slideContext.positionUnit;
       let currentId = state.slides[state.selectedSlide].assetIdCount + 1;
       let newAsset = {
-        ...defaultAsset,
-        id: currentId,
-        type: action.assetType,
-        value: action.value,
-        height: '50' + sizeUnit,
-        width: '50' + sizeUnit,
-        x: '0' + positionUnit,
-        y: '0' + positionUnit};
+            ...defaultAsset,
+            id: currentId,
+            type: action.assetType,
+            value: action.value,
+            height: '50' + sizeUnit,
+            width: '50' + sizeUnit,
+            x: '0' + positionUnit,
+            y: '0' + positionUnit,
+            style: {
+              fillColor: 'withe',
+              borderColor: 'withe',
+              edgeWeight: '0'
+            }
+      };
+      switch (action.assetType) {
+        case assetTypes.TYPE_TEXT:
+          newAsset = {
+            ...newAsset,
+            style:{
+              font: '',
+              fontsize: '0',
+              sort: '',
+              fontBold: false,
+              fontItalic: false,
+              fontUnderline: false,
+              fontStrikethrough: false,
+              textColor: ' '
+            }
+          }
+        case assetTypes.TYPE_VIDEO:
+        newAsset = {
+            ...newAsset,
+            style:{
+              videoController: false,
+              videoLoop: false,
+              videoAutoplay: false
+            }
+          }
+        case assetTypes.TYPE_IMAGE:
+        newAsset = {
+            ...newAsset,
+            style:{}
+          }
+        case assetTypes.TYPE_SHAPE:
+        newAsset = {
+            ...newAsset,
+            style:{}
+          }
+      }
       return {
         ...state,
-        slides:update(
-          state.slides,
-          {
-            [state.selectedSlide]:{
-              assetIdCount: {$set: currentId},
-              assets: {$set: update(
-                state.slides[state.selectedSlide].assets, {
-                  $push: [newAsset]
-                })}
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assetIdCount: {
+                $set: currentId
+              },
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    $push: [newAsset]
+                  })
+              }
             }
           }
         )
 
       };
     case actionTypes.SET_VALUE:
-    console.log(action.value);
-    return {
+      console.log(action.value);
+      return {
         ...state,
-        slides : update(
-          state.slides,
-          {
-            [state.selectedSlide] : {
-              assets: { $set: update(
-                state.slides[state.selectedSlide].assets,
-                {
-                  [getAssetIndex(state, action.id)] : {
-                    value: { $set: action.value }
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, action.id)]: {
+                      value: {
+                        $set: action.value
+                      }
+                    }
                   }
-                }
-              )}
+                )
+              }
             }
           }
         )
-    }
+      }
     case actionTypes.ASSET_SELECTED:
       return {
         ...state,
         slides: update(
-          state.slides,
-          {
-            [state.selectedSlide]:{
-              selectedAsset: {$set:action.assetId}
+          state.slides, {
+            [state.selectedSlide]: {
+              selectedAsset: {
+                $set: action.assetId
+              }
             }
           }
         )
       };
     case actionTypes.ASSET_SET_WIDTH:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      width: { $set: parseInt(action.value)+getState().slideContext.sizeUnit}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      width: {
+                        $set: parseInt(action.value) + getState().slideContext.sizeUnit
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_HEIGHT:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      height: { $set: parseInt(action.value)+getState().slideContext.sizeUnit}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      height: {
+                        $set: parseInt(action.value) + getState().slideContext.sizeUnit
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_X_POSTION:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      x: { $set: parseInt(action.value)+getState().slideContext.positionUnit}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      x: {
+                        $set: parseInt(action.value) + getState().slideContext.positionUnit
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_Y_POSTION:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      y: { $set: parseInt(action.value)+getState().slideContext.positionUnit}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      y: {
+                        $set: parseInt(action.value) + getState().slideContext.positionUnit
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_BOTH_POSITION:
       return {
         ...state,
         slides: update(
-          state.slides,
-          {
-            [state.selectedSlide]:{
-              assets: {$set: update(
-                state.slides[state.selectedSlide].assets,
-                    {
-                        [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
-                          x: { $set: parseInt(action.x)+getState().slideContext.positionUnit },
-                          y: { $set: parseInt(action.y)+getState().slideContext.positionUnit }
-                        }
-                    })}
-            }
-          })
-        }
-    case actionTypes.ASSET_SET_ANGLE:
-      case actionTypes.ASSET_SET_X_POSTION:
-      return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      angle: { $set: action.value}
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      x: {
+                        $set: parseInt(action.x) + getState().slideContext.positionUnit
+                      },
+                      y: {
+                        $set: parseInt(action.y) + getState().slideContext.positionUnit
+                      }
                     }
-                  }
-                )}
+                  })
               }
             }
-          )
+          })
+      }
+    case actionTypes.ASSET_SET_ANGLE:
+    case actionTypes.ASSET_SET_X_POSTION:
+      return {
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      angle: {
+                        $set: action.value
+                      }
+                    }
+                  }
+                )
+              }
+            }
+          }
+        )
       }
     case actionTypes.ASSET_SET_TEXT_COLOR:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                    style: {text : {textColor: {$set : action.textColor}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        text: {
+                          textColor: {
+                            $set: action.textColor
+                          }
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_TEXT_FONT:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                    style: {text : {font: {$set : action.font}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        font: {
+                          $set: action.font
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_TEXT_FONT_SIZE:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                    style: {text : {fontsize: {$set : action.fontSize}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        fontsize: {
+                          $set: action.fontSize
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_TEXT_SORT:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      style: {text : {sort: {$set : action.sort}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        sort: {
+                          $set: action.sort
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_TEXT_FONT_BOLD:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      fontBold: {text : {fontBold: {$set : !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontBold}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      fontBold: {
+                        fontBold: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontBold
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_TEXT_FONT_UNDERLINE:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      fontUnderline: {text : {fontUnderline: {$set : !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontUnderline}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      fontUnderline: {
+                        fontUnderline: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontUnderline
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_TEXT_FONT_ITALIC:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      fontItalic: {text : {fontItalic: {$set : !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontItalic}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      fontItalic: {
+                        fontItalic: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontItalic
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      fontStrikethrough: {text : {fontStrikethrough: {$set : !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontStrikethrough}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      fontStrikethrough: {
+                        fontStrikethrough: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontStrikethrough
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_FILL_COLOR:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      style: {fillColor : { $set : action.fillColor}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        fillColor: {
+                          $set: action.fillColor
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_BORDER_COLOR:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      style: {borderColor : { $set : action.borderColor}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        borderColor: {
+                          $set: action.borderColor
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
-      case actionTypes.ASSET_SET_BORDER_WEIGHT:
+    case actionTypes.ASSET_SET_BORDER_WEIGHT:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      style: {borderWeight : { $set : action.borderWeight}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        borderWeight: {
+                          $set: action.borderWeight
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_VIDEO_URL:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      style: {video : {url: {$set : action.url}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      value: {
+                        $set: action.url
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_VIDEO_CONTROLLER:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      style: {video : {videoController: {$set : !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoController}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        video: {
+                          videoController: {
+                            $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoController
+                          }
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_VIDEO_AUTOPLAY:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      style: {video : {videoAutoplay: {$set : !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoAutoplay}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        videoAutoplay: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoAutoplay
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_VIDEO_LOOP:
       return {
-          ...state,
-          slides : update(
-            state.slides,
-            {
-              [state.selectedSlide] : {
-                assets: { $set: update(
-                  state.slides[state.selectedSlide].assets,
-                  {
-                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)] : {
-                      style: {video : {videoLoop: {$set : !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoLoop}}}
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        videoLoop: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoLoop
+                        }
+                      }
                     }
                   }
-                )}
+                )
               }
             }
-          )
+          }
+        )
       }
     case actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE:
       return {
         ...state,
         slides: update(
-          state.slides,
-          {
-            [state.selectedSlide]:{
-              assets: {$set: update(
-                state.slides[state.selectedSlide].assets,
-                    {
-                        [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: action.attrs
-                    })}
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: action.attrs
+                  })
+              }
             }
           })
-        }
+      }
     case slideActionTypes.SLIDE_CONTEXT_SET_SIZE_UNIT:
       return {
         ...state,
@@ -538,57 +639,61 @@ const editor = (state = initialState, action) => {
     case slideActionTypes.SLIDE_CONTEXT_SET_POSITION_UNIT:
       return {
         ...state,
-          positionUnit: action.unit
-        }
+        positionUnit: action.unit
+      }
     case slideActionTypes.SLIDE_COPY:
       let target = action.target;
       return {
         ...state,
-        slideIdCount: state.slideIdCount+1,
+        slideIdCount: state.slideIdCount + 1,
         slides: update(
-          state.slides,
-          { $push : [{
-            ...target,
-            id:state.slideIdCount+1
-          }]
-        })
+          state.slides, {
+            $push: [{
+              ...target,
+              id: state.slideIdCount + 1
+            }]
+          })
       }
     case slideActionTypes.SLIDE_CREATE:
       return {
         ...state,
-        slideIdCount: state.slideIdCount+1,
+        slideIdCount: state.slideIdCount + 1,
         slides: update(
-          state.slides,
-          { $push : [{
-              id: state.slideIdCount+1,
-              name: 'NEW-SLIDE'+(state.slideIdCount+1),
+          state.slides, {
+            $push: [{
+              id: state.slideIdCount + 1,
+              name: 'NEW-SLIDE' + (state.slideIdCount + 1),
               selectedAsset: undefined,
               assetIdCount: 0,
               assets: []
-          }]
-        })
+            }]
+          })
       }
     case slideActionTypes.SLIDE_DELETE:
       let selectedSlide = state.selectedSlide;
-        if(selectedSlide>state.slides.length&&selectedSlide>0){
-          selectedSlide -= 1;
-        }
+      if (selectedSlide > state.slides.length && selectedSlide > 0) {
+        selectedSlide -= 1;
+      }
       return {
         ...state,
         selectedSlide,
         slides: update(
-          state.slides,
-          {$splice: [[getSlideIndex(state, action.target), 1]]}
+          state.slides, {
+            $splice: [
+              [getSlideIndex(state, action.target), 1]
+            ]
+          }
         )
       }
     case slideActionTypes.SLIDE_RENAME:
       return {
         ...state,
         slides: update(
-          state.slides,
-          {
-            [getSlideIndex(state, action.target)]:{
-              name: { $set : action.name}
+          state.slides, {
+            [getSlideIndex(state, action.target)]: {
+              name: {
+                $set: action.name
+              }
             }
           }
         )
@@ -601,11 +706,12 @@ const editor = (state = initialState, action) => {
     case slideActionTypes.SLIDE_SET_THUMBNAIL:
       return {
         ...state,
-        slides:update(
-          state.slides,
-          {
-            [getSlideIndex(state, action.target)]:{
-              thumbnail: {$set: action.thumbnail}
+        slides: update(
+          state.slides, {
+            [getSlideIndex(state, action.target)]: {
+              thumbnail: {
+                $set: action.thumbnail
+              }
             }
           }
         )
@@ -613,7 +719,7 @@ const editor = (state = initialState, action) => {
     case slideActionTypes.EXCHANGE_SLIDE:
       return {
         ...state,
-        slides : insertItem(state.slides, action.to, state.slides.splice(action.from, 1)[0])
+        slides: insertItem(state.slides, action.to, state.slides.splice(action.from, 1)[0])
       }
     default:
       return state;
@@ -621,9 +727,9 @@ const editor = (state = initialState, action) => {
 }
 
 function insertItem(array, index, item) {
-    let newArray = array.slice();
-    newArray.splice(index, 0, item);
-    return newArray;
+  let newArray = array.slice();
+  newArray.splice(index, 0, item);
+  return newArray;
 }
 
 function getSlideIndex(state, key) {

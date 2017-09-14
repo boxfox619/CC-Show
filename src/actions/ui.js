@@ -1,7 +1,7 @@
 export const actionTypes = {
   TOGGLE_DIALOG: 'TOGGLE_DIALOG',
-  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER',
-  SLIDE_SHOW: 'SLIDE_SHOW'
+  RELEASE_DIALOG: 'RELEASE_DIALOG',
+  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER'
 }
 
 export const dialogs = {
@@ -9,7 +9,8 @@ export const dialogs = {
   ASSET_STORE: 'AssetStore',
   ASSET_EDITOR: 'AssetEditor',
   ACCOUNT_WITH_SNS: 'AccountDialog',
-  COLOR_PICKER: 'ColorPicker'
+  COLOR_PICKER: 'ColorPicker',
+  SLIDE_SHOW: 'SLIDE_SHOW'
 }
 
 export const colorPicker = {
@@ -38,6 +39,13 @@ export const toggleAssetEditor = () => {
   }
 }
 
+export const toggleSlideShow = () => {
+  return {
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.SLIDE_SHOW
+  }
+}
+
 export const toggleAccountDialog = () => {
 
   return {
@@ -45,6 +53,14 @@ export const toggleAccountDialog = () => {
     target: dialogs.ACCOUNT_WITH_SNS
   }
 }
+
+export const releaseDialog = () => {
+
+  return {
+    type: actionTypes.RELEASE_DIALOG
+  }
+}
+
 
 export const toggleFillColorPicker = () => {
   return {
@@ -67,11 +83,5 @@ export const toggleTextColorPicker = () => {
     type: actionTypes.TOGGLE_DIALOG,
     target: dialogs.COLOR_PICKER,
     colorPicker: colorPicker.TEXT_COLOR
-  }
-}
-
-export const slideshow = () => {
-  return {
-    type: actionTypes.SLIDE_SHOW
   }
 }

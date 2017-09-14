@@ -11,6 +11,7 @@ import { dialogs, colorPicker } from '../../actions/ui';
 
 import { SketchPicker } from 'react-color';
 import * as assetsActions from '../../actions/assets';
+import * as uiActions from '../../actions/ui';
 import { bindActionCreators } from 'redux';
 
 import styles from './SlideEditor.css';
@@ -23,6 +24,7 @@ class SlideEditor extends React.Component{
     super(props);
 
     this.checkContextDisabled = this.checkContextDisabled.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.handleBorderColor = this.handleBorderColor.bind(this);
     this.handleFillColor = this.handleFillColor.bind(this);
@@ -30,7 +32,6 @@ class SlideEditor extends React.Component{
   }
 
   render(){
-    console.log(this.props.colorPicker);
     let kindsOfcolorPicker= () =>{
        if(this.props.colorPicker!=undefined){
          switch(this.props.colorPicker){
@@ -54,6 +55,8 @@ class SlideEditor extends React.Component{
             return (<AccountDialog className={styles.modal}/>);
           case dialogs.COLOR_PICKER:
             return (<div className={styles.color_picker}><SketchPicker onChangeComplete={kindsOfcolorPicker()}/></div>)
+          case dialogs.SLIDE_SHOW:
+            return (<SlideShow className={styles.modal}/>);
         }
       }
     }
@@ -63,11 +66,11 @@ class SlideEditor extends React.Component{
         return(<SlideShow/>);
       }else{
         return(
-          <div className={styles.slideEditor}>
+          <div ref={root => {this.root = root}} className={styles.slideEditor}>
             <AssetCreator className={styles.assetCreator}/>
             <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
             {renderDialogs()}
-            <div className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
+            <div onClick={this.handleClick} className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
               <div className={styles.contextSpace}>
                 <SlideContext className={styles.slideContext}/>
               </div>
@@ -82,6 +85,13 @@ class SlideEditor extends React.Component{
         {isSlideShow()}
       </div>
     );
+  }
+
+  handleClick(event){
+    console.log(event.target);
+    if(this.checkContextDisabled()){
+      this.props.releaseDialog();
+    }
   }
 
   checkContextDisabled(){
@@ -115,7 +125,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...assetsActions}, dispatch);
+    return bindActionCreators({ ...assetsActions, ...uiActions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideEditor);

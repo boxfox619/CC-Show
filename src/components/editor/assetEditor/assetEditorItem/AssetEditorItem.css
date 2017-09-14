@@ -76,7 +76,7 @@ display: inline-block;
 
 height: 380px;
 border: 1px solid #1898E5;
-margin: 0.5em 1em 0 0;
+margin: 0.5em 0.5em 0 0;
 display: inline-block;
 }
 
@@ -213,7 +213,7 @@ margin-bottom: 10px;
 }
 
 .AssetEditor_agreeButton{
-    width: 33%;
+    width: 370px;
     height: 4.6em;
     color: white;
     background-color:#1998E5; 
@@ -253,7 +253,7 @@ margin-bottom: 10px;
 }
 .cover{
     /* margin-top: 0em; */
-    width: 100%;
+    width: 334px;
     height: 30px;
     background-color: #1998E5;
     margin-left: auto;
@@ -289,7 +289,6 @@ margin-bottom: 10px;
     text-align: center;
 }
 .setting_second{
-    width: 99%;
     margin-top: 5px;
     height: 2em;
 }

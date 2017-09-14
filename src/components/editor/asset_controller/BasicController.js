@@ -106,7 +106,7 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.style ? {} : {display:'none'}} className={styles.items}>
                         <div id={styles.input_style}>
-                            <textarea onChange={this.setStyle} rows="" cols="">{this.props.styles}</textarea>
+                            <textarea onChange={this.setStyle} rows="" cols="">{this.props.sytle}</textarea>
                         </div>
                     </div>
                 </div>

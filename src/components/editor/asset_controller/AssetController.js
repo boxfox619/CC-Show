@@ -62,7 +62,7 @@ class AssetController extends React.Component {
                                      fillColor = {this.props.currentSilde.assets[selectedAsset].style.fillColor}
                                      borderColor = {this.props.currentSilde.assets[selectedAsset].style.borderColor}
                                      borderWeight = {this.props.currentSilde.assets[selectedAsset].style.borderWeight}
-                                     styles = {this.props.currentSilde.assets[selectedAsset].style}/>
+                                     style = {this.props.currentSilde.assets[selectedAsset].style}/>
                 </div>
             )
         }else{
