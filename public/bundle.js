@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e45f2b4142d0f446577e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "accbc5f79f98f7aa2e4e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -5327,8 +5327,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var actionTypes = exports.actionTypes = {
   TOGGLE_DIALOG: 'TOGGLE_DIALOG',
-  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER',
-  SLIDE_SHOW: 'SLIDE_SHOW'
+  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER'
 };
 
 var dialogs = exports.dialogs = {
@@ -5336,7 +5335,8 @@ var dialogs = exports.dialogs = {
   ASSET_STORE: 'AssetStore',
   ASSET_EDITOR: 'AssetEditor',
   ACCOUNT_WITH_SNS: 'AccountDialog',
-  COLOR_PICKER: 'ColorPicker'
+  COLOR_PICKER: 'ColorPicker',
+  SLIDE_SHOW: 'SLIDE_SHOW'
 };
 
 var colorPicker = exports.colorPicker = {
@@ -5362,6 +5362,13 @@ var toggleAssetEditor = exports.toggleAssetEditor = function toggleAssetEditor()
   return {
     type: actionTypes.TOGGLE_DIALOG,
     target: dialogs.ASSET_EDITOR
+  };
+};
+
+var toggleSlideShow = exports.toggleSlideShow = function toggleSlideShow() {
+  return {
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.SLIDE_SHOW
   };
 };
 
@@ -5394,12 +5401,6 @@ var toggleTextColorPicker = exports.toggleTextColorPicker = function toggleTextC
     type: actionTypes.TOGGLE_DIALOG,
     target: dialogs.COLOR_PICKER,
     colorPicker: colorPicker.TEXT_COLOR
-  };
-};
-
-var slideshow = exports.slideshow = function slideshow() {
-  return {
-    type: actionTypes.SLIDE_SHOW
   };
 };
 
@@ -10585,7 +10586,7 @@ exports = module.exports = __webpack_require__(19)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetEditorItem__AssetEditor_left___1NVam{\r\n    width: 60%;\r\n    height: 70vh ;\r\n    margin-left: 2em;\r\n    float: left;\r\n}\r\n.AssetEditorItem__AssetEditor_preview___1X-MG{\r\n width: 100%;\r\n height: 100%;\r\n    z-index: 1;\r\n    position: absolute;\r\n    background-color: white;\r\n}\r\n.AssetEditorItem__previewFile___1dyEr{\r\n    width: 100%;\r\n    height: 100%;\r\n    opacity: 0;\r\n    position: absolute;\r\n    z-index: 100;\r\n    padding: none;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_preview___1X-MG img{\r\n    width: 100%;\r\n    height: 90%;\r\n    /* position: absolute; */\r\n}\r\n\r\n\r\n.AssetEditorItem__previewDiv___3nPxX{\r\n    width: 48%;\r\n    height: 160px;\r\n    border: 1.7px solid #1998E5;\r\n    float: left;\r\n    margin: 0 0.5em 0em 0;\r\n    display: table;\r\n    color: #E2E2E2;\r\n    background-color: white;\r\n    position: relative;\r\n}\r\n/* .preview_text{\r\n    color: #DFDFDF;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 0.5em;\r\n    text-align: center;\r\n} */\r\n\r\n\r\n.AssetEditorItem__AssetEditor_topbar___2IFnZ{\r\n    width: 100%;\r\n    height: 30px;\r\n    display: table;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__topbar_title___QSygj{\r\n    font-size: 10px;\r\n    margin: 0;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    color: white;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_setting___HdB3H{\r\nwidth: 50%;\r\nheight: 160px;\r\ndisplay: inline-block;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_description___1DU6n{\r\n\r\nheight: 380px;\r\nborder: 1px solid #1898E5;\r\nmargin: 0.5em 1em 0 0;\r\ndisplay: inline-block;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_content___3x0Q-{\r\n    width: 99%;\r\n    height: 40vh;\r\n}\r\n\r\n.AssetEditorItem__description_content___iUN_A{\r\n    width: 97.8%;\r\n    height: 310px;\r\n    box-sizing:border-box;\r\n    overflow: hidden;\r\n    resize: none;\r\n    border: none;\r\n    outline: none;\r\n    font-family: inherit;\r\n    margin: 1em;\r\n}\r\n\r\n\r\n.AssetEditorItem__AssetEditor_right___2nZNW{\r\n width: 33%;\r\n overflow-x: hidden;\r\n overflow-y: auto;\r\n display: inline-block;\r\n margin-left: 1em;\r\n} \r\n\r\n.AssetEditorItem__select_license___d77ab{\r\n    width: 100%;\r\n    height: 5vh;\r\n    border: 1px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    background-color: #1998E5;\r\n    text-align: center;\r\n    display: table;\r\n}\r\n\r\n.AssetEditorItem__select_license_text___1133Y{\r\n    color: white;\r\n    font-size: 0.7em;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n}\r\n.AssetEditorItem__dropdownButt___2Ur2L{\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-width: 6px 6px 0 6px;\r\n    border-color: #1997e5 transparent transparent transparent;\r\n    float: right;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n    margin: 1em;\r\n}\r\n\r\n.AssetEditorItem__license_content___187lz{\r\n    width: 99%;\r\n    height: 4.5vh;\r\n    border: 1.7px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    display: table;\r\n    background-color: white;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetEditorItem__license_text___1H8I9{\r\n    color: #1998E5;\r\n    font-size: 0.7em;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    \r\n}\r\n\r\n.AssetEditorItem__dropdownContent___aepHJ{\r\n    width: 99%;\r\n    height: 5em;\r\n    border: 1px solid red;\r\n}\r\n\r\n.AssetEditorItem__CCL_top___3L9Bt{\r\n    width: 100%;\r\n    height: 2.3em;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__CCL_content___TxhZM{\r\n\r\n}\r\n.AssetEditorItem__AssetEditor_isAsset___1GKZ9{\r\nwidth: 367px;\r\nheight: 10em;\r\nborder: 1px solid #1998E5;\r\ndisplay: block;\r\nmargin-bottom: 10px;\r\n/* position: absolute; */\r\n}\r\n.AssetEditorItem__AssetEditor_Process___2wYmd{\r\nwidth: 367px;\r\nheight: 9.5em;\r\nborder: 1px solid#1998E5;\r\ndisplay: block;\r\nmargin-bottom: 10px;\r\n/* margin-bottom: 0.5em; */\r\n/* position: absolute; */\r\n}\r\n.AssetEditorItem__AssetEditor_Precess___1vSdt :nth-child(2){\r\n    margin-bottom: 20px;\r\n}\r\n\r\n\r\n.AssetEditorItem__AssetEditor_agreement___2H1gA{\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n\r\n}\r\n\r\n.AssetEditorItem__isAsset_Header___1qTLe{\r\n    background-color: #1998E5;\r\n    width: 100%;\r\n    height: 2.3em;\r\n    display: table;\r\n\r\n}\r\n.AssetEditorItem__isAsset_titleText___1n5ld{\r\n    color: white;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n    width: 33%;\r\n    height: 4.6em;\r\n    color: white;\r\n    background-color:#1998E5; \r\n    cursor: pointer;\r\n    position: absolute;\r\n    font-size: 11px;\r\n    margin-top: 2px;\r\n    }\r\n\r\n.AssetEditorItem__setting_first___wQ0KM{\r\n    width: 96%;\r\n    height : 40px;\r\n    font-family: inherit;\r\n}\r\n.AssetEditorItem__title___c96HW{\r\n    border : none;\r\n    height: 35px;\r\n    padding-top: 0;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    width: 288px;\r\n    outline: none;\r\n    float: right;\r\n    /* margin-left: 4px; */\r\n    /* text-align: center; */\r\n}\r\n.AssetEditorItem__title2___283G8{\r\n    border : none;\r\n    height: 34px;\r\n    /* padding-top: 0; */\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    /* margin-top: 0.1em; */\r\n    width: 80px;\r\n    outline: none;\r\n    float: right;\r\n}\r\n.AssetEditorItem__cover___2GfD6{\r\n    /* margin-top: 0em; */\r\n    width: 100%;\r\n    height: 30px;\r\n    background-color: #1998E5;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    display: table;\r\n    border: 2px solid #1998E5;\r\n}\r\n.AssetEditorItem__cover2___3-H2J{\r\n    width: 35%;\r\n    height: 36px;\r\n    background-color: #1998E5;\r\n    display: table;\r\n    border: 2px solid #1998E5;\r\n}\r\n\r\n.AssetEditorItem__frontTitle___1uMc5{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 0.5em;\r\n    /* padding : 0 7px 0 9px; */\r\n    width: 40px;\r\n    margin-left: 1em;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__frontTitle2___3d4Y_{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 4px;\r\n    padding : 0 7px 0 7px;\r\n    width: 20px;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__setting_second___2h3vv{\r\n    width: 99%;\r\n    margin-top: 5px;\r\n    height: 2em;\r\n}\r\n/* .openStore{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    \r\n} */\r\n\r\n.AssetEditorItem__openStoreDiv___3yiNY{\r\n    width: 30%;\r\n    height: 40px;\r\n    float: left;\r\n    margin-right: 4px;\r\n}\r\n\r\n.AssetEditorItem__openStoreButton___19rPQ{\r\n    width: 100%;\r\n    height: 40px;\r\n    background-color: white;\r\n    border: 1.5px solid #1998E5;\r\n    color: #1998E5;\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.AssetEditorItem__changeCharge___225HO{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n   \r\n}\r\n.AssetEditorItem__text___38jIY{\r\n    padding: 1em;\r\n}\r\n\r\n.AssetEditorItem__setting_third___Q-Uhb{\r\n    width: 99%;\r\n    margin-top: 12px;\r\n    height: 4em;\r\n}\r\n\r\n.AssetEditorItem__imagePreview___1mVgS{\r\n    width: 38%;\r\n    height: 73px;\r\n    border: 1.7px solid #1998E5;\r\n    float: left;\r\n    margin-right: 5px;\r\n    display: table;\r\n}\r\n.AssetEditorItem__previewText___1MttC{\r\n    color: #E2E2E2;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__filebutton___3Bsvd{\r\n    width: 64px;\r\n    height: 76px;\r\n    position: absolute;\r\n    background-color: #1998E5\r\n}\r\n.AssetEditorItem__filefile___2gxp2{\r\n    width: 100%;\r\n    height: 75px;\r\n    background-color: #1998E5;\r\n    cursor: pointer;\r\n    opacity: 0;\r\n    position: relative;\r\n}", ""]);
+exports.push([module.i, ".AssetEditorItem__AssetEditor_left___1NVam{\r\n    width: 60%;\r\n    height: 70vh ;\r\n    margin-left: 2em;\r\n    float: left;\r\n}\r\n.AssetEditorItem__AssetEditor_preview___1X-MG{\r\n width: 100%;\r\n height: 100%;\r\n    z-index: 1;\r\n    position: absolute;\r\n    background-color: white;\r\n}\r\n.AssetEditorItem__previewFile___1dyEr{\r\n    width: 100%;\r\n    height: 100%;\r\n    opacity: 0;\r\n    position: absolute;\r\n    z-index: 100;\r\n    padding: none;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_preview___1X-MG img{\r\n    width: 100%;\r\n    height: 90%;\r\n    /* position: absolute; */\r\n}\r\n\r\n\r\n.AssetEditorItem__previewDiv___3nPxX{\r\n    width: 48%;\r\n    height: 160px;\r\n    border: 1.7px solid #1998E5;\r\n    float: left;\r\n    margin: 0 0.5em 0em 0;\r\n    display: table;\r\n    color: #E2E2E2;\r\n    background-color: white;\r\n    position: relative;\r\n}\r\n/* .preview_text{\r\n    color: #DFDFDF;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 0.5em;\r\n    text-align: center;\r\n} */\r\n\r\n\r\n.AssetEditorItem__AssetEditor_topbar___2IFnZ{\r\n    width: 100%;\r\n    height: 30px;\r\n    display: table;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__topbar_title___QSygj{\r\n    font-size: 10px;\r\n    margin: 0;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    color: white;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_setting___HdB3H{\r\nwidth: 50%;\r\nheight: 160px;\r\ndisplay: inline-block;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_description___1DU6n{\r\n\r\nheight: 380px;\r\nborder: 1px solid #1898E5;\r\nmargin: 0.5em 0.5em 0 0;\r\ndisplay: inline-block;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_content___3x0Q-{\r\n    width: 99%;\r\n    height: 40vh;\r\n}\r\n\r\n.AssetEditorItem__description_content___iUN_A{\r\n    width: 97.8%;\r\n    height: 310px;\r\n    box-sizing:border-box;\r\n    overflow: hidden;\r\n    resize: none;\r\n    border: none;\r\n    outline: none;\r\n    font-family: inherit;\r\n    margin: 1em;\r\n}\r\n\r\n\r\n.AssetEditorItem__AssetEditor_right___2nZNW{\r\n width: 33%;\r\n overflow-x: hidden;\r\n overflow-y: auto;\r\n display: inline-block;\r\n margin-left: 1em;\r\n} \r\n\r\n.AssetEditorItem__select_license___d77ab{\r\n    width: 100%;\r\n    height: 5vh;\r\n    border: 1px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    background-color: #1998E5;\r\n    text-align: center;\r\n    display: table;\r\n}\r\n\r\n.AssetEditorItem__select_license_text___1133Y{\r\n    color: white;\r\n    font-size: 0.7em;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n}\r\n.AssetEditorItem__dropdownButt___2Ur2L{\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-width: 6px 6px 0 6px;\r\n    border-color: #1997e5 transparent transparent transparent;\r\n    float: right;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n    margin: 1em;\r\n}\r\n\r\n.AssetEditorItem__license_content___187lz{\r\n    width: 99%;\r\n    height: 4.5vh;\r\n    border: 1.7px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    display: table;\r\n    background-color: white;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetEditorItem__license_text___1H8I9{\r\n    color: #1998E5;\r\n    font-size: 0.7em;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    \r\n}\r\n\r\n.AssetEditorItem__dropdownContent___aepHJ{\r\n    width: 99%;\r\n    height: 5em;\r\n    border: 1px solid red;\r\n}\r\n\r\n.AssetEditorItem__CCL_top___3L9Bt{\r\n    width: 100%;\r\n    height: 2.3em;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__CCL_content___TxhZM{\r\n\r\n}\r\n.AssetEditorItem__AssetEditor_isAsset___1GKZ9{\r\nwidth: 367px;\r\nheight: 10em;\r\nborder: 1px solid #1998E5;\r\ndisplay: block;\r\nmargin-bottom: 10px;\r\n/* position: absolute; */\r\n}\r\n.AssetEditorItem__AssetEditor_Process___2wYmd{\r\nwidth: 367px;\r\nheight: 9.5em;\r\nborder: 1px solid#1998E5;\r\ndisplay: block;\r\nmargin-bottom: 10px;\r\n/* margin-bottom: 0.5em; */\r\n/* position: absolute; */\r\n}\r\n.AssetEditorItem__AssetEditor_Precess___1vSdt :nth-child(2){\r\n    margin-bottom: 20px;\r\n}\r\n\r\n\r\n.AssetEditorItem__AssetEditor_agreement___2H1gA{\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n\r\n}\r\n\r\n.AssetEditorItem__isAsset_Header___1qTLe{\r\n    background-color: #1998E5;\r\n    width: 100%;\r\n    height: 2.3em;\r\n    display: table;\r\n\r\n}\r\n.AssetEditorItem__isAsset_titleText___1n5ld{\r\n    color: white;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n    width: 370px;\r\n    height: 4.6em;\r\n    color: white;\r\n    background-color:#1998E5; \r\n    cursor: pointer;\r\n    position: absolute;\r\n    font-size: 11px;\r\n    margin-top: 2px;\r\n    }\r\n\r\n.AssetEditorItem__setting_first___wQ0KM{\r\n    width: 96%;\r\n    height : 40px;\r\n    font-family: inherit;\r\n}\r\n.AssetEditorItem__title___c96HW{\r\n    border : none;\r\n    height: 35px;\r\n    padding-top: 0;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    width: 288px;\r\n    outline: none;\r\n    float: right;\r\n    /* margin-left: 4px; */\r\n    /* text-align: center; */\r\n}\r\n.AssetEditorItem__title2___283G8{\r\n    border : none;\r\n    height: 34px;\r\n    /* padding-top: 0; */\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    /* margin-top: 0.1em; */\r\n    width: 80px;\r\n    outline: none;\r\n    float: right;\r\n}\r\n.AssetEditorItem__cover___2GfD6{\r\n    /* margin-top: 0em; */\r\n    width: 334px;\r\n    height: 30px;\r\n    background-color: #1998E5;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    display: table;\r\n    border: 2px solid #1998E5;\r\n}\r\n.AssetEditorItem__cover2___3-H2J{\r\n    width: 35%;\r\n    height: 36px;\r\n    background-color: #1998E5;\r\n    display: table;\r\n    border: 2px solid #1998E5;\r\n}\r\n\r\n.AssetEditorItem__frontTitle___1uMc5{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 0.5em;\r\n    /* padding : 0 7px 0 9px; */\r\n    width: 40px;\r\n    margin-left: 1em;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__frontTitle2___3d4Y_{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 4px;\r\n    padding : 0 7px 0 7px;\r\n    width: 20px;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__setting_second___2h3vv{\r\n    margin-top: 5px;\r\n    height: 2em;\r\n}\r\n/* .openStore{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    \r\n} */\r\n\r\n.AssetEditorItem__openStoreDiv___3yiNY{\r\n    width: 30%;\r\n    height: 40px;\r\n    float: left;\r\n    margin-right: 4px;\r\n}\r\n\r\n.AssetEditorItem__openStoreButton___19rPQ{\r\n    width: 100%;\r\n    height: 40px;\r\n    background-color: white;\r\n    border: 1.5px solid #1998E5;\r\n    color: #1998E5;\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.AssetEditorItem__changeCharge___225HO{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n   \r\n}\r\n.AssetEditorItem__text___38jIY{\r\n    padding: 1em;\r\n}\r\n\r\n.AssetEditorItem__setting_third___Q-Uhb{\r\n    width: 99%;\r\n    margin-top: 12px;\r\n    height: 4em;\r\n}\r\n\r\n.AssetEditorItem__imagePreview___1mVgS{\r\n    width: 38%;\r\n    height: 73px;\r\n    border: 1.7px solid #1998E5;\r\n    float: left;\r\n    margin-right: 5px;\r\n    display: table;\r\n}\r\n.AssetEditorItem__previewText___1MttC{\r\n    color: #E2E2E2;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__filebutton___3Bsvd{\r\n    width: 64px;\r\n    height: 76px;\r\n    position: absolute;\r\n    background-color: #1998E5\r\n}\r\n.AssetEditorItem__filefile___2gxp2{\r\n    width: 100%;\r\n    height: 75px;\r\n    background-color: #1998E5;\r\n    cursor: pointer;\r\n    opacity: 0;\r\n    position: relative;\r\n}", ""]);
 
 // exports
 exports.locals = {
@@ -11212,20 +11213,23 @@ exports = module.exports = __webpack_require__(19)(undefined);
 
 
 // module
-exports.push([module.i, "#SlideShow__slide_contents___CXkmV {\r\n    background-color: gray;\r\n    height: 75vh;\r\n    margin: 0;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slideController___1Aicc{\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translate(0, -50%);\r\n}\r\n\r\n.SlideShow__prev_slide___146rd{\r\n    cursor: pointer;\r\n    left: 10px;\r\n}\r\n\r\n.SlideShow__next_slide___2ZpNM{\r\n    cursor: pointer;\r\n    right: 10px;\r\n}\r\n\r\n.SlideShow__slide_sub_contents___JprVD {\r\n    height: 25vh;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.SlideShow__slide_show_note___1C8wV {\r\n    height: 70%;\r\n    width: 100vw;\r\n}\r\n\r\n.SlideShow__slide_note_contents___2jik0 {\r\n    border: 0;\r\n    display: table-cell;\r\n    height: calc( 100% - 60px );\r\n    width: 95%;\r\n    margin: 30px;\r\n    resize: none;\r\n}\r\n\r\n.SlideShow__slide_number_wrapper___3jQV8 {\r\n  height: 25%;\r\n  width: 100%;\r\n  display: table;\r\n  text-align: center;\r\n}\r\n\r\n.SlideShow__slide_number_contents___2FxNp * {\r\n  display: table-cell;\r\n}\r\n\r\n.SlideShow__slide_option_button___372HX {\r\n    float: right;\r\n    cursor: pointer;\r\n}\r\n\r\nhr {\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 97vw;\r\n    margin: auto;\r\n}\r\n\r\np {\r\n    display: inline-block;\r\n}\r\n\r\nimg{\r\n    cursor: pointer;\r\n}\r\n", ""]);
+exports.push([module.i, ".SlideShow__slideShow___2IRp3{\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  height: 96%;\r\n  padding-top: 0.5%;\r\n}\r\n.SlideShow__slide_contents___CXkmV {\r\n    background-color: gray;\r\n    height: 75%;\r\n    margin: 0;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slideSubContents___1GDb6 {\r\n    height: 25%;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.SlideShow__slideController___1Aicc{\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translate(0, -50%);\r\n}\r\n\r\n.SlideShow__prev_slide___146rd{\r\n    cursor: pointer;\r\n    left: 10px;\r\n}\r\n\r\n.SlideShow__next_slide___2ZpNM{\r\n    cursor: pointer;\r\n    right: 10px;\r\n}\r\n.SlideShow__slideShowNote___1AbYm {\r\n    height: 60%;\r\n    width: 100%;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E {\r\n    position: absolute;\r\n    border: 0;\r\n    height: calc( 60% );\r\n    width: 95%;\r\n    margin: 20px;\r\n    resize: none;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar-track\r\n{\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar\r\n{\r\n\twidth: 5px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.SlideShow__slideNumberWrapper___2d9fo {\r\n  position: absolute;\r\n  width: 100%;\r\n  text-align: center;\r\n  height: 6.5%;\r\n}\r\n\r\n.SlideShow__slideNumberContext___1Nc9M {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 30%;\r\n  height: 100%;\r\n}\r\n\r\n.SlideShow__slideNumberContext_counter___3XgCX{\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.SlideShow__slideOptionButton___VvBly {\r\n  position: absolute;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 100px;\r\n  height: 100%;\r\n  top:0;\r\n  right:0;\r\n}\r\n\r\n.SlideShow__slideOptionButton___VvBly img{\r\n  height: 60%;\r\n  margin: 0 3px;\r\n  cursor: pointer;\r\n}\r\n\r\n.SlideShow__split___15XQ8 {\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 97vw;\r\n    margin: auto;\r\n}\r\n\r\np {\r\n    display: inline-block;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
+	"slideShow": "SlideShow__slideShow___2IRp3",
 	"slide_contents": "SlideShow__slide_contents___CXkmV",
+	"slideSubContents": "SlideShow__slideSubContents___1GDb6",
 	"slideController": "SlideShow__slideController___1Aicc",
 	"prev_slide": "SlideShow__prev_slide___146rd",
 	"next_slide": "SlideShow__next_slide___2ZpNM",
-	"slide_sub_contents": "SlideShow__slide_sub_contents___JprVD",
-	"slide_show_note": "SlideShow__slide_show_note___1C8wV",
-	"slide_note_contents": "SlideShow__slide_note_contents___2jik0",
-	"slide_number_wrapper": "SlideShow__slide_number_wrapper___3jQV8",
-	"slide_number_contents": "SlideShow__slide_number_contents___2FxNp",
-	"slide_option_button": "SlideShow__slide_option_button___372HX"
+	"slideShowNote": "SlideShow__slideShowNote___1AbYm",
+	"slideShowNote_content": "SlideShow__slideShowNote_content___2-h3E",
+	"slideNumberWrapper": "SlideShow__slideNumberWrapper___2d9fo",
+	"slideNumberContext": "SlideShow__slideNumberContext___1Nc9M",
+	"slideNumberContext_counter": "SlideShow__slideNumberContext_counter___3XgCX",
+	"slideOptionButton": "SlideShow__slideOptionButton___VvBly",
+	"split": "SlideShow__split___15XQ8"
 };
 
 /***/ }),
@@ -30119,7 +30123,6 @@ var SlideEditor = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.props.colorPicker);
       var kindsOfcolorPicker = function kindsOfcolorPicker() {
         if (_this2.props.colorPicker != undefined) {
           switch (_this2.props.colorPicker) {
@@ -30147,6 +30150,8 @@ var SlideEditor = function (_React$Component) {
                 { className: _SlideEditor2.default.color_picker },
                 _react2.default.createElement(_reactColor.SketchPicker, { onChangeComplete: kindsOfcolorPicker() })
               );
+            case _ui.dialogs.SLIDE_SHOW:
+              return _react2.default.createElement(_SlideShow2.default, { className: _SlideEditor2.default.modal });
           }
         }
       };
@@ -30355,7 +30360,7 @@ var AssetCreator = function (_React$Component) {
               return _this2.props.toggleSlideManager();
             } }),
           _react2.default.createElement(_ClickableButton2.default, { name: '슬라이드 쇼', onClick: function onClick() {
-              return _this2.props.slideshow();
+              return _this2.props.toggleSlideShow();
             } })
         ),
         _react2.default.createElement('div', { className: _AssetCreator2.default.logo })
@@ -48489,46 +48494,66 @@ var SlideShow = function (_React$Component) {
     _createClass(SlideShow, [{
         key: 'render',
         value: function render() {
+
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: this.props.className },
                 _react2.default.createElement(
-                    'div',
-                    { id: _SlideShow2.default.slide_contents },
+                    'header',
+                    null,
                     _react2.default.createElement(
-                        'div',
-                        { className: _SlideShow2.default.slideController + ' ' + _SlideShow2.default.prev_slide },
-                        _react2.default.createElement('img', { src: 'images/ic_arrow_left_big.png' })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: _SlideShow2.default.slideController + ' ' + _SlideShow2.default.next_slide },
-                        _react2.default.createElement('img', { src: 'images/ic_arrow_right_big.png' })
-                    ),
-                    _react2.default.createElement('div', null)
+                        'h1',
+                        null,
+                        'SLIDE SHOW'
+                    )
                 ),
                 _react2.default.createElement(
-                    'div',
-                    { className: _SlideShow2.default.slide_sub_contents },
+                    'content',
+                    { className: _SlideShow2.default.slideShow },
                     _react2.default.createElement(
                         'div',
-                        { className: _SlideShow2.default.slide_show_note },
-                        _react2.default.createElement('textarea', { className: _SlideShow2.default.slide_note_contents, placeholder: '\uC1FC \uB178\uD2B8\uB97C \uC785\uB825\uD558\uC138\uC694' })
-                    ),
-                    _react2.default.createElement('hr', null),
-                    _react2.default.createElement(
-                        'div',
-                        { className: _SlideShow2.default.slide_number_wrapper },
+                        { className: _SlideShow2.default.slide_contents },
                         _react2.default.createElement(
                             'div',
-                            { className: _SlideShow2.default.slide_number_contents },
-                            _react2.default.createElement('img', { className: _SlideShow2.default.prev_slide, src: 'images/ic_arrow_left_small.png' }),
+                            { className: _SlideShow2.default.slideController + ' ' + _SlideShow2.default.prev_slide },
+                            _react2.default.createElement('img', { src: 'images/ic_arrow_left_big.png' })
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: _SlideShow2.default.slideController + ' ' + _SlideShow2.default.next_slide },
+                            _react2.default.createElement('img', { src: 'images/ic_arrow_right_big.png' })
+                        ),
+                        _react2.default.createElement('div', null)
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: _SlideShow2.default.slideSubContents },
+                        _react2.default.createElement(
+                            'div',
+                            { className: _SlideShow2.default.slideShowNote },
+                            _react2.default.createElement('textarea', { className: _SlideShow2.default.slideShowNote_content, placeholder: '\uC1FC \uB178\uD2B8\uB97C \uC785\uB825\uD558\uC138\uC694' })
+                        ),
+                        _react2.default.createElement('hr', { className: _SlideShow2.default.split }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: _SlideShow2.default.slideNumberWrapper },
                             _react2.default.createElement(
                                 'div',
-                                { className: _SlideShow2.default.counter },
-                                '12/23'
+                                { className: _SlideShow2.default.slideNumberContext },
+                                _react2.default.createElement('img', { className: _SlideShow2.default.prev_slide + ' ' + _SlideShow2.default.slideController, src: 'images/ic_arrow_left_small.png' }),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: _SlideShow2.default.slideNumberContext_counter },
+                                    '12/23'
+                                ),
+                                _react2.default.createElement('img', { className: _SlideShow2.default.next_slide + ' ' + _SlideShow2.default.slideController, src: 'images/ic_arrow_right_small.png' })
                             ),
-                            _react2.default.createElement('img', { className: _SlideShow2.default.next_slide, src: 'images/ic_arrow_right_small.png' })
+                            _react2.default.createElement(
+                                'div',
+                                { className: _SlideShow2.default.slideOptionButton },
+                                _react2.default.createElement('img', { src: 'images/ic_fullscreen.png' }),
+                                _react2.default.createElement('img', { src: 'images/ic_slide_show.png' })
+                            )
                         )
                     )
                 )
@@ -49176,10 +49201,6 @@ var ui = function ui() {
     case _ui.actionTypes.TOGGLE_SLIDE_MANAGER:
       return _extends({}, state, {
         visibleSlideManager: !state.visibleSlideManager
-      });
-    case _ui.actionTypes.SLIDE_SHOW:
-      return _extends({}, state, {
-        visibleSlideShow: !state.visibleSlideShow
       });
     default:
       return state;
