@@ -77,7 +77,7 @@ class BasicController extends React.Component{
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <hr className={styles.controller_hr}/>
                 <div>
                     <div className={styles.controller_sub_wrapper}>
                             <div className={styles.controller_sub_title}>도형
@@ -96,7 +96,7 @@ class BasicController extends React.Component{
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <hr className={styles.controller_hr}/>
                 <div>
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>스타일

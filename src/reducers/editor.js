@@ -32,7 +32,6 @@ const defaultAsset = {
 };
 
 const editor = (state = initialState, action) => {
-  console.log('asd'+assetTypes);
   switch (action.type) {
     case actionTypes.ASSET_CREATE:
       let sizeUnit = getState().slideContext.sizeUnit;
