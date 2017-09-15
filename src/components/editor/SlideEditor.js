@@ -88,7 +88,6 @@ class SlideEditor extends React.Component{
   }
 
   handleClick(event){
-    console.log(event.target);
     if(this.checkContextDisabled()){
       this.props.releaseDialog();
     }
@@ -103,7 +102,6 @@ class SlideEditor extends React.Component{
   }
 
   handleFillColor(color){
-    console.log('asdf');
     this.props.setAssetFillColor(color.hex);
   };
 
