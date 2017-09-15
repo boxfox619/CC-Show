@@ -71,7 +71,7 @@ class SlideManager extends React.Component{
   }
 
   updateThumbnailSlide(){
-      let node = document.getElementById('SlideContext');
+      let node = document.getElementsByTagName('scanvas')[0];
       let self = this;
       let currentSilde = this.props.currentSilde;
       domtoimage.toPng(node)
