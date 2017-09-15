@@ -5,7 +5,7 @@ class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
         // this.previewImage = this.previewImage.bind(this);
-        this.state = {file : ' ' , file2 : ' ', file3 : ' ', ThumbnailUrl: undefined, previewInputUrl : undefined, previewInputUrl2 : '',  currentImageUpload: undefined};
+        this.state = {file : ' ' , file2 : ' ', file3 : ' ', ThumbnailUrl: undefined, previewInputUrl : undefined, previewInputUrl2 : '',  currentImageUpload: undefined, addFileCNT : 0, defWidth : 420, myWidth : 270};
     };
 
     thumbNail (e){
@@ -27,6 +27,27 @@ class AssetSetting extends React.Component{
             ...this.state,
             currentImageUpload : 'previewInputimg2'
         });
+    }
+
+    addFileChange(e){
+        
+        let add = 150;
+                    
+        this.setState({
+            ...this.state,
+            addFileCNT : this.state.addFileCNT+1,
+            defWidth : this.state.defWidth + add,
+            myWidth : this.state.defWidth + "px"
+        })
+    
+        console.log(this.state.myWidth);
+
+        if(this.state.addFileCNT === 7){
+            this.setState({
+                ...this.state,
+                addFileCNT : 0
+            });
+        }
     }
 
 
@@ -69,7 +90,7 @@ class AssetSetting extends React.Component{
         reader.readAsDataURL(file)
       }
 
-
+ 
     componentWillMount(){
         
     }
@@ -78,10 +99,17 @@ class AssetSetting extends React.Component{
         
     }
     render(){
-
         let $imagePreview = null;
         let $imagePreview2 = null;
         let $imagePreview3 = null;
+       
+            if(this.state.addFileCNT){
+            var addDiv = (<div className = {styles.imagePreview}>
+                    <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                    <button className = {styles.previewText}>{$imagePreview3}</button>
+                </div>);
+            }
+        
 
             if(this.state.ThumbnailUrl){
                 $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>);
@@ -136,17 +164,46 @@ class AssetSetting extends React.Component{
                 </div>
 
                 <div className = {styles.setting_third}>
-                    <div className = {styles.imagePreview}>
-                        <input type = "file" className = {styles.inputImage} onClick = {(e)=>this.inputimg(e)} onChange = {(e)=> this.ImageChange(e)}/>
-                        <button className = {styles.previewText}>{$imagePreview2}</button>
-                    </div>
+                    
+                    <div className = {styles.imagePreview_ScrollDiv}>
+                        <div className = {styles.imagePreview_ScrollSmallDiv} style = {{width : this.state.myWidth}}>
+                            <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=>this.inputimg(e)} onChange = {(e)=> this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview2}</button>
+                            </div>
 
-                    <div className = {styles.imagePreview}>
-                        <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
-                        <button className = {styles.previewText}>{$imagePreview3}</button>
-                    </div>
+                            <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview3}</button>
+                            </div>
 
-                    <button className = {styles.filebutton}><input type = "file" className = {styles.filefile}/></button>
+                    
+
+                            {addDiv}
+
+                            {/* <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview3}</button>
+                            </div>
+
+                            <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview3}</button>
+                            </div>
+
+                            <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview3}</button>
+                            </div>
+
+                            <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview3}</button>
+                            </div> */}
+
+                        </div>
+                    </div>
+                    <button className = {styles.filebutton} onClick = {(e)=> this.addFileChange(e)}></button>
                 </div> 
 
         </div>
