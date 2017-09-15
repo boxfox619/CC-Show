@@ -76,7 +76,7 @@ display: inline-block;
 
 height: 380px;
 border: 1px solid #1898E5;
-margin: 0.5em 0.5em 0 0;
+margin: 0.5em 1em 0 0;
 display: inline-block;
 }
 
@@ -213,7 +213,7 @@ margin-bottom: 10px;
 }
 
 .AssetEditor_agreeButton{
-    width: 370px;
+    width: 33%;
     height: 4.6em;
     color: white;
     background-color:#1998E5; 
@@ -253,7 +253,7 @@ margin-bottom: 10px;
 }
 .cover{
     /* margin-top: 0em; */
-    width: 334px;
+    width: 100%;
     height: 30px;
     background-color: #1998E5;
     margin-left: auto;
@@ -289,6 +289,7 @@ margin-bottom: 10px;
     text-align: center;
 }
 .setting_second{
+    width: 99%;
     margin-top: 5px;
     height: 2em;
 }
@@ -352,6 +353,11 @@ margin-bottom: 10px;
     margin-right: 5px;
     display: table;
 }
+
+.imagePreview img{
+    width: 100%;
+    height: 100%;
+}
 .previewText{
     width: 120px;
     height: 65px;
@@ -387,8 +393,4 @@ margin-bottom: 10px;
     height: 75px;
     z-index: 1;
     opacity: 0;
-}
-
-.inputimg{
-    position: absolute;
 }
