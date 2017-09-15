@@ -2,7 +2,7 @@ import {actionTypes} from '../actions/assets';
 import {actionTypes as slideActionTypes} from '../actions/slides';
 import {getState} from '../store';
 import update from 'react-addons-update';
-import assetTypes from '../assetTypes'
+import * as assetTypes from '../assetTypes';
 
 const initialState = {
   sizeUnit: 'px',
@@ -52,9 +52,8 @@ const editor = (state = initialState, action) => {
               edgeWeight: '0'
             }
       };
-      switch (action.assetType) {
-        case assetTypes.TYPE_TEXT:
-          newAsset = {
+      if(action.assetType===assetTypes.TYPE_TEXT){
+        newAsset = {
             ...newAsset,
             style:{
               font: '',
@@ -66,8 +65,8 @@ const editor = (state = initialState, action) => {
               fontStrikethrough: false,
               textColor: ' '
             }
-          }
-        case assetTypes.TYPE_VIDEO:
+        }
+      }else if(action.assetType===assetTypes.TYPE_VIDEO){
         newAsset = {
             ...newAsset,
             style:{
@@ -75,17 +74,19 @@ const editor = (state = initialState, action) => {
               videoLoop: false,
               videoAutoplay: false
             }
-          }
-        case assetTypes.TYPE_IMAGE:
+        }
+      }else if(action.assetType===assetTypes.TYPE_IMAGE){
         newAsset = {
             ...newAsset,
             style:{}
-          }
-        case assetTypes.TYPE_SHAPE:
+        }
+      }else if(action.assetType===assetTypes.TYPE_SHAPE){
         newAsset = {
             ...newAsset,
             style:{}
-          }
+        }
+      }else{
+        alert('type error');
       }
       return {
         ...state,
@@ -104,7 +105,6 @@ const editor = (state = initialState, action) => {
             }
           }
         )
-
       };
     case actionTypes.SET_VALUE:
       console.log(action.value);

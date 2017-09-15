@@ -130,8 +130,8 @@ class TextController extends React.Component{
                 </div>
             </div>
         </div>
-        <hr/>
-            </div>
+        <hr className={styles.controller_hr}/>
+        </div>
         )
     }
 

@@ -21,21 +21,21 @@ class AssetController extends React.Component {
             switch (this.props.currentSilde.assets[selectedAsset].type) {
                 case actions.TYPE_TEXT:
                     return(
-                            <TextController font = {this.props.currentSilde.assets[selectedAsset].style.text.font}
-                                            fontSize = {this.props.currentSilde.assets[selectedAsset].style.text.fontSize}
-                                            sort = {this.props.currentSilde.assets[selectedAsset].style.text.sort}
-                                            bold = {this.props.currentSilde.assets[selectedAsset].style.text.fontBold}
-                                            underline = {this.props.currentSilde.assets[selectedAsset].style.text.fontUnderline}
-                                            italic = {this.props.currentSilde.assets[selectedAsset].style.text.fontItalic}
-                                            strikethrough = {this.props.currentSilde.assets[selectedAsset].style.text.fontStrikethrough}
-                                            textColor = {this.props.currentSilde.assets[selectedAsset].style.text.textColor}/>
+                            <TextController font = {this.props.currentSilde.assets[selectedAsset].style.font}
+                                            fontSize = {this.props.currentSilde.assets[selectedAsset].style.fontSize}
+                                            sort = {this.props.currentSilde.assets[selectedAsset].style.sort}
+                                            bold = {this.props.currentSilde.assets[selectedAsset].style.fontBold}
+                                            underline = {this.props.currentSilde.assets[selectedAsset].style.fontUnderline}
+                                            italic = {this.props.currentSilde.assets[selectedAsset].style.fontItalic}
+                                            strikethrough = {this.props.currentSilde.assets[selectedAsset].style.fontStrikethrough}
+                                            textColor = {this.props.currentSilde.assets[selectedAsset].style.textColor}/>
                     )
                 case actions.TYPE_VIDEO:
                     return(
-                            <VideoController url = {this.props.currentSilde.assets[selectedAsset].style.video.url}
-                                             videoController = {this.props.currentSilde.assets[selectedAsset].style.video.videoController}
-                                             videoAutoplay = {this.props.currentSilde.assets[selectedAsset].style.video.videoAutoplay}
-                                             videoLoop = {this.props.currentSilde.assets[selectedAsset].style.video.videoLoop} />
+                            <VideoController url = {this.props.currentSilde.assets[selectedAsset].style.url}
+                                             videoController = {this.props.currentSilde.assets[selectedAsset].style.videoController}
+                                             videoAutoplay = {this.props.currentSilde.assets[selectedAsset].style.videoAutoplay}
+                                             videoLoop = {this.props.currentSilde.assets[selectedAsset].style.videoLoop} />
                     )
                 case actions.TYPE_SHAPE:
                     return(

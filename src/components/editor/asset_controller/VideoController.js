@@ -46,7 +46,7 @@ class VideoController extends React.Component {
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <hr className={styles.controller_hr}/>
             </div>
         )
     }
