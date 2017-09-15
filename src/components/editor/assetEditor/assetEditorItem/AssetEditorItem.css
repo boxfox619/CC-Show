@@ -345,6 +345,10 @@ margin-bottom: 10px;
     height: 4em;
 }
 
+.preview_Image{
+    color: #E2E2E2;
+}
+
 .imagePreview{
     width: 38%;
     height: 73px;

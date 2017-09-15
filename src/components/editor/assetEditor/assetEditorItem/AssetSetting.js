@@ -5,55 +5,65 @@ class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
         // this.previewImage = this.previewImage.bind(this);
-        this.state = {file : ' ' , imagePreviewUrl: '', currentImageUpload: undefined};
+        this.state = {file : ' ' , file2 : ' ', file3 : ' ', ThumbnailUrl: undefined, previewInputUrl : undefined, previewInputUrl2 : '',  currentImageUpload: undefined};
     };
 
     thumbNail (e){
         this.setState({
+            ...this.state,
             currentImageUpload : 'previewThumbnail'
         });
     }
     
     inputimg(e){
         this.setState({
+            ...this.state,
             currentImageUpload : 'previewInputimg'
         });
     }
 
-    inputimg(e){
+    inputimg2(e){
         this.setState({
-            currentImageUpload : 'previewInputimg'
+            ...this.state,
+            currentImageUpload : 'previewInputimg2'
         });
     }
+
 
     ImageChange(e) {
         e.preventDefault();
     
         let reader = new FileReader();
         let file = e.target.files[0];
-        // let file2 = e.target.files[0];
-        // let file3 = e.target.files[0];
+        let file2 = e.target.files[0];
+        let file3 = e.target.files[0];
 
         reader.onloadend = () => {
             switch(this.state.currentImageUpload){
 
-                case "previewThumbnail":
+                case 'previewThumbnail':
                 this.setState({
+                    ...this.state,
                     file : file,
-                    imagePreviewUrl : reader.result
+                    ThumbnailUrl : reader.result,
                 });
+                break;
 
-                case 'previewInputimg':
+                case 'previewInputimg': 
                 this.setState({
-                    file : file,
-                    imagePreviewUrl : reader.result
+                    ...this.state,
+                    file2 : file2,
+                    previewInputUrl : reader.result,
                 });
+                break;
 
-                case 'previewInputimg2':
+                case 'previewInputUrl2':
                 this.setState({
-                    file : file,
-                    imagePreviewUrl : reader.result
+                    ...this.state,
+                    file3 : file3,
+                    previewInputUrl2 : reader.result,
                 });
+                break;
             }
         }
         reader.readAsDataURL(file)
@@ -63,41 +73,35 @@ class AssetSetting extends React.Component{
     componentWillMount(){
         
     }
-    
-    componentDidMount(){
+
+    componentDidUpdate(){
         
     }
     render(){
-        
-        let {imagePreviewUrl} = this.state;
+
         let $imagePreview = null;
         let $imagePreview2 = null;
+        let $imagePreview3 = null;
 
-        switch(this.state.currentImageUpload){}
-        if(this.state.currentImageUpload === 'previewThumbnail'){
-            if(imagePreviewUrl){
-                $imagePreview = (<img src={imagePreviewUrl} accept="image/*"/>);
+            if(this.state.ThumbnailUrl){
+                $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>);
             }else{
                 $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
             }
-        }
-
-        if(this.state.currentImageUpload === 'previewInputimg'){
-            if(imagePreviewUrl){
-                $imagePreview2 = (<img src={imagePreviewUrl} accept="image/*"/>);
+       
+            if(this.state.previewInputUrl){
+                $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>);
             }else{
-                $imagePreview2 = (<div className="previewinputimg">미리보기<br/>(파일을 선택하세요)</div>);
+                $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
             }
-        }
 
+            if(this.state.previewInputUrl2){
+                $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>);
+            }else{
+                $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);                
+            }
+        
 
-        
-        
-        // if (imagePreviewUrl) {
-        //   $imagePreview = (<img src={imagePreviewUrl} accept="image/*"/>);
-        // } else {
-        //   $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
-        // }
 
         return(
      <div className = {styles.AssetEditor_left}>
@@ -138,9 +142,10 @@ class AssetSetting extends React.Component{
                     </div>
 
                     <div className = {styles.imagePreview}>
-                        <input type = "file" className = {styles.inputImage}/>
-                        <button className = {styles.previewText}>사진첨부</button>
+                        <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                        <button className = {styles.previewText}>{$imagePreview3}</button>
                     </div>
+
                     <button className = {styles.filebutton}><input type = "file" className = {styles.filefile}/></button>
                 </div> 
 
