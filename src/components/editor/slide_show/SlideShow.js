@@ -8,10 +8,15 @@ import styles from './SlideShow.css';
 class SlideShow extends React.Component{
     constructor(props){
         super(props);
+
+        this.state = {
+           selectedSlide: 0
+        }
+
+        this.doSlide = this.doSlide.bind(this);
     }
 
     render(){
-
           return(
               <div className={this.props.className}>
                 <header>
@@ -19,11 +24,13 @@ class SlideShow extends React.Component{
                 </header>
                 <content className={styles.slideShow}>
                     <div className={styles.slide_contents}>
-                        <div className={styles.slideController+' '+styles.prev_slide}>
+                        <div onClick={()=>this.doSlide(-1)} className={styles.slideController+' '+styles.prev_slide}>
                             <img src="images/ic_arrow_left_big.png"/>
                         </div>
 
-                        <div className={styles.slideController+' '+styles.next_slide}>
+                        <img src={this.props.slides[this.state.selectedSlide].thumbnail}/>
+
+                        <div onClick={()=>this.doSlide(+1)} className={styles.slideController+' '+styles.next_slide}>
                             <img src="images/ic_arrow_right_big.png"/>
                         </div>
                     <div>
@@ -36,9 +43,9 @@ class SlideShow extends React.Component{
                         <hr className={styles.split}/>
                         <div className={styles.slideNumberWrapper}>
                             <div className={styles.slideNumberContext}>
-                                <img className={styles.prev_slide+' '+styles.slideController} src="images/ic_arrow_left_small.png"/>
-                                <div className={styles.slideNumberContext_counter}>12/23</div>
-                                <img className={styles.next_slide+' '+styles.slideController} src="images/ic_arrow_right_small.png"/>
+                                <img onClick={()=>this.doSlide(-1)} className={styles.prev_slide+' '+styles.slideController} src="images/ic_arrow_left_small.png"/>
+                                <div className={styles.slideNumberContext_counter}>{this.state.selectedSlide+1}/{this.props.slides.length}</div>
+                                <img onClick={()=>this.doSlide(+1)} className={styles.next_slide+' '+styles.slideController} src="images/ic_arrow_right_small.png"/>
                             </div>
                             <div className={styles.slideOptionButton}>
                               <img src="images/ic_fullscreen.png"/>
@@ -50,6 +57,16 @@ class SlideShow extends React.Component{
               </div>
           )
     }
+
+    doSlide(num){
+      let willSelectSlide = this.state.selectedSlide + num;
+      if(willSelectSlide<0||willSelectSlide==this.props.slides.length){
+        return;
+      }else
+        this.setState({
+          selectedSlide: willSelectSlide
+        })
+    }
 }
 
 
@@ -57,6 +74,7 @@ class SlideShow extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
+    slides: state.editor.slides
   }
 }
 

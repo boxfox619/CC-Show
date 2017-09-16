@@ -106,8 +106,8 @@ const editor = (state = initialState, action) => {
           }
         )
       };
-    case actionTypes.SET_VALUE:
-      console.log(action.value);
+    case actionTypes.ASSET_SET_VALUE:
+      console.log('asvav'+action.value);
       return {
         ...state,
         slides: update(

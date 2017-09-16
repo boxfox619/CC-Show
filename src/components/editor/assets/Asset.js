@@ -73,7 +73,6 @@ class Asset extends React.Component{
 
 
   handleInputChange(event) {
-    console.log(event.target.value);
     this.props.handleValueChange(this.props.attribute.id,event.target.value);
   }
 
