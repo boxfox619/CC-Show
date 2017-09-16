@@ -5,7 +5,7 @@ class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
         // this.previewImage = this.previewImage.bind(this);
-        this.state = {file : ' ' , file2 : ' ', file3 : ' ', ThumbnailUrl: undefined, previewInputUrl : undefined, previewInputUrl2 : '',  currentImageUpload: undefined, addFileCNT : 0, defWidth : 420, myWidth : 270};
+        this.state = {file : ' ' , file2 : ' ', file3 : ' ', ThumbnailUrl: undefined, previewInputUrl : undefined, previewInputUrl2 : undefined,previewInputUrl3 : undefined,previewInputUrl4 : undefined,  currentImageUpload: undefined, addFileCNT : 0, defWidth : 420, myWidth : 270};
     };
 
     thumbNail (e){
@@ -29,9 +29,27 @@ class AssetSetting extends React.Component{
         });
     }
 
+    inputimg3(e){
+        this.setState({
+            ...this.state,
+            currentImageUpload : 'previewInputimg3'
+        });
+    }
+
+    // inputimg4(e){
+    //     this.setState({
+    //         ...this.stat,
+    //         currentImageUpload : 'previewInputimg4'
+    //     });
+    // }
+
+    addCard(e){
+       
+
+    }
     addFileChange(e){
         
-        let add = 150;
+        let add = 130;
                     
         this.setState({
             ...this.state,
@@ -39,15 +57,28 @@ class AssetSetting extends React.Component{
             defWidth : this.state.defWidth + add,
             myWidth : this.state.defWidth + "px"
         })
+        console.log(this.state.myWidth);
+        if(this.state.addFileCNT === 3){
+            console.log('e.preventDefault 실행');
+            e.preventDefault();
+        }
+        if(this.state.myWidth === '680px'){
+            this.setState({
+                myWidth : 680 + "px"
+            })
+        }
+
     
+        // 
+        
         console.log(this.state.myWidth);
 
-        if(this.state.addFileCNT === 7){
-            this.setState({
-                ...this.state,
-                addFileCNT : 0
-            });
-        }
+        // if(this.state.addFileCNT === 7){
+        //     this.setState({
+        //         ...this.state,
+        //         addFileCNT : 0
+        //     });
+        // }
     }
 
 
@@ -58,6 +89,8 @@ class AssetSetting extends React.Component{
         let file = e.target.files[0];
         let file2 = e.target.files[0];
         let file3 = e.target.files[0];
+        let file4 = e.target.files[0];
+        // let file5 = e.taraget.files[0];
 
         reader.onloadend = () => {
             switch(this.state.currentImageUpload){
@@ -78,6 +111,22 @@ class AssetSetting extends React.Component{
                 });
                 break;
 
+                case 'previewInputimg2':
+                this.setState({
+                    ...this.state,
+                    file3 : file3,
+                    previewInputUrl2 : reader.result,
+                });
+                break;
+
+                case 'previewInputimg3':
+                this.setState({
+                    ...this.state,
+                    file4 : file4,
+                    previewInputUrl3 : reader.result,
+                });
+                break;
+              
                 case 'previewInputUrl2':
                 this.setState({
                     ...this.state,
@@ -85,6 +134,21 @@ class AssetSetting extends React.Component{
                     previewInputUrl2 : reader.result,
                 });
                 break;
+
+                case  'previewInputUrl3':
+                this.setState({
+                    ...this.state,
+                    file4 : file4,
+                    previewInputUrl3 : reader.result,
+                });
+                break;
+
+                case 'previewInputUrl4':
+                this.setState({
+                    ...this.state,
+                    file5 : file5,
+                    previewInputUrl4 : reader.result,
+                });
             }
         }
         reader.readAsDataURL(file)
@@ -102,11 +166,15 @@ class AssetSetting extends React.Component{
         let $imagePreview = null;
         let $imagePreview2 = null;
         let $imagePreview3 = null;
-       
-            if(this.state.addFileCNT){
-            var addDiv = (<div className = {styles.imagePreview}>
-                    <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
-                    <button className = {styles.previewText}>{$imagePreview3}</button>
+        let $imagePreview4 = null;
+        let $imagePreview5 = null;
+        
+        let card = [];
+        
+            for(var i = this.state.addFileCNT; i< 8; i++){
+                card.push(<div className = {styles.imagePreview}>
+                    <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg3(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                    <button className = {styles.previewText}>{$imagePreview3}(파일을 선택하세요)</button>
                 </div>);
             }
         
@@ -118,6 +186,7 @@ class AssetSetting extends React.Component{
             }
        
             if(this.state.previewInputUrl){
+                
                 $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>);
             }else{
                 $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
@@ -127,6 +196,12 @@ class AssetSetting extends React.Component{
                 $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>);
             }else{
                 $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);                
+            }
+
+            if(this.state.previewInputUrl3){
+                $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>);
+            }else{
+                $imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
             }
         
 
@@ -177,9 +252,9 @@ class AssetSetting extends React.Component{
                                 <button className = {styles.previewText}>{$imagePreview3}</button>
                             </div>
 
-                    
-
-                            {addDiv}
+                    {card}
+                           
+                           
 
                             {/* <div className = {styles.imagePreview}>
                                 <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
@@ -203,7 +278,7 @@ class AssetSetting extends React.Component{
 
                         </div>
                     </div>
-                    <button className = {styles.filebutton} onClick = {(e)=> this.addFileChange(e)}></button>
+                    <button className = {styles.filebutton} onClick = {(e)=> this.addFileChange(e)}>+</button>
                 </div> 
 
         </div>

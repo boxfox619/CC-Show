@@ -398,6 +398,8 @@ margin-bottom: 10px;
     position: absolute;
     background-color: #1998E5;
     cursor: pointer;
+    font-size: 25px;
+    color: white;
 }
 
 .inputImage{
