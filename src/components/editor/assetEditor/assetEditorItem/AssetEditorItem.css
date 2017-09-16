@@ -76,7 +76,7 @@ display: inline-block;
 
 height: 380px;
 border: 1px solid #1898E5;
-margin: 0.5em 0.5em 0 0;
+margin: 0.5em 1em 0 0;
 display: inline-block;
 }
 
@@ -213,7 +213,7 @@ margin-bottom: 10px;
 }
 
 .AssetEditor_agreeButton{
-    width: 370px;
+    width: 33%;
     height: 4.6em;
     color: white;
     background-color:#1998E5; 
@@ -253,7 +253,7 @@ margin-bottom: 10px;
 }
 .cover{
     /* margin-top: 0em; */
-    width: 334px;
+    width: 100%;
     height: 30px;
     background-color: #1998E5;
     margin-left: auto;
@@ -289,6 +289,7 @@ margin-bottom: 10px;
     text-align: center;
 }
 .setting_second{
+    width: 99%;
     margin-top: 5px;
     height: 2em;
 }
@@ -341,16 +342,41 @@ margin-bottom: 10px;
 .setting_third{
     width: 99%;
     margin-top: 12px;
-    height: 4em;
+    height: 80px;
 }
 
+.preview_Image{
+    color: #E2E2E2;
+}
+
+.imagePreview_ScrollDiv{
+    width: 270px;
+    height: 77px;
+    float: left;
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.imagePreview_ScrollSmallDiv{
+  /* width: 950px; */
+  /* width: 270px; */
+  height: 77px;
+  position: relative;
+}
 .imagePreview{
-    width: 38%;
+    width: 128px;
     height: 73px;
     border: 1.7px solid #1998E5;
     float: left;
     margin-right: 5px;
     display: table;
+    position: relative;
+}
+
+.imagePreview img{
+    width: 100%;
+    height: 100%;
 }
 .previewText{
     width: 120px;
@@ -370,15 +396,10 @@ margin-bottom: 10px;
     width: 64px;
     height: 76px;
     position: absolute;
-    background-color: #1998E5
-}
-.filefile{
-    width: 100%;
-    height: 75px;
     background-color: #1998E5;
     cursor: pointer;
-    opacity: 0;
-    position: relative;
+    font-size: 25px;
+    color: white;
 }
 
 .inputImage{
@@ -387,8 +408,4 @@ margin-bottom: 10px;
     height: 75px;
     z-index: 1;
     opacity: 0;
-}
-
-.inputimg{
-    position: absolute;
 }

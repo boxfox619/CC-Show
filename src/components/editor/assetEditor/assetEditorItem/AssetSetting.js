@@ -4,47 +4,212 @@ import styles from './AssetEditorItem.css';
 class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
-
         // this.previewImage = this.previewImage.bind(this);
-        this.state = {file : ' ' , imagePreviewUrl: ''};
+        this.state = {file : ' ' , file2 : ' ', file3 : ' ', ThumbnailUrl: undefined, previewInputUrl : undefined, previewInputUrl2 : undefined,previewInputUrl3 : undefined,previewInputUrl4 : undefined,  currentImageUpload: undefined, addFileCNT : 0, defWidth : 420, myWidth : 270};
     };
+
+    thumbNail (e){
+        this.setState({
+            ...this.state,
+            currentImageUpload : 'previewThumbnail'
+        });
+    }
+    
+    inputimg(e){
+        this.setState({
+            ...this.state,
+            currentImageUpload : 'previewInputimg'
+        });
+    }
+
+    inputimg2(e){
+        this.setState({
+            ...this.state,
+            currentImageUpload : 'previewInputimg2'
+        });
+    }
+
+    inputimg3(e){
+        this.setState({
+            ...this.state,
+            currentImageUpload : 'previewInputimg3'
+        });
+    }
+
+    // inputimg4(e){
+    //     this.setState({
+    //         ...this.stat,
+    //         currentImageUpload : 'previewInputimg4'
+    //     });
+    // }
+
+    addCard(e){
+       
+
+    }
+    addFileChange(e){
+        
+        let add = 130;
+                    
+        this.setState({
+            ...this.state,
+            addFileCNT : this.state.addFileCNT+1,
+            defWidth : this.state.defWidth + add,
+            myWidth : this.state.defWidth + "px"
+        })
+        console.log(this.state.myWidth);
+        if(this.state.addFileCNT === 3){
+            console.log('e.preventDefault 실행');
+            e.preventDefault();
+        }
+        if(this.state.myWidth === '680px'){
+            this.setState({
+                myWidth : 680 + "px"
+            })
+        }
+
+    
+        // 
+        
+        console.log(this.state.myWidth);
+
+        // if(this.state.addFileCNT === 7){
+        //     this.setState({
+        //         ...this.state,
+        //         addFileCNT : 0
+        //     });
+        // }
+    }
+
 
     ImageChange(e) {
         e.preventDefault();
     
         let reader = new FileReader();
         let file = e.target.files[0];
-    
+        let file2 = e.target.files[0];
+        let file3 = e.target.files[0];
+        let file4 = e.target.files[0];
+        // let file5 = e.taraget.files[0];
+
         reader.onloadend = () => {
-          this.setState({
-            file: file,
-            imagePreviewUrl: reader.result
-          });
+            switch(this.state.currentImageUpload){
+
+                case 'previewThumbnail':
+                this.setState({
+                    ...this.state,
+                    file : file,
+                    ThumbnailUrl : reader.result,
+                });
+                break;
+
+                case 'previewInputimg': 
+                this.setState({
+                    ...this.state,
+                    file2 : file2,
+                    previewInputUrl : reader.result,
+                });
+                break;
+
+                case 'previewInputimg2':
+                this.setState({
+                    ...this.state,
+                    file3 : file3,
+                    previewInputUrl2 : reader.result,
+                });
+                break;
+
+                case 'previewInputimg3':
+                this.setState({
+                    ...this.state,
+                    file4 : file4,
+                    previewInputUrl3 : reader.result,
+                });
+                break;
+              
+                case 'previewInputUrl2':
+                this.setState({
+                    ...this.state,
+                    file3 : file3,
+                    previewInputUrl2 : reader.result,
+                });
+                break;
+
+                case  'previewInputUrl3':
+                this.setState({
+                    ...this.state,
+                    file4 : file4,
+                    previewInputUrl3 : reader.result,
+                });
+                break;
+
+                case 'previewInputUrl4':
+                this.setState({
+                    ...this.state,
+                    file5 : file5,
+                    previewInputUrl4 : reader.result,
+                });
+            }
         }
-    
         reader.readAsDataURL(file)
       }
 
-
+ 
     componentWillMount(){
         
     }
-    
-    componentDidMount(){
-        // this.previewImage();
+
+    componentDidUpdate(){
+        
     }
     render(){
-        let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
-        if (imagePreviewUrl) {
-          $imagePreview = (<img src={imagePreviewUrl} accept="image/*"/>);
-        } else {
-          $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
-        }
+        let $imagePreview2 = null;
+        let $imagePreview3 = null;
+        let $imagePreview4 = null;
+        let $imagePreview5 = null;
+        
+        let card = [];
+        
+            for(var i = this.state.addFileCNT; i< 8; i++){
+                card.push(<div className = {styles.imagePreview}>
+                    <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg3(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                    <button className = {styles.previewText}>{$imagePreview3}(파일을 선택하세요)</button>
+                </div>);
+            }
+        
+
+            if(this.state.ThumbnailUrl){
+                $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>);
+            }else{
+                $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
+            }
+       
+            if(this.state.previewInputUrl){
+                
+                $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>);
+            }else{
+                $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
+            }
+
+            if(this.state.previewInputUrl2){
+                $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>);
+            }else{
+                $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);                
+            }
+
+            if(this.state.previewInputUrl3){
+                $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>);
+            }else{
+                $imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
+            }
+        
+
+
         return(
      <div className = {styles.AssetEditor_left}>
             <div className = {styles.previewDiv}>
-                <input type = "file" className = {styles.previewFile} onChange = {(e)=>this.ImageChange(e)}/>
+                <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
                 <button className = {styles.AssetEditor_preview}>{$imagePreview}</button>
             </div>
             {/* <div className = {styles.preview_Image}>{$imagePreview}</div> */}
@@ -74,15 +239,46 @@ class AssetSetting extends React.Component{
                 </div>
 
                 <div className = {styles.setting_third}>
-                    <div className = {styles.imagePreview}>
-                        <input type = "file" className = {styles.inputImage}/>
-                        <button className = {styles.previewText}>사진첨부</button>
+                    
+                    <div className = {styles.imagePreview_ScrollDiv}>
+                        <div className = {styles.imagePreview_ScrollSmallDiv} style = {{width : this.state.myWidth}}>
+                            <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=>this.inputimg(e)} onChange = {(e)=> this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview2}</button>
+                            </div>
+
+                            <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview3}</button>
+                            </div>
+
+                    {card}
+                           
+                           
+
+                            {/* <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview3}</button>
+                            </div>
+
+                            <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview3}</button>
+                            </div>
+
+                            <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview3}</button>
+                            </div>
+
+                            <div className = {styles.imagePreview}>
+                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                                <button className = {styles.previewText}>{$imagePreview3}</button>
+                            </div> */}
+
+                        </div>
                     </div>
-                    <div className = {styles.imagePreview}>
-                        <input type = "file" className = {styles.inputImage}/>
-                        <button className = {styles.previewText}>사진첨부</button>
-                    </div>
-                    <button className = {styles.filebutton}><input type = "file" className = {styles.filefile}/></button>
+                    <button className = {styles.filebutton} onClick = {(e)=> this.addFileChange(e)}>+</button>
                 </div> 
 
         </div>
