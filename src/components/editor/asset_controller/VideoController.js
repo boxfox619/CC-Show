@@ -17,6 +17,7 @@ class VideoController extends React.Component {
 
         this.videoOn=this.videoOn.bind(this);
         this.videoOff=this.videoOff.bind(this);
+        this.setUrl=this.setUrl.bind(this);
         this.controllerOnClick =this.controllerOnClick.bind(this);
         this.autoplayOnClick=this.autoplayOnClick.bind(this);
         this.loopOnClick=this.loopOnClick.bind(this);
@@ -32,7 +33,7 @@ class VideoController extends React.Component {
                 </div>
                 <div className={styles.items} style={this.state.video ? {} : {display:'none'}}>
                     <div className={styles.control_item+' '+styles.URL_controller}>
-                        <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value={this.props.url} className={styles.attribute_item_input}/>
+                        <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value={this.props.url} className={styles.attribute_item_input} onChange={this.setUrl}/>
                     </div>
                     <div>
                         <div onClick={this.controllerOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.props.videoController ? {'background-color': '#5a84b3'} : {}}>
@@ -67,6 +68,11 @@ class VideoController extends React.Component {
             video_arrow_up:true,
             video_arrow_down:false
         });
+    }
+
+    setUrl(event) {
+        let {value}=event.target;
+        this.props.setAssetVideoURL(value);
     }
 
     controllerOnClick(videoStyles){

@@ -37,8 +37,8 @@ class TextController extends React.Component{
                 </div>
                 <div style={this.state.text ? {} : {display:'none'}} className={styles.items}>
                 <div>
-                    <div className={styles.control_item}>
-                        <select>
+                    <div className={styles.control_item} >
+                        <select onChange={this.setFont}>
                             <option value="">asdfasdf</option>
                             <option value=""></option>
                             <option value=""></option>
@@ -49,31 +49,7 @@ class TextController extends React.Component{
                     </div>
 
                     <div className={styles.control_item}>
-                        <select>
-                            <option value="">asdfasdf</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <div className={styles.control_item}>
-                        <select>
-                            <option value="">asdfasdf</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                    </div>
-
-                    <div className={styles.control_item}>
-                        <select>
+                        <select onChange={this.setFontWeight}>
                             <option value="">asdfasdf</option>
                             <option value=""></option>
                             <option value=""></option>
@@ -86,7 +62,31 @@ class TextController extends React.Component{
 
                 <div>
                     <div className={styles.control_item}>
-                        <select>
+                        <select onChange={this.setFontSize}>
+                            <option value="">asdfasdf</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div className={styles.control_item}>
+                        <select onChange={this.setCharacterSpacintg}>
+                            <option value="">asdfasdf</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <div className={styles.control_item}>
+                        <select onChange={this.setFont.setLineSpacintg}>
                             <option value="">자동</option>
                             <option value=""></option>
                             <option value=""></option>
@@ -98,23 +98,22 @@ class TextController extends React.Component{
 
                     <div className={styles.control_item}>
                         <img src="/images/ic_color.png"/>
-                        <div className={styles.change_color} onClick={this.props.toggleTextColorPicker} style={{backgroundColor:this.props.textColor}}> 
-                        </div>
+                        <div className={styles.change_color} onClick={this.props.toggleTextColorPicker} style={{backgroundColor:this.props.textColor}}></div>
                     </div>
                 </div>
 
                 <div className={styles.control_text_attribute}>
-                    <img src="/images/ic_format_align_left.png" style={this.props.sort==='left' ? {display : 'none'} : { }} onClick={this.setAssetTextSort.bind('left')}/>
-                    <img src="/images/ic_format_align_left_apply.png" style={this.props.sort==='left' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('left')} />
+                    <img src="/images/ic_format_align_left.png" style={this.props.sort==='left' ? {display : 'none'} : { }} onClick={this.props.setAssetTextSort('left')}/>
+                    <img src="/images/ic_format_align_left_apply.png" style={this.props.sort==='left' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort('left')} />
 
-                    <img src="/images/ic_format_align_center.png" style={this.props.sort==='center' ? {display : 'none'} : { }}  onClick={this.setAssetTextSort.bind('center')}/>
-                    <img src="/images/ic_format_align_center_apply.png" style={this.props.sort==='center' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('center')}/>
+                    <img src="/images/ic_format_align_center.png" style={this.props.sort==='center' ? {display : 'none'} : { }}  onClick={this.props.setAssetTextSort('center')}/>
+                    <img src="/images/ic_format_align_center_apply.png" style={this.props.sort==='center' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort('center')}/>
                     
-                    <img src="/images/ic_format_align_right.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('right')}/>
-                    <img src="/images/ic_format_align_right_apply.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('right')}/>
+                    <img src="/images/ic_format_align_right.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort('right')}/>
+                    <img src="/images/ic_format_align_right_apply.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort('right')}/>
                     
-                    <img src="/images/ic_format_align_justify.png" style={this.props.sort==='justify' ? {display : 'none'} : { }}  onClick={this.setAssetTextSort.bind('justify')}/>
-                    <img src="/images/ic_format_align_justify_apply.png" style={this.props.sort==='justify' ? {} : {display : 'none'}}  onClick={this.setAssetTextSort.bind('justify')}/>
+                    <img src="/images/ic_format_align_justify.png" style={this.props.sort==='justify' ? {display : 'none'} : { }}  onClick={this.props.setAssetTextSort('justify')}/>
+                    <img src="/images/ic_format_align_justify_apply.png" style={this.props.sort==='justify' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort('justify')}/>
                     
                     <img src="/images/ic_format_bold.png" style={this.props.bold ? {display : 'none'} : { }} onClick={this.props.clickAlignBold}/>
                     <img src="/images/ic_format_bold_apply.png" style={this.props.bold ? {} : {display : 'none'}} onClick={this.props.clickAlignBold}/>
@@ -158,20 +157,29 @@ class TextController extends React.Component{
         this.props.setAssetTextSort(sort);
     }
 
-    clickAlignBold(textStyles) {
-        this.props.setAssetFontBold(!this.props.bold);
+    setFont(event) {
+        let {value}=event.target;
+        this.props.setAssetTextFont(value);
     }
 
-    clickAlignItalic(textStyles) {
-        this.props.setAssetFontBold(!this.props.italic);
+    setFontSize(event) {
+        let {value}=event.target;
+        this.props.setAssetFontSize(value);
     }
 
-    clickAlignUnderline(textStyles) {
-        this.props.setFontUnderline(!this.props.underline);
+    setFontWeight(event) {
+        let {value}=event.target;
+        this.props.setAssetVideoURL(value);
     }
 
-    clickAlignStrikethrough(textStyles) {
-        this.props.setFontStrikethrough(this.props.strikethrough);
+    setCharacterSpacintg(event) {
+        let {value}=event.target;
+        this.props.setAssetTextCharacterSpacing(value);
+    }
+
+    setLineSpacintg(event) {
+        let {value}=event.target;
+        this.props.setAssetTextLineSpacing(value);
     }
 }
 
