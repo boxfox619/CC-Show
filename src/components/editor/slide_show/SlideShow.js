@@ -2,6 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as slideActions from '../../../actions/slides';
 
 import styles from './SlideShow.css';
 
@@ -14,6 +15,7 @@ class SlideShow extends React.Component{
         }
 
         this.doSlide = this.doSlide.bind(this);
+        this.slideNoteChangeHandler = this.slideNoteChangeHandler.bind(this);
     }
 
     render(){
@@ -38,7 +40,7 @@ class SlideShow extends React.Component{
                     </div>
                     <div className={styles.slideSubContents}>
                         <div className={styles.slideShowNote}>
-                            <textarea className={styles.slideShowNote_content} placeholder="쇼 노트를 입력하세요"></textarea>
+                            <input type="text" onChange={this.slideNoteChangeHandler} className={styles.slideShowNote_content} placeholder="쇼 노트를 입력하세요" value={this.props.slides[this.state.selectedSlide].note}/>
                         </div>
                         <hr className={styles.split}/>
                         <div className={styles.slideNumberWrapper}>
@@ -56,6 +58,10 @@ class SlideShow extends React.Component{
                 </content>
               </div>
           )
+    }
+
+    slideNoteChangeHandler(event){
+      this.props.setSlideNote(this.state.selectedSlide, event.target.value);
     }
 
     doSlide(num){
@@ -79,7 +85,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ }, dispatch);
+    return bindActionCreators({ ...slideActions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideShow);
