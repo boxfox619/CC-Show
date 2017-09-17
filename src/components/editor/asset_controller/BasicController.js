@@ -91,7 +91,7 @@ class BasicController extends React.Component{
                             <div className={styles.change_color} onClick={this.props.toggleFillColorPicker} style={{backgroundColor:this.props.fillColor}} > </div>
                         </div>
                         <div className={styles.control_item}>
-                            <span></span>
+                            <span><img src="/images/ic_line.png"/></span>
                             <div className={styles.change_color} onClick={this.props.toggleBorderColorPicker} style={{backgroundColor:this.props.borderColor}}> </div>
                         </div>
                     </div>
@@ -181,7 +181,6 @@ class BasicController extends React.Component{
     }
 
     shapeOn() {
-        console.log('a');
         this.setState({
             ...this.state,
             shape:true,
@@ -191,7 +190,6 @@ class BasicController extends React.Component{
     }
 
     styleOn() {
-        console.log('a');
         this.setState({
             ...this.state,
             style:true,

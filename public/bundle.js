@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8f2254b38b975ab5ea28"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "37493ada83584d1a6278"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3912,6 +3912,323 @@ module.exports = ReactUpdates;
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(5), RootInstanceProvider = __webpack_require__(6), ReactMount = __webpack_require__(4), React = __webpack_require__(0); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setAttributes = exports.setAssetXY = exports.assetDeselected = exports.assetSelected = exports.createAssetByType = exports.setAssetValue = exports.createAsset = exports.actionTypes = undefined;
+exports.setAssetWidth = setAssetWidth;
+exports.setAssetHeight = setAssetHeight;
+exports.setAssetX = setAssetX;
+exports.setAssetY = setAssetY;
+exports.setAssetAngle = setAssetAngle;
+exports.setAssetTextFont = setAssetTextFont;
+exports.setAssetFontSize = setAssetFontSize;
+exports.setAssetTextCharacterSpacing = setAssetTextCharacterSpacing;
+exports.setAssetTextLineSpacing = setAssetTextLineSpacing;
+exports.setAssetFontWeight = setAssetFontWeight;
+exports.setAssetTextSort = setAssetTextSort;
+exports.setAssetFontBold = setAssetFontBold;
+exports.setAssetFontStrikethrough = setAssetFontStrikethrough;
+exports.setAssetFontUnderline = setAssetFontUnderline;
+exports.setAssetFontItalic = setAssetFontItalic;
+exports.setFontStrikethrough = setFontStrikethrough;
+exports.setAssetTextColor = setAssetTextColor;
+exports.setAssetFillColor = setAssetFillColor;
+exports.setAssetBorderColor = setAssetBorderColor;
+exports.setAssetEdgeWeight = setAssetEdgeWeight;
+exports.setAssetVideoURL = setAssetVideoURL;
+exports.setAssetImageURL = setAssetImageURL;
+exports.setAssetVideoController = setAssetVideoController;
+exports.setAssetVideoAutoplay = setAssetVideoAutoplay;
+exports.setAssetVideoLoop = setAssetVideoLoop;
+
+var _assetTypes = __webpack_require__(51);
+
+var assetTypes = _interopRequireWildcard(_assetTypes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var actionTypes = exports.actionTypes = {
+  ASSET_SET_LEFT: "ASSET_SET_LEFT",
+  ASSET_SET_TOP: "ASSET_SET_TOP",
+  ASSET_SET_WIDTH: "ASSET_SET_WIDTH",
+  ASSET_SET_HEIGHT: "ASSET_SET_HEIGHT",
+  ASSET_SET_VALUE: "ASSET_SET_VALUE",
+  ASSET_SET_X_POSTION: 'ASSET_SET_X_POSTION',
+  ASSET_SET_Y_POSTION: 'ASSET_SET_Y_POSTION',
+  ASSET_SET_BOTH_POSITION: 'ASSET_SET_BOTH_POSITION',
+  ASSET_SET_ANGLE: 'ASSET_SET_ANGLE',
+  ASSET_SET_TEXT_FONT: 'ASSET_SET_TEXT_FONT',
+  ASSET_SET_TEXT_FONT_SIZE: 'ASSET_SET_TEXT_FONT_SIZE',
+  ASSET_SET_TEXT_FONT_WEIGHT: 'ASSET_SET_TEXT_FONT_CHARACTER_SPACING',
+  ASSET_SET_TEXT_CHARACTER_SPACING: 'ASSET_SET_TEXT_CHARACTER_SPACING',
+  ASSET_SET_TEXT_LINE_SPACING: 'ASSET_SET_TEXT_LINE_SPACING',
+  ASSET_SET_TEXT_SORT: 'ASSET_SET_TEXT_SORT',
+  ASSET_SET_TEXT_FONT_BOLD: 'ASSET_SET_TEXT_FONT_BOLD',
+  ASSET_SET_TEXT_FONT_UNDERLINE: 'ASSET_SET_TEXT_FONT_UNDERLINE',
+  ASSET_SET_TEXT_FONT_ITALIC: 'ASSET_SET_TEXT_FONT_ITALIC',
+  ASSET_SET_TEXT_FONT_STRIKETHROUGH: 'ASSET_SET_TEXT_FONT_STRIKETHROUGH',
+  ASSET_SET_TEXT_COLOR: 'ASSET_SET_TEXT_COLOR',
+  ASSET_SET_FILL_COLOR: 'ASSET_SET_FILL_COLOR',
+  ASSET_SET_BORDER_COLOR: 'ASSET_SET_EDGE_COLOR',
+  ASSET_SET_BORDER_WEIGHT: 'ASSET_SET_EDGE_WEIGHT',
+  ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
+  ASSET_SET_IMAGE_URL: 'ASSET_SET_IMAGE_URL',
+  ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',
+  ASSET_SET_VIDEO_AUTOPLAY: 'ASSET_SET_VIDEO_AUTOPLAY',
+  ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP',
+  ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
+  ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
+  ASSET_CREATE: "ASSET_CREATE",
+  ASSET_SELECTED: "ASSET_SELECTED"
+};
+
+var createAsset = exports.createAsset = function createAsset(assetType, value) {
+  var style = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+  return {
+    type: actionTypes.ASSET_CREATE,
+    assetType: assetType,
+    value: value,
+    style: style
+  };
+};
+
+var setAssetValue = exports.setAssetValue = function setAssetValue(id, value) {
+  return {
+    type: actionTypes.ASSET_SET_VALUE,
+    id: id,
+    value: value
+  };
+};
+
+var createAssetByType = exports.createAssetByType = function createAssetByType(type) {
+  switch (type) {
+    case assetTypes.TYPE_TEXT:
+      return createAsset(type, '텍스트를 입력해 주세요', { 'font-size': '12px' });
+    case assetTypes.TYPE_IMAGE:
+      return createAsset(type, 'https://github.com/rlatjdfo112/CC-Show/blob/master/document/design/ICON/App%20Icon.png?raw=true');
+    case assetTypes.TYPE_VIDEO:
+      return createAsset(type, 'https://www.youtube.com/watch?v=VQtonf1fv_s');
+    case assetTypes.TYPE_SHAPE:
+      return createAsset(type, '');
+    default:
+      return createAsset(type, 'asdasd');
+  }
+};
+
+var assetSelected = exports.assetSelected = function assetSelected(assetId) {
+  return {
+    type: actionTypes.ASSET_SELECTED,
+    assetId: assetId
+  };
+};
+
+var assetDeselected = exports.assetDeselected = function assetDeselected() {
+  return {
+    type: actionTypes.ASSET_SELECTED,
+    assetId: undefined
+  };
+};
+
+function setAssetWidth(value) {
+  return {
+    type: actionTypes.ASSET_SET_WIDTH,
+    value: value
+  };
+}
+
+function setAssetHeight(value) {
+  return {
+    type: actionTypes.ASSET_SET_HEIGHT,
+    value: value
+  };
+}
+
+function setAssetX(value) {
+  return {
+    type: actionTypes.ASSET_SET_X_POSTION,
+    value: value
+  };
+}
+
+function setAssetY(value) {
+  return {
+    type: actionTypes.ASSET_SET_Y_POSTION,
+    value: value
+  };
+}
+
+var setAssetXY = exports.setAssetXY = function setAssetXY(x, y) {
+  return {
+    type: actionTypes.ASSET_SET_BOTH_POSITION,
+    x: x,
+    y: y
+  };
+};
+
+function setAssetAngle(value) {
+  return {
+    type: actionTypes.ASSET_SET_ANGLE,
+    value: value
+  };
+}
+
+var setAttributes = exports.setAttributes = function setAttributes(attrs) {
+  Object.keys(attrs).map(function (key, index) {
+    attrs[key] = {
+      $set: attrs[key]
+    };
+  });
+  return {
+    type: actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE,
+    attrs: attrs
+  };
+};
+
+function setAssetTextFont(font) {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_FONT,
+    font: font
+  };
+}
+
+function setAssetFontSize(fontSize) {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_FONT_SIZE,
+    fontSize: fontSize
+  };
+}
+
+function setAssetTextCharacterSpacing(value) {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_CHARACTER_SPACING,
+    value: value
+  };
+}
+
+function setAssetTextLineSpacing(value) {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_LINE_SPACING,
+    value: value
+  };
+}
+
+function setAssetFontWeight(value) {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_FONT_WEIGHT,
+    value: value
+  };
+}
+
+function setAssetTextSort(sort) {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_SORT,
+    sort: sort
+  };
+}
+
+function setAssetFontBold() {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_FONT_BOLD
+  };
+}
+
+function setAssetFontStrikethrough() {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH
+  };
+}
+
+function setAssetFontUnderline() {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_FONT_UNDERLINE
+  };
+}
+
+function setAssetFontItalic() {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_FONT_ITALIC
+  };
+}
+
+function setFontStrikethrough() {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH
+  };
+}
+
+function setAssetTextColor(textColor) {
+  return {
+    type: actionTypes.ASSET_SET_TEXT_COLOR,
+    textColor: textColor
+  };
+}
+
+function setAssetFillColor(fillColor) {
+  return {
+    type: actionTypes.ASSET_SET_FILL_COLOR,
+    fillColor: fillColor
+  };
+}
+
+function setAssetBorderColor(borderColor) {
+  return {
+    type: actionTypes.ASSET_SET_BORDER_COLOR,
+    borderColor: borderColor
+  };
+}
+
+function setAssetEdgeWeight(weight) {
+  return {
+    type: actionTypes.ASSET_SET_BORDER_WEIGHT,
+    borderWeight: borderWeight
+  };
+}
+
+function setAssetVideoURL(url) {
+  return {
+    type: actionTypes.ASSET_SET_VIDEO_URL,
+    url: url
+  };
+}
+
+function setAssetImageURL(url) {
+  return {
+    type: actionTypes.ASSET_SET_IMAGE_URL,
+    url: url
+  };
+}
+
+function setAssetVideoController() {
+  return {
+    type: actionTypes.ASSET_SET_VIDEO_CONTROLLER
+  };
+}
+
+function setAssetVideoAutoplay() {
+  return {
+    type: actionTypes.ASSET_SET_VIDEO_AUTOPLAY
+  };
+}
+
+function setAssetVideoLoop() {
+  return {
+    type: actionTypes.ASSET_SET_VIDEO_LOO
+  };
+}
+
+/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(7); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "assets.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
@@ -4179,295 +4496,6 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
   }
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(5), RootInstanceProvider = __webpack_require__(6), ReactMount = __webpack_require__(4), React = __webpack_require__(0); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.setAttributes = exports.setAssetXY = exports.assetDeselected = exports.assetSelected = exports.createAssetByType = exports.setAssetValue = exports.createAsset = exports.actionTypes = undefined;
-exports.setAssetWidth = setAssetWidth;
-exports.setAssetHeight = setAssetHeight;
-exports.setAssetX = setAssetX;
-exports.setAssetY = setAssetY;
-exports.setAssetAngle = setAssetAngle;
-exports.setAssetTextFont = setAssetTextFont;
-exports.setAssetFontSize = setAssetFontSize;
-exports.setAssetTextLineSpacing = setAssetTextLineSpacing;
-exports.setAssetTextSort = setAssetTextSort;
-exports.setAssetFontBold = setAssetFontBold;
-exports.setAssetFontStrikethrough = setAssetFontStrikethrough;
-exports.setAssetFont = setAssetFont;
-exports.setAssetFontItalic = setAssetFontItalic;
-exports.setFontStrikethrough = setFontStrikethrough;
-exports.setAssetTextColor = setAssetTextColor;
-exports.setAssetFillColor = setAssetFillColor;
-exports.setAssetBorderColor = setAssetBorderColor;
-exports.setAssetEdgeWeight = setAssetEdgeWeight;
-exports.setAssetVideoURL = setAssetVideoURL;
-exports.setAssetVideoController = setAssetVideoController;
-exports.setAssetVideoAutoplay = setAssetVideoAutoplay;
-exports.setAssetVideoLoop = setAssetVideoLoop;
-
-var _assetTypes = __webpack_require__(51);
-
-var assetTypes = _interopRequireWildcard(_assetTypes);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-var actionTypes = exports.actionTypes = {
-  ASSET_SET_LEFT: "ASSET_SET_LEFT",
-  ASSET_SET_TOP: "ASSET_SET_TOP",
-  ASSET_SET_WIDTH: "ASSET_SET_WIDTH",
-  ASSET_SET_HEIGHT: "ASSET_SET_HEIGHT",
-  ASSET_SET_VALUE: "ASSET_SET_VALUE",
-  ASSET_SET_X_POSTION: 'ASSET_SET_X_POSTION',
-  ASSET_SET_Y_POSTION: 'ASSET_SET_Y_POSTION',
-  ASSET_SET_BOTH_POSITION: 'ASSET_SET_BOTH_POSITION',
-  ASSET_SET_ANGLE: 'ASSET_SET_ANGLE',
-  ASSET_SET_TEXT_FONT: 'ASSET_SET_TEXT_FONT',
-  ASSET_SET_TEXT_FONT_SIZE: 'ASSET_SET_TEXT_FONT_SIZE',
-  ASSET_SET_TEXT_SORT: 'ASSET_SET_TEXT_SORT',
-  ASSET_SET_TEXT_FONT_BOLD: 'ASSET_SET_TEXT_FONT_BOLD',
-  ASSET_SET_TEXT_FONT_UNDERLINE: 'ASSET_SET_TEXT_FONT_UNDERLINE',
-  ASSET_SET_TEXT_FONT_ITALIC: 'ASSET_SET_TEXT_FONT_ITALIC',
-  ASSET_SET_TEXT_FONT_STRIKETHROUGH: 'ASSET_SET_TEXT_FONT_STRIKETHROUGH',
-  ASSET_SET_TEXT_COLOR: 'ASSET_SET_TEXT_COLOR',
-  ASSET_SET_FILL_COLOR: 'ASSET_SET_FILL_COLOR',
-  ASSET_SET_BORDER_COLOR: 'ASSET_SET_EDGE_COLOR',
-  ASSET_SET_BORDER_WEIGHT: 'ASSET_SET_EDGE_WEIGHT',
-  ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
-  ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',
-  ASSET_SET_VIDEO_AUTOPLAY: 'ASSET_SET_VIDEO_AUTOPLAY',
-  ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP',
-  ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
-  ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
-  ASSET_CREATE: "ASSET_CREATE",
-  ASSET_SELECTED: "ASSET_SELECTED"
-};
-
-var createAsset = exports.createAsset = function createAsset(assetType, value) {
-  var style = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-  return {
-    type: actionTypes.ASSET_CREATE,
-    assetType: assetType,
-    value: value,
-    style: style
-  };
-};
-
-var setAssetValue = exports.setAssetValue = function setAssetValue(id, value) {
-  return {
-    type: actionTypes.ASSET_SET_VALUE,
-    id: id,
-    value: value
-  };
-};
-
-var createAssetByType = exports.createAssetByType = function createAssetByType(type) {
-  switch (type) {
-    case assetTypes.TYPE_TEXT:
-      return createAsset(type, '텍스트를 입력해 주세요', { 'font-size': '12px' });
-    case assetTypes.TYPE_IMAGE:
-      return createAsset(type, 'https://github.com/rlatjdfo112/CC-Show/blob/master/document/design/ICON/App%20Icon.png?raw=true');
-    case assetTypes.TYPE_VIDEO:
-      return createAsset(type, 'https://www.youtube.com/watch?v=VQtonf1fv_s');
-    case assetTypes.TYPE_SHAPE:
-      return createAsset(type, '');
-    default:
-      return createAsset(type, 'asdasd');
-  }
-};
-
-var assetSelected = exports.assetSelected = function assetSelected(assetId) {
-  return {
-    type: actionTypes.ASSET_SELECTED,
-    assetId: assetId
-  };
-};
-
-var assetDeselected = exports.assetDeselected = function assetDeselected() {
-  return {
-    type: actionTypes.ASSET_SELECTED,
-    assetId: undefined
-  };
-};
-
-function setAssetWidth(value) {
-  return {
-    type: actionTypes.ASSET_SET_WIDTH,
-    value: value
-  };
-}
-
-function setAssetHeight(value) {
-  return {
-    type: actionTypes.ASSET_SET_HEIGHT,
-    value: value
-  };
-}
-
-function setAssetX(value) {
-  return {
-    type: actionTypes.ASSET_SET_X_POSTION,
-    value: value
-  };
-}
-
-function setAssetY(value) {
-  return {
-    type: actionTypes.ASSET_SET_Y_POSTION,
-    value: value
-  };
-}
-
-var setAssetXY = exports.setAssetXY = function setAssetXY(x, y) {
-  return {
-    type: actionTypes.ASSET_SET_BOTH_POSITION,
-    x: x,
-    y: y
-  };
-};
-
-function setAssetAngle(value) {
-  return {
-    type: actionTypes.ASSET_SET_ANGLE,
-    value: value
-  };
-}
-
-var setAttributes = exports.setAttributes = function setAttributes(attrs) {
-  Object.keys(attrs).map(function (key, index) {
-    attrs[key] = {
-      $set: attrs[key]
-    };
-  });
-  return {
-    type: actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE,
-    attrs: attrs
-  };
-};
-
-function setAssetTextFont(font) {
-  return {
-    type: actionTypes.ASSET_SET_TEXT_FONT,
-    font: font
-  };
-}
-
-function setAssetFontSize(fontSize) {
-  return {
-    type: actionTypes.ASSET_SET_TEXT_FONT_SIZE,
-    fontSize: fontSize
-  };
-}
-
-function setAssetTextLineSpacing(value) {
-  return {
-    type: actionTypes.ASSET_SET_TEXT_LINESPACING,
-    value: value
-  };
-}
-
-function setAssetTextSort(sort) {
-  return {
-    type: actionTypes.ASSET_SET_TEXT_SORT,
-    sort: sort
-  };
-}
-
-function setAssetFontBold() {
-  return {
-    type: actionTypes.ASSET_SET_TEXT_FONT_BOLD
-  };
-}
-
-function setAssetFontStrikethrough() {
-  return {
-    type: actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH
-  };
-}
-
-function setAssetFont() {
-  return {
-    type: actionTypes.ASSET_SET_TEXT_FONT_UNDERLINE
-  };
-}
-
-function setAssetFontItalic() {
-  return {
-    type: actionTypes.ASSET_SET_TEXT_FONT_ITALIC
-  };
-}
-
-function setFontStrikethrough() {
-  return {
-    type: actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH
-  };
-}
-
-function setAssetTextColor(textColor) {
-  return {
-    type: actionTypes.ASSET_SET_TEXT_COLOR,
-    textColor: textColor
-  };
-}
-
-function setAssetFillColor(fillColor) {
-  return {
-    type: actionTypes.ASSET_SET_FILL_COLOR,
-    fillColor: fillColor
-  };
-}
-
-function setAssetBorderColor(borderColor) {
-  return {
-    type: actionTypes.ASSET_SET_BORDER_COLOR,
-    borderColor: borderColor
-  };
-}
-
-function setAssetEdgeWeight(weight) {
-  return {
-    type: actionTypes.ASSET_SET_BORDER_WEIGHT,
-    borderWeight: borderWeight
-  };
-}
-
-function setAssetVideoURL(url) {
-  return {
-    type: actionTypes.ASSET_SET_VIDEO_URL,
-    url: url
-  };
-}
-
-function setAssetVideoController() {
-  return {
-    type: actionTypes.ASSET_SET_VIDEO_CONTROLLER
-  };
-}
-
-function setAssetVideoAutoplay() {
-  return {
-    type: actionTypes.ASSET_SET_VIDEO_AUTOPLAY
-  };
-}
-
-function setAssetVideoLoop() {
-  return {
-    type: actionTypes.ASSET_SET_VIDEO_LOOP
-  };
-}
-
-/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(7); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "assets.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
 
 /***/ }),
 /* 30 */
@@ -6600,7 +6628,7 @@ module.exports = EventPropagators;
 
 
 
-var SyntheticEvent = __webpack_require__(28);
+var SyntheticEvent = __webpack_require__(29);
 
 var getEventTarget = __webpack_require__(86);
 
@@ -10594,7 +10622,7 @@ exports = module.exports = __webpack_require__(19)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetEditorItem__AssetEditor_left___1NVam{\r\n    width: 60%;\r\n    height: 70vh ;\r\n    margin-left: 2em;\r\n    float: left;\r\n}\r\n.AssetEditorItem__AssetEditor_preview___1X-MG{\r\n width: 100%;\r\n height: 100%;\r\n    z-index: 1;\r\n    position: absolute;\r\n    background-color: white;\r\n}\r\n.AssetEditorItem__previewFile___1dyEr{\r\n    width: 100%;\r\n    height: 100%;\r\n    opacity: 0;\r\n    position: absolute;\r\n    z-index: 100;\r\n    padding: none;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_preview___1X-MG img{\r\n    width: 100%;\r\n    height: 90%;\r\n    /* position: absolute; */\r\n}\r\n\r\n\r\n.AssetEditorItem__previewDiv___3nPxX{\r\n    width: 48%;\r\n    height: 160px;\r\n    border: 1.7px solid #1998E5;\r\n    float: left;\r\n    margin: 0 0.5em 0em 0;\r\n    display: table;\r\n    color: #E2E2E2;\r\n    background-color: white;\r\n    position: relative;\r\n}\r\n/* .preview_text{\r\n    color: #DFDFDF;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 0.5em;\r\n    text-align: center;\r\n} */\r\n\r\n\r\n.AssetEditorItem__AssetEditor_topbar___2IFnZ{\r\n    width: 100%;\r\n    height: 30px;\r\n    display: table;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__topbar_title___QSygj{\r\n    font-size: 10px;\r\n    margin: 0;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    color: white;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_setting___HdB3H{\r\nwidth: 50%;\r\nheight: 160px;\r\ndisplay: inline-block;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_description___1DU6n{\r\n\r\nheight: 380px;\r\nborder: 1px solid #1898E5;\r\nmargin: 0.5em 0.5em 0 0;\r\ndisplay: inline-block;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_content___3x0Q-{\r\n    width: 99%;\r\n    height: 40vh;\r\n}\r\n\r\n.AssetEditorItem__description_content___iUN_A{\r\n    width: 97.8%;\r\n    height: 310px;\r\n    box-sizing:border-box;\r\n    overflow: hidden;\r\n    resize: none;\r\n    border: none;\r\n    outline: none;\r\n    font-family: inherit;\r\n    margin: 1em;\r\n}\r\n\r\n\r\n.AssetEditorItem__AssetEditor_right___2nZNW{\r\n width: 33%;\r\n overflow-x: hidden;\r\n overflow-y: auto;\r\n display: inline-block;\r\n margin-left: 1em;\r\n} \r\n\r\n.AssetEditorItem__select_license___d77ab{\r\n    width: 100%;\r\n    height: 5vh;\r\n    border: 1px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    background-color: #1998E5;\r\n    text-align: center;\r\n    display: table;\r\n}\r\n\r\n.AssetEditorItem__select_license_text___1133Y{\r\n    color: white;\r\n    font-size: 0.7em;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n}\r\n.AssetEditorItem__dropdownButt___2Ur2L{\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-width: 6px 6px 0 6px;\r\n    border-color: #1997e5 transparent transparent transparent;\r\n    float: right;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n    margin: 1em;\r\n}\r\n\r\n.AssetEditorItem__license_content___187lz{\r\n    width: 99%;\r\n    height: 4.5vh;\r\n    border: 1.7px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    display: table;\r\n    background-color: white;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetEditorItem__license_text___1H8I9{\r\n    color: #1998E5;\r\n    font-size: 0.7em;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    \r\n}\r\n\r\n.AssetEditorItem__dropdownContent___aepHJ{\r\n    width: 99%;\r\n    height: 5em;\r\n    border: 1px solid red;\r\n}\r\n\r\n.AssetEditorItem__CCL_top___3L9Bt{\r\n    width: 100%;\r\n    height: 2.3em;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__CCL_content___TxhZM{\r\n\r\n}\r\n.AssetEditorItem__AssetEditor_isAsset___1GKZ9{\r\nwidth: 367px;\r\nheight: 10em;\r\nborder: 1px solid #1998E5;\r\ndisplay: block;\r\nmargin-bottom: 10px;\r\n/* position: absolute; */\r\n}\r\n.AssetEditorItem__AssetEditor_Process___2wYmd{\r\nwidth: 367px;\r\nheight: 9.5em;\r\nborder: 1px solid#1998E5;\r\ndisplay: block;\r\nmargin-bottom: 10px;\r\n/* margin-bottom: 0.5em; */\r\n/* position: absolute; */\r\n}\r\n.AssetEditorItem__AssetEditor_Precess___1vSdt :nth-child(2){\r\n    margin-bottom: 20px;\r\n}\r\n\r\n\r\n.AssetEditorItem__AssetEditor_agreement___2H1gA{\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n\r\n}\r\n\r\n.AssetEditorItem__isAsset_Header___1qTLe{\r\n    background-color: #1998E5;\r\n    width: 100%;\r\n    height: 2.3em;\r\n    display: table;\r\n\r\n}\r\n.AssetEditorItem__isAsset_titleText___1n5ld{\r\n    color: white;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n    width: 370px;\r\n    height: 4.6em;\r\n    color: white;\r\n    background-color:#1998E5; \r\n    cursor: pointer;\r\n    position: absolute;\r\n    font-size: 11px;\r\n    margin-top: 2px;\r\n    }\r\n\r\n.AssetEditorItem__setting_first___wQ0KM{\r\n    width: 96%;\r\n    height : 40px;\r\n    font-family: inherit;\r\n}\r\n.AssetEditorItem__title___c96HW{\r\n    border : none;\r\n    height: 35px;\r\n    padding-top: 0;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    width: 288px;\r\n    outline: none;\r\n    float: right;\r\n    /* margin-left: 4px; */\r\n    /* text-align: center; */\r\n}\r\n.AssetEditorItem__title2___283G8{\r\n    border : none;\r\n    height: 34px;\r\n    /* padding-top: 0; */\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    /* margin-top: 0.1em; */\r\n    width: 80px;\r\n    outline: none;\r\n    float: right;\r\n}\r\n.AssetEditorItem__cover___2GfD6{\r\n    /* margin-top: 0em; */\r\n    width: 334px;\r\n    height: 30px;\r\n    background-color: #1998E5;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    display: table;\r\n    border: 2px solid #1998E5;\r\n}\r\n.AssetEditorItem__cover2___3-H2J{\r\n    width: 35%;\r\n    height: 36px;\r\n    background-color: #1998E5;\r\n    display: table;\r\n    border: 2px solid #1998E5;\r\n}\r\n\r\n.AssetEditorItem__frontTitle___1uMc5{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 0.5em;\r\n    /* padding : 0 7px 0 9px; */\r\n    width: 40px;\r\n    margin-left: 1em;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__frontTitle2___3d4Y_{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 4px;\r\n    padding : 0 7px 0 7px;\r\n    width: 20px;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__setting_second___2h3vv{\r\n    margin-top: 5px;\r\n    height: 2em;\r\n}\r\n/* .openStore{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    \r\n} */\r\n\r\n.AssetEditorItem__openStoreDiv___3yiNY{\r\n    width: 30%;\r\n    height: 40px;\r\n    float: left;\r\n    margin-right: 4px;\r\n}\r\n\r\n.AssetEditorItem__openStoreButton___19rPQ{\r\n    width: 100%;\r\n    height: 40px;\r\n    background-color: white;\r\n    border: 1.5px solid #1998E5;\r\n    color: #1998E5;\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.AssetEditorItem__changeCharge___225HO{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n   \r\n}\r\n.AssetEditorItem__text___38jIY{\r\n    padding: 1em;\r\n}\r\n\r\n.AssetEditorItem__setting_third___Q-Uhb{\r\n    width: 99%;\r\n    margin-top: 12px;\r\n    height: 4em;\r\n}\r\n\r\n.AssetEditorItem__imagePreview___1mVgS{\r\n    width: 38%;\r\n    height: 73px;\r\n    border: 1.7px solid #1998E5;\r\n    float: left;\r\n    margin-right: 5px;\r\n    display: table;\r\n}\r\n.AssetEditorItem__previewText___1MttC{\r\n    width: 120px;\r\n    height: 65px;\r\n    margin-left: 4px;\r\n    margin-top: 5px;\r\n    color: #E2E2E2;\r\n    background-color: white;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    text-align: center;\r\n    position: relative;\r\n    z-index: -1;\r\n}\r\n.AssetEditorItem__filebutton___3Bsvd{\r\n    width: 64px;\r\n    height: 76px;\r\n    position: absolute;\r\n    background-color: #1998E5\r\n}\r\n.AssetEditorItem__filefile___2gxp2{\r\n    width: 100%;\r\n    height: 75px;\r\n    background-color: #1998E5;\r\n    cursor: pointer;\r\n    opacity: 0;\r\n    position: relative;\r\n}\r\n\r\n.AssetEditorItem__inputImage___2ybOn{\r\n    width: 125px;\r\n    position: absolute;\r\n    height: 75px;\r\n    z-index: 1;\r\n    opacity: 0;\r\n}\r\n\r\n.AssetEditorItem__inputimg___3YhnG{\r\n    position: absolute;\r\n}", ""]);
+exports.push([module.i, ".AssetEditorItem__AssetEditor_left___1NVam{\r\n    width: 60%;\r\n    height: 70vh ;\r\n    margin-left: 2em;\r\n    float: left;\r\n}\r\n.AssetEditorItem__AssetEditor_preview___1X-MG{\r\n width: 100%;\r\n height: 100%;\r\n    z-index: 1;\r\n    position: absolute;\r\n    background-color: white;\r\n}\r\n.AssetEditorItem__previewFile___1dyEr{\r\n    width: 100%;\r\n    height: 100%;\r\n    opacity: 0;\r\n    position: absolute;\r\n    z-index: 100;\r\n    padding: none;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_preview___1X-MG img{\r\n    width: 100%;\r\n    height: 90%;\r\n    /* position: absolute; */\r\n}\r\n\r\n\r\n.AssetEditorItem__previewDiv___3nPxX{\r\n    width: 48%;\r\n    height: 160px;\r\n    border: 1.7px solid #1998E5;\r\n    float: left;\r\n    margin: 0 0.5em 0em 0;\r\n    display: table;\r\n    color: #E2E2E2;\r\n    background-color: white;\r\n    position: relative;\r\n}\r\n/* .preview_text{\r\n    color: #DFDFDF;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 0.5em;\r\n    text-align: center;\r\n} */\r\n\r\n\r\n.AssetEditorItem__AssetEditor_topbar___2IFnZ{\r\n    width: 100%;\r\n    height: 30px;\r\n    display: table;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__topbar_title___QSygj{\r\n    font-size: 10px;\r\n    margin: 0;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    color: white;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_setting___HdB3H{\r\nwidth: 50%;\r\nheight: 160px;\r\ndisplay: inline-block;\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_description___1DU6n{\r\n\r\nheight: 380px;\r\nborder: 1px solid #1898E5;\r\nmargin: 0.5em 1em 0 0;\r\ndisplay: inline-block;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_content___3x0Q-{\r\n    width: 99%;\r\n    height: 40vh;\r\n}\r\n\r\n.AssetEditorItem__description_content___iUN_A{\r\n    width: 97.8%;\r\n    height: 310px;\r\n    box-sizing:border-box;\r\n    overflow: hidden;\r\n    resize: none;\r\n    border: none;\r\n    outline: none;\r\n    font-family: inherit;\r\n    margin: 1em;\r\n}\r\n\r\n\r\n.AssetEditorItem__AssetEditor_right___2nZNW{\r\n width: 33%;\r\n overflow-x: hidden;\r\n overflow-y: auto;\r\n display: inline-block;\r\n margin-left: 1em;\r\n} \r\n\r\n.AssetEditorItem__select_license___d77ab{\r\n    width: 100%;\r\n    height: 5vh;\r\n    border: 1px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    background-color: #1998E5;\r\n    text-align: center;\r\n    display: table;\r\n}\r\n\r\n.AssetEditorItem__select_license_text___1133Y{\r\n    color: white;\r\n    font-size: 0.7em;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n}\r\n.AssetEditorItem__dropdownButt___2Ur2L{\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-width: 6px 6px 0 6px;\r\n    border-color: #1997e5 transparent transparent transparent;\r\n    float: right;\r\n    vertical-align: middle;\r\n    display: table-cell;\r\n    margin: 1em;\r\n}\r\n\r\n.AssetEditorItem__license_content___187lz{\r\n    width: 99%;\r\n    height: 4.5vh;\r\n    border: 1.7px solid #1998E5;\r\n    margin-bottom: 0.7em;\r\n    display: table;\r\n    background-color: white;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetEditorItem__license_text___1H8I9{\r\n    color: #1998E5;\r\n    font-size: 0.7em;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n    \r\n}\r\n\r\n.AssetEditorItem__dropdownContent___aepHJ{\r\n    width: 99%;\r\n    height: 5em;\r\n    border: 1px solid red;\r\n}\r\n\r\n.AssetEditorItem__CCL_top___3L9Bt{\r\n    width: 100%;\r\n    height: 2.3em;\r\n    background-color: #1998E5;\r\n}\r\n.AssetEditorItem__CCL_content___TxhZM{\r\n\r\n}\r\n.AssetEditorItem__AssetEditor_isAsset___1GKZ9{\r\nwidth: 367px;\r\nheight: 10em;\r\nborder: 1px solid #1998E5;\r\ndisplay: block;\r\nmargin-bottom: 10px;\r\n/* position: absolute; */\r\n}\r\n.AssetEditorItem__AssetEditor_Process___2wYmd{\r\nwidth: 367px;\r\nheight: 9.5em;\r\nborder: 1px solid#1998E5;\r\ndisplay: block;\r\nmargin-bottom: 10px;\r\n/* margin-bottom: 0.5em; */\r\n/* position: absolute; */\r\n}\r\n.AssetEditorItem__AssetEditor_Precess___1vSdt :nth-child(2){\r\n    margin-bottom: 20px;\r\n}\r\n\r\n\r\n.AssetEditorItem__AssetEditor_agreement___2H1gA{\r\n\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n\r\n}\r\n\r\n.AssetEditorItem__isAsset_Header___1qTLe{\r\n    background-color: #1998E5;\r\n    width: 100%;\r\n    height: 2.3em;\r\n    display: table;\r\n\r\n}\r\n.AssetEditorItem__isAsset_titleText___1n5ld{\r\n    color: white;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    padding-left: 1em;\r\n}\r\n\r\n.AssetEditorItem__AssetEditor_agreeButton___3g6Vg{\r\n    width: 33%;\r\n    height: 4.6em;\r\n    color: white;\r\n    background-color:#1998E5; \r\n    cursor: pointer;\r\n    position: absolute;\r\n    font-size: 11px;\r\n    margin-top: 2px;\r\n    }\r\n\r\n.AssetEditorItem__setting_first___wQ0KM{\r\n    width: 96%;\r\n    height : 40px;\r\n    font-family: inherit;\r\n}\r\n.AssetEditorItem__title___c96HW{\r\n    border : none;\r\n    height: 35px;\r\n    padding-top: 0;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    width: 288px;\r\n    outline: none;\r\n    float: right;\r\n    /* margin-left: 4px; */\r\n    /* text-align: center; */\r\n}\r\n.AssetEditorItem__title2___283G8{\r\n    border : none;\r\n    height: 34px;\r\n    /* padding-top: 0; */\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    /* margin-top: 0.1em; */\r\n    width: 80px;\r\n    outline: none;\r\n    float: right;\r\n}\r\n.AssetEditorItem__cover___2GfD6{\r\n    /* margin-top: 0em; */\r\n    width: 100%;\r\n    height: 30px;\r\n    background-color: #1998E5;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    display: table;\r\n    border: 2px solid #1998E5;\r\n}\r\n.AssetEditorItem__cover2___3-H2J{\r\n    width: 35%;\r\n    height: 36px;\r\n    background-color: #1998E5;\r\n    display: table;\r\n    border: 2px solid #1998E5;\r\n}\r\n\r\n.AssetEditorItem__frontTitle___1uMc5{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 0.5em;\r\n    /* padding : 0 7px 0 9px; */\r\n    width: 40px;\r\n    margin-left: 1em;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__frontTitle2___3d4Y_{\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    font-size: 4px;\r\n    padding : 0 7px 0 7px;\r\n    width: 20px;\r\n    text-align: center;\r\n}\r\n.AssetEditorItem__setting_second___2h3vv{\r\n    width: 99%;\r\n    margin-top: 5px;\r\n    height: 2em;\r\n}\r\n/* .openStore{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    \r\n} */\r\n\r\n.AssetEditorItem__openStoreDiv___3yiNY{\r\n    width: 30%;\r\n    height: 40px;\r\n    float: left;\r\n    margin-right: 4px;\r\n}\r\n\r\n.AssetEditorItem__openStoreButton___19rPQ{\r\n    width: 100%;\r\n    height: 40px;\r\n    background-color: white;\r\n    border: 1.5px solid #1998E5;\r\n    color: #1998E5;\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.AssetEditorItem__changeCharge___225HO{\r\n    width: 30%;\r\n    height: 3em;\r\n    border: 1px solid #1998E5;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    color: #1998E5;\r\n    font-size: 3px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n   \r\n}\r\n.AssetEditorItem__text___38jIY{\r\n    padding: 1em;\r\n}\r\n\r\n.AssetEditorItem__setting_third___Q-Uhb{\r\n    width: 99%;\r\n    margin-top: 12px;\r\n    height: 80px;\r\n}\r\n\r\n.AssetEditorItem__preview_Image___1Z2Uc{\r\n    color: #E2E2E2;\r\n}\r\n\r\n.AssetEditorItem__imagePreview_ScrollDiv___36sME{\r\n    width: 270px;\r\n    height: 77px;\r\n    float: left;\r\n    position: relative;\r\n    overflow-x: scroll;\r\n    overflow-y: hidden;\r\n}\r\n\r\n.AssetEditorItem__imagePreview_ScrollSmallDiv___2n62L{\r\n  /* width: 950px; */\r\n  /* width: 270px; */\r\n  height: 77px;\r\n  position: relative;\r\n}\r\n.AssetEditorItem__imagePreview___1mVgS{\r\n    width: 128px;\r\n    height: 73px;\r\n    border: 1.7px solid #1998E5;\r\n    float: left;\r\n    margin-right: 5px;\r\n    display: table;\r\n    position: relative;\r\n}\r\n\r\n.AssetEditorItem__imagePreview___1mVgS img{\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n.AssetEditorItem__previewText___1MttC{\r\n    width: 120px;\r\n    height: 65px;\r\n    margin-left: 4px;\r\n    margin-top: 5px;\r\n    color: #E2E2E2;\r\n    background-color: white;\r\n    font-size: 10px;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    text-align: center;\r\n    position: relative;\r\n    z-index: -1;\r\n}\r\n.AssetEditorItem__filebutton___3Bsvd{\r\n    width: 64px;\r\n    height: 76px;\r\n    position: absolute;\r\n    background-color: #1998E5;\r\n    cursor: pointer;\r\n    font-size: 25px;\r\n    color: white;\r\n}\r\n\r\n.AssetEditorItem__inputImage___2ybOn{\r\n    width: 125px;\r\n    position: absolute;\r\n    height: 75px;\r\n    z-index: 1;\r\n    opacity: 0;\r\n}", ""]);
 
 // exports
 exports.locals = {
@@ -10637,12 +10665,13 @@ exports.locals = {
 	"changeCharge": "AssetEditorItem__changeCharge___225HO",
 	"text": "AssetEditorItem__text___38jIY",
 	"setting_third": "AssetEditorItem__setting_third___Q-Uhb",
+	"preview_Image": "AssetEditorItem__preview_Image___1Z2Uc",
+	"imagePreview_ScrollDiv": "AssetEditorItem__imagePreview_ScrollDiv___36sME",
+	"imagePreview_ScrollSmallDiv": "AssetEditorItem__imagePreview_ScrollSmallDiv___2n62L",
 	"imagePreview": "AssetEditorItem__imagePreview___1mVgS",
 	"previewText": "AssetEditorItem__previewText___1MttC",
 	"filebutton": "AssetEditorItem__filebutton___3Bsvd",
-	"filefile": "AssetEditorItem__filefile___2gxp2",
-	"inputImage": "AssetEditorItem__inputImage___2ybOn",
-	"inputimg": "AssetEditorItem__inputimg___3YhnG"
+	"inputImage": "AssetEditorItem__inputImage___2ybOn"
 };
 
 /***/ }),
@@ -10714,7 +10743,7 @@ exports = module.exports = __webpack_require__(19)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetController__items___12-Ka {\r\n    padding: 0;\r\n    margin: 0 0 1em 0.4em;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 12px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-block;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 40%;\r\n    height: 20px;\r\n    float: left;\r\n}\r\n\r\n.AssetController__URL_controller___8MQ6H {\r\n    width: 90%;\r\n    display: table;\r\n    padding: 1px 0 1px 2px;\r\n}\r\n\r\n.AssetController__video_margin_zero___1ZJDF {\r\n    margin: 0;\r\n}\r\n\r\n.AssetController__video___1YT3H {\r\n    text-align: center;\r\n    width: 25%;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetController__attribute_item_title___1gZe5 {\r\n    border: 0;\r\n    margin: 0 0 0 5px;\r\n    width: 15%;\r\n    font-size: 15px;\r\n    color: #5a84b3;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 60%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    clear: both;\r\n    outline-width: 0;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\n.AssetController__controller_hr___3nr27 {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n    width: 100%;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 85%;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n    padding: 5px;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y textarea{\r\n    width: 98%;\r\n    height: 15vh;\r\n    border: 0;\r\n}\r\n\r\ntextarea:focus{\r\n    outline: 0;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n    margin: 3px;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz{\r\n}\r\n\r\n.AssetController__control_item___1Maaq img{\r\n    margin: 3px 0 0 5px;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz img{\r\n    cursor: pointer;\r\n    margin : 10px;\r\n}\r\n\r\n.AssetController__change_color___1dCnR{\r\n    cursor: pointer;\r\n    width:20px;\r\n    height: 20px;\r\n    border-radius: 20px;\r\n    float: right;\r\n    display: inline-block;\r\n}\r\n\r\n.AssetController__color_picker_modal___2_yyP{\r\n    position: absolute;\r\n    left: 40%;\r\n    top: 40%;\r\n}", ""]);
+exports.push([module.i, ".AssetController__items___12-Ka {\r\n    padding: 0;\r\n    margin: 0 0 1em 0.4em;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 12px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-block;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 40%;\r\n    height: 20px;\r\n    float: left;\r\n}\r\n\r\n.AssetController__URL_controller___8MQ6H {\r\n    width: 90%;\r\n    display: table;\r\n    padding: 1px 0 1px 2px;\r\n}\r\n\r\n.AssetController__video_margin_zero___1ZJDF {\r\n    margin: 0;\r\n}\r\n\r\n.AssetController__video___1YT3H {\r\n    text-align: center;\r\n    width: 25%;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetController__attribute_item_title___1gZe5 {\r\n    border: 0;\r\n    margin: 0 0 0 5px;\r\n    width: 15%;\r\n    font-size: 15px;\r\n    color: #5a84b3;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 60%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    clear: both;\r\n    outline-width: 0;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\n.AssetController__controller_hr___3nr27 {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n    width: 100%;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 85%;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n    padding: 5px;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y textarea{\r\n    width: 98%;\r\n    height: 15vh;\r\n    border: 0;\r\n}\r\n\r\ntextarea:focus{\r\n    outline: 0;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz{\r\n}\r\n\r\n.AssetController__control_item___1Maaq img{\r\n    margin: 3px 0 0 5px;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz img{\r\n    cursor: pointer;\r\n    margin : 10px;\r\n}\r\n\r\n.AssetController__change_color___1dCnR{\r\n    cursor: pointer;\r\n    width:20px;\r\n    height: 20px;\r\n    border-radius: 20px;\r\n    float: right;\r\n    display: inline-block;\r\n}\r\n\r\n.AssetController__color_picker_modal___2_yyP{\r\n    position: absolute;\r\n    left: 40%;\r\n    top: 40%;\r\n}", ""]);
 
 // exports
 exports.locals = {
@@ -22688,7 +22717,7 @@ module.exports = FallbackCompositionState;
 
 
 
-var SyntheticEvent = __webpack_require__(28);
+var SyntheticEvent = __webpack_require__(29);
 
 /**
  * @interface Event
@@ -22729,7 +22758,7 @@ module.exports = SyntheticCompositionEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(28);
+var SyntheticEvent = __webpack_require__(29);
 
 /**
  * @interface Event
@@ -22776,7 +22805,7 @@ var EventPropagators = __webpack_require__(49);
 var ExecutionEnvironment = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(13);
 var ReactUpdates = __webpack_require__(27);
-var SyntheticEvent = __webpack_require__(28);
+var SyntheticEvent = __webpack_require__(29);
 
 var inputValueTracking = __webpack_require__(142);
 var getEventTarget = __webpack_require__(86);
@@ -28670,7 +28699,7 @@ var EventPropagators = __webpack_require__(49);
 var ExecutionEnvironment = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(13);
 var ReactInputSelection = __webpack_require__(150);
-var SyntheticEvent = __webpack_require__(28);
+var SyntheticEvent = __webpack_require__(29);
 
 var getActiveElement = __webpack_require__(151);
 var isTextInputElement = __webpack_require__(143);
@@ -28867,7 +28896,7 @@ var EventPropagators = __webpack_require__(49);
 var ReactDOMComponentTree = __webpack_require__(13);
 var SyntheticAnimationEvent = __webpack_require__(304);
 var SyntheticClipboardEvent = __webpack_require__(305);
-var SyntheticEvent = __webpack_require__(28);
+var SyntheticEvent = __webpack_require__(29);
 var SyntheticFocusEvent = __webpack_require__(306);
 var SyntheticKeyboardEvent = __webpack_require__(307);
 var SyntheticMouseEvent = __webpack_require__(62);
@@ -29091,7 +29120,7 @@ module.exports = SimpleEventPlugin;
 
 
 
-var SyntheticEvent = __webpack_require__(28);
+var SyntheticEvent = __webpack_require__(29);
 
 /**
  * @interface Event
@@ -29135,7 +29164,7 @@ module.exports = SyntheticAnimationEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(28);
+var SyntheticEvent = __webpack_require__(29);
 
 /**
  * @interface Event
@@ -29516,7 +29545,7 @@ module.exports = SyntheticTouchEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(28);
+var SyntheticEvent = __webpack_require__(29);
 
 /**
  * @interface Event
@@ -30093,7 +30122,7 @@ var uiActions = _interopRequireWildcard(_ui);
 
 var _reactColor = __webpack_require__(169);
 
-var _assets = __webpack_require__(29);
+var _assets = __webpack_require__(28);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
@@ -30204,7 +30233,6 @@ var SlideEditor = function (_React$Component) {
   }, {
     key: 'handleClick',
     value: function handleClick(event) {
-      console.log(event.target);
       if (this.checkContextDisabled()) {
         this.props.releaseDialog();
       }
@@ -30221,7 +30249,6 @@ var SlideEditor = function (_React$Component) {
   }, {
     key: 'handleFillColor',
     value: function handleFillColor(color) {
-      console.log('asdf');
       this.props.setAssetFillColor(color.hex);
     }
   }, {
@@ -30289,7 +30316,7 @@ var _reactRedux = __webpack_require__(15);
 
 var _redux = __webpack_require__(16);
 
-var _assets = __webpack_require__(29);
+var _assets = __webpack_require__(28);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
@@ -33213,6 +33240,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -33240,11 +33269,83 @@ var AssetSetting = function (_React$Component) {
         // this.previewImage = this.previewImage.bind(this);
         var _this = _possibleConstructorReturn(this, (AssetSetting.__proto__ || Object.getPrototypeOf(AssetSetting)).call(this, prop));
 
-        _this.state = { file: ' ', imagePreviewUrl: '' };
+        _this.state = { file: ' ', file2: ' ', file3: ' ', ThumbnailUrl: undefined, previewInputUrl: undefined, previewInputUrl2: undefined, previewInputUrl3: undefined, previewInputUrl4: undefined, currentImageUpload: undefined, addFileCNT: 0, defWidth: 420, myWidth: 270 };
         return _this;
     }
 
     _createClass(AssetSetting, [{
+        key: 'thumbNail',
+        value: function thumbNail(e) {
+            this.setState(_extends({}, this.state, {
+                currentImageUpload: 'previewThumbnail'
+            }));
+        }
+    }, {
+        key: 'inputimg',
+        value: function inputimg(e) {
+            this.setState(_extends({}, this.state, {
+                currentImageUpload: 'previewInputimg'
+            }));
+        }
+    }, {
+        key: 'inputimg2',
+        value: function inputimg2(e) {
+            this.setState(_extends({}, this.state, {
+                currentImageUpload: 'previewInputimg2'
+            }));
+        }
+    }, {
+        key: 'inputimg3',
+        value: function inputimg3(e) {
+            this.setState(_extends({}, this.state, {
+                currentImageUpload: 'previewInputimg3'
+            }));
+        }
+
+        // inputimg4(e){
+        //     this.setState({
+        //         ...this.stat,
+        //         currentImageUpload : 'previewInputimg4'
+        //     });
+        // }
+
+    }, {
+        key: 'addCard',
+        value: function addCard(e) {}
+    }, {
+        key: 'addFileChange',
+        value: function addFileChange(e) {
+
+            var add = 130;
+
+            this.setState(_extends({}, this.state, {
+                addFileCNT: this.state.addFileCNT + 1,
+                defWidth: this.state.defWidth + add,
+                myWidth: this.state.defWidth + "px"
+            }));
+            console.log(this.state.myWidth);
+            if (this.state.addFileCNT === 3) {
+                console.log('e.preventDefault 실행');
+                e.preventDefault();
+            }
+            if (this.state.myWidth === '680px') {
+                this.setState({
+                    myWidth: 680 + "px"
+                });
+            }
+
+            // 
+
+            console.log(this.state.myWidth);
+
+            // if(this.state.addFileCNT === 7){
+            //     this.setState({
+            //         ...this.state,
+            //         addFileCNT : 0
+            //     });
+            // }
+        }
+    }, {
         key: 'ImageChange',
         value: function ImageChange(e) {
             var _this2 = this;
@@ -33253,34 +33354,104 @@ var AssetSetting = function (_React$Component) {
 
             var reader = new FileReader();
             var file = e.target.files[0];
+            var file2 = e.target.files[0];
+            var file3 = e.target.files[0];
+            var file4 = e.target.files[0];
+            // let file5 = e.taraget.files[0];
 
             reader.onloadend = function () {
-                _this2.setState({
-                    file: file,
-                    imagePreviewUrl: reader.result
-                });
-            };
+                switch (_this2.state.currentImageUpload) {
 
+                    case 'previewThumbnail':
+                        _this2.setState(_extends({}, _this2.state, {
+                            file: file,
+                            ThumbnailUrl: reader.result
+                        }));
+                        break;
+
+                    case 'previewInputimg':
+                        _this2.setState(_extends({}, _this2.state, {
+                            file2: file2,
+                            previewInputUrl: reader.result
+                        }));
+                        break;
+
+                    case 'previewInputimg2':
+                        _this2.setState(_extends({}, _this2.state, {
+                            file3: file3,
+                            previewInputUrl2: reader.result
+                        }));
+                        break;
+
+                    case 'previewInputimg3':
+                        _this2.setState(_extends({}, _this2.state, {
+                            file4: file4,
+                            previewInputUrl3: reader.result
+                        }));
+                        break;
+
+                    case 'previewInputUrl2':
+                        _this2.setState(_extends({}, _this2.state, {
+                            file3: file3,
+                            previewInputUrl2: reader.result
+                        }));
+                        break;
+
+                    case 'previewInputUrl3':
+                        _this2.setState(_extends({}, _this2.state, {
+                            file4: file4,
+                            previewInputUrl3: reader.result
+                        }));
+                        break;
+
+                    case 'previewInputUrl4':
+                        _this2.setState(_extends({}, _this2.state, {
+                            file5: file5,
+                            previewInputUrl4: reader.result
+                        }));
+                }
+            };
             reader.readAsDataURL(file);
         }
     }, {
         key: 'componentWillMount',
         value: function componentWillMount() {}
     }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            // this.previewImage();
-        }
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {}
     }, {
         key: 'render',
         value: function render() {
             var _this3 = this;
 
-            var imagePreviewUrl = this.state.imagePreviewUrl;
-
             var $imagePreview = null;
-            if (imagePreviewUrl) {
-                $imagePreview = _react2.default.createElement('img', { src: imagePreviewUrl, accept: 'image/*' });
+            var $imagePreview2 = null;
+            var $imagePreview3 = null;
+            var $imagePreview4 = null;
+            var $imagePreview5 = null;
+
+            var card = [];
+
+            for (var i = 1; i < 8; i++) {
+                card.push(_react2.default.createElement(
+                    'div',
+                    { className: _AssetEditorItem2.default.imagePreview },
+                    _react2.default.createElement('input', { type: 'file', className: _AssetEditorItem2.default.inputImage, onClick: function onClick(e) {
+                            return _this3.inputimg3(e);
+                        }, onChange: function onChange(e) {
+                            return _this3.ImageChange(e);
+                        } }),
+                    _react2.default.createElement(
+                        'button',
+                        { className: _AssetEditorItem2.default.previewText },
+                        $imagePreview3,
+                        '(\uD30C\uC77C\uC744 \uC120\uD0DD\uD558\uC138\uC694)'
+                    )
+                ));
+            }
+
+            if (this.state.ThumbnailUrl) {
+                $imagePreview = _react2.default.createElement('img', { src: this.state.ThumbnailUrl, accept: 'image/*' });
             } else {
                 $imagePreview = _react2.default.createElement(
                     'div',
@@ -33290,13 +33461,50 @@ var AssetSetting = function (_React$Component) {
                     '(\uD30C\uC77C\uC744 \uC120\uD0DD\uD558\uC138\uC694)'
                 );
             }
+
+            if (this.state.previewInputUrl) {
+
+                $imagePreview2 = _react2.default.createElement('img', { src: this.state.previewInputUrl, accept: 'image/*' });
+            } else {
+                $imagePreview2 = _react2.default.createElement(
+                    'div',
+                    { className: 'previewinputimg' },
+                    _react2.default.createElement('br', null),
+                    '(\uD30C\uC77C\uC744 \uC120\uD0DD\uD558\uC138\uC694)'
+                );
+            }
+
+            if (this.state.previewInputUrl2) {
+                $imagePreview3 = _react2.default.createElement('img', { src: this.state.previewInputUrl2, accept: 'image/*' });
+            } else {
+                $imagePreview3 = _react2.default.createElement(
+                    'div',
+                    { className: 'previewinputimg' },
+                    _react2.default.createElement('br', null),
+                    '(\uD30C\uC77C\uC744 \uC120\uD0DD\uD558\uC138\uC694)'
+                );
+            }
+
+            if (this.state.previewInputUrl3) {
+                $imagePreview4 = _react2.default.createElement('img', { src: this.state.previewInputUrl3, accept: 'image/*' });
+            } else {
+                $imagePreview4 = _react2.default.createElement(
+                    'div',
+                    { className: 'previewinputimg' },
+                    _react2.default.createElement('br', null),
+                    '(\uD30C\uC77C\uC744 \uC120\uD0DD\uD558\uC138\uC694)'
+                );
+            }
+
             return _react2.default.createElement(
                 'div',
                 { className: _AssetEditorItem2.default.AssetEditor_left },
                 _react2.default.createElement(
                     'div',
                     { className: _AssetEditorItem2.default.previewDiv },
-                    _react2.default.createElement('input', { type: 'file', className: _AssetEditorItem2.default.previewFile, onChange: function onChange(e) {
+                    _react2.default.createElement('input', { type: 'file', className: _AssetEditorItem2.default.previewFile, onClick: function onClick(e) {
+                            return _this3.thumbNail(e);
+                        }, onChange: function onChange(e) {
                             return _this3.ImageChange(e);
                         } }),
                     _react2.default.createElement(
@@ -33359,28 +33567,47 @@ var AssetSetting = function (_React$Component) {
                         { className: _AssetEditorItem2.default.setting_third },
                         _react2.default.createElement(
                             'div',
-                            { className: _AssetEditorItem2.default.imagePreview },
-                            _react2.default.createElement('input', { type: 'file', className: _AssetEditorItem2.default.inputImage }),
+                            { className: _AssetEditorItem2.default.imagePreview_ScrollDiv },
                             _react2.default.createElement(
-                                'button',
-                                { className: _AssetEditorItem2.default.previewText },
-                                '\uC0AC\uC9C4\uCCA8\uBD80'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: _AssetEditorItem2.default.imagePreview },
-                            _react2.default.createElement('input', { type: 'file', className: _AssetEditorItem2.default.inputImage }),
-                            _react2.default.createElement(
-                                'button',
-                                { className: _AssetEditorItem2.default.previewText },
-                                '\uC0AC\uC9C4\uCCA8\uBD80'
+                                'div',
+                                { className: _AssetEditorItem2.default.imagePreview_ScrollSmallDiv, style: { width: this.state.myWidth } },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: _AssetEditorItem2.default.imagePreview },
+                                    _react2.default.createElement('input', { type: 'file', className: _AssetEditorItem2.default.inputImage, onClick: function onClick(e) {
+                                            return _this3.inputimg(e);
+                                        }, onChange: function onChange(e) {
+                                            return _this3.ImageChange(e);
+                                        } }),
+                                    _react2.default.createElement(
+                                        'button',
+                                        { className: _AssetEditorItem2.default.previewText },
+                                        $imagePreview2
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: _AssetEditorItem2.default.imagePreview },
+                                    _react2.default.createElement('input', { type: 'file', className: _AssetEditorItem2.default.inputImage, onClick: function onClick(e) {
+                                            return _this3.inputimg2(e);
+                                        }, onChange: function onChange(e) {
+                                            return _this3.ImageChange(e);
+                                        } }),
+                                    _react2.default.createElement(
+                                        'button',
+                                        { className: _AssetEditorItem2.default.previewText },
+                                        $imagePreview3
+                                    )
+                                ),
+                                card
                             )
                         ),
                         _react2.default.createElement(
                             'button',
-                            { className: _AssetEditorItem2.default.filebutton },
-                            _react2.default.createElement('input', { type: 'file', className: _AssetEditorItem2.default.filefile })
+                            { className: _AssetEditorItem2.default.filebutton, onClick: function onClick(e) {
+                                    return _this3.addFileChange(e);
+                                } },
+                            '+'
                         )
                     )
                 ),
@@ -33554,7 +33781,7 @@ var _slides = __webpack_require__(37);
 
 var slideActions = _interopRequireWildcard(_slides);
 
-var _assets = __webpack_require__(29);
+var _assets = __webpack_require__(28);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
@@ -33910,7 +34137,6 @@ var Asset = function (_React$Component) {
   }, {
     key: 'handleInputChange',
     value: function handleInputChange(event) {
-      console.log(event.target.value);
       this.props.handleValueChange(this.props.attribute.id, event.target.value);
     }
   }, {
@@ -34754,7 +34980,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _assets = __webpack_require__(29);
+var _assets = __webpack_require__(28);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
@@ -34796,17 +35022,14 @@ var TextController = function (_React$Component) {
 
         _this.textOn = _this.textOn.bind(_this);
         _this.textOff = _this.textOff.bind(_this);
-
-        _this.clickAlignItalic = _this.clickAlignItalic.bind(_this);
-        _this.clickAlignBold = _this.clickAlignBold.bind(_this);
-        _this.clickAlignUnderline = _this.clickAlignUnderline.bind(_this);
-        _this.clickAlignStrikethrough = _this.clickAlignStrikethrough.bind(_this);
         return _this;
     }
 
     _createClass(TextController, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 'div',
                 null,
@@ -34835,7 +35058,7 @@ var TextController = function (_React$Component) {
                                 { className: _AssetController2.default.control_item },
                                 _react2.default.createElement(
                                     'select',
-                                    null,
+                                    { onChange: this.setFont },
                                     _react2.default.createElement(
                                         'option',
                                         { value: '' },
@@ -34853,7 +35076,7 @@ var TextController = function (_React$Component) {
                                 { className: _AssetController2.default.control_item },
                                 _react2.default.createElement(
                                     'select',
-                                    null,
+                                    { onChange: this.setFontWeight },
                                     _react2.default.createElement(
                                         'option',
                                         { value: '' },
@@ -34875,7 +35098,7 @@ var TextController = function (_React$Component) {
                                 { className: _AssetController2.default.control_item },
                                 _react2.default.createElement(
                                     'select',
-                                    null,
+                                    { onChange: this.setFontSize },
                                     _react2.default.createElement(
                                         'option',
                                         { value: '' },
@@ -34893,7 +35116,7 @@ var TextController = function (_React$Component) {
                                 { className: _AssetController2.default.control_item },
                                 _react2.default.createElement(
                                     'select',
-                                    null,
+                                    { onChange: this.setCharacterSpacintg },
                                     _react2.default.createElement(
                                         'option',
                                         { value: '' },
@@ -34915,7 +35138,7 @@ var TextController = function (_React$Component) {
                                 { className: _AssetController2.default.control_item },
                                 _react2.default.createElement(
                                     'select',
-                                    null,
+                                    { onChange: this.setLineSpacintg },
                                     _react2.default.createElement(
                                         'option',
                                         { value: '' },
@@ -34938,22 +35161,38 @@ var TextController = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { className: _AssetController2.default.control_text_attribute },
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_left.png', style: this.props.sort === 'left' ? { display: 'none' } : {}, onClick: this.setAssetTextSort.bind('left') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_left_apply.png', style: this.props.sort === 'left' ? {} : { display: 'none' }, onClick: this.setAssetTextSort.bind('left') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_center.png', style: this.props.sort === 'center' ? { display: 'none' } : {}, onClick: this.setAssetTextSort.bind('center') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_center_apply.png', style: this.props.sort === 'center' ? {} : { display: 'none' }, onClick: this.setAssetTextSort.bind('center') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_right.png', style: this.props.sort === 'right' ? {} : { display: 'none' }, onClick: this.setAssetTextSort.bind('right') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_right_apply.png', style: this.props.sort === 'right' ? {} : { display: 'none' }, onClick: this.setAssetTextSort.bind('right') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_justify.png', style: this.props.sort === 'justify' ? { display: 'none' } : {}, onClick: this.setAssetTextSort.bind('justify') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_justify_apply.png', style: this.props.sort === 'justify' ? {} : { display: 'none' }, onClick: this.setAssetTextSort.bind('justify') }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_bold.png', style: this.props.bold ? { display: 'none' } : {}, onClick: this.props.clickAlignBold }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_bold_apply.png', style: this.props.bold ? {} : { display: 'none' }, onClick: this.props.clickAlignBold }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_italic.png', style: this.props.italic ? { display: 'none' } : {}, onClick: this.props.clickAlignItalic }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_italic_apply.png', style: this.props.italic ? {} : { display: 'none' }, onClick: this.props.clickAlignItalic }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_underlined.png', style: this.props.underline ? { display: 'none' } : {}, onClick: this.props.clickAlignUnderline }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_underlined_apply.png', style: this.props.underline ? {} : { display: 'none' }, onClick: this.props.clickAlignUnderline }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_strikethrough.png', style: this.props.strikethrough ? { display: 'none' } : {}, onClick: this.props.clickAlignStrikethrough }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_strikethrough_apply.png', style: this.props.strikethrough ? {} : { display: 'none' }, onClick: this.props.clickAlignStrikethrough })
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_left.png', style: this.props.sort === 'left' ? { display: 'none' } : {}, onClick: function onClick() {
+                                    return _this2.props.setAssetTextSort('left');
+                                } }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_left_apply.png', style: this.props.sort === 'left' ? {} : { display: 'none' }, onClick: function onClick() {
+                                    return _this2.props.setAssetTextSort(' ');
+                                } }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_center.png', style: this.props.sort === 'center' ? { display: 'none' } : {}, onClick: function onClick() {
+                                    return _this2.props.setAssetTextSort('center');
+                                } }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_center_apply.png', style: this.props.sort === 'center' ? {} : { display: 'none' }, onClick: function onClick() {
+                                    return _this2.props.setAssetTextSort(' ');
+                                } }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_right.png', style: this.props.sort === 'right' ? {} : { display: 'none' }, onClick: function onClick() {
+                                    return _this2.props.setAssetTextSort('right');
+                                } }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_right_apply.png', style: this.props.sort === 'right' ? {} : { display: 'none' }, onClick: function onClick() {
+                                    return _this2.props.setAssetTextSort(' ');
+                                } }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_justify.png', style: this.props.sort === 'justify' ? { display: 'none' } : {}, onClick: function onClick() {
+                                    return _this2.props.setAssetTextSort('justify');
+                                } }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_justify_apply.png', style: this.props.sort === 'justify' ? {} : { display: 'none' }, onClick: function onClick() {
+                                    return _this2.props.setAssetTextSort(' ');
+                                } }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_bold.png', style: this.props.bold ? { display: 'none' } : {}, onClick: this.props.setAssetFontBold }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_bold_apply.png', style: this.props.bold ? {} : { display: 'none' }, onClick: this.props.setAssetFontBold }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_italic.png', style: this.props.italic ? { display: 'none' } : {}, onClick: this.props.setAssetFontItalic }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_italic_apply.png', style: this.props.italic ? {} : { display: 'none' }, onClick: this.props.setAssetFontItalic }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_underlined.png', style: this.props.underline ? { display: 'none' } : {}, onClick: this.props.setAssetFontUnderline }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_underlined_apply.png', style: this.props.underline ? {} : { display: 'none' }, onClick: this.props.setAssetFontUnderline }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_strikethrough.png', style: this.props.strikethrough ? { display: 'none' } : {}, onClick: this.props.setAssetFontStrikethrough }),
+                            _react2.default.createElement('img', { src: '/images/ic_format_strikethrough_apply.png', style: this.props.strikethrough ? {} : { display: 'none' }, onClick: this.props.setAssetFontStrikethrough })
                         )
                     )
                 ),
@@ -34977,32 +35216,6 @@ var TextController = function (_React$Component) {
                 text_arrow_up: true,
                 text_arrow_down: false
             }));
-        }
-    }, {
-        key: 'setAssetTextSort',
-        value: function setAssetTextSort(textStyles, sort) {
-            if (textStyles.sort === sort) sort = '';
-            this.props.setAssetTextSort(sort);
-        }
-    }, {
-        key: 'clickAlignBold',
-        value: function clickAlignBold(textStyles) {
-            this.props.setAssetFontBold(!this.props.bold);
-        }
-    }, {
-        key: 'clickAlignItalic',
-        value: function clickAlignItalic(textStyles) {
-            this.props.setAssetFontBold(!this.props.italic);
-        }
-    }, {
-        key: 'clickAlignUnderline',
-        value: function clickAlignUnderline(textStyles) {
-            this.props.setFontUnderline(!this.props.underline);
-        }
-    }, {
-        key: 'clickAlignStrikethrough',
-        value: function clickAlignStrikethrough(textStyles) {
-            this.props.setFontStrikethrough(this.props.strikethrough);
         }
     }]);
 
@@ -35046,7 +35259,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(15);
 
-var _assets = __webpack_require__(29);
+var _assets = __webpack_require__(28);
 
 var actions = _interopRequireWildcard(_assets);
 
@@ -35082,9 +35295,7 @@ var VideoController = function (_React$Component) {
 
         _this.videoOn = _this.videoOn.bind(_this);
         _this.videoOff = _this.videoOff.bind(_this);
-        _this.controllerOnClick = _this.controllerOnClick.bind(_this);
-        _this.autoplayOnClick = _this.autoplayOnClick.bind(_this);
-        _this.loopOnClick = _this.loopOnClick.bind(_this);
+        _this.setUrl = _this.setUrl.bind(_this);
         return _this;
     }
 
@@ -35117,14 +35328,14 @@ var VideoController = function (_React$Component) {
                             'URL :'
                         ),
                         ' ',
-                        _react2.default.createElement('input', { type: 'text', value: this.props.url, className: _AssetController2.default.attribute_item_input })
+                        _react2.default.createElement('input', { type: 'text', value: this.props.url, className: _AssetController2.default.attribute_item_input, onChange: this.setUrl })
                     ),
                     _react2.default.createElement(
                         'div',
                         null,
                         _react2.default.createElement(
                             'div',
-                            { onClick: this.controllerOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoController ? { 'background-color': '#5a84b3' } : {} },
+                            { onClick: this.props.setAssetVideoController, className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoController ? { 'background-color': '#5a84b3' } : {} },
                             _react2.default.createElement(
                                 'span',
                                 { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.props.videoController ? { color: '#fff' } : {} },
@@ -35133,7 +35344,7 @@ var VideoController = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             'div',
-                            { onClick: this.autoplayOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoAutoplay ? { 'background-color': '#5a84b3' } : {} },
+                            { onClick: this.props.setAssetVideoAutoplay, className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoAutoplay ? { 'background-color': '#5a84b3' } : {} },
                             _react2.default.createElement(
                                 'span',
                                 { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.props.videoAutoplay ? { color: '#fff' } : {} },
@@ -35142,7 +35353,7 @@ var VideoController = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             'div',
-                            { onClick: this.loopOnClick.bind(), className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoLoop ? { 'background-color': '#5a84b3' } : {} },
+                            { onClick: this.props.setAssetVideoLoop, className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoLoop ? { 'background-color': '#5a84b3' } : {} },
                             _react2.default.createElement(
                                 'span',
                                 { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.props.videoLoop ? { color: '#fff' } : {} },
@@ -35173,19 +35384,11 @@ var VideoController = function (_React$Component) {
             }));
         }
     }, {
-        key: 'controllerOnClick',
-        value: function controllerOnClick(videoStyles) {
-            this.props.setAssetVideoController(!videoStyles.videoController);
-        }
-    }, {
-        key: 'loopOnClick',
-        value: function loopOnClick(videoStyles) {
-            this.props.setAssetVideoLoop(!videoStyles.videoLoop);
-        }
-    }, {
-        key: 'autoplayOnClick',
-        value: function autoplayOnClick(videoStyles) {
-            this.props.setAssetVideoAutoplay(!videoStyles.videoAutoplay);
+        key: 'setUrl',
+        value: function setUrl(event) {
+            var value = event.target.value;
+
+            this.props.setAssetVideoURL(value);
         }
     }]);
 
@@ -35227,9 +35430,17 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(15);
 
+var _assets = __webpack_require__(28);
+
+var actions = _interopRequireWildcard(_assets);
+
+var _redux = __webpack_require__(16);
+
 var _AssetController = __webpack_require__(46);
 
 var _AssetController2 = _interopRequireDefault(_AssetController);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35255,6 +35466,7 @@ var ImageController = function (_React$Component) {
 
         _this.imageOn = _this.imageOn.bind(_this);
         _this.imageOff = _this.imageOff.bind(_this);
+        _this.setUrl = _this.setUrl.bind(_this);
         return _this;
     }
 
@@ -35287,7 +35499,7 @@ var ImageController = function (_React$Component) {
                             'URL :'
                         ),
                         ' ',
-                        _react2.default.createElement('input', { type: 'text', className: _AssetController2.default.attribute_item_input })
+                        _react2.default.createElement('input', { type: 'text', value: this.props.url, className: _AssetController2.default.attribute_item_input, onChange: this.setUrl })
                     )
                 )
             );
@@ -35310,6 +35522,13 @@ var ImageController = function (_React$Component) {
                 image_arrow_down: false
             }));
         }
+    }, {
+        key: 'setUrl',
+        value: function setUrl(event) {
+            var value = event.target.value;
+
+            this.props.setAssetImageURL(value);
+        }
     }]);
 
     return ImageController;
@@ -35320,7 +35539,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {};
+    return (0, _redux.bindActionCreators)(_extends({}, actions), dispatch);
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ImageController);
@@ -35412,7 +35631,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _assets = __webpack_require__(29);
+var _assets = __webpack_require__(28);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
@@ -46686,7 +46905,7 @@ var _SlideCreator = __webpack_require__(554);
 
 var _SlideCreator2 = _interopRequireDefault(_SlideCreator);
 
-var _assets = __webpack_require__(29);
+var _assets = __webpack_require__(28);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
@@ -46783,7 +47002,7 @@ var SlideManager = function (_React$Component) {
   }, {
     key: 'updateThumbnailSlide',
     value: function updateThumbnailSlide() {
-      var node = document.getElementById('SlideContext');
+      var node = document.getElementsByTagName('scanvas')[0];
       var self = this;
       var currentSilde = this.props.currentSilde;
       _domToImage2.default.toPng(node).then(function (dataUrl) {
@@ -47934,7 +48153,7 @@ var _axios = __webpack_require__(45);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _assets = __webpack_require__(29);
+var _assets = __webpack_require__(28);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
@@ -48512,12 +48731,20 @@ var SlideShow = function (_React$Component) {
     function SlideShow(props) {
         _classCallCheck(this, SlideShow);
 
-        return _possibleConstructorReturn(this, (SlideShow.__proto__ || Object.getPrototypeOf(SlideShow)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (SlideShow.__proto__ || Object.getPrototypeOf(SlideShow)).call(this, props));
+
+        _this.state = {
+            selectedSlide: 0
+        };
+
+        _this.doSlide = _this.doSlide.bind(_this);
+        return _this;
     }
 
     _createClass(SlideShow, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
 
             return _react2.default.createElement(
                 'div',
@@ -48539,12 +48766,17 @@ var SlideShow = function (_React$Component) {
                         { className: _SlideShow2.default.slide_contents },
                         _react2.default.createElement(
                             'div',
-                            { className: _SlideShow2.default.slideController + ' ' + _SlideShow2.default.prev_slide },
+                            { onClick: function onClick() {
+                                    return _this2.doSlide(-1);
+                                }, className: _SlideShow2.default.slideController + ' ' + _SlideShow2.default.prev_slide },
                             _react2.default.createElement('img', { src: 'images/ic_arrow_left_big.png' })
                         ),
+                        _react2.default.createElement('img', { src: this.props.slides[this.state.selectedSlide].thumbnail }),
                         _react2.default.createElement(
                             'div',
-                            { className: _SlideShow2.default.slideController + ' ' + _SlideShow2.default.next_slide },
+                            { onClick: function onClick() {
+                                    return _this2.doSlide(+1);
+                                }, className: _SlideShow2.default.slideController + ' ' + _SlideShow2.default.next_slide },
                             _react2.default.createElement('img', { src: 'images/ic_arrow_right_big.png' })
                         ),
                         _react2.default.createElement('div', null)
@@ -48564,13 +48796,19 @@ var SlideShow = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: _SlideShow2.default.slideNumberContext },
-                                _react2.default.createElement('img', { className: _SlideShow2.default.prev_slide + ' ' + _SlideShow2.default.slideController, src: 'images/ic_arrow_left_small.png' }),
+                                _react2.default.createElement('img', { onClick: function onClick() {
+                                        return _this2.doSlide(-1);
+                                    }, className: _SlideShow2.default.prev_slide + ' ' + _SlideShow2.default.slideController, src: 'images/ic_arrow_left_small.png' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: _SlideShow2.default.slideNumberContext_counter },
-                                    '12/23'
+                                    this.state.selectedSlide + 1,
+                                    '/',
+                                    this.props.slides.length
                                 ),
-                                _react2.default.createElement('img', { className: _SlideShow2.default.next_slide + ' ' + _SlideShow2.default.slideController, src: 'images/ic_arrow_right_small.png' })
+                                _react2.default.createElement('img', { onClick: function onClick() {
+                                        return _this2.doSlide(+1);
+                                    }, className: _SlideShow2.default.next_slide + ' ' + _SlideShow2.default.slideController, src: 'images/ic_arrow_right_small.png' })
                             ),
                             _react2.default.createElement(
                                 'div',
@@ -48583,13 +48821,25 @@ var SlideShow = function (_React$Component) {
                 )
             );
         }
+    }, {
+        key: 'doSlide',
+        value: function doSlide(num) {
+            var willSelectSlide = this.state.selectedSlide + num;
+            if (willSelectSlide < 0 || willSelectSlide == this.props.slides.length) {
+                return;
+            } else this.setState({
+                selectedSlide: willSelectSlide
+            });
+        }
     }]);
 
     return SlideShow;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    return {};
+    return {
+        slides: state.editor.slides
+    };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -48718,7 +48968,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _assets = __webpack_require__(29);
+var _assets = __webpack_require__(28);
 
 var _slides = __webpack_require__(37);
 
@@ -48832,8 +49082,8 @@ var editor = function editor() {
           }
         }))
       });
-    case _assets.actionTypes.SET_VALUE:
-      console.log(action.value);
+    case _assets.actionTypes.ASSET_SET_VALUE:
+      console.log('asvav' + action.value);
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: {
@@ -48917,7 +49167,6 @@ var editor = function editor() {
         }))
       });
     case _assets.actionTypes.ASSET_SET_ANGLE:
-    case _assets.actionTypes.ASSET_SET_X_POSTION:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: {
@@ -48972,6 +49221,62 @@ var editor = function editor() {
           }
         }))
       });
+    case _assets.actionTypes.ASSET_SET_TEXT_FONT_WEIGHT:
+      return _extends({}, state, {
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                fontWeight: {
+                  $set: action.value
+                }
+              }
+            }))
+          }
+        }))
+      });
+    case _assets.actionTypes.ASSET_SET_TEXT_CHARACTER_SPACING:
+      return _extends({}, state, {
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                characterSpacing: {
+                  $set: action.value
+                }
+              }
+            }))
+          }
+        }))
+      });
+    case _assets.actionTypes.ASSET_SET_TEXT_LINE_SPACING:
+      return _extends({}, state, {
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                lineSpacing: {
+                  $set: action.value
+                }
+              }
+            }))
+          }
+        }))
+      });
+    case _assets.actionTypes.ASSET_SET_IMAGE_URL:
+      return _extends({}, state, {
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                url: {
+                  $set: action.url
+                }
+              }
+            }))
+          }
+        }))
+      });
     case _assets.actionTypes.ASSET_SET_TEXT_SORT:
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
@@ -48991,9 +49296,9 @@ var editor = function editor() {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: {
             $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontBold: {
+              style: {
                 fontBold: {
-                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontBold
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.fontBold
                 }
               }
             }))
@@ -49005,9 +49310,9 @@ var editor = function editor() {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: {
             $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontUnderline: {
+              style: {
                 fontUnderline: {
-                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontUnderline
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.fontUnderline
                 }
               }
             }))
@@ -49019,9 +49324,9 @@ var editor = function editor() {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: {
             $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontItalic: {
+              style: {
                 fontItalic: {
-                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontItalic
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.fontItalic
                 }
               }
             }))
@@ -49033,9 +49338,9 @@ var editor = function editor() {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: {
             $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
-              fontStrikethrough: {
+              style: {
                 fontStrikethrough: {
-                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontStrikethrough
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.fontStrikethrough
                 }
               }
             }))
@@ -49104,7 +49409,7 @@ var editor = function editor() {
               style: {
                 video: {
                   videoController: {
-                    $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoController
+                    $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.videoController
                   }
                 }
               }
@@ -49119,7 +49424,7 @@ var editor = function editor() {
             $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
               style: {
                 videoAutoplay: {
-                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoAutoplay
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.videoAutoplay
                 }
               }
             }))
@@ -49133,7 +49438,7 @@ var editor = function editor() {
             $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
               style: {
                 videoLoop: {
-                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.video.videoLoop
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.videoLoop
                 }
               }
             }))

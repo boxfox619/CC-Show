@@ -18,11 +18,6 @@ class TextController extends React.Component{
 
         this.textOn=this.textOn.bind(this);
         this.textOff=this.textOff.bind(this);
-        
-        this.clickAlignItalic=this.clickAlignItalic.bind(this);
-        this.clickAlignBold=this.clickAlignBold.bind(this);
-        this.clickAlignUnderline=this.clickAlignUnderline.bind(this);
-        this.clickAlignStrikethrough=this.clickAlignStrikethrough.bind(this);
     }
 
     render(){
@@ -50,7 +45,7 @@ class TextController extends React.Component{
 
                     <div className={styles.control_item}>
                         <select onChange={this.setFontWeight}>
-                            <option value="">asdfasdf</option>
+                            <option value="">asdfa</option>
                             <option value=""></option>
                             <option value=""></option>
                             <option value=""></option>
@@ -62,8 +57,9 @@ class TextController extends React.Component{
 
                 <div>
                     <div className={styles.control_item}>
+                        <img src="/images/ic_format_size.png"/>
                         <select onChange={this.setFontSize}>
-                            <option value="">asdfasdf</option>
+                            <option value="">asd</option>
                             <option value=""></option>
                             <option value=""></option>
                             <option value=""></option>
@@ -73,8 +69,9 @@ class TextController extends React.Component{
                     </div>
 
                     <div className={styles.control_item}>
-                        <select onChange={this.setCharacterSpacintg}>
-                            <option value="">asdfasdf</option>
+                        <img src="/images/ic_format_line.png"/>
+                        <select onChange={this.setLineSpacintg}>
+                            <option value="">asdfa</option>
                             <option value=""></option>
                             <option value=""></option>
                             <option value=""></option>
@@ -86,7 +83,8 @@ class TextController extends React.Component{
 
                 <div>
                     <div className={styles.control_item}>
-                        <select onChange={this.setFont.setLineSpacintg}>
+                        <img src="/images/ic_between.png"/>
+                        <select onChange={this.setCharacterSpacintg}>
                             <option value="">자동</option>
                             <option value=""></option>
                             <option value=""></option>
@@ -103,29 +101,29 @@ class TextController extends React.Component{
                 </div>
 
                 <div className={styles.control_text_attribute}>
-                    <img src="/images/ic_format_align_left.png" style={this.props.sort==='left' ? {display : 'none'} : { }} onClick={this.props.setAssetTextSort('left')}/>
-                    <img src="/images/ic_format_align_left_apply.png" style={this.props.sort==='left' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort('left')} />
+                    <img src="/images/ic_format_align_left.png" style={this.props.sort==='left' ? {display : 'none'} : { }} onClick={() => this.props.setAssetTextSort('left')}/>
+                    <img src="/images/ic_format_align_left_apply.png" style={this.props.sort==='left' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort(' ')} />
 
-                    <img src="/images/ic_format_align_center.png" style={this.props.sort==='center' ? {display : 'none'} : { }}  onClick={this.props.setAssetTextSort('center')}/>
-                    <img src="/images/ic_format_align_center_apply.png" style={this.props.sort==='center' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort('center')}/>
+                    <img src="/images/ic_format_align_center.png" style={this.props.sort==='center' ? {display : 'none'} : { }}  onClick={() => this.props.setAssetTextSort('center')}/>
+                    <img src="/images/ic_format_align_center_apply.png" style={this.props.sort==='center' ? {} : {display : 'none'}}  onClick={() =>this.props.setAssetTextSort(' ')}/>
                     
-                    <img src="/images/ic_format_align_right.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort('right')}/>
-                    <img src="/images/ic_format_align_right_apply.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort('right')}/>
+                    <img src="/images/ic_format_align_right.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort('right')}/>
+                    <img src="/images/ic_format_align_right_apply.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort(' ')}/>
                     
-                    <img src="/images/ic_format_align_justify.png" style={this.props.sort==='justify' ? {display : 'none'} : { }}  onClick={this.props.setAssetTextSort('justify')}/>
-                    <img src="/images/ic_format_align_justify_apply.png" style={this.props.sort==='justify' ? {} : {display : 'none'}}  onClick={this.props.setAssetTextSort('justify')}/>
+                    <img src="/images/ic_format_align_justify.png" style={this.props.sort==='justify' ? {display : 'none'} : { }}  onClick={() => this.props.setAssetTextSort('justify')}/>
+                    <img src="/images/ic_format_align_justify_apply.png" style={this.props.sort==='justify' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort(' ')}/>
                     
-                    <img src="/images/ic_format_bold.png" style={this.props.bold ? {display : 'none'} : { }} onClick={this.props.clickAlignBold}/>
-                    <img src="/images/ic_format_bold_apply.png" style={this.props.bold ? {} : {display : 'none'}} onClick={this.props.clickAlignBold}/>
+                    <img src="/images/ic_format_bold.png" style={this.props.bold ? {display : 'none'} : { }} onClick={this.props.setAssetFontBold}/>
+                    <img src="/images/ic_format_bold_apply.png" style={this.props.bold ? {} : {display : 'none'}} onClick={this.props.setAssetFontBold}/>
                     
-                    <img src="/images/ic_format_italic.png" style={this.props.italic ? {display : 'none'} : { }} onClick={this.props.clickAlignItalic}/>
-                    <img src="/images/ic_format_italic_apply.png" style={this.props.italic ? {} : {display : 'none'}} onClick={this.props.clickAlignItalic}/>
+                    <img src="/images/ic_format_italic.png" style={this.props.italic ? {display : 'none'} : { }} onClick={this.props.setAssetFontItalic}/>
+                    <img src="/images/ic_format_italic_apply.png" style={this.props.italic ? {} : {display : 'none'}} onClick={this.props.setAssetFontItalic}/>
                     
-                    <img src="/images/ic_format_underlined.png" style={this.props.underline ? {display : 'none'} : { }} onClick={this.props.clickAlignUnderline}/>
-                    <img src="/images/ic_format_underlined_apply.png" style={this.props.underline ? {} : {display : 'none'}} onClick={this.props.clickAlignUnderline}/>
+                    <img src="/images/ic_format_underlined.png" style={this.props.underline ? {display : 'none'} : { }} onClick={this.props.setAssetFontUnderline}/>
+                    <img src="/images/ic_format_underlined_apply.png" style={this.props.underline ? {} : {display : 'none'}} onClick={this.props.setAssetFontUnderline}/>
                     
-                    <img src="/images/ic_format_strikethrough.png" style={this.props.strikethrough ? {display : 'none'} : { }} onClick={this.props.clickAlignStrikethrough}/>
-                    <img src="/images/ic_format_strikethrough_apply.png" style={this.props.strikethrough ? {} : {display : 'none'}} onClick={this.props.clickAlignStrikethrough}/>
+                    <img src="/images/ic_format_strikethrough.png" style={this.props.strikethrough ? {display : 'none'} : { }} onClick={this.props.setAssetFontStrikethrough}/>
+                    <img src="/images/ic_format_strikethrough_apply.png" style={this.props.strikethrough ? {} : {display : 'none'}} onClick={this.props.setAssetFontStrikethrough}/>
                 </div>
             </div>
         </div>
@@ -150,36 +148,6 @@ class TextController extends React.Component{
             text_arrow_up:true,
             text_arrow_down:false
         });
-    }
-
-    setAssetTextSort(textStyles, sort) {
-        if(textStyles.sort===sort) sort = '';
-        this.props.setAssetTextSort(sort);
-    }
-
-    setFont(event) {
-        let {value}=event.target;
-        this.props.setAssetTextFont(value);
-    }
-
-    setFontSize(event) {
-        let {value}=event.target;
-        this.props.setAssetFontSize(value);
-    }
-
-    setFontWeight(event) {
-        let {value}=event.target;
-        this.props.setAssetVideoURL(value);
-    }
-
-    setCharacterSpacintg(event) {
-        let {value}=event.target;
-        this.props.setAssetTextCharacterSpacing(value);
-    }
-
-    setLineSpacintg(event) {
-        let {value}=event.target;
-        this.props.setAssetTextLineSpacing(value);
     }
 }
 

@@ -189,7 +189,7 @@ export function setAssetFontStrikethrough() {
   }
 }
 
-export function setAssetFont() {
+export function setAssetFontUnderline() {
   return{
     type: actionTypes.ASSET_SET_TEXT_FONT_UNDERLINE
   }
@@ -263,6 +263,6 @@ export function setAssetVideoAutoplay(){
 
 export function setAssetVideoLoop(){
   return{
-    type: actionTypes.ASSET_SET_VIDEO_LOOP
+    type: actionTypes.ASSET_SET_VIDEO_LOO
   }
 }

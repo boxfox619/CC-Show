@@ -191,7 +191,7 @@ class AssetSetting extends React.Component{
             }else{
                 $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
             }
-
+            
             if(this.state.previewInputUrl2){
                 $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>);
             }else{
