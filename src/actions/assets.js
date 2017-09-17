@@ -11,6 +11,9 @@ export const actionTypes = {
   ASSET_SET_ANGLE: 'ASSET_SET_ANGLE',
   ASSET_SET_TEXT_FONT: 'ASSET_SET_TEXT_FONT',
   ASSET_SET_TEXT_FONT_SIZE: 'ASSET_SET_TEXT_FONT_SIZE',
+  ASSET_SET_TEXT_FONT_WEIGHT: 'ASSET_SET_TEXT_FONT_CHARACTER_SPACING',
+  ASSET_SET_TEXT_CHARACTER_SPACING: 'ASSET_SET_TEXT_CHARACTER_SPACING',
+  ASSET_SET_TEXT_LINE_SPACING: 'ASSET_SET_TEXT_LINE_SPACING',
   ASSET_SET_TEXT_SORT: 'ASSET_SET_TEXT_SORT',
   ASSET_SET_TEXT_FONT_BOLD: 'ASSET_SET_TEXT_FONT_BOLD',
   ASSET_SET_TEXT_FONT_UNDERLINE: 'ASSET_SET_TEXT_FONT_UNDERLINE',
@@ -21,6 +24,7 @@ export const actionTypes = {
   ASSET_SET_BORDER_COLOR: 'ASSET_SET_EDGE_COLOR',
   ASSET_SET_BORDER_WEIGHT: 'ASSET_SET_EDGE_WEIGHT',
   ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
+  ASSET_SET_IMAGE_URL: 'ASSET_SET_IMAGE_URL',
   ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',
   ASSET_SET_VIDEO_AUTOPLAY: 'ASSET_SET_VIDEO_AUTOPLAY',
   ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP',
@@ -145,9 +149,23 @@ export function setAssetFontSize(fontSize) {
   }
 }
 
+export function setAssetTextCharacterSpacing(value) {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_CHARACTER_SPACING,
+    value
+  }
+}
+
 export function setAssetTextLineSpacing(value) {
   return{
-    type: actionTypes.ASSET_SET_TEXT_LINESPACING,
+    type: actionTypes.ASSET_SET_TEXT_LINE_SPACING,
+    value
+  }
+}
+
+export function setAssetFontWeight(value) {
+  return{
+    type: actionTypes.ASSET_SET_TEXT_FONT_WEIGHT,
     value
   }
 }
@@ -220,6 +238,13 @@ export function setAssetEdgeWeight(weight) {
 export function setAssetVideoURL(url){
   return{
     type: actionTypes.ASSET_SET_VIDEO_URL,
+    url
+  }
+}
+
+export function setAssetImageURL(url){
+  return{
+    type: actionTypes.ASSET_SET_IMAGE_URL,
     url
   }
 }

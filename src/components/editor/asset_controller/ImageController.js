@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../../actions/assets';
+
+import { bindActionCreators } from 'redux';
 import styles from './AssetController.css';
 
 class ImageController extends React.Component{
@@ -14,6 +17,7 @@ class ImageController extends React.Component{
 
         this.imageOn=this.imageOn.bind(this);
         this.imageOff=this.imageOff.bind(this);
+        this.setUrl=this.setUrl.bind(this);
     }
 
     render(){
@@ -27,7 +31,7 @@ class ImageController extends React.Component{
                 </div>
                 <div className={styles.items} style={this.state.image ? {} : {display:'none'}}>
                        <div className={styles.control_item+' '+styles.URL_controller}>
-                        <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" className={styles.attribute_item_input}/>
+                        <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value={this.props.url} className={styles.attribute_item_input} onChange={this.setUrl}/>
                     </div>
                 </div>
             </div>
@@ -51,7 +55,10 @@ class ImageController extends React.Component{
             image_arrow_down:false
         });
     }
-
+    setUrl(event) {
+        let {value}=event.target;
+        this.props.setAssetImageURL(value);
+    }
 }
 
 const mapStateToProps = (state) => {
@@ -60,9 +67,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-       
-    }
+    return bindActionCreators({ ...actions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageController);

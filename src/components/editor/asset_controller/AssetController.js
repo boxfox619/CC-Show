@@ -16,8 +16,8 @@ class AssetController extends React.Component {
     constructor(prop) {
         super(prop);
     }
-
     ControllerSelector(selectedAsset) {
+    console.log(this.props.currentSilde.assets[selectedAsset].style);
             switch (this.props.currentSilde.assets[selectedAsset].type) {
                 case actions.TYPE_TEXT:
                     return(

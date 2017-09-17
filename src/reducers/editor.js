@@ -1,6 +1,12 @@
-import {actionTypes} from '../actions/assets';
-import {actionTypes as slideActionTypes} from '../actions/slides';
-import {getState} from '../store';
+import {
+  actionTypes
+} from '../actions/assets';
+import {
+  actionTypes as slideActionTypes
+} from '../actions/slides';
+import {
+  getState
+} from '../store';
 import update from 'react-addons-update';
 import * as assetTypes from '../assetTypes';
 
@@ -39,54 +45,54 @@ const editor = (state = initialState, action) => {
       let positionUnit = getState().slideContext.positionUnit;
       let currentId = state.slides[state.selectedSlide].assetIdCount + 1;
       let newAsset = {
-            ...defaultAsset,
-            id: currentId,
-            type: action.assetType,
-            value: action.value,
-            height: '50' + sizeUnit,
-            width: '50' + sizeUnit,
-            x: '0' + positionUnit,
-            y: '0' + positionUnit,
-            style: {
-              fillColor: 'withe',
-              borderColor: 'withe',
-              edgeWeight: '0'
-            }
+        ...defaultAsset,
+        id: currentId,
+        type: action.assetType,
+        value: action.value,
+        height: '50' + sizeUnit,
+        width: '50' + sizeUnit,
+        x: '0' + positionUnit,
+        y: '0' + positionUnit,
+        style: {
+          fillColor: 'withe',
+          borderColor: 'withe',
+          edgeWeight: '0'
+        }
       };
-      if(action.assetType===assetTypes.TYPE_TEXT){
+      if (action.assetType === assetTypes.TYPE_TEXT) {
         newAsset = {
-            ...newAsset,
-            style:{
-              font: '',
-              fontsize: '0',
-              sort: '',
-              fontBold: false,
-              fontItalic: false,
-              fontUnderline: false,
-              fontStrikethrough: false,
-              textColor: ' '
-            }
+          ...newAsset,
+          style: {
+            font: '',
+            fontsize: '0',
+            sort: '',
+            fontBold: false,
+            fontItalic: false,
+            fontUnderline: false,
+            fontStrikethrough: false,
+            textColor: ' '
+          }
         }
-      }else if(action.assetType===assetTypes.TYPE_VIDEO){
+      } else if (action.assetType === assetTypes.TYPE_VIDEO) {
         newAsset = {
-            ...newAsset,
-            style:{
-              videoController: false,
-              videoLoop: false,
-              videoAutoplay: false
-            }
+          ...newAsset,
+          style: {
+            videoController: false,
+            videoLoop: false,
+            videoAutoplay: false
+          }
         }
-      }else if(action.assetType===assetTypes.TYPE_IMAGE){
+      } else if (action.assetType === assetTypes.TYPE_IMAGE) {
         newAsset = {
-            ...newAsset,
-            style:{}
+          ...newAsset,
+          style: {}
         }
-      }else if(action.assetType===assetTypes.TYPE_SHAPE){
+      } else if (action.assetType === assetTypes.TYPE_SHAPE) {
         newAsset = {
-            ...newAsset,
-            style:{}
+          ...newAsset,
+          style: {}
         }
-      }else{
+      } else {
         alert('type error');
       }
       return {
@@ -294,10 +300,9 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        text: {
-                          textColor: {
-                            $set: action.textColor
-                          }
+                        textColor: {
+                          $set: action.textColor
+
                         }
                       }
                     }
@@ -354,6 +359,98 @@ const editor = (state = initialState, action) => {
           }
         )
       }
+      case actionTypes.ASSET_SET_TEXT_FONT_WEIGHT:
+      return {
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        fontWeight: {
+                          $set: action.value
+                        }
+                      }
+                    }
+                  }
+                )
+              }
+            }
+          }
+        )
+      }
+      case actionTypes.ASSET_SET_TEXT_CHARACTER_SPACING:
+      return {
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        characterSpacing: {
+                          $set: action.value
+                        }
+                      }
+                    }
+                  }
+                )
+              }
+            }
+          }
+        )
+      }
+      case actionTypes.ASSET_SET_TEXT_LINE_SPACING:
+      return {
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        lineSpacing: {
+                          $set: action.value
+                        }
+                      }
+                    }
+                  }
+                )
+              }
+            }
+          }
+        )
+      }
+      case actionTypes.ASSET_SET_IMAGE_URL:
+      return {
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        url: {
+                          $set: action.url
+                        }
+                      }
+                    }
+                  }
+                )
+              }
+            }
+          }
+        )
+      }
     case actionTypes.ASSET_SET_TEXT_SORT:
       return {
         ...state,
@@ -387,7 +484,7 @@ const editor = (state = initialState, action) => {
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
-                      fontBold: {
+                      style: {
                         fontBold: {
                           $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontBold
                         }
@@ -410,7 +507,7 @@ const editor = (state = initialState, action) => {
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
-                      fontUnderline: {
+                      style: {
                         fontUnderline: {
                           $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontUnderline
                         }
@@ -433,7 +530,7 @@ const editor = (state = initialState, action) => {
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
-                      fontItalic: {
+                      style: {
                         fontItalic: {
                           $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontItalic
                         }
@@ -456,7 +553,7 @@ const editor = (state = initialState, action) => {
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
-                      fontStrikethrough: {
+                      style: {
                         fontStrikethrough: {
                           $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.text.fontStrikethrough
                         }
