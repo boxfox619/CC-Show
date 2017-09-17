@@ -5,7 +5,7 @@ module.exports = {
 
     //public 디렉토리의 bundle.js로 저장
     output: {
-        path: __dirname + '/public/editor/',
+        path: __dirname + '/public/',
         filename: 'bundle.js'
     },
 
