@@ -22,19 +22,19 @@ class AssetSetting extends React.Component{
         });
     }
 
-    inputimg2(e){
-        this.setState({
-            ...this.state,
-            currentImageUpload : 'previewInputimg2'
-        });
-    }
+    // inputimg2(e){
+    //     this.setState({
+    //         ...this.state,
+    //         currentImageUpload : 'previewInputimg2'
+    //     });
+    // }
 
-    inputimg3(e){
-        this.setState({
-            ...this.state,
-            currentImageUpload : 'previewInputimg3'
-        });
-    }
+    // inputimg3(e){
+    //     this.setState({
+    //         ...this.state,
+    //         currentImageUpload : 'previewInputimg3'
+    //     });
+    // }
 
     // inputimg4(e){
     //     this.setState({
@@ -169,44 +169,31 @@ class AssetSetting extends React.Component{
         let $imagePreview4 = null;
         let $imagePreview5 = null;
         
+
+        // for(var i = 3; i < 8; i++){
+        //     var functions = eval('inputimg'+i);
+        // }
+        
         let card = [];
         
-            for(var i = 1; i< 8; i++){
+            for(var i = 0; i< 8; i++){
+                console.log(i);
                 card.push(<div className = {styles.imagePreview}>
-                    <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg3(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                    <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)}/>
                     <button className = {styles.previewText}>{$imagePreview3}(파일을 선택하세요)</button>
                 </div>);
             }
-        
 
-            if(this.state.ThumbnailUrl){
-                $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>);
-            }else{
-                $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
-            }
+            this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) : $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
+
+            this.state.previewInputUrl ? $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>) : $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
        
-            if(this.state.previewInputUrl){
-                
-                $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>);
-            }else{
-                $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
-            }
+            this.state.previewInputUrl2 ? $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>) : $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
 
-            if(this.state.previewInputUrl2){
-                $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>);
-            }else{
-                $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);                
-            }
-
-            if(this.state.previewInputUrl3){
-                $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>);
-            }else{
-                $imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
-            }
+            this.state.previewInputUrl3 ? $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
         
-
-
         return(
+
      <div className = {styles.AssetEditor_left}>
             <div className = {styles.previewDiv}>
                 <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
@@ -251,6 +238,7 @@ class AssetSetting extends React.Component{
                                 <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
                                 <button className = {styles.previewText}>{$imagePreview3}</button>
                             </div>
+                
 
                     {card}
                            
