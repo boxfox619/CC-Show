@@ -18,7 +18,14 @@ class AssetSetting extends React.Component{
     inputimg(e){
         this.setState({
             ...this.state,
-            currentImageUpload : 'previewInputimg'
+            currentImageUpload : 'pushPreviewInputimg'
+        });
+    }
+
+    inputimg1(e){
+        this.setState({
+            ...this.state,
+            currentImageUpload : 'setPreviewInputimg'
         });
     }
 
@@ -57,7 +64,7 @@ class AssetSetting extends React.Component{
             defWidth : this.state.defWidth + add,
             myWidth : this.state.defWidth + "px"
         })
-        console.log(this.state.myWidth);
+        // console.log(this.state.myWidth);
         if(this.state.addFileCNT === 3){
             console.log('e.preventDefault 실행');
             e.preventDefault();
@@ -71,7 +78,7 @@ class AssetSetting extends React.Component{
     
         // 
         
-        console.log(this.state.myWidth);
+        // console.log(this.state.myWidth);
 
         // if(this.state.addFileCNT === 7){
         //     this.setState({
@@ -103,52 +110,70 @@ class AssetSetting extends React.Component{
                 });
                 break;
 
-                case 'previewInputimg': 
+                case 'setPreviewInputimg':
+                //i=e.target.datatype
+                let previewInputimg="previewInputimg"+i;
                 this.setState({
                     ...this.state,
                     file2 : file2,
-                    previewInputUrl : reader.result,
+                    previewInputUrl : {
+                        ...this.state.previewInputUrl,
+                        previewInputimg : ''
+                    }
                 });
                 break;
 
-                case 'previewInputimg2':
+                case 'pushPreviewInputimg':
+                let previewinputimg="previewinputimg"+count
                 this.setState({
                     ...this.state,
-                    file3 : file3,
-                    previewInputUrl2 : reader.result,
+                    file2 : file2,
+                    previewInputUrl : {
+                        ...this.state.previewInputUrl,
+                        previewInputimg : ' ',
+                    }
                 });
+                
                 break;
 
-                case 'previewInputimg3':
-                this.setState({
-                    ...this.state,
-                    file4 : file4,
-                    previewInputUrl3 : reader.result,
-                });
-                break;
+                // case 'previewInputimg2':
+                // this.setState({
+                //     ...this.state,
+                //     file3 : file3,
+                //     previewInputUrl2 : reader.result,
+                // });
+                // break;
+
+                // case 'previewInputimg3':
+                // this.setState({
+                //     ...this.state,
+                //     file4 : file4,
+                //     previewInputUrl3 : reader.result,
+                // });
+                // break;
               
-                case 'previewInputUrl2':
-                this.setState({
-                    ...this.state,
-                    file3 : file3,
-                    previewInputUrl2 : reader.result,
-                });
-                break;
+                // case 'previewInputUrl2':
+                // this.setState({
+                //     ...this.state,
+                //     file3 : file3,
+                //     previewInputUrl2 : reader.result,
+                // });
+                // break;
 
-                case  'previewInputUrl3':
-                this.setState({
-                    ...this.state,
-                    file4 : file4,
-                    previewInputUrl3 : reader.result,
-                });
-                break;
+                // case  'previewInputUrl3':
+                // this.setState({
+                //     ...this.state,
+                //     file4 : file4,
+                //     previewInputUrl3 : reader.result,
+                // });
+                // break;
 
-                case 'previewInputUrl4':
-                this.setState({
-                    ...this.state,
-                    file5 : file5,
-                    previewInputUrl4 : reader.result,
-                });
+                // case 'previewInputUrl4':
+                // this.setState({
+                //     ...this.state,
+                //     file5 : file5,
+                //     previewInputUrl4 : reader.result,
+                // });
             }
         }
         reader.readAsDataURL(file)
@@ -176,13 +201,14 @@ class AssetSetting extends React.Component{
         
         let card = [];
         
-            for(var i = 0; i< 8; i++){
-                console.log(i);
+            for(var i = 1; i< 8; i++){
+                // console.log(i);
                 card.push(<div className = {styles.imagePreview}>
-                    <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                    <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)} data-itemID = {i} />
                     <button className = {styles.previewText}>{$imagePreview3}(파일을 선택하세요)</button>
                 </div>);
             }
+        
 
             this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) : $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
 
