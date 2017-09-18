@@ -1,6 +1,7 @@
 const express = require('express');
 const colors = require('colors');
 const request = require('request');
+const path = require('path');
 
 const CLIENT_ID = '201742033376-s4258t2qoo2be1aej3lb1qturs6kgsp3.apps.googleusercontent.com';
 
@@ -38,9 +39,10 @@ module.exports = function (realm) {
 
   const router = express.Router();
 
-  router.get('/', (req, res) => {
-    console.log('tesata');
-    return res.json({ number: 123 });
+  router.get('/logout/', (req, res) => {
+    console.log(colors.green('[REQ]'), 'logout', getIP(req));
+    res.clearCookie("user");
+    res.redirect('/');
   });
 
   router.post('/login/', (req, res) => {

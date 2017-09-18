@@ -51,6 +51,7 @@
     width: 95%;
     margin: 20px;
     resize: none;
+    outline: none;
 }
 
 .slideShowNote_content::-webkit-scrollbar-track

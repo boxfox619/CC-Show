@@ -25,6 +25,7 @@ class SlideEditor extends React.Component{
 
     this.checkContextDisabled = this.checkContextDisabled.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
 
     this.handleBorderColor = this.handleBorderColor.bind(this);
     this.handleFillColor = this.handleFillColor.bind(this);
@@ -85,6 +86,20 @@ class SlideEditor extends React.Component{
         {isSlideShow()}
       </div>
     );
+  }
+
+  componentDidMount(){
+    window.addEventListener("keydown", this.handleKeyDown, true);
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener("keydown", this.handleKeyDown);
+  }
+
+  handleKeyDown(e) {
+    if (e.keyCode === 27) {
+      this.props.releaseDialog();
+    }
   }
 
   handleClick(event){

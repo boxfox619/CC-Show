@@ -19,6 +19,7 @@ const initialState = {
     name: 'TEST-SLIDE',
     id: 0,
     thumbnail: '',
+    note: '',
     selectedAsset: undefined,
     assetIdCount: 0,
     assets: []
@@ -134,6 +135,19 @@ const editor = (state = initialState, action) => {
           }
         )
       }
+    case actionTypes.SLIDE_SET_NOTE:
+    return {
+      ...state,
+      slides: update(
+        state.slides, {
+          [action.target]: {
+            note: {
+              $set: action.note
+            }
+          }
+        }
+      )
+    };
     case actionTypes.ASSET_SELECTED:
       return {
         ...state,

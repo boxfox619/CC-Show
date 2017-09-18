@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const realm = require('./realm');
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -30,7 +31,15 @@ if (process.env.NODE_ENV == 'development') {
         console.log('webpack-dev-server is listening on port', devPort);
     });
 }
-app.use('/', express.static(__dirname + '/../public'));
+app.use('/', express.static(__dirname + '/../public/'));
+
+app.get('/', (req, res) => {
+    res.sendFile('index.html', { root: path.join(__dirname, '../public') });
+});
+
+app.get('/editor/', (req, res) => {
+    res.sendFile('account.html', { root: path.join(__dirname, '../public') });;
+});
 
 const account = require('./routes/account');
 app.use('/account', account(realm));
