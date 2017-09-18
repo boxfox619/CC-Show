@@ -107,7 +107,7 @@ class TextController extends React.Component{
                     <img src="/images/ic_format_align_center.png" style={this.props.sort==='center' ? {display : 'none'} : { }}  onClick={() => this.props.setAssetTextSort('center')}/>
                     <img src="/images/ic_format_align_center_apply.png" style={this.props.sort==='center' ? {} : {display : 'none'}}  onClick={() =>this.props.setAssetTextSort(' ')}/>
                     
-                    <img src="/images/ic_format_align_right.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort('right')}/>
+                    <img src="/images/ic_format_align_right.png" style={this.props.sort==='right' ? {display : 'none'} : {}}  onClick={() => this.props.setAssetTextSort('right')}/>
                     <img src="/images/ic_format_align_right_apply.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort(' ')}/>
                     
                     <img src="/images/ic_format_align_justify.png" style={this.props.sort==='justify' ? {display : 'none'} : { }}  onClick={() => this.props.setAssetTextSort('justify')}/>
@@ -131,7 +131,6 @@ class TextController extends React.Component{
         </div>
         )
     }
-
     textOn() {
         this.setState({
             ...this.state,
@@ -147,6 +146,28 @@ class TextController extends React.Component{
             text:false,
             text_arrow_up:true,
             text_arrow_down:false
+        });
+    }
+
+    syntaxHighlight(json) {
+        if (typeof json != 'string') {
+            json = JSON.stringify(json, undefined, 2);
+        }
+        json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        let cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
         });
     }
 }

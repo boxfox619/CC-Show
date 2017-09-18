@@ -34,6 +34,7 @@ class ImageController extends React.Component{
                         <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value={this.props.url} className={styles.attribute_item_input} onChange={this.setUrl}/>
                     </div>
                 </div>
+            <hr className={styles.controller_hr}/>
             </div>
         )
     }

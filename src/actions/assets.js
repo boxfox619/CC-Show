@@ -30,6 +30,7 @@ export const actionTypes = {
   ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP',
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
   ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
+  ASSET_SET_STYLE: 'ASSET_SET_STYLE',
   ASSET_CREATE: "ASSET_CREATE",
   ASSET_SELECTED: "ASSET_SELECTED"
 };
@@ -263,6 +264,13 @@ export function setAssetVideoAutoplay(){
 
 export function setAssetVideoLoop(){
   return{
-    type: actionTypes.ASSET_SET_VIDEO_LOO
+    type: actionTypes.ASSET_SET_VIDEO_LOOP
+  }
+}
+
+export function setAssetStyle(style){
+  return{
+    type: actionTypes.ASSET_SET_STYLE,
+    style
   }
 }

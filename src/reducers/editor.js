@@ -646,10 +646,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        video: {
-                          videoController: {
-                            $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.videoController
-                          }
+                        videoController: {
+                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.videoController
                         }
                       }
                     }
@@ -697,6 +695,28 @@ const editor = (state = initialState, action) => {
                         videoLoop: {
                           $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.videoLoop
                         }
+                      }
+                    }
+                  }
+                )
+              }
+            }
+          }
+        )
+      }
+    case actionTypes.ASSET_SET_STYLE:
+    console.log(a);
+      return {
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      style: {
+                        $set: JSON.parse(action.style)
                       }
                     }
                   }

@@ -37,6 +37,8 @@ class BasicController extends React.Component{
         this.shapeOff=this.shapeOff.bind(this);
         this.styleOn=this.styleOn.bind(this);
         this.styleOff=this.styleOff.bind(this);
+
+        this.setStyle=this.setStyle.bind(this);
     }
 
     render(){
@@ -106,7 +108,7 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.style ? {} : {display:'none'}} className={styles.items}>
                         <div id={styles.input_style}>
-                            <textarea onChange={this.setStyle} rows="" cols="" value={<value></value>}></textarea>
+                            <textarea onChange={this.setStyle.bind()} rows="" cols="" value={JSON.stringify(this.props.style)}></textarea>
                         </div>
                     </div>
                 </div>

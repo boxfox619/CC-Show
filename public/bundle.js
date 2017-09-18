@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "37493ada83584d1a6278"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d3d9b0bf47208910fc54"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3945,6 +3945,7 @@ exports.setAssetImageURL = setAssetImageURL;
 exports.setAssetVideoController = setAssetVideoController;
 exports.setAssetVideoAutoplay = setAssetVideoAutoplay;
 exports.setAssetVideoLoop = setAssetVideoLoop;
+exports.setAssetStyle = setAssetStyle;
 
 var _assetTypes = __webpack_require__(51);
 
@@ -3983,6 +3984,7 @@ var actionTypes = exports.actionTypes = {
   ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP',
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
   ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
+  ASSET_SET_STYLE: 'ASSET_SET_STYLE',
   ASSET_CREATE: "ASSET_CREATE",
   ASSET_SELECTED: "ASSET_SELECTED"
 };
@@ -4218,7 +4220,14 @@ function setAssetVideoAutoplay() {
 
 function setAssetVideoLoop() {
   return {
-    type: actionTypes.ASSET_SET_VIDEO_LOO
+    type: actionTypes.ASSET_SET_VIDEO_LOOP
+  };
+}
+
+function setAssetStyle(style) {
+  return {
+    type: actionTypes.ASSET_SET_STYLE,
+    style: style
   };
 }
 
@@ -34889,7 +34898,6 @@ var AssetController = function (_React$Component) {
     _createClass(AssetController, [{
         key: 'ControllerSelector',
         value: function ControllerSelector(selectedAsset) {
-            console.log(this.props.currentSilde.assets[selectedAsset].style);
             switch (this.props.currentSilde.assets[selectedAsset].type) {
                 case actions.TYPE_TEXT:
                     return _react2.default.createElement(_TextController2.default, { font: this.props.currentSilde.assets[selectedAsset].style.font,
@@ -35080,7 +35088,7 @@ var TextController = function (_React$Component) {
                                     _react2.default.createElement(
                                         'option',
                                         { value: '' },
-                                        'asdfasdf'
+                                        'asdfa'
                                     ),
                                     _react2.default.createElement('option', { value: '' }),
                                     _react2.default.createElement('option', { value: '' }),
@@ -35096,13 +35104,14 @@ var TextController = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: _AssetController2.default.control_item },
+                                _react2.default.createElement('img', { src: '/images/ic_format_size.png' }),
                                 _react2.default.createElement(
                                     'select',
                                     { onChange: this.setFontSize },
                                     _react2.default.createElement(
                                         'option',
                                         { value: '' },
-                                        'asdfasdf'
+                                        'asd'
                                     ),
                                     _react2.default.createElement('option', { value: '' }),
                                     _react2.default.createElement('option', { value: '' }),
@@ -35114,13 +35123,14 @@ var TextController = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: _AssetController2.default.control_item },
+                                _react2.default.createElement('img', { src: '/images/ic_format_line.png' }),
                                 _react2.default.createElement(
                                     'select',
-                                    { onChange: this.setCharacterSpacintg },
+                                    { onChange: this.setLineSpacintg },
                                     _react2.default.createElement(
                                         'option',
                                         { value: '' },
-                                        'asdfasdf'
+                                        'asdfa'
                                     ),
                                     _react2.default.createElement('option', { value: '' }),
                                     _react2.default.createElement('option', { value: '' }),
@@ -35136,9 +35146,10 @@ var TextController = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: _AssetController2.default.control_item },
+                                _react2.default.createElement('img', { src: '/images/ic_between.png' }),
                                 _react2.default.createElement(
                                     'select',
-                                    { onChange: this.setLineSpacintg },
+                                    { onChange: this.setCharacterSpacintg },
                                     _react2.default.createElement(
                                         'option',
                                         { value: '' },
@@ -35173,7 +35184,7 @@ var TextController = function (_React$Component) {
                             _react2.default.createElement('img', { src: '/images/ic_format_align_center_apply.png', style: this.props.sort === 'center' ? {} : { display: 'none' }, onClick: function onClick() {
                                     return _this2.props.setAssetTextSort(' ');
                                 } }),
-                            _react2.default.createElement('img', { src: '/images/ic_format_align_right.png', style: this.props.sort === 'right' ? {} : { display: 'none' }, onClick: function onClick() {
+                            _react2.default.createElement('img', { src: '/images/ic_format_align_right.png', style: this.props.sort === 'right' ? { display: 'none' } : {}, onClick: function onClick() {
                                     return _this2.props.setAssetTextSort('right');
                                 } }),
                             _react2.default.createElement('img', { src: '/images/ic_format_align_right_apply.png', style: this.props.sort === 'right' ? {} : { display: 'none' }, onClick: function onClick() {
@@ -35216,6 +35227,29 @@ var TextController = function (_React$Component) {
                 text_arrow_up: true,
                 text_arrow_down: false
             }));
+        }
+    }, {
+        key: 'syntaxHighlight',
+        value: function syntaxHighlight(json) {
+            if (typeof json != 'string') {
+                json = JSON.stringify(json, undefined, 2);
+            }
+            json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                var cls = 'number';
+                if (/^"/.test(match)) {
+                    if (/:$/.test(match)) {
+                        cls = 'key';
+                    } else {
+                        cls = 'string';
+                    }
+                } else if (/true|false/.test(match)) {
+                    cls = 'boolean';
+                } else if (/null/.test(match)) {
+                    cls = 'null';
+                }
+                return '<span class="' + cls + '">' + match + '</span>';
+            });
         }
     }]);
 
@@ -35501,7 +35535,8 @@ var ImageController = function (_React$Component) {
                         ' ',
                         _react2.default.createElement('input', { type: 'text', value: this.props.url, className: _AssetController2.default.attribute_item_input, onChange: this.setUrl })
                     )
-                )
+                ),
+                _react2.default.createElement('hr', { className: _AssetController2.default.controller_hr })
             );
         }
     }, {
@@ -35694,6 +35729,8 @@ var BasicController = function (_React$Component) {
         _this.shapeOff = _this.shapeOff.bind(_this);
         _this.styleOn = _this.styleOn.bind(_this);
         _this.styleOff = _this.styleOff.bind(_this);
+
+        _this.setStyle = _this.setStyle.bind(_this);
         return _this;
     }
 
@@ -35815,7 +35852,11 @@ var BasicController = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { className: _AssetController2.default.control_item },
-                            _react2.default.createElement('span', null),
+                            _react2.default.createElement(
+                                'span',
+                                null,
+                                _react2.default.createElement('img', { src: '/images/ic_line.png' })
+                            ),
                             _react2.default.createElement(
                                 'div',
                                 { className: _AssetController2.default.change_color, onClick: this.props.toggleBorderColorPicker, style: { backgroundColor: this.props.borderColor } },
@@ -35845,7 +35886,7 @@ var BasicController = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { id: _AssetController2.default.input_style },
-                            _react2.default.createElement('textarea', { onChange: this.setStyle, rows: '', cols: '', value: _react2.default.createElement('value', null) })
+                            _react2.default.createElement('textarea', { onChange: this.setStyle.bind(), rows: '', cols: '', value: JSON.stringify(this.props.style) })
                         )
                     )
                 )
@@ -35935,7 +35976,6 @@ var BasicController = function (_React$Component) {
     }, {
         key: 'shapeOn',
         value: function shapeOn() {
-            console.log('a');
             this.setState(_extends({}, this.state, {
                 shape: true,
                 shape_arrow_up: false,
@@ -35945,7 +35985,6 @@ var BasicController = function (_React$Component) {
     }, {
         key: 'styleOn',
         value: function styleOn() {
-            console.log('a');
             this.setState(_extends({}, this.state, {
                 style: true,
                 style_arrow_up: false,
@@ -49407,10 +49446,8 @@ var editor = function editor() {
           assets: {
             $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
               style: {
-                video: {
-                  videoController: {
-                    $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.videoController
-                  }
+                videoController: {
+                  $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.videoController
                 }
               }
             }))
@@ -49440,6 +49477,19 @@ var editor = function editor() {
                 videoLoop: {
                   $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.videoLoop
                 }
+              }
+            }))
+          }
+        }))
+      });
+    case _assets.actionTypes.ASSET_SET_STYLE:
+      console.log(a);
+      return _extends({}, state, {
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              style: {
+                $set: eval(action.style)
               }
             }))
           }
@@ -49548,6 +49598,11 @@ function getAssetIndex(state, key) {
     }
   });
   return index;
+}
+
+function replaceJSON(json) {
+  console.log(json.replace(/\\/g, ''));
+  return json.replace(/\\/g, '');
 }
 
 exports.default = editor;
