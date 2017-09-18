@@ -7,7 +7,8 @@ export const actionTypes = {
   SLIDE_RENAME : 'SLIDE_RENAME',
   SLIDE_SELECT : 'SLIDE_SELECT',
   SLIDE_SET_THUMBNAIL: 'SLIDE_SET_THUMBNAIL',
-  EXCHANGE_SLIDE : 'EXCHANGE_SLIDE'
+  EXCHANGE_SLIDE : 'EXCHANGE_SLIDE',
+  SLIDE_SET_NOTE : 'SLIDE_SET_NOTE'
 };
 
 
@@ -24,6 +25,14 @@ export const setPositionUnit = (unit) => {
     unit
   }
 };
+
+export const setSlideNote = (target, note) => {
+  return {
+    type: actionTypes.SLIDE_SET_NOTE,
+    target,
+    note
+  }
+}
 
 export const createSlide = () =>{
   return {
