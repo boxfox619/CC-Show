@@ -10,8 +10,8 @@ class ContextMenu extends React.Component {
       visible: false,
       x: 0,
       y: 0,
-      subMenu1: false,
-      subMenu2: false
+      enable: false,
+      pasteable: false
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -36,12 +36,12 @@ class ContextMenu extends React.Component {
             <div>
             <div ref={root => {this.root = root}} style={{'left':this.state.x, 'top':this.state.y}} className={styles.contextMenu}>
               <div className={styles.content}>
-                <div className={styles.option}>복사<div className={styles.shortcut}>Ctrl + C</div></div>
-                <div className={styles.option}>붙여넣기<div className={styles.shortcut}>Ctrl + V</div></div>
-                <div className={styles.option}>삭제<div className={styles.shortcut}>Ctrl + D</div></div>
-                <div className={styles.option}>자르기<div className={styles.shortcut}>Ctrl + X</div></div>
+                <div className={styles.option+' '+((this.state.enable)?'':styles.disabled)}>복사<div className={styles.shortcut}>Ctrl + C</div></div>
+                <div className={styles.option+' '+((this.state.pasteable)?'':styles.disabled)}>붙여넣기<div className={styles.shortcut}>Ctrl + V</div></div>
+                <div className={styles.option+' '+((this.state.enable)?'':styles.disabled)}>삭제<div className={styles.shortcut}>Ctrl + D</div></div>
+                <div className={styles.option+' '+((this.state.enable)?'':styles.disabled)}>자르기<div className={styles.shortcut}>Ctrl + X</div></div>
                 <div className={styles.separator}/>
-                <div className={styles.option}>변형<div className={styles.submenu}></div>
+                <div className={styles.option+' '+((this.state.enable)?'':styles.disabled)}>변형<div className={styles.submenu}></div>
                 <div className={styles.contextMenu}>
                   <div className={styles.content}>
                     <div className={styles.option}>이동<div className={styles.shortcut}>SHIFT+CTRL+M</div></div>
@@ -52,7 +52,7 @@ class ContextMenu extends React.Component {
                     </div>
                     </div>
                 </div>
-                <div className={styles.option}>정돈<div className={styles.submenu}></div>
+                <div className={styles.option+' '+((this.state.enable)?'':styles.disabled)}>정렬<div className={styles.submenu}></div>
                 <div className={styles.contextMenu}>
                   <div className={styles.content}>
                     <div className={styles.option} style={{'width': '190px'}}>맨 앞으로 가져오기<div className={styles.shortcut}>SHIFT+CTRL+]</div></div>
@@ -66,13 +66,24 @@ class ContextMenu extends React.Component {
             </div>
             </div>
     }
-    handleOptioneClick(event){
 
+    handleOptioneClick(event){
+      if(this.state.enable){
+        
+      }
     }
 
     handleContextMenu(event){
+      let enable = false;
+      let pasteable = false;
+        if(event.target.parentNode.parentNode.tagName == 'ASSET'){
+          enable = true;
+        }
+        if(!!this.cachedAsset){
+          pasteable = true;
+        }
         event.preventDefault();
-        this.setState({ visible: true });
+        this.setState({ visible: true, enable, pasteable });
         let rect = document.getElementById('SlideContext').getBoundingClientRect();
         let right = rect.right;
         let bottom = rect.bottom;
