@@ -4,6 +4,7 @@ import Thumbnail from './Thumbnail';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import AssetEditorItem from './Details/AssetEditorItem';
+import CodeEditor from './Code/CodeEditor.js'
 
 const tabs = [
 {name:'Details'},
@@ -59,8 +60,9 @@ class AssetEditor extends React.Component{
   let renderDetailsItems = () => {
     if(this.state.activeTab == 0){
       return(<AssetEditorItem />);
-    }else{
-      console.log('here is code');
+    }
+    if(this.state.activeTab == 1){
+      return(<CodeEditor />);
     }
   }
 
@@ -73,7 +75,7 @@ class AssetEditor extends React.Component{
           </tabholder>
         </header>
         <content>
-          <div style={{'padding': '10px 2.5%'}}>
+          <div>
             {renderEditors()}
             {this.state.content}
           </div>
