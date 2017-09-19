@@ -18,9 +18,6 @@ class VideoController extends React.Component {
         this.videoOn=this.videoOn.bind(this);
         this.videoOff=this.videoOff.bind(this);
         this.setUrl=this.setUrl.bind(this);
-        this.controllerOnClick =this.controllerOnClick.bind(this);
-        this.autoplayOnClick=this.autoplayOnClick.bind(this);
-        this.loopOnClick=this.loopOnClick.bind(this);
     }
     render() {
         return (
@@ -36,13 +33,13 @@ class VideoController extends React.Component {
                         <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value={this.props.url} className={styles.attribute_item_input} onChange={this.setUrl}/>
                     </div>
                     <div>
-                        <div onClick={this.controllerOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.props.videoController ? {'background-color': '#5a84b3'} : {}}>
+                        <div onClick={this.props.setAssetVideoController} className={styles.control_item+' '+styles.video} style={this.props.videoController ? {'background-color': '#5a84b3'} : {}}>
                             <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.props.videoController ? {color:'#fff'} : {}}>컨트롤러</span>
                         </div>
-                        <div onClick={this.autoplayOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.props.videoAutoplay ? {'background-color': '#5a84b3'} : {}}>
+                        <div onClick={this.props.setAssetVideoAutoplay} className={styles.control_item+' '+styles.video} style={this.props.videoAutoplay ? {'background-color': '#5a84b3'} : {}}>
                             <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.props.videoAutoplay ? {color:'#fff'} : {}}>자동재생</span>
                         </div>
-                        <div onClick={this.loopOnClick.bind()} className={styles.control_item+' '+styles.video} style={this.props.videoLoop ? {'background-color': '#5a84b3'} : {}}>
+                        <div onClick={this.props.setAssetVideoLoop} className={styles.control_item+' '+styles.video} style={this.props.videoLoop ? {'background-color': '#5a84b3'} : {}}>
                             <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.props.videoLoop ? {color:'#fff'} : {}}>반복</span>
                         </div>
                     </div>
@@ -73,18 +70,6 @@ class VideoController extends React.Component {
     setUrl(event) {
         let {value}=event.target;
         this.props.setAssetVideoURL(value);
-    }
-
-    controllerOnClick(videoStyles){
-        this.props.setAssetVideoController(!videoStyles.videoController);
-    }
-
-    loopOnClick(videoStyles){
-        this.props.setAssetVideoLoop(!videoStyles.videoLoop);
-    }
-
-    autoplayOnClick(videoStyles){
-        this.props.setAssetVideoAutoplay(!videoStyles.videoAutoplay);
     }
 }
 
