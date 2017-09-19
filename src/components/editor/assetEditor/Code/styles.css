@@ -1,6 +1,6 @@
 .content{
     width: 1150px;
-   padding-top: none;
+   padding-top: 2px;
    height:  600px;
    /* border: 1px solid red; */
 }
@@ -12,7 +12,7 @@
 }
 .preview{
     height: 320px;
-    background-color: skyblue;
+    background-color: white;
     /* border: 1px solid black; */
 }
 .htmlArea{
@@ -21,7 +21,7 @@
     /* border: 1px solid pink; */
     display: inline-block;
     float: left;
-    border-right: 1px solid #DFDFDF;
+    border-right: 1.5px solid #DFDFDF;
     background-color: white;
 }
 .cssArea{
@@ -31,7 +31,7 @@
     display: inline-block;
     float: left;
     background-color: white;
-    border-right: 1px solid #DFDFDF;
+    border-right: 1.5px solid #DFDFDF;
 }
 .jsArea{
     width: 383px;
@@ -45,6 +45,7 @@
     width: 386px;
     height: 40px;
     background-color: #DFDFDF;
+    display: table;
     /* border: 1px solid #221010; */
 }
 
@@ -52,14 +53,53 @@
     width: 383px;
     height: 40px;
     background-color: #DFDFDF;
+    display: table;
 }
 .jsTopbar{
     width: 385px;
     height: 40px;
     background-color: #DFDFDF;
+    display: table;
 }
 .previewTopbar{
     width: 1150px;
     height: 40px;
     background-color:#DFDFDF;
+    display: table;
+}
+
+.htmlTitle{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 11px;
+    color: #606060;
+    font-weight: bold;
+}
+
+.cssTitle{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 11px;
+    color: #606060;
+    font-weight: bold;
+}
+
+.jsTitle{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 11px;
+    color: #606060;
+    font-weight: bold;
+}
+
+.previewTitle{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 11px;
+    color: #606060;
+    font-weight: bold;
 }

@@ -9,14 +9,14 @@ class CodeEditorItem extends React.Component{
 
                     <div className = {styles.htmlArea}>
                         <div className = {styles.htmlTopbar}>
-                            <span className = {styles.htmlTitle}></span>
+                            <span className = {styles.htmlTitle}>HTML</span>
                         </div>
                         <div className = {styles.htmlContent}></div>
                     </div>
 
                     <div className = {styles.cssArea}>
                         <div className = {styles.cssTopbar}>
-                            <span className = {styles.cssTitle}></span>
+                            <span className = {styles.cssTitle}>CSS</span>
                         </div>
                         <div className = {styles.cssContent}>
 
@@ -25,7 +25,7 @@ class CodeEditorItem extends React.Component{
 
                     <div className = {styles.jsArea}>
                         <div className = {styles.jsTopbar}>
-                            <span className = {styles.jsTitle}></span>
+                            <span className = {styles.jsTitle}>JS</span>
                         </div>
                         <div className = {styles.jsContent}>
 
@@ -35,8 +35,7 @@ class CodeEditorItem extends React.Component{
                 </div>
                 <div className = {styles.preview}>
                     <div className = {styles.previewTopbar}>
-                        <span className = {styles.previewTitle}>
-                        </span>
+                        <span className = {styles.previewTitle}>PREVIEW</span>
                     </div>
                     <div className = {styles.previewContent}></div>
                 </div>
