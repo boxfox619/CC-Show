@@ -80,7 +80,7 @@ class ContextMenu extends React.Component {
         if(action.includes("복사")){
           this.setState({copyAsset: {id: this.state.assetId, slide: this.props.currentSlide}});
         }else if(action.includes("삭제")){
-
+          this.props.deleteAsset(this.state.assetId);
         }else if(action.includes("잘라내기")){
 
         }

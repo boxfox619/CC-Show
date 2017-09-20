@@ -89,6 +89,7 @@ const editor = (state = initialState, action) => {
       } else {
         alert('type error');
       }
+      console.log(currentId);
       return {
         ...state,
         slides: update(
@@ -108,7 +109,6 @@ const editor = (state = initialState, action) => {
         )
       };
     case actionTypes.ASSET_SET_VALUE:
-      console.log('asvav'+action.value);
       return {
         ...state,
         slides: update(
@@ -269,7 +269,9 @@ const editor = (state = initialState, action) => {
       slides: update(
         state.slides, {
           [state.selectedSlide]: {
-            $set: {assetIdCount: currentAssetId,
+            $set: {
+              ...state.slides[state.selectedSlide],
+              assetIdCount: currentAssetId,
               assets: update(
                 state.slides[state.selectedSlide].assets, {
                   $push: [{
@@ -279,6 +281,25 @@ const editor = (state = initialState, action) => {
                     y: action.y
                   }]
                 })
+            }
+          }
+        }
+      )
+    }
+    case actionTypes.ASSET_DELETE:
+    return {
+      ...state,
+      slides: update(
+        state.slides, {
+          [state.selectedSlide]: {
+            $set: {
+              ...state.slides[state.selectedSlide],
+              selectedAsset: undefined,
+              assets: update(
+              state.slides[state.selectedSlide].assets, {
+                $splice: [[getAssetIndex(state, action.id), 1]]
+              }
+            )
             }
           }
         }

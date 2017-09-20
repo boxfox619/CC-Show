@@ -33,7 +33,8 @@ export const actionTypes = {
   ASSET_SET_STYLE: 'ASSET_SET_STYLE',
   ASSET_CREATE: "ASSET_CREATE",
   ASSET_SELECTED: "ASSET_SELECTED",
-  ASSET_COPY: 'ASSET_COPY'
+  ASSET_COPY: 'ASSET_COPY',
+  ASSET_DELETE: 'ASSET_DELETE'
 };
 
 export const createAsset = (assetType, value, style = {}) => {
@@ -132,6 +133,13 @@ export function copyAsset(id, slide, x, y){
     slide,
     x,
     y
+  }
+}
+
+export function deleteAsset(id){
+  return {
+    type: actionTypes.ASSET_DELETE,
+    id
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.css';
 // import CodeMirror from 'react-codemirror';
-import CodeMirror from './CodeMirror';
+//import CodeMirror from './CodeMirror';
 const createReactClass = require('create-react-class');
 // require('codemirror/mode/javascript/javascript');
 // import codemirrorCss from './codemirror.css';
@@ -118,10 +118,10 @@ var CodeEditorItem  = createReactClass({
     // //         readOnly : !this.state.readOnly
     // //     }, ()=> this.refs.editor.focus());
     // // }
-        
-    
+
+
     // // componentWillMount(){
-        
+
     // //     var editor = (CodeMirror(this.refs.codeeditor),{
     // //         mode : 'css'
     // //     });
