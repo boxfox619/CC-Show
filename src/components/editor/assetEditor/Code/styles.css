@@ -1,0 +1,112 @@
+/* @import "../../node_modules/codemirror/lib/codemirror.css"; */
+
+.content{
+    width: 1150px;
+   padding-top: 2px;
+   height:  600px;
+   /* border: 1px solid red; */
+}
+
+.vanila{
+    height: 270px;
+    /* background-color: pink; */
+    /* border: 1px solid blue; */
+}
+.preview{
+    height: 320px;
+    background-color: white;
+    /* border: 1px solid black; */
+}
+.htmlArea{
+    width: 382px;
+    height: 270px;
+    /* border: 1px solid pink; */
+    display: inline-block;
+    float: left;
+    border-right: 1.5px solid #DFDFDF;
+    background-color: white;
+}
+.cssArea{
+    width: 382px;
+    height: 270px;
+    /* border: 1px solid red; */
+    display: inline-block;
+    float: left;
+    background-color: white;
+    border-right: 1.5px solid #DFDFDF;
+}
+.jsArea{
+    width: 383px;
+    height: 270px;
+    /* border: 1px solid blue; */
+    display: inline-block;
+    background-color: white;
+}
+
+.htmlTopbar{
+    width: 386px;
+    height: 40px;
+    background-color: #DFDFDF;
+    display: table;
+    /* border: 1px solid #221010; */
+}
+
+.cssTopbar{
+    width: 383px;
+    height: 40px;
+    background-color: #DFDFDF;
+    display: table;
+}
+.jsTopbar{
+    width: 385px;
+    height: 40px;
+    background-color: #DFDFDF;
+    display: table;
+}
+.previewTopbar{
+    width: 1150px;
+    height: 40px;
+    background-color:#DFDFDF;
+    display: table;
+}
+
+.htmlTitle{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 11px;
+    color: #606060;
+    font-weight: bold;
+}
+
+.cssTitle{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 11px;
+    color: #606060;
+    font-weight: bold;
+}
+
+.jsTitle{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 11px;
+    color: #606060;
+    font-weight: bold;
+}
+
+.previewTitle{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 11px;
+    color: #606060;
+    font-weight: bold;
+}
+
+.ReactCodeMirror{
+    width: 200px;
+    height: 200px;
+}

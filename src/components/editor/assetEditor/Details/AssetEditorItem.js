@@ -6,7 +6,7 @@ import ChargeAsset from './ChargeAsset';
 class AssetEditorItem extends React.Component{
     render(){
         return(
-          <div>
+          <div className = {styles.content}>
                 <AssetSetting />
                 {/* <FreeAsset /> */}
                 <ChargeAsset />
