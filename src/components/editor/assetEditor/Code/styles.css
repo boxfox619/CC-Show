@@ -1,3 +1,5 @@
+/* @import "../../node_modules/codemirror/lib/codemirror.css"; */
+
 .content{
     width: 1150px;
    padding-top: 2px;
@@ -102,4 +104,9 @@
     font-size: 11px;
     color: #606060;
     font-weight: bold;
+}
+
+.ReactCodeMirror{
+    width: 200px;
+    height: 200px;
 }
