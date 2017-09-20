@@ -1,9 +1,18 @@
 import React from 'react';
 import styles from './styles.css';
-
+import codemirrorCss from './codemirror.css';
 class CodeEditorItem extends React.Component{
+
+    componentWillMount(){
+        const script = document.createElement("script");
+        script.src = "./codemirror.js";
+        script.async = true;
+
+        document.body.appendChild(script);
+    }
     render(){
         return(
+
             <div className = {styles.content}>
                 <div className = {styles.vanila}>
 
