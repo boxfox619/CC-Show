@@ -1,12 +1,6 @@
-import {
-  actionTypes
-} from '../actions/assets';
-import {
-  actionTypes as slideActionTypes
-} from '../actions/slides';
-import {
-  getState
-} from '../store';
+import { actionTypes } from '../actions/assets';
+import { actionTypes as slideActionTypes } from '../actions/slides';
+import { getState } from '../store';
 import update from 'react-addons-update';
 import * as assetTypes from '../assetTypes';
 
@@ -267,7 +261,29 @@ const editor = (state = initialState, action) => {
             }
           })
       }
-    case actionTypes.ASSET_SET_ANGLE:
+    case actionTypes.ASSET_COPY:
+    let currentAssetId = state.slides[state.selectedSlide].assetIdCount + 1;
+    let copiedAsset = state.slides[action.slide].assets[getAssetIndex(state, action.id)];
+    return {
+      ...state,
+      slides: update(
+        state.slides, {
+          [state.selectedSlide]: {
+            $set: {assetIdCount: currentAssetId,
+              assets: update(
+                state.slides[state.selectedSlide].assets, {
+                  $push: [{
+                    ...copiedAsset,
+                    id: currentAssetId,
+                    x: action.x,
+                    y: action.y
+                  }]
+                })
+            }
+          }
+        }
+      )
+    }
     case actionTypes.ASSET_SET_X_POSTION:
       return {
         ...state,

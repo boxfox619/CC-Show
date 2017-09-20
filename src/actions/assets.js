@@ -31,7 +31,8 @@ export const actionTypes = {
   ASSET_SET_BACKGROUND_COLOR: "ASSET_SET_BACKGROUND_COLOR",
   ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
   ASSET_CREATE: "ASSET_CREATE",
-  ASSET_SELECTED: "ASSET_SELECTED"
+  ASSET_SELECTED: "ASSET_SELECTED",
+  ASSET_COPY: 'ASSET_COPY'
 };
 
 export const createAsset = (assetType, value, style = {}) => {
@@ -120,6 +121,16 @@ export function setAssetAngle(value) {
   return {
     type: actionTypes.ASSET_SET_ANGLE,
     value
+  }
+}
+
+export function copyAsset(id, slide, x, y){
+  return {
+    type: actionTypes.ASSET_COPY,
+    id,
+    slide,
+    x,
+    y
   }
 }
 
