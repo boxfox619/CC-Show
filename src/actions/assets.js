@@ -34,6 +34,7 @@ export const actionTypes = {
   ASSET_CREATE: "ASSET_CREATE",
   ASSET_SELECTED: "ASSET_SELECTED",
   ASSET_COPY: 'ASSET_COPY',
+  ASSET_SORT: 'ASSET_SORT',
   ASSET_DELETE: 'ASSET_DELETE'
 };
 
@@ -133,6 +134,38 @@ export function copyAsset(id, slide, x, y){
     slide,
     x,
     y
+  }
+}
+
+export function sortFirstAsset(id){
+  return{
+    type: actionTypes.ASSET_SORT,
+    id,
+    to: 'min'
+  }
+}
+
+export function sortLastAsset(id){
+  return{
+    type: actionTypes.ASSET_SORT,
+    id,
+    to: 'max'
+  }
+}
+
+export function sortBackAsset(id){
+  return{
+    type: actionTypes.ASSET_SORT,
+    id,
+    to: 'front'
+  }
+}
+
+export function sortFrontAsset(id){
+  return{
+    type: actionTypes.ASSET_SORT,
+    target: id,
+    to: 'back'
   }
 }
 

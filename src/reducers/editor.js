@@ -89,7 +89,6 @@ const editor = (state = initialState, action) => {
       } else {
         alert('type error');
       }
-      console.log(currentId);
       return {
         ...state,
         slides: update(
@@ -281,6 +280,32 @@ const editor = (state = initialState, action) => {
                     y: action.y
                   }]
                 })
+            }
+          }
+        }
+      )
+    }
+    case actionTypes.ASSET_SORT:
+    let assetsArr = state.slides[state.selectedSlide].assets;
+    let targetIndex = getAssetIndex(state, action.target);
+    let assetIndex = getAssetIndex(state, action.target);
+    if(action.to=='min'){
+      assetIndex = 0;
+    }else if(action.to=='max'){
+      assetIndex = assetsArr.length-1;
+    }else if(action.to=='front'&&assetIndex>0){
+      assetIndex -= 1;
+    }else if(action.to=='back'&&assetIndex<assetsArr.length-1){
+      assetIndex+=1;
+    }
+    return {
+      ...state,
+      slides: update(
+        state.slides,{
+          [state.selectedSlide]: {
+            $set: {
+              ...state.slides[state.selectedSlide],
+              assets: insertItem(assetsArr, assetIndex, assetsArr.splice(targetIndex, 1)[0])
             }
           }
         }
@@ -763,7 +788,6 @@ const editor = (state = initialState, action) => {
         )
       }
     case actionTypes.ASSET_SET_STYLE:
-    console.log(a);
       return {
         ...state,
         slides: update(

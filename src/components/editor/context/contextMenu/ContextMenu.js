@@ -83,6 +83,14 @@ class ContextMenu extends React.Component {
           this.props.deleteAsset(this.state.assetId);
         }else if(action.includes("잘라내기")){
 
+        }else if(action.includes("맨 앞으로 가져오기")){
+          this.props.sortFirstAsset(this.state.assetId);
+        }else if(action.includes("앞으로 가져오기")){
+          this.props.sortFrontAsset(this.state.assetId);
+        }else if(action.includes("뒤로 보내기")){
+          this.props.sortBackAsset(this.state.assetId);
+        }else if(action.includes("맨 뒤로 보내기")){
+          this.props.sortLastAsset(this.state.assetId);
         }
       }
     }
