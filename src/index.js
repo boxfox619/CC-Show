@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Editor from './components/Editor';
+import ShowList from './components/ShowList';
 
 const APPS = {
-  Editor
+  Editor,
+  ShowList
 };
 
 function renderAppInElement(el) {

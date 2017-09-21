@@ -1,8 +1,8 @@
-import { actionTypes } from '../actions/assets';
-import { actionTypes as slideActionTypes } from '../actions/slides';
-import { getState } from '../store';
+import { actionTypes } from '../../actions/assets';
+import { actionTypes as slideActionTypes } from '../../actions/slides';
+import { getState } from '../../store';
 import update from 'react-addons-update';
-import * as assetTypes from '../assetTypes';
+import * as assetTypes from '../../assetTypes';
 
 const initialState = {
   sizeUnit: 'px',

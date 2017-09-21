@@ -1,4 +1,4 @@
-import * as actionTypes from '../actions/slides';
+import * as actionTypes from '../../actions/slides';
 
 const initialState = {
   sizeUnit: 'px',
