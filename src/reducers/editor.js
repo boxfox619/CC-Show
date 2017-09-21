@@ -1,6 +1,6 @@
-import {actionTypes} from '../actions/assets';
-import {actionTypes as slideActionTypes} from '../actions/slides';
-import {getState} from '../store';
+import { actionTypes } from '../actions/assets';
+import { actionTypes as slideActionTypes } from '../actions/slides';
+import { getState } from '../store';
 import update from 'react-addons-update';
 import * as assetTypes from '../assetTypes';
 
@@ -260,6 +260,76 @@ const editor = (state = initialState, action) => {
             }
           })
       }
+    case actionTypes.ASSET_COPY:
+    let currentAssetId = state.slides[state.selectedSlide].assetIdCount + 1;
+    let copiedAsset = state.slides[action.slide].assets[getAssetIndex(state, action.id)];
+    return {
+      ...state,
+      slides: update(
+        state.slides, {
+          [state.selectedSlide]: {
+            $set: {
+              ...state.slides[state.selectedSlide],
+              assetIdCount: currentAssetId,
+              assets: update(
+                state.slides[state.selectedSlide].assets, {
+                  $push: [{
+                    ...copiedAsset,
+                    id: currentAssetId,
+                    x: action.x,
+                    y: action.y
+                  }]
+                })
+            }
+          }
+        }
+      )
+    }
+    case actionTypes.ASSET_SORT:
+    let assetsArr = state.slides[state.selectedSlide].assets;
+    let targetIndex = getAssetIndex(state, action.target);
+    let assetIndex = getAssetIndex(state, action.target);
+    if(action.to=='min'){
+      assetIndex = 0;
+    }else if(action.to=='max'){
+      assetIndex = assetsArr.length-1;
+    }else if(action.to=='front'&&assetIndex>0){
+      assetIndex -= 1;
+    }else if(action.to=='back'&&assetIndex<assetsArr.length-1){
+      assetIndex+=1;
+    }
+    return {
+      ...state,
+      slides: update(
+        state.slides,{
+          [state.selectedSlide]: {
+            $set: {
+              ...state.slides[state.selectedSlide],
+              assets: insertItem(assetsArr, assetIndex, assetsArr.splice(targetIndex, 1)[0])
+            }
+          }
+        }
+      )
+    }
+    case actionTypes.ASSET_DELETE:
+    return {
+      ...state,
+      slides: update(
+        state.slides, {
+          [state.selectedSlide]: {
+            $set: {
+              ...state.slides[state.selectedSlide],
+              selectedAsset: undefined,
+              assets: update(
+              state.slides[state.selectedSlide].assets, {
+                $splice: [[getAssetIndex(state, action.id), 1]]
+              }
+            )
+            }
+          }
+        }
+      )
+    }
     case actionTypes.ASSET_SET_ANGLE:
       return {
         ...state,
@@ -718,7 +788,6 @@ const editor = (state = initialState, action) => {
         )
       }
     case actionTypes.ASSET_SET_STYLE:
-    console.log(a);
       return {
         ...state,
         slides: update(

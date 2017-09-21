@@ -32,7 +32,10 @@ export const actionTypes = {
   ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
   ASSET_SET_STYLE: 'ASSET_SET_STYLE',
   ASSET_CREATE: "ASSET_CREATE",
-  ASSET_SELECTED: "ASSET_SELECTED"
+  ASSET_SELECTED: "ASSET_SELECTED",
+  ASSET_COPY: 'ASSET_COPY',
+  ASSET_SORT: 'ASSET_SORT',
+  ASSET_DELETE: 'ASSET_DELETE'
 };
 
 export const createAsset = (assetType, value, style = {}) => {
@@ -121,6 +124,55 @@ export function setAssetAngle(value) {
   return {
     type: actionTypes.ASSET_SET_ANGLE,
     value
+  }
+}
+
+export function copyAsset(id, slide, x, y){
+  return {
+    type: actionTypes.ASSET_COPY,
+    id,
+    slide,
+    x,
+    y
+  }
+}
+
+export function sortFirstAsset(id){
+  return{
+    type: actionTypes.ASSET_SORT,
+    id,
+    to: 'min'
+  }
+}
+
+export function sortLastAsset(id){
+  return{
+    type: actionTypes.ASSET_SORT,
+    id,
+    to: 'max'
+  }
+}
+
+export function sortBackAsset(id){
+  return{
+    type: actionTypes.ASSET_SORT,
+    id,
+    to: 'front'
+  }
+}
+
+export function sortFrontAsset(id){
+  return{
+    type: actionTypes.ASSET_SORT,
+    target: id,
+    to: 'back'
+  }
+}
+
+export function deleteAsset(id){
+  return {
+    type: actionTypes.ASSET_DELETE,
+    id
   }
 }
 
