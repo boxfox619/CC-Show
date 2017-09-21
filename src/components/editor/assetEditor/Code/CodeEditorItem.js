@@ -1,20 +1,20 @@
 import React from 'react';
 import styles from './styles.css';
+
 // import CodeMirror from 'react-codemirror';
-//import CodeMirror from './CodeMirror';
+import CodeMirror from '../codemirror/src/codemirror';
+import javascript from '../codemirror/mode/javascript/javascript';
+// import CodeMirror from './codemirror';
+import CodeMirrorCss from './CodeMirror.css';
+
 const createReactClass = require('create-react-class');
 // require('codemirror/mode/javascript/javascript');
 // import codemirrorCss from './codemirror.css';
 // import css from './css';
-// import javascript from './javascript';
-// import CodeMirror from './codemirror';
-// import CodeMirrorCss from './codemirror.css';
-require('codemirror/mode/javascript/javascript');
-require('codemirror/mode/xml/xml');
-require('codemirror/mode/markdown/markdown');
 
 var defaults = {
-    markdown : 'asdf'
+    markdown : 'asdf',
+    javascript : 'var component = {adsf}'
 }
 
 var CodeEditorItem  = createReactClass({
@@ -49,44 +49,66 @@ var CodeEditorItem  = createReactClass({
 			mode: this.state.mode
         }
         return(
-<div className = {styles.content}>
-                <div className = {styles.vanila}>
+    // <div className = {styles.content}>
+    //             <div className = {styles.vanila}>
 
-                    <div className = {styles.htmlArea}>
-                        <div className = {styles.htmlTopbar}>
-                            <span className = {styles.htmlTitle}>HTML</span>
-                        </div>
-                        <div className = {styles.htmlContent} >
-                    <CodeMirror ref = "editor" value = {this.state.code} onChange = {this.updateCode} options = {options} autoFocus = {true} />
+    //                 <div className = {styles.htmlArea}>
+    //                     <div className = {styles.htmlTopbar}>
+    //                         <span className = {styles.htmlTitle}>HTML</span>
+    //                     </div>
+    //                     <div className = {styles.htmlContent} >
+    //                 <CodeMirror ref = "editor" value = {this.state.code} onChange = {this.updateCode} options = {options} autoFocus = {true} />
 
-                        </div>
-                    </div>
-                    <div className = {styles.cssArea}>
-                        <div className = {styles.cssTopbar}>
-                            <span className = {styles.cssTitle}>CSS</span>
-                        </div>
-                        <div className = {styles.cssContent}>
+    //                     </div>
+    //                 </div>
+    //                 <div className = {styles.cssArea}>
+    //                     <div className = {styles.cssTopbar}>
+    //                         <span className = {styles.cssTitle}>CSS</span>
+    //                     </div>
+    //                     <div className = {styles.cssContent}>
 
-                        </div>
-                    </div>
+    //                     </div>
+    //                 </div>
 
-                    <div className = {styles.jsArea}>
-                        <div className = {styles.jsTopbar}>
-                            <span className = {styles.jsTitle}>JS</span>
-                        </div>
-                        <div className = {styles.jsContent}>
+    //                 <div className = {styles.jsArea}>
+    //                     <div className = {styles.jsTopbar}>
+    //                         <span className = {styles.jsTitle}>JS</span>
+    //                     </div>
+    //                     <div className = {styles.jsContent}>
 
-                        </div>
-                    </div>
+    //                     </div>
+    //                 </div>
 
-                </div>
-                <div className = {styles.preview}>
-                    <div className = {styles.previewTopbar}>
-                        <span className = {styles.previewTitle}>PREVIEW</span>
-                    </div>
-                    <div className = {styles.previewContent}></div>
-                </div>
-            </div>
+    //             </div>
+    //             <div className = {styles.preview}>
+    //                 <div className = {styles.previewTopbar}>
+    //                     <span className = {styles.previewTitle}>PREVIEW</span>
+    //                 </div>
+    //                 <div className = {styles.previewContent}></div>
+    //             </div>
+    //         </div>
+    <div className="container">
+    <h1>React Codemirror</h1>
+    <h2><a href="http://github.com/JedWatson/react-codemirror">View project on GitHub</a></h2>
+    
+    <div id="app">
+        <CodeMirror ref="editor" value={this.state.code} onChange={this.updateCode} options={options} autoFocus={true} />
+    <div style={{ marginTop: 10 }}>
+        <select onChange={this.changeMode} value={this.state.mode}>
+            <option value="markdown">Markdown</option>
+            <option value="javascript">JavaScript</option>
+        </select>
+        <button onClick={this.toggleReadOnly}>Toggle read-only mode (currently {this.state.readOnly ? 'on' : 'off'})</button>
+    </div></div>
+    <div className="hint">
+    </div>
+    <div className="footer">
+        Copyright &copy; 2016 Jed Watson.
+    </div>
+</div>
+
+    
+
         )
     }
     });

@@ -201,13 +201,13 @@ class AssetSetting extends React.Component{
         
         let card = [];
         
-            for(var i = 1; i< 8; i++){
-                // console.log(i);
-                card.push(<div className = {styles.imagePreview}>
-                    <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)} data-itemID = {i} />
-                    <button className = {styles.previewText}>{$imagePreview3}(파일을 선택하세요)</button>
-                </div>);
-            }
+            // for(var i = 1; i< 8; i++){
+            //     // console.log(i);
+            //     card.push(<div className = {styles.imagePreview}>
+            //         <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)} data-itemID = {i} />
+            //         <button className = {styles.previewText}>{$imagePreview3}(파일을 선택하세요)</button>
+            //     </div>);
+            // }
         
 
             if(this.state.ThumbnailUrl){
