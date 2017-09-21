@@ -71,6 +71,7 @@ class SlideEditor extends React.Component{
             <AssetCreator className={styles.assetCreator}/>
             <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
             {renderDialogs()}
+            {/*<AccountDialog className={styles.modal}/>*/}
             <div onClick={this.handleClick} className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
               <div className={styles.contextSpace}>
                 <SlideContext className={styles.slideContext}/>

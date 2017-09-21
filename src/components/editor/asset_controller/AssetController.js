@@ -27,7 +27,12 @@ class AssetController extends React.Component {
                                             underline = {this.props.currentSilde.assets[selectedAsset].style.fontUnderline}
                                             italic = {this.props.currentSilde.assets[selectedAsset].style.fontItalic}
                                             strikethrough = {this.props.currentSilde.assets[selectedAsset].style.fontStrikethrough}
-                                            textColor = {this.props.currentSilde.assets[selectedAsset].style.textColor}/>
+                                            textColor = {this.props.currentSilde.assets[selectedAsset].style.textColor}
+                                            textCharacterSpacing={this.props.currentSilde.assets[selectedAsset].style.characterSpacing}
+                                            textLineSpacing={this.props.currentSilde.assets[selectedAsset].style.lineSpacing}
+                                            fontWeight={this.props.currentSilde.assets[selectedAsset].style.fontWeight}
+                                            fontSize={this.props.currentSilde.assets[selectedAsset].style.fontSize}
+                                            font={this.props.currentSilde.assets[selectedAsset].style.font}/>
                     )
                 case actions.TYPE_VIDEO:
                     return(

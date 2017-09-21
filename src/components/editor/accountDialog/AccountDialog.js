@@ -7,6 +7,8 @@ import * as accountActions from '../../../actions/account';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import styles from './AccountDialog.css';
+
 class AccountDialog extends React.Component{
 
 responseGoogle(response){
@@ -52,23 +54,41 @@ requestLoginWithSNS(platform, accessToken, name, email, profile){
 }
 
   render(){
-  return (<div className={this.props.className}>
-    <header>
-      <h1>ASSET EDITOR</h1>
-    </header>
-    <content>
-    <GoogleLogin
-      clientId="201742033376-s4258t2qoo2be1aej3lb1qturs6kgsp3.apps.googleusercontent.com"
-      buttonText="Login"
-      onSuccess={this.responseGoogle}
-      onFailure={this.responseGoogle}
-    />
-    <FacebookLogin
-      appId="126194874696091"
-      autoLoad={true}
-      fields="name,email,picture"
-      callback={this.responseFacebook} />,
-    </content>
+    return (
+      <div className={this.props.className}>
+        <div className={styles.left_img}>
+          asdf
+        </div>
+        <div className={styles.right_contents}>
+          <div className={styles.login}>
+            <div className={styles.login_wrapper}>
+              <p className={styles.login_title}>아이디</p>
+              <input type="text" className={styles.login_input}/>
+            </div>
+            <div className={styles.login_wrapper}>
+              <p className={styles.login_title}>비밀번호</p>
+              <input type="text" className={styles.login_input} />
+            </div>
+            <div className={styles.login_button_wrapper}>
+              <button type="submit" value="로그인" className={styles.login_button}/>
+              <p className={styles.signup_button}>계정이 없으신가요?</p>
+            </div>
+          </div>
+          <div className={styles.another_login}>
+              <GoogleLogin
+                style={{width:"100%", height:"40px","border-radius":"20px", marginTop:"20px" , background:"rgb(209, 72, 54)", color:"rgb(255, 255, 255)", "font-size":"16px", "font-weight":"bold", }}
+                clientId="201742033376-s4258t2qoo2be1aej3lb1qturs6kgsp3.apps.googleusercontent.com"
+                buttonText="구글로 로그인"
+                onSuccess={this.responseGoogle}
+                onFailure={this.responseGoogle}/>
+              <FacebookLogin
+                style={{width:"100%", height:"40px","border-radius":"20px", marginTop:"20px" , background:"#4c69ba", color:"rgb(255, 255, 255)", "font-size":"16px", "font-weight":"bold", }}
+                appId="126194874696091"
+                autoLoad={true}
+                fields="name,email,picture"
+                callback={this.responseFacebook} />
+            </div>
+        </div>
   </div>
   );
   }

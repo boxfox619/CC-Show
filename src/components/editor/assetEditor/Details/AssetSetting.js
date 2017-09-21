@@ -228,16 +228,12 @@ class AssetSetting extends React.Component{
             }else{
                 $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);                
             }
-<<<<<<< HEAD
 
             this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) : $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
 
             this.state.previewInputUrl ? $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>) : $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
        
             this.state.previewInputUrl2 ? $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>) : $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
-
-=======
->>>>>>> c048976f0d35271340f4d272036b7ca454c3abc1
 
             this.state.previewInputUrl3 ? $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
         
