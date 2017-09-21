@@ -46,17 +46,6 @@ class ContextMenu extends React.Component {
                 <div onClick={this.handleOptionClick} className={styles.option+' '+((!!this.state.assetId)?'':styles.disabled)}>삭제<div className={styles.shortcut}>Ctrl + D</div></div>
                 <div onClick={this.handleOptionClick} className={styles.option+' '+((!!this.state.assetId)?'':styles.disabled)}>잘라내기<div className={styles.shortcut}>Ctrl + X</div></div>
                 <div className={styles.separator}/>
-                <div className={styles.option+' '+((!!this.state.assetId)?'':styles.disabled)}>변형<div className={styles.submenu}></div>
-                <div className={styles.contextMenu}>
-                  <div className={styles.content}>
-                    <div onClick={this.handleOptionClick} className={styles.option}>이동<div className={styles.shortcut}>SHIFT+CTRL+M</div></div>
-                    <div onClick={this.handleOptionClick} className={styles.option}>회전</div>
-                    <div onClick={this.handleOptionClick} className={styles.option}>반사</div>
-                    <div onClick={this.handleOptionClick} className={styles.option}>크기조절</div>
-                    <div onClick={this.handleOptionClick} className={styles.option}>기울이기</div>
-                    </div>
-                    </div>
-                </div>
                 <div className={styles.option+' '+((!!this.state.assetId)?'':styles.disabled)}>정렬<div className={styles.submenu}></div>
                 <div className={styles.contextMenu}>
                   <div className={styles.content}>
