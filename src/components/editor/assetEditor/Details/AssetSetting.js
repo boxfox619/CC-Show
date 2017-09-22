@@ -121,6 +121,7 @@ class AssetSetting extends React.Component{
                         previewInputimg : ''
                     }
                 });
+                
                 break;
 
                 case 'pushPreviewInputimg':
@@ -200,34 +201,31 @@ class AssetSetting extends React.Component{
         // }
         
         let card = [];
-        
+    
+
+        // let CardRepeat =  cardContent.map((card)=> cardContent * 8);
+       
             // for(var i = 1; i< 8; i++){
             //     // console.log(i);
-            //     card.push(<div className = {styles.imagePreview}>
-            //         <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)} data-itemID = {i} />
-            //         <button className = {styles.previewText}>{$imagePreview3}(파일을 선택하세요)</button>
-            //     </div>);
+                // card.push(<div className = {styles.imagePreview}>
+                //     <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)} data-itemID = {i} />
+                //     <button className = {styles.previewText}>{$imagePreview3}(파일을 선택하세요)</button>
+                // </div>);
             // }
-        
+            const CardComponent = props => <div className = {styles.imagePreview}>
+            <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)} />
+            <button className = {styles.previewText}>{$imagePreview3}</button>
+            </div>;
 
-            if(this.state.ThumbnailUrl){
-                $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>);
-            }else{
-                $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
+            for(var i = 1; i< 8; i++){
+                card.push(<CardComponent key = {i} />)
             }
-       
-            if(this.state.previewInputUrl){
-                
-                $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>);
-            }else{
-                $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
-            }
-            
-            if(this.state.previewInputUrl2){
-                $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>);
-            }else{
-                $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);                
-            }
+
+            this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) :$imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
+
+            this.state.previewInputUrl ?  $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>) :$imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
+          
+            this.state.previewInputUrl2 ? $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>) :$imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
 
             this.state.previewInputUrl3 ? $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
         
@@ -278,8 +276,8 @@ class AssetSetting extends React.Component{
                                 <button className = {styles.previewText}>{$imagePreview3}</button>
                             </div>
                 
-
-                    {card}
+                            {card}
+                            
                            
                            
 
@@ -320,7 +318,8 @@ class AssetSetting extends React.Component{
     </div>
         );
     }
-
-    
 }
+
+
+
 export default AssetSetting;
