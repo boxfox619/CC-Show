@@ -1,4 +1,4 @@
-import { actionTypes, dialogs } from '../actions/ui';
+import { actionTypes, dialogs } from '../../actions/ui';
 import update from 'react-addons-update';
 
 const initialState = {
