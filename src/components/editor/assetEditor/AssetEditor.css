@@ -91,3 +91,12 @@ body {
   color: rgb(123, 123, 123);
   font-weight: bold;
 }
+
+.sideBar{
+  width: 30px;
+  height: 255px;
+  position: absolute;
+  z-index: 2;
+  background-color: rgb(245, 245, 245);
+  border-right: 1px solid #ddd;
+}
