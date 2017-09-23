@@ -7,8 +7,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.7.0/codemirror.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.7.0/theme/solarized.min.css">
         <style>
-          .CodeMirror-linenumber{
-            left: -30px !important;
+          .CodeMirror-gutter-wrapper{
+            position: absolute;
+          }
+          .CodeMirror-gutter .CodeMirror-linenumbers{
+              
           }
           .cm-s-default{
               height : 255px;
@@ -16,13 +19,18 @@
           }
           .CodeMirror-scroll{
               height: 240px;
-              overflow : scroll
+              /* overflow-y : scroll */
           }
           .CodeMirror-gutters{
-            position: absolute;
-            z-index: 1;
+             /* position: absolute; */
+            /* z-index: 1; */ 
             /* height: 1000px !important; */
             
+          }
+          .CodeMirror-gutter-elt{
+              /* position: absolute; */
+              z-index: 4;
+              position: absolute;
           }
 
         </style>

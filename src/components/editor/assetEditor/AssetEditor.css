@@ -60,6 +60,11 @@ body {
   height: 280px;
   border-right: 1px solid #DFDFDF;
 }
+.jsArea{
+  float: left;
+  width: 384px;
+  height: 280px;
+}
 .topArea{
   width: 385px;
   height: 25px;
@@ -98,5 +103,5 @@ body {
   position: absolute;
   z-index: 2;
   background-color: rgb(245, 245, 245);
-  border-right: 1px solid #ddd;
+  /* border-right: 1px solid #ddd; */
 }
