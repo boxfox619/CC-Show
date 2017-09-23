@@ -6,6 +6,12 @@ import { connect } from 'react-redux';
 import AssetEditorItem from './Details/AssetEditorItem';
 import CodeEditor from './Code/CodeEditor.js'
 
+import CodeMirror from 'react-codemirror';
+import jsMode from 'codemirror/mode/javascript/javascript';
+import htmlMode from 'codemirror/mode/htmlmixed/htmlmixed';
+import cssMode from 'codemirror/mode/css/css';
+
+
 const tabs = [
 {name:'Details'},
 {name:'Code'}];
@@ -50,7 +56,7 @@ class AssetEditor extends React.Component{
           return(
             <div>
             <Thumbnail id={this.state.id} />
-           
+
             </div>
           );
       }else{
@@ -66,6 +72,10 @@ class AssetEditor extends React.Component{
     }
   }
 
+    var options = {
+      lineNumbers: true,
+      mode: 'javascript'
+    };
     return (
       <div className={this.props.className}>
         <header>
@@ -74,13 +84,11 @@ class AssetEditor extends React.Component{
             {renderTabs(tabs)}
           </tabholder>
         </header>
-        <content>
-          <div>
-            {renderEditors()}
-            {this.state.content}
-          </div>
-            {renderDetailsItems()}
-        </content>
+        <div>
+          <CodeMirror className={styles.codeEditor} value={'asdasdasdasd'}  options={{lineNumbers: true, mode: 'javascript'}} />
+          <CodeMirror className={styles.codeEditor} value={'asdasdasdasd'}  options={{lineNumbers: true, mode: 'htmlmixed'}} />
+          <CodeMirror className={styles.codeEditor} value={'asdasdasdasd'}  options={{lineNumbers: true, mode: 'css'}} />
+        </div>
       </div>
     );
   }

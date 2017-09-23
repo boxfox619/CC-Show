@@ -106,6 +106,17 @@ module.exports = function(realm) {
           return res.status(400).end('You need login');
         }
     });
+
+    router.post('/simple/', (req, res)=>{
+        console.log(colors.green('[REQ]'),getIP(req), 'asset lookup', req.query.id);
+        if(!!req.body.id&&realm.objects('SimpleAsset').filtered('id=$0',req.body.id).length>0){
+          let asset = realm.objects('SimpleAsset').filtered('id=$0',req.body.id)[0];
+          let html = '<style>'+asset.css+'</style>'+asset.html+'<script>'+asset.js+'</script>';
+          return res.json({code : html});
+        }else{
+          return res.status(400).end('Target not found');
+        }
+    });
     /* simple asset end */
 
 
