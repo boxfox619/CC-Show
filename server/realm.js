@@ -30,6 +30,18 @@ const AssetScriptSchema = {
   }
 }
 
+const SimpleAssetSchema = {
+  name: 'SimpleAsset',
+  primaryKey: 'id',
+  properties: {
+    id: {type: 'int', indexed: true },
+    html: {type: 'string', default: ''},
+    css: {type:'string', default: ''},
+    js: {type: 'string', default: ''}
+  }
+}
+
+
 const UserSchema = {
   name: 'User',
   primaryKey: 'id',
@@ -41,7 +53,34 @@ const UserSchema = {
   }
 };
 
+// const SlideSchema = {
+//   name: 'Slide',
+//   primaryKey: 'id',
+//   properties: {
+//       name: {type:'string' },
+//       id: {type:'int'},
+//       thumbnail: {type:'string', default: ''},
+//       note: {type:'string', default: ''},
+//       selectedAsset: {type: 'string', optional: true},
+//       assetIdCount: {type: 'int', default: 0},
+//       assets: {type:'string', default:'[]'}
+//   }
+// }
 
-const realm = new Realm({schema: [UserSchema, AssetSchema]});
+const ShowSchema = {
+  name: 'Show',
+  primaryKey: 'id',
+  properties: {
+    id: {type:'string'},
+    name: {type: 'string', default:'새 발표자료1'},
+    sizeUnit: {type: 'string', default:'px'},
+    positionUnit: {type: 'string', default: 'px'},
+    selectedSlide: {type: 'int', default: 0},
+    slideIdCount: {type: 'int', default:0},
+    slides: {type: 'string', default: '[]'}
+  }
+}
+
+const realm = new Realm({schema: [UserSchema, AssetSchema, ShowSchema, SimpleAssetSchema ]});
 
 module.exports = realm;
