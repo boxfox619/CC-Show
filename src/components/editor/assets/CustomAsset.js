@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const propTypes = {
   styles: React.PropTypes.object.isRequired,
-  id: React.PropTypes.integer.isRequired
+  value: React.PropTypes.string.isRequired
 };
 
 class CustomAsset extends React.Component{
@@ -26,7 +26,7 @@ class CustomAsset extends React.Component{
   }
 
   componentDidMount(){
-    axios.post('/store/simple/?id='+this.props.id)
+    axios.post('/store/simple/?id='+this.props.value)
     .then(response => {
       this.setState(code : response.data.code);
     }).catch(err => {

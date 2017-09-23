@@ -35,8 +35,8 @@ const SimpleAssetSchema = {
   primaryKey: 'id',
   properties: {
     id: { type: 'int', indexed: true },
-    html: { type: 'string', default: '' },
-    css: { type: 'string', default: '' },
+    html: { type: 'string', default: '<div class="test"></div>' },
+    css: { type: 'string', default: '.test{ width: 100px; height: 200px; background: red;}' },
     js: { type: 'string', default: '' }
   }
 };

@@ -86,6 +86,8 @@ const editor = (state = initialState, action) => {
           ...newAsset,
           style: {}
         }
+      } else if (action.assetType === assetTypes.TYPE_CUSTOM) {
+
       } else {
         alert('type error');
       }
