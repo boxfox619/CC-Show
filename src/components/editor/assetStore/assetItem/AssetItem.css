@@ -84,7 +84,7 @@
   width: 20px;
   height: 24px;
   cursor: pointer;
-  background: url('/images/ic_bookmark_white.png');
+    background: url('/images/ic_bookmark_red.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -98,6 +98,16 @@
   width:100%;
   height: 100%;
   background: gray;
+  position: relative;
+}
+
+.thumbnail img{
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
 }
 
 .footer{
@@ -140,6 +150,12 @@
   height: 18px;
   display: inline-block;
   background: url('/images/ic_star_white.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.footer .stars .star.active{
+  background: url('/images/ic_star_yellow.png');
   background-repeat: no-repeat;
   background-position: center;
 }

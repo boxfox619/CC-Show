@@ -4,7 +4,7 @@ import SlideContext from './context/SlideContext';
 import AssetController from './asset_controller/AssetController';
 import SlideManager from './slideManager/SlideManager';
 import AssetStore from './assetStore/AssetStore';
-//import AssetEditor from './assetEditor/AssetEditor';
+import AssetEditor from './assetEditor/AssetEditor';
 
 import SlideShow from './slide_show/SlideShow'
 import { dialogs, colorPicker } from '../../actions/ui';
