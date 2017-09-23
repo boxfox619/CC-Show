@@ -16,6 +16,16 @@
     position: relative;
 }
 
+.slide_contents img.slide{
+  position: absolute;
+  background: #ffffff;
+  height: 414px;
+  width: 720px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .slideSubContents {
     height: 25%;
     margin: 0;

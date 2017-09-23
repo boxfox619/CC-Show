@@ -107,10 +107,10 @@ module.exports = function(realm) {
         }
     });
 
-    router.post('/simple/', (req, res)=>{
+    router.get('/simple/', (req, res)=>{
         console.log(colors.green('[REQ]'),getIP(req), 'asset lookup', req.query.id);
-        if(!!req.body.id&&realm.objects('SimpleAsset').filtered('id=$0',req.body.id).length>0){
-          let asset = realm.objects('SimpleAsset').filtered('id=$0',req.body.id)[0];
+        if(!!req.query.id&&realm.objects('SimpleAsset').filtered('id=$0',parseInt(req.query.id)).length>0){
+          let asset = realm.objects('SimpleAsset').filtered('id=$0',parseInt(req.query.id))[0];
           let html = '<style>'+asset.css+'</style>'+asset.html+'<script>'+asset.js+'</script>';
           return res.json({code : html});
         }else{

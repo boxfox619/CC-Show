@@ -9,6 +9,17 @@ import * as assetsActions from '../../../actions/assets'
 
 import SlideTitle from './slideTitle/SlideTitle';
 
+function getAssetNode(parent, child) {
+     var node = child.parentNode;
+     while (node != null) {
+         if (node.tagName == parent) {
+             return node;
+         }
+         node = node.parentNode;
+     }
+     return null;
+}
+
 class SlideContext extends React.Component{
 
   /* mouseDowned
@@ -130,8 +141,8 @@ class SlideContext extends React.Component{
       document.activeElement.blur();
       e.target.focus();
       this.mouseDowned = true;
-      if(e.target.parentNode.parentNode.tagName == 'ASSET'){
-          this.props.assetSelected(e.target.parentNode.parentNode.id);
+      if(!!getAssetNode('ASSET', e.target)){
+          this.props.assetSelected(getAssetNode('ASSET', e.target).id);
           this.mouseAction = 'move';
           if(e.target.tagName=='SELECTORDOT'||e.target.tagName=='SELECTORLINE'){
             this.mouseAction = 'resize';
