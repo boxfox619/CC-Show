@@ -27,17 +27,19 @@ module.exports = function(realm) {
 
     const router = express.Router();
 
+
+        function slidesToArray(realmResult){
+          return realmResult.map(x => {
+            let show = JSON.parse(JSON.stringify(x));
+            show.slides = JSON.parse(show.slides);
+            return show;
+          });
+        }
+
     router.get('/', (req, res) => {
       if(!!req.signedCookies.user){
-        return res.json({
-          id: show.id,
-          name: show.name,
-          sizeUnit: show.sizeUnit,
-          positionUnit: show.positionUnit,
-          selectedSlide: show.selectedSlide,
-          slideIdCount: show.slideIdCount,
-          slides: JSON.parse(show.slides)
-        });
+        let shows = realm.objects('Slide').filtered('user = "'+req.signedCookies.user.key+'"');
+        return res.json(slidesToArray(shows)});
       }else{
         return res.status(400).end('You need login');
       }
@@ -52,17 +54,10 @@ module.exports = function(realm) {
           }
           return realm.write(() => {
             let show = realm.create('Show', {
-              id: showId
+              id: showId,
+              user: req.signedCookies.user.id
             });
-            return res.json({
-              id: show.id,
-              name: show.name,
-              sizeUnit: show.sizeUnit,
-              positionUnit: show.positionUnit,
-              selectedSlide: show.selectedSlide,
-              slideIdCount: show.slideIdCount,
-              slides: JSON.parse(show.slides)
-            });
+            return res.json(slidesToArray(show));
           });
         }else{
           return res.status(400).end('You need login');
@@ -74,21 +69,13 @@ module.exports = function(realm) {
       let showId = req.body.showId;
       let show = realm.objects('Slide').filtered('id = "'+showId+'"');
       return realm.write(() => {
-        show.name = req.body.name;
-        show.sizeUnit = req.body.sizeUnit;
-        show.positionUnit = req.body.positionUnit;
-        show.selectedSlide = req.body.selectedSlide;
-        show.slideIdCount = req.body.slideIdCount;
-        show.slides = JSON.stringify(req.body.slides);
-        return res.json({
-          id: show.id,
-          name: show.name,
-          sizeUnit: show.sizeUnit,
-          positionUnit: show.positionUnit,
-          selectedSlide: show.selectedSlide,
-          slideIdCount: show.slideIdCount,
-          slides: JSON.parse(show.slides)
-        });
+        show[0].name = req.body.name;
+        show[0].sizeUnit = req.body.sizeUnit;
+        show[0].positionUnit = req.body.positionUnit;
+        show[0].selectedSlide = req.body.selectedSlide;
+        show[0].slideIdCount = req.body.slideIdCount;
+        show[0].slides = JSON.stringify(req.body.slides);
+        return res.json(slidesToArray(show));
       });
     });
 

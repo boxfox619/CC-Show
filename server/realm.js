@@ -76,6 +76,7 @@ const ShowSchema = {
   primaryKey: 'id',
   properties: {
     id: {type:'string'},
+    user: {type: 'string'},
     name: {type: 'string', default:'새 발표자료1'},
     sizeUnit: {type: 'string', default:'px'},
     positionUnit: {type: 'string', default: 'px'},
