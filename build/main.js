@@ -45,6 +45,8 @@ const account = require('./routes/account');
 app.use('/account', account(realm));
 const store = require('./routes/store');
 app.use('/store', store(realm));
+const show = require('./routes/show');
+app.use('/show', account(show));
 
 const server = app.listen(port, () => {
     console.log('Express listening on port', port);

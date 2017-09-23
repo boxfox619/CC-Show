@@ -42,7 +42,7 @@ class ShowListContext extends React.Component{
   }
 
   openShow(id){
-    console.log('open');
+
   }
 
   shareShow(id){

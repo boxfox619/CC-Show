@@ -110,10 +110,10 @@ module.exports = function(realm) {
             realm.create('SimpleAsset', {
               id,
               user: req.signedCookies.user.id,
-              asset.css : req.body.css,
-              asset.js : req.body.js,
-              asset.html : req.body.html,
-              asset.thumbnail : req.body.thumbnail
+              css : req.body.css,
+              js : req.body.js,
+              html : req.body.html,
+              thumbnail : req.body.thumbnail
             });
           return res.json({id});
         });

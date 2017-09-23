@@ -39,7 +39,7 @@ module.exports = function(realm) {
     router.get('/', (req, res) => {
       if(!!req.signedCookies.user){
         let shows = realm.objects('Slide').filtered('user = "'+req.signedCookies.user.key+'"');
-        return res.json(slidesToArray(shows)});
+        return res.json(slidesToArray(shows));
       }else{
         return res.status(400).end('You need login');
       }

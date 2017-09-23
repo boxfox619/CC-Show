@@ -102,20 +102,21 @@ module.exports = function (realm) {
     });
   });
 
-  router.post('/simple/update/', (req, res) => {
-    console.log(colors.green('[REQ]'), getIP(req), 'asset update', req.body.id, req.body.target);
+  router.post('/simple/create/', (req, res) => {
+    console.log(colors.green('[REQ]'), getIP(req), 'new asset');
     if (!!req.signedCookies.user) {
-      if (!!req.body.id && realm.objects('SimpleAsset').filtered('id=$0', req.body.id).length > 0) {
-        let asset = realm.objects('SimpleAsset').filtered('id=$0', req.body.id)[0];
-        return realm.write(() => {
-          asset.css = req.body.css;
-          asset.js = req.body.js;
-          asset.html = req.body.html;
-          return res.status(200).end();
+      let id = realm.objects('SimpleAsset').length;
+      return realm.write(() => {
+        realm.create('SimpleAsset', {
+          id,
+          user: req.signedCookies.user.id,
+          css: req.body.css,
+          js: req.body.js,
+          html: req.body.html,
+          thumbnail: req.body.thumbnail
         });
-      } else {
-        return res.status(400).end('Target not found');
-      }
+        return res.json({ id });
+      });
     } else {
       return res.status(400).end('You need login');
     }
