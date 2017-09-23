@@ -19,6 +19,8 @@ class SlideShow extends React.Component{
     }
 
     render(){
+      let showNote = this.props.slides[this.state.selectedSlide].note;
+      showNote = (showNote== undefined)?'':showNote;
           return(
               <div className={this.props.className}>
                 <header>
@@ -30,7 +32,7 @@ class SlideShow extends React.Component{
                             <img src="images/ic_arrow_left_big.png"/>
                         </div>
 
-                        <img src={this.props.slides[this.state.selectedSlide].thumbnail}/>
+                        <img className={styles.slide} src={this.props.slides[this.state.selectedSlide].thumbnail}/>
 
                         <div onClick={()=>this.doSlide(+1)} className={styles.slideController+' '+styles.next_slide}>
                             <img src="images/ic_arrow_right_big.png"/>
@@ -40,7 +42,7 @@ class SlideShow extends React.Component{
                     </div>
                     <div className={styles.slideSubContents}>
                         <div className={styles.slideShowNote}>
-                            <input type="text" onChange={this.slideNoteChangeHandler} className={styles.slideShowNote_content} placeholder="쇼 노트를 입력하세요" value={this.props.slides[this.state.selectedSlide].note}/>
+                            <textarea type="text" onChange={this.slideNoteChangeHandler} className={styles.slideShowNote_content} placeholder="쇼 노트를 입력하세요" value={showNote}/>
                         </div>
                         <hr className={styles.split}/>
                         <div className={styles.slideNumberWrapper}>
