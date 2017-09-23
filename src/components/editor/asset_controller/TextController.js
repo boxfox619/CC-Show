@@ -18,6 +18,10 @@ class TextController extends React.Component{
 
         this.textOn=this.textOn.bind(this);
         this.textOff=this.textOff.bind(this);
+        this.setFontSize=this.setFontSize.bind(this);
+        this.setCharacterSpacing=this.setCharacterSpacing.bind(this);
+        this.setFontWeight=this.setFontWeight.bind(this);
+        this.setLineSpacing=this.setLineSpacing.bind(this);
     }
 
     render(){
@@ -44,54 +48,26 @@ class TextController extends React.Component{
                     </div>
 
                     <div className={styles.control_item}>
-                        <select onChange={this.setFontWeight}>
-                            <option value="">asdfa</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
+                        <input type="text" className={styles.attribute_item_input} value={this.props.fontWeight} onChange={this.setFontWeight}/>
                     </div>
                 </div>
 
                 <div>
                     <div className={styles.control_item}>
                         <img src="/images/ic_format_size.png"/>
-                        <select onChange={this.setFontSize}>
-                            <option value="">asd</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
+                        <input type="text" className={styles.attribute_item_input} value={this.props.textLineSpacing} onChange={this.setFontSize}/>
                     </div>
 
                     <div className={styles.control_item}>
                         <img src="/images/ic_format_line.png"/>
-                        <select onChange={this.setLineSpacintg}>
-                            <option value="">asdfa</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
+                        <input type="text" className={styles.attribute_item_input} value={this.props.textLineSpacing} onChange={this.setLineSpacing}/>
                     </div>
                 </div>
 
                 <div>
                     <div className={styles.control_item}>
                         <img src="/images/ic_between.png"/>
-                        <select onChange={this.setCharacterSpacintg}>
-                            <option value="">자동</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
+                        <input type="text" className={styles.attribute_item_input} value={this.props.textCharacterSpacing} onChange={this.setCharacterSpacing}/>
                     </div>
 
                     <div className={styles.control_item}>
@@ -149,26 +125,40 @@ class TextController extends React.Component{
         });
     }
 
-    syntaxHighlight(json) {
-        if (typeof json != 'string') {
-            json = JSON.stringify(json, undefined, 2);
+    setFontWeight(event) {
+        let {value}=event.target;
+        let intValue=parseInt(value);
+        if(isNaN(intValue)){
+            intValue=0;
         }
-        json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-        let cls = 'number';
-            if (/^"/.test(match)) {
-                if (/:$/.test(match)) {
-                    cls = 'key';
-                } else {
-                    cls = 'string';
-                }
-            } else if (/true|false/.test(match)) {
-                cls = 'boolean';
-            } else if (/null/.test(match)) {
-                cls = 'null';
-            }
-            return '<span class="' + cls + '">' + match + '</span>';
-        });
+        this.props.setAssetFontWeight(intValue);
+    }
+
+    setFontSize(event) {
+        let {value}=event.target;
+        let intValue=parseInt(value);
+        if(isNaN(intValue)){
+            intValue=0;
+        }
+        this.props.setAssetFontSize(intValue);
+    }
+
+    setLineSpacing(event) {
+        let {value}=event.target;
+        let intValue=parseInt(value);
+        if(isNaN(intValue)){
+            intValue=0;
+        }
+        this.props.setAssetTextLineSpacing(intValue);
+    }
+
+    setCharacterSpacing(event) {
+        let {value}=event.target;
+        let intValue=parseInt(value);
+        if(isNaN(intValue)){
+            intValue=0;
+        }
+        this.props.setAssetTextCharacterSpacing(intValue);
     }
 }
 

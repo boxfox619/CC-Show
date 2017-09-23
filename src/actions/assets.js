@@ -225,6 +225,7 @@ export function setAssetTextLineSpacing(value) {
 }
 
 export function setAssetFontWeight(value) {
+  console.log(value);
   return{
     type: actionTypes.ASSET_SET_TEXT_FONT_WEIGHT,
     value

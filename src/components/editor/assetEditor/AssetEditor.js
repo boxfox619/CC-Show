@@ -3,8 +3,6 @@ import styles from './AssetEditor.css';
 import Thumbnail from './Thumbnail';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import AssetEditorItem from './Details/AssetEditorItem';
-import CodeEditor from './Code/CodeEditor.js'
 
 import CodeMirror from 'react-codemirror';
 import jsMode from 'codemirror/mode/javascript/javascript';

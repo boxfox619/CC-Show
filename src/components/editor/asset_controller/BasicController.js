@@ -39,6 +39,8 @@ class BasicController extends React.Component{
         this.styleOff=this.styleOff.bind(this);
 
         this.setStyle=this.setStyle.bind(this);
+
+        this.JSONstringify=this.JSONstringify.bind(this);
     }
 
     render(){
@@ -108,13 +110,51 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.style ? {} : {display:'none'}} className={styles.items}>
                         <div id={styles.input_style}>
-                            <textarea onChange={this.setStyle.bind()} rows="" cols="" value={JSON.stringify(this.props.style)}></textarea>
+                            <textarea onChange={this.setStyle.bind()} rows="" cols="" value={this.JSONstringify(this.props.style)}></textarea>
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
+
+    JSONstringify(json) {
+        if (typeof json != 'string') {
+            json = JSON.stringify(json, undefined, '\t');
+        }
+
+        var arr = [],
+            _string = 'color:green',
+            _number = 'color:darkorange',
+            _boolean = 'color:blue',
+            _null = 'color:magenta',
+            _key = 'color:red';
+
+        json = json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+            var style = _number;
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    style = _key;
+                } else {
+                    style = _string;
+                }
+            } else if (/true|false/.test(match)) {
+                style = _boolean;
+            } else if (/null/.test(match)) {
+                style = _null;
+            }
+            arr.push(style);
+            arr.push('');
+            return '%c' + match + '%c';
+        });
+
+        arr.unshift(json);
+
+        console.log.apply(console, arr);
+        console.log(json);
+        return json;
+    }
+
     setHeight(event) {
         let {value}=event.target;
         let intValue=parseInt(value);
