@@ -31,7 +31,7 @@ class AssetCreator extends React.Component{
   }
 
   render(){
-    this.porps.createCustomAsset(3);
+    this.props.createCustomAsset(3);
     return (
       <div className={this.props.className}>
       <div style={{'width': '80%', 'margin': '20px 10%'}}>
