@@ -86,6 +86,7 @@ class AssetEditor extends React.Component{
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>HTML</span>
               </div>
+              <div className = {styles.sideBar}></div>
               <CodeMirror className={styles.codeEditor} value={'<html><body></body></html>'}  options={{lineNumbers: true, mode: 'htmlmixed'}} />
 
             </div>
@@ -101,6 +102,7 @@ class AssetEditor extends React.Component{
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>JS</span>
               </div>
+              <div className = {styles.sideBar}></div>
               <CodeMirror className={styles.codeEditor} value={'function hey(){}'}  options={{lineNumbers: true, mode: 'javascript'}} />
 
             </div>
