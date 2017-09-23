@@ -130,19 +130,6 @@ const editor = (state = initialState, action) => {
           }
         )
       }
-    case actionTypes.SLIDE_SET_NOTE:
-    return {
-      ...state,
-      slides: update(
-        state.slides, {
-          [action.target]: {
-            note: {
-              $set: action.note
-            }
-          }
-        }
-      )
-    };
     case actionTypes.ASSET_SELECTED:
       return {
         ...state,
@@ -915,6 +902,19 @@ const editor = (state = initialState, action) => {
         ...state,
         slides: insertItem(state.slides, action.to, state.slides.splice(action.from, 1)[0])
       }
+    case slideActionTypes.SLIDE_SET_NOTE:
+    return {
+      ...state,
+      slides: update(
+        state.slides, {
+          [action.target]: {
+            note: {
+              $set: action.note
+            }
+          }
+        }
+      )
+    };
     default:
       return state;
   }

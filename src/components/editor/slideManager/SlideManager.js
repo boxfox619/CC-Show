@@ -4,7 +4,6 @@ import styles from './SlideManager.css';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import domtoimage from 'dom-to-image';
 
 import SlidePreview from './slidePreview/SlidePreview';
 import SlideCreator from './SlideCreator';
@@ -27,7 +26,6 @@ class SlideManager extends React.Component{
     this.dragEnd = this.dragEnd.bind(this);
     this.dragOver = this.dragOver.bind(this);
     this.selectSlide = this.selectSlide.bind(this);
-    this.updateThumbnailSlide = this.updateThumbnailSlide.bind(this);
   }
 
   render(){
@@ -51,8 +49,6 @@ class SlideManager extends React.Component{
         })
       };
 
-      if(this.props.className.includes('show'))
-        this.updateThumbnailSlide();
     return (
       <div className={this.props.className}>
         <div className={styles.inner}>
@@ -70,21 +66,8 @@ class SlideManager extends React.Component{
     );
   }
 
-  updateThumbnailSlide(){
-      let node = document.getElementsByTagName('scanvas')[0];
-      let self = this;
-      let currentSilde = this.props.currentSilde;
-      domtoimage.toPng(node)
-      .then(function (dataUrl) {
-          self.props.updateThumbnailSlide(currentSilde, dataUrl);
-      })
-      .catch(function (error) {
-          console.error(error);
-      });
-  }
 
   componentDidMount(){
-    this.updateThumbnailSlide();
   }
 
   selectSlide(target){

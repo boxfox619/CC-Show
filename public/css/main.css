@@ -648,14 +648,22 @@ section#final .footer .sns img {
   height: 100%;
 }
 
-.login {
-  margin: 80px 40px 40px 40px;
+.signin {
+  margin: 70px 40px 40px 40px;
 }
 
-.login:ho
+.signup{
+  margin: 100px 40px 70px 40px;
+}
 
 .login_title {
   margin: 0;
+  font-family: 'NanumSquareEB';
+}
+
+.signup_title {
+  margin: 0;
+  font-family: 'NanumSquareEB';
 }
 
 .login_input {
@@ -669,13 +677,33 @@ section#final .footer .sns img {
   border-bottom: 2px solid rgba(0, 0, 0, 0.9);
 }
 
+.signup_input {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.signup_input:focus {
+  outline: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.9);
+}
+
 .login_wrapper {
+  margin-bottom: 30px;
+}
+
+.signup_wrapper {
   margin-bottom: 30px;
 }
 
 .login_button_wrapper {
   display: table;
   width: 100%;
+}
+
+.signup_button_wrapper {
+  display: table;
+    width: 100%;
 }
 
 #login {
@@ -697,6 +725,27 @@ section#final .footer .sns img {
   display: table-cell;
   cursor: pointer;
 }
+
+#signup{
+  background: #1082E2;
+}
+
+#signup:hover{
+  background: rgba(16, 130, 226, 0.7);
+}
+
+.signup_button_submit {
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 20px;
+  font-family: 'NanumSquareEB';
+  color: white;
+  width: 150px;
+  height: 40px;
+  display: table-cell;
+  cursor: pointer;
+}
+
 
 .signup_button {
   text-align: center;
