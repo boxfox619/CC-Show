@@ -4,12 +4,8 @@ import SlideContext from './context/SlideContext';
 import AssetController from './asset_controller/AssetController';
 import SlideManager from './slideManager/SlideManager';
 import AssetStore from './assetStore/AssetStore';
-<<<<<<< HEAD
 //import AssetEditor from './assetEditor/AssetEditor';
-=======
-import AssetEditor from './assetEditor/AssetEditor';
-import AccountDialog from './accountDialog/AccountDialog';
->>>>>>> a92cd3653b58d7477cfa5121bf2a6140cbd26dbd
+
 import SlideShow from './slide_show/SlideShow'
 import { dialogs, colorPicker } from '../../actions/ui';
 
@@ -55,11 +51,8 @@ class SlideEditor extends React.Component{
           case dialogs.ASSET_STORE:
             return (<AssetStore className={styles.modal}/>);
           case dialogs.ASSET_EDITOR:
-<<<<<<< HEAD
            return (<AssetEditor className={styles.modal}/>);
-=======
-            return (<AssetEditor className={styles.modal}/>);
->>>>>>> 9895f50b6e1bafbd6c64fbf8d94c34d9d7047cfd
+
           case dialogs.ACCOUNT_WITH_SNS:
             return (<AccountDialog className={styles.modal}/>);
           case dialogs.COLOR_PICKER:

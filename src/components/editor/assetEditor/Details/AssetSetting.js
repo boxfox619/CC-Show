@@ -221,19 +221,11 @@ class AssetSetting extends React.Component{
                 card.push(<CardComponent key = {i} />)
             }
 
-<<<<<<< HEAD
             this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) : $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
 
             this.state.previewInputUrl ? $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>) : $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
        
             this.state.previewInputUrl2 ? $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>) : $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
-=======
-            this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) :$imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
-
-            this.state.previewInputUrl ?  $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>) :$imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
-          
-            this.state.previewInputUrl2 ? $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>) :$imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
->>>>>>> a92cd3653b58d7477cfa5121bf2a6140cbd26dbd
 
             this.state.previewInputUrl3 ? $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
         
