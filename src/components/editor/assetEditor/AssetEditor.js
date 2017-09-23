@@ -11,7 +11,7 @@ import cssMode from 'codemirror/mode/css/css';
 
 
 const tabs = [
-{name:'Details'},
+// {name:'Details'},
 {name:'Code'}];
 
 const defaultProps = {
@@ -63,9 +63,6 @@ class AssetEditor extends React.Component{
   }
   let renderDetailsItems = () => {
     if(this.state.activeTab == 0){
-      return(<AssetEditorItem />);
-    }
-    if(this.state.activeTab == 1){
       return(<CodeEditor />);
     }
   }
