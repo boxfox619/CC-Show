@@ -24,6 +24,17 @@ try{
         $(".slides").animate({ 'left': '+='+getAmount()}, 'slow');
         currentSlide-=1;
   });
+  $('#login_modal_on').click(function(){
+    $('.login_modal_wrapper').addClass("login_animation");
+  });
+
+  $('.login_modal_wrapper').click(function(event){
+    $('.login_modal_wrapper').removeClass('login_animation');
+  });
+
+  $('.login_modal').click(function(event){
+    event.stopPropagation();
+  });
 });
 
 var currentHash = 'intro';
