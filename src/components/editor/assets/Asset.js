@@ -43,6 +43,9 @@ class Asset extends React.Component{
       case assetTypes.TYPE_SHAPE:
         assetTag = 'ShapeAsset';
         break;
+      case assetTypes.TYPE_CUSTOM:
+        assetTag = 'CustomAsset';
+        break;
       default:
         assetTag = 'TextAsset';
         break;

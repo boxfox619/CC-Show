@@ -1,21 +1,39 @@
 import React from 'react';
 import styles from './Assets.css';
 
+import axios from 'axios';
+
 const propTypes = {
   styles: React.PropTypes.object.isRequired,
-  value: React.PropTypes.string.isRequired
+  id: React.PropTypes.integer.isRequired
 };
 
-class VideoAsset extends React.Component{
+class CustomAsset extends React.Component{
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      code:''
+    }
+  }
 
   render() {
     return (
-      <div style={this.props.styles}>
+      <div style={this.props.styles} dangerouslySetInnerHTML={ {__html: this.state.code}}>
       </div>
     )
   }
+
+  componentDidMount(){
+    axios.post('/store/simple/?id='+this.props.id)
+    .then(response => {
+      this.setState(code : response.data.code);
+    }).catch(err => {
+    });
+  }
 }
 
-VideoAsset.propTypes = propTypes;
+CustomAsset.propTypes = propTypes;
 
-export default VideoAsset;
+export default CustomAsset;
