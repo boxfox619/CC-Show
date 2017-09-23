@@ -7,6 +7,7 @@ import * as assetTypes from '../../../assetTypes';
 import TextAsset from './TextAsset';
 import ImageAsset from './ImageAsset';
 import VideoAsset from './VideoAsset';
+import CustomAsset from './CustomAsset';
 
 const propTypes = {
   attribute: React.PropTypes.object,
@@ -44,7 +45,7 @@ class Asset extends React.Component{
         assetTag = 'ShapeAsset';
         break;
       case assetTypes.TYPE_CUSTOM:
-        assetTag = 'CustomAsset';
+        assetTag = CustomAsset;
         break;
       default:
         assetTag = 'TextAsset';
