@@ -43277,9 +43277,9 @@ var AssetEditor = function (_React$Component) {
         _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement(_reactCodemirror2.default, { className: _AssetEditor2.default.codeEditor, value: 'asdasdasdasd', options: { lineNumbers: true, mode: 'javascript' } }),
-          _react2.default.createElement(_reactCodemirror2.default, { className: _AssetEditor2.default.codeEditor, value: 'asdasdasdasd', options: { lineNumbers: true, mode: 'htmlmixed' } }),
-          _react2.default.createElement(_reactCodemirror2.default, { className: _AssetEditor2.default.codeEditor, value: 'asdasdasdasd', options: { lineNumbers: true, mode: 'css' } })
+          _react2.default.createElement(_reactCodemirror2.default, { className: _AssetEditor2.default.codeEditor, value: '', options: { lineNumbers: true, mode: 'javascript' } }),
+          _react2.default.createElement(_reactCodemirror2.default, { className: _AssetEditor2.default.codeEditor, value: '', options: { lineNumbers: true, mode: 'htmlmixed' } }),
+          _react2.default.createElement(_reactCodemirror2.default, { className: _AssetEditor2.default.codeEditor, value: '', options: { lineNumbers: true, mode: 'css' } })
         )
       );
     }

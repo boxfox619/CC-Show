@@ -72,7 +72,7 @@ class AssetEditor extends React.Component{
 
     var options = {
       lineNumbers: true,
-      mode: 'javascript'
+      // mode: 'javascript'
     };
     return (
       <div className={this.props.className}>
@@ -82,10 +82,44 @@ class AssetEditor extends React.Component{
             {renderTabs(tabs)}
           </tabholder>
         </header>
+
+        <div className = {styles.content}>
+          <div className = {styles.code}>
+            <div className = {styles.htmlArea}>
+              <div className = {styles.topArea}>
+                <span className = {styles.topLan}>HTML</span>
+              </div>
+              <CodeMirror className={styles.codeEditor} value={'<html><body></body></html>'}  options={{lineNumbers: true, mode: 'htmlmixed'}} />
+
+            </div>
+            <div className = {styles.cssArea}>
+              <div className = {styles.topArea}>
+                <span className = {styles.topLan}>CSS</span>
+              </div>
+              <div className = {styles.sideBar}></div>
+              <CodeMirror className={styles.codeEditor} value={'@import url("something.css");'}  options={{lineNumbers: true, mode: 'css'}} />
+
+            </div>
+            <div className = {styles.jsArea}>
+              <div className = {styles.topArea}>
+                <span className = {styles.topLan}>JS</span>
+              </div>
+              <CodeMirror className={styles.codeEditor} value={'function hey(){}'}  options={{lineNumbers: true, mode: 'javascript'}} />
+
+            </div>
+          </div>
+
+          <div className = {styles.preview}>
+            <div className = {styles.preTop}>
+              <span className = {styles.preLan}>PREVIEW</span>
+            </div>
+            <div className = {styles.previewArea}>
+              {/* here is preview area */}
+            </div>
+          </div>
+        </div>
         <div>
-          <CodeMirror className={styles.codeEditor} value={'asdasdasdasd'}  options={{lineNumbers: true, mode: 'javascript'}} />
-          <CodeMirror className={styles.codeEditor} value={'asdasdasdasd'}  options={{lineNumbers: true, mode: 'htmlmixed'}} />
-          <CodeMirror className={styles.codeEditor} value={'asdasdasdasd'}  options={{lineNumbers: true, mode: 'css'}} />
+          
         </div>
       </div>
     );
