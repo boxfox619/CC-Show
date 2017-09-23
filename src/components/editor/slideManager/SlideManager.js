@@ -31,6 +31,7 @@ class SlideManager extends React.Component{
   render(){
       let renderSlidePreviews = (slides) => {
         return slides.map((slide, idx)=>{
+          let active = idx==this.props.currentSilde;
           return <li
             data-id={idx}
             key={'slide'+slide.id}
@@ -38,6 +39,7 @@ class SlideManager extends React.Component{
             onDragEnd={this.dragEnd}
             onDragStart={this.dragStart}>
           <SlidePreview
+          active={active}
           slide={slide}
           idx={idx}
           shareSlide={this.props.shareSlide}

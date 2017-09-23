@@ -33,8 +33,16 @@ class ShowListContext extends React.Component{
     )
   }
 
+  componentDidMount(){
+    axios.get('/show')
+    .then(response => {
+      this.setState({showList : response.data.code});
+    }).catch(err => {
+    });
+  }
+
   openShow(id){
-    console.log('open');
+
   }
 
   shareShow(id){

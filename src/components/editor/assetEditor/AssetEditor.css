@@ -33,17 +33,16 @@ body {
   width: 370px !important;
   /* background: red; */
   /* height: 400px !important; */
-  overflow-y: scroll;
+  overflow-y: auto;
   display: inline-block;
 }
-
 
 
 .CodeMirror-linenumber{
   left: -30px !important;
 }
 .CodeMirror-scroll{
-    
+
 }
 .CodeMirror{
     margin-left: 10px;
