@@ -2,10 +2,11 @@ import React from 'react';
 import styles from './styles.css';
 
 // import CodeMirror from 'react-codemirror';
-import CodeMirror from '../codemirror/src/codemirror';
+import CodeMirror from '../codemirror/lib/codemirror';
+// require('../codemirror/lib/codemirror');
 import javascript from '../codemirror/mode/javascript/javascript';
 // import CodeMirror from './codemirror';
-import CodeMirrorCss from './CodeMirror.css';
+import codemirrorCss from '../codemirror/lib/codemirror.css';
 
 const createReactClass = require('create-react-class');
 // require('codemirror/mode/javascript/javascript');
@@ -16,7 +17,7 @@ var defaults = {
     markdown : 'asdf',
     javascript : 'var component = {adsf}'
 }
-
+ 
 var CodeEditorItem  = createReactClass({
     getInitialState () {
 		return {

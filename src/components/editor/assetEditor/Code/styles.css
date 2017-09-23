@@ -1,4 +1,4 @@
-@import './CodeMirror.css';
+@import '../codemirror/lib/codemirror.css';
 
 .content{
     width: 1150px;

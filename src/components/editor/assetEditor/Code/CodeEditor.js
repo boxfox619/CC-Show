@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.css';
-//import CodeEditorItem from './CodeEditorItem';
+import CodeEditorItem from './CodeEditorItem';
 
 class CodeEditor extends React.Component{
     render(){
