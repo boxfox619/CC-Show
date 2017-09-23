@@ -1,5 +1,5 @@
 const express = require('express');
-
+var path = require('path');
 const crypto = require('crypto');
 
 const SHOW_ID_LENGTH = 5;
@@ -26,8 +26,6 @@ module.exports = function(realm) {
     }
 
     const router = express.Router();
-
-
         function slidesToArray(realmResult){
           return realmResult.map(x => {
             let show = JSON.parse(JSON.stringify(x));
@@ -37,6 +35,10 @@ module.exports = function(realm) {
         }
 
     router.get('/', (req, res) => {
+      res.sendFile(path.resolve('public/pptlist.html'));
+    });
+
+    router.get('/list', (req, res) => {
       if(!!req.signedCookies.user){
         let shows = realm.objects('Slide').filtered('user = "'+req.signedCookies.user.key+'"');
         return res.json(slidesToArray(shows));
@@ -78,5 +80,5 @@ module.exports = function(realm) {
         return res.json(slidesToArray(show));
       });
     });
-
+        return router;
 }

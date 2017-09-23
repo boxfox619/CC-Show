@@ -44,13 +44,14 @@
       <div class="right_contents">
 
         <div class="signin">
-          <div class="login_wrapper">
-            <p class="login_title">아이디</p>
-            <input type="text" class="login_input" />
+            <p id="signin_msg" style="color: red; text-align: center; height: 1em;"></p>
+          <div class="signup_wrapper">
+            <p class="signup_title">아이디</p>
+            <input type="text" class="signup_input" required/>
           </div>
-          <div class="login_wrapper">
-            <p class="login_title">비밀번호</p>
-            <input type="text" class="login_input" />
+          <div class="signup_wrapper">
+            <p class="signup_title">비밀번호</p>
+            <input type="password" class="signup_input" required/>
           </div>
           <div class="login_button_wrapper">
             <p class="login_button" id="login">로그인</p>
@@ -70,17 +71,22 @@
         </div>
 
         <div class="signup" style="display: none;">
+          <p id="signup_msg" style="color: red; text-align: center; height: 1em;"></p>
           <div class="signup_wrapper">
             <p class="signup_title">아이디</p>
-            <input type="text" class="signup_input" />
+            <input type="text" class="signup_input" required/>
           </div>
           <div class="signup_wrapper">
             <p class="signup_title">비밀번호</p>
-            <input type="text" class="signup_input" />
+            <input type="password" class="signup_input" required/>
+          </div>
+          <div class="signup_wrapper">
+            <p class="signup_title">비밀번호 확인</p>
+            <input type="password" class="signup_input" required/>
           </div>
           <div class="signup_wrapper">
             <p class="signup_title">이름</p>
-            <input type="text" class="signup_input" />
+            <input type="text" class="signup_input" required/>
           </div>
           <div class="signup_button_wrapper">
             <p class="signup_button_submit" id="signup">회원가입</p>
