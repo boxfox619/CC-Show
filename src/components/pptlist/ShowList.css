@@ -5,7 +5,7 @@
 .showItem{
   display: inline-block;
   position: relative;
-  width: 380px;
+  width: 360px;
   height: 220px;
   border-radius: 5px;
   margin-left: 3.4%;
@@ -18,6 +18,19 @@
   -o-user-select: none;
   user-select: none;
   box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);
+}
+
+.tempShow{
+  color: gray;
+  text-align: center;
+  cursor: pointer;
+  line-height: 36px;
+  font-size: 20px;
+  padding: 100px 0;
+}
+
+.tempShow:hover{
+  color:black;
 }
 
 .showItem:nth-child(3n+1){

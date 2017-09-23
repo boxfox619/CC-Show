@@ -25,6 +25,17 @@ body {
   padding: 0;
   margin: 0;
   height: 100vh;
+
+  -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
 }
 
 body::-webkit-scrollbar {
@@ -87,6 +98,27 @@ header .titleIcon {
 header li a img {
   height: 100%;
 }
+
+header .navButton{
+display: block;
+color: white;
+text-align: center;
+font-weight: bold;
+text-decoration: none;
+border: solid white 1px;
+border-radius: 10px;
+font-size: 0.8em;
+padding: 10px 15px;
+height: 1em;
+margin: 20px 10px !important;
+transition: all 0.5s ease;
+}
+
+header .navButton:hover{
+background: linear-gradient(135deg, #ED0CFE 0%, #7C70EE 50%, #12CDE0 100%);
+color: white !important;
+border-color: white !important;
+ +}
 
 
 /*  ------ header end ------ */
