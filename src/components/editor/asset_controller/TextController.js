@@ -18,6 +18,7 @@ class TextController extends React.Component{
 
         this.textOn=this.textOn.bind(this);
         this.textOff=this.textOff.bind(this);
+        this.setFont=this.setFont.bind(this);
         this.setFontSize=this.setFontSize.bind(this);
         this.setCharacterSpacing=this.setCharacterSpacing.bind(this);
         this.setFontWeight=this.setFontWeight.bind(this);
@@ -25,6 +26,7 @@ class TextController extends React.Component{
     }
 
     render(){
+        console.log(this.props.font);
         return(
             <div>
                 <div>
@@ -37,13 +39,16 @@ class TextController extends React.Component{
                 <div style={this.state.text ? {} : {display:'none'}} className={styles.items}>
                 <div>
                     <div className={styles.control_item} >
-                        <select onChange={this.setFont}>
-                            <option value="">asdfasdf</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
+                        <select id="fontSetting" onChange={this.setFont}>
+                            <option value="굴림">굴림</option>
+                            <option value="굴림체">굴림체</option>
+                            <option value="궁서">궁서</option>
+                            <option value="궁서체">궁서체</option>
+                            <option value="돋움">돋움</option>
+                            <option value="돋움체">돋움체</option>
+                            <option value="바탕">바탕</option>
+                            <option value="바탕체">바탕체</option>
+                            <option value="휴면엽서체">휴먼엽서체</option>
                         </select>
                     </div>
 
@@ -55,7 +60,7 @@ class TextController extends React.Component{
                 <div>
                     <div className={styles.control_item}>
                         <img src="/images/ic_format_size.png"/>
-                        <input type="text" className={styles.attribute_item_input} value={this.props.textLineSpacing} onChange={this.setFontSize}/>
+                        <input type="text" className={styles.attribute_item_input} value={this.props.fontSize} onChange={this.setFontSize}/>
                     </div>
 
                     <div className={styles.control_item}>
@@ -72,7 +77,7 @@ class TextController extends React.Component{
 
                     <div className={styles.control_item}>
                         <img src="/images/ic_color.png"/>
-                        <div className={styles.change_color} onClick={this.props.toggleTextColorPicker} style={{backgroundColor:this.props.textColor}}></div>
+                        <div className={styles.change_color} onClick={this.props.toggleTextColorPicker} style={this.props.textColor==='black'? {border:'1px solid #5D87B5'} : {backgroundColor:this.props.textColor}}></div>
                     </div>
                 </div>
 
@@ -107,6 +112,7 @@ class TextController extends React.Component{
         </div>
         )
     }
+
     textOn() {
         this.setState({
             ...this.state,
@@ -132,6 +138,11 @@ class TextController extends React.Component{
             intValue=0;
         }
         this.props.setAssetFontWeight(intValue);
+    }
+
+    setFont() {
+        let value=document.getElementById('fontSetting').value;
+        this.props.setAssetTextFont(value);
     }
 
     setFontSize(event) {
