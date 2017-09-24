@@ -1,6 +1,7 @@
 const express = require('express');
 var path = require('path');
 const crypto = require('crypto');
+const colors = require('colors');
 
 const SHOW_ID_LENGTH = 5;
 
@@ -40,26 +41,27 @@ module.exports = function(realm) {
 
     router.get('/list', (req, res) => {
       if(!!req.signedCookies.user){
-        let shows = realm.objects('Slide').filtered('user = "'+req.signedCookies.user.key+'"');
+        let shows = realm.objects('Show').filtered('user = "'+JSON.parse(req.signedCookies.user).id+'"');
         return res.json(slidesToArray(shows));
       }else{
         return res.status(400).end('You need login');
       }
     });
 
-    router.get('/create', (req, res)=>{
+    router.post('/create', (req, res)=>{
       console.log(colors.green('[REQ]'),getIP(req), 'slide create');
         if(!!req.signedCookies.user){
         let showId = randomShowId(SHOW_ID_LENGTH);
-          while(realm.objects('Slide').filtered('id = "'+showId+'"').length>0){
+          while(realm.objects('Show').filtered('id = "'+showId+'"').length>0){
             showId = randomShowId(SHOW_ID_LENGTH);
           }
           return realm.write(() => {
             let show = realm.create('Show', {
               id: showId,
-              user: req.signedCookies.user.id
+              name: req.body.name,
+              user: JSON.parse(req.signedCookies.user).id
             });
-            return res.json(slidesToArray(show));
+            return res.json(show);
           });
         }else{
           return res.status(400).end('You need login');
@@ -69,14 +71,14 @@ module.exports = function(realm) {
     router.post('/save', (req, res) => {
     console.log(colors.green('[REQ]'),getIP(req), 'show data save', req.body.showId);
       let showId = req.body.showId;
-      let show = realm.objects('Slide').filtered('id = "'+showId+'"');
+      let show = realm.objects('Show').filtered('id = "'+showId+'"')[0];
       return realm.write(() => {
-        show[0].name = req.body.name;
-        show[0].sizeUnit = req.body.sizeUnit;
-        show[0].positionUnit = req.body.positionUnit;
-        show[0].selectedSlide = req.body.selectedSlide;
-        show[0].slideIdCount = req.body.slideIdCount;
-        show[0].slides = JSON.stringify(req.body.slides);
+        show.name = req.body.name;
+        show.sizeUnit = req.body.sizeUnit;
+        show.positionUnit = req.body.positionUnit;
+        show.selectedSlide = req.body.selectedSlide;
+        show.slideIdCount = req.body.slideIdCount;
+        show.slides = JSON.stringify(req.body.slides);
         return res.json(slidesToArray(show));
       });
     });

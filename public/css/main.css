@@ -462,7 +462,7 @@ section#final .slider-wrap .imgSlide {
   border: solid 2px white;
 }
 
-section#final .footer {
+.footer {
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -474,23 +474,23 @@ section#final .footer {
   line-height: 13px;
 }
 
-section#final .footer .serviceIcon {
+.footer .serviceIcon {
   height: 3.5em;
   margin: 0 15px 0 0;
 }
 
-section#final .footer .copyright {
+.footer .copyright {
   font-family: 'NanumSquareL';
   display: inline-block;
 }
 
-section#final .footer .sns {
+.footer .sns {
   float: right;
   text-decoration: none;
   margin-top: 0.3em;
 }
 
-section#final .footer .sns img {
+.footer .sns img {
   margin: auto 3px;
   height: 3em;
 }
@@ -523,8 +523,8 @@ section#final .footer .sns img {
 }
 
 @media screen and (max-width: 585px) {
-  section#final .footer .serviceIcon,
-  section#final .footer .sns {
+  .footer .serviceIcon,
+  .footer .sns {
     display: none;
   }
   section#final .title {

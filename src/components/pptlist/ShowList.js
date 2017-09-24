@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from './ShowList.css';
 
+import Dialog from './dialog/ShowManageDialog';
+
 import ShowItem  from './ShowItem';
 import axios from 'axios';
 
@@ -12,6 +14,7 @@ class ShowListContext extends React.Component{
     super(props);
 
     this.state={
+      job: undefined,
       showList:[]
     }
 
@@ -19,6 +22,7 @@ class ShowListContext extends React.Component{
     this.openShow = this.openShow.bind(this);
     this.shareShow = this.shareShow.bind(this);
     this.deleteShow = this.deleteShow.bind(this);
+    this.dialogCallback = this.dialogCallback.bind(this);
   }
 
   render(){
@@ -31,24 +35,50 @@ class ShowListContext extends React.Component{
         return (<ShowItem key={show.id} name={show.name} open={()=>this.openShow(show.id)} share={()=>this.shareShow(show.id)} delete={()=>this.deleteShow(show.id)} />)
       });
     }
+    let renderShowDialog = (job)=>{
+      if(job==undefined) return;
+      let msg = '';
+      if(job=='rename'){
+        msg = '변경할 이름을 입력해 주세요';
+      }else if(job=='create'){
+        msg = '새 발표자료의 이름을 정해주세요!';
+      }
+      return <Dialog msg={msg} callback={this.dialogCallback}/>
+    }
     return (
       <div style={{'margin-top':headerHeight}} className={styles.context}>
-        {renderShowList(this.state.showList)}
+        <div className={styles.showlist}>{renderShowList(this.state.showList)}</div>
+        {renderShowDialog(this.state.job)}
       </div>
     )
   }
 
   componentDidMount(){
     document.getElementById('createShow').addEventListener('click', this.createShow);
-    axios.get('/show')
+    axios.get('/show/list')
     .then(response => {
-      this.setState({showList : response.data.code});
+      this.setState({showList : response.data});
     }).catch(err => {
     });
   }
 
+  dialogCallback(result){
+    if(result!=undefined&&result.length>0){
+      axios.post('/show/create', {name: result})
+      .then(response => {
+        console.log(response.data);
+      }).catch(err => {
+      });
+    }
+    this.setState({job: undefined});
+  }
+
+  renameShow(){
+      this.setState({job: 'rename'});
+  }
+
   createShow(){
-    console.log('show');
+    this.setState({job: 'create'});
   }
 
   openShow(id){
