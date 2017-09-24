@@ -25,6 +25,7 @@ class AssetStore extends React.Component{
     this.selectTab = this.selectTab.bind(this);
     this.getActiveTab = this.getActiveTab.bind(this);
     this.loadItems = this.loadItems.bind(this);
+    this.useAsset = this.useAsset.bind(this);
   }
 
   render(){
@@ -40,13 +41,12 @@ class AssetStore extends React.Component{
 
     let renderAssetItems = (assets) =>{
       return assets.map((asset)=>{
-        return (<AssetItem key={'assetitem'+asset.id} id={asset.id} title={asset.title} subTitle={asset.subTitle} star={asset.star} thumbnail={asset.thumbnail}/>)
+        return (<AssetItem key={'assetitem'+asset.id} useAsset={()=>this.useAsset(asset.id)} id={asset.id} title={asset.title} subTitle={asset.user} star={asset.star} thumbnail={asset.thumbnail}/>)
       });
     }
 
     let renderActionItem = () => {
       if(this.state.activeTab==tabs.length-1){
-        console.log(this.props);
         return (<ActionItem img={'/images/ic_add_white.png'} text={'새 에셋 만들기'} onClick={()=>this.props.toggleAssetEditor()}/>);
       }
     }
@@ -61,12 +61,17 @@ class AssetStore extends React.Component{
         </header>
         <content>
           <div style={{'padding': '20px 2.5%'}}>
-            {renderActionItem()}
             {renderAssetItems(this.state.assets)}
+            {renderActionItem()}
           </div>
         </content>
       </div>
     );
+  }
+
+  useAsset(id){
+    this.props.toggleAssetStore();
+    this.props.createCustomAsset(id);
   }
 
   componentDidMount(){
@@ -86,6 +91,7 @@ class AssetStore extends React.Component{
 
   loadItems(filter){
     axios.get('/store/assets?filter='+filter).then(response => {
+      console.log(response.data);
       this.setState({
         ...this.state,
         assets: response.data

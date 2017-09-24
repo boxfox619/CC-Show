@@ -7,7 +7,8 @@ const propTypes = {
   title: React.PropTypes.string.isRequired,
   subTitle: React.PropTypes.string.isRequired,
   star: React.PropTypes.number.isRequired,
-  thumbnail: React.PropTypes.string.isRequired
+  thumbnail: React.PropTypes.string.isRequired,
+  useAsset: React.PropTypes.func.isRequired
 }
 
 class AssetItem extends React.Component{
@@ -20,12 +21,13 @@ class AssetItem extends React.Component{
 
   render(){
     console.log('test');
+
+      // <div className={styles.imgBtn}><img src={'/images/ic_move_in_box_gray.png'}/></div>
+      // <div className={styles.imgBtn}><img src={'/images/ic_flag_white.png'}/></div>
     return (
-      <div onClick={this.onClick} className={styles.asset}>
+      <div onClick={this.props.useAsset} className={styles.asset}>
       <div className={styles.thumbnail}><img src={this.props.thumbnail}/></div>
         <div className={styles.buttonHeader}>
-          <div className={styles.imgBtn}><img src={'/images/ic_move_in_box_gray.png'}/></div>
-          <div className={styles.imgBtn}><img src={'/images/ic_flag_white.png'}/></div>
         </div>
         <div className={styles.inner}></div>
         <div className={styles.bookmark}/>
@@ -35,11 +37,11 @@ class AssetItem extends React.Component{
             <div className={styles.subTitle}>{this.props.subTitle}</div>
           </div>
           <div className={styles.stars}>
-            <div className={styles.star}/>
-            <div className={styles.star}/>
-            <div className={styles.star}/>
-            <div className={styles.star}/>
-            <div className={styles.star}/>
+            <div className={styles.star+' '+((this.props.star>0)?styles.active:'')}/>
+            <div className={styles.star+' '+((this.props.star>1)?styles.active:'')}/>
+            <div className={styles.star+' '+((this.props.star>2)?styles.active:'')}/>
+            <div className={styles.star+' '+((this.props.star>3)?styles.active:'')}/>
+            <div className={styles.star+' '+((this.props.star>4)?styles.active:'')}/>
           </div>
         </div>
       </div>
@@ -47,7 +49,6 @@ class AssetItem extends React.Component{
   }
 
   onClick(){
-    console.log('teava');
     axios.get('/store/lookup?asset='+this.props.id).then(response => {
       this.setState({
         ...this.state,

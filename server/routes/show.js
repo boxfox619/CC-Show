@@ -1,6 +1,7 @@
 const express = require('express');
-
+var path = require('path');
 const crypto = require('crypto');
+const colors = require('colors');
 
 const SHOW_ID_LENGTH = 5;
 
@@ -26,43 +27,41 @@ module.exports = function(realm) {
     }
 
     const router = express.Router();
+        function slidesToArray(realmResult){
+          return realmResult.map(x => {
+            let show = JSON.parse(JSON.stringify(x));
+            show.slides = JSON.parse(show.slides);
+            return show;
+          });
+        }
 
     router.get('/', (req, res) => {
+      res.sendFile(path.resolve('public/pptlist.html'));
+    });
+
+    router.get('/list', (req, res) => {
       if(!!req.signedCookies.user){
-        return res.json({
-          id: show.id,
-          name: show.name,
-          sizeUnit: show.sizeUnit,
-          positionUnit: show.positionUnit,
-          selectedSlide: show.selectedSlide,
-          slideIdCount: show.slideIdCount,
-          slides: JSON.parse(show.slides)
-        });
+        let shows = realm.objects('Show').filtered('user = "'+JSON.parse(req.signedCookies.user).id+'"');
+        return res.json(slidesToArray(shows));
       }else{
         return res.status(400).end('You need login');
       }
     });
 
-    router.get('/create', (req, res)=>{
+    router.post('/create', (req, res)=>{
       console.log(colors.green('[REQ]'),getIP(req), 'slide create');
         if(!!req.signedCookies.user){
         let showId = randomShowId(SHOW_ID_LENGTH);
-          while(realm.objects('Slide').filtered('id = "'+showId+'"').length>0){
+          while(realm.objects('Show').filtered('id = "'+showId+'"').length>0){
             showId = randomShowId(SHOW_ID_LENGTH);
           }
           return realm.write(() => {
             let show = realm.create('Show', {
-              id: showId
+              id: showId,
+              name: req.body.name,
+              user: JSON.parse(req.signedCookies.user).id
             });
-            return res.json({
-              id: show.id,
-              name: show.name,
-              sizeUnit: show.sizeUnit,
-              positionUnit: show.positionUnit,
-              selectedSlide: show.selectedSlide,
-              slideIdCount: show.slideIdCount,
-              slides: JSON.parse(show.slides)
-            });
+            return res.json(show);
           });
         }else{
           return res.status(400).end('You need login');
@@ -72,7 +71,7 @@ module.exports = function(realm) {
     router.post('/save', (req, res) => {
     console.log(colors.green('[REQ]'),getIP(req), 'show data save', req.body.showId);
       let showId = req.body.showId;
-      let show = realm.objects('Slide').filtered('id = "'+showId+'"');
+      let show = realm.objects('Show').filtered('id = "'+showId+'"')[0];
       return realm.write(() => {
         show.name = req.body.name;
         show.sizeUnit = req.body.sizeUnit;
@@ -80,16 +79,8 @@ module.exports = function(realm) {
         show.selectedSlide = req.body.selectedSlide;
         show.slideIdCount = req.body.slideIdCount;
         show.slides = JSON.stringify(req.body.slides);
-        return res.json({
-          id: show.id,
-          name: show.name,
-          sizeUnit: show.sizeUnit,
-          positionUnit: show.positionUnit,
-          selectedSlide: show.selectedSlide,
-          slideIdCount: show.slideIdCount,
-          slides: JSON.parse(show.slides)
-        });
+        return res.json(slidesToArray(show));
       });
     });
-
+        return router;
 }

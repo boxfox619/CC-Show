@@ -10,7 +10,7 @@ module.exports = function (realm) {
   function imagesToArray(realmResult) {
     return realmResult.map(x => {
       let asset = JSON.parse(JSON.stringify(x));
-      asset.images = JSON.parse(asset.images);
+      //asset.images = JSON.parse(asset.images);
       return asset;
     });
   }
@@ -25,23 +25,35 @@ module.exports = function (realm) {
     console.log(colors.green('[REQ]'), getIP(req), 'load asset filter=', req.query.filter);
     switch (req.query.filter) {
       case 'recommend':
-        return res.json(imagesToArray(realm.objects('Asset')));
+        return res.json(imagesToArray(realm.objects('SimpleAsset')));
       case 'new':
-        let d = new Date();
-        d.setDate(d.getDate() - 6);
-        return res.json(imagesToArray(realm.objects('Asset').filtered('date > $0', d)));
+        return res.json(imagesToArray(realm.objects('SimpleAsset')));
       case 'popular':
-        let assets = imagesToArray(realm.objects('Asset'));
-        assets = assets.sort((a, b) => {
-          return b.view - a.view;
-        }).slice(0, assets.length > 30 ? 30 : assets.length);
-        return res.json(assets);
+        return res.json(imagesToArray(realm.objects('SimpleAsset')));
       case 'liked':
-        return res.json(imagesToArray(realm.objects('Asset')));
+        return res.json(imagesToArray(realm.objects('SimpleAsset')));
       case 'saved':
-        return res.json(imagesToArray(realm.objects('Asset')));
+        return res.json(imagesToArray(realm.objects('SimpleAsset')));
         break;
     }
+
+    // switch(req.query.filter){
+    //   case 'recommend':
+    //     return res.json(imagesToArray(realm.objects('Asset')));
+    //   case 'new':
+    //     let d = new Date();
+    //     d.setDate(d.getDate()-6);
+    //     return res.json(imagesToArray(realm.objects('Asset').filtered('date > $0', d)));
+    //   case 'popular':
+    //     let assets = imagesToArray(realm.objects('Asset'));
+    //       assets = assets.sort((a,b)=>{return b.view-a.view}).slice(0, (assets.length>30)?30:assets.length);
+    //     return res.json(assets);
+    //   case 'liked':
+    //     return res.json(imagesToArray(realm.objects('Asset')));
+    //   case 'saved':
+    //     return res.json(imagesToArray(realm.objects('Asset')));
+    //   break;
+    // }
   });
 
   router.get('/lookup/', (req, res) => {
@@ -90,20 +102,21 @@ module.exports = function (realm) {
     });
   });
 
-  router.post('/simple/update/', (req, res) => {
-    console.log(colors.green('[REQ]'), getIP(req), 'asset update', req.body.id, req.body.target);
+  router.post('/simple/create/', (req, res) => {
+    console.log(colors.green('[REQ]'), getIP(req), 'new asset');
     if (!!req.signedCookies.user) {
-      if (!!req.body.id && realm.objects('SimpleAsset').filtered('id=$0', req.body.id).length > 0) {
-        let asset = realm.objects('SimpleAsset').filtered('id=$0', req.body.id)[0];
-        return realm.write(() => {
-          asset.css = req.body.css;
-          asset.js = req.body.js;
-          asset.html = req.body.html;
-          return res.status(200).end();
+      let id = realm.objects('SimpleAsset').length;
+      return realm.write(() => {
+        realm.create('SimpleAsset', {
+          id,
+          user: JSON.parse(req.signedCookies.user).id,
+          css: req.body.css,
+          js: req.body.js,
+          html: req.body.html,
+          thumbnail: req.body.thumbnail
         });
-      } else {
-        return res.status(400).end('Target not found');
-      }
+        return res.json({ id });
+      });
     } else {
       return res.status(400).end('You need login');
     }

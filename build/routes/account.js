@@ -39,6 +39,11 @@ module.exports = function (realm) {
 
   const router = express.Router();
 
+  router.get('/check/', (req, res) => {
+    console.log(colors.green('[REQ]'), 'account check', getIP(req));
+    res.json({ result: !!req.signedCookies.user });
+  });
+
   router.get('/logout/', (req, res) => {
     console.log(colors.green('[REQ]'), 'logout', getIP(req));
     res.clearCookie("user");

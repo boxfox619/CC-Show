@@ -1,0 +1,87 @@
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+
+.modal_wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -100%;
+  animation: modalFadeIn 0.5s linear 0s ;
+  animation-fill-mode: forwards;
+}
+
+.modal{
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 150px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);
+}
+
+.modal_header{
+  height: 25%;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.modal_content{
+  position: relative;
+  height: 75%;
+}
+
+@-webkit-keyframes modalFadeIn {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 10%;
+  }
+}
+
+.modal::before {
+  width: 100%;
+  content: '';
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.input_wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 50px);
+}
+
+.input {
+  text-align: center;
+  width: 100%;
+  margin-top: 3px;
+  height: 30px;
+  font-size: 20px;
+  border: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.input:focus {
+  outline: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.9);
+}
+
+.bottomGroup{
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  color: white;
+  line-height: 50px;
+  background: rgb(50, 79, 165);
+  position: absolute;
+  cursor: pointer;
+}
+
+.bottomGroup:hover{
+  background: rgba(50, 79, 165, 0.9);
+}

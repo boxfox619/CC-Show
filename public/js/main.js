@@ -1,5 +1,6 @@
+var currentHash = 'intro';
+var logined = false;
 $(function () {
-
 
   try {
     fullpage.initialize('#fullpage', {});
@@ -13,23 +14,27 @@ $(function () {
     });
     currentSlide = 0;
   });
+
   $('#sliderLeft').click(function () {
-    console.log("teast121212113");
     if (currentSlide + 3 == $('.imgSlide').length) return;
     $(".slides").animate({
       'left': '-=' + getAmount()
     }, 'slow');
     currentSlide += 1;
   });
+
   $('#sliderRight').click(function () {
-    console.log("teast12123");
     if (currentSlide == 0) return;
     $(".slides").animate({
       'left': '+=' + getAmount()
     }, 'slow');
     currentSlide -= 1;
   });
+
   $('#login_modal_on').click(function () {
+    if(logined){
+      window.location='/show';
+    }else
     $('.login_modal_wrapper').addClass("login_animation");
   });
 
@@ -42,8 +47,12 @@ $(function () {
   });
 
   $('#login').click(function () {
-    let id = $('.login_input')[0].value;
-    let password = $('.login_input')[1].value;
+    let id = $('.signup_input')[0].value;
+    let password = $('.signup_input')[1].value;
+    if(id.length==0 || password.length==0){
+      $('#signin_msg').text('모든 항목을 입력해 주세요!');
+      return;
+    }
     let data = {
       id: id,
       password: password
@@ -52,38 +61,46 @@ $(function () {
       type: 'POST',
       data: JSON.stringify(data),
       contentType: 'application/json',
-      url: 'http://localhost:3001/account/login',
+      url: '/account/login',
       success: function (result) {
-        console.log(result);
+        window.location.href='/show';
       },
       error: function (result) {
-        console.log(result.responseText);
+        $('#signin_msg').text(result.responseText);
       }
     });
   });
 
   $('#signup').click(function () {
-    let id = $('.signup_input')[0].value;
-    let password = $('.signup_input')[1].value;
-    let nickname = $('.signup_input')[2].value;
+    let id = $('.signup_input')[2].value;
+    let password = $('.signup_input')[3].value;
+    let password2 = $('.signup_input')[4].value;
+    let nickname = $('.signup_input')[5].value;
+    if(id.length==0 || password.length==0|| nickname.length==0){
+      $('#signup_msg').text('모든 항목을 입력해 주세요!');
+      return;
+    }
+    if(password!=password2){
+      $('#signup_msg').text('비밀번호가 일치하지 않습니다!');
+      return;
+    }
     let data = {
       id: id,
       password: password,
       nickname: nickname
     }
-    console.log(data);
     $.ajax({
       type: 'POST',
       data: JSON.stringify(data),
       contentType: 'application/json',
-      url: 'http://localhost:3001/account/register',
+      url: '/account/register',
       success: function (result) {
-        console.log(result);
         $('.signin').css('display', 'block');
         $('.signup').css('display', 'none');
+        clearForm();
       },
       error: function (result) {
-        console.log(result.responseText);
+        $('#signup_msg').text(result.responseText);
       }
     });
   });
@@ -91,10 +108,28 @@ $(function () {
   $('.signup_button').click(function () {
     $('.signin').css('display', 'none');
     $('.signup').css('display', 'block');
+    clearForm();
   });
+
+
+//check logined
+    $.ajax({
+      type: 'GET',
+      url: '/account/check',
+      success: function (result) {
+        logined = result.result;
+      }
+    });
 });
 
-var currentHash = 'intro';
+
+function clearForm(){
+  $('#signup_msg').text('');
+  $('#signin_msg').text('');
+  $('.signup_input').map((input)=>{
+    input.value = '';
+  })
+}
 
 function scrollDown() {
   if ($('#' + currentHash).next().length > 0) {

@@ -1,3 +1,8 @@
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+body {
+  margin:0;
+  font-family: 'NanumSquare', sans-serif;
+}
 .thumbnail{
   width: 100px;
   height: 100px;
@@ -11,12 +16,91 @@
 }
 
 .content{
-
+  height: 640px;
+  width: 1200px;
+  /* border: 1px solid red; */
+}
+.code{
+  height: 280px;
+  /* border: 1px solid blue; */
+}
+.preview{
+  height: 320px;
+  /* border: 1px solid red; */
 }
 
 .codeEditor{
-  width: 30% !important;
-  background: red;
-  height: 100px !important;
+  width: 370px !important;
+  /* background: red; */
+  /* height: 400px !important; */
+  overflow-y: auto;
   display: inline-block;
+}
+
+
+.CodeMirror-linenumber{
+  left: -30px !important;
+}
+.CodeMirror-scroll{
+
+}
+.CodeMirror{
+    margin-left: 10px;
+}
+.htmlArea{
+  float: left;
+  width: 384px;
+  height: 280px;
+  border-right: 1px solid #DFDFDF;
+}
+.cssArea{
+  float: left;
+  width: 384px;
+  height: 280px;
+  border-right: 1px solid #DFDFDF;
+}
+.jsArea{
+  float: left;
+  width: 384px;
+  height: 280px;
+}
+.topArea{
+  width: 385px;
+  height: 25px;
+  background-color: #DFDFDF;
+  text-align: center;
+  display: table;
+}
+.topLan{
+  display: table-cell;
+  vertical-align: middle;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 11px;
+  color: rgb(123, 123, 123);
+}
+
+.preTop{
+  width: 1150px;
+  height: 25px;
+  background-color: #DFDFDF;
+  display: table;
+  text-align: center;
+}
+
+.preLan{
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 11px;
+  color: rgb(123, 123, 123);
+  font-weight: bold;
+}
+
+.sideBar{
+  width: 30px;
+  height: 255px;
+  position: absolute;
+  z-index: 2;
+  background-color: rgb(245, 245, 245);
+  /* border-right: 1px solid #ddd; */
 }

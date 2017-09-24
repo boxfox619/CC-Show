@@ -5,7 +5,8 @@ import IconButton from './IconButton';
 
 const defaultProps = {
   slide: React.PropTypes.object.isRequired,
-  idx: React.PropTypes.number.isRequired
+  idx: React.PropTypes.number.isRequired,
+  active: React.PropTypes.bool.isRequired
 };
 
 class SlidePreview extends React.Component{
@@ -16,7 +17,7 @@ class SlidePreview extends React.Component{
 
   render(){
     return (
-      <div onClick={()=>this.props.onClick(this.props.slide)} className={styles.slidePreview}>
+      <div onClick={()=>this.props.onClick(this.props.slide)} className={styles.slidePreview+' '+((this.props.active)?styles.active:'')}>
         <div className={styles.thumbnail}><div className={styles.content} style={{'background-image':'url('+this.props.slide.thumbnail+')'}}/></div>
         <div className={styles.controller}>
           <div className={styles.slideInfo}>
