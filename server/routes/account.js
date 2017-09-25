@@ -53,7 +53,6 @@ module.exports = function(realm) {
     });
 
     router.post('/login/', (req, res) => {
-      console.log(req.body.id);
         console.log(colors.green('[REQ]'), 'login', getIP(req));
           let user = realm.objects('User').filtered('id = "'+req.body.id+'"');
           if(user.length==0){

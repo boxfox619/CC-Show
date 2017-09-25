@@ -51,7 +51,10 @@ module.exports = function(realm) {
           let show = realm.objects('Show').filtered('id = "'+showId+'"');
           if(show.length>0){
             if(show[0].user == JSON.parse(req.signedCookies.user).id){
-              return res.json(slideArrayToJson(show[0]))
+              let email = JSON.parse(req.signedCookies.user).id;
+              let nickname = JSON.parse(req.signedCookies.user).name;
+              let profile = '/images/ic_cc_show.png';
+              return res.json({showData: slideArrayToJson(show[0]), account:{email, nickname, profile}})
             }else{
               return res.status(400).end('You are not own this show');
             }

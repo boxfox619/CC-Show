@@ -4,7 +4,7 @@ body {
   font-family: 'NanumSquare', sans-serif;
 }
 
-body{
+.context{
 width: 100vw;
 height: 100vh;
 background: -webkit-linear-gradient(right, #00daef, #bc67ff);

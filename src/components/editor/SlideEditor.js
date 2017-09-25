@@ -13,6 +13,7 @@ import { SketchPicker } from 'react-color';
 import * as assetsActions from '../../actions/assets';
 import * as uiActions from '../../actions/ui';
 import * as slideActions from '../../actions/slides';
+import * as accountActions from '../../actions/account';
 import { bindActionCreators } from 'redux';
 
 import styles from './SlideEditor.css';
@@ -98,7 +99,8 @@ class SlideEditor extends React.Component{
     var showId = url.searchParams.get("show");
     if(showId != null){
       axios.get('/show/data?id='+showId).then(response => {
-        this.props.initShowData(response.data);
+        this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
+        this.props.initShowData(response.data.showData);
       })
       .catch(e =>{
         console.log(e);
@@ -152,7 +154,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...assetsActions, ...slideActions, ...uiActions}, dispatch);
+    return bindActionCreators({ ...assetsActions, ...accountActions, ...slideActions, ...uiActions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideEditor);

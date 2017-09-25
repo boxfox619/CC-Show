@@ -52,7 +52,7 @@ const UserSchema = {
     key: { type: 'string' },
     id: { type: 'string' },
     password: { type: 'string', optional: true },
-    nickname: 'string'
+    nickname: { type: 'string' }
   }
 };
 

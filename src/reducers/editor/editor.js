@@ -131,6 +131,7 @@ const editor = (state = initialState, action) => {
         )
       }
     case actionTypes.ASSET_SELECTED:
+    if(state.slides.length>0){
       return {
         ...state,
         slides: update(
@@ -143,6 +144,9 @@ const editor = (state = initialState, action) => {
           }
         )
       };
+    }else{
+      return {...state}
+    }
     case actionTypes.ASSET_SET_WIDTH:
       return {
         ...state,
