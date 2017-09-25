@@ -5,6 +5,7 @@ import styles from './ShowList.css';
 const propTypes ={
   name: React.PropTypes.string.isRequired,
   open: React.PropTypes.func.isRequired,
+  thumbnail: React.PropTypes.string,
   share: React.PropTypes.func.isRequired,
   delete: React.PropTypes.func.isRequired
 }
@@ -20,8 +21,15 @@ class ShowItem extends React.Component{
   }
 
   render(){
+    let renderThumbnail = function(){
+      if(this.props.thumbnail!=undefined&&this.props.thumbnail.length>0)
+      return (
+        <img className={styles.thumbnail} src={this.props.thumbnail}/>
+      );
+    }.bind(this);
     return (
       <div onClick={this.props.open} className={styles.showItem}>
+      {renderThumbnail()}
         <div className={styles.footer}>
           <div className={styles.texts}>
             <div className={styles.title}>{this.props.name}</div>

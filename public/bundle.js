@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bcbdc01546d5ea9b036f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c2d6c4002dfd8bad3d0f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -20995,7 +20995,7 @@ exports = module.exports = __webpack_require__(17)(undefined);
 exports.push([module.i, "@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);", ""]);
 
 // module
-exports.push([module.i, "body {\r\n  margin:0;\r\n  font-family: 'NanumSquare', sans-serif;\r\n}\r\n\r\n.ShowList__context___1_KJ6{\r\nwidth: 100vw;\r\nheight: 100vh;\r\nbackground: -webkit-linear-gradient(right, #00daef, #bc67ff);\r\nbackground: linear-gradient(270deg, #00daef, #bc67ff);\r\nbackground-size: 200% 200%;\r\n-webkit-animation: ShowList__MoveGrad___2QQ1- 5s ease infinite;\r\n animation: ShowList__MoveGrad___2QQ1- 5s ease infinite;\r\n overflow: hidden;\r\n}\r\n\r\n@-webkit-keyframes ShowList__MoveGrad___2QQ1- {\r\n0% {\r\nbackground-position: 0% 50%;\r\n}\r\n50% {\r\nbackground-position: 100% 50%;\r\n}\r\n100% {\r\nbackground-position: 0% 50%;\r\n}\r\n}\r\n\r\n@keyframes ShowList__MoveGrad___2QQ1- {\r\n0% {\r\nbackground-position: 0% 50%;\r\n}\r\n50% {\r\nbackground-position: 100% 50%;\r\n}\r\n100% {\r\nbackground-position: 0% 50%;\r\n}\r\n}\r\n\r\n.ShowList__context___1_KJ6{\r\n  position: absolute;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.ShowList__showlist___Gepem{\r\n  padding-top: 20px;\r\n  position: relative;\r\n  width: 100%;\r\n  overflow-y: auto;\r\n  min-height: calc(100% - 160px);\r\n  max-height: calc(100% - 160px);\r\n  text-align: center;\r\n}\r\n\r\n.ShowList__showlist___Gepem::-webkit-scrollbar-track\r\n{\r\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.ShowList__showlist___Gepem::-webkit-scrollbar\r\n{\r\n\twidth: 4px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.ShowList__showlist___Gepem::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.ShowList__showItem___10Ywu{\r\n  text-align: left;\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 350px;\r\n  height: 220px;\r\n  border-radius: 5px;\r\n  margin: auto 10px;\r\n  margin-bottom: 2em;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -o-user-select: none;\r\n  user-select: none;\r\n  background: #ffffff;\r\n  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.ShowList__tempShow___1qDhI{\r\n  color: gray;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n  line-height: 45px;\r\n  font-size: 30px;\r\n  padding: 100px 0;\r\n  position: absolute;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  transition: color 0.5s ease-in-out;\r\n}\r\n\r\n.ShowList__tempShow___1qDhI:hover{\r\n  color: white;\r\n}\r\n\r\n.ShowList__footer___1hvbi{\r\n  position: absolute;\r\n  border-bottom-left-radius: 5px;\r\n  border-bottom-right-radius: 5px;\r\n  bottom: 0px;\r\n  width: 100%;\r\n  height: 25%;\r\n  background: rgba(0, 0, 0, 0.6);\r\n  display: table;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__texts___3Kp-g{\r\n  display: table-cell;\r\n  padding-left: 17px;\r\n  width: 60%;\r\n  vertical-align: middle;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__texts___3Kp-g .ShowList__title___wF8i6{\r\n  color: #FFFFFF;\r\n  font-size: 13px;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__texts___3Kp-g .ShowList__subTitle___3SzyY{\r\n  color: #9E9E9F;\r\n  font-size: 9px;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__buttons___hC9vK{\r\n  display: table-cell;\r\n  width:40%;\r\n  vertical-align: middle;\r\n  text-align: right;\r\n  padding-right: 17px;\r\n}\r\n.ShowList__footer___1hvbi .ShowList__buttons___hC9vK .ShowList__imgBtn___1-hUX{\r\n  width: 35px;\r\n  height: 20px;\r\n  display: inline-block;\r\n  transition: transform 0.3s ease;\r\n}\r\n\r\n.ShowList__imgBtn___1-hUX:hover {\r\n\t\tbackground-color: transparent;\r\n\t\ttransform: rotate(90deg);\r\n\t\tcursor: pointer;\r\n}\r\n\r\n#ShowList__share___2uZ7z{\r\n  background: url('/images/ic_share_white.png') no-repeat center;\r\n}\r\n\r\n#ShowList__delete___38k7N{\r\n  background: url('/images/ic_delete_white.png') no-repeat center;\r\n}\r\n", ""]);
+exports.push([module.i, "body {\r\n  margin:0;\r\n  font-family: 'NanumSquare', sans-serif;\r\n}\r\n\r\n.ShowList__context___1_KJ6{\r\nwidth: 100vw;\r\nheight: 100vh;\r\nbackground: -webkit-linear-gradient(right, #00daef, #bc67ff);\r\nbackground: linear-gradient(270deg, #00daef, #bc67ff);\r\nbackground-size: 200% 200%;\r\n-webkit-animation: ShowList__MoveGrad___2QQ1- 5s ease infinite;\r\n animation: ShowList__MoveGrad___2QQ1- 5s ease infinite;\r\n overflow: hidden;\r\n}\r\n\r\n@-webkit-keyframes ShowList__MoveGrad___2QQ1- {\r\n0% {\r\nbackground-position: 0% 50%;\r\n}\r\n50% {\r\nbackground-position: 100% 50%;\r\n}\r\n100% {\r\nbackground-position: 0% 50%;\r\n}\r\n}\r\n\r\n@keyframes ShowList__MoveGrad___2QQ1- {\r\n0% {\r\nbackground-position: 0% 50%;\r\n}\r\n50% {\r\nbackground-position: 100% 50%;\r\n}\r\n100% {\r\nbackground-position: 0% 50%;\r\n}\r\n}\r\n\r\n.ShowList__context___1_KJ6{\r\n  position: absolute;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.ShowList__showlist___Gepem{\r\n  padding-top: 20px;\r\n  position: relative;\r\n  width: 100%;\r\n  overflow-y: auto;\r\n  min-height: calc(100% - 160px);\r\n  max-height: calc(100% - 160px);\r\n  text-align: center;\r\n}\r\n\r\n.ShowList__showlist___Gepem::-webkit-scrollbar-track\r\n{\r\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.ShowList__showlist___Gepem::-webkit-scrollbar\r\n{\r\n\twidth: 4px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.ShowList__showlist___Gepem::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.ShowList__showItem___10Ywu{\r\n  text-align: left;\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 350px;\r\n  height: 220px;\r\n  border-radius: 5px;\r\n  margin: auto 10px;\r\n  margin-bottom: 2em;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -o-user-select: none;\r\n  user-select: none;\r\n  background: #ffffff;\r\n  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.ShowList__tempShow___1qDhI{\r\n  color: gray;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n  line-height: 45px;\r\n  font-size: 30px;\r\n  padding: 100px 0;\r\n  position: absolute;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  transition: color 0.5s ease-in-out;\r\n}\r\n\r\n.ShowList__thumbnail___3PAG-{\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.ShowList__tempShow___1qDhI:hover{\r\n  color: white;\r\n}\r\n\r\n.ShowList__footer___1hvbi{\r\n  position: absolute;\r\n  border-bottom-left-radius: 5px;\r\n  border-bottom-right-radius: 5px;\r\n  bottom: 0px;\r\n  width: 100%;\r\n  height: 25%;\r\n  background: rgba(0, 0, 0, 0.6);\r\n  display: table;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__texts___3Kp-g{\r\n  display: table-cell;\r\n  padding-left: 17px;\r\n  width: 60%;\r\n  vertical-align: middle;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__texts___3Kp-g .ShowList__title___wF8i6{\r\n  color: #FFFFFF;\r\n  font-size: 13px;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__texts___3Kp-g .ShowList__subTitle___3SzyY{\r\n  color: #9E9E9F;\r\n  font-size: 9px;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__buttons___hC9vK{\r\n  display: table-cell;\r\n  width:40%;\r\n  vertical-align: middle;\r\n  text-align: right;\r\n  padding-right: 17px;\r\n}\r\n.ShowList__footer___1hvbi .ShowList__buttons___hC9vK .ShowList__imgBtn___1-hUX{\r\n  width: 35px;\r\n  height: 20px;\r\n  display: inline-block;\r\n  transition: transform 0.3s ease;\r\n}\r\n\r\n.ShowList__imgBtn___1-hUX:hover {\r\n\t\tbackground-color: transparent;\r\n\t\ttransform: rotate(90deg);\r\n\t\tcursor: pointer;\r\n}\r\n\r\n#ShowList__share___2uZ7z{\r\n  background: url('/images/ic_share_white.png') no-repeat center;\r\n}\r\n\r\n#ShowList__delete___38k7N{\r\n  background: url('/images/ic_delete_white.png') no-repeat center;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -21004,6 +21004,7 @@ exports.locals = {
 	"showlist": "ShowList__showlist___Gepem",
 	"showItem": "ShowList__showItem___10Ywu",
 	"tempShow": "ShowList__tempShow___1qDhI",
+	"thumbnail": "ShowList__thumbnail___3PAG-",
 	"footer": "ShowList__footer___1hvbi",
 	"texts": "ShowList__texts___3Kp-g",
 	"title": "ShowList__title___wF8i6",
@@ -21023,7 +21024,7 @@ exports = module.exports = __webpack_require__(17)(undefined);
 exports.push([module.i, "@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);", ""]);
 
 // module
-exports.push([module.i, ".ShowManageDialog__modal_wrapper___2y4Cf {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  top: -100%;\r\n  animation: ShowManageDialog__modalFadeIn___1rM-6 0.5s linear 0s;\r\n  animation-fill-mode: forwards;\r\n}\r\n\r\n.ShowManageDialog__modal___1FpZa{\r\n  text-align: center;\r\n  position: absolute;\r\n  top: 30%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  width: 400px;\r\n  height: 150px;\r\n  padding: 10px;\r\n  background-color: white;\r\n  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.ShowManageDialog__modal_header___1Uk3q{\r\n  height: 25%;\r\n  font-size: 25px;\r\n  font-weight: bold;\r\n}\r\n\r\n.ShowManageDialog__modal_content___KQfKW{\r\n  position: relative;\r\n  height: 75%;\r\n}\r\n\r\n@-webkit-keyframes ShowManageDialog__modalFadeIn___1rM-6 {\r\n  from {\r\n    top: -100%;\r\n  }\r\n  to {\r\n    top: 10%;\r\n  }\r\n}\r\n\r\n.ShowManageDialog__modal___1FpZa::before {\r\n  width: 100%;\r\n  content: '';\r\n  height: 100%;\r\n  background: rgba(0, 0, 0, 0.5);\r\n}\r\n\r\n.ShowManageDialog__input_wrapper___2mquJ{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  height: calc(100% - 50px);\r\n}\r\n\r\n.ShowManageDialog__input___3UfVN {\r\n  text-align: center;\r\n  width: 100%;\r\n  margin-top: 3px;\r\n  height: 30px;\r\n  font-size: 20px;\r\n  border: 0;\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.ShowManageDialog__input___3UfVN:focus {\r\n  outline: none;\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.9);\r\n}\r\n\r\n.ShowManageDialog__bottomGroup___1AoWX{\r\n  bottom: 0;\r\n  width: 100%;\r\n  height: 50px;\r\n  color: white;\r\n  line-height: 50px;\r\n  background: rgb(50, 79, 165);\r\n  position: absolute;\r\n  cursor: pointer;\r\n}\r\n\r\n.ShowManageDialog__bottomGroup___1AoWX:hover{\r\n  background: rgba(50, 79, 165, 0.9);\r\n}\r\n", ""]);
+exports.push([module.i, ".ShowManageDialog__modal_wrapper___2y4Cf {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  top: -100%;\r\n  animation: ShowManageDialog__modalFadeIn___1rM-6 0.5s linear 0s;\r\n  animation-fill-mode: forwards;\r\n}\r\n\r\n.ShowManageDialog__modal___1FpZa{\r\n  text-align: center;\r\n  position: absolute;\r\n  top: 30%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  width: 450px;\r\n  height: 180px;\r\n  padding: 10px;\r\n  background-color: white;\r\n  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.ShowManageDialog__modal_header___1Uk3q{\r\n  height: 25%;\r\n  font-size: 25px;\r\n  font-weight: bold;\r\n}\r\n\r\n.ShowManageDialog__modal_content___KQfKW{\r\n  position: relative;\r\n  height: 75%;\r\n}\r\n\r\n@-webkit-keyframes ShowManageDialog__modalFadeIn___1rM-6 {\r\n  from {\r\n    top: -100%;\r\n  }\r\n  to {\r\n    top: 10%;\r\n  }\r\n}\r\n\r\n.ShowManageDialog__modal___1FpZa::before {\r\n  width: 100%;\r\n  content: '';\r\n  height: 100%;\r\n  background: rgba(0, 0, 0, 0.5);\r\n}\r\n\r\n.ShowManageDialog__input_wrapper___2mquJ{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  height: calc(100% - 50px);\r\n}\r\n\r\n.ShowManageDialog__input___3UfVN {\r\n  text-align: center;\r\n  width: 100%;\r\n  margin-top: 3px;\r\n  height: 30px;\r\n  font-size: 20px;\r\n  border: 0;\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.ShowManageDialog__input___3UfVN:focus {\r\n  outline: none;\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.9);\r\n}\r\n\r\n.ShowManageDialog__bottomGroup___1AoWX{\r\n  bottom: 0;\r\n  width: 100%;\r\n  height: 50px;\r\n  color: white;\r\n  line-height: 50px;\r\n  background: rgb(50, 79, 165);\r\n  position: absolute;\r\n  cursor: pointer;\r\n}\r\n\r\n.ShowManageDialog__bottomGroup___1AoWX:hover{\r\n  background: rgba(50, 79, 165, 0.9);\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -21046,7 +21047,7 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".Show__context___1Sw3T{\r\n  overflow: hidden;\r\n  user-drag: none;\r\nuser-select: none;\r\n-moz-user-select: none;\r\n-webkit-user-drag: none;\r\n-webkit-user-select: none;\r\n-ms-user-select: none;\r\n}\r\n\r\n.Show__left___3qH7h{\r\n  top: 0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__right___2vy9y{\r\n  top: 0;\r\n  right:0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__slide___1tAzX{\r\n  position: static;\r\n  width: 100vw;\r\n  height: 100vh;\r\n}\r\n", ""]);
+exports.push([module.i, ".Show__context___1Sw3T{\r\n  overflow: hidden;\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.Show__left___3qH7h{\r\n  top: 0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__right___2vy9y{\r\n  top: 0;\r\n  right:0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__slide___1tAzX{\r\n  position: static;\r\n  width: 100vw;\r\n  height: 100vh;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -63101,6 +63102,7 @@ var ShowListContext = function (_React$Component) {
 
     _this.state = {
       job: undefined,
+      text: undefined,
       showList: undefined
     };
 
@@ -63131,7 +63133,11 @@ var ShowListContext = function (_React$Component) {
             '\uC0C8 \uBC1C\uD45C\uC790\uB8CC \uB9CC\uB4E4\uAE30'
           );
         } else return showList.map(function (show) {
-          return _react2.default.createElement(_ShowItem2.default, { key: show.id, name: show.name, open: function open() {
+          var thumbnail = undefined;
+          if (show.slides.length > 0) {
+            thumbnail = show.slides[0].thumbnail;
+          }
+          return _react2.default.createElement(_ShowItem2.default, { key: show.id, name: show.name, thumbnail: thumbnail, open: function open() {
               return _this2.openShow(show.id);
             }, share: function share() {
               return _this2.shareShow(show.id);
@@ -63147,8 +63153,10 @@ var ShowListContext = function (_React$Component) {
           msg = '변경할 이름을 입력해 주세요';
         } else if (job == 'create') {
           msg = '새 발표자료의 이름을 정해주세요!';
+        } else if (job == 'share') {
+          msg = '이 링크로 발표자료를 공유할 수 있어요!!';
         }
-        return _react2.default.createElement(_ShowManageDialog2.default, { msg: msg, callback: _this2.dialogCallback });
+        return _react2.default.createElement(_ShowManageDialog2.default, { msg: msg, text: _this2.state.text, callback: _this2.dialogCallback });
       };
       return _react2.default.createElement(
         'div',
@@ -63181,7 +63189,9 @@ var ShowListContext = function (_React$Component) {
     value: function dialogCallback(result) {
       var _this4 = this;
 
-      if (result != undefined && result.length > 0) {
+      if (this.state.job == 'share') {
+        this.setState({ text: undefined });
+      } else if (result != undefined && result.length > 0) {
         _axios2.default.post('/show/create', { name: result }).then(function (response) {
           _this4.updateShowList();
         }).catch(function (err) {});
@@ -63206,12 +63216,17 @@ var ShowListContext = function (_React$Component) {
   }, {
     key: 'shareShow',
     value: function shareShow(id) {
-      console.log('share');
+      var host = "http://" + window.location.hostname;
+      this.setState({ job: 'share', text: host + '/show/play/?show=' + id });
     }
   }, {
     key: 'deleteShow',
     value: function deleteShow(id) {
-      console.log('delete');
+      var _this5 = this;
+
+      _axios2.default.post('/show/delete', { id: id }).then(function (response) {
+        _this5.updateShowList();
+      }).catch(function (err) {});
     }
   }]);
 
@@ -63255,6 +63270,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var propTypes = {
   msg: _react2.default.PropTypes.string.isRequired,
+  text: _react2.default.PropTypes.string,
   callback: _react2.default.PropTypes.func.isRequired
 };
 
@@ -63275,12 +63291,23 @@ var Dialog = function (_React$Component) {
   _createClass(Dialog, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
+      var renderInput = function () {
+        var _this2 = this;
+
+        if (this.props.text == undefined) {
+          return _react2.default.createElement('input', { onChange: function onChange(e) {
+              _this2.setState({ value: e.target.value });
+            }, type: 'text', className: _ShowManageDialog2.default.input });
+        } else {
+          return _react2.default.createElement('input', { type: 'text', className: _ShowManageDialog2.default.input, readOnly: true, value: this.props.text });
+        }
+      }.bind(this);
       return _react2.default.createElement(
         'div',
         { onClick: function onClick() {
-            return _this2.props.callback();
+            return _this3.props.callback();
           }, className: _ShowManageDialog2.default.modal_wrapper },
         _react2.default.createElement(
           'div',
@@ -63298,14 +63325,12 @@ var Dialog = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: _ShowManageDialog2.default.input_wrapper },
-              _react2.default.createElement('input', { onChange: function onChange(e) {
-                  _this2.setState({ value: e.target.value });
-                }, type: 'text', className: _ShowManageDialog2.default.input })
+              renderInput()
             ),
             _react2.default.createElement(
               'div',
               { onClick: function onClick() {
-                  return _this2.props.callback(_this2.state.value);
+                  return _this3.props.callback(_this3.state.value);
                 }, className: _ShowManageDialog2.default.bottomGroup },
               '\uD655\uC778'
             )
@@ -63388,6 +63413,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var propTypes = {
   name: _react2.default.PropTypes.string.isRequired,
   open: _react2.default.PropTypes.func.isRequired,
+  thumbnail: _react2.default.PropTypes.string,
   share: _react2.default.PropTypes.func.isRequired,
   delete: _react2.default.PropTypes.func.isRequired
 };
@@ -63408,9 +63434,13 @@ var ShowItem = function (_React$Component) {
   _createClass(ShowItem, [{
     key: 'render',
     value: function render() {
+      var renderThumbnail = function () {
+        if (this.props.thumbnail != undefined) return _react2.default.createElement('img', { className: _ShowList2.default.thumbnail, src: this.props.thumbnail });
+      }.bind(this);
       return _react2.default.createElement(
         'div',
         { onClick: this.props.open, className: _ShowList2.default.showItem },
+        renderThumbnail(),
         _react2.default.createElement(
           'div',
           { className: _ShowList2.default.footer },
@@ -63572,6 +63602,7 @@ var ShowListContext = function (_React$Component) {
 
     _this.handleKeyDown = _this.handleKeyDown.bind(_this);
     _this.doSlide = _this.doSlide.bind(_this);
+    _this.convertSize = _this.convertSize.bind(_this);
     return _this;
   }
 
@@ -63587,13 +63618,13 @@ var ShowListContext = function (_React$Component) {
       };
       var renderingAssets = function renderingAssets(assets) {
         return assets.map(function (asset) {
-          return _react2.default.createElement(_Asset2.default, { controlable: false, key: asset.id, handleValueChange: _this2.props.setAssetValue, attribute: asset });
+          return _react2.default.createElement(_Asset2.default, { controlable: false, key: asset.id, handleValueChange: _this2.props.setAssetValue, attribute: _this2.convertSize(asset) });
         });
       };
       return _react2.default.createElement(
         'div',
         { className: _Show2.default.context },
-        renderingSlides(this.state.slides[this.state.currentSlide].assets),
+        renderingSlides(),
         _react2.default.createElement('div', { onClick: function onClick() {
             return _this2.doSlide(-1);
           }, className: _Show2.default.left }),
@@ -63601,6 +63632,22 @@ var ShowListContext = function (_React$Component) {
             return _this2.doSlide(1);
           }, className: _Show2.default.right })
       );
+    }
+  }, {
+    key: 'convertSize',
+    value: function convertSize(asset) {
+      var windowWidth = window.innerWidth;
+      var windowHeight = window.innerHeight;
+      var editorHeight = 620;
+      var editorWidth = 1080;
+      var perX = windowWidth / editorWidth;
+      var perY = windowHeight / editorHeight;
+      var assetItem = JSON.parse(JSON.stringify(asset));
+      assetItem.height = perY * parseInt(asset.height) + 'px';
+      assetItem.width = perX * parseInt(asset.width) + 'px';
+      assetItem.y = perY * parseInt(asset.y) + 'px';
+      assetItem.x = perX * parseInt(asset.x) + 'px';
+      return assetItem;
     }
   }, {
     key: 'doSlide',
@@ -63627,9 +63674,11 @@ var ShowListContext = function (_React$Component) {
       var showId = url.searchParams.get("show");
       if (showId != null) {
         _axios2.default.post('/show/play/', { showId: showId }).then(function (response) {
+          console.log('asdasa');
           console.log(response.data);
           _this3.setState({ slides: response.data });
         }).catch(function (e) {
+          console.log(e);
           alert('존재하지 않는 ppt 입니다!');
         });
       }

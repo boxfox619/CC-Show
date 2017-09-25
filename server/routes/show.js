@@ -70,6 +70,28 @@ module.exports = function(realm) {
       }
     });
 
+    router.post('/delete/', (req, res) => {
+      console.log(colors.green('[REQ]'),getIP(req), 'slideshow');
+      let showId = req.body.id;
+        if(!!req.signedCookies.user){
+          let show = realm.objects('Show').filtered('id = "'+showId+'"');
+          if(show.length>0){
+            if(show[0].user == JSON.parse(req.signedCookies.user).id){
+            return realm.write(() => {
+              realm.delete(show[0]);
+              return res.status(200).end('Success');
+            });
+            }else{
+              return res.status(400).end('You are not own this show');
+            }
+          }else{
+            return res.status(400).end('Not found this show');
+          }
+        }else{
+          return res.status(400).end('You need login');
+        }
+    });
+
     router.get('/data/', (req, res) => {
       console.log(colors.green('[REQ]'),getIP(req), 'look up show data');
       let showId = req.query.id;
