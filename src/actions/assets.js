@@ -68,7 +68,7 @@ export const createAssetByType = (type) => {
     case assetTypes.TYPE_TEXT:
       return createAsset(type, '텍스트를 입력해 주세요', {'font-size': '12px'});
     case assetTypes.TYPE_IMAGE:
-      return createAsset(type, 'https://github.com/rlatjdfo112/CC-Show/blob/master/document/design/ICON/App%20Icon.png?raw=true');
+      return createAsset(type, '/images/AppIcon.png');
     case assetTypes.TYPE_VIDEO:
       return createAsset(type, 'https://www.youtube.com/watch?v=VQtonf1fv_s');
     case assetTypes.TYPE_SHAPE:

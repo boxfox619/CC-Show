@@ -54,13 +54,12 @@ class ShowListContext extends React.Component{
     var url = new URL(window.location.href);
     var showId = url.searchParams.get("show");
     if(showId != null){
-      axios.post('/show/play/', {showId})
+      axios.post('/show/play/', {showId: showId})
       .then(response => {
         this.setState({slides: response.data});
       })
       .catch(e =>{
         alert('존재하지 않는 ppt 입니다!');
-        console.log(e);
       });
     }
   }

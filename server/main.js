@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 const devPort = 3001;
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '1024mb'}));
 app.use(cookieParser("secret"));
 
 app.use(function(req, res, next) {

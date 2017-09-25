@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "716eafc25f3d464b9d86"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6b6cc8faee1d028238ad"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3724,7 +3724,7 @@ var createAssetByType = exports.createAssetByType = function createAssetByType(t
     case assetTypes.TYPE_TEXT:
       return createAsset(type, '텍스트를 입력해 주세요', { 'font-size': '12px' });
     case assetTypes.TYPE_IMAGE:
-      return createAsset(type, 'https://github.com/rlatjdfo112/CC-Show/blob/master/document/design/ICON/App%20Icon.png?raw=true');
+      return createAsset(type, '/images/AppIcon.png');
     case assetTypes.TYPE_VIDEO:
       return createAsset(type, 'https://www.youtube.com/watch?v=VQtonf1fv_s');
     case assetTypes.TYPE_SHAPE:
@@ -21046,7 +21046,7 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".Show__context___1Sw3T{\r\n\r\n}\r\n\r\n.Show__left___3qH7h{\r\n\r\n}\r\n\r\n.Show__right___2vy9y{\r\n\r\n}\r\n\r\n.Show__slide___1tAzX{\r\n  \r\n}\r\n", ""]);
+exports.push([module.i, ".Show__context___1Sw3T{\r\n  overflow: hidden;\r\n  user-drag: none;\r\nuser-select: none;\r\n-moz-user-select: none;\r\n-webkit-user-drag: none;\r\n-webkit-user-select: none;\r\n-ms-user-select: none;\r\n}\r\n\r\n.Show__left___3qH7h{\r\n  top: 0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__right___2vy9y{\r\n  top: 0;\r\n  right:0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__slide___1tAzX{\r\n  position: static;\r\n  width: 100vw;\r\n  height: 100vh;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -41641,6 +41641,8 @@ var SlideEditor = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (SlideEditor.__proto__ || Object.getPrototypeOf(SlideEditor)).call(this, props));
 
+    _this.state = { showId: undefined };
+
     _this.checkContextDisabled = _this.checkContextDisabled.bind(_this);
     _this.handleClick = _this.handleClick.bind(_this);
     _this.handleKeyDown = _this.handleKeyDown.bind(_this);
@@ -41648,6 +41650,8 @@ var SlideEditor = function (_React$Component) {
     _this.handleBorderColor = _this.handleBorderColor.bind(_this);
     _this.handleFillColor = _this.handleFillColor.bind(_this);
     _this.handleTextColor = _this.handleTextColor.bind(_this);
+
+    _this.uploadShowData = _this.uploadShowData.bind(_this);
     return _this;
   }
 
@@ -41733,6 +41737,7 @@ var SlideEditor = function (_React$Component) {
         _axios2.default.get('/show/data?id=' + showId).then(function (response) {
           _this3.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
           _this3.props.initShowData(response.data.showData);
+          _this3.setState({ showId: showId });
         }).catch(function (e) {
           console.log(e);
         });
@@ -41748,6 +41753,9 @@ var SlideEditor = function (_React$Component) {
     value: function handleKeyDown(e) {
       if (e.keyCode === 27) {
         this.props.releaseDialog();
+      } else if (e.which == 83 && e.ctrlKey) {
+        this.uploadShowData();
+        e.preventDefault();
       }
     }
   }, {
@@ -41765,6 +41773,15 @@ var SlideEditor = function (_React$Component) {
         check = true;
       }
       return check;
+    }
+  }, {
+    key: 'uploadShowData',
+    value: function uploadShowData() {
+      if (this.state.showId != undefined) _axios2.default.post('/show/data', { showId: this.state.showId, showData: this.props.showData }).then(function (response) {
+        console.log('show data upload');
+      }).catch(function (e) {
+        console.log(e);
+      });
     }
   }, {
     key: 'handleFillColor',
@@ -41791,7 +41808,8 @@ var mapStateToProps = function mapStateToProps(state) {
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager,
     visibleSlideShow: state.ui.visibleSlideShow,
-    colorPicker: state.ui.colorPicker
+    colorPicker: state.ui.colorPicker,
+    showData: state.editor
   };
 };
 
@@ -62865,7 +62883,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var initialState = {
   name: 'Guest',
   email: '로그인이 필요합니다',
-  profile: '/images/ic_cc_show.png'
+  profile: '/images/tmpprofile.png'
 };
 
 var account = function account() {
@@ -63523,11 +63541,11 @@ var ShowListContext = function (_React$Component) {
 
     _this.state = {
       currentSlide: 0,
-      slides: ['http://cfile7.uf.tistory.com/image/247486435884DAC80A37B7']
+      slides: ['http://cfile7.uf.tistory.com/image/247486435884DAC80A37B7', 'https://www.kbrockstar.com/wp-content/uploads/2016/03/05-10.png']
     };
 
     _this.handleKeyDown = _this.handleKeyDown.bind(_this);
-
+    _this.doSlide = _this.doSlide.bind(_this);
     return _this;
   }
 
@@ -63537,15 +63555,28 @@ var ShowListContext = function (_React$Component) {
       var _this2 = this;
 
       var renderingSlides = function renderingSlides() {
-        if (_this2.state.showImages.length > 0) return _react2.default.createElement('img', { className: _Show2.default.slide, src: _this2.state.slides[_this2.state.currentSlide] });
+        if (_this2.state.slides.length > 0) return _react2.default.createElement('img', { className: _Show2.default.slide, src: _this2.state.slides[_this2.state.currentSlide] });
       };
       return _react2.default.createElement(
         'div',
         { className: _Show2.default.context },
         renderingSlides(),
-        _react2.default.createElement('div', { className: _Show2.default.left }),
-        _react2.default.createElement('div', { className: _Show2.default.right })
+        _react2.default.createElement('div', { onClick: function onClick() {
+            return _this2.doSlide(-1);
+          }, className: _Show2.default.left }),
+        _react2.default.createElement('div', { onClick: function onClick() {
+            return _this2.doSlide(1);
+          }, className: _Show2.default.right })
       );
+    }
+  }, {
+    key: 'doSlide',
+    value: function doSlide(change) {
+      var tmpSlideIndex = this.state.currentSlide + change;
+      if (tmpSlideIndex < 0 || tmpSlideIndex >= this.state.slides.length) {
+        return;
+      }
+      this.setState({ currentSlide: tmpSlideIndex });
     }
   }, {
     key: 'componentDidMount',
@@ -63553,7 +63584,12 @@ var ShowListContext = function (_React$Component) {
       var _this3 = this;
 
       window.addEventListener("keydown", this.handleKeyDown, true);
-
+      window.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+      }, false);
+      document.oncontextmenu = function () {
+        return false;
+      };
       var url = new URL(window.location.href);
       var showId = url.searchParams.get("show");
       if (showId != null) {
@@ -63561,13 +63597,18 @@ var ShowListContext = function (_React$Component) {
           _this3.setState({ slides: response.data });
         }).catch(function (e) {
           alert('존재하지 않는 ppt 입니다!');
-          console.log(e);
         });
       }
     }
   }, {
     key: 'handleKeyDown',
-    value: function handleKeyDown(e) {}
+    value: function handleKeyDown(e) {
+      if (e.keyCode == 37) {
+        this.doSlide(-1);
+      } else if (e.keyCode == 39) {
+        this.doSlide(1);
+      }
+    }
   }]);
 
   return ShowListContext;

@@ -27,6 +27,8 @@ class SlideEditor extends React.Component{
   constructor(props){
     super(props);
 
+    this.state = {showId: undefined};
+
     this.checkContextDisabled = this.checkContextDisabled.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -34,6 +36,8 @@ class SlideEditor extends React.Component{
     this.handleBorderColor = this.handleBorderColor.bind(this);
     this.handleFillColor = this.handleFillColor.bind(this);
     this.handleTextColor = this.handleTextColor.bind(this);
+
+    this.uploadShowData = this.uploadShowData.bind(this);
   }
 
   render(){
@@ -101,6 +105,7 @@ class SlideEditor extends React.Component{
       axios.get('/show/data?id='+showId).then(response => {
         this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
         this.props.initShowData(response.data.showData);
+        this.setState({showId});
       })
       .catch(e =>{
         console.log(e);
@@ -115,6 +120,9 @@ class SlideEditor extends React.Component{
   handleKeyDown(e) {
     if (e.keyCode === 27) {
       this.props.releaseDialog();
+    }else if ((e.which == 83 && e.ctrlKey)){
+      this.uploadShowData();
+      e.preventDefault()
     }
   }
 
@@ -130,6 +138,16 @@ class SlideEditor extends React.Component{
       check = true;
     }
     return check;
+  }
+
+  uploadShowData(){
+    if(this.state.showId!=undefined)
+    axios.post('/show/data', {showId: this.state.showId, showData: this.props.showData}).then(response => {
+      console.log('show data upload');
+    })
+    .catch(e =>{
+      console.log(e);
+    });
   }
 
   handleFillColor(color){
@@ -149,7 +167,8 @@ const mapStateToProps = (state) => {
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager,
     visibleSlideShow: state.ui.visibleSlideShow,
-    colorPicker: state.ui.colorPicker
+    colorPicker: state.ui.colorPicker,
+    showData: state.editor
   }
 }
 
