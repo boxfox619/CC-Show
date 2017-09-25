@@ -15,7 +15,7 @@ class ShowListContext extends React.Component{
 
     this.state={
       job: undefined,
-      showList:[]
+      showList: undefined
     }
 
     this.createShow = this.createShow.bind(this);
@@ -28,6 +28,7 @@ class ShowListContext extends React.Component{
   render(){
     let headerHeight = document.getElementsByTagName('header')[0].scrollHeight;
     let renderShowList = (showList) =>{
+      if(showList==undefined) return;
       if(showList.length == 0){
         return (<div onClick={this.createShow} className={styles.tempShow}>발표자료가 없습니다<br/>새 발표자료 만들기</div>);
       }else
