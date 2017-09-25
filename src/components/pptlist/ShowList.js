@@ -23,6 +23,8 @@ class ShowListContext extends React.Component{
     this.shareShow = this.shareShow.bind(this);
     this.deleteShow = this.deleteShow.bind(this);
     this.dialogCallback = this.dialogCallback.bind(this);
+
+    this.updateShowList = this.updateShowList.bind(this);
   }
 
   render(){
@@ -53,8 +55,7 @@ class ShowListContext extends React.Component{
     )
   }
 
-  componentDidMount(){
-    document.getElementById('createShow').addEventListener('click', this.createShow);
+  updateShowList(){
     axios.get('/show/list')
     .then(response => {
       this.setState({showList : response.data});
@@ -62,11 +63,16 @@ class ShowListContext extends React.Component{
     });
   }
 
+  componentDidMount(){
+    document.getElementById('createShow').addEventListener('click', this.createShow);
+    this.updateShowList();
+  }
+
   dialogCallback(result){
     if(result!=undefined&&result.length>0){
       axios.post('/show/create', {name: result})
       .then(response => {
-        console.log(response.data);
+      this.updateShowList();
       }).catch(err => {
       });
     }
@@ -82,7 +88,7 @@ class ShowListContext extends React.Component{
   }
 
   openShow(id){
-
+    window.location.href = '/?show='+id;
   }
 
   shareShow(id){

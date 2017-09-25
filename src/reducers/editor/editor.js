@@ -915,6 +915,10 @@ const editor = (state = initialState, action) => {
         }
       )
     };
+    case slideActionTypes.INIT_SHOW_DATA:
+    return {
+      ...action.data
+    }
     default:
       return state;
   }

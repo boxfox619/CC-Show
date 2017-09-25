@@ -8,7 +8,8 @@ export const actionTypes = {
   SLIDE_SELECT : 'SLIDE_SELECT',
   SLIDE_SET_THUMBNAIL: 'SLIDE_SET_THUMBNAIL',
   EXCHANGE_SLIDE : 'EXCHANGE_SLIDE',
-  SLIDE_SET_NOTE : 'SLIDE_SET_NOTE'
+  SLIDE_SET_NOTE : 'SLIDE_SET_NOTE',
+  INIT_SHOW_DATA : 'INIT_SHOW_DATA'
 };
 
 
@@ -82,5 +83,12 @@ export const exchangeSlide = (to, from) => {
     type: actionTypes.EXCHANGE_SLIDE,
     to,
     from
+  }
+}
+
+export const initShowData = (data) =>{
+  return {
+    type: actionTypes.INIT_SHOW_DATA,
+    data
   }
 }
