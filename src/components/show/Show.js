@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Asset from '../editor/assets/Asset';
+
 import styles from './Show.css';
 
 import axios from 'axios';
@@ -12,19 +14,24 @@ class ShowListContext extends React.Component{
 
     this.state={
       currentSlide: 0,
-      slides:['http://cfile7.uf.tistory.com/image/247486435884DAC80A37B7', 'https://www.kbrockstar.com/wp-content/uploads/2016/03/05-10.png']
+      slides:[]
     }
 
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.doSlide = this.doSlide.bind(this);
+    this.convertSize = this.convertSize.bind(this);
   }
 
   render(){
-    let renderingSlides = () => {
-      if(this.state.slides.length>0)
-      return (
-        <img className={styles.slide} src={this.state.slides[this.state.currentSlide]}/>
-      )
+    let renderingSlides = () =>{
+      if(this.state.slides.length>0){
+        return renderingAssets(this.state.slides[this.state.currentSlide].assets);
+      }
+    }
+    let renderingAssets = (assets) => {
+      return assets.map((asset)=>{
+        return <Asset controlable={false} key={asset.id} handleValueChange={this.props.setAssetValue} attribute={this.convertSize(asset)}/>
+      })
     }
     return (
       <div className={styles.context}>
@@ -33,6 +40,21 @@ class ShowListContext extends React.Component{
         <div onClick={()=>this.doSlide(1)} className={styles.right}></div>
       </div>
     )
+  }
+
+  convertSize(asset){
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+    let editorHeight = 620;
+    let editorWidth = 1080;
+    let perX = windowWidth / editorWidth;
+    let perY = windowHeight / editorHeight;
+    let assetItem = JSON.parse(JSON.stringify(asset));
+    assetItem.height = perY*parseInt(asset.height)+'px';
+    assetItem.width = perX*parseInt(asset.width)+'px';
+    assetItem.y = perY*parseInt(asset.y)+'px';
+    assetItem.x = perX*parseInt(asset.x)+'px';
+    return assetItem;
   }
 
   doSlide(change){
@@ -56,9 +78,12 @@ class ShowListContext extends React.Component{
     if(showId != null){
       axios.post('/show/play/', {showId: showId})
       .then(response => {
+        console.log('asdasa');
+        console.log(response.data);
         this.setState({slides: response.data});
       })
       .catch(e =>{
+        console.log(e);
         alert('존재하지 않는 ppt 입니다!');
       });
     }

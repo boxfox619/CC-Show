@@ -64,10 +64,7 @@ module.exports = function(realm) {
       let showId = req.body.showId;
       let show = realm.objects('Show').filtered('id = "'+showId+'"');
       if(show.length>0){
-        let slides = slideArrayToJson(show[0]).slides.map(slide =>{
-          return slide.thumbnail;
-        });
-        res.json(slides);
+        res.json(slideArrayToJson(show[0]).slides);
       }else{
         return res.status(400).end('Not found this show');
       }
