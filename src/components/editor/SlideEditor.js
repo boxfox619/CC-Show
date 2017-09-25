@@ -17,6 +17,8 @@ import { bindActionCreators } from 'redux';
 import styles from './SlideEditor.css';
 import { connect } from 'react-redux';
 
+import axios from 'axios';
+
 
 class SlideEditor extends React.Component{
 
@@ -91,6 +93,14 @@ class SlideEditor extends React.Component{
 
   componentDidMount(){
     window.addEventListener("keydown", this.handleKeyDown, true);
+    var url = new URL(window.location.href);
+    var showId = url.searchParams.get("show");
+    if(showId != null){
+      axios.get('/show/data?id='+showId).then(response => {
+        console.log(response.data);
+        this.props.initShowData(response.data);
+      });
+    }
   }
 
   componentWillUnmount(){
