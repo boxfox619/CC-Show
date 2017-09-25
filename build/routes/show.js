@@ -118,5 +118,6 @@ module.exports = function (realm) {
       return res.status(400).end('You need login');
     }
   });
+
   return router;
 };

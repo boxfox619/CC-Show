@@ -121,5 +121,6 @@ module.exports = function(realm) {
         }
 
     });
-        return router;
+
+    return router;
 }
