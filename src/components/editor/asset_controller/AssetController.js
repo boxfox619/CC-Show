@@ -49,6 +49,9 @@ class AssetController extends React.Component {
                     return(
                             <ImageController img_url = {this.props.currentSilde.assets[selectedAsset].url}/>
                     )
+
+                case actions.TYPE_CUSTOM:
+                    return;
             }
     }
 
@@ -65,7 +68,7 @@ class AssetController extends React.Component {
                                      angle = {parseInt(this.props.currentSilde.assets[selectedAsset].angle)}
                                      fillColor = {this.props.currentSilde.assets[selectedAsset].style.fillColor}
                                      borderColor = {this.props.currentSilde.assets[selectedAsset].style.borderColor}
-                                     borderWeight = {this.props.currentSilde.assets[selectedAsset].style.borderWeight}
+                                     borderWeight = {parseInt(this.props.currentSilde.assets[selectedAsset].style.borderWeight)}
                                      style = {this.props.currentSilde.assets[selectedAsset].style}/>
                 </div>
             )

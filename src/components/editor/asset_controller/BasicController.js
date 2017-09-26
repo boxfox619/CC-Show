@@ -30,6 +30,7 @@ class BasicController extends React.Component{
         this.setY_location=this.setY_location.bind(this);
         this.setAngle=this.setAngle.bind(this);
         this.setStyle=this.setStyle.bind(this);
+        this.setBorderWeight=this.setBorderWeight.bind(this);
 
         this.attributeOn=this.attributeOn.bind(this);
         this.attributeOff=this.attributeOff.bind(this);
@@ -46,7 +47,7 @@ class BasicController extends React.Component{
     render(){
         return(
             <div>
-                <div>
+                <div style={{'height':'13vh'}}>
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>속성
 
@@ -82,7 +83,7 @@ class BasicController extends React.Component{
                     </div>
                 </div>
                 <hr className={styles.controller_hr}/>
-                <div>
+                <div style={{'height':'7vh'}}>
                     <div className={styles.controller_sub_wrapper}>
                             <div className={styles.controller_sub_title}>도형
                                 <img onClick={this.shapeOn.bind()} src="/images/ic_arrow_up.png" style={this.state.shape_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
@@ -92,11 +93,12 @@ class BasicController extends React.Component{
                     <div style={this.state.shape ? {} : {display:'none'}} className={styles.items}>
                         <div className={styles.control_item}>
                             <span><img src="/images/ic_color.png"/></span>
-                            <div className={styles.change_color} onClick={this.props.toggleFillColorPicker} style={{backgroundColor:this.props.fillColor}} > </div>
+                            <div className={styles.change_color} onClick={this.props.toggleFillColorPicker} style={this.props.fillColor==='white' ? {border:'1px solid #5D87B5'} : {backgroundColor:this.props.fillColor}} > </div>
                         </div>
                         <div className={styles.control_item}>
                             <span><img src="/images/ic_line.png"/></span>
-                            <div className={styles.change_color} onClick={this.props.toggleBorderColorPicker} style={{backgroundColor:this.props.borderColor}}> </div>
+                            <input type="text" className={styles.attribute_item_input} onChange={this.setBorderWeight} value={this.props.borderWeight}/>
+                            <div className={styles.change_color} onClick={this.props.toggleBorderColorPicker} style={this.props.borderColor==='white' ? {border:'1px solid #5D87B5'} : {backgroundColor:this.props.borderColor}}> </div>
                         </div>
                     </div>
                 </div>
@@ -150,8 +152,8 @@ class BasicController extends React.Component{
 
         arr.unshift(json);
 
-        console.log.apply(console, arr);
-        console.log(json);
+        // console.log.apply(console, arr);
+        // console.log(json);
         return json;
     }
 
@@ -203,6 +205,16 @@ class BasicController extends React.Component{
             intValue=0;
         }
         this.props.setAssetAngle(intValue); 
+    }
+
+    setBorderWeight(event) {
+        let {value}=event.target;
+        let intValue=parseInt(value);
+        console.log(value);
+        if(isNaN(intValue)){
+            intValue=0;
+        }
+        this.props.setAssetEdgeWeight(intValue); 
     }
 
     setFillColor(color) {

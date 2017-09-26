@@ -48,46 +48,40 @@ const editor = (state = initialState, action) => {
         x: '0' + positionUnit,
         y: '0' + positionUnit,
         style: {
-          fillColor: 'withe',
-          borderColor: 'withe',
-          edgeWeight: '0'
+          fillColor: 'white',
+          borderColor: 'white',
+          borderWeight: '0'
         }
       };
       if (action.assetType === assetTypes.TYPE_TEXT) {
         newAsset = {
           ...newAsset,
           style: {
-            font: '',
-            fontsize: '0',
-            sort: '',
+            ...newAsset.style,
+            font: '굴림',
+            fontSize: '0',
+            sort: undefined,
             fontBold: false,
             fontItalic: false,
             fontUnderline: false,
             fontStrikethrough: false,
-            textColor: ' '
+            textColor: 'black'
           }
         }
+        console.log(newAsset);
       } else if (action.assetType === assetTypes.TYPE_VIDEO) {
         newAsset = {
           ...newAsset,
           style: {
+            ...newAsset.style,
             videoController: false,
             videoLoop: false,
             videoAutoplay: false
           }
         }
       } else if (action.assetType === assetTypes.TYPE_IMAGE) {
-        newAsset = {
-          ...newAsset,
-          style: {}
-        }
       } else if (action.assetType === assetTypes.TYPE_SHAPE) {
-        newAsset = {
-          ...newAsset,
-          style: {}
-        }
       } else if (action.assetType === assetTypes.TYPE_CUSTOM) {
-
       } else {
         alert('type error');
       }

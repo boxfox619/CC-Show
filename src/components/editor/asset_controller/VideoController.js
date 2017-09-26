@@ -22,7 +22,8 @@ class VideoController extends React.Component {
     render() {
         return (
             <div>
-                <div className={styles.controller_sub_wrapper}>
+                <div style={{"height":"10vh"}}>
+                    <div className={styles.controller_sub_wrapper}>
                     <div className={styles.controller_sub_title}>비디오
                         <img onClick={this.videoOn.bind()} src="/images/ic_arrow_up.png" style={this.state.video_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
                         <img onClick={this.videoOff.bind()} src="/images/ic_arrow_down.png" style={this.state.video_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
@@ -43,6 +44,7 @@ class VideoController extends React.Component {
                             <span className={styles.attribute_item_title+' '+styles.video_margin_zero} style={this.props.videoLoop ? {color:'#fff'} : {}}>반복</span>
                         </div>
                     </div>
+                </div>
                 </div>
                 <hr className={styles.controller_hr}/>
             </div>

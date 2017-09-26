@@ -1,4 +1,9 @@
+p {
+    font-family: 'NanumSquareEB';
+}
+
 .items {
+    height: 100%;
     padding: 0;
     margin: 0 0 1em 0.4em;
 }
@@ -26,7 +31,7 @@
 }
 
 .control_item {
-    display: inline-block;
+    display: inline-table;
     border: 1px solid #5a84b3;
     border-radius: 20px;
     padding: 3px 5px 3px 5px;
@@ -97,13 +102,13 @@ button {
     padding: 5px;
 }
 
-#input_style textarea{
+#input_style textarea {
     width: 98%;
     height: 15vh;
     border: 0;
 }
 
-textarea:focus{
+textarea:focus {
     outline: 0;
 }
 
@@ -113,28 +118,28 @@ select {
     border-radius: 20px;
 }
 
-.control_text_attribute{
-}
+.control_text_attribute {}
 
-.control_item img{
+.control_item img {
     margin: 3px 0 0 5px;
+    float: left;
 }
 
-.control_text_attribute img{
+.control_text_attribute img {
     cursor: pointer;
-    margin : 10px;
+    margin: 10px;
 }
 
-.change_color{
+.change_color {
     cursor: pointer;
-    width:20px;
+    width: 20px;
     height: 20px;
     border-radius: 20px;
     float: right;
     display: inline-block;
 }
 
-.color_picker_modal{
+.color_picker_modal {
     position: absolute;
     left: 40%;
     top: 40%;
