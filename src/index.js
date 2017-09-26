@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Editor from './components/Editor';
 import ShowList from './components/ShowList';
+import SlideShow from './components/SlideShow';
 
 const APPS = {
   Editor,
-  ShowList
+  ShowList,
+  SlideShow
 };
 
 function renderAppInElement(el) {

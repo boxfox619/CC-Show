@@ -1,5 +1,6 @@
+var currentHash = 'intro';
+var logined = false;
 $(function () {
-
 
   try {
     fullpage.initialize('#fullpage', {});
@@ -13,23 +14,27 @@ $(function () {
     });
     currentSlide = 0;
   });
+
   $('#sliderLeft').click(function () {
-    console.log("teast121212113");
     if (currentSlide + 3 == $('.imgSlide').length) return;
     $(".slides").animate({
       'left': '-=' + getAmount()
     }, 'slow');
     currentSlide += 1;
   });
+
   $('#sliderRight').click(function () {
-    console.log("teast12123");
     if (currentSlide == 0) return;
     $(".slides").animate({
       'left': '+=' + getAmount()
     }, 'slow');
     currentSlide -= 1;
   });
+
   $('#login_modal_on').click(function () {
+    if(logined){
+      window.location='/show';
+    }else
     $('.login_modal_wrapper').addClass("login_animation");
   });
 
@@ -100,22 +105,31 @@ $(function () {
     });
   });
 
-  function clearForm(){
-    $('#signup_msg').text('');
-    $('#signin_msg').text('');
-    $('.signup_input').map((input)=>{
-      input.value = '';
-    })
-  }
-
   $('.signup_button').click(function () {
     $('.signin').css('display', 'none');
     $('.signup').css('display', 'block');
     clearForm();
   });
+
+
+//check logined
+    $.ajax({
+      type: 'GET',
+      url: '/account/check',
+      success: function (result) {
+        logined = result.result;
+      }
+    });
 });
 
-var currentHash = 'intro';
+
+function clearForm(){
+  $('#signup_msg').text('');
+  $('#signin_msg').text('');
+  $('.signup_input').map((input)=>{
+    input.value = '';
+  })
+}
 
 function scrollDown() {
   if ($('#' + currentHash).next().length > 0) {

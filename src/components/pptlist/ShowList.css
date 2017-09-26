@@ -1,14 +1,85 @@
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+body {
+  margin:0;
+  font-family: 'NanumSquare', sans-serif;
+}
+
 .context{
-  padding: 20px;
+width: 100vw;
+height: 100vh;
+background: -webkit-linear-gradient(right, #00daef, #bc67ff);
+background: linear-gradient(270deg, #00daef, #bc67ff);
+background-size: 200% 200%;
+-webkit-animation: MoveGrad 5s ease infinite;
+ animation: MoveGrad 5s ease infinite;
+ overflow: hidden;
+}
+
+@-webkit-keyframes MoveGrad {
+0% {
+background-position: 0% 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0% 50%;
+}
+}
+
+@keyframes MoveGrad {
+0% {
+background-position: 0% 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0% 50%;
+}
+}
+
+.context{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.showlist{
+  padding-top: 20px;
+  position: relative;
+  width: 100%;
+  overflow-y: auto;
+  min-height: calc(100% - 160px);
+  max-height: calc(100% - 160px);
+  text-align: center;
+}
+
+.showlist::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+	background-color: #ffffff;
+}
+
+.showlist::-webkit-scrollbar
+{
+	width: 4px;
+	background-color: #ffffff;
+}
+
+.showlist::-webkit-scrollbar-thumb
+{
+	background-color: #5D87B5;
 }
 
 .showItem{
+  text-align: left;
   display: inline-block;
   position: relative;
-  width: 380px;
+  width: 350px;
   height: 220px;
   border-radius: 5px;
-  margin-left: 3.4%;
+  margin: auto 10px;
   margin-bottom: 2em;
   overflow: hidden;
   cursor: pointer;
@@ -17,11 +88,33 @@
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+  background: #ffffff;
   box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);
 }
 
-.showItem:nth-child(3n+1){
-  margin-left: 0;
+.tempShow{
+  color: gray;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 45px;
+  font-size: 30px;
+  padding: 100px 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: color 0.5s ease-in-out;
+}
+
+.thumbnail{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.tempShow:hover{
+  color: white;
 }
 
 .footer{

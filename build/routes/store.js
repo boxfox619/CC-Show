@@ -109,7 +109,7 @@ module.exports = function (realm) {
       return realm.write(() => {
         realm.create('SimpleAsset', {
           id,
-          user: req.signedCookies.user.id,
+          user: JSON.parse(req.signedCookies.user).id,
           css: req.body.css,
           js: req.body.js,
           html: req.body.html,

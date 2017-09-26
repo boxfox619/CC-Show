@@ -39,6 +39,11 @@ module.exports = function (realm) {
 
   const router = express.Router();
 
+  router.get('/check/', (req, res) => {
+    console.log(colors.green('[REQ]'), 'account check', getIP(req));
+    res.json({ result: !!req.signedCookies.user });
+  });
+
   router.get('/logout/', (req, res) => {
     console.log(colors.green('[REQ]'), 'logout', getIP(req));
     res.clearCookie("user");
@@ -46,7 +51,6 @@ module.exports = function (realm) {
   });
 
   router.post('/login/', (req, res) => {
-    console.log(req.body.id);
     console.log(colors.green('[REQ]'), 'login', getIP(req));
     let user = realm.objects('User').filtered('id = "' + req.body.id + '"');
     if (user.length == 0) {

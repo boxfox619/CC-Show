@@ -25,6 +25,17 @@ body {
   padding: 0;
   margin: 0;
   height: 100vh;
+
+  -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
 }
 
 body::-webkit-scrollbar {
@@ -87,6 +98,27 @@ header .titleIcon {
 header li a img {
   height: 100%;
 }
+
+header .navButton{
+display: block;
+color: white;
+text-align: center;
+font-weight: bold;
+text-decoration: none;
+border: solid white 1px;
+border-radius: 10px;
+font-size: 0.8em;
+padding: 10px 15px;
+height: 1em;
+margin: 20px 10px !important;
+transition: all 0.5s ease;
+}
+
+header .navButton:hover{
+background: linear-gradient(135deg, #ED0CFE 0%, #7C70EE 50%, #12CDE0 100%);
+color: white !important;
+border-color: white !important;
+ +}
 
 
 /*  ------ header end ------ */
@@ -430,7 +462,7 @@ section#final .slider-wrap .imgSlide {
   border: solid 2px white;
 }
 
-section#final .footer {
+.footer {
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -442,23 +474,23 @@ section#final .footer {
   line-height: 13px;
 }
 
-section#final .footer .serviceIcon {
+.footer .serviceIcon {
   height: 3.5em;
   margin: 0 15px 0 0;
 }
 
-section#final .footer .copyright {
+.footer .copyright {
   font-family: 'NanumSquareL';
   display: inline-block;
 }
 
-section#final .footer .sns {
+.footer .sns {
   float: right;
   text-decoration: none;
   margin-top: 0.3em;
 }
 
-section#final .footer .sns img {
+.footer .sns img {
   margin: auto 3px;
   height: 3em;
 }
@@ -491,8 +523,8 @@ section#final .footer .sns img {
 }
 
 @media screen and (max-width: 585px) {
-  section#final .footer .serviceIcon,
-  section#final .footer .sns {
+  .footer .serviceIcon,
+  .footer .sns {
     display: none;
   }
   section#final .title {

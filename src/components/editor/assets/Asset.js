@@ -12,11 +12,13 @@ import CustomAsset from './CustomAsset';
 const propTypes = {
   attribute: React.PropTypes.object,
   isSelected: React.PropTypes.bool,
-  handleValueChange: React.PropTypes.func
+  handleValueChange: React.PropTypes.func,
+  controlable: React.PropTypes.bool
 }
 
 const defaultProps = {
-  isSelected: false
+  isSelected: false,
+  controlable: true
 }
 
 class Asset extends React.Component{
@@ -60,17 +62,29 @@ class Asset extends React.Component{
     const bottomAttr = {'target': 'bottom'};
     const leftAttr = {'target': 'left'};
     const rightAttr = {'target': 'right'};
-      return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
-      <div style={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'padding': '6px', 'position': 'absolute'}} >
-        <selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer+this.getSubStyleClass()}/>
+    let renderSelectorLine = ()=>{
+      if(this.props.controlable){
+        return (<div><selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer+this.getSubStyleClass()}/>
         <selectorline {...bottomAttr} style={{'top': 'calc('+this.getContextHeight()+' + 7px)'}} className={styles.horizontalResizer+this.getSubStyleClass()}/>
         <selectorline {...leftAttr} style={{'left': '3px'}} className={styles.verticalResizer+this.getSubStyleClass()}/>
         <selectorline {...rightAttr} style={{'left': 'calc('+this.getContextWidth()+' + 7px)'}} className={styles.verticalResizer+this.getSubStyleClass()}/>
+      </div>);
+      }
+    }
+    let renderSelectorDot = ()=>{
+      if(this.props.controlable){
+        return (<div><selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>
+      <selectordot {...topRightAttr} style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+this.getContextWidth()+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}/>
+      <selectordot {...bottomLeftAttr} style={{'cursor': 'ne-resize', 'top': 'calc('+this.getContextHeight()+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>
+      <selectordot {...bottomRightAttr} style={{'cursor': 'nw-resize', 'top': 'calc('+this.getContextHeight()+' + 3.5px)', 'left': 'calc('+this.getContextWidth()+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}/>
+        </div>)
+      }
+    }
+      return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
+      <div style={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'padding': '6px', 'position': 'absolute'}} >
+        {renderSelectorLine()}
         <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move'}} value={this.props.attribute.value}/>
-        <selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>
-        <selectordot {...topRightAttr} style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+this.getContextWidth()+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}/>
-        <selectordot {...bottomLeftAttr} style={{'cursor': 'ne-resize', 'top': 'calc('+this.getContextHeight()+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>
-        <selectordot {...bottomRightAttr} style={{'cursor': 'nw-resize', 'top': 'calc('+this.getContextHeight()+' + 3.5px)', 'left': 'calc('+this.getContextWidth()+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}/>
+          {renderSelectorDot()}
       </div>
       </asset>);
   }
