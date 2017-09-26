@@ -12,16 +12,22 @@ import { dialogs, colorPicker } from '../../actions/ui';
 import { SketchPicker } from 'react-color';
 import * as assetsActions from '../../actions/assets';
 import * as uiActions from '../../actions/ui';
+import * as slideActions from '../../actions/slides';
+import * as accountActions from '../../actions/account';
 import { bindActionCreators } from 'redux';
 
 import styles from './SlideEditor.css';
 import { connect } from 'react-redux';
+
+import axios from 'axios';
 
 
 class SlideEditor extends React.Component{
 
   constructor(props){
     super(props);
+
+    this.state = {showId: undefined};
 
     this.checkContextDisabled = this.checkContextDisabled.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -30,6 +36,8 @@ class SlideEditor extends React.Component{
     this.handleBorderColor = this.handleBorderColor.bind(this);
     this.handleFillColor = this.handleFillColor.bind(this);
     this.handleTextColor = this.handleTextColor.bind(this);
+
+    this.uploadShowData = this.uploadShowData.bind(this);
   }
 
   render(){
@@ -91,6 +99,18 @@ class SlideEditor extends React.Component{
 
   componentDidMount(){
     window.addEventListener("keydown", this.handleKeyDown, true);
+    var url = new URL(window.location.href);
+    var showId = url.searchParams.get("show");
+    if(showId != null){
+      axios.get('/show/data?id='+showId).then(response => {
+        this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
+        this.props.initShowData(response.data.showData);
+        this.setState({showId});
+      })
+      .catch(e =>{
+        console.log(e);
+      });
+    }
   }
 
   componentWillUnmount(){
@@ -100,6 +120,9 @@ class SlideEditor extends React.Component{
   handleKeyDown(e) {
     if (e.keyCode === 27) {
       this.props.releaseDialog();
+    }else if ((e.which == 83 && e.ctrlKey)){
+      this.uploadShowData();
+      e.preventDefault()
     }
   }
 
@@ -115,6 +138,16 @@ class SlideEditor extends React.Component{
       check = true;
     }
     return check;
+  }
+
+  uploadShowData(){
+    if(this.state.showId!=undefined)
+    axios.post('/show/data', {showId: this.state.showId, showData: this.props.showData}).then(response => {
+      console.log('show data upload');
+    })
+    .catch(e =>{
+      console.log(e);
+    });
   }
 
   handleFillColor(color){
@@ -134,12 +167,13 @@ const mapStateToProps = (state) => {
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager,
     visibleSlideShow: state.ui.visibleSlideShow,
-    colorPicker: state.ui.colorPicker
+    colorPicker: state.ui.colorPicker,
+    showData: state.editor
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...assetsActions, ...uiActions}, dispatch);
+    return bindActionCreators({ ...assetsActions, ...accountActions, ...slideActions, ...uiActions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideEditor);

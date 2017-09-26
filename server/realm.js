@@ -53,7 +53,7 @@ const UserSchema = {
     key: {type: 'string'},
     id: {type: 'string'},
     password: {type: 'string', optional: true},
-    nickname: 'string'
+    nickname: {type: 'string' }
   }
 };
 
@@ -82,7 +82,7 @@ const ShowSchema = {
     positionUnit: {type: 'string', default: 'px'},
     selectedSlide: {type: 'int', default: 0},
     slideIdCount: {type: 'int', default:0},
-    slides: {type: 'string', default: '[]'}
+    slides: {type: 'string', default: '[{"name":"TEST-SLIDE","id":0,"thumbnail":"","note":"","assetIdCount":0,"assets":[]}]'}
   }
 }
 

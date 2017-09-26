@@ -4,7 +4,7 @@ body {
   font-family: 'NanumSquare', sans-serif;
 }
 
-body{
+.context{
 width: 100vw;
 height: 100vh;
 background: -webkit-linear-gradient(right, #00daef, #bc67ff);
@@ -105,6 +105,12 @@ background-position: 0% 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   transition: color 0.5s ease-in-out;
+}
+
+.thumbnail{
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .tempShow:hover{

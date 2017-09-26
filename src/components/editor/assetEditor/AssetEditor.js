@@ -19,7 +19,12 @@ const defaultProps = {
 }
 
 class AssetEditor extends React.Component{
-
+  getInitialState(){
+    htmlCode : ''
+    cssCode : ''
+    jsCode : ''
+    code : ''
+  }
   constructor(props){
     super(props);
     this.state = {
@@ -31,13 +36,24 @@ class AssetEditor extends React.Component{
       images: [],
       content: '',
       price: 0,
-      license: ''
+      license: '',
+      value : '',
+      nowMode : '',
+      code : '',
+      html : '',
+      css : '',
+      js : '',
     };
 
     this.selectTab = this.selectTab.bind(this);
+    this.handleChange1 = this.handleChange1.bind(this);
+    this.handleChange2 = this.handleChange2.bind(this);
+    this.handleChange3 = this.handleChange3.bind(this);
   }
 
+
   render(){
+
     let renderTabs = (tabs) =>{
       return tabs.map((tab, idx)=>{
         if(idx == this.state.activeTab){
@@ -69,8 +85,10 @@ class AssetEditor extends React.Component{
 
     var options = {
       lineNumbers: true,
-      // mode: 'javascript'
+      mode: 'javascript'
     };
+    
+
     return (
       <div className={this.props.className}>
         <header>
@@ -87,15 +105,14 @@ class AssetEditor extends React.Component{
                 <span className = {styles.topLan}>HTML</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror className={styles.codeEditor} value={'<html><body></body></html>'}  options={{lineNumbers: true, mode: 'htmlmixed'}} />
-
+              <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.handleChange1} value= '' />
             </div>
             <div className = {styles.cssArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>CSS</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror className={styles.codeEditor} value={'@import url("something.css");'}  options={{lineNumbers: true, mode: 'css'}} />
+              <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.handleChange2} id = 'jsMode' />
 
             </div>
             <div className = {styles.jsArea}>
@@ -103,7 +120,7 @@ class AssetEditor extends React.Component{
                 <span className = {styles.topLan}>JS</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror className={styles.codeEditor} value={'function hey(){}'}  options={{lineNumbers: true, mode: 'javascript'}} />
+              <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'javascript'}} onChange = {this.handleChange3} />
 
             </div>
           </div>
@@ -113,7 +130,10 @@ class AssetEditor extends React.Component{
               <span className = {styles.preLan}>PREVIEW</span>
             </div>
             <div className = {styles.previewArea}>
-              {/* here is preview area */}
+              {/* here is preview area */} 
+              <div dangerouslySetInnerHTML= {{__html: this.state.html + this.state.css}} >
+                </div>           
+              {/* <textarea value = {this.state.html}></textarea> */}
             </div>
           </div>
         </div>
@@ -123,7 +143,6 @@ class AssetEditor extends React.Component{
       </div>
     );
   }
-
   componentDidMount(){
     if(!(!!this.props.assetData)){
       axios.post('/store/new').then(response => {
@@ -161,6 +180,32 @@ class AssetEditor extends React.Component{
 
   getActiveTab(){
 
+  }
+
+  handleChange1(e) {
+    var currentText = e;
+      this.setState({
+      html: currentText,
+      mode : 'htmlMode',
+      
+    });
+  }
+  handleChange2(e) {
+    
+    var currentText = e;
+      this.setState({
+      css: '<style>'+currentText+'</style>',
+      mode : 'cssMode'
+    });
+   
+  }
+  handleChange3(e) {
+    var currentText = e;
+      this.setState({
+      js: '<script>' + currentText + '</script>',
+      mode : 'jsMode'
+    });
+    // console.log(this.state.mode);
   }
 }
 

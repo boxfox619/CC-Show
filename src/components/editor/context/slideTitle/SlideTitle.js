@@ -23,14 +23,19 @@ class SlideTitle extends React.Component{
   }
 
   handleChange(event) {
-    this.props.renameSlide(this.props.currentSlide, event.target.value);
+    if(this.props.currentSlide!=undefined)
+      this.props.renameSlide(this.props.currentSlide, event.target.value);
   }
 }
 
 const mapStateToProps = (state) => {
-  return{
-    currentSlide : state.editor.selectedSlide,
-    title : state.editor.slides[state.editor.selectedSlide].name }
+  if(state.editor.slides.length > 0){
+    return{
+      currentSlide : state.editor.selectedSlide,
+      title : state.editor.slides[state.editor.selectedSlide].name }
+  }else{
+    return {title: ''}
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
