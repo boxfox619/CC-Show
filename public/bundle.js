@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "90843adb5feb8bf210d9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7b2718c666b60c8e50d6"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -28249,10 +28249,9 @@ var Asset = function (_React$Component) {
         'left': this.props.attribute.x,
         'top': this.props.attribute.y
       };
-      if (this.props.attribute.styles != 'undefined') {
-        for (key in this.props.attribute.styles) {
-          style[key] = this.props.attribute.styles[key];
-        }
+      if (this.props.attribute.style != 'undefined') {
+        style = _extends({}, this.props.attribute.style, style);
+        console.log(style);
       }
       return style;
     }
@@ -49643,7 +49642,7 @@ var AssetController = function (_React$Component) {
                         y: parseInt(this.props.currentSilde.assets[selectedAsset].y),
                         angle: parseInt(this.props.currentSilde.assets[selectedAsset].angle),
                         fillColor: this.props.currentSilde.assets[selectedAsset].style['background-color'],
-                        borderColor: this.props.currentSilde.assets[selectedAsset].style['border-coolor'],
+                        borderColor: this.props.currentSilde.assets[selectedAsset].style['border-color'],
                         borderWeight: parseInt(this.props.currentSilde.assets[selectedAsset].style['border-width']),
                         style: this.props.currentSilde.assets[selectedAsset].style })
                 );
@@ -50473,6 +50472,7 @@ var BasicController = function (_React$Component) {
     _createClass(BasicController, [{
         key: 'render',
         value: function render() {
+            console.log(this.props.style);
             return _react2.default.createElement(
                 'div',
                 null,

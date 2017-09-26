@@ -28,8 +28,8 @@ class AssetController extends React.Component {
                                             italic = {this.props.currentSilde.assets[selectedAsset].style['font-style']}
                                             strikethrough = {this.props.currentSilde.assets[selectedAsset].style['text-decoration']}
                                             textColor = {this.props.currentSilde.assets[selectedAsset].style.color}
-                                            textCharacterSpacing={this.props.currentSilde.assets[selectedAsset].style['letter-spacing']}
-                                            textLineSpacing={this.props.currentSilde.assets[selectedAsset].style['line-height']}
+                                            textCharacterSpacing={parseInt(this.props.currentSilde.assets[selectedAsset].style['letter-spacing'])}
+                                            textLineSpacing={parseInt(this.props.currentSilde.assets[selectedAsset].style['line-height'])}
                                             fontWeight={this.props.currentSilde.assets[selectedAsset].style.fontWeight}/>
                     )
                 case actions.TYPE_VIDEO:

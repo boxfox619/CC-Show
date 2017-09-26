@@ -65,8 +65,8 @@ const editor = (state = initialState, action) => {
             'font-style' : 'normal',
             'text-decoration' : 'none',
             color: 'black',
-            'letter-spacing': 'normal',
-            'line-height': 'normal'
+            'letter-spacing': '0px',
+            'line-height': '100%'
           }
         }
         console.log(newAsset);
