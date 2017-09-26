@@ -296,6 +296,7 @@ export function setAssetBorderColor(borderColor) {
 
 export function setAssetEdgeWeight(weight) {
   weight+=px;
+  console.log(weight);
   return{
     type: actionTypes.ASSET_SET_BORDER_WEIGHT,
     weight

@@ -673,7 +673,7 @@ const editor = (state = initialState, action) => {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
                         'border-width': {
-                          $set: action.borderWeight
+                          $set: action.weight
                         }
                       }
                     }

@@ -37,6 +37,7 @@ class TextController extends React.Component{
                 </div>
                 <div style={this.state.text ? {} : {display:'none'}} className={styles.items}>
                 <div>
+                    <div>
                     <div className={styles.control_item} >
                         <select id="fontSetting" onChange={this.setFont}>
                             <option value="굴림">굴림</option>
@@ -80,6 +81,7 @@ class TextController extends React.Component{
                     </div>
                 </div>
 
+                </div>
                 <div className={styles.control_text_attribute}>
                     <img src="/images/ic_format_align_left.png" style={this.props.sort==='left' ? {display : 'none'} : { }} onClick={() => this.props.setAssetTextSort('left')}/>
                     <img src="/images/ic_format_align_left_apply.png" style={this.props.sort==='left' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort('justify')} />

@@ -112,7 +112,7 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.style ? {} : {display:'none'}} className={styles.items}>
                         <div id={styles.input_style}>
-                            <textarea onChange={this.setStyle.bind()} rows="" cols="" value={this.JSONstringify(this.props.style)}></textarea>
+                            <textarea onChange={this.setStyle.bind()} rows="" cols="" value={JSON.stringify(JSON.parse(this.props.style), null, 4)}></textarea>
                         </div>
                     </div>
                 </div>
