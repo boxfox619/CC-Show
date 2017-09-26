@@ -50,7 +50,7 @@ const editor = (state = initialState, action) => {
         style: {
           'background-color': 'white',
           'border-color': 'white',
-          'border-width': '0'
+          'border-width': '0px'
         }
       };
       if (action.assetType === assetTypes.TYPE_TEXT) {
@@ -59,7 +59,7 @@ const editor = (state = initialState, action) => {
           style: {
             ...newAsset.style,
             'font-family': '굴림',
-            'font-size': '0',
+            'font-size': '12px',
             'text-align': 'justify',
             'font-weight' : 'normal',
             'font-style' : 'normal',
@@ -69,7 +69,6 @@ const editor = (state = initialState, action) => {
             'line-height': '100%'
           }
         }
-        console.log(newAsset);
       } else if (action.assetType === assetTypes.TYPE_VIDEO) {
         newAsset = {
           ...newAsset,
@@ -525,7 +524,6 @@ const editor = (state = initialState, action) => {
         )
       }
     case actionTypes.ASSET_SET_TEXT_FONT_BOLD:
-    console.log(state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weigth']=='bold');
       return {
         ...state,
         slides: update(
@@ -536,7 +534,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        'text-weight': {
+                        'font-weight': {
                           $set: (state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weigth']=='bold') ? 'normal' :  'bold'
                         }
                       }

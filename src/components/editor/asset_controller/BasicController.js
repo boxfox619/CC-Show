@@ -45,7 +45,6 @@ class BasicController extends React.Component{
     }
 
     render(){
-            console.log(this.props.style);
         return(
             <div>
                 <div style={{'height':'13vh'}}>
@@ -211,7 +210,6 @@ class BasicController extends React.Component{
     setBorderWeight(event) {
         let {value}=event.target;
         let intValue=parseInt(value);
-        console.log(value);
         if(isNaN(intValue)){
             intValue=0;
         }

@@ -204,6 +204,7 @@ export function setAssetTextFont(font) {
 }
 
 export function setAssetFontSize(fontSize) {
+  fontSize+='px';
   return{
     type: actionTypes.ASSET_SET_TEXT_FONT_SIZE,
     fontSize
@@ -211,6 +212,7 @@ export function setAssetFontSize(fontSize) {
 }
 
 export function setAssetTextCharacterSpacing(value) {
+  value+='px';
   return{
     type: actionTypes.ASSET_SET_TEXT_CHARACTER_SPACING,
     value
@@ -218,6 +220,8 @@ export function setAssetTextCharacterSpacing(value) {
 }
 
 export function setAssetTextLineSpacing(value) {
+  value+='%';
+  console.log(value);
   return{
     type: actionTypes.ASSET_SET_TEXT_LINE_SPACING,
     value
@@ -276,6 +280,7 @@ export function setAssetTextColor(textColor) {
 }
 
 export function setAssetFillColor(fillColor) {
+  console.log(fillColor);
   return{
     type: actionTypes.ASSET_SET_FILL_COLOR,
     fillColor
@@ -290,9 +295,10 @@ export function setAssetBorderColor(borderColor) {
 }
 
 export function setAssetEdgeWeight(weight) {
+  weight+=px;
   return{
     type: actionTypes.ASSET_SET_BORDER_WEIGHT,
-    borderWeight
+    weight
   }
 }
 

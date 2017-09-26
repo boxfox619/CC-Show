@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7b2718c666b60c8e50d6"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "70bc8dd2164ef55302c3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3823,6 +3823,7 @@ function setAssetTextFont(font) {
 }
 
 function setAssetFontSize(fontSize) {
+  fontSize += 'px';
   return {
     type: actionTypes.ASSET_SET_TEXT_FONT_SIZE,
     fontSize: fontSize
@@ -3830,6 +3831,7 @@ function setAssetFontSize(fontSize) {
 }
 
 function setAssetTextCharacterSpacing(value) {
+  value += 'px';
   return {
     type: actionTypes.ASSET_SET_TEXT_CHARACTER_SPACING,
     value: value
@@ -3837,6 +3839,8 @@ function setAssetTextCharacterSpacing(value) {
 }
 
 function setAssetTextLineSpacing(value) {
+  value += '%';
+  console.log(value);
   return {
     type: actionTypes.ASSET_SET_TEXT_LINE_SPACING,
     value: value
@@ -3895,6 +3899,7 @@ function setAssetTextColor(textColor) {
 }
 
 function setAssetFillColor(fillColor) {
+  console.log(fillColor);
   return {
     type: actionTypes.ASSET_SET_FILL_COLOR,
     fillColor: fillColor
@@ -3909,9 +3914,10 @@ function setAssetBorderColor(borderColor) {
 }
 
 function setAssetEdgeWeight(weight) {
+  weight += px;
   return {
     type: actionTypes.ASSET_SET_BORDER_WEIGHT,
-    borderWeight: borderWeight
+    weight: weight
   };
 }
 
@@ -41860,7 +41866,6 @@ var SlideEditor = function (_React$Component) {
               return _react2.default.createElement(_AssetStore2.default, { className: _SlideEditor2.default.modal });
             case _ui.dialogs.ASSET_EDITOR:
               return _react2.default.createElement(_AssetEditor2.default, { className: _SlideEditor2.default.modal });
-
             case _ui.dialogs.ACCOUNT_WITH_SNS:
               return _react2.default.createElement(AccountDialog, { className: _SlideEditor2.default.modal });
             case _ui.dialogs.COLOR_PICKER:
@@ -49602,17 +49607,17 @@ var AssetController = function (_React$Component) {
         value: function ControllerSelector(selectedAsset) {
             switch (this.props.currentSilde.assets[selectedAsset].type) {
                 case actions.TYPE_TEXT:
+                    console.log("text-color" + this.props.currentSilde.assets[selectedAsset].style.color);
                     return _react2.default.createElement(_TextController2.default, { font: this.props.currentSilde.assets[selectedAsset].style['font-family'],
-                        fontSize: this.props.currentSilde.assets[selectedAsset].style['font-size'],
+                        fontSize: parseInt(this.props.currentSilde.assets[selectedAsset].style['font-size']),
                         sort: this.props.currentSilde.assets[selectedAsset].style['text-align'],
                         bold: this.props.currentSilde.assets[selectedAsset].style['font-weight'],
                         underline: this.props.currentSilde.assets[selectedAsset].style['text-decoration'],
                         italic: this.props.currentSilde.assets[selectedAsset].style['font-style'],
                         strikethrough: this.props.currentSilde.assets[selectedAsset].style['text-decoration'],
                         textColor: this.props.currentSilde.assets[selectedAsset].style.color,
-                        textCharacterSpacing: this.props.currentSilde.assets[selectedAsset].style['letter-spacing'],
-                        textLineSpacing: this.props.currentSilde.assets[selectedAsset].style['line-height'],
-                        fontWeight: this.props.currentSilde.assets[selectedAsset].style.fontWeight });
+                        textCharacterSpacing: parseInt(this.props.currentSilde.assets[selectedAsset].style['letter-spacing']),
+                        textLineSpacing: parseInt(this.props.currentSilde.assets[selectedAsset].style['line-height']) });
                 case actions.TYPE_VIDEO:
                     return _react2.default.createElement(_VideoController2.default, { url: this.props.currentSilde.assets[selectedAsset].style.url,
                         videoController: this.props.currentSilde.assets[selectedAsset].style.videoController,
@@ -49631,6 +49636,9 @@ var AssetController = function (_React$Component) {
         key: 'render',
         value: function render() {
             var selectedAsset = this.props.currentSilde.selectedAsset - 1;
+            console.log("fillcolor" + this.props.currentSilde.assets[selectedAsset].style['background-color']);
+            console.log("bordercolor" + this.props.currentSilde.assets[selectedAsset].style['background-color']);
+
             if (!!(selectedAsset + 1)) {
                 return _react2.default.createElement(
                     'div',
@@ -49751,7 +49759,6 @@ var TextController = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            console.log(this.props.bold);
             return _react2.default.createElement(
                 'div',
                 null,
@@ -50472,7 +50479,6 @@ var BasicController = function (_React$Component) {
     _createClass(BasicController, [{
         key: 'render',
         value: function render() {
-            console.log(this.props.style);
             return _react2.default.createElement(
                 'div',
                 null,
@@ -50735,7 +50741,6 @@ var BasicController = function (_React$Component) {
             var value = event.target.value;
 
             var intValue = parseInt(value);
-            console.log(value);
             if (isNaN(intValue)) {
                 intValue = 0;
             }
@@ -62962,24 +62967,23 @@ var editor = function editor() {
         style: {
           'background-color': 'white',
           'border-color': 'white',
-          'border-width': '0'
+          'border-width': '0px'
         }
       });
       if (action.assetType === assetTypes.TYPE_TEXT) {
         newAsset = _extends({}, newAsset, {
           style: _extends({}, newAsset.style, {
             'font-family': '굴림',
-            'font-size': '0',
+            'font-size': '12px',
             'text-align': 'justify',
             'font-weight': 'normal',
             'font-style': 'normal',
             'text-decoration': 'none',
             color: 'black',
-            'letter-spacing': 'normal',
-            'line-height': 'normal'
+            'letter-spacing': '0px',
+            'line-height': '100%'
           })
         });
-        console.log(newAsset);
       } else if (action.assetType === assetTypes.TYPE_VIDEO) {
         newAsset = _extends({}, newAsset, {
           style: _extends({}, newAsset.style, {
@@ -63264,13 +63268,12 @@ var editor = function editor() {
         }))
       });
     case _assets.actionTypes.ASSET_SET_TEXT_FONT_BOLD:
-      console.log(state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weigth'] == 'bold');
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: {
             $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
               style: {
-                'text-weight': {
+                'font-weight': {
                   $set: state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weigth'] == 'bold' ? 'normal' : 'bold'
                 }
               }

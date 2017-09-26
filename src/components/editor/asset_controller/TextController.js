@@ -26,7 +26,6 @@ class TextController extends React.Component{
     }
 
     render(){
-        console.log(this.props.bold);
         return(
             <div>
                 <div>
