@@ -47,7 +47,7 @@ class BasicController extends React.Component{
     render(){
         return(
             <div>
-                <div>
+                <div style={{'height':'13vh'}}>
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>속성
 
@@ -83,7 +83,7 @@ class BasicController extends React.Component{
                     </div>
                 </div>
                 <hr className={styles.controller_hr}/>
-                <div>
+                <div style={{'height':'7vh'}}>
                     <div className={styles.controller_sub_wrapper}>
                             <div className={styles.controller_sub_title}>도형
                                 <img onClick={this.shapeOn.bind()} src="/images/ic_arrow_up.png" style={this.state.shape_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
