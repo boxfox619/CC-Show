@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <meta name="google-signin-client_id" content="201742033376-s4258t2qoo2be1aej3lb1qturs6kgsp3">
   <script src="./js/javascript.fullPage.js"></script>
   <script src="./js/main.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/main.css">
@@ -14,6 +15,22 @@
 </head>
 
 <body>
+  <script>
+  function onSuccess(googleUser) {
+       console.log('onSuccess!');
+    }
+
+    function onLoad() {
+      gapi.signin2.render('google_login', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess
+      });
+    }
+  </script>
 
   <header>
     <ul>
@@ -289,6 +306,7 @@
     </div>
   </section>
   </div>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 </body>
 
 </html>

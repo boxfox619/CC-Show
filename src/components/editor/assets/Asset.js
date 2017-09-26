@@ -120,10 +120,12 @@ class Asset extends React.Component{
       'left' : this.props.attribute.x,
       'top' : this.props.attribute.y
     };
-    if(this.props.attribute.styles != 'undefined'){
-      for (key in this.props.attribute.styles) {
-        style[key] = this.props.attribute.styles[key];
+    if(this.props.attribute.style != 'undefined'){
+      style = {
+        ...this.props.attribute.style,
+        ...style,
       }
+      console.log(style);
     }
     return style;
   }
