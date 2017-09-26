@@ -91,7 +91,6 @@ class AssetStore extends React.Component{
 
   loadItems(filter){
     axios.get('/store/assets?filter='+filter).then(response => {
-      console.log(response.data);
       this.setState({
         ...this.state,
         assets: response.data

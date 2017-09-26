@@ -91,17 +91,6 @@ module.exports = function (realm) {
 
   //create 호출
   //asset/simple/update/ post html, css, js
-  router.get('/simple/create/', (req, res) => {
-    console.log(colors.green('[REQ]'), getIP(req), 'new asset');
-    let id = realm.objects('SimpleAsset').length;
-    return realm.write(() => {
-      realm.create('SimpleAsset', {
-        id
-      });
-      return res.json({ id });
-    });
-  });
-
   router.post('/simple/create/', (req, res) => {
     console.log(colors.green('[REQ]'), getIP(req), 'new asset');
     if (!!req.signedCookies.user) {
@@ -110,9 +99,7 @@ module.exports = function (realm) {
         realm.create('SimpleAsset', {
           id,
           user: JSON.parse(req.signedCookies.user).id,
-          css: req.body.css,
-          js: req.body.js,
-          html: req.body.html,
+          source: req.body.source,
           thumbnail: req.body.thumbnail
         });
         return res.json({ id });
@@ -126,7 +113,7 @@ module.exports = function (realm) {
     console.log(colors.green('[REQ]'), getIP(req), 'asset lookup', req.query.id);
     if (!!req.query.id && realm.objects('SimpleAsset').filtered('id=$0', parseInt(req.query.id)).length > 0) {
       let asset = realm.objects('SimpleAsset').filtered('id=$0', parseInt(req.query.id))[0];
-      let html = '<style>' + asset.css + '</style>' + asset.html + '<script>' + asset.js + '</script>';
+      let html = asset.source;
       return res.json({ code: html });
     } else {
       return res.status(400).end('Target not found');

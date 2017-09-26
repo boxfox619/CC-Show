@@ -20,7 +20,6 @@ class AssetItem extends React.Component{
   }
 
   render(){
-    console.log('test');
 
       // <div className={styles.imgBtn}><img src={'/images/ic_move_in_box_gray.png'}/></div>
       // <div className={styles.imgBtn}><img src={'/images/ic_flag_white.png'}/></div>
