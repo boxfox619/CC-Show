@@ -48,9 +48,9 @@ const editor = (state = initialState, action) => {
         x: '0' + positionUnit,
         y: '0' + positionUnit,
         style: {
-          fillColor: 'white',
-          borderColor: 'white',
-          borderWeight: '0'
+          'background-color': 'white',
+          'border-color': 'white',
+          'border-width': '0'
         }
       };
       if (action.assetType === assetTypes.TYPE_TEXT) {
@@ -58,14 +58,15 @@ const editor = (state = initialState, action) => {
           ...newAsset,
           style: {
             ...newAsset.style,
-            font: '굴림',
-            fontSize: '0',
-            sort: undefined,
-            fontBold: false,
-            fontItalic: false,
-            fontUnderline: false,
-            fontStrikethrough: false,
-            textColor: 'black'
+            'font-family': '굴림',
+            'font-size': '0',
+            'text-align': 'justify',
+            'font-weight' : 'normal',
+            'font-style' : 'normal',
+            'text-decoration' : 'none',
+            color: 'black',
+            'letter-spacing': 'normal',
+            'line-height': 'normal'
           }
         }
         console.log(newAsset);
@@ -349,7 +350,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        textColor: {
+                        'color': {
                           $set: action.textColor
 
                         }
@@ -373,7 +374,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        font: {
+                        'font-family': {
                           $set: action.font
                         }
                       }
@@ -396,7 +397,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        fontsize: {
+                        'font-size': {
                           $set: action.fontSize
                         }
                       }
@@ -419,7 +420,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        fontWeight: {
+                        'font-width': {
                           $set: action.value
                         }
                       }
@@ -442,7 +443,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        characterSpacing: {
+                        'letter-spacing': {
                           $set: action.value
                         }
                       }
@@ -465,7 +466,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        lineSpacing: {
+                        'line-height': {
                           $set: action.value
                         }
                       }
@@ -511,7 +512,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        sort: {
+                        'text-align': {
                           $set: action.sort
                         }
                       }
@@ -524,6 +525,7 @@ const editor = (state = initialState, action) => {
         )
       }
     case actionTypes.ASSET_SET_TEXT_FONT_BOLD:
+    console.log(state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weigth']=='bold');
       return {
         ...state,
         slides: update(
@@ -534,8 +536,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        fontBold: {
-                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.fontBold
+                        'text-weight': {
+                          $set: (state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weigth']=='bold') ? 'normal' :  'bold'
                         }
                       }
                     }
@@ -557,8 +559,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        fontUnderline: {
-                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.fontUnderline
+                        'text-decoration': {
+                          $set: (state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['text-decoration'] == 'underline') ? 'none' : 'underline'
                         }
                       }
                     }
@@ -580,8 +582,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        fontItalic: {
-                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.fontItalic
+                        'font-style': {
+                          $set: (state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-style'] == 'italic') ? 'normal' : 'italic'
                         }
                       }
                     }
@@ -603,8 +605,8 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        fontStrikethrough: {
-                          $set: !state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style.fontStrikethrough
+                        'text-decoration': {
+                          $set: (state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['text-decoration'] == 'line-through') ? 'none' : 'line-through'
                         }
                       }
                     }
@@ -626,7 +628,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        fillColor: {
+                        'background-color': {
                           $set: action.fillColor
                         }
                       }
@@ -649,7 +651,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        borderColor: {
+                        'border-color': {
                           $set: action.borderColor
                         }
                       }
@@ -672,7 +674,7 @@ const editor = (state = initialState, action) => {
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
-                        borderWeight: {
+                        'border-width': {
                           $set: action.borderWeight
                         }
                       }

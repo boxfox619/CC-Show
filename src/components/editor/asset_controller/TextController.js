@@ -26,7 +26,7 @@ class TextController extends React.Component{
     }
 
     render(){
-        console.log(this.props.font);
+        console.log(this.props.bold);
         return(
             <div>
                 <div>
@@ -83,28 +83,28 @@ class TextController extends React.Component{
 
                 <div className={styles.control_text_attribute}>
                     <img src="/images/ic_format_align_left.png" style={this.props.sort==='left' ? {display : 'none'} : { }} onClick={() => this.props.setAssetTextSort('left')}/>
-                    <img src="/images/ic_format_align_left_apply.png" style={this.props.sort==='left' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort(' ')} />
+                    <img src="/images/ic_format_align_left_apply.png" style={this.props.sort==='left' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort('justify')} />
 
                     <img src="/images/ic_format_align_center.png" style={this.props.sort==='center' ? {display : 'none'} : { }}  onClick={() => this.props.setAssetTextSort('center')}/>
-                    <img src="/images/ic_format_align_center_apply.png" style={this.props.sort==='center' ? {} : {display : 'none'}}  onClick={() =>this.props.setAssetTextSort(' ')}/>
+                    <img src="/images/ic_format_align_center_apply.png" style={this.props.sort==='center' ? {} : {display : 'none'}}  onClick={() =>this.props.setAssetTextSort('justify')}/>
                     
                     <img src="/images/ic_format_align_right.png" style={this.props.sort==='right' ? {display : 'none'} : {}}  onClick={() => this.props.setAssetTextSort('right')}/>
-                    <img src="/images/ic_format_align_right_apply.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort(' ')}/>
+                    <img src="/images/ic_format_align_right_apply.png" style={this.props.sort==='right' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort('justify')}/>
                     
                     <img src="/images/ic_format_align_justify.png" style={this.props.sort==='justify' ? {display : 'none'} : { }}  onClick={() => this.props.setAssetTextSort('justify')}/>
-                    <img src="/images/ic_format_align_justify_apply.png" style={this.props.sort==='justify' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort(' ')}/>
+                    <img src="/images/ic_format_align_justify_apply.png" style={this.props.sort==='justify' ? {} : {display : 'none'}}  onClick={() => this.props.setAssetTextSort('justify')}/>
                     
-                    <img src="/images/ic_format_bold.png" style={this.props.bold ? {display : 'none'} : { }} onClick={this.props.setAssetFontBold}/>
-                    <img src="/images/ic_format_bold_apply.png" style={this.props.bold ? {} : {display : 'none'}} onClick={this.props.setAssetFontBold}/>
+                    <img src="/images/ic_format_bold.png" style={this.props.bold=='normal' ? {} :  {display : 'none'}} onClick={this.props.setAssetFontBold}/>
+                    <img src="/images/ic_format_bold_apply.png" style={this.props.bold=='normal' ? {display : 'none'} : {}} onClick={this.props.setAssetFontBold}/>
                     
-                    <img src="/images/ic_format_italic.png" style={this.props.italic ? {display : 'none'} : { }} onClick={this.props.setAssetFontItalic}/>
-                    <img src="/images/ic_format_italic_apply.png" style={this.props.italic ? {} : {display : 'none'}} onClick={this.props.setAssetFontItalic}/>
+                    <img src="/images/ic_format_italic.png" style={this.props.italic=='normal' ? {} : {display : 'none'}} onClick={this.props.setAssetFontItalic}/>
+                    <img src="/images/ic_format_italic_apply.png" style={this.props.italic=='normal' ? {display : 'none'} : {}} onClick={this.props.setAssetFontItalic}/>
                     
-                    <img src="/images/ic_format_underlined.png" style={this.props.underline ? {display : 'none'} : { }} onClick={this.props.setAssetFontUnderline}/>
-                    <img src="/images/ic_format_underlined_apply.png" style={this.props.underline ? {} : {display : 'none'}} onClick={this.props.setAssetFontUnderline}/>
+                    <img src="/images/ic_format_underlined.png" style={this.props.underline=='underline' ? {display : 'none'} : {}} onClick={this.props.setAssetFontUnderline}/>
+                    <img src="/images/ic_format_underlined_apply.png" style={this.props.underline=='underline' ? {} : {display : 'none'}} onClick={this.props.setAssetFontUnderline}/>
                     
-                    <img src="/images/ic_format_strikethrough.png" style={this.props.strikethrough ? {display : 'none'} : { }} onClick={this.props.setAssetFontStrikethrough}/>
-                    <img src="/images/ic_format_strikethrough_apply.png" style={this.props.strikethrough ? {} : {display : 'none'}} onClick={this.props.setAssetFontStrikethrough}/>
+                    <img src="/images/ic_format_strikethrough.png" style={this.props.strikethrough=='line-through' ? {display : 'none'} : {}} onClick={this.props.setAssetFontStrikethrough}/>
+                    <img src="/images/ic_format_strikethrough_apply.png" style={this.props.strikethrough=='line-through' ?  {} : {display : 'none'}} onClick={this.props.setAssetFontStrikethrough}/>
                 </div>
             </div>
         </div>

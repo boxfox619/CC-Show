@@ -45,6 +45,7 @@ class BasicController extends React.Component{
     }
 
     render(){
+            console.log(this.props.style);
         return(
             <div>
                 <div style={{'height':'13vh'}}>
