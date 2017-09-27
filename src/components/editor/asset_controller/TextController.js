@@ -38,8 +38,8 @@ class TextController extends React.Component{
                 <div style={this.state.text ? {} : {display:'none'}} className={styles.items}>
                 <div>
                     <div>
-                    <div className={styles.control_item} >
-                        <select id="fontSetting" onChange={this.setFont}>
+                    <div className={styles.control_item}>
+                        <select id="fontSetting" onChange={this.setFont} className={styles.attribute_item_input} style={{'width':'90%', 'cursor':'pointer'}}>
                             <option value="굴림">굴림</option>
                             <option value="굴림체">굴림체</option>
                             <option value="궁서">궁서</option>
@@ -59,24 +59,24 @@ class TextController extends React.Component{
 
                 <div>
                     <div className={styles.control_item}>
-                        <img src="/images/ic_format_size.png"/>
+                        <span className={styles.attribute_item_title}><img src="/images/ic_format_size.png"/></span>
                         <input type="text" className={styles.attribute_item_input} value={this.props.fontSize} onChange={this.setFontSize}/>
                     </div>
 
                     <div className={styles.control_item}>
-                        <img src="/images/ic_format_line.png"/>
+                        <span className={styles.attribute_item_title}><img src="/images/ic_format_line.png"/></span>
                         <input type="text" className={styles.attribute_item_input} value={this.props.textLineSpacing} onChange={this.setLineSpacing}/>
                     </div>
                 </div>
 
                 <div>
                     <div className={styles.control_item}>
-                        <img src="/images/ic_between.png"/>
+                        <span className={styles.attribute_item_title}><img src="/images/ic_between.png"/></span>
                         <input type="text" className={styles.attribute_item_input} value={this.props.textCharacterSpacing} onChange={this.setCharacterSpacing}/>
                     </div>
 
                     <div className={styles.control_item}>
-                        <img src="/images/ic_color.png"/>
+                        <span className={styles.attribute_item_title}><img src="/images/ic_color.png"/></span>
                         <div className={styles.change_color} onClick={this.props.toggleTextColorPicker} style={this.props.textColor==='black'? {border:'1px solid #5D87B5'} : {backgroundColor:this.props.textColor}}></div>
                     </div>
                 </div>

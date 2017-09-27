@@ -24,7 +24,7 @@ export const actionTypes = {
   ASSET_SET_BORDER_COLOR: 'ASSET_SET_EDGE_COLOR',
   ASSET_SET_BORDER_WEIGHT: 'ASSET_SET_EDGE_WEIGHT',
   ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
-  ASSET_SET_IMAGE_URL: 'ASSET_SET_IMAGE_URL',
+  ASSET_SET_IMAGE: 'ASSET_SET_IMAGE',
   ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',
   ASSET_SET_VIDEO_AUTOPLAY: 'ASSET_SET_VIDEO_AUTOPLAY',
   ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP',
@@ -309,10 +309,10 @@ export function setAssetVideoURL(url){
   }
 }
 
-export function setAssetImageURL(url){
+export function setAssetImage(value){
   return{
-    type: actionTypes.ASSET_SET_IMAGE_URL,
-    url
+    type: actionTypes.ASSET_SET_IMAGE,
+    value
   }
 }
 

@@ -477,7 +477,7 @@ const editor = (state = initialState, action) => {
           }
         )
       }
-      case actionTypes.ASSET_SET_IMAGE_URL:
+      case actionTypes.ASSET_SET_IMAGE:
       return {
         ...state,
         slides: update(
@@ -487,10 +487,8 @@ const editor = (state = initialState, action) => {
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
-                      style: {
-                        url: {
-                          $set: action.url
-                        }
+                      value: {
+                          $set: action.value
                       }
                     }
                   }
