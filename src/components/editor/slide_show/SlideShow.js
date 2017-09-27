@@ -29,13 +29,13 @@ class SlideShow extends React.Component{
                 <content className={styles.slideShow}>
                     <div className={styles.slide_contents}>
                         <div onClick={()=>this.doSlide(-1)} className={styles.slideController+' '+styles.prev_slide}>
-                            <img src="images/ic_arrow_left_big.png"/>
+                            <img src="/images/ic_arrow_left_big.png"/>
                         </div>
 
                         <img className={styles.slide} src={this.props.slides[this.state.selectedSlide].thumbnail}/>
 
                         <div onClick={()=>this.doSlide(+1)} className={styles.slideController+' '+styles.next_slide}>
-                            <img src="images/ic_arrow_right_big.png"/>
+                            <img src="/images/ic_arrow_right_big.png"/>
                         </div>
                     <div>
                     </div>
@@ -47,13 +47,13 @@ class SlideShow extends React.Component{
                         <hr className={styles.split}/>
                         <div className={styles.slideNumberWrapper}>
                             <div className={styles.slideNumberContext}>
-                                <img onClick={()=>this.doSlide(-1)} className={styles.prev_slide+' '+styles.slideController} src="images/ic_arrow_left_small.png"/>
+                                <img onClick={()=>this.doSlide(-1)} className={styles.prev_slide+' '+styles.slideController} src="/images/ic_arrow_left_small.png"/>
                                 <div className={styles.slideNumberContext_counter}>{this.state.selectedSlide+1}/{this.props.slides.length}</div>
-                                <img onClick={()=>this.doSlide(+1)} className={styles.next_slide+' '+styles.slideController} src="images/ic_arrow_right_small.png"/>
+                                <img onClick={()=>this.doSlide(+1)} className={styles.next_slide+' '+styles.slideController} src="/images/ic_arrow_right_small.png"/>
                             </div>
                             <div className={styles.slideOptionButton}>
-                              <img src="images/ic_fullscreen.png"/>
-                              <img src="images/ic_slide_show.png"/>
+                              <img src="/images/ic_fullscreen.png"/>
+                              <img src="/images/ic_slide_show.png"/>
                             </div>
                         </div>
                     </div>
