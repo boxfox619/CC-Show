@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "06d0a89d5952b04435df"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f2620a1a78258db0c40b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -21187,14 +21187,15 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".Show__context___g9_zU{\r\n  overflow: hidden;\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.Show__left___3QpbC{\r\n  top: 0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__right___w0Y1J{\r\n  top: 0;\r\n  right:0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__slide___2RVC7{\r\n  position: static;\r\n  width: 100vw;\r\n  height: 100vh;\r\n}\r\n", ""]);
+exports.push([module.i, ".Show__context___g9_zU{\r\n  overflow: hidden;\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.Show__left___3QpbC{\r\n  top: 0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__right___w0Y1J{\r\n  top: 0;\r\n  right:0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__slide___2RVC7{\r\n  position: static;\r\n  width: 100vw;\r\n  height: 100vh;\r\n}\r\n\r\n.Show__loader___1tklT{\r\n  position: fixed;\r\n  width: 20%;\r\n  left:50%;\r\n  top:50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
 	"context": "Show__context___g9_zU",
 	"left": "Show__left___3QpbC",
 	"right": "Show__right___w0Y1J",
-	"slide": "Show__slide___2RVC7"
+	"slide": "Show__slide___2RVC7",
+	"loader": "Show__loader___1tklT"
 };
 
 /***/ }),
@@ -64039,6 +64040,8 @@ var ShowListContext = function (_React$Component) {
       var renderingSlides = function renderingSlides() {
         if (_this2.state.slides.length > 0) {
           return renderingAssets(_this2.state.slides[_this2.state.currentSlide].assets);
+        } else {
+          return _react2.default.createElement('img', { className: _Show2.default.loader, src: '/images/progress.gif' });
         }
       };
       var renderingAssets = function renderingAssets(assets) {
