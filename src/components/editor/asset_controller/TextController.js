@@ -28,11 +28,11 @@ class TextController extends React.Component{
     render(){
         return(
             <div>
-                <div>
+                <div className={styles.fliping_controller_section}>
                     <div className={styles.controller_sub_wrapper}>
                     <div className={styles.controller_sub_title}>텍스트
-                        <img onClick={this.textOn.bind()} src="images/ic_arrow_up.png" style={this.state.text_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
-                        <img onClick={this.textOff.bind()} src="images/ic_arrow_down.png" style={this.state.text_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onClick={this.textOn.bind()} src="/images/ic_arrow_up.png" style={this.state.text_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
+                        <img onClick={this.textOff.bind()} src="/images/ic_arrow_down.png" style={this.state.text_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
                     </div>
                 </div>
                 <div style={this.state.text ? {} : {display:'none'}} className={styles.items}>

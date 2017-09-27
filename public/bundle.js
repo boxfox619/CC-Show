@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "50c946a2bac4b6bb3327"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4f5d7e6711bffc1a24d5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3627,6 +3627,7 @@ exports.setAssetVideoController = setAssetVideoController;
 exports.setAssetVideoAutoplay = setAssetVideoAutoplay;
 exports.setAssetVideoLoop = setAssetVideoLoop;
 exports.setAssetStyle = setAssetStyle;
+exports.toggleVideoPreview = toggleVideoPreview;
 
 var _assetTypes = __webpack_require__(46);
 
@@ -3670,7 +3671,8 @@ var actionTypes = exports.actionTypes = {
   ASSET_SELECTED: "ASSET_SELECTED",
   ASSET_COPY: 'ASSET_COPY',
   ASSET_SORT: 'ASSET_SORT',
-  ASSET_DELETE: 'ASSET_DELETE'
+  ASSET_DELETE: 'ASSET_DELETE',
+  TOGGLE_VIDEO_PREVIEW: 'TOGGLE_VIDEO_PREVIEW'
 };
 
 var createAsset = exports.createAsset = function createAsset(assetType, value) {
@@ -3975,6 +3977,12 @@ function setAssetStyle(style) {
   return {
     type: actionTypes.ASSET_SET_STYLE,
     style: style
+  };
+}
+
+function toggleVideoPreview() {
+  return {
+    type: actionTypes.TOGGLE_VIDEO_PREVIEW
   };
 }
 
@@ -20384,6 +20392,7 @@ var Asset = function (_React$Component) {
       var _this2 = this;
 
       var assetTag = void 0;
+      var attrs = {};
       switch (this.props.attribute.type) {
         case assetTypes.TYPE_TEXT:
           assetTag = _TextAsset2.default;
@@ -20393,6 +20402,7 @@ var Asset = function (_React$Component) {
           break;
         case assetTypes.TYPE_VIDEO:
           assetTag = _VideoAsset2.default;
+          attrs = { preview: !this.props.controlable ? true : this.props.attribute.preview && this.props.isSelected };
           break;
         case assetTypes.TYPE_SHAPE:
           assetTag = 'ShapeAsset';
@@ -20447,7 +20457,7 @@ var Asset = function (_React$Component) {
           'div',
           { style: { 'width': this.getContextWidth(), 'height': this.getContextHeight(), 'padding': '6px', 'position': 'absolute' } },
           renderSelectorLine(),
-          _react2.default.createElement(AssetContext, { handleChange: this.handleInputChange, styles: _extends({ 'width': this.getContextWidth(), 'height': this.getContextHeight(), 'overflow': 'hidden', 'cursor': 'move' }, this.getClearStyle()), value: this.props.attribute.value }),
+          _react2.default.createElement(AssetContext, { handleChange: this.handleInputChange, styles: _extends({ 'width': this.getContextWidth(), 'height': this.getContextHeight(), 'overflow': 'hidden', 'cursor': 'move' }, this.getClearStyle()), attrs: attrs, value: this.props.attribute.value }),
           renderSelectorDot()
         )
       );
@@ -20544,7 +20554,7 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".Assets__assetWrapper___2r_zj{\r\n\r\n}\r\n\r\n.Assets__textAsset___iEZh8{\r\n\r\n}\r\n\r\nasset textarea{\r\n  border-style: none;\r\n  resize: none;\r\n}\r\n\r\n.Assets__asset___3bgLj {\r\n  position: absolute !important;\r\n  overflow: hidden;\r\n  display: inline-block;\r\n  margin:0;\r\n  padding:0;\r\n  border:0;\r\n  margin: 3px;\r\n}\r\n\r\n.Assets__assetContext___wvH67{\r\n  position: absolute;\r\n  width: calc(100% - 2px);\r\n  height: calc(100% - 2px);\r\n  cursor: move;\r\n}\r\n\r\n.Assets__isSelected___19Koj{\r\n  background-color: #038AFD;\r\n}\r\n\r\n.Assets__selectorDot___3Lumh{\r\n  position: absolute;\r\n  width: 8px;\r\n  height: 8px;\r\n  -webkit-border-radius: 25px;\r\n  -moz-border-radius: 25px;\r\n  border-radius: 25px;\r\n}\r\n\r\n.Assets__horizontalResizer___2498-{\r\n  position: absolute;\r\n  height: 2px;\r\n  width: calc( 100% - 10px );\r\n  cursor: ns-resize;\r\n  z-index: 99;\r\n}\r\n\r\n.Assets__verticalResizer___3nhqi{\r\n  position: absolute;\r\n  height: calc( 100% - 10px );\r\n  width: 2px;\r\n  cursor: ew-resize;\r\n  z-index: 99;\r\n}\r\n", ""]);
+exports.push([module.i, ".Assets__assetWrapper___2r_zj{\r\n\r\n}\r\n\r\n.Assets__textAsset___iEZh8{\r\n\r\n}\r\n\r\nasset textarea{\r\n  border-style: none;\r\n  resize: none;\r\n}\r\n\r\n.Assets__asset___3bgLj {\r\n  position: absolute !important;\r\n  overflow: hidden;\r\n  display: inline-block;\r\n  margin:0;\r\n  padding:0;\r\n  border:0;\r\n  margin: 3px;\r\n}\r\n\r\n.Assets__assetContext___wvH67{\r\n  position: absolute;\r\n  width: calc(100% - 2px);\r\n  height: calc(100% - 2px);\r\n  cursor: move;\r\n}\r\n\r\n.Assets__isSelected___19Koj{\r\n  background-color: #038AFD;\r\n}\r\n\r\n.Assets__selectorDot___3Lumh{\r\n  position: absolute;\r\n  width: 8px;\r\n  height: 8px;\r\n  -webkit-border-radius: 25px;\r\n  -moz-border-radius: 25px;\r\n  border-radius: 25px;\r\n}\r\n\r\n.Assets__horizontalResizer___2498-{\r\n  position: absolute;\r\n  height: 2px;\r\n  width: calc( 100% - 10px );\r\n  cursor: ns-resize;\r\n  z-index: 99;\r\n}\r\n\r\n.Assets__verticalResizer___3nhqi{\r\n  position: absolute;\r\n  height: calc( 100% - 10px );\r\n  width: 2px;\r\n  cursor: ew-resize;\r\n  z-index: 99;\r\n}\r\n\r\n.Assets__blankVideo___3mk70{\r\n  background: black;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.Assets__blankVideo___3mk70 img{\r\n  width: 80%;\r\n  height: 80%;\r\n  max-width: 60px;\r\n  max-height: 60px;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -20555,7 +20565,8 @@ exports.locals = {
 	"isSelected": "Assets__isSelected___19Koj",
 	"selectorDot": "Assets__selectorDot___3Lumh",
 	"horizontalResizer": "Assets__horizontalResizer___2498-",
-	"verticalResizer": "Assets__verticalResizer___3nhqi"
+	"verticalResizer": "Assets__verticalResizer___3nhqi",
+	"blankVideo": "Assets__blankVideo___3mk70"
 };
 
 /***/ }),
@@ -20605,7 +20616,7 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, "p {\r\n    font-family: 'NanumSquareEB';\r\n}\r\n\r\n.AssetController__items___12-Ka {\r\n    height: 100%;\r\n    padding: 0;\r\n    margin: 0 0 1em 0.4em;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 16px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-table;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 117px;\r\n    height: 20px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq span{\r\n    font-size:20px;\r\n}\r\n\r\n.AssetController__video___1YT3H span{\r\n    margin: 0;\r\n    font-size:18px;\r\n}\r\n\r\n.AssetController__URL_controller___8MQ6H {\r\n    width: 260px;\r\n    display: table;\r\n    padding: 1px 0 1px 2px;\r\n}\r\n\r\n.AssetController__image_loader___31Q_n{\r\n  width: 260px;\r\n  color: #5a84b3;\r\n  padding-top: 5px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  transition: all 0.5s ease-in;\r\n}\r\n\r\n.AssetController__image_loader___31Q_n:hover{\r\n  background: #73a5dd;\r\n  color: white;\r\n}\r\n\r\n.AssetController__video_margin_zero___1ZJDF {\r\n    margin: 0;\r\n}\r\n\r\n.AssetController__video___1YT3H {\r\n    text-align: center;\r\n    width: 73px;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetController__attribute_item_title___1gZe5 {\r\n  border: 0;\r\n  margin: 0 0 0 5px;\r\n  width: 30%;\r\n  font-size: 15px;\r\n  color: #5a84b3;\r\n  height: 100%;\r\n  display: flex;\r\n  float: left;\r\n  align-items: center;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 60%;\r\n    height: 100%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    outline-width: 0;\r\n    float: right;\r\n    margin-right: 5px;\r\n}\r\n\r\n\r\n.AssetController__attribute_both_input_area___2zHGp {\r\n    float: right;\r\n    width: 60%;\r\n    height: 100%;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\n.AssetController__controller_hr___3nr27 {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n    width: 100%;\r\n    margin-top: 20px;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 250px;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n    padding: 5px;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y textarea {\r\n    width: 98%;\r\n    height: 180px;\r\n    border: 0;\r\n}\r\n\r\ntextarea:focus {\r\n    outline: 0;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz img {\r\n    cursor: pointer;\r\n    margin: 8px;\r\n    width: 17px;\r\n    height: 18px;\r\n}\r\n\r\n.AssetController__change_color___1dCnR {\r\n    cursor: pointer;\r\n    width: 20px;\r\n    height: 20px;\r\n    border-radius: 20px;\r\n    float: right;\r\n    display: inline-block;\r\n}\r\n\r\n.AssetController__color_picker_modal___2_yyP {\r\n    position: absolute;\r\n    left: 40%;\r\n    top: 40%;\r\n}\r\n", ""]);
+exports.push([module.i, "p {\r\n    font-family: 'NanumSquareEB';\r\n}\r\n\r\n.AssetController__items___12-Ka {\r\n    height: 100%;\r\n    padding: 0;\r\n    margin: 0 0 1em 0.4em;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 16px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-table;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 117px;\r\n    height: 20px;\r\n}\r\n\r\n.AssetController__video___1YT3H span{\r\n    margin: 0;\r\n    font-size:18px;\r\n}\r\n\r\n.AssetController__URL_controller___8MQ6H {\r\n    width: 260px;\r\n    display: table;\r\n    padding: 1px 0 1px 2px;\r\n}\r\n\r\n.AssetController__video_preview_toggle___3LsaS{\r\n  width: 260px;\r\n  color: #5a84b3;\r\n  padding-top: 5px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in;\r\n}\r\n.AssetController__video_preview_toggle___3LsaS.AssetController__active___oqZkQ{\r\n  background: #73a5dd;\r\n  color: white;\r\n}\r\n.AssetController__video_preview_toggle___3LsaS.AssetController__active___oqZkQ:hover{\r\n  background: #ffffff;\r\n  color: #5a84b3;\r\n}\r\n\r\n.AssetController__video_preview_toggle___3LsaS:hover{\r\n  background: #73a5dd;\r\n  color: white;\r\n}\r\n\r\n.AssetController__image_loader___31Q_n{\r\n  width: 260px;\r\n  color: #5a84b3;\r\n  padding-top: 5px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in;\r\n}\r\n\r\n.AssetController__image_loader___31Q_n:hover{\r\n  background: #73a5dd;\r\n  color: white;\r\n}\r\n\r\n.AssetController__video___1YT3H {\r\n    text-align: center;\r\n    width: 73px;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetController__attribute_item_title___1gZe5 {\r\n  border: 0;\r\n  margin: 0 0 0 5px;\r\n  width: 20%;\r\n  max-width: 37px;\r\n  font-size: 15px;\r\n  color: #5a84b3;\r\n  height: 100%;\r\n  display: flex;\r\n  float: left;\r\n  align-items: center;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 70%;\r\n    min-width: calc( 100% - 50px );\r\n    height: 100%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    outline-width: 0;\r\n    float: right;\r\n    margin-right: 5px;\r\n}\r\n\r\n\r\n.AssetController__attribute_both_input_area___2zHGp {\r\n    float: right;\r\n    width: 60%;\r\n    height: 100%;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\n.AssetController__controller_hr___3nr27 {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n    width: 100%;\r\n    margin-top: 20px;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 250px;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n    padding: 5px;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y textarea {\r\n    width: 98%;\r\n    height: 180px;\r\n    border: 0;\r\n}\r\n\r\ntextarea:focus {\r\n    outline: 0;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz img {\r\n    cursor: pointer;\r\n    margin: 8px;\r\n    width: 17px;\r\n    height: 18px;\r\n}\r\n\r\n.AssetController__change_color___1dCnR {\r\n    cursor: pointer;\r\n    width: 20px;\r\n    height: 20px;\r\n    border-radius: 20px;\r\n    float: right;\r\n    display: inline-block;\r\n}\r\n\r\n.AssetController__color_picker_modal___2_yyP {\r\n    position: absolute;\r\n    left: 40%;\r\n    top: 40%;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
@@ -20615,8 +20626,9 @@ exports.locals = {
 	"control_item": "AssetController__control_item___1Maaq",
 	"video": "AssetController__video___1YT3H",
 	"URL_controller": "AssetController__URL_controller___8MQ6H",
+	"video_preview_toggle": "AssetController__video_preview_toggle___3LsaS",
+	"active": "AssetController__active___oqZkQ",
 	"image_loader": "AssetController__image_loader___31Q_n",
-	"video_margin_zero": "AssetController__video_margin_zero___1ZJDF",
 	"attribute_item_title": "AssetController__attribute_item_title___1gZe5",
 	"attribute_item_input": "AssetController__attribute_item_input___j1bys",
 	"attribute_both_input_area": "AssetController__attribute_both_input_area___2zHGp",
@@ -45622,7 +45634,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var propTypes = {
   styles: _react2.default.PropTypes.object.isRequired,
-  value: _react2.default.PropTypes.string.isRequired
+  value: _react2.default.PropTypes.string.isRequired,
+  attrs: _react2.default.PropTypes.object.isRequired
 };
 
 var VideoAsset = function (_React$Component) {
@@ -45638,10 +45651,17 @@ var VideoAsset = function (_React$Component) {
     key: 'render',
     value: function render() {
       var code = getVideoCode(this.props.value);
+      var renderVideo = function renderVideo(visible) {
+        if (visible) return _react2.default.createElement('iframe', { style: { 'width': '100%', 'height': '100%' }, src: 'https://www.youtube.com/embed/' + code, frameborder: '0' });else return _react2.default.createElement(
+          'div',
+          { className: _Assets2.default.blankVideo },
+          _react2.default.createElement('img', { src: '/images/ic_play_circle_outline_white.png' })
+        );
+      };
       return _react2.default.createElement(
         'div',
         { style: this.props.styles },
-        _react2.default.createElement('iframe', { style: { 'width': '100%', 'height': '100%' }, src: 'https://www.youtube.com/embed/' + code, frameborder: '0' })
+        renderVideo(this.props.attrs.preview)
       );
     }
   }]);
@@ -48957,7 +48977,11 @@ var SlideContext = function (_React$Component) {
   }, {
     key: 'handleMouseMove',
     value: function handleMouseMove(e) {
-      if (this.props.selectedAsset != undefined) {
+      if (this.props.selectedAsset != undefined && this.mouseAction != 'none') {
+        if (this.selectedAsset.type == 'ASSET_TYPE_VIDEO' && this.selectedAsset.preview) {
+          this.mouseAction = 'none';
+          return;
+        }
         if (this.mouseAction == 'move') {
           var x = e.pageX;
           var y = e.pageY;
@@ -49599,6 +49623,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -49617,27 +49643,24 @@ var AssetController = function (_React$Component) {
     _createClass(AssetController, [{
         key: 'ControllerSelector',
         value: function ControllerSelector(selectedAsset) {
-            switch (this.props.currentSilde.assets[selectedAsset].type) {
+            switch (this.props.selectedAsset.type) {
                 case actions.TYPE_TEXT:
-                    return _react2.default.createElement(_TextController2.default, { font: this.props.currentSilde.assets[selectedAsset].style['font-family'],
-                        fontSize: parseInt(this.props.currentSilde.assets[selectedAsset].style['font-size']),
-                        sort: this.props.currentSilde.assets[selectedAsset].style['text-align'],
-                        bold: this.props.currentSilde.assets[selectedAsset].style['font-weight'],
-                        underline: this.props.currentSilde.assets[selectedAsset].style['text-decoration'],
-                        italic: this.props.currentSilde.assets[selectedAsset].style['font-style'],
-                        strikethrough: this.props.currentSilde.assets[selectedAsset].style['text-decoration'],
-                        textColor: this.props.currentSilde.assets[selectedAsset].style.color,
-                        textCharacterSpacing: parseInt(this.props.currentSilde.assets[selectedAsset].style['letter-spacing']),
-                        textLineSpacing: parseInt(this.props.currentSilde.assets[selectedAsset].style['line-height']) });
+                    return _react2.default.createElement(_TextController2.default, { font: this.props.selectedAsset.style['font-family'],
+                        fontSize: parseInt(this.props.selectedAsset.style['font-size']),
+                        sort: this.props.selectedAsset.style['text-align'],
+                        bold: this.props.selectedAsset.style['font-weight'],
+                        underline: this.props.selectedAsset.style['text-decoration'],
+                        italic: this.props.selectedAsset.style['font-style'],
+                        strikethrough: this.props.selectedAsset.style['text-decoration'],
+                        textColor: this.props.selectedAsset.style.color,
+                        textCharacterSpacing: parseInt(this.props.selectedAsset.style['letter-spacing']),
+                        textLineSpacing: parseInt(this.props.selectedAsset.style['line-height']) });
                 case actions.TYPE_VIDEO:
-                    return _react2.default.createElement(_VideoController2.default, { url: this.props.currentSilde.assets[selectedAsset].style.url,
-                        videoController: this.props.currentSilde.assets[selectedAsset].style.videoController,
-                        videoAutoplay: this.props.currentSilde.assets[selectedAsset].style.videoAutoplay,
-                        videoLoop: this.props.currentSilde.assets[selectedAsset].style.videoLoop });
+                    return _react2.default.createElement(_VideoController2.default, { url: this.props.selectedAsset.value, preview: this.props.selectedAsset.preview });
                 case actions.TYPE_SHAPE:
                     return _react2.default.createElement(_ShapeController2.default, null);
                 case actions.TYPE_IMAGE:
-                    return _react2.default.createElement(_ImageController2.default, { img_url: this.props.currentSilde.assets[selectedAsset].url });
+                    return _react2.default.createElement(_ImageController2.default, { img_url: this.props.selectedAsset.url });
 
                 case actions.TYPE_CUSTOM:
                     return;
@@ -49646,21 +49669,20 @@ var AssetController = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var selectedAsset = this.props.currentSilde.selectedAsset - 1;
-            if (!!(selectedAsset + 1)) {
+            if (!!this.props.selectedAsset) {
                 return _react2.default.createElement(
                     'div',
                     { className: this.props.className },
-                    this.ControllerSelector(selectedAsset),
-                    _react2.default.createElement(_BasicController2.default, { width: parseInt(this.props.currentSilde.assets[selectedAsset].width),
-                        height: parseInt(this.props.currentSilde.assets[selectedAsset].height),
-                        x: parseInt(this.props.currentSilde.assets[selectedAsset].x),
-                        y: parseInt(this.props.currentSilde.assets[selectedAsset].y),
-                        angle: parseInt(this.props.currentSilde.assets[selectedAsset].angle),
-                        fillColor: this.props.currentSilde.assets[selectedAsset].style['background-color'],
-                        borderColor: this.props.currentSilde.assets[selectedAsset].style['border-color'],
-                        borderWeight: parseInt(this.props.currentSilde.assets[selectedAsset].style['border-width']),
-                        style: this.props.currentSilde.assets[selectedAsset].style })
+                    this.ControllerSelector(this.props.selectedAsset),
+                    _react2.default.createElement(_BasicController2.default, { width: parseInt(this.props.selectedAsset.width),
+                        height: parseInt(this.props.selectedAsset.height),
+                        x: parseInt(this.props.selectedAsset.x),
+                        y: parseInt(this.props.selectedAsset.y),
+                        angle: parseInt(this.props.selectedAsset.angle),
+                        fillColor: this.props.selectedAsset.style['background-color'],
+                        borderColor: this.props.selectedAsset.style['border-color'],
+                        borderWeight: parseInt(this.props.selectedAsset.style['border-width']),
+                        style: this.props.selectedAsset.style })
                 );
             } else {
                 return _react2.default.createElement('div', { className: this.props.className });
@@ -49672,21 +49694,29 @@ var AssetController = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    return {
-        currentSilde: state.editor.slides[state.editor.selectedSlide]
-    };
+    if (state.editor.slides.length > 0 && !!state.editor.slides[state.editor.selectedSlide].selectedAsset) {
+        return {
+            currentSilde: state.editor.slides[state.editor.selectedSlide],
+            selectedAsset: state.editor.slides[state.editor.selectedSlide].assets[getAssetIndex(state, state.editor.slides[state.editor.selectedSlide].selectedAsset)],
+            selectedAssetIndex: getAssetIndex(state, state.editor.slides[state.editor.selectedSlide].selectedAsset)
+        };
+    } else {
+        return _defineProperty({
+            currentSilde: undefined,
+            selectedAsset: undefined
+        }, 'selectedAsset', undefined);
+    }
 };
 
 function getAssetIndex(state, key) {
     var index = -1;
-    state.editor.slides.forEach(function (asset, i) {
-        if (asset.id === key) {
+    state.editor.slides[state.editor.selectedSlide].assets.forEach(function (asset, i) {
+        if (asset.id == key) {
             index = i;
         }
     });
     return index;
 }
-
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(AssetController);
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(6); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "AssetController.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -49772,7 +49802,7 @@ var TextController = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                     'div',
-                    null,
+                    { className: _AssetController2.default.fliping_controller_section },
                     _react2.default.createElement(
                         'div',
                         { className: _AssetController2.default.controller_sub_wrapper },
@@ -49780,8 +49810,8 @@ var TextController = function (_React$Component) {
                             'div',
                             { className: _AssetController2.default.controller_sub_title },
                             '\uD14D\uC2A4\uD2B8',
-                            _react2.default.createElement('img', { onClick: this.textOn.bind(), src: 'images/ic_arrow_up.png', style: this.state.text_arrow_up ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button }),
-                            _react2.default.createElement('img', { onClick: this.textOff.bind(), src: 'images/ic_arrow_down.png', style: this.state.text_arrow_down ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button })
+                            _react2.default.createElement('img', { onClick: this.textOn.bind(), src: '/images/ic_arrow_up.png', style: this.state.text_arrow_up ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button }),
+                            _react2.default.createElement('img', { onClick: this.textOff.bind(), src: '/images/ic_arrow_down.png', style: this.state.text_arrow_down ? {} : { display: 'none' }, className: _AssetController2.default.show_items_button })
                         )
                     ),
                     _react2.default.createElement(
@@ -50089,6 +50119,7 @@ var VideoController = function (_React$Component) {
         _this.videoOn = _this.videoOn.bind(_this);
         _this.videoOff = _this.videoOff.bind(_this);
         _this.setUrl = _this.setUrl.bind(_this);
+        _this.togglePreview = _this.togglePreview.bind(_this);
         return _this;
     }
 
@@ -50100,7 +50131,7 @@ var VideoController = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                     'div',
-                    { style: { "height": "110px" } },
+                    { className: _AssetController2.default.fliping_controller_section },
                     _react2.default.createElement(
                         'div',
                         { className: _AssetController2.default.controller_sub_wrapper },
@@ -50120,47 +50151,25 @@ var VideoController = function (_React$Component) {
                             { className: _AssetController2.default.control_item + ' ' + _AssetController2.default.URL_controller },
                             _react2.default.createElement(
                                 'span',
-                                { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero },
+                                { className: _AssetController2.default.attribute_item_title },
                                 'URL :'
                             ),
-                            ' ',
-                            _react2.default.createElement('input', { type: 'text', value: this.props.url, className: _AssetController2.default.attribute_item_input, onChange: this.setUrl })
+                            _react2.default.createElement('input', { type: 'text', value: this.props.url, className: _AssetController2.default.attribute_item_input, style: { 'textAlign': 'left' }, onChange: this.setUrl })
                         ),
                         _react2.default.createElement(
                             'div',
-                            null,
-                            _react2.default.createElement(
-                                'div',
-                                { onClick: this.props.setAssetVideoController, className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoController ? { 'background-color': '#5a84b3' } : {} },
-                                _react2.default.createElement(
-                                    'span',
-                                    { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.props.videoController ? { color: '#fff' } : {} },
-                                    '\uCEE8\uD2B8\uB864\uB7EC'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { onClick: this.props.setAssetVideoAutoplay, className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoAutoplay ? { 'background-color': '#5a84b3' } : {} },
-                                _react2.default.createElement(
-                                    'span',
-                                    { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.props.videoAutoplay ? { color: '#fff' } : {} },
-                                    '\uC790\uB3D9\uC7AC\uC0DD'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { onClick: this.props.setAssetVideoLoop, className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video, style: this.props.videoLoop ? { 'background-color': '#5a84b3' } : {} },
-                                _react2.default.createElement(
-                                    'span',
-                                    { className: _AssetController2.default.attribute_item_title + ' ' + _AssetController2.default.video_margin_zero, style: this.props.videoLoop ? { color: '#fff' } : {} },
-                                    '\uBC18\uBCF5'
-                                )
-                            )
+                            { className: _AssetController2.default.control_item + ' ' + _AssetController2.default.video_preview_toggle + ' ' + (this.props.preview ? _AssetController2.default.active : ''), onClick: this.togglePreview },
+                            '\uBBF8\uB9AC\uBCF4\uAE30'
                         )
                     )
                 ),
                 _react2.default.createElement('hr', { className: _AssetController2.default.controller_hr })
             );
+        }
+    }, {
+        key: 'togglePreview',
+        value: function togglePreview() {
+            this.props.toggleVideoPreview();
         }
     }, {
         key: 'videoOn',
@@ -50276,7 +50285,7 @@ var ImageController = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                     'div',
-                    { style: { "height": "80px" } },
+                    { className: _AssetController2.default.fliping_controller_section },
                     _react2.default.createElement(
                         'div',
                         { className: _AssetController2.default.controller_sub_wrapper },
@@ -50309,13 +50318,6 @@ var ImageController = function (_React$Component) {
             var fr = new FileReader();
             fr.onload = function (e) {
                 _this2.props.setAssetImage(e.target.result);
-                axios.put('/store/update/', {
-                    id: _this2.props.id,
-                    target: 'thumbnail',
-                    data: e.target.result
-                }).then(function (response) {
-                    console.log('image load error');
-                });
             };
             var inputElement = document.createElement("input");
             inputElement.type = "file";
@@ -50524,7 +50526,6 @@ var BasicController = function (_React$Component) {
     _createClass(BasicController, [{
         key: 'render',
         value: function render() {
-            console.log(this.props.style);
             return _react2.default.createElement(
                 'div',
                 null,
@@ -62353,6 +62354,7 @@ var editor = function editor() {
         });
       } else if (action.assetType === assetTypes.TYPE_VIDEO) {
         newAsset = _extends({}, newAsset, {
+          preview: false,
           style: _extends({}, newAsset.style, {
             videoController: false,
             videoLoop: false,
@@ -62737,6 +62739,19 @@ var editor = function editor() {
             $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
               value: {
                 $set: action.url
+              }
+            }))
+          }
+        }))
+      });
+    case _assets.actionTypes.TOGGLE_VIDEO_PREVIEW:
+      var preview = state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].preview;
+      return _extends({}, state, {
+        slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
+          assets: {
+            $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
+              preview: {
+                $set: !preview
               }
             }))
           }

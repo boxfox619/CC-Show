@@ -68,7 +68,11 @@ class SlideContext extends React.Component{
     }
 
     handleMouseMove(e){
-      if(this.props.selectedAsset != undefined){
+      if(this.props.selectedAsset != undefined&&this.mouseAction!='none'){
+        if(this.selectedAsset.type=='ASSET_TYPE_VIDEO'&&this.selectedAsset.preview){
+          this.mouseAction='none';
+          return;
+        }
         if(this.mouseAction=='move'){
           let x = e.pageX;
           let y = e.pageY;

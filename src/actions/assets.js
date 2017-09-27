@@ -35,7 +35,8 @@ export const actionTypes = {
   ASSET_SELECTED: "ASSET_SELECTED",
   ASSET_COPY: 'ASSET_COPY',
   ASSET_SORT: 'ASSET_SORT',
-  ASSET_DELETE: 'ASSET_DELETE'
+  ASSET_DELETE: 'ASSET_DELETE',
+  TOGGLE_VIDEO_PREVIEW: 'TOGGLE_VIDEO_PREVIEW'
 };
 
 export const createAsset = (assetType, value, style = {}) => {
@@ -338,5 +339,11 @@ export function setAssetStyle(style){
   return{
     type: actionTypes.ASSET_SET_STYLE,
     style
+  }
+}
+
+export function toggleVideoPreview(){
+  return{
+    type: actionTypes.TOGGLE_VIDEO_PREVIEW
   }
 }
