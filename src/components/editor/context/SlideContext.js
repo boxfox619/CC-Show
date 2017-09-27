@@ -45,7 +45,7 @@ class SlideContext extends React.Component{
           if(this.props.selectedAsset==asset.id){
             this.selectedAsset = asset;
           }
-          return <Asset key={asset.id+this.props.currentSilde} isSelected={this.props.selectedAsset==asset.id} handleValueChange={this.props.setAssetValue} attribute={asset}/>
+          return <Asset key={this.props.currentSilde+'-'+asset.id+'-'+this.props.currentSilde} isSelected={this.props.selectedAsset==asset.id} handleValueChange={this.props.setAssetValue} attribute={asset}/>
         })
       };
       return (

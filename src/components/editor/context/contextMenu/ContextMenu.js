@@ -7,6 +7,17 @@ import * as assetsActions from '../../../../actions/assets';
 
 import styles from './ContextMenu.css';
 
+function getAssetNode(parent, child) {
+     var node = child;
+     while (node != null) {
+         if (node.tagName == parent) {
+             return node;
+         }
+         node = node.parentNode;
+     }
+     return null;
+}
+
 class ContextMenu extends React.Component {
   constructor(props){
     super(props);
@@ -88,9 +99,9 @@ class ContextMenu extends React.Component {
       let enable = false;
       let pasteable = false;
       let assetId = undefined;
-        if(event.target.parentNode.parentNode.tagName == 'ASSET'){
+        if(!!getAssetNode('ASSET', event.target)){
           enable = true;
-          assetId = event.target.parentNode.parentNode.id;
+          assetId = getAssetNode('ASSET', event.target).id;
         }
         if(!!this.cachedAsset){
           pasteable = true;
