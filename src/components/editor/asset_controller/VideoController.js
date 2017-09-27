@@ -22,7 +22,7 @@ class VideoController extends React.Component {
     render() {
         return (
             <div>
-                <div style={{"height":"10vh"}}>
+                <div style={{"height":"110px"}}>
                     <div className={styles.controller_sub_wrapper}>
                     <div className={styles.controller_sub_title}>비디오
                         <img onClick={this.videoOn.bind()} src="/images/ic_arrow_up.png" style={this.state.video_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>

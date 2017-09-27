@@ -23,7 +23,7 @@ class ImageController extends React.Component{
     render(){
         return(
             <div>
-                <div style={{"height":"7vh"}}>
+                <div style={{"height":"80px"}}>
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>이미지
                             <img onClick={this.imageOn.bind()} src="/images/ic_arrow_up.png" style={this.state.image_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>

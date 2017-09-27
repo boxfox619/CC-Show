@@ -36,7 +36,7 @@ p {
     border-radius: 20px;
     padding: 3px 5px 3px 5px;
     margin: 3px;
-    width: 40%;
+    width: 117px;
     height: 20px;
     float: left;
 }
@@ -47,11 +47,11 @@ p {
 
 .video span{
     margin: 0;
-    font-size:1vw;
+    font-size:18px;
 }
 
 .URL_controller {
-    width: 14.2vw;
+    width: 260px;
     display: table;
     padding: 1px 0 1px 2px;
 }
@@ -62,14 +62,14 @@ p {
 
 .video {
     text-align: center;
-    width: 4.1vw;
+    width: 73px;
     cursor: pointer;
 }
 
 .attribute_item_title {
     border: 0;
     margin: 0 0 0 5px;
-    width: 15%;
+    width: 50px;
     font-size: 15px;
     color: #5a84b3;
 }
@@ -104,7 +104,7 @@ button {
 }
 
 #input_style {
-    width: 85%;
+    width: 250px;
     border: 1px solid #5a84b3;
     border-radius: 20px;
     margin-left: 5px;
@@ -113,7 +113,7 @@ button {
 
 #input_style textarea {
     width: 98%;
-    height: 15vh;
+    height: 180px;
     border: 0;
 }
 
@@ -138,8 +138,9 @@ select {
 
 .control_text_attribute img {
     cursor: pointer;
-    margin: 10px;
-    width: 1vw;
+    margin: 8px;
+    width: 23px;
+    height: 23px;
 }
 
 .change_color {

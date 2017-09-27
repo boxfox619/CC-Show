@@ -98,6 +98,7 @@ module.exports = function (realm) {
       return realm.write(() => {
         realm.create('SimpleAsset', {
           id,
+          title: req.body.name,
           user: JSON.parse(req.signedCookies.user).id,
           source: req.body.source,
           thumbnail: req.body.thumbnail
