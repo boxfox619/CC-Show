@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9377043798f70878b2c1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ed8d987d3ec7550681cc"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -62381,7 +62381,7 @@ var SlideShow = function (_React$Component) {
                             { onClick: function onClick() {
                                     return _this2.doSlide(-1);
                                 }, className: _SlideShow2.default.slideController + ' ' + _SlideShow2.default.prev_slide },
-                            _react2.default.createElement('img', { src: 'images/ic_arrow_left_big.png' })
+                            _react2.default.createElement('img', { src: '/images/ic_arrow_left_big.png' })
                         ),
                         _react2.default.createElement('img', { className: _SlideShow2.default.slide, src: this.props.slides[this.state.selectedSlide].thumbnail }),
                         _react2.default.createElement(
@@ -62389,7 +62389,7 @@ var SlideShow = function (_React$Component) {
                             { onClick: function onClick() {
                                     return _this2.doSlide(+1);
                                 }, className: _SlideShow2.default.slideController + ' ' + _SlideShow2.default.next_slide },
-                            _react2.default.createElement('img', { src: 'images/ic_arrow_right_big.png' })
+                            _react2.default.createElement('img', { src: '/images/ic_arrow_right_big.png' })
                         ),
                         _react2.default.createElement('div', null)
                     ),
@@ -62410,7 +62410,7 @@ var SlideShow = function (_React$Component) {
                                 { className: _SlideShow2.default.slideNumberContext },
                                 _react2.default.createElement('img', { onClick: function onClick() {
                                         return _this2.doSlide(-1);
-                                    }, className: _SlideShow2.default.prev_slide + ' ' + _SlideShow2.default.slideController, src: 'images/ic_arrow_left_small.png' }),
+                                    }, className: _SlideShow2.default.prev_slide + ' ' + _SlideShow2.default.slideController, src: '/images/ic_arrow_left_small.png' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: _SlideShow2.default.slideNumberContext_counter },
@@ -62420,13 +62420,13 @@ var SlideShow = function (_React$Component) {
                                 ),
                                 _react2.default.createElement('img', { onClick: function onClick() {
                                         return _this2.doSlide(+1);
-                                    }, className: _SlideShow2.default.next_slide + ' ' + _SlideShow2.default.slideController, src: 'images/ic_arrow_right_small.png' })
+                                    }, className: _SlideShow2.default.next_slide + ' ' + _SlideShow2.default.slideController, src: '/images/ic_arrow_right_small.png' })
                             ),
                             _react2.default.createElement(
                                 'div',
                                 { className: _SlideShow2.default.slideOptionButton },
-                                _react2.default.createElement('img', { src: 'images/ic_fullscreen.png' }),
-                                _react2.default.createElement('img', { src: 'images/ic_slide_show.png' })
+                                _react2.default.createElement('img', { src: '/images/ic_fullscreen.png' }),
+                                _react2.default.createElement('img', { src: '/images/ic_slide_show.png' })
                             )
                         )
                     )
