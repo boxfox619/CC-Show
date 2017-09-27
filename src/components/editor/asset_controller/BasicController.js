@@ -45,6 +45,7 @@ class BasicController extends React.Component{
     }
 
     render(){
+        console.log(this.props.style);
         return(
             <div>
                 <div style={{'height':'13vh'}}>
@@ -97,7 +98,7 @@ class BasicController extends React.Component{
                         </div>
                         <div className={styles.control_item}>
                             <span><img src="/images/ic_line.png"/></span>
-                            <input type="text" className={styles.attribute_item_input} onChange={this.setBorderWeight} value={this.props.borderWeight}/>
+                            <input style={{width:"23%"}} type="text" className={styles.attribute_item_input} onChange={this.setBorderWeight} value={this.props.borderWeight}/>
                             <div className={styles.change_color} onClick={this.props.toggleBorderColorPicker} style={this.props.borderColor==='white' ? {border:'1px solid #5D87B5'} : {backgroundColor:this.props.borderColor}}> </div>
                         </div>
                     </div>
@@ -112,7 +113,7 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.style ? {} : {display:'none'}} className={styles.items}>
                         <div id={styles.input_style}>
-                            <textarea onChange={this.setStyle.bind()} rows="" cols="" value={JSON.stringify(JSON.parse(this.props.style), null, 4)}></textarea>
+                            <textarea onChange={this.setStyle.bind()} rows="" cols="" value={JSON.stringify(this.props.style, null, 4)}></textarea>
                         </div>
                     </div>
                 </div>

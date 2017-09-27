@@ -221,7 +221,6 @@ export function setAssetTextCharacterSpacing(value) {
 
 export function setAssetTextLineSpacing(value) {
   value+='%';
-  console.log(value);
   return{
     type: actionTypes.ASSET_SET_TEXT_LINE_SPACING,
     value
@@ -295,7 +294,7 @@ export function setAssetBorderColor(borderColor) {
 }
 
 export function setAssetEdgeWeight(weight) {
-  weight+=px;
+  weight+='px';
   console.log(weight);
   return{
     type: actionTypes.ASSET_SET_BORDER_WEIGHT,

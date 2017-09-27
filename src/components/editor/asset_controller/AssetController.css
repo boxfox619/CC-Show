@@ -139,7 +139,7 @@ select {
 .control_text_attribute img {
     cursor: pointer;
     margin: 10px;
-    width: 0.7vw;
+    width: 1vw;
 }
 
 .change_color {
