@@ -53,6 +53,7 @@ class Asset extends React.Component{
         assetTag = 'TextAsset';
         break;
     }
+    
     const AssetContext = assetTag;
     const topLeftAttr = {'target': 'topleft'};
     const topRightAttr = {'target': 'topright'};
@@ -62,6 +63,7 @@ class Asset extends React.Component{
     const bottomAttr = {'target': 'bottom'};
     const leftAttr = {'target': 'left'};
     const rightAttr = {'target': 'right'};
+
     let renderSelectorLine = ()=>{
       if(this.props.controlable){
         return (<div><selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer+this.getSubStyleClass()}/>
@@ -71,6 +73,7 @@ class Asset extends React.Component{
       </div>);
       }
     }
+
     let renderSelectorDot = ()=>{
       if(this.props.controlable){
         return (<div><selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>
