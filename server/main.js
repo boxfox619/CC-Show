@@ -7,9 +7,9 @@ const realm = require('./realm');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = 80;
 const devPort = 3001;
-
+"use strict";
 app.use(bodyParser.json({limit: '1024mb'}));
 app.use(cookieParser("secret"));
 
@@ -31,14 +31,16 @@ if(process.env.NODE_ENV == 'development') {
         console.log('webpack-dev-server is listening on port', devPort);
     });
 }
-app.use('/', express.static(__dirname + '/../public/'));
-
+app.use('/', express.static(__dirname + '/../public/resources'));
+app.use('/bundle.js', (req, res) =>{
+  res.sendFile('bundle.js', { root: path.join(__dirname, '../public') });
+});
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, '../public') });
+  res.sendFile('main.html', { root: path.join(__dirname, '../public') });
 });
 
 app.get('/editor/', (req, res) => {
-  res.sendFile('account.html', { root: path.join(__dirname, '../public') });;
+  res.sendFile('index.html', { root: path.join(__dirname, '../public') });;
 });
 
 const account = require('./routes/account');

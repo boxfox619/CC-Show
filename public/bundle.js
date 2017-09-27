@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "900bf0680b8fc518364d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "447b7977d9c08762fb7e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -4064,7 +4064,7 @@ var _prodInvariant = __webpack_require__(10),
     _assign = __webpack_require__(12);
 
 var CallbackQueue = __webpack_require__(139);
-var PooledClass = __webpack_require__(37);
+var PooledClass = __webpack_require__(38);
 var ReactFeatureFlags = __webpack_require__(138);
 var ReactReconciler = __webpack_require__(45);
 var Transaction = __webpack_require__(63);
@@ -4433,7 +4433,7 @@ module.exports = __webpack_require__(360);
 
 var _assign = __webpack_require__(12);
 
-var PooledClass = __webpack_require__(37);
+var PooledClass = __webpack_require__(38);
 
 var emptyFunction = __webpack_require__(21);
 var warning = __webpack_require__(9);
@@ -5011,6 +5011,107 @@ module.exports = DOMProperty;
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(4), RootInstanceProvider = __webpack_require__(5), ReactMount = __webpack_require__(3), React = __webpack_require__(0); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var actionTypes = exports.actionTypes = {
+  TOGGLE_DIALOG: 'TOGGLE_DIALOG',
+  RELEASE_DIALOG: 'RELEASE_DIALOG',
+  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER'
+};
+
+var dialogs = exports.dialogs = {
+  SLIDE_MANAGER: 'SlideManager',
+  ASSET_STORE: 'AssetStore',
+  ASSET_EDITOR: 'AssetEditor',
+  ACCOUNT_WITH_SNS: 'AccountDialog',
+  COLOR_PICKER: 'ColorPicker',
+  SLIDE_SHOW: 'SLIDE_SHOW'
+};
+
+var colorPicker = exports.colorPicker = {
+  TEXT_COLOR: 'TextColor',
+  FILL_COLOR: 'FillColor',
+  BORDER_COLOR: 'BorderColor'
+};
+
+var toggleSlideManager = exports.toggleSlideManager = function toggleSlideManager() {
+  return {
+    type: actionTypes.TOGGLE_SLIDE_MANAGER
+  };
+};
+
+var toggleAssetStore = exports.toggleAssetStore = function toggleAssetStore() {
+  return {
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.ASSET_STORE
+  };
+};
+
+var toggleAssetEditor = exports.toggleAssetEditor = function toggleAssetEditor() {
+  return {
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.ASSET_EDITOR
+  };
+};
+
+var toggleSlideShow = exports.toggleSlideShow = function toggleSlideShow() {
+  return {
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.SLIDE_SHOW
+  };
+};
+
+var toggleAccountDialog = exports.toggleAccountDialog = function toggleAccountDialog() {
+
+  return {
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.ACCOUNT_WITH_SNS
+  };
+};
+
+var releaseDialog = exports.releaseDialog = function releaseDialog() {
+
+  return {
+    type: actionTypes.RELEASE_DIALOG
+  };
+};
+
+var toggleFillColorPicker = exports.toggleFillColorPicker = function toggleFillColorPicker() {
+  return {
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.COLOR_PICKER,
+    colorPicker: colorPicker.FILL_COLOR
+  };
+};
+
+var toggleBorderColorPicker = exports.toggleBorderColorPicker = function toggleBorderColorPicker() {
+  return {
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.COLOR_PICKER,
+    colorPicker: colorPicker.BORDER_COLOR
+  };
+};
+
+var toggleTextColorPicker = exports.toggleTextColorPicker = function toggleTextColorPicker() {
+  return {
+    type: actionTypes.TOGGLE_DIALOG,
+    target: dialogs.COLOR_PICKER,
+    colorPicker: colorPicker.TEXT_COLOR
+  };
+};
+
+/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(6); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ui.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var arrayMap = __webpack_require__(186),
     baseIteratee = __webpack_require__(417),
     baseMap = __webpack_require__(473),
@@ -5067,7 +5168,7 @@ module.exports = map;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5414,7 +5515,7 @@ module.exports = ReactElement;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5530,107 +5631,6 @@ var PooledClass = {
 
 module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(4), RootInstanceProvider = __webpack_require__(5), ReactMount = __webpack_require__(3), React = __webpack_require__(0); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var actionTypes = exports.actionTypes = {
-  TOGGLE_DIALOG: 'TOGGLE_DIALOG',
-  RELEASE_DIALOG: 'RELEASE_DIALOG',
-  TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER'
-};
-
-var dialogs = exports.dialogs = {
-  SLIDE_MANAGER: 'SlideManager',
-  ASSET_STORE: 'AssetStore',
-  ASSET_EDITOR: 'AssetEditor',
-  ACCOUNT_WITH_SNS: 'AccountDialog',
-  COLOR_PICKER: 'ColorPicker',
-  SLIDE_SHOW: 'SLIDE_SHOW'
-};
-
-var colorPicker = exports.colorPicker = {
-  TEXT_COLOR: 'TextColor',
-  FILL_COLOR: 'FillColor',
-  BORDER_COLOR: 'BorderColor'
-};
-
-var toggleSlideManager = exports.toggleSlideManager = function toggleSlideManager() {
-  return {
-    type: actionTypes.TOGGLE_SLIDE_MANAGER
-  };
-};
-
-var toggleAssetStore = exports.toggleAssetStore = function toggleAssetStore() {
-  return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.ASSET_STORE
-  };
-};
-
-var toggleAssetEditor = exports.toggleAssetEditor = function toggleAssetEditor() {
-  return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.ASSET_EDITOR
-  };
-};
-
-var toggleSlideShow = exports.toggleSlideShow = function toggleSlideShow() {
-  return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.SLIDE_SHOW
-  };
-};
-
-var toggleAccountDialog = exports.toggleAccountDialog = function toggleAccountDialog() {
-
-  return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.ACCOUNT_WITH_SNS
-  };
-};
-
-var releaseDialog = exports.releaseDialog = function releaseDialog() {
-
-  return {
-    type: actionTypes.RELEASE_DIALOG
-  };
-};
-
-var toggleFillColorPicker = exports.toggleFillColorPicker = function toggleFillColorPicker() {
-  return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.COLOR_PICKER,
-    colorPicker: colorPicker.FILL_COLOR
-  };
-};
-
-var toggleBorderColorPicker = exports.toggleBorderColorPicker = function toggleBorderColorPicker() {
-  return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.COLOR_PICKER,
-    colorPicker: colorPicker.BORDER_COLOR
-  };
-};
-
-var toggleTextColorPicker = exports.toggleTextColorPicker = function toggleTextColorPicker() {
-  return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.COLOR_PICKER,
-    colorPicker: colorPicker.TEXT_COLOR
-  };
-};
-
-/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(6); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ui.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
 
 /***/ }),
 /* 39 */
@@ -5869,7 +5869,7 @@ var _assign = __webpack_require__(12);
 var ReactBaseClasses = __webpack_require__(126);
 var ReactChildren = __webpack_require__(226);
 var ReactDOMFactories = __webpack_require__(230);
-var ReactElement = __webpack_require__(36);
+var ReactElement = __webpack_require__(37);
 var ReactPropTypes = __webpack_require__(234);
 var ReactVersion = __webpack_require__(236);
 
@@ -7131,18 +7131,13 @@ function skipExtendingChars(str, pos, dir) {
 }
 
 // Returns the value from the range [`from`; `to`] that satisfies
-// `pred` and is closest to `from`. Assumes that at least `to`
-// satisfies `pred`. Supports `from` being greater than `to`.
+// `pred` and is closest to `from`. Assumes that at least `to` satisfies `pred`.
 function findFirst(pred, from, to) {
-  // At any point we are certain `to` satisfies `pred`, don't know
-  // whether `from` does.
-  var dir = from > to ? -1 : 1;
   for (;;) {
-    if (from == to) { return from }
-    var midF = (from + to) / 2, mid = dir < 0 ? Math.ceil(midF) : Math.floor(midF);
-    if (mid == from) { return pred(mid) ? from : to }
+    if (Math.abs(from - to) <= 1) { return pred(from) ? from : to }
+    var mid = Math.floor((from + to) / 2);
     if (pred(mid)) { to = mid; }
-    else { from = mid + dir; }
+    else { from = mid; }
   }
 }
 
@@ -7754,12 +7749,12 @@ function findMaxLine(cm) {
 // BIDI HELPERS
 
 function iterateBidiSections(order, from, to, f) {
-  if (!order) { return f(from, to, "ltr", 0) }
+  if (!order) { return f(from, to, "ltr") }
   var found = false;
   for (var i = 0; i < order.length; ++i) {
     var part = order[i];
     if (part.from < to && part.to > from || from == to && part.to == from) {
-      f(Math.max(part.from, from), Math.min(part.to, to), part.level == 1 ? "rtl" : "ltr", i);
+      f(Math.max(part.from, from), Math.min(part.to, to), part.level == 1 ? "rtl" : "ltr");
       found = true;
     }
   }
@@ -7960,6 +7955,112 @@ function getOrder(line, direction) {
   var order = line.order;
   if (order == null) { order = line.order = bidiOrdering(line.text, direction); }
   return order
+}
+
+function moveCharLogically(line, ch, dir) {
+  var target = skipExtendingChars(line.text, ch + dir, dir);
+  return target < 0 || target > line.text.length ? null : target
+}
+
+function moveLogically(line, start, dir) {
+  var ch = moveCharLogically(line, start.ch, dir);
+  return ch == null ? null : new Pos(start.line, ch, dir < 0 ? "after" : "before")
+}
+
+function endOfLine(visually, cm, lineObj, lineNo, dir) {
+  if (visually) {
+    var order = getOrder(lineObj, cm.doc.direction);
+    if (order) {
+      var part = dir < 0 ? lst(order) : order[0];
+      var moveInStorageOrder = (dir < 0) == (part.level == 1);
+      var sticky = moveInStorageOrder ? "after" : "before";
+      var ch;
+      // With a wrapped rtl chunk (possibly spanning multiple bidi parts),
+      // it could be that the last bidi part is not on the last visual line,
+      // since visual lines contain content order-consecutive chunks.
+      // Thus, in rtl, we are looking for the first (content-order) character
+      // in the rtl chunk that is on the last line (that is, the same line
+      // as the last (content-order) character).
+      if (part.level > 0) {
+        var prep = prepareMeasureForLine(cm, lineObj);
+        ch = dir < 0 ? lineObj.text.length - 1 : 0;
+        var targetTop = measureCharPrepared(cm, prep, ch).top;
+        ch = findFirst(function (ch) { return measureCharPrepared(cm, prep, ch).top == targetTop; }, (dir < 0) == (part.level == 1) ? part.from : part.to - 1, ch);
+        if (sticky == "before") { ch = moveCharLogically(lineObj, ch, 1); }
+      } else { ch = dir < 0 ? part.to : part.from; }
+      return new Pos(lineNo, ch, sticky)
+    }
+  }
+  return new Pos(lineNo, dir < 0 ? lineObj.text.length : 0, dir < 0 ? "before" : "after")
+}
+
+function moveVisually(cm, line, start, dir) {
+  var bidi = getOrder(line, cm.doc.direction);
+  if (!bidi) { return moveLogically(line, start, dir) }
+  if (start.ch >= line.text.length) {
+    start.ch = line.text.length;
+    start.sticky = "before";
+  } else if (start.ch <= 0) {
+    start.ch = 0;
+    start.sticky = "after";
+  }
+  var partPos = getBidiPartAt(bidi, start.ch, start.sticky), part = bidi[partPos];
+  if (cm.doc.direction == "ltr" && part.level % 2 == 0 && (dir > 0 ? part.to > start.ch : part.from < start.ch)) {
+    // Case 1: We move within an ltr part in an ltr editor. Even with wrapped lines,
+    // nothing interesting happens.
+    return moveLogically(line, start, dir)
+  }
+
+  var mv = function (pos, dir) { return moveCharLogically(line, pos instanceof Pos ? pos.ch : pos, dir); };
+  var prep;
+  var getWrappedLineExtent = function (ch) {
+    if (!cm.options.lineWrapping) { return {begin: 0, end: line.text.length} }
+    prep = prep || prepareMeasureForLine(cm, line);
+    return wrappedLineExtentChar(cm, line, prep, ch)
+  };
+  var wrappedLineExtent = getWrappedLineExtent(start.sticky == "before" ? mv(start, -1) : start.ch);
+
+  if (cm.doc.direction == "rtl" || part.level == 1) {
+    var moveInStorageOrder = (part.level == 1) == (dir < 0);
+    var ch = mv(start, moveInStorageOrder ? 1 : -1);
+    if (ch != null && (!moveInStorageOrder ? ch >= part.from && ch >= wrappedLineExtent.begin : ch <= part.to && ch <= wrappedLineExtent.end)) {
+      // Case 2: We move within an rtl part or in an rtl editor on the same visual line
+      var sticky = moveInStorageOrder ? "before" : "after";
+      return new Pos(start.line, ch, sticky)
+    }
+  }
+
+  // Case 3: Could not move within this bidi part in this visual line, so leave
+  // the current bidi part
+
+  var searchInVisualLine = function (partPos, dir, wrappedLineExtent) {
+    var getRes = function (ch, moveInStorageOrder) { return moveInStorageOrder
+      ? new Pos(start.line, mv(ch, 1), "before")
+      : new Pos(start.line, ch, "after"); };
+
+    for (; partPos >= 0 && partPos < bidi.length; partPos += dir) {
+      var part = bidi[partPos];
+      var moveInStorageOrder = (dir > 0) == (part.level != 1);
+      var ch = moveInStorageOrder ? wrappedLineExtent.begin : mv(wrappedLineExtent.end, -1);
+      if (part.from <= ch && ch < part.to) { return getRes(ch, moveInStorageOrder) }
+      ch = moveInStorageOrder ? part.from : mv(part.to, -1);
+      if (wrappedLineExtent.begin <= ch && ch < wrappedLineExtent.end) { return getRes(ch, moveInStorageOrder) }
+    }
+  };
+
+  // Case 3a: Look for other bidi parts on the same visual line
+  var res = searchInVisualLine(partPos + dir, dir, wrappedLineExtent);
+  if (res) { return res }
+
+  // Case 3b: Look for other bidi parts on the next visual line
+  var nextCh = dir > 0 ? wrappedLineExtent.end : mv(wrappedLineExtent.begin, -1);
+  if (nextCh != null && !(dir > 0 && nextCh == line.text.length)) {
+    res = searchInVisualLine(dir > 0 ? 0 : bidi.length - 1, dir, getWrappedLineExtent(nextCh));
+    if (res) { return res }
+  }
+
+  // Case 4: Nowhere to move
+  return null
 }
 
 // EVENT HANDLING
@@ -9472,22 +9573,15 @@ function pageScrollY() {
   return window.pageYOffset || (document.documentElement || document.body).scrollTop
 }
 
-function widgetTopHeight(lineObj) {
-  var height = 0;
-  if (lineObj.widgets) { for (var i = 0; i < lineObj.widgets.length; ++i) { if (lineObj.widgets[i].above)
-    { height += widgetHeight(lineObj.widgets[i]); } } }
-  return height
-}
-
 // Converts a {top, bottom, left, right} box from line-local
 // coordinates into another coordinate system. Context may be one of
 // "line", "div" (display.lineDiv), "local"./null (editor), "window",
 // or "page".
 function intoCoordSystem(cm, lineObj, rect, context, includeWidgets) {
-  if (!includeWidgets) {
-    var height = widgetTopHeight(lineObj);
-    rect.top += height; rect.bottom += height;
-  }
+  if (!includeWidgets && lineObj.widgets) { for (var i = 0; i < lineObj.widgets.length; ++i) { if (lineObj.widgets[i].above) {
+    var size = widgetHeight(lineObj.widgets[i]);
+    rect.top += size; rect.bottom += size;
+  } } }
   if (context == "line") { return rect }
   if (!context) { context = "local"; }
   var yOff = heightAtLine(lineObj);
@@ -9562,7 +9656,7 @@ function cursorCoords(cm, pos, context, lineObj, preparedMeasure, varHeight) {
   if (!order) { return get(sticky == "before" ? ch - 1 : ch, sticky == "before") }
 
   function getBidi(ch, partPos, invert) {
-    var part = order[partPos], right = part.level == 1;
+    var part = order[partPos], right = (part.level % 2) != 0;
     return get(invert ? ch - 1 : ch, right != invert)
   }
   var partPos = getBidiPartAt(order, ch, sticky);
@@ -9620,146 +9714,77 @@ function coordsChar(cm, x, y) {
 }
 
 function wrappedLineExtent(cm, lineObj, preparedMeasure, y) {
-  y -= widgetTopHeight(lineObj);
+  var measure = function (ch) { return intoCoordSystem(cm, lineObj, measureCharPrepared(cm, preparedMeasure, ch), "line"); };
   var end = lineObj.text.length;
-  var begin = findFirst(function (ch) { return measureCharPrepared(cm, preparedMeasure, ch - 1).bottom <= y; }, end, 0);
-  end = findFirst(function (ch) { return measureCharPrepared(cm, preparedMeasure, ch).top > y; }, begin, end);
+  var begin = findFirst(function (ch) { return measure(ch - 1).bottom <= y; }, end, 0);
+  end = findFirst(function (ch) { return measure(ch).top > y; }, begin, end);
   return {begin: begin, end: end}
 }
 
 function wrappedLineExtentChar(cm, lineObj, preparedMeasure, target) {
-  if (!preparedMeasure) { preparedMeasure = prepareMeasureForLine(cm, lineObj); }
   var targetTop = intoCoordSystem(cm, lineObj, measureCharPrepared(cm, preparedMeasure, target), "line").top;
   return wrappedLineExtent(cm, lineObj, preparedMeasure, targetTop)
 }
 
-// Returns true if the given side of a box is after the given
-// coordinates, in top-to-bottom, left-to-right order.
-function boxIsAfter(box, x, y, left) {
-  return box.bottom <= y ? false : box.top > y ? true : (left ? box.left : box.right) > x
-}
-
 function coordsCharInner(cm, lineObj, lineNo$$1, x, y) {
-  // Move y into line-local coordinate space
   y -= heightAtLine(lineObj);
+  var begin = 0, end = lineObj.text.length;
   var preparedMeasure = prepareMeasureForLine(cm, lineObj);
-  // When directly calling `measureCharPrepared`, we have to adjust
-  // for the widgets at this line.
-  var widgetHeight$$1 = widgetTopHeight(lineObj);
-  var begin = 0, end = lineObj.text.length, ltr = true;
-
+  var pos;
   var order = getOrder(lineObj, cm.doc.direction);
-  // If the line isn't plain left-to-right text, first figure out
-  // which bidi section the coordinates fall into.
   if (order) {
-    var part = (cm.options.lineWrapping ? coordsBidiPartWrapped : coordsBidiPart)
-                 (cm, lineObj, lineNo$$1, preparedMeasure, order, x, y);
-    ltr = part.level != 1;
-    // The awkward -1 offsets are needed because findFirst (called
-    // on these below) will treat its first bound as inclusive,
-    // second as exclusive, but we want to actually address the
-    // characters in the part's range
-    begin = ltr ? part.from : part.to - 1;
-    end = ltr ? part.to : part.from - 1;
-  }
-
-  // A binary search to find the first character whose bounding box
-  // starts after the coordinates. If we run across any whose box wrap
-  // the coordinates, store that.
-  var chAround = null, boxAround = null;
-  var ch = findFirst(function (ch) {
-    var box = measureCharPrepared(cm, preparedMeasure, ch);
-    box.top += widgetHeight$$1; box.bottom += widgetHeight$$1;
-    if (!boxIsAfter(box, x, y, false)) { return false }
-    if (box.top <= y && box.left <= x) {
-      chAround = ch;
-      boxAround = box;
+    if (cm.options.lineWrapping) {
+      var assign;
+      ((assign = wrappedLineExtent(cm, lineObj, preparedMeasure, y), begin = assign.begin, end = assign.end, assign));
     }
-    return true
-  }, begin, end);
-
-  var baseX, sticky, outside = false;
-  // If a box around the coordinates was found, use that
-  if (boxAround) {
-    // Distinguish coordinates nearer to the left or right side of the box
-    var atLeft = x - boxAround.left < boxAround.right - x, atStart = atLeft == ltr;
-    ch = chAround + (atStart ? 0 : 1);
-    sticky = atStart ? "after" : "before";
-    baseX = atLeft ? boxAround.left : boxAround.right;
+    pos = new Pos(lineNo$$1, Math.floor(begin + (end - begin) / 2));
+    var beginLeft = cursorCoords(cm, pos, "line", lineObj, preparedMeasure).left;
+    var dir = beginLeft < x ? 1 : -1;
+    var prevDiff, diff = beginLeft - x, prevPos;
+    var steps = Math.ceil((end - begin) / 4);
+    outer: do {
+      prevDiff = diff;
+      prevPos = pos;
+      var i = 0;
+      for (; i < steps; ++i) {
+        var prevPos$1 = pos;
+        pos = moveVisually(cm, lineObj, pos, dir);
+        if (pos == null || pos.ch < begin || end <= (pos.sticky == "before" ? pos.ch - 1 : pos.ch)) {
+          pos = prevPos$1;
+          break outer
+        }
+      }
+      diff = cursorCoords(cm, pos, "line", lineObj, preparedMeasure).left - x;
+      if (steps > 1) {
+        var diff_change_per_step = Math.abs(diff - prevDiff) / steps;
+        steps = Math.min(steps, Math.ceil(Math.abs(diff) / diff_change_per_step));
+        dir = diff < 0 ? 1 : -1;
+      }
+    } while (diff != 0 && (steps > 1 || ((dir < 0) != (diff < 0) && (Math.abs(diff) <= Math.abs(prevDiff)))))
+    if (Math.abs(diff) > Math.abs(prevDiff)) {
+      if ((diff < 0) == (prevDiff < 0)) { throw new Error("Broke out of infinite loop in coordsCharInner") }
+      pos = prevPos;
+    }
   } else {
-    // (Adjust for extended bound, if necessary.)
-    if (!ltr && (ch == end || ch == begin)) { ch++; }
-    // To determine which side to associate with, get the box to the
-    // left of the character and compare it's vertical position to the
-    // coordinates
-    sticky = ch == 0 ? "after" : ch == lineObj.text.length ? "before" :
-      (measureCharPrepared(cm, preparedMeasure, ch - (ltr ? 1 : 0)).bottom + widgetHeight$$1 <= y) == ltr ?
-      "after" : "before";
-    // Now get accurate coordinates for this place, in order to get a
-    // base X position
-    var coords = cursorCoords(cm, Pos(lineNo$$1, ch, sticky), "line", lineObj, preparedMeasure);
-    baseX = coords.left;
-    outside = y < coords.top || y >= coords.bottom;
+    var ch = findFirst(function (ch) {
+      var box = intoCoordSystem(cm, lineObj, measureCharPrepared(cm, preparedMeasure, ch), "line");
+      if (box.top > y) {
+        // For the cursor stickiness
+        end = Math.min(ch, end);
+        return true
+      }
+      else if (box.bottom <= y) { return false }
+      else if (box.left > x) { return true }
+      else if (box.right < x) { return false }
+      else { return (x - box.left < box.right - x) }
+    }, begin, end);
+    ch = skipExtendingChars(lineObj.text, ch, 1);
+    pos = new Pos(lineNo$$1, ch, ch == end ? "before" : "after");
   }
-
-  ch = skipExtendingChars(lineObj.text, ch, 1);
-  return PosWithInfo(lineNo$$1, ch, sticky, outside, x - baseX)
-}
-
-function coordsBidiPart(cm, lineObj, lineNo$$1, preparedMeasure, order, x, y) {
-  // Bidi parts are sorted left-to-right, and in a non-line-wrapping
-  // situation, we can take this ordering to correspond to the visual
-  // ordering. This finds the first part whose end is after the given
-  // coordinates.
-  var index = findFirst(function (i) {
-    var part = order[i], ltr = part.level != 1;
-    return boxIsAfter(cursorCoords(cm, Pos(lineNo$$1, ltr ? part.to : part.from, ltr ? "before" : "after"),
-                                   "line", lineObj, preparedMeasure), x, y, true)
-  }, 0, order.length - 1);
-  var part = order[index];
-  // If this isn't the first part, the part's start is also after
-  // the coordinates, and the coordinates aren't on the same line as
-  // that start, move one part back.
-  if (index > 0) {
-    var ltr = part.level != 1;
-    var start = cursorCoords(cm, Pos(lineNo$$1, ltr ? part.from : part.to, ltr ? "after" : "before"),
-                             "line", lineObj, preparedMeasure);
-    if (boxIsAfter(start, x, y, true) && start.top > y)
-      { part = order[index - 1]; }
-  }
-  return part
-}
-
-function coordsBidiPartWrapped(cm, lineObj, _lineNo, preparedMeasure, order, x, y) {
-  // In a wrapped line, rtl text on wrapping boundaries can do things
-  // that don't correspond to the ordering in our `order` array at
-  // all, so a binary search doesn't work, and we want to return a
-  // part that only spans one line so that the binary search in
-  // coordsCharInner is safe. As such, we first find the extent of the
-  // wrapped line, and then do a flat search in which we discard any
-  // spans that aren't on the line.
-  var ref = wrappedLineExtent(cm, lineObj, preparedMeasure, y);
-  var begin = ref.begin;
-  var end = ref.end;
-  var part = null, closestDist = null;
-  for (var i = 0; i < order.length; i++) {
-    var p = order[i];
-    if (p.from >= end || p.to <= begin) { continue }
-    var ltr = p.level != 1;
-    var endX = measureCharPrepared(cm, preparedMeasure, ltr ? Math.min(end, p.to) - 1 : Math.max(begin, p.from)).right;
-    // Weigh against spans ending before this, so that they are only
-    // picked if nothing ends after
-    var dist = endX < x ? x - endX + 1e9 : endX - x;
-    if (!part || closestDist > dist) {
-      part = p;
-      closestDist = dist;
-    }
-  }
-  if (!part) { part = order[order.length - 1]; }
-  // Clip the part to the wrapped line.
-  if (part.from < begin) { part = {from: begin, to: part.to, level: part.level}; }
-  if (part.to > end) { part = {from: part.from, to: end, level: part.level}; }
-  return part
+  var coords = cursorCoords(cm, pos, "line", lineObj, preparedMeasure);
+  if (y < coords.top || coords.bottom < y) { pos.outside = true; }
+  pos.xRel = x < coords.left ? -1 : (x > coords.right ? 1 : 0);
+  return pos
 }
 
 var measureText;
@@ -9885,14 +9910,12 @@ function updateSelection(cm) {
 }
 
 function prepareSelection(cm, primary) {
-  if ( primary === void 0 ) primary = true;
-
   var doc = cm.doc, result = {};
   var curFragment = result.cursors = document.createDocumentFragment();
   var selFragment = result.selection = document.createDocumentFragment();
 
   for (var i = 0; i < doc.sel.ranges.length; i++) {
-    if (!primary && i == doc.sel.primIndex) { continue }
+    if (primary === false && i == doc.sel.primIndex) { continue }
     var range$$1 = doc.sel.ranges[i];
     if (range$$1.from().line >= cm.display.viewTo || range$$1.to().line < cm.display.viewFrom) { continue }
     var collapsed = range$$1.empty();
@@ -9923,8 +9946,6 @@ function drawSelectionCursor(cm, head, output) {
   }
 }
 
-function cmpCoords(a, b) { return a.top - b.top || a.left - b.left }
-
 // Draws the given range as a highlighted selection
 function drawSelectionRange(cm, range$$1, output) {
   var display = cm.display, doc = cm.doc;
@@ -9947,48 +9968,30 @@ function drawSelectionRange(cm, range$$1, output) {
       return charCoords(cm, Pos(line, ch), "div", lineObj, bias)
     }
 
-    var order = getOrder(lineObj, doc.direction);
-    iterateBidiSections(order, fromArg || 0, toArg == null ? lineLen : toArg, function (from, to, dir, i) {
-      var fromPos = coords(from, dir == "ltr" ? "left" : "right");
-      var toPos = coords(to - 1, dir == "ltr" ? "right" : "left");
-      if (dir == "ltr") {
-        var fromLeft = fromArg == null && from == 0 ? leftSide : fromPos.left;
-        var toRight = toArg == null && to == lineLen ? rightSide : toPos.right;
-        if (toPos.top - fromPos.top <= 3) { // Single line
-          add(fromLeft, toPos.top, toRight - fromLeft, toPos.bottom);
-        } else { // Multiple lines
-          add(fromLeft, fromPos.top, null, fromPos.bottom);
-          if (fromPos.bottom < toPos.top) { add(leftSide, fromPos.bottom, null, toPos.top); }
-          add(leftSide, toPos.top, toPos.right, toPos.bottom);
-        }
-      } else if (from < to) { // RTL
-        var fromRight = fromArg == null && from == 0 ? rightSide : fromPos.right;
-        var toLeft = toArg == null && to == lineLen ? leftSide : toPos.left;
-        if (toPos.top - fromPos.top <= 3) { // Single line
-          add(toLeft, toPos.top, fromRight - toLeft, toPos.bottom);
-        } else { // Multiple lines
-          var topLeft = leftSide;
-          if (i) {
-            var topEnd = wrappedLineExtentChar(cm, lineObj, null, from).end;
-            // The coordinates returned for an RTL wrapped space tend to
-            // be complete bogus, so try to skip that here.
-            topLeft = coords(topEnd - (/\s/.test(lineObj.text.charAt(topEnd - 1)) ? 2 : 1), "left").left;
-          }
-          add(topLeft, fromPos.top, fromRight - topLeft, fromPos.bottom);
-          if (fromPos.bottom < toPos.top) { add(leftSide, fromPos.bottom, null, toPos.top); }
-          var botWidth = null;
-          if (i < order.length  - 1 || true) {
-            var botStart = wrappedLineExtentChar(cm, lineObj, null, to).begin;
-            botWidth = coords(botStart, "right").right - toLeft;
-          }
-          add(toLeft, toPos.top, botWidth, toPos.bottom);
-        }
+    iterateBidiSections(getOrder(lineObj, doc.direction), fromArg || 0, toArg == null ? lineLen : toArg, function (from, to, dir) {
+      var leftPos = coords(from, "left"), rightPos, left, right;
+      if (from == to) {
+        rightPos = leftPos;
+        left = right = leftPos.left;
+      } else {
+        rightPos = coords(to - 1, "right");
+        if (dir == "rtl") { var tmp = leftPos; leftPos = rightPos; rightPos = tmp; }
+        left = leftPos.left;
+        right = rightPos.right;
       }
-
-      if (!start || cmpCoords(fromPos, start) < 0) { start = fromPos; }
-      if (cmpCoords(toPos, start) < 0) { start = toPos; }
-      if (!end || cmpCoords(fromPos, end) < 0) { end = fromPos; }
-      if (cmpCoords(toPos, end) < 0) { end = toPos; }
+      if (fromArg == null && from == 0) { left = leftSide; }
+      if (rightPos.top - leftPos.top > 3) { // Different lines, draw top part
+        add(left, leftPos.top, null, leftPos.bottom);
+        left = leftSide;
+        if (leftPos.bottom < rightPos.top) { add(left, leftPos.bottom, null, rightPos.top); }
+      }
+      if (toArg == null && to == lineLen) { right = rightSide; }
+      if (!start || leftPos.top < start.top || leftPos.top == start.top && leftPos.left < start.left)
+        { start = leftPos; }
+      if (!end || rightPos.bottom > end.bottom || rightPos.bottom == end.bottom && rightPos.right > end.right)
+        { end = rightPos; }
+      if (left < leftSide + 1) { left = leftSide; }
+      add(left, rightPos.top, right - left, rightPos.bottom);
     });
     return {start: start, end: end}
   }
@@ -10618,7 +10621,7 @@ function endOperation_R2(op) {
   }
 
   if (op.updatedDisplay || op.selectionChanged)
-    { op.preparedSelection = display.input.prepareSelection(); }
+    { op.preparedSelection = display.input.prepareSelection(op.focus); }
 }
 
 function endOperation_W2(op) {
@@ -10631,7 +10634,7 @@ function endOperation_W2(op) {
     cm.display.maxLineChanged = false;
   }
 
-  var takeFocus = op.focus && op.focus == activeElt();
+  var takeFocus = op.focus && op.focus == activeElt() && (!document.hasFocus || document.hasFocus());
   if (op.preparedSelection)
     { cm.display.input.showSelection(op.preparedSelection, takeFocus); }
   if (op.updatedDisplay || op.startHeight != cm.doc.height)
@@ -12025,7 +12028,7 @@ function makeChange(doc, change, ignoreReadOnly) {
   var split = sawReadOnlySpans && !ignoreReadOnly && removeReadOnlyRanges(doc, change.from, change.to);
   if (split) {
     for (var i = split.length - 1; i >= 0; --i)
-      { makeChangeInner(doc, {from: split[i].from, to: split[i].to, text: i ? [""] : change.text, origin: change.origin}); }
+      { makeChangeInner(doc, {from: split[i].from, to: split[i].to, text: i ? [""] : change.text}); }
   } else {
     makeChangeInner(doc, change);
   }
@@ -12231,8 +12234,7 @@ function makeChangeSingleDocInEditor(cm, change, spans) {
 
 function replaceRange(doc, code, from, to, origin) {
   if (!to) { to = from; }
-  if (cmp(to, from) < 0) { var assign;
-    (assign = [to, from], from = assign[0], to = assign[1], assign); }
+  if (cmp(to, from) < 0) { var tmp = to; to = from; from = tmp; }
   if (typeof code == "string") { code = doc.splitLines(code); }
   makeChange(doc, {from: from, to: to, text: code, origin: origin});
 }
@@ -13593,112 +13595,6 @@ function deleteNearSelection(cm, compute) {
   });
 }
 
-function moveCharLogically(line, ch, dir) {
-  var target = skipExtendingChars(line.text, ch + dir, dir);
-  return target < 0 || target > line.text.length ? null : target
-}
-
-function moveLogically(line, start, dir) {
-  var ch = moveCharLogically(line, start.ch, dir);
-  return ch == null ? null : new Pos(start.line, ch, dir < 0 ? "after" : "before")
-}
-
-function endOfLine(visually, cm, lineObj, lineNo, dir) {
-  if (visually) {
-    var order = getOrder(lineObj, cm.doc.direction);
-    if (order) {
-      var part = dir < 0 ? lst(order) : order[0];
-      var moveInStorageOrder = (dir < 0) == (part.level == 1);
-      var sticky = moveInStorageOrder ? "after" : "before";
-      var ch;
-      // With a wrapped rtl chunk (possibly spanning multiple bidi parts),
-      // it could be that the last bidi part is not on the last visual line,
-      // since visual lines contain content order-consecutive chunks.
-      // Thus, in rtl, we are looking for the first (content-order) character
-      // in the rtl chunk that is on the last line (that is, the same line
-      // as the last (content-order) character).
-      if (part.level > 0) {
-        var prep = prepareMeasureForLine(cm, lineObj);
-        ch = dir < 0 ? lineObj.text.length - 1 : 0;
-        var targetTop = measureCharPrepared(cm, prep, ch).top;
-        ch = findFirst(function (ch) { return measureCharPrepared(cm, prep, ch).top == targetTop; }, (dir < 0) == (part.level == 1) ? part.from : part.to - 1, ch);
-        if (sticky == "before") { ch = moveCharLogically(lineObj, ch, 1); }
-      } else { ch = dir < 0 ? part.to : part.from; }
-      return new Pos(lineNo, ch, sticky)
-    }
-  }
-  return new Pos(lineNo, dir < 0 ? lineObj.text.length : 0, dir < 0 ? "before" : "after")
-}
-
-function moveVisually(cm, line, start, dir) {
-  var bidi = getOrder(line, cm.doc.direction);
-  if (!bidi) { return moveLogically(line, start, dir) }
-  if (start.ch >= line.text.length) {
-    start.ch = line.text.length;
-    start.sticky = "before";
-  } else if (start.ch <= 0) {
-    start.ch = 0;
-    start.sticky = "after";
-  }
-  var partPos = getBidiPartAt(bidi, start.ch, start.sticky), part = bidi[partPos];
-  if (cm.doc.direction == "ltr" && part.level % 2 == 0 && (dir > 0 ? part.to > start.ch : part.from < start.ch)) {
-    // Case 1: We move within an ltr part in an ltr editor. Even with wrapped lines,
-    // nothing interesting happens.
-    return moveLogically(line, start, dir)
-  }
-
-  var mv = function (pos, dir) { return moveCharLogically(line, pos instanceof Pos ? pos.ch : pos, dir); };
-  var prep;
-  var getWrappedLineExtent = function (ch) {
-    if (!cm.options.lineWrapping) { return {begin: 0, end: line.text.length} }
-    prep = prep || prepareMeasureForLine(cm, line);
-    return wrappedLineExtentChar(cm, line, prep, ch)
-  };
-  var wrappedLineExtent = getWrappedLineExtent(start.sticky == "before" ? mv(start, -1) : start.ch);
-
-  if (cm.doc.direction == "rtl" || part.level == 1) {
-    var moveInStorageOrder = (part.level == 1) == (dir < 0);
-    var ch = mv(start, moveInStorageOrder ? 1 : -1);
-    if (ch != null && (!moveInStorageOrder ? ch >= part.from && ch >= wrappedLineExtent.begin : ch <= part.to && ch <= wrappedLineExtent.end)) {
-      // Case 2: We move within an rtl part or in an rtl editor on the same visual line
-      var sticky = moveInStorageOrder ? "before" : "after";
-      return new Pos(start.line, ch, sticky)
-    }
-  }
-
-  // Case 3: Could not move within this bidi part in this visual line, so leave
-  // the current bidi part
-
-  var searchInVisualLine = function (partPos, dir, wrappedLineExtent) {
-    var getRes = function (ch, moveInStorageOrder) { return moveInStorageOrder
-      ? new Pos(start.line, mv(ch, 1), "before")
-      : new Pos(start.line, ch, "after"); };
-
-    for (; partPos >= 0 && partPos < bidi.length; partPos += dir) {
-      var part = bidi[partPos];
-      var moveInStorageOrder = (dir > 0) == (part.level != 1);
-      var ch = moveInStorageOrder ? wrappedLineExtent.begin : mv(wrappedLineExtent.end, -1);
-      if (part.from <= ch && ch < part.to) { return getRes(ch, moveInStorageOrder) }
-      ch = moveInStorageOrder ? part.from : mv(part.to, -1);
-      if (wrappedLineExtent.begin <= ch && ch < wrappedLineExtent.end) { return getRes(ch, moveInStorageOrder) }
-    }
-  };
-
-  // Case 3a: Look for other bidi parts on the same visual line
-  var res = searchInVisualLine(partPos + dir, dir, wrappedLineExtent);
-  if (res) { return res }
-
-  // Case 3b: Look for other bidi parts on the next visual line
-  var nextCh = dir > 0 ? wrappedLineExtent.end : mv(wrappedLineExtent.begin, -1);
-  if (nextCh != null && !(dir > 0 && nextCh == line.text.length)) {
-    res = searchInVisualLine(dir > 0 ? 0 : bidi.length - 1, dir, getWrappedLineExtent(nextCh));
-    if (res) { return res }
-  }
-
-  // Case 4: Nowhere to move
-  return null
-}
-
 // Commands are parameter-less actions that can be performed on an
 // editor, mostly used for keybindings.
 var commands = {
@@ -14260,7 +14156,7 @@ function leftButtonSelect(cm, event, start, behavior) {
         anchor = maxPos(oldRange.to(), range$$1.head);
       }
       var ranges$1 = startSel.ranges.slice(0);
-      ranges$1[ourIndex] = bidiSimplify(cm, new Range(clipPos(doc, anchor), head));
+      ranges$1[ourIndex] = new Range(clipPos(doc, anchor), head);
       setSelection(doc, normalizeSelection(ranges$1, ourIndex), sel_mouse);
     }
   }
@@ -14312,52 +14208,13 @@ function leftButtonSelect(cm, event, start, behavior) {
   on(document, "mouseup", up);
 }
 
-// Used when mouse-selecting to adjust the anchor to the proper side
-// of a bidi jump depending on the visual position of the head.
-function bidiSimplify(cm, range$$1) {
-  var anchor = range$$1.anchor;
-  var head = range$$1.head;
-  var anchorLine = getLine(cm.doc, anchor.line);
-  if (cmp(anchor, head) == 0 && anchor.sticky == head.sticky) { return range$$1 }
-  var order = getOrder(anchorLine);
-  if (!order) { return range$$1 }
-  var index = getBidiPartAt(order, anchor.ch, anchor.sticky), part = order[index];
-  if (part.from != anchor.ch && part.to != anchor.ch) { return range$$1 }
-  var boundary = index + ((part.from == anchor.ch) == (part.level != 1) ? 0 : 1);
-  if (boundary == 0 || boundary == order.length) { return range$$1 }
-
-  // Compute the relative visual position of the head compared to the
-  // anchor (<0 is to the left, >0 to the right)
-  var leftSide;
-  if (head.line != anchor.line) {
-    leftSide = (head.line - anchor.line) * (cm.doc.direction == "ltr" ? 1 : -1) > 0;
-  } else {
-    var headIndex = getBidiPartAt(order, head.ch, head.sticky);
-    var dir = headIndex - index || (head.ch - anchor.ch) * (part.level == 1 ? -1 : 1);
-    if (headIndex == boundary - 1 || headIndex == boundary)
-      { leftSide = dir < 0; }
-    else
-      { leftSide = dir > 0; }
-  }
-
-  var usePart = order[boundary + (leftSide ? -1 : 0)];
-  var from = leftSide == (usePart.level == 1);
-  var ch = from ? usePart.from : usePart.to, sticky = from ? "after" : "before";
-  return anchor.ch == ch && anchor.sticky == sticky ? range$$1 : new Range(new Pos(anchor.line, ch, sticky), head)
-}
-
 
 // Determines whether an event happened in the gutter, and fires the
 // handlers for the corresponding event.
 function gutterEvent(cm, e, type, prevent) {
   var mX, mY;
-  if (e.touches) {
-    mX = e.touches[0].clientX;
-    mY = e.touches[0].clientY;
-  } else {
-    try { mX = e.clientX; mY = e.clientY; }
-    catch(e) { return false }
-  }
+  try { mX = e.clientX; mY = e.clientY; }
+  catch(e) { return false }
   if (mX >= Math.floor(cm.display.gutters.getBoundingClientRect().right)) { return false }
   if (prevent) { e_preventDefault(e); }
 
@@ -14695,7 +14552,7 @@ function registerEventHandlers(cm) {
     return dx * dx + dy * dy > 20 * 20
   }
   on(d.scroller, "touchstart", function (e) {
-    if (!signalDOMEvent(cm, e) && !isMouseLikeTouchEvent(e) && !clickInGutter(cm, e)) {
+    if (!signalDOMEvent(cm, e) && !isMouseLikeTouchEvent(e)) {
       d.input.ensurePolled();
       clearTimeout(touchFinished);
       var now = +new Date;
@@ -15895,7 +15752,7 @@ function domTextBetween(cm, from, to, fromLine, toLine) {
       var markerID = node.getAttribute("cm-marker"), range$$1;
       if (markerID) {
         var found = cm.findMarks(Pos(fromLine, 0), Pos(toLine + 1, 0), recognizeMarker(+markerID));
-        if (found.length && (range$$1 = found[0].find(0)))
+        if (found.length && (range$$1 = found[0].find()))
           { addText(getBetween(cm.doc, range$$1.from, range$$1.to).join(lineSep)); }
         return
       }
@@ -16479,7 +16336,7 @@ CodeMirror$1.fromTextArea = fromTextArea;
 
 addLegacyProps(CodeMirror$1);
 
-CodeMirror$1.version = "5.30.0";
+CodeMirror$1.version = "5.28.0";
 
 return CodeMirror$1;
 
@@ -20116,11 +19973,11 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".ClickableButton__clickableButton___k9hi8{\r\n  display: table;\r\n  width: 100%;\r\n  font-size: 0.7em;\r\n  font-weight: bold;\r\n  color : #5D87B5;\r\n  cursor: pointer;\r\n  border-radius: 4px;\r\n  moz-border-radius: 4px;\r\n  webkit-border-radius: 4px;\r\n  -webkit-touch-callout: none;\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n}\r\n\r\n.ClickableButton__clickableButton___k9hi8 div{\r\n  padding: 7px 8px;\r\n}\r\n\r\n.ClickableButton__clickableButton___k9hi8:hover{\r\n  background: url('/images/bg_active.png');\r\n  color: white;\r\n}\r\n\r\n.ClickableButton__clickableButton___k9hi8:hover:after{\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_white.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n", ""]);
+exports.push([module.i, ".ClickableButton__clickableButton___1DoMr{\r\n  display: table;\r\n  width: 100%;\r\n  font-size: 0.7em;\r\n  font-weight: bold;\r\n  color : #5D87B5;\r\n  cursor: pointer;\r\n  border-radius: 4px;\r\n  moz-border-radius: 4px;\r\n  webkit-border-radius: 4px;\r\n  -webkit-touch-callout: none;\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n}\r\n\r\n.ClickableButton__clickableButton___1DoMr div{\r\n  padding: 7px 8px;\r\n}\r\n\r\n.ClickableButton__clickableButton___1DoMr:hover{\r\n  background: url('/images/bg_active.png');\r\n  color: white;\r\n}\r\n\r\n.ClickableButton__clickableButton___1DoMr:hover:after{\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_white.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"clickableButton": "ClickableButton__clickableButton___k9hi8"
+	"clickableButton": "ClickableButton__clickableButton___1DoMr"
 };
 
 /***/ }),
@@ -20132,17 +19989,17 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetCreator__profile___1f_GK{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: left;\r\n  margin-bottom: 30px;\r\n}\r\n\r\n.AssetCreator__profileImgCover___UaQlK{\r\n  border-radius: 50%;\r\n  width: 3em;\r\n  height: 3em;\r\n  display: inline-block;\r\n  overflow: hidden;\r\n  position: relative;\r\n}\r\n.AssetCreator__profileImgCover___UaQlK img{\r\n  position: absolute;\r\n  width: 3em;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.AssetCreator__textWrap___3Qi7k{\r\n  display: inline-block;\r\n  text-align:left;\r\n  margin-left: 5px;\r\n}\r\n\r\n.AssetCreator__name___3njzm{\r\n  font-size: 1.2em;\r\n  font-weight: bold;\r\n}\r\n\r\n.AssetCreator__subName___ySj7l{\r\n  font-size: 0.5em;\r\n}\r\n\r\n.AssetCreator__hr___1SPG7{\r\n  display: block;\r\n  height: 1.5px;\r\n  background-color: rgba(33,33,33,0.1);\r\n  width: 23px;\r\n  margin: 15px 8px;\r\n}\r\n\r\n.AssetCreator__logo___kQ06s{\r\n  background: url('/images/ic_cc_show.png') no-repeat center;\r\n  background-size: auto 100%;\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 4%;\r\n  bottom: 40px;\r\n}\r\n", ""]);
+exports.push([module.i, ".AssetCreator__profile___3akCp{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: left;\r\n  margin-bottom: 30px;\r\n}\r\n\r\n.AssetCreator__profileImgCover___2kK7A{\r\n  border-radius: 50%;\r\n  width: 3em;\r\n  height: 3em;\r\n  display: inline-block;\r\n  overflow: hidden;\r\n  position: relative;\r\n}\r\n.AssetCreator__profileImgCover___2kK7A img{\r\n  position: absolute;\r\n  width: 3em;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.AssetCreator__textWrap___2x4dm{\r\n  display: inline-block;\r\n  text-align:left;\r\n  margin-left: 5px;\r\n}\r\n\r\n.AssetCreator__name___1MVN_{\r\n  font-size: 1.2em;\r\n  font-weight: bold;\r\n}\r\n\r\n.AssetCreator__subName___3biYq{\r\n  font-size: 0.5em;\r\n}\r\n\r\n.AssetCreator__hr___3surz{\r\n  display: block;\r\n  height: 1.5px;\r\n  background-color: rgba(33,33,33,0.1);\r\n  width: 23px;\r\n  margin: 15px 8px;\r\n}\r\n\r\n.AssetCreator__logo___3_Kb-{\r\n  background: url('/images/ic_cc_show.png') no-repeat center;\r\n  background-size: auto 100%;\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 4%;\r\n  bottom: 40px;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"profile": "AssetCreator__profile___1f_GK",
-	"profileImgCover": "AssetCreator__profileImgCover___UaQlK",
-	"textWrap": "AssetCreator__textWrap___3Qi7k",
-	"name": "AssetCreator__name___3njzm",
-	"subName": "AssetCreator__subName___ySj7l",
-	"hr": "AssetCreator__hr___1SPG7",
-	"logo": "AssetCreator__logo___kQ06s"
+	"profile": "AssetCreator__profile___3akCp",
+	"profileImgCover": "AssetCreator__profileImgCover___2kK7A",
+	"textWrap": "AssetCreator__textWrap___2x4dm",
+	"name": "AssetCreator__name___1MVN_",
+	"subName": "AssetCreator__subName___3biYq",
+	"hr": "AssetCreator__hr___3surz",
+	"logo": "AssetCreator__logo___3_Kb-"
 };
 
 /***/ }),
@@ -20254,30 +20111,30 @@ exports = module.exports = __webpack_require__(17)(undefined);
 exports.push([module.i, "@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);", ""]);
 
 // module
-exports.push([module.i, "body {\r\n  margin:0;\r\n  font-family: 'NanumSquare', sans-serif;\r\n}\r\n.AssetEditor__thumbnail___1JGy7{\r\n  width: 100px;\r\n  height: 100px;\r\n  background: gray;\r\n  cursor: pointer;\r\n}\r\n\r\n.AssetEditor__thumbnail___1JGy7 img{\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.AssetEditor__content___21tws{\r\n  height: 640px;\r\n  width: 1200px;\r\n  /* border: 1px solid red; */\r\n}\r\n.AssetEditor__code___uTImu{\r\n  height: 280px;\r\n  /* border: 1px solid blue; */\r\n}\r\n.AssetEditor__preview___3N0p-{\r\n  height: 320px;\r\n  /* border: 1px solid red; */\r\n}\r\n\r\n.AssetEditor__codeEditor___1o95O{\r\n  width: 370px !important;\r\n  /* background: red; */\r\n  /* height: 400px !important; */\r\n  overflow-y: auto;\r\n  display: inline-block;\r\n}\r\n\r\n\r\n.AssetEditor__CodeMirror-linenumber___2Rz-5{\r\n  left: -30px !important;\r\n}\r\n.AssetEditor__CodeMirror-scroll___St1uj{\r\n\r\n}\r\n.AssetEditor__CodeMirror___3QTBV{\r\n    margin-left: 10px;\r\n}\r\n.AssetEditor__htmlArea___2xqX7{\r\n  float: left;\r\n  width: 384px;\r\n  height: 280px;\r\n  border-right: 1px solid #DFDFDF;\r\n}\r\n.AssetEditor__cssArea___3XHpi{\r\n  float: left;\r\n  width: 384px;\r\n  height: 280px;\r\n  border-right: 1px solid #DFDFDF;\r\n}\r\n.AssetEditor__jsArea___36Q3X{\r\n  float: left;\r\n  width: 384px;\r\n  height: 280px;\r\n}\r\n.AssetEditor__topArea___lhFwj{\r\n  width: 385px;\r\n  height: 25px;\r\n  background-color: #DFDFDF;\r\n  text-align: center;\r\n  display: table;\r\n}\r\n.AssetEditor__topLan___1kQhL{\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n  font-family: inherit;\r\n  font-weight: bold;\r\n  font-size: 11px;\r\n  color: rgb(123, 123, 123);\r\n}\r\n\r\n.AssetEditor__preTop___1XrTL{\r\n  width: 1150px;\r\n  height: 25px;\r\n  background-color: #DFDFDF;\r\n  display: table;\r\n  text-align: center;\r\n}\r\n\r\n.AssetEditor__preLan___sd1sX{\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n  font-size: 11px;\r\n  color: rgb(123, 123, 123);\r\n  font-weight: bold;\r\n}\r\n\r\n.AssetEditor__sideBar___1wUEl{\r\n  width: 30px;\r\n  height: 255px;\r\n  position: absolute;\r\n  z-index: 2;\r\n  background-color: rgb(245, 245, 245);\r\n  /* border-right: 1px solid #ddd; */\r\n}\r\n\r\n.AssetEditor__previewArea___3l3LG{\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.AssetEditor__rightController___WJOPk{\r\n  position: absolute;\r\n    display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  top: 0px;\r\n  right: 20px;\r\n}\r\n\r\n.AssetEditor__rightController___WJOPk > * {\r\n  padding: 0 5px;\r\n}\r\n\r\n.AssetEditor__titleInput___2_6uy{\r\n  border: 0;\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.2);\r\n  outline: none;\r\n  font-size: 15px;\r\n  line-height: 15px;\r\n  padding: 0 5px;\r\n}\r\n\r\n.AssetEditor__titleInput___2_6uy:focus {\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.9);\r\n}\r\n\r\n.AssetEditor__saveIcon___2PTJn{\r\n  width: 50px;\r\n  height: 50px;\r\n  cursor: pointer;\r\n  background: url('/images/ic_check_circle_dark.png') center no-repeat;\r\n  background-size: contain;\r\n}\r\n\r\n.AssetEditor__saveIcon___2PTJn:hover{\r\nbackground: url('/images/ic_check_circle_light.png') center no-repeat;\r\nbackground-size: contain;\r\n}\r\n", ""]);
+exports.push([module.i, "body {\r\n  margin:0;\r\n  font-family: 'NanumSquare', sans-serif;\r\n}\r\n.AssetEditor__thumbnail___i_BO0{\r\n  width: 100px;\r\n  height: 100px;\r\n  background: gray;\r\n  cursor: pointer;\r\n}\r\n\r\n.AssetEditor__thumbnail___i_BO0 img{\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.AssetEditor__content___282NW{\r\n  height: 640px;\r\n  width: 1200px;\r\n  /* border: 1px solid red; */\r\n}\r\n.AssetEditor__code___3BW8C{\r\n  height: 280px;\r\n  /* border: 1px solid blue; */\r\n}\r\n.AssetEditor__preview___2fRNX{\r\n  height: 320px;\r\n  /* border: 1px solid red; */\r\n}\r\n\r\n.AssetEditor__codeEditor___1UyG7{\r\n  width: 370px !important;\r\n  /* background: red; */\r\n  /* height: 400px !important; */\r\n  overflow-y: auto;\r\n  display: inline-block;\r\n}\r\n\r\n\r\n.AssetEditor__CodeMirror-linenumber___1g4Ev{\r\n  left: -30px !important;\r\n}\r\n.AssetEditor__CodeMirror-scroll___2WOTb{\r\n\r\n}\r\n.AssetEditor__CodeMirror___2FIr6{\r\n    margin-left: 10px;\r\n}\r\n.AssetEditor__htmlArea___af8aI{\r\n  float: left;\r\n  width: 384px;\r\n  height: 280px;\r\n  border-right: 1px solid #DFDFDF;\r\n}\r\n.AssetEditor__cssArea___1Pxw4{\r\n  float: left;\r\n  width: 384px;\r\n  height: 280px;\r\n  border-right: 1px solid #DFDFDF;\r\n}\r\n.AssetEditor__jsArea___2CvCi{\r\n  float: left;\r\n  width: 384px;\r\n  height: 280px;\r\n}\r\n.AssetEditor__topArea___3diVC{\r\n  width: 385px;\r\n  height: 25px;\r\n  background-color: #DFDFDF;\r\n  text-align: center;\r\n  display: table;\r\n}\r\n.AssetEditor__topLan___1zcLv{\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n  font-family: inherit;\r\n  font-weight: bold;\r\n  font-size: 11px;\r\n  color: rgb(123, 123, 123);\r\n}\r\n\r\n.AssetEditor__preTop___14oeY{\r\n  width: 1150px;\r\n  height: 25px;\r\n  background-color: #DFDFDF;\r\n  display: table;\r\n  text-align: center;\r\n}\r\n\r\n.AssetEditor__preLan___ka6u0{\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n  font-size: 11px;\r\n  color: rgb(123, 123, 123);\r\n  font-weight: bold;\r\n}\r\n\r\n.AssetEditor__sideBar___L9wXj{\r\n  width: 30px;\r\n  height: 255px;\r\n  position: absolute;\r\n  z-index: 2;\r\n  background-color: rgb(245, 245, 245);\r\n  /* border-right: 1px solid #ddd; */\r\n}\r\n\r\n.AssetEditor__previewArea___3gpW8{\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 47%;\r\n}\r\n\r\n.AssetEditor__rightController___1g8AD{\r\n  position: absolute;\r\n    display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  top: 0px;\r\n  right: 20px;\r\n}\r\n\r\n.AssetEditor__rightController___1g8AD > * {\r\n  padding: 0 5px;\r\n}\r\n\r\n.AssetEditor__titleInput___pcGnX{\r\n  border: 0;\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.2);\r\n  outline: none;\r\n  font-size: 15px;\r\n  line-height: 15px;\r\n  padding: 0 5px;\r\n}\r\n\r\n.AssetEditor__titleInput___pcGnX:focus {\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.9);\r\n}\r\n\r\n.AssetEditor__saveIcon___34Nns{\r\n  width: 50px;\r\n  height: 50px;\r\n  cursor: pointer;\r\n  background: url('/images/ic_check_circle_dark.png') center no-repeat;\r\n  background-size: contain;\r\n}\r\n\r\n.AssetEditor__saveIcon___34Nns:hover{\r\nbackground: url('/images/ic_check_circle_light.png') center no-repeat;\r\nbackground-size: contain;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"thumbnail": "AssetEditor__thumbnail___1JGy7",
-	"content": "AssetEditor__content___21tws",
-	"code": "AssetEditor__code___uTImu",
-	"preview": "AssetEditor__preview___3N0p-",
-	"codeEditor": "AssetEditor__codeEditor___1o95O",
-	"CodeMirror-linenumber": "AssetEditor__CodeMirror-linenumber___2Rz-5",
-	"CodeMirror-scroll": "AssetEditor__CodeMirror-scroll___St1uj",
-	"CodeMirror": "AssetEditor__CodeMirror___3QTBV",
-	"htmlArea": "AssetEditor__htmlArea___2xqX7",
-	"cssArea": "AssetEditor__cssArea___3XHpi",
-	"jsArea": "AssetEditor__jsArea___36Q3X",
-	"topArea": "AssetEditor__topArea___lhFwj",
-	"topLan": "AssetEditor__topLan___1kQhL",
-	"preTop": "AssetEditor__preTop___1XrTL",
-	"preLan": "AssetEditor__preLan___sd1sX",
-	"sideBar": "AssetEditor__sideBar___1wUEl",
-	"previewArea": "AssetEditor__previewArea___3l3LG",
-	"rightController": "AssetEditor__rightController___WJOPk",
-	"titleInput": "AssetEditor__titleInput___2_6uy",
-	"saveIcon": "AssetEditor__saveIcon___2PTJn"
+	"thumbnail": "AssetEditor__thumbnail___i_BO0",
+	"content": "AssetEditor__content___282NW",
+	"code": "AssetEditor__code___3BW8C",
+	"preview": "AssetEditor__preview___2fRNX",
+	"codeEditor": "AssetEditor__codeEditor___1UyG7",
+	"CodeMirror-linenumber": "AssetEditor__CodeMirror-linenumber___1g4Ev",
+	"CodeMirror-scroll": "AssetEditor__CodeMirror-scroll___2WOTb",
+	"CodeMirror": "AssetEditor__CodeMirror___2FIr6",
+	"htmlArea": "AssetEditor__htmlArea___af8aI",
+	"cssArea": "AssetEditor__cssArea___1Pxw4",
+	"jsArea": "AssetEditor__jsArea___2CvCi",
+	"topArea": "AssetEditor__topArea___3diVC",
+	"topLan": "AssetEditor__topLan___1zcLv",
+	"preTop": "AssetEditor__preTop___14oeY",
+	"preLan": "AssetEditor__preLan___ka6u0",
+	"sideBar": "AssetEditor__sideBar___L9wXj",
+	"previewArea": "AssetEditor__previewArea___3gpW8",
+	"rightController": "AssetEditor__rightController___1g8AD",
+	"titleInput": "AssetEditor__titleInput___pcGnX",
+	"saveIcon": "AssetEditor__saveIcon___34Nns"
 };
 
 /***/ }),
@@ -20632,18 +20489,18 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".Assets__assetWrapper___2r_zj{\r\n\r\n}\r\n\r\n.Assets__textAsset___iEZh8{\r\n\r\n}\r\n\r\nasset textarea{\r\n  border-style: none;\r\n  resize: none;\r\n}\r\n\r\n.Assets__asset___3bgLj {\r\n  position: absolute !important;\r\n  overflow: hidden;\r\n  display: inline-block;\r\n  margin:0;\r\n  padding:0;\r\n  border:0;\r\n  margin: 3px;\r\n}\r\n\r\n.Assets__assetContext___wvH67{\r\n  position: absolute;\r\n  width: calc(100% - 2px);\r\n  height: calc(100% - 2px);\r\n  cursor: move;\r\n}\r\n\r\n.Assets__isSelected___19Koj{\r\n  background-color: #038AFD;\r\n}\r\n\r\n.Assets__selectorDot___3Lumh{\r\n  position: absolute;\r\n  width: 8px;\r\n  height: 8px;\r\n  -webkit-border-radius: 25px;\r\n  -moz-border-radius: 25px;\r\n  border-radius: 25px;\r\n}\r\n\r\n.Assets__horizontalResizer___2498-{\r\n  position: absolute;\r\n  height: 2px;\r\n  width: calc( 100% - 10px );\r\n  cursor: ns-resize;\r\n  z-index: 99;\r\n}\r\n\r\n.Assets__verticalResizer___3nhqi{\r\n  position: absolute;\r\n  height: calc( 100% - 10px );\r\n  width: 2px;\r\n  cursor: ew-resize;\r\n  z-index: 99;\r\n}\r\n", ""]);
+exports.push([module.i, ".Assets__assetWrapper___3fBa-{\r\n\r\n}\r\n\r\n.Assets__textAsset___20A0S{\r\n\r\n}\r\n\r\nasset textarea{\r\n  border-style: none;\r\n  resize: none;\r\n}\r\n\r\n.Assets__asset___1byzk {\r\n  position: absolute !important;\r\n  overflow: hidden;\r\n  display: inline-block;\r\n  margin:0;\r\n  padding:0;\r\n  border:0;\r\n  margin: 3px;\r\n}\r\n\r\n.Assets__assetContext___1knIQ{\r\n  position: absolute;\r\n  width: calc(100% - 2px);\r\n  height: calc(100% - 2px);\r\n  cursor: move;\r\n}\r\n\r\n.Assets__isSelected___1BhWO{\r\n  background-color: #038AFD;\r\n}\r\n\r\n.Assets__selectorDot___2xBZu{\r\n  position: absolute;\r\n  width: 8px;\r\n  height: 8px;\r\n  -webkit-border-radius: 25px;\r\n  -moz-border-radius: 25px;\r\n  border-radius: 25px;\r\n}\r\n\r\n.Assets__horizontalResizer___1BBOt{\r\n  position: absolute;\r\n  height: 2px;\r\n  width: calc( 100% - 10px );\r\n  cursor: ns-resize;\r\n  z-index: 99;\r\n}\r\n\r\n.Assets__verticalResizer___296Me{\r\n  position: absolute;\r\n  height: calc( 100% - 10px );\r\n  width: 2px;\r\n  cursor: ew-resize;\r\n  z-index: 99;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"assetWrapper": "Assets__assetWrapper___2r_zj",
-	"textAsset": "Assets__textAsset___iEZh8",
-	"asset": "Assets__asset___3bgLj",
-	"assetContext": "Assets__assetContext___wvH67",
-	"isSelected": "Assets__isSelected___19Koj",
-	"selectorDot": "Assets__selectorDot___3Lumh",
-	"horizontalResizer": "Assets__horizontalResizer___2498-",
-	"verticalResizer": "Assets__verticalResizer___3nhqi"
+	"assetWrapper": "Assets__assetWrapper___3fBa-",
+	"textAsset": "Assets__textAsset___20A0S",
+	"asset": "Assets__asset___1byzk",
+	"assetContext": "Assets__assetContext___1knIQ",
+	"isSelected": "Assets__isSelected___1BhWO",
+	"selectorDot": "Assets__selectorDot___2xBZu",
+	"horizontalResizer": "Assets__horizontalResizer___1BBOt",
+	"verticalResizer": "Assets__verticalResizer___296Me"
 };
 
 /***/ }),
@@ -20655,17 +20512,17 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".ContextMenu__contextMenu___2gAUh {\r\n  position: fixed;\r\n  background: #F2F2F2;\r\n  box-shadow: 0px 2px 10px #999999;\r\n  border-radius: 10px;\r\n  z-index: 100;\r\n  color: black !important;\r\n}\r\n\r\n.ContextMenu__contextMenu___2gAUh .ContextMenu__content___UagQa{\r\n  overflow: hidden;\r\n  border-radius: 10px;\r\n}\r\n\r\n.ContextMenu__contextMenu___2gAUh .ContextMenu__content___UagQa .ContextMenu__shortcut___3VxxV{\r\n  margin-left: 10px;\r\n  float:right;\r\n}\r\n\r\n.ContextMenu__contextMenu___2gAUh .ContextMenu__content___UagQa .ContextMenu__submenu___2zVZ9{\r\n  background-image: url('/images/ic_right_arrow_black.png');\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  background-size: cover;\r\n  content: '';\r\n  float:right;\r\n  width: 9px;\r\n  height: 15px;\r\n}\r\n\r\n.ContextMenu__contextMenu___2gAUh .ContextMenu__content___UagQa .ContextMenu__option___2TB1C:not(.ContextMenu__disabled___3D55T):hover .ContextMenu__contextMenu___2gAUh{\r\n  display: block;\r\n}\r\n\r\n.ContextMenu__contextMenu___2gAUh .ContextMenu__content___UagQa .ContextMenu__option___2TB1C .ContextMenu__contextMenu___2gAUh{\r\n  position: absolute;\r\n  left: calc(100% + 3px);\r\n  transform: translate(0, -30px);\r\n  display: none;\r\n}\r\n\r\n.ContextMenu__contextMenu___2gAUh .ContextMenu__content___UagQa .ContextMenu__option___2TB1C {\r\n  padding: 10px 15px 10px 15px;\r\n  min-width: 160px;\r\n  cursor: default;\r\n  font-size: 12px;\r\n  cursor: pointer;\r\n}\r\n\r\n.ContextMenu__contextMenu___2gAUh .ContextMenu__content___UagQa .ContextMenu__option___2TB1C.ContextMenu__disabled___3D55T{\r\n  cursor: not-allowed;\r\n}\r\n\r\n.ContextMenu__contextMenu___2gAUh .ContextMenu__content___UagQa .ContextMenu__option___2TB1C:hover {\r\n  background: #5B86B4;\r\n  color: white !important;\r\n}\r\n\r\n.ContextMenu__contextMenu___2gAUh .ContextMenu__content___UagQa .ContextMenu__option___2TB1C:active {\r\n  color: #e9e9e9;\r\n  background: #5B86B4;\r\n}\r\n.ContextMenu__contextMenu___2gAUh .ContextMenu__content___UagQa .ContextMenu__separator___fnNrM {\r\n  width: 100%;\r\n  height: 1px;\r\n  background: #CCCCCC;\r\n  margin: 0 0 0 0;\r\n}\r\n", ""]);
+exports.push([module.i, ".ContextMenu__contextMenu___z2sWq {\r\n  position: fixed;\r\n  background: #F2F2F2;\r\n  box-shadow: 0px 2px 10px #999999;\r\n  border-radius: 10px;\r\n  z-index: 100;\r\n  color: black !important;\r\n}\r\n\r\n.ContextMenu__contextMenu___z2sWq .ContextMenu__content___37Uul{\r\n  overflow: hidden;\r\n  border-radius: 10px;\r\n}\r\n\r\n.ContextMenu__contextMenu___z2sWq .ContextMenu__content___37Uul .ContextMenu__shortcut___3IvGs{\r\n  margin-left: 10px;\r\n  float:right;\r\n}\r\n\r\n.ContextMenu__contextMenu___z2sWq .ContextMenu__content___37Uul .ContextMenu__submenu___2F--n{\r\n  background-image: url('/images/ic_right_arrow_black.png');\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  background-size: cover;\r\n  content: '';\r\n  float:right;\r\n  width: 9px;\r\n  height: 15px;\r\n}\r\n\r\n.ContextMenu__contextMenu___z2sWq .ContextMenu__content___37Uul .ContextMenu__option___1RBcV:not(.ContextMenu__disabled___3-UcC):hover .ContextMenu__contextMenu___z2sWq{\r\n  display: block;\r\n}\r\n\r\n.ContextMenu__contextMenu___z2sWq .ContextMenu__content___37Uul .ContextMenu__option___1RBcV .ContextMenu__contextMenu___z2sWq{\r\n  position: absolute;\r\n  left: calc(100% + 3px);\r\n  transform: translate(0, -30px);\r\n  display: none;\r\n}\r\n\r\n.ContextMenu__contextMenu___z2sWq .ContextMenu__content___37Uul .ContextMenu__option___1RBcV {\r\n  padding: 10px 15px 10px 15px;\r\n  min-width: 160px;\r\n  cursor: default;\r\n  font-size: 12px;\r\n  cursor: pointer;\r\n}\r\n\r\n.ContextMenu__contextMenu___z2sWq .ContextMenu__content___37Uul .ContextMenu__option___1RBcV.ContextMenu__disabled___3-UcC{\r\n  cursor: not-allowed;\r\n}\r\n\r\n.ContextMenu__contextMenu___z2sWq .ContextMenu__content___37Uul .ContextMenu__option___1RBcV:hover {\r\n  background: #5B86B4;\r\n  color: white !important;\r\n}\r\n\r\n.ContextMenu__contextMenu___z2sWq .ContextMenu__content___37Uul .ContextMenu__option___1RBcV:active {\r\n  color: #e9e9e9;\r\n  background: #5B86B4;\r\n}\r\n.ContextMenu__contextMenu___z2sWq .ContextMenu__content___37Uul .ContextMenu__separator___V0Ic8 {\r\n  width: 100%;\r\n  height: 1px;\r\n  background: #CCCCCC;\r\n  margin: 0 0 0 0;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"contextMenu": "ContextMenu__contextMenu___2gAUh",
-	"content": "ContextMenu__content___UagQa",
-	"shortcut": "ContextMenu__shortcut___3VxxV",
-	"submenu": "ContextMenu__submenu___2zVZ9",
-	"option": "ContextMenu__option___2TB1C",
-	"disabled": "ContextMenu__disabled___3D55T",
-	"separator": "ContextMenu__separator___fnNrM"
+	"contextMenu": "ContextMenu__contextMenu___z2sWq",
+	"content": "ContextMenu__content___37Uul",
+	"shortcut": "ContextMenu__shortcut___3IvGs",
+	"submenu": "ContextMenu__submenu___2F--n",
+	"option": "ContextMenu__option___1RBcV",
+	"disabled": "ContextMenu__disabled___3-UcC",
+	"separator": "ContextMenu__separator___V0Ic8"
 };
 
 /***/ }),
@@ -20677,11 +20534,11 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".SlideTitle__slideTitle___ExFOi{\r\n  width: 300px;\r\n  height: 50px;\r\n  background-color: white;\r\n  padding-left: 10px;\r\n  top: -50px;\r\n  position: absolute;\r\n  border-top-left-radius: 10px;\r\n  border-top-right-radius: 10px;\r\n  overflow: hidden;\r\n}\r\n\r\n.SlideTitle__slideTitle___ExFOi input{\r\n  position: relative;\r\n  width: calc( 100% - 10px );\r\n  height: 100%;\r\n  outline: none;\r\n  border: none;\r\n  line-height: 50px;\r\n  text-align: center;\r\n  font-size: 20px;\r\n  background-color: none;\r\n}\r\n", ""]);
+exports.push([module.i, ".SlideTitle__slideTitle___2iSwR{\r\n  width: 300px;\r\n  height: 50px;\r\n  background-color: white;\r\n  padding-left: 10px;\r\n  top: -50px;\r\n  position: absolute;\r\n  border-top-left-radius: 10px;\r\n  border-top-right-radius: 10px;\r\n  overflow: hidden;\r\n}\r\n\r\n.SlideTitle__slideTitle___2iSwR input{\r\n  position: relative;\r\n  width: calc( 100% - 10px );\r\n  height: 100%;\r\n  outline: none;\r\n  border: none;\r\n  line-height: 50px;\r\n  text-align: center;\r\n  font-size: 20px;\r\n  background-color: none;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"slideTitle": "SlideTitle__slideTitle___ExFOi"
+	"slideTitle": "SlideTitle__slideTitle___2iSwR"
 };
 
 /***/ }),
@@ -20693,25 +20550,25 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, "p {\r\n    font-family: 'NanumSquareEB';\r\n}\r\n\r\n.AssetController__items___12-Ka {\r\n    height: 100%;\r\n    padding: 0;\r\n    margin: 0 0 1em 0.4em;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___d9Gul {\r\n    margin: 20px;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 12px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___2UB9H:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1Maaq {\r\n    display: inline-table;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 40%;\r\n    height: 20px;\r\n    float: left;\r\n}\r\n\r\n.AssetController__URL_controller___8MQ6H {\r\n    width: 90%;\r\n    display: table;\r\n    padding: 1px 0 1px 2px;\r\n}\r\n\r\n.AssetController__video_margin_zero___1ZJDF {\r\n    margin: 0;\r\n}\r\n\r\n.AssetController__video___1YT3H {\r\n    text-align: center;\r\n    width: 25%;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetController__attribute_item_title___1gZe5 {\r\n    border: 0;\r\n    margin: 0 0 0 5px;\r\n    width: 15%;\r\n    font-size: 15px;\r\n    color: #5a84b3;\r\n}\r\n\r\n.AssetController__attribute_item_input___j1bys {\r\n    width: 60%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    clear: both;\r\n    outline-width: 0;\r\n}\r\n\r\n.AssetController__show_items_button___3Ip6L {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\n.AssetController__controller_hr___3nr27 {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n    width: 100%;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y {\r\n    width: 85%;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n    padding: 5px;\r\n}\r\n\r\n#AssetController__input_style___2TP9Y textarea {\r\n    width: 98%;\r\n    height: 15vh;\r\n    border: 0;\r\n}\r\n\r\ntextarea:focus {\r\n    outline: 0;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz {}\r\n\r\n.AssetController__control_item___1Maaq img {\r\n    margin: 3px 0 0 5px;\r\n    float: left;\r\n}\r\n\r\n.AssetController__control_text_attribute___2xgXz img {\r\n    cursor: pointer;\r\n    margin: 10px;\r\n}\r\n\r\n.AssetController__change_color___1dCnR {\r\n    cursor: pointer;\r\n    width: 20px;\r\n    height: 20px;\r\n    border-radius: 20px;\r\n    float: right;\r\n    display: inline-block;\r\n}\r\n\r\n.AssetController__color_picker_modal___2_yyP {\r\n    position: absolute;\r\n    left: 40%;\r\n    top: 40%;\r\n}", ""]);
+exports.push([module.i, "p {\r\n    font-family: 'NanumSquareEB';\r\n}\r\n\r\n.AssetController__items___mI-mZ {\r\n    height: 100%;\r\n    padding: 0;\r\n    margin: 0 0 1em 0.4em;\r\n}\r\n\r\n.AssetController__controller_sub_wrapper___2mmNq {\r\n    margin: 20px;\r\n}\r\n\r\n.AssetController__controller_sub_title___1Sdfv {\r\n    position: relative;\r\n    width: 100%;\r\n    font-size: 12px;\r\n    color: #5D87B5;\r\n    font-weight: bold;\r\n    vertical-align: middle;\r\n    display: table;\r\n}\r\n\r\n.AssetController__controller_sub_title___1Sdfv:before {\r\n    content: \"\";\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n    width: 23px;\r\n}\r\n\r\n.AssetController__control_item___1TR34 {\r\n    display: inline-table;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    padding: 3px 5px 3px 5px;\r\n    margin: 3px;\r\n    width: 40%;\r\n    height: 20px;\r\n    float: left;\r\n}\r\n\r\n.AssetController__URL_controller___h_Nec {\r\n    width: 90%;\r\n    display: table;\r\n    padding: 1px 0 1px 2px;\r\n}\r\n\r\n.AssetController__video_margin_zero___2ZbyL {\r\n    margin: 0;\r\n}\r\n\r\n.AssetController__video___hn5Ck {\r\n    text-align: center;\r\n    width: 25%;\r\n    cursor: pointer;\r\n}\r\n\r\n.AssetController__attribute_item_title___1r2Au {\r\n    border: 0;\r\n    margin: 0 0 0 5px;\r\n    width: 15%;\r\n    font-size: 15px;\r\n    color: #5a84b3;\r\n}\r\n\r\n.AssetController__attribute_item_input___3REiM {\r\n    width: 60%;\r\n    text-align: right;\r\n    border: 0;\r\n    display: inline;\r\n    clear: both;\r\n    outline-width: 0;\r\n}\r\n\r\n.AssetController__show_items_button___QOGiP {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 10px;\r\n    margin: 3px;\r\n    right: 0;\r\n}\r\n\r\nbutton {\r\n    border: 0;\r\n    outline: 0;\r\n}\r\n\r\n.AssetController__controller_hr___1NstS {\r\n    border-top: 3px dotted #5a84b3;\r\n    background-color: #fff;\r\n    opacity: 0.3;\r\n    width: 100%;\r\n}\r\n\r\n#AssetController__input_style___2LTZT {\r\n    width: 85%;\r\n    border: 1px solid #5a84b3;\r\n    border-radius: 20px;\r\n    margin-left: 5px;\r\n    padding: 5px;\r\n}\r\n\r\n#AssetController__input_style___2LTZT textarea {\r\n    width: 98%;\r\n    height: 15vh;\r\n    border: 0;\r\n}\r\n\r\ntextarea:focus {\r\n    outline: 0;\r\n}\r\n\r\nselect {\r\n    width: 100%;\r\n    border: 0;\r\n    border-radius: 20px;\r\n}\r\n\r\n.AssetController__control_text_attribute___3BP4H {}\r\n\r\n.AssetController__control_item___1TR34 img {\r\n    margin: 3px 0 0 5px;\r\n    float: left;\r\n}\r\n\r\n.AssetController__control_text_attribute___3BP4H img {\r\n    cursor: pointer;\r\n    margin: 10px;\r\n}\r\n\r\n.AssetController__change_color___Ya_tz {\r\n    cursor: pointer;\r\n    width: 20px;\r\n    height: 20px;\r\n    border-radius: 20px;\r\n    float: right;\r\n    display: inline-block;\r\n}\r\n\r\n.AssetController__color_picker_modal___3ZdhK {\r\n    position: absolute;\r\n    left: 40%;\r\n    top: 40%;\r\n}", ""]);
 
 // exports
 exports.locals = {
-	"items": "AssetController__items___12-Ka",
-	"controller_sub_wrapper": "AssetController__controller_sub_wrapper___d9Gul",
-	"controller_sub_title": "AssetController__controller_sub_title___2UB9H",
-	"control_item": "AssetController__control_item___1Maaq",
-	"URL_controller": "AssetController__URL_controller___8MQ6H",
-	"video_margin_zero": "AssetController__video_margin_zero___1ZJDF",
-	"video": "AssetController__video___1YT3H",
-	"attribute_item_title": "AssetController__attribute_item_title___1gZe5",
-	"attribute_item_input": "AssetController__attribute_item_input___j1bys",
-	"show_items_button": "AssetController__show_items_button___3Ip6L",
-	"controller_hr": "AssetController__controller_hr___3nr27",
-	"input_style": "AssetController__input_style___2TP9Y",
-	"control_text_attribute": "AssetController__control_text_attribute___2xgXz",
-	"change_color": "AssetController__change_color___1dCnR",
-	"color_picker_modal": "AssetController__color_picker_modal___2_yyP"
+	"items": "AssetController__items___mI-mZ",
+	"controller_sub_wrapper": "AssetController__controller_sub_wrapper___2mmNq",
+	"controller_sub_title": "AssetController__controller_sub_title___1Sdfv",
+	"control_item": "AssetController__control_item___1TR34",
+	"URL_controller": "AssetController__URL_controller___h_Nec",
+	"video_margin_zero": "AssetController__video_margin_zero___2ZbyL",
+	"video": "AssetController__video___hn5Ck",
+	"attribute_item_title": "AssetController__attribute_item_title___1r2Au",
+	"attribute_item_input": "AssetController__attribute_item_input___3REiM",
+	"show_items_button": "AssetController__show_items_button___QOGiP",
+	"controller_hr": "AssetController__controller_hr___1NstS",
+	"input_style": "AssetController__input_style___2LTZT",
+	"control_text_attribute": "AssetController__control_text_attribute___3BP4H",
+	"change_color": "AssetController__change_color___Ya_tz",
+	"color_picker_modal": "AssetController__color_picker_modal___3ZdhK"
 };
 
 /***/ }),
@@ -21107,16 +20964,16 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".SlideManager__inner___DaTKA{\r\n  padding: 20px 13px;\r\n  min-height: calc( 100% - 40px );\r\n}\r\n\r\n.SlideManager__title___gI79G{\r\n  font-size : 12px;\r\n  color : #5D87B5;\r\n  font-weight : bold;\r\n  vertical-align: middle;\r\n  display: table;\r\n}\r\n\r\n.SlideManager__title___gI79G:before {\r\n  content: \"\";\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n  background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n  width: 23px;\r\n}\r\n\r\n.SlideManager__hide___2crbu{\r\n  background: url(\"/images/ic_arrow_left.png\") no-repeat left center;\r\n  position: absolute;\r\n  top: 24px;\r\n  right: 10px;\r\n  cursor: pointer;\r\n  width: 10px;\r\n  height: 10px;\r\n}\r\n\r\n.SlideManager__slideCreator___11645{\r\n  cursor: pointer;\r\n  position: relative;\r\n  height: 140px;\r\n  margin-top: 20px;\r\n  background: white;\r\n  border-radius: 10px;\r\n  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.SlideManager__slideCreator___11645::before{\r\n  content:'';\r\n  position: absolute;\r\n  left:0;\r\n  top:0;\r\n  width:100%;\r\n  height:100%;\r\n  background-color: rgba(0,0,0,0.2);\r\n  -webkit-animation: SlideManager__fadein___Ajxbx 0.4s forwards;\r\n  transition: all 0.5s;\r\n  border-radius: 10px;\r\n}\r\n\r\n.SlideManager__slideCreator___11645:hover::before{\r\n  background-color: rgba(0,0,0,0.4);\r\n}\r\n\r\n.SlideManager__slideCreator___11645 .SlideManager__description___130ka{\r\n  position: absolute;\r\n  text-align: center;\r\n  font-weight: gray;\r\n  font-size: 15px;\r\n  color: white;\r\n  width: 100%;\r\n  bottom: 15%;\r\n}\r\n\r\n.SlideManager__slideCreator___11645 img{\r\n  position: absolute;\r\n  width: 5em;\r\n  height: 5em;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n", ""]);
+exports.push([module.i, ".SlideManager__inner___2MbBS{\r\n  padding: 20px 13px;\r\n  min-height: calc( 100% - 40px );\r\n}\r\n\r\n.SlideManager__title___2EI_X{\r\n  font-size : 12px;\r\n  color : #5D87B5;\r\n  font-weight : bold;\r\n  vertical-align: middle;\r\n  display: table;\r\n}\r\n\r\n.SlideManager__title___2EI_X:before {\r\n  content: \"\";\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n  background: url(\"/images/ic_ellipse_gray.png\") no-repeat left center;\r\n  width: 23px;\r\n}\r\n\r\n.SlideManager__hide___IMRJo{\r\n  background: url(\"/images/ic_arrow_left.png\") no-repeat left center;\r\n  position: absolute;\r\n  top: 24px;\r\n  right: 10px;\r\n  cursor: pointer;\r\n  width: 10px;\r\n  height: 10px;\r\n}\r\n\r\n.SlideManager__slideCreator___oWbak{\r\n  cursor: pointer;\r\n  position: relative;\r\n  height: 140px;\r\n  margin-top: 20px;\r\n  background: white;\r\n  border-radius: 10px;\r\n  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.SlideManager__slideCreator___oWbak::before{\r\n  content:'';\r\n  position: absolute;\r\n  left:0;\r\n  top:0;\r\n  width:100%;\r\n  height:100%;\r\n  background-color: rgba(0,0,0,0.2);\r\n  -webkit-animation: SlideManager__fadein___Wny6k 0.4s forwards;\r\n  transition: all 0.5s;\r\n  border-radius: 10px;\r\n}\r\n\r\n.SlideManager__slideCreator___oWbak:hover::before{\r\n  background-color: rgba(0,0,0,0.4);\r\n}\r\n\r\n.SlideManager__slideCreator___oWbak .SlideManager__description___3yc-9{\r\n  position: absolute;\r\n  text-align: center;\r\n  font-weight: gray;\r\n  font-size: 15px;\r\n  color: white;\r\n  width: 100%;\r\n  bottom: 15%;\r\n}\r\n\r\n.SlideManager__slideCreator___oWbak img{\r\n  position: absolute;\r\n  width: 5em;\r\n  height: 5em;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"inner": "SlideManager__inner___DaTKA",
-	"title": "SlideManager__title___gI79G",
-	"hide": "SlideManager__hide___2crbu",
-	"slideCreator": "SlideManager__slideCreator___11645",
-	"fadein": "SlideManager__fadein___Ajxbx",
-	"description": "SlideManager__description___130ka"
+	"inner": "SlideManager__inner___2MbBS",
+	"title": "SlideManager__title___2EI_X",
+	"hide": "SlideManager__hide___IMRJo",
+	"slideCreator": "SlideManager__slideCreator___oWbak",
+	"fadein": "SlideManager__fadein___Wny6k",
+	"description": "SlideManager__description___3yc-9"
 };
 
 /***/ }),
@@ -21128,21 +20985,21 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".SlidePreview__slidePreview___2lkqq{\r\n  overflow: hidden;\r\n  height: 140px;\r\n  margin-top: 20px;\r\n  position: relative;\r\n  background: white;\r\n  border-radius: 10px;\r\n  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.26);\r\n  cursor: pointer;\r\n}\r\n\r\n.SlidePreview__slidePreview___2lkqq:not(.SlidePreview__active___1CLvT)::after{\r\n  content:'';\r\n  position: absolute;\r\n  left:0;\r\n  top:0;\r\n  width:100%;\r\n  height:100%;\r\n  background-color: rgba(0,0,0,0.2);\r\n  -webkit-animation: SlidePreview__fadein___30r7F 0.4s forwards;\r\n  transition: all 0.5s;\r\n  border-radius: 10px;\r\n}\r\n\r\n.SlidePreview__slidePreview___2lkqq:not(.SlidePreview__active___1CLvT):hover::after{\r\n  background-color: rgba(0,0,0,0);\r\n}\r\n\r\n.SlidePreview__thumbnail___fqdD6{\r\n  position: absolute;\r\n  overflow: hidden;\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 10px;\r\n}\r\n\r\n.SlidePreview__thumbnail___fqdD6 .SlidePreview__content___2ZMXz{\r\n  left: 0px;\r\n  margin-top: -12px;\r\n  width: 100%;\r\n  height: calc( 100% + 12px);\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  background-position: center;\r\n  border-radius: 10px;\r\n}\r\n\r\n.SlidePreview__controller___3MwBZ{\r\n  background-color: rgba(0,0,0,0.7);\r\n  bottom: 0;\r\n  width: 100%;\r\n  height: 30%;\r\n  display: table;\r\n  position: absolute;\r\n  border-bottom-left-radius: 10px;\r\n  border-bottom-right-radius: 10px;\r\n}\r\n\r\n\r\n.SlidePreview__controller___3MwBZ .SlidePreview__slideInfo___1WL2_{\r\n    padding: 3px 7px;\r\n    display: table-cell;\r\n    width: 60%;\r\n    vertical-align: middle;\r\n}\r\n\r\n.SlidePreview__controller___3MwBZ .SlidePreview__slideInfo___1WL2_ .SlidePreview__title___laGRF{\r\n  color: #FFFFFF;\r\n  font-size: 13px;\r\n}\r\n\r\n.SlidePreview__controller___3MwBZ .SlidePreview__slideInfo___1WL2_ .SlidePreview__subTitle___14rd-{\r\n  color: #9E9E9F;\r\n  font-size: 9px;\r\n}\r\n\r\n.SlidePreview__controller___3MwBZ .SlidePreview__actions___2w1xd{\r\n  width: 40%;\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n}\r\n\r\n.SlidePreview__iconButton___3pXh4 {\r\n\t\tfont-size: 1.5rem;\r\n    width: 0.6em;\r\n\t\tcolor: white;\r\n\t\tposition: relative;\r\n\t\tmargin: 3px 5px 0 5px;\r\n\t\ttransition: transform 0.3s ease;\r\n}\r\n\r\n.SlidePreview__iconButton___3pXh4:hover {\r\n\t\tbackground-color: transparent;\r\n\t\ttransform: rotate(90deg);\r\n\t\tcursor: pointer;\r\n}\r\n", ""]);
+exports.push([module.i, ".SlidePreview__slidePreview___nO6mO{\r\n  overflow: hidden;\r\n  height: 140px;\r\n  margin-top: 20px;\r\n  position: relative;\r\n  background: white;\r\n  border-radius: 10px;\r\n  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.26);\r\n  cursor: pointer;\r\n}\r\n\r\n.SlidePreview__slidePreview___nO6mO:not(.SlidePreview__active___c_f9-)::after{\r\n  content:'';\r\n  position: absolute;\r\n  left:0;\r\n  top:0;\r\n  width:100%;\r\n  height:100%;\r\n  background-color: rgba(0,0,0,0.2);\r\n  -webkit-animation: SlidePreview__fadein___2u_sv 0.4s forwards;\r\n  transition: all 0.5s;\r\n  border-radius: 10px;\r\n}\r\n\r\n.SlidePreview__slidePreview___nO6mO:not(.SlidePreview__active___c_f9-):hover::after{\r\n  background-color: rgba(0,0,0,0);\r\n}\r\n\r\n.SlidePreview__thumbnail___VhMMp{\r\n  position: absolute;\r\n  overflow: hidden;\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 10px;\r\n}\r\n\r\n.SlidePreview__thumbnail___VhMMp .SlidePreview__content___NrdFc{\r\n  left: 0px;\r\n  margin-top: -12px;\r\n  width: 100%;\r\n  height: calc( 100% + 12px);\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  background-position: center;\r\n  border-radius: 10px;\r\n}\r\n\r\n.SlidePreview__controller___364B7{\r\n  background-color: rgba(0,0,0,0.7);\r\n  bottom: 0;\r\n  width: 100%;\r\n  height: 30%;\r\n  display: table;\r\n  position: absolute;\r\n  border-bottom-left-radius: 10px;\r\n  border-bottom-right-radius: 10px;\r\n}\r\n\r\n\r\n.SlidePreview__controller___364B7 .SlidePreview__slideInfo___7S5Qs{\r\n    padding: 3px 7px;\r\n    display: table-cell;\r\n    width: 60%;\r\n    vertical-align: middle;\r\n}\r\n\r\n.SlidePreview__controller___364B7 .SlidePreview__slideInfo___7S5Qs .SlidePreview__title___211lX{\r\n  color: #FFFFFF;\r\n  font-size: 13px;\r\n}\r\n\r\n.SlidePreview__controller___364B7 .SlidePreview__slideInfo___7S5Qs .SlidePreview__subTitle___2vIZp{\r\n  color: #9E9E9F;\r\n  font-size: 9px;\r\n}\r\n\r\n.SlidePreview__controller___364B7 .SlidePreview__actions___3libR{\r\n  width: 40%;\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n}\r\n\r\n.SlidePreview__iconButton___WKBDl {\r\n\t\tfont-size: 1.5rem;\r\n    width: 0.6em;\r\n\t\tcolor: white;\r\n\t\tposition: relative;\r\n\t\tmargin: 3px 5px 0 5px;\r\n\t\ttransition: transform 0.3s ease;\r\n}\r\n\r\n.SlidePreview__iconButton___WKBDl:hover {\r\n\t\tbackground-color: transparent;\r\n\t\ttransform: rotate(90deg);\r\n\t\tcursor: pointer;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"slidePreview": "SlidePreview__slidePreview___2lkqq",
-	"active": "SlidePreview__active___1CLvT",
-	"fadein": "SlidePreview__fadein___30r7F",
-	"thumbnail": "SlidePreview__thumbnail___fqdD6",
-	"content": "SlidePreview__content___2ZMXz",
-	"controller": "SlidePreview__controller___3MwBZ",
-	"slideInfo": "SlidePreview__slideInfo___1WL2_",
-	"title": "SlidePreview__title___laGRF",
-	"subTitle": "SlidePreview__subTitle___14rd-",
-	"actions": "SlidePreview__actions___2w1xd",
-	"iconButton": "SlidePreview__iconButton___3pXh4"
+	"slidePreview": "SlidePreview__slidePreview___nO6mO",
+	"active": "SlidePreview__active___c_f9-",
+	"fadein": "SlidePreview__fadein___2u_sv",
+	"thumbnail": "SlidePreview__thumbnail___VhMMp",
+	"content": "SlidePreview__content___NrdFc",
+	"controller": "SlidePreview__controller___364B7",
+	"slideInfo": "SlidePreview__slideInfo___7S5Qs",
+	"title": "SlidePreview__title___211lX",
+	"subTitle": "SlidePreview__subTitle___2vIZp",
+	"actions": "SlidePreview__actions___3libR",
+	"iconButton": "SlidePreview__iconButton___WKBDl"
 };
 
 /***/ }),
@@ -21154,26 +21011,26 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".AssetItem__asset___1_c3X{\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 31%;\r\n  height: 12em;\r\n  border-radius: 5px;\r\n  margin-left: 3.4%;\r\n  margin-bottom: 2em;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -o-user-select: none;\r\n  user-select: none;\r\n  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.AssetItem__actionItem___1C5_1::before{\r\n  content:'';\r\n  position: absolute;\r\n  left:0;\r\n  top:0;\r\n  width:100%;\r\n  height:100%;\r\n  background-color: rgba(0,0,0,0.2);\r\n  -webkit-animation: AssetItem__fadein___2tSDy 0.4s forwards;\r\n  transition: all 0.5s;\r\n}\r\n\r\n.AssetItem__actionItem___1C5_1:hover::before{\r\n  background-color: rgba(0,0,0,0.4);\r\n}\r\n\r\n.AssetItem__actionItem___1C5_1 .AssetItem__description___35B33{\r\n  position: absolute;\r\n  text-align: center;\r\n  font-weight: gray;\r\n  font-size: 20px;\r\n  color: white;\r\n  width: 100%;\r\n  bottom: 15%;\r\n}\r\n\r\n.AssetItem__actionItem___1C5_1 img{\r\n  position: absolute;\r\n  width: 5em;\r\n  height: 5em;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.AssetItem__asset___1_c3X:nth-child(3n+1){\r\n  margin-left: 0;\r\n}\r\n\r\n.AssetItem__buttonHeader___j3GiP{\r\n  position: absolute;\r\n  display: table;\r\n  table-layout: fixed;\r\n  border-spacing: 10px;\r\n  top: 3px;\r\n  left: 0px;\r\n}\r\n\r\n.AssetItem__imgBtn___11mgS{\r\n  cursor: pointer;\r\n  text-align: center;\r\n  width: 1.3em;\r\n  height: 1.2em;\r\n  display:table-cell;\r\n}\r\n\r\n.AssetItem__imgBtn___11mgS > img{\r\n  height:100%;\r\n}\r\n\r\n.AssetItem__bookmark___38Y3w{\r\n  position: absolute;\r\n  top: 0;\r\n  right: 20px;\r\n  content: '';\r\n  width: 20px;\r\n  height: 24px;\r\n  cursor: pointer;\r\n    background: url('/images/ic_bookmark_red.png');\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  background-size: cover;\r\n}\r\n\r\n.AssetItem__bookmark___38Y3w.AssetItem__marked___tvy1V{\r\n  background: url('/images/ic_bookmark_red.png');\r\n}\r\n\r\n.AssetItem__thumbnail___39uCK{\r\n  width:100%;\r\n  height: 100%;\r\n  background: gray;\r\n  position: relative;\r\n}\r\n\r\n.AssetItem__thumbnail___39uCK img{\r\n  max-width: 100%;\r\n  max-height: 100%;\r\n  position: absolute;\r\n  left: 50%;\r\n  top:50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.AssetItem__footer___jEBhF{\r\n  position: absolute;\r\n  border-bottom-left-radius: 5px;\r\n  border-bottom-right-radius: 5px;\r\n  bottom: 0px;\r\n  width: 100%;\r\n  height: 25%;\r\n  background: rgba(0, 0, 0, 0.6);\r\n  display: table;\r\n}\r\n\r\n.AssetItem__footer___jEBhF .AssetItem__texts___10Ny4{\r\n  display: table-cell;\r\n  padding-left: 17px;\r\n  width: 60%;\r\n  vertical-align: middle;\r\n}\r\n\r\n.AssetItem__footer___jEBhF .AssetItem__texts___10Ny4 .AssetItem__title___2Fdjl{\r\n  color: #FFFFFF;\r\n  font-size: 13px;\r\n}\r\n\r\n.AssetItem__footer___jEBhF .AssetItem__texts___10Ny4 .AssetItem__subTitle___2VrM9{\r\n  color: #9E9E9F;\r\n  font-size: 9px;\r\n}\r\n\r\n.AssetItem__footer___jEBhF .AssetItem__stars___36RmQ{\r\n  display: table-cell;\r\n  width:40%;\r\n  vertical-align: middle;\r\n  text-align: right;\r\n  padding-right: 17px;\r\n}\r\n.AssetItem__footer___jEBhF .AssetItem__stars___36RmQ .AssetItem__star___1b-z-{\r\n  width: 20px;\r\n  height: 18px;\r\n  display: inline-block;\r\n  background: url('/images/ic_star_white.png');\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n}\r\n\r\n.AssetItem__footer___jEBhF .AssetItem__stars___36RmQ .AssetItem__star___1b-z-.AssetItem__active___2iLyX{\r\n  background: url('/images/ic_star_yellow.png');\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n}\r\n", ""]);
+exports.push([module.i, ".AssetItem__asset___1Hlid{\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 31%;\r\n  height: 12em;\r\n  border-radius: 5px;\r\n  margin-left: 3.4%;\r\n  margin-bottom: 2em;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -o-user-select: none;\r\n  user-select: none;\r\n  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.AssetItem__actionItem___2p8nW::before{\r\n  content:'';\r\n  position: absolute;\r\n  left:0;\r\n  top:0;\r\n  width:100%;\r\n  height:100%;\r\n  background-color: rgba(0,0,0,0.2);\r\n  -webkit-animation: AssetItem__fadein___1Otgn 0.4s forwards;\r\n  transition: all 0.5s;\r\n}\r\n\r\n.AssetItem__actionItem___2p8nW:hover::before{\r\n  background-color: rgba(0,0,0,0.4);\r\n}\r\n\r\n.AssetItem__actionItem___2p8nW .AssetItem__description___3l4cf{\r\n  position: absolute;\r\n  text-align: center;\r\n  font-weight: gray;\r\n  font-size: 20px;\r\n  color: white;\r\n  width: 100%;\r\n  bottom: 15%;\r\n}\r\n\r\n.AssetItem__actionItem___2p8nW img{\r\n  position: absolute;\r\n  width: 5em;\r\n  height: 5em;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.AssetItem__asset___1Hlid:nth-child(3n+1){\r\n  margin-left: 0;\r\n}\r\n\r\n.AssetItem__buttonHeader___2X3Jf{\r\n  position: absolute;\r\n  display: table;\r\n  table-layout: fixed;\r\n  border-spacing: 10px;\r\n  top: 3px;\r\n  left: 0px;\r\n}\r\n\r\n.AssetItem__imgBtn___gMNr6{\r\n  cursor: pointer;\r\n  text-align: center;\r\n  width: 1.3em;\r\n  height: 1.2em;\r\n  display:table-cell;\r\n}\r\n\r\n.AssetItem__imgBtn___gMNr6 > img{\r\n  height:100%;\r\n}\r\n\r\n.AssetItem__bookmark___3pMgz{\r\n  position: absolute;\r\n  top: 0;\r\n  right: 20px;\r\n  content: '';\r\n  width: 20px;\r\n  height: 24px;\r\n  cursor: pointer;\r\n    background: url('/images/ic_bookmark_red.png');\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  background-size: cover;\r\n}\r\n\r\n.AssetItem__bookmark___3pMgz.AssetItem__marked___2_5eV{\r\n  background: url('/images/ic_bookmark_red.png');\r\n}\r\n\r\n.AssetItem__thumbnail___sOTtW{\r\n  width:100%;\r\n  height: 100%;\r\n  background: white;\r\n  position: relative;\r\n}\r\n\r\n.AssetItem__thumbnail___sOTtW img{\r\n  max-width: 100%;\r\n  max-height: 100%;\r\n  position: absolute;\r\n  left: 50%;\r\n  top:50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.AssetItem__footer___35Idj{\r\n  position: absolute;\r\n  border-bottom-left-radius: 5px;\r\n  border-bottom-right-radius: 5px;\r\n  bottom: 0px;\r\n  width: 100%;\r\n  height: 25%;\r\n  background: rgba(0, 0, 0, 0.6);\r\n  display: table;\r\n}\r\n\r\n.AssetItem__footer___35Idj .AssetItem__texts___1kMBZ{\r\n  display: table-cell;\r\n  padding-left: 17px;\r\n  width: 60%;\r\n  vertical-align: middle;\r\n}\r\n\r\n.AssetItem__footer___35Idj .AssetItem__texts___1kMBZ .AssetItem__title___2D_zP{\r\n  color: #FFFFFF;\r\n  font-size: 13px;\r\n}\r\n\r\n.AssetItem__footer___35Idj .AssetItem__texts___1kMBZ .AssetItem__subTitle___1na_5{\r\n  color: #9E9E9F;\r\n  font-size: 9px;\r\n}\r\n\r\n.AssetItem__footer___35Idj .AssetItem__stars___198ZA{\r\n  display: table-cell;\r\n  width:40%;\r\n  vertical-align: middle;\r\n  text-align: right;\r\n  padding-right: 17px;\r\n}\r\n.AssetItem__footer___35Idj .AssetItem__stars___198ZA .AssetItem__star___2M8BY{\r\n  width: 20px;\r\n  height: 18px;\r\n  display: inline-block;\r\n  background: url('/images/ic_star_white.png');\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n}\r\n\r\n.AssetItem__footer___35Idj .AssetItem__stars___198ZA .AssetItem__star___2M8BY.AssetItem__active___16LZr{\r\n  background: url('/images/ic_star_yellow.png');\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"asset": "AssetItem__asset___1_c3X",
-	"actionItem": "AssetItem__actionItem___1C5_1",
-	"fadein": "AssetItem__fadein___2tSDy",
-	"description": "AssetItem__description___35B33",
-	"buttonHeader": "AssetItem__buttonHeader___j3GiP",
-	"imgBtn": "AssetItem__imgBtn___11mgS",
-	"bookmark": "AssetItem__bookmark___38Y3w",
-	"marked": "AssetItem__marked___tvy1V",
-	"thumbnail": "AssetItem__thumbnail___39uCK",
-	"footer": "AssetItem__footer___jEBhF",
-	"texts": "AssetItem__texts___10Ny4",
-	"title": "AssetItem__title___2Fdjl",
-	"subTitle": "AssetItem__subTitle___2VrM9",
-	"stars": "AssetItem__stars___36RmQ",
-	"star": "AssetItem__star___1b-z-",
-	"active": "AssetItem__active___2iLyX"
+	"asset": "AssetItem__asset___1Hlid",
+	"actionItem": "AssetItem__actionItem___2p8nW",
+	"fadein": "AssetItem__fadein___1Otgn",
+	"description": "AssetItem__description___3l4cf",
+	"buttonHeader": "AssetItem__buttonHeader___2X3Jf",
+	"imgBtn": "AssetItem__imgBtn___gMNr6",
+	"bookmark": "AssetItem__bookmark___3pMgz",
+	"marked": "AssetItem__marked___2_5eV",
+	"thumbnail": "AssetItem__thumbnail___sOTtW",
+	"footer": "AssetItem__footer___35Idj",
+	"texts": "AssetItem__texts___1kMBZ",
+	"title": "AssetItem__title___2D_zP",
+	"subTitle": "AssetItem__subTitle___1na_5",
+	"stars": "AssetItem__stars___198ZA",
+	"star": "AssetItem__star___2M8BY",
+	"active": "AssetItem__active___16LZr"
 };
 
 /***/ }),
@@ -21185,24 +21042,24 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".SlideShow__slideShow___2IRp3{\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  height: 96%;\r\n  padding-top: 0.5%;\r\n}\r\n.SlideShow__slide_contents___CXkmV {\r\n    background-color: gray;\r\n    height: 75%;\r\n    margin: 0;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slide_contents___CXkmV img.SlideShow__slide___1tilS{\r\n  position: absolute;\r\n  background: #ffffff;\r\n  height: 414px;\r\n  width: 720px;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.SlideShow__slideSubContents___1GDb6 {\r\n    height: 25%;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.SlideShow__slideController___1Aicc{\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translate(0, -50%);\r\n}\r\n\r\n.SlideShow__prev_slide___146rd{\r\n    cursor: pointer;\r\n    left: 10px;\r\n}\r\n\r\n.SlideShow__next_slide___2ZpNM{\r\n    cursor: pointer;\r\n    right: 10px;\r\n}\r\n.SlideShow__slideShowNote___1AbYm {\r\n    height: 60%;\r\n    width: 100%;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E {\r\n    position: absolute;\r\n    border: 0;\r\n    height: calc( 60% );\r\n    width: 95%;\r\n    margin: 20px;\r\n    resize: none;\r\n    outline: none;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar-track\r\n{\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar\r\n{\r\n\twidth: 5px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___2-h3E::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.SlideShow__slideNumberWrapper___2d9fo {\r\n  position: absolute;\r\n  width: 100%;\r\n  text-align: center;\r\n  height: 6.5%;\r\n}\r\n\r\n.SlideShow__slideNumberContext___1Nc9M {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 30%;\r\n  height: 100%;\r\n}\r\n\r\n.SlideShow__slideNumberContext_counter___3XgCX{\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.SlideShow__slideOptionButton___VvBly {\r\n  position: absolute;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 100px;\r\n  height: 100%;\r\n  top:0;\r\n  right:0;\r\n}\r\n\r\n.SlideShow__slideOptionButton___VvBly img{\r\n  height: 60%;\r\n  margin: 0 3px;\r\n  cursor: pointer;\r\n}\r\n\r\n.SlideShow__split___15XQ8 {\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100%;\r\n    margin: auto;\r\n}\r\n", ""]);
+exports.push([module.i, ".SlideShow__slideShow___1LjKY{\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  height: 96%;\r\n  padding-top: 0.5%;\r\n}\r\n.SlideShow__slide_contents___2DwqK {\r\n    background-color: gray;\r\n    height: 75%;\r\n    margin: 0;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slide_contents___2DwqK img.SlideShow__slide___37hAW{\r\n  position: absolute;\r\n  background: #ffffff;\r\n  height: 414px;\r\n  width: 720px;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.SlideShow__slideSubContents___2fv_T {\r\n    height: 25%;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.SlideShow__slideController___1b8Bw{\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: 50%;\r\n  transform: translate(0, -50%);\r\n}\r\n\r\n.SlideShow__prev_slide___FRSWg{\r\n    cursor: pointer;\r\n    left: 10px;\r\n}\r\n\r\n.SlideShow__next_slide___1nfYt{\r\n    cursor: pointer;\r\n    right: 10px;\r\n}\r\n.SlideShow__slideShowNote___AefqR {\r\n    height: 60%;\r\n    width: 100%;\r\n    position: relative;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___1VBHF {\r\n    position: absolute;\r\n    border: 0;\r\n    height: calc( 60% );\r\n    width: 95%;\r\n    margin: 20px;\r\n    resize: none;\r\n    outline: none;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___1VBHF::-webkit-scrollbar-track\r\n{\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___1VBHF::-webkit-scrollbar\r\n{\r\n\twidth: 5px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideShow__slideShowNote_content___1VBHF::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.SlideShow__slideNumberWrapper___a1Czr {\r\n  position: absolute;\r\n  width: 100%;\r\n  text-align: center;\r\n  height: 6.5%;\r\n}\r\n\r\n.SlideShow__slideNumberContext___13QHg {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 30%;\r\n  height: 100%;\r\n}\r\n\r\n.SlideShow__slideNumberContext_counter___1X3RM{\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.SlideShow__slideOptionButton___P0TqQ {\r\n  position: absolute;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 100px;\r\n  height: 100%;\r\n  top:0;\r\n  right:0;\r\n}\r\n\r\n.SlideShow__slideOptionButton___P0TqQ img{\r\n  height: 60%;\r\n  margin: 0 3px;\r\n  cursor: pointer;\r\n}\r\n\r\n.SlideShow__split___1Nhf5 {\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100%;\r\n    margin: auto;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"slideShow": "SlideShow__slideShow___2IRp3",
-	"slide_contents": "SlideShow__slide_contents___CXkmV",
-	"slide": "SlideShow__slide___1tilS",
-	"slideSubContents": "SlideShow__slideSubContents___1GDb6",
-	"slideController": "SlideShow__slideController___1Aicc",
-	"prev_slide": "SlideShow__prev_slide___146rd",
-	"next_slide": "SlideShow__next_slide___2ZpNM",
-	"slideShowNote": "SlideShow__slideShowNote___1AbYm",
-	"slideShowNote_content": "SlideShow__slideShowNote_content___2-h3E",
-	"slideNumberWrapper": "SlideShow__slideNumberWrapper___2d9fo",
-	"slideNumberContext": "SlideShow__slideNumberContext___1Nc9M",
-	"slideNumberContext_counter": "SlideShow__slideNumberContext_counter___3XgCX",
-	"slideOptionButton": "SlideShow__slideOptionButton___VvBly",
-	"split": "SlideShow__split___15XQ8"
+	"slideShow": "SlideShow__slideShow___1LjKY",
+	"slide_contents": "SlideShow__slide_contents___2DwqK",
+	"slide": "SlideShow__slide___37hAW",
+	"slideSubContents": "SlideShow__slideSubContents___2fv_T",
+	"slideController": "SlideShow__slideController___1b8Bw",
+	"prev_slide": "SlideShow__prev_slide___FRSWg",
+	"next_slide": "SlideShow__next_slide___1nfYt",
+	"slideShowNote": "SlideShow__slideShowNote___AefqR",
+	"slideShowNote_content": "SlideShow__slideShowNote_content___1VBHF",
+	"slideNumberWrapper": "SlideShow__slideNumberWrapper___a1Czr",
+	"slideNumberContext": "SlideShow__slideNumberContext___13QHg",
+	"slideNumberContext_counter": "SlideShow__slideNumberContext_counter___1X3RM",
+	"slideOptionButton": "SlideShow__slideOptionButton___P0TqQ",
+	"split": "SlideShow__split___1Nhf5"
 };
 
 /***/ }),
@@ -21214,23 +21071,23 @@ exports = module.exports = __webpack_require__(17)(undefined);
 exports.push([module.i, "@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);", ""]);
 
 // module
-exports.push([module.i, "body {\r\n  margin:0;\r\n  font-family: 'NanumSquare', sans-serif;\r\n}\r\n\r\nasset {\r\n-webkit-touch-callout: none;\r\n-webkit-user-select: none;\r\n-khtml-user-select: none;\r\n-moz-user-select: none;\r\n-ms-user-select: none;\r\nuser-select: none;\r\n}\r\n\r\n.SlideEditor__slideEditor___3gH22{\r\n      width: 100%;\r\n      height: 100%;\r\n      display: flex;\r\n      position: absolute;\r\n      flex-direction: row;\r\n}\r\n\r\nbody::-webkit-scrollbar-track\r\n{\r\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\nbody::-webkit-scrollbar\r\n{\r\n\twidth: 1px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\nbody::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.SlideEditor__assetController___1lwu_{\r\n    z-index: 3;\r\n    /*min-width: 14em;\r\n    max-width: 14em;*/\r\n    min-height: 40em;\r\n    height: 100vh;\r\n    background-color: white;\r\n    position: relative;\r\n    box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);\r\n    width: 22vw;\r\n    overflow: auto;\r\n}\r\n\r\n\r\n.SlideEditor__assetController___1lwu_::-webkit-scrollbar-track\r\n{\r\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__assetController___1lwu_::-webkit-scrollbar\r\n{\r\n\twidth: 1px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__assetController___1lwu_::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n\r\n.SlideEditor__assetCreator___2WSLP{\r\n    z-index: 3;\r\n    min-width: 12em;\r\n    max-width: 12em;\r\n    height: 100vh;\r\n    min-height: 40em;\r\n    background-color: white;\r\n    position: relative;\r\n    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.SlideEditor__slideManager___30A4Y{\r\n  position: fixed;\r\n  z-index: 2;\r\n  top:0;\r\n  left: -10%;\r\n  background: #F5F5F6;\r\n  min-width: 14em;\r\n  height: 100vh;\r\n  overflow-y: scroll;\r\n  transition: all 0.5s ease-in-out;\r\n  -webkit-transition: all 0.5s ease-in-out;\r\n  -moz-transition: all 0.5s ease-in-out;\r\n  -o-transition: all 0.5s ease-in-out;\r\n  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.SlideEditor__slideManager___30A4Y ul{\r\n  height: 100%;\r\n  list-style: none;\r\n  padding: 0;\r\n}\r\n\r\n.SlideEditor__slideManager___30A4Y::-webkit-scrollbar {width: 0px; height: 8px;}\r\n\r\n.SlideEditor__slideManager___30A4Y.SlideEditor__show___TspON{\r\n    left: -2em;\r\n    transform: translate(100%,0);\r\n    -webkit-transform: translate(100%,0);\r\n    -o-transform: translate(100%,0);\r\n    -moz-transform: translate(100%,0);\r\n}\r\n\r\n.SlideEditor__contextWrap___1i1c3{\r\n    z-index: 1;\r\n    background-color: #ECEEF2;\r\n    max-height: 100%;\r\n    max-height: 100%;\r\n    min-height: 40em;\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: calc(100% - 24em);\r\n    position: relative;\r\n    overflow: scroll;\r\n}\r\n\r\n.SlideEditor__contextWrap___1i1c3.SlideEditor__disabled___2RCxa:after{\r\n  content:'';\r\n  position: fixed;\r\n  left:0;\r\n  top:0;\r\n  width:100%;\r\n  height:100%;\r\n  -webkit-animation: SlideEditor__fadein___yf8Ar 0.4s forwards;\r\n}\r\n\r\n@-webkit-keyframes SlideEditor__fadein___yf8Ar{\r\n    from { background-color: rgba(0, 0, 0, 0); }\r\n    to { background-color: rgba(0, 0, 0, 0.7); }\r\n}\r\n\r\n.SlideEditor__contextWrap___1i1c3::-webkit-scrollbar-track\r\n{\r\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__contextWrap___1i1c3::-webkit-scrollbar\r\n{\r\n\twidth: 5px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__contextWrap___1i1c3::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.SlideEditor__contextSpace___VdMSN{\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n@media screen and (max-width:1480px){\r\n  .SlideEditor__contextSpace___VdMSN{\r\n    height: 720px;\r\n    width: 1220px;\r\n  }\r\n}\r\n\r\n.SlideEditor__slideContext___3Gzor {\r\n    height:620px;\r\n    width: 1080px;\r\n    background-color: rgba(255, 255, 255, 1);\r\n    position: relative;\r\n    display: block;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    -moz-user-select: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select:none;\r\n    user-select:none;\r\n    -o-user-select:none;\r\n    user-drag: none;\r\nuser-select: none;\r\n-moz-user-select: none;\r\n-webkit-user-drag: none;\r\n-webkit-user-select: none;\r\n-ms-user-select: none;\r\n}\r\n\r\n.SlideEditor__slideContext___3Gzor scanvas{\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  overflow: hidden;\r\n}\r\n\r\n.SlideEditor__assetCreator___2WSLP ul{\r\n  list-style-type: none;\r\n    padding: 0;\r\n}\r\n\r\n.SlideEditor__color_picker___2Ybij{\r\n  position: fixed;\r\n  z-index: 4;\r\n  border-radius: 20px;\r\n  background-color: white;\r\n  overflow: hidden;\r\n  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\r\n  top: -100%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  -webkit-animation: SlideEditor__modaldown___1Cxc5 0.5s forwards;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV{\r\n  position: fixed;\r\n  z-index: 4;\r\n  border-radius: 20px;\r\n  width: 1150px;\r\n  height: 650px;\r\n  background-color: white;\r\n  overflow: hidden;\r\n  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\r\n  top: -100%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  -webkit-animation: SlideEditor__modaldown___1Cxc5 0.5s forwards;\r\n}\r\n\r\n@-webkit-keyframes SlideEditor__modaldown___1Cxc5{\r\n    from { top: -100%; }\r\n    to { top: 50%; }\r\n}\r\n\r\n.SlideEditor__modal___1CVEV content{\r\n  position: absolute;\r\n  overflow-y: auto;\r\n  height: calc( 100% - 25px);\r\n  width: 100%;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV content::-webkit-scrollbar-track\r\n{\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV content::-webkit-scrollbar\r\n{\r\n\twidth: 5px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV content::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n\r\n.SlideEditor__modal___1CVEV header{\r\n  position: relative;\r\n  color: #12AAEB;\r\n  padding: 10px 30px 0 30px;\r\n  width: calc( 100% - 60px );\r\n}\r\n\r\n.SlideEditor__modal___1CVEV header tabholder{\r\n  position: absolute;\r\n  text-align: right;\r\n  display: table;\r\n  table-layout: fixed;\r\n  width: 30%;\r\n  top: 10px;\r\n  right: 10px;\r\n  height: 25px;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV header tabholder > *{\r\n  display: table-cell;\r\n  position: relative;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  font-size: 0.8em;\r\n  line-height: 25px;\r\n  padding: 0 10px;\r\n  color: #D1DBE1;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV header tabholder activetab{\r\n  color: #12AAEB;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV header tabholder activetab:after{\r\n  content: '';\r\n  position: absolute;\r\n  display: inline-block;\r\n  bottom: -10px;\r\n  left: 20px;\r\n  border-bottom-style: solid;\r\n  border-bottom-width: 3px;\r\n  border-color: #12AAEB;\r\n  width: calc( 100% - 40px );\r\n  height: 0px;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV header tabholder > *:hover{\r\n  color: #12AAEB;\r\n  cursor: pointer;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV header tabholder > *:hover:after{\r\n  content: '';\r\n  position: absolute;\r\n  display: inline-block;\r\n  bottom: -10px;\r\n  left: 20px;\r\n  border-bottom-style: solid;\r\n  border-bottom-width: 3px;\r\n  border-color: #12AAEB;\r\n  width: calc( 100% - 40px );\r\n  height: 0px;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV header tabholder > *:before{\r\n  content: '';\r\n  position: absolute;\r\n  display: inline-block;\r\n  left: 0px;\r\n  border-left-style: dashed;\r\n  border-left-width: 1px;\r\n  border-color: #D1DBE1;\r\n  height: 100%;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV header tabholder > *:first-child:before{\r\n  display: none;\r\n  border-left-width: 0px;\r\n}\r\n\r\n.SlideEditor__modal___1CVEV header h1{\r\n  display: inline-block;\r\n  text-align: center;\r\n  height: 27px;\r\n  width: 200px;\r\n  font-size: 0.8em;\r\n  padding: 0;\r\n  margin: 0;\r\n  border-bottom: solid #12AAEB 3px;\r\n}\r\n", ""]);
+exports.push([module.i, "body {\r\n  margin:0;\r\n  font-family: 'NanumSquare', sans-serif;\r\n}\r\n\r\nasset {\r\n-webkit-touch-callout: none;\r\n-webkit-user-select: none;\r\n-khtml-user-select: none;\r\n-moz-user-select: none;\r\n-ms-user-select: none;\r\nuser-select: none;\r\n}\r\n\r\n.SlideEditor__slideEditor___3NgQD{\r\n      width: 100%;\r\n      height: 100%;\r\n      display: flex;\r\n      position: absolute;\r\n      flex-direction: row;\r\n}\r\n\r\nbody::-webkit-scrollbar-track\r\n{\r\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\nbody::-webkit-scrollbar\r\n{\r\n\twidth: 1px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\nbody::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.SlideEditor__assetController___1YPJ3{\r\n    z-index: 3;\r\n    /*min-width: 14em;\r\n    max-width: 14em;*/\r\n    min-height: 40em;\r\n    height: 100vh;\r\n    background-color: white;\r\n    position: relative;\r\n    box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);\r\n    width: 22vw;\r\n    overflow: auto;\r\n}\r\n\r\n\r\n.SlideEditor__assetController___1YPJ3::-webkit-scrollbar-track\r\n{\r\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__assetController___1YPJ3::-webkit-scrollbar\r\n{\r\n\twidth: 1px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__assetController___1YPJ3::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n\r\n.SlideEditor__assetCreator___7KT_T{\r\n    z-index: 3;\r\n    min-width: 12em;\r\n    max-width: 12em;\r\n    height: 100vh;\r\n    min-height: 40em;\r\n    background-color: white;\r\n    position: relative;\r\n    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.SlideEditor__slideManager___3kDDQ{\r\n  position: fixed;\r\n  z-index: 2;\r\n  top:0;\r\n  left: -10%;\r\n  background: #F5F5F6;\r\n  min-width: 14em;\r\n  height: 100vh;\r\n  overflow-y: scroll;\r\n  transition: all 0.5s ease-in-out;\r\n  -webkit-transition: all 0.5s ease-in-out;\r\n  -moz-transition: all 0.5s ease-in-out;\r\n  -o-transition: all 0.5s ease-in-out;\r\n  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.SlideEditor__slideManager___3kDDQ ul{\r\n  height: 100%;\r\n  list-style: none;\r\n  padding: 0;\r\n}\r\n\r\n.SlideEditor__slideManager___3kDDQ::-webkit-scrollbar {width: 0px; height: 8px;}\r\n\r\n.SlideEditor__slideManager___3kDDQ.SlideEditor__show___2Qo1M{\r\n    left: -2em;\r\n    transform: translate(100%,0);\r\n    -webkit-transform: translate(100%,0);\r\n    -o-transform: translate(100%,0);\r\n    -moz-transform: translate(100%,0);\r\n}\r\n\r\n.SlideEditor__contextWrap___3SuLO{\r\n    z-index: 1;\r\n    background-color: #ECEEF2;\r\n    max-height: 100%;\r\n    max-height: 100%;\r\n    min-height: 40em;\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: calc(100% - 24em);\r\n    position: relative;\r\n    overflow: scroll;\r\n}\r\n\r\n.SlideEditor__contextWrap___3SuLO.SlideEditor__disabled___CS0s4:after{\r\n  content:'';\r\n  position: fixed;\r\n  left:0;\r\n  top:0;\r\n  width:100%;\r\n  height:100%;\r\n  -webkit-animation: SlideEditor__fadein___8f3IZ 0.4s forwards;\r\n}\r\n\r\n@-webkit-keyframes SlideEditor__fadein___8f3IZ{\r\n    from { background-color: rgba(0, 0, 0, 0); }\r\n    to { background-color: rgba(0, 0, 0, 0.7); }\r\n}\r\n\r\n.SlideEditor__contextWrap___3SuLO::-webkit-scrollbar-track\r\n{\r\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__contextWrap___3SuLO::-webkit-scrollbar\r\n{\r\n\twidth: 5px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__contextWrap___3SuLO::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.SlideEditor__contextSpace___3M8gc{\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n@media screen and (max-width:1480px){\r\n  .SlideEditor__contextSpace___3M8gc{\r\n    height: 720px;\r\n    width: 1220px;\r\n  }\r\n}\r\n\r\n.SlideEditor__slideContext___16jGI {\r\n    height:620px;\r\n    width: 1080px;\r\n    background-color: rgba(255, 255, 255, 1);\r\n    position: relative;\r\n    display: block;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    -moz-user-select: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select:none;\r\n    user-select:none;\r\n    -o-user-select:none;\r\n    user-drag: none;\r\nuser-select: none;\r\n-moz-user-select: none;\r\n-webkit-user-drag: none;\r\n-webkit-user-select: none;\r\n-ms-user-select: none;\r\n}\r\n\r\n.SlideEditor__slideContext___16jGI scanvas{\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  overflow: hidden;\r\n}\r\n\r\n.SlideEditor__assetCreator___7KT_T ul{\r\n  list-style-type: none;\r\n    padding: 0;\r\n}\r\n\r\n.SlideEditor__color_picker___oh06B{\r\n  position: fixed;\r\n  z-index: 4;\r\n  border-radius: 20px;\r\n  background-color: white;\r\n  overflow: hidden;\r\n  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\r\n  top: -100%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  -webkit-animation: SlideEditor__modaldown___vZtjs 0.5s forwards;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9{\r\n  position: fixed;\r\n  z-index: 4;\r\n  border-radius: 20px;\r\n  width: 1150px;\r\n  height: 650px;\r\n  background-color: white;\r\n  overflow: hidden;\r\n  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\r\n  top: -100%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  -webkit-animation: SlideEditor__modaldown___vZtjs 0.5s forwards;\r\n}\r\n\r\n@-webkit-keyframes SlideEditor__modaldown___vZtjs{\r\n    from { top: -100%; }\r\n    to { top: 50%; }\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 content{\r\n  position: absolute;\r\n  overflow-y: auto;\r\n  height: calc( 100% - 25px);\r\n  width: 100%;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 content::-webkit-scrollbar-track\r\n{\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 content::-webkit-scrollbar\r\n{\r\n\twidth: 5px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 content::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n\r\n.SlideEditor__modal___3cQQ9 header{\r\n  position: relative;\r\n  color: #12AAEB;\r\n  padding: 10px 30px 0 30px;\r\n  width: calc( 100% - 60px );\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 header tabholder{\r\n  position: absolute;\r\n  text-align: right;\r\n  display: table;\r\n  table-layout: fixed;\r\n  width: 30%;\r\n  top: 10px;\r\n  right: 10px;\r\n  height: 25px;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 header tabholder > *{\r\n  display: table-cell;\r\n  position: relative;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  font-size: 0.8em;\r\n  line-height: 25px;\r\n  padding: 0 10px;\r\n  color: #D1DBE1;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 header tabholder activetab{\r\n  color: #12AAEB;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 header tabholder activetab:after{\r\n  content: '';\r\n  position: absolute;\r\n  display: inline-block;\r\n  bottom: -10px;\r\n  left: 20px;\r\n  border-bottom-style: solid;\r\n  border-bottom-width: 3px;\r\n  border-color: #12AAEB;\r\n  width: calc( 100% - 40px );\r\n  height: 0px;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 header tabholder > *:hover{\r\n  color: #12AAEB;\r\n  cursor: pointer;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 header tabholder > *:hover:after{\r\n  content: '';\r\n  position: absolute;\r\n  display: inline-block;\r\n  bottom: -10px;\r\n  left: 20px;\r\n  border-bottom-style: solid;\r\n  border-bottom-width: 3px;\r\n  border-color: #12AAEB;\r\n  width: calc( 100% - 40px );\r\n  height: 0px;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 header tabholder > *:before{\r\n  content: '';\r\n  position: absolute;\r\n  display: inline-block;\r\n  left: 0px;\r\n  border-left-style: dashed;\r\n  border-left-width: 1px;\r\n  border-color: #D1DBE1;\r\n  height: 100%;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 header tabholder > *:first-child:before{\r\n  display: none;\r\n  border-left-width: 0px;\r\n}\r\n\r\n.SlideEditor__modal___3cQQ9 header h1{\r\n  display: inline-block;\r\n  text-align: center;\r\n  height: 27px;\r\n  width: 200px;\r\n  font-size: 0.8em;\r\n  padding: 0;\r\n  margin: 0;\r\n  border-bottom: solid #12AAEB 3px;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"slideEditor": "SlideEditor__slideEditor___3gH22",
-	"assetController": "SlideEditor__assetController___1lwu_",
-	"assetCreator": "SlideEditor__assetCreator___2WSLP",
-	"slideManager": "SlideEditor__slideManager___30A4Y",
-	"show": "SlideEditor__show___TspON",
-	"contextWrap": "SlideEditor__contextWrap___1i1c3",
-	"disabled": "SlideEditor__disabled___2RCxa",
-	"fadein": "SlideEditor__fadein___yf8Ar",
-	"contextSpace": "SlideEditor__contextSpace___VdMSN",
-	"slideContext": "SlideEditor__slideContext___3Gzor",
-	"color_picker": "SlideEditor__color_picker___2Ybij",
-	"modaldown": "SlideEditor__modaldown___1Cxc5",
-	"modal": "SlideEditor__modal___1CVEV"
+	"slideEditor": "SlideEditor__slideEditor___3NgQD",
+	"assetController": "SlideEditor__assetController___1YPJ3",
+	"assetCreator": "SlideEditor__assetCreator___7KT_T",
+	"slideManager": "SlideEditor__slideManager___3kDDQ",
+	"show": "SlideEditor__show___2Qo1M",
+	"contextWrap": "SlideEditor__contextWrap___3SuLO",
+	"disabled": "SlideEditor__disabled___CS0s4",
+	"fadein": "SlideEditor__fadein___8f3IZ",
+	"contextSpace": "SlideEditor__contextSpace___3M8gc",
+	"slideContext": "SlideEditor__slideContext___16jGI",
+	"color_picker": "SlideEditor__color_picker___oh06B",
+	"modaldown": "SlideEditor__modaldown___vZtjs",
+	"modal": "SlideEditor__modal___3cQQ9"
 };
 
 /***/ }),
@@ -21242,24 +21099,24 @@ exports = module.exports = __webpack_require__(17)(undefined);
 exports.push([module.i, "@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);", ""]);
 
 // module
-exports.push([module.i, "body {\r\n  margin:0;\r\n  font-family: 'NanumSquare', sans-serif;\r\n}\r\n\r\n.ShowList__context___1_KJ6{\r\nwidth: 100vw;\r\nheight: 100vh;\r\nbackground: -webkit-linear-gradient(right, #00daef, #bc67ff);\r\nbackground: linear-gradient(270deg, #00daef, #bc67ff);\r\nbackground-size: 200% 200%;\r\n-webkit-animation: ShowList__MoveGrad___2QQ1- 5s ease infinite;\r\n animation: ShowList__MoveGrad___2QQ1- 5s ease infinite;\r\n overflow: hidden;\r\n}\r\n\r\n@-webkit-keyframes ShowList__MoveGrad___2QQ1- {\r\n0% {\r\nbackground-position: 0% 50%;\r\n}\r\n50% {\r\nbackground-position: 100% 50%;\r\n}\r\n100% {\r\nbackground-position: 0% 50%;\r\n}\r\n}\r\n\r\n@keyframes ShowList__MoveGrad___2QQ1- {\r\n0% {\r\nbackground-position: 0% 50%;\r\n}\r\n50% {\r\nbackground-position: 100% 50%;\r\n}\r\n100% {\r\nbackground-position: 0% 50%;\r\n}\r\n}\r\n\r\n.ShowList__context___1_KJ6{\r\n  position: absolute;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.ShowList__showlist___Gepem{\r\n  padding-top: 20px;\r\n  position: relative;\r\n  width: 100%;\r\n  overflow-y: auto;\r\n  min-height: calc(100% - 160px);\r\n  max-height: calc(100% - 160px);\r\n  text-align: center;\r\n}\r\n\r\n.ShowList__showlist___Gepem::-webkit-scrollbar-track\r\n{\r\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.ShowList__showlist___Gepem::-webkit-scrollbar\r\n{\r\n\twidth: 4px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.ShowList__showlist___Gepem::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.ShowList__showItem___10Ywu{\r\n  text-align: left;\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 350px;\r\n  height: 220px;\r\n  border-radius: 5px;\r\n  margin: auto 10px;\r\n  margin-bottom: 2em;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -o-user-select: none;\r\n  user-select: none;\r\n  background: #ffffff;\r\n  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.ShowList__tempShow___1qDhI{\r\n  color: gray;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n  line-height: 45px;\r\n  font-size: 30px;\r\n  padding: 100px 0;\r\n  position: absolute;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  transition: color 0.5s ease-in-out;\r\n}\r\n\r\n.ShowList__thumbnail___3PAG-{\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.ShowList__tempShow___1qDhI:hover{\r\n  color: white;\r\n}\r\n\r\n.ShowList__footer___1hvbi{\r\n  position: absolute;\r\n  border-bottom-left-radius: 5px;\r\n  border-bottom-right-radius: 5px;\r\n  bottom: 0px;\r\n  width: 100%;\r\n  height: 25%;\r\n  background: rgba(0, 0, 0, 0.6);\r\n  display: table;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__texts___3Kp-g{\r\n  display: table-cell;\r\n  padding-left: 17px;\r\n  width: 60%;\r\n  vertical-align: middle;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__texts___3Kp-g .ShowList__title___wF8i6{\r\n  color: #FFFFFF;\r\n  font-size: 13px;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__texts___3Kp-g .ShowList__subTitle___3SzyY{\r\n  color: #9E9E9F;\r\n  font-size: 9px;\r\n}\r\n\r\n.ShowList__footer___1hvbi .ShowList__buttons___hC9vK{\r\n  display: table-cell;\r\n  width:40%;\r\n  vertical-align: middle;\r\n  text-align: right;\r\n  padding-right: 17px;\r\n}\r\n.ShowList__footer___1hvbi .ShowList__buttons___hC9vK .ShowList__imgBtn___1-hUX{\r\n  width: 35px;\r\n  height: 20px;\r\n  display: inline-block;\r\n  transition: transform 0.3s ease;\r\n}\r\n\r\n.ShowList__imgBtn___1-hUX:hover {\r\n\t\tbackground-color: transparent;\r\n\t\ttransform: rotate(90deg);\r\n\t\tcursor: pointer;\r\n}\r\n\r\n#ShowList__share___2uZ7z{\r\n  background: url('/images/ic_share_white.png') no-repeat center;\r\n}\r\n\r\n#ShowList__delete___38k7N{\r\n  background: url('/images/ic_delete_white.png') no-repeat center;\r\n}\r\n", ""]);
+exports.push([module.i, "body {\r\n  margin:0;\r\n  font-family: 'NanumSquare', sans-serif;\r\n}\r\n\r\n.ShowList__context___1HNu5{\r\nwidth: 100vw;\r\nheight: 100vh;\r\nbackground: -webkit-linear-gradient(right, #00daef, #bc67ff);\r\nbackground: linear-gradient(270deg, #00daef, #bc67ff);\r\nbackground-size: 200% 200%;\r\n-webkit-animation: ShowList__MoveGrad___RS4Ve 5s ease infinite;\r\n animation: ShowList__MoveGrad___RS4Ve 5s ease infinite;\r\n overflow: hidden;\r\n}\r\n\r\n@-webkit-keyframes ShowList__MoveGrad___RS4Ve {\r\n0% {\r\nbackground-position: 0% 50%;\r\n}\r\n50% {\r\nbackground-position: 100% 50%;\r\n}\r\n100% {\r\nbackground-position: 0% 50%;\r\n}\r\n}\r\n\r\n@keyframes ShowList__MoveGrad___RS4Ve {\r\n0% {\r\nbackground-position: 0% 50%;\r\n}\r\n50% {\r\nbackground-position: 100% 50%;\r\n}\r\n100% {\r\nbackground-position: 0% 50%;\r\n}\r\n}\r\n\r\n.ShowList__context___1HNu5{\r\n  position: absolute;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.ShowList__showlist___3u8FE{\r\n  padding-top: 20px;\r\n  position: relative;\r\n  width: 100%;\r\n  overflow-y: auto;\r\n  min-height: calc(100% - 160px);\r\n  max-height: calc(100% - 160px);\r\n  text-align: center;\r\n}\r\n\r\n.ShowList__showlist___3u8FE::-webkit-scrollbar-track\r\n{\r\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.ShowList__showlist___3u8FE::-webkit-scrollbar\r\n{\r\n\twidth: 4px;\r\n\tbackground-color: #ffffff;\r\n}\r\n\r\n.ShowList__showlist___3u8FE::-webkit-scrollbar-thumb\r\n{\r\n\tbackground-color: #5D87B5;\r\n}\r\n\r\n.ShowList__showItem___2S-Cx{\r\n  text-align: left;\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 350px;\r\n  height: 220px;\r\n  border-radius: 5px;\r\n  margin: auto 10px;\r\n  margin-bottom: 2em;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -o-user-select: none;\r\n  user-select: none;\r\n  background: #ffffff;\r\n  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.ShowList__tempShow___4ngKF{\r\n  color: gray;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n  line-height: 45px;\r\n  font-size: 30px;\r\n  padding: 100px 0;\r\n  position: absolute;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  transition: color 0.5s ease-in-out;\r\n}\r\n\r\n.ShowList__thumbnail___1XFq1{\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.ShowList__tempShow___4ngKF:hover{\r\n  color: white;\r\n}\r\n\r\n.ShowList__footer___Y_UMB{\r\n  position: absolute;\r\n  border-bottom-left-radius: 5px;\r\n  border-bottom-right-radius: 5px;\r\n  bottom: 0px;\r\n  width: 100%;\r\n  height: 25%;\r\n  background: rgba(0, 0, 0, 0.6);\r\n  display: table;\r\n}\r\n\r\n.ShowList__footer___Y_UMB .ShowList__texts___2p1k8{\r\n  display: table-cell;\r\n  padding-left: 17px;\r\n  width: 60%;\r\n  vertical-align: middle;\r\n}\r\n\r\n.ShowList__footer___Y_UMB .ShowList__texts___2p1k8 .ShowList__title___2R1bT{\r\n  color: #FFFFFF;\r\n  font-size: 13px;\r\n}\r\n\r\n.ShowList__footer___Y_UMB .ShowList__texts___2p1k8 .ShowList__subTitle___2Trjy{\r\n  color: #9E9E9F;\r\n  font-size: 9px;\r\n}\r\n\r\n.ShowList__footer___Y_UMB .ShowList__buttons___1VItj{\r\n  display: table-cell;\r\n  width:40%;\r\n  vertical-align: middle;\r\n  text-align: right;\r\n  padding-right: 17px;\r\n}\r\n.ShowList__footer___Y_UMB .ShowList__buttons___1VItj .ShowList__imgBtn___ZjoNY{\r\n  width: 35px;\r\n  height: 20px;\r\n  display: inline-block;\r\n  transition: transform 0.3s ease;\r\n}\r\n\r\n.ShowList__imgBtn___ZjoNY:hover {\r\n\t\tbackground-color: transparent;\r\n\t\ttransform: rotate(90deg);\r\n\t\tcursor: pointer;\r\n}\r\n\r\n#ShowList__share___3Cwoy{\r\n  background: url('/images/ic_share_white.png') no-repeat center;\r\n}\r\n\r\n#ShowList__delete___dayXn{\r\n  background: url('/images/ic_delete_white.png') no-repeat center;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"context": "ShowList__context___1_KJ6",
-	"MoveGrad": "ShowList__MoveGrad___2QQ1-",
-	"showlist": "ShowList__showlist___Gepem",
-	"showItem": "ShowList__showItem___10Ywu",
-	"tempShow": "ShowList__tempShow___1qDhI",
-	"thumbnail": "ShowList__thumbnail___3PAG-",
-	"footer": "ShowList__footer___1hvbi",
-	"texts": "ShowList__texts___3Kp-g",
-	"title": "ShowList__title___wF8i6",
-	"subTitle": "ShowList__subTitle___3SzyY",
-	"buttons": "ShowList__buttons___hC9vK",
-	"imgBtn": "ShowList__imgBtn___1-hUX",
-	"share": "ShowList__share___2uZ7z",
-	"delete": "ShowList__delete___38k7N"
+	"context": "ShowList__context___1HNu5",
+	"MoveGrad": "ShowList__MoveGrad___RS4Ve",
+	"showlist": "ShowList__showlist___3u8FE",
+	"showItem": "ShowList__showItem___2S-Cx",
+	"tempShow": "ShowList__tempShow___4ngKF",
+	"thumbnail": "ShowList__thumbnail___1XFq1",
+	"footer": "ShowList__footer___Y_UMB",
+	"texts": "ShowList__texts___2p1k8",
+	"title": "ShowList__title___2R1bT",
+	"subTitle": "ShowList__subTitle___2Trjy",
+	"buttons": "ShowList__buttons___1VItj",
+	"imgBtn": "ShowList__imgBtn___ZjoNY",
+	"share": "ShowList__share___3Cwoy",
+	"delete": "ShowList__delete___dayXn"
 };
 
 /***/ }),
@@ -21271,18 +21128,18 @@ exports = module.exports = __webpack_require__(17)(undefined);
 exports.push([module.i, "@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);", ""]);
 
 // module
-exports.push([module.i, ".ShowManageDialog__modal_wrapper___2y4Cf {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  top: -100%;\r\n  animation: ShowManageDialog__modalFadeIn___1rM-6 0.5s linear 0s;\r\n  animation-fill-mode: forwards;\r\n}\r\n\r\n.ShowManageDialog__modal___1FpZa{\r\n  text-align: center;\r\n  position: absolute;\r\n  top: 30%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  width: 450px;\r\n  height: 180px;\r\n  padding: 10px;\r\n  background-color: white;\r\n  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.ShowManageDialog__modal_header___1Uk3q{\r\n  height: 25%;\r\n  font-size: 25px;\r\n  font-weight: bold;\r\n}\r\n\r\n.ShowManageDialog__modal_content___KQfKW{\r\n  position: relative;\r\n  height: 75%;\r\n}\r\n\r\n@-webkit-keyframes ShowManageDialog__modalFadeIn___1rM-6 {\r\n  from {\r\n    top: -100%;\r\n  }\r\n  to {\r\n    top: 10%;\r\n  }\r\n}\r\n\r\n.ShowManageDialog__modal___1FpZa::before {\r\n  width: 100%;\r\n  content: '';\r\n  height: 100%;\r\n  background: rgba(0, 0, 0, 0.5);\r\n}\r\n\r\n.ShowManageDialog__input_wrapper___2mquJ{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  height: calc(100% - 50px);\r\n}\r\n\r\n.ShowManageDialog__input___3UfVN {\r\n  text-align: center;\r\n  width: 100%;\r\n  margin-top: 3px;\r\n  height: 30px;\r\n  font-size: 20px;\r\n  border: 0;\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.ShowManageDialog__input___3UfVN:focus {\r\n  outline: none;\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.9);\r\n}\r\n\r\n.ShowManageDialog__bottomGroup___1AoWX{\r\n  bottom: 0;\r\n  width: 100%;\r\n  height: 50px;\r\n  color: white;\r\n  line-height: 50px;\r\n  background: rgb(50, 79, 165);\r\n  position: absolute;\r\n  cursor: pointer;\r\n}\r\n\r\n.ShowManageDialog__bottomGroup___1AoWX:hover{\r\n  background: rgba(50, 79, 165, 0.9);\r\n}\r\n", ""]);
+exports.push([module.i, ".ShowManageDialog__modal_wrapper___1l6Wy {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  top: -100%;\r\n  animation: ShowManageDialog__modalFadeIn___KfIjx 0.5s linear 0s;\r\n  animation-fill-mode: forwards;\r\n}\r\n\r\n.ShowManageDialog__modal___1ZAF8{\r\n  text-align: center;\r\n  position: absolute;\r\n  top: 30%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  width: 450px;\r\n  height: 180px;\r\n  padding: 10px;\r\n  background-color: white;\r\n  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);\r\n}\r\n\r\n.ShowManageDialog__modal_header___26stE{\r\n  height: 25%;\r\n  font-size: 25px;\r\n  font-weight: bold;\r\n}\r\n\r\n.ShowManageDialog__modal_content___1u5UZ{\r\n  position: relative;\r\n  height: 75%;\r\n}\r\n\r\n@-webkit-keyframes ShowManageDialog__modalFadeIn___KfIjx {\r\n  from {\r\n    top: -100%;\r\n  }\r\n  to {\r\n    top: 10%;\r\n  }\r\n}\r\n\r\n.ShowManageDialog__modal___1ZAF8::before {\r\n  width: 100%;\r\n  content: '';\r\n  height: 100%;\r\n  background: rgba(0, 0, 0, 0.5);\r\n}\r\n\r\n.ShowManageDialog__input_wrapper___3HPt2{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  height: calc(100% - 50px);\r\n}\r\n\r\n.ShowManageDialog__input___1ALXn {\r\n  text-align: center;\r\n  width: 100%;\r\n  margin-top: 3px;\r\n  height: 30px;\r\n  font-size: 20px;\r\n  border: 0;\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.ShowManageDialog__input___1ALXn:focus {\r\n  outline: none;\r\n  border-bottom: 2px solid rgba(0, 0, 0, 0.9);\r\n}\r\n\r\n.ShowManageDialog__bottomGroup___1o6NR{\r\n  bottom: 0;\r\n  width: 100%;\r\n  height: 50px;\r\n  color: white;\r\n  line-height: 50px;\r\n  background: rgb(50, 79, 165);\r\n  position: absolute;\r\n  cursor: pointer;\r\n}\r\n\r\n.ShowManageDialog__bottomGroup___1o6NR:hover{\r\n  background: rgba(50, 79, 165, 0.9);\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"modal_wrapper": "ShowManageDialog__modal_wrapper___2y4Cf",
-	"modalFadeIn": "ShowManageDialog__modalFadeIn___1rM-6",
-	"modal": "ShowManageDialog__modal___1FpZa",
-	"modal_header": "ShowManageDialog__modal_header___1Uk3q",
-	"modal_content": "ShowManageDialog__modal_content___KQfKW",
-	"input_wrapper": "ShowManageDialog__input_wrapper___2mquJ",
-	"input": "ShowManageDialog__input___3UfVN",
-	"bottomGroup": "ShowManageDialog__bottomGroup___1AoWX"
+	"modal_wrapper": "ShowManageDialog__modal_wrapper___1l6Wy",
+	"modalFadeIn": "ShowManageDialog__modalFadeIn___KfIjx",
+	"modal": "ShowManageDialog__modal___1ZAF8",
+	"modal_header": "ShowManageDialog__modal_header___26stE",
+	"modal_content": "ShowManageDialog__modal_content___1u5UZ",
+	"input_wrapper": "ShowManageDialog__input_wrapper___3HPt2",
+	"input": "ShowManageDialog__input___1ALXn",
+	"bottomGroup": "ShowManageDialog__bottomGroup___1o6NR"
 };
 
 /***/ }),
@@ -21294,14 +21151,14 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".Show__context___1Sw3T{\r\n  overflow: hidden;\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.Show__left___3qH7h{\r\n  top: 0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__right___2vy9y{\r\n  top: 0;\r\n  right:0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__slide___1tAzX{\r\n  position: static;\r\n  width: 100vw;\r\n  height: 100vh;\r\n}\r\n", ""]);
+exports.push([module.i, ".Show__context___g9_zU{\r\n  overflow: hidden;\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.Show__left___3QpbC{\r\n  top: 0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__right___w0Y1J{\r\n  top: 0;\r\n  right:0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__slide___2RVC7{\r\n  position: static;\r\n  width: 100vw;\r\n  height: 100vh;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"context": "Show__context___1Sw3T",
-	"left": "Show__left___3qH7h",
-	"right": "Show__right___2vy9y",
-	"slide": "Show__slide___1tAzX"
+	"context": "Show__context___g9_zU",
+	"left": "Show__left___3QpbC",
+	"right": "Show__right___w0Y1J",
+	"slide": "Show__slide___2RVC7"
 };
 
 /***/ }),
@@ -21708,7 +21565,7 @@ module.exports = getIteratorFn;
 
 var ReactCurrentOwner = __webpack_require__(27);
 var ReactComponentTreeHook = __webpack_require__(20);
-var ReactElement = __webpack_require__(36);
+var ReactElement = __webpack_require__(37);
 
 var checkReactTypeSpec = __webpack_require__(231);
 
@@ -23573,7 +23430,7 @@ var _prodInvariant = __webpack_require__(10);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var PooledClass = __webpack_require__(37);
+var PooledClass = __webpack_require__(38);
 
 var invariant = __webpack_require__(7);
 
@@ -26345,7 +26202,7 @@ selectorFactory) {
       Connect.prototype.notifyNestedSubsOnComponentDidUpdate = function notifyNestedSubsOnComponentDidUpdate() {
         // `componentDidUpdate` is conditionally implemented when `onStateChange` determines it
         // needs to notify nested subs. Once called, it unimplements itself until further state
-        // changes occur. Doing it this way vs having a permanent `componentDidMount` that does
+        // changes occur. Doing it this way vs having a permanent `componentDidUpdate` that does
         // a boolean check every time avoids an extra method call most of the time, resulting
         // in some perf boost.
         this.componentDidUpdate = undefined;
@@ -26391,14 +26248,31 @@ selectorFactory) {
 
     if (process.env.NODE_ENV !== 'production') {
       Connect.prototype.componentWillUpdate = function componentWillUpdate() {
+        var _this2 = this;
+
         // We are hot reloading!
         if (this.version !== version) {
           this.version = version;
           this.initSelector();
 
-          if (this.subscription) this.subscription.tryUnsubscribe();
+          // If any connected descendants don't hot reload (and resubscribe in the process), their
+          // listeners will be lost when we unsubscribe. Unfortunately, by copying over all
+          // listeners, this does mean that the old versions of connected descendants will still be
+          // notified of state changes; however, their onStateChange function is a no-op so this
+          // isn't a huge deal.
+          var oldListeners = [];
+
+          if (this.subscription) {
+            oldListeners = this.subscription.listeners.get();
+            this.subscription.tryUnsubscribe();
+          }
           this.initSubscription();
-          if (shouldHandleStateChanges) this.subscription.trySubscribe();
+          if (shouldHandleStateChanges) {
+            this.subscription.trySubscribe();
+            oldListeners.forEach(function (listener) {
+              return _this2.subscription.listeners.subscribe(listener);
+            });
+          }
         }
       };
     }
@@ -26877,6 +26751,8 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _reactRedux = __webpack_require__(14);
 
+var _redux = __webpack_require__(16);
+
 var _Asset = __webpack_require__(100);
 
 var _Asset2 = _interopRequireDefault(_Asset);
@@ -26905,6 +26781,10 @@ var _css = __webpack_require__(174);
 
 var _css2 = _interopRequireDefault(_css);
 
+var _ui = __webpack_require__(35);
+
+var uiActions = _interopRequireWildcard(_ui);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -26924,6 +26804,10 @@ function getAssetNode(parent, child) {
     node = node.parentNode;
   }
   return null;
+}
+
+function filter(node) {
+  return node.tagName !== 'SELECTORLINE' && node.tagName !== 'SELECTORDOT';
 }
 
 var tabs = [
@@ -27141,13 +27025,12 @@ var AssetEditor = function (_React$Component) {
       var assetName = document.getElementsByClassName(_AssetEditor2.default.titleInput)[0].value;
       var source = this.state.css + this.state.html + this.state.js;
 
-      var node = document.getElementById('preview');
-      console.log(node);
+      var node = document.getElementById('preview').childNodes[0];
       var self = this;
-      _domToImage2.default.toPng(node).then(function (dataUrl) {
+      _domToImage2.default.toPng(node, { filter: filter }).then(function (dataUrl) {
         var thumbnail = dataUrl;
         _axios2.default.post('/store/simple/create', { name: assetName, source: source, thumbnail: thumbnail }).then(function (response) {
-          console.log('asdasd');
+          self.props.toggleAssetStore();
         });
       }).catch(function (error) {
         console.error(error);
@@ -27273,7 +27156,6 @@ var AssetEditor = function (_React$Component) {
         js: '<script>' + currentText + '</script>',
         mode: 'jsMode'
       });
-      // console.log(this.state.mode);
     }
   }]);
 
@@ -27286,7 +27168,11 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(AssetEditor);
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)(_extends({}, uiActions), dispatch);
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AssetEditor);
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(6); if (makeExportsHot(module, __webpack_require__(0))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "AssetEditor.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
@@ -27577,6 +27463,11 @@ module.exports = Cancel;
 })(function(CodeMirror) {
 "use strict";
 
+function expressionAllowed(stream, state, backUp) {
+  return /^(?:operator|sof|keyword c|case|new|export|default|[\[{}\(,;:]|=>)$/.test(state.lastType) ||
+    (state.lastType == "quasi" && /\{\s*$/.test(stream.string.slice(0, stream.pos - (backUp || 0))))
+}
+
 CodeMirror.defineMode("javascript", function(config, parserConfig) {
   var indentUnit = config.indentUnit;
   var statementIndent = parserConfig.statementIndent;
@@ -27594,7 +27485,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
 
     var jsKeywords = {
       "if": kw("if"), "while": A, "with": A, "else": B, "do": B, "try": B, "finally": B,
-      "return": C, "break": C, "continue": C, "new": kw("new"), "delete": C, "void": C, "throw": C, "debugger": C,
+      "return": C, "break": C, "continue": C, "new": kw("new"), "delete": C, "throw": C, "debugger": C,
       "var": kw("var"), "const": kw("var"), "let": kw("var"),
       "function": kw("function"), "catch": kw("catch"),
       "for": kw("for"), "switch": kw("switch"), "case": kw("case"), "default": kw("default"),
@@ -27621,7 +27512,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
         "private": kw("modifier"),
         "protected": kw("modifier"),
         "abstract": kw("modifier"),
-        "readonly": kw("modifier"),
 
         // types
         "string": type, "number": type, "boolean": type, "any": type
@@ -27930,9 +27820,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
       if (isTS && value == "type") {
         cx.marked = "keyword"
         return cont(typeexpr, expect("operator"), typeexpr, expect(";"));
-      } if (isTS && value == "declare") {
-        cx.marked = "keyword"
-        return cont(statement)
       } else {
         return cont(pushlex("stat"), maybelabel);
       }
@@ -27964,7 +27851,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   function expressionInner(type, noComma) {
     if (cx.state.fatArrowAt == cx.stream.start) {
       var body = noComma ? arrowBodyNoComma : arrowBody;
-      if (type == "(") return cont(pushcontext, pushlex(")"), commasep(funarg, ")"), poplex, expect("=>"), body, popcontext);
+      if (type == "(") return cont(pushcontext, pushlex(")"), commasep(pattern, ")"), poplex, expect("=>"), body, popcontext);
       else if (type == "variable") return pass(pushcontext, pattern, expect("=>"), body, popcontext);
     }
 
@@ -27999,7 +27886,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     var expr = noComma == false ? expression : expressionNoComma;
     if (type == "=>") return cont(pushcontext, noComma ? arrowBodyNoComma : arrowBody, popcontext);
     if (type == "operator") {
-      if (/\+\+|--/.test(value) || isTS && value == "!") return cont(me);
+      if (/\+\+|--/.test(value)) return cont(me);
       if (value == "?") return cont(expression, expect(":"), expr);
       return cont(expr);
     }
@@ -28009,11 +27896,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     if (type == ".") return cont(property, me);
     if (type == "[") return cont(pushlex("]"), maybeexpression, expect("]"), poplex, me);
     if (isTS && value == "as") { cx.marked = "keyword"; return cont(typeexpr, me) }
-    if (type == "regexp") {
-      cx.state.lastType = cx.marked = "operator"
-      cx.stream.backUp(cx.stream.pos - cx.stream.start - 1)
-      return cont(expr)
-    }
   }
   function quasi(type, value) {
     if (type != "quasi") return pass();
@@ -28038,7 +27920,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   function maybeTarget(noComma) {
     return function(type) {
       if (type == ".") return cont(noComma ? targetNoComma : target);
-      else if (type == "variable" && isTS) return cont(maybeTypeArgs, noComma ? maybeoperatorNoComma : maybeoperatorComma)
       else return pass(noComma ? expressionNoComma : expression);
     };
   }
@@ -28062,9 +27943,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     } else if (type == "variable" || cx.style == "keyword") {
       cx.marked = "property";
       if (value == "get" || value == "set") return cont(getterSetter);
-      var m // Work around fat-arrow-detection complication for detecting typescript typed arrow params
-      if (isTS && cx.state.fatArrowAt == cx.stream.start && (m = cx.stream.match(/^\s*:\s*/, false)))
-        cx.state.fatArrowAt = cx.stream.pos + m[0].length
       return cont(afterprop);
     } else if (type == "number" || type == "string") {
       cx.marked = jsonldMode ? "property" : (cx.style + " property");
@@ -28123,18 +28001,9 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
       if (value == "?") return cont(maybetype);
     }
   }
-  function typeexpr(type, value) {
-    if (type == "variable") {
-      if (value == "keyof") {
-        cx.marked = "keyword"
-        return cont(typeexpr)
-      } else {
-        cx.marked = "type"
-        return cont(afterType)
-      }
-    }
+  function typeexpr(type) {
+    if (type == "variable") {cx.marked = "type"; return cont(afterType);}
     if (type == "string" || type == "number" || type == "atom") return cont(afterType);
-    if (type == "[") return cont(pushlex("]"), commasep(typeexpr, "]", ","), poplex, afterType)
     if (type == "{") return cont(pushlex("}"), commasep(typeprop, "}", ",;"), poplex, afterType)
     if (type == "(") return cont(commasep(typearg, ")"), maybeReturnType)
   }
@@ -28162,9 +28031,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     if (value == "|" || type == ".") return cont(typeexpr)
     if (type == "[") return cont(expect("]"), afterType)
     if (value == "extends") return cont(typeexpr)
-  }
-  function maybeTypeArgs(_, value) {
-    if (value == "<") return cont(pushlex(">"), commasep(typeexpr, ">"), poplex, afterType)
   }
   function vardef() {
     return pass(pattern, maybetype, maybeAssign, vardefCont);
@@ -28222,9 +28088,8 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     if (type == "(") return cont(pushcontext, pushlex(")"), commasep(funarg, ")"), poplex, maybetype, statement, popcontext);
     if (isTS && value == "<") return cont(pushlex(">"), commasep(typeexpr, ">"), poplex, functiondef)
   }
-  function funarg(type, value) {
-    if (value == "@") cont(expression, funarg)
-    if (type == "spread" || type == "modifier") return cont(funarg);
+  function funarg(type) {
+    if (type == "spread") return cont(funarg);
     return pass(pattern, maybetype, maybeAssign);
   }
   function classExpression(type, value) {
@@ -28242,14 +28107,13 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     if (type == "{") return cont(pushlex("}"), classBody, poplex);
   }
   function classBody(type, value) {
-    if (type == "modifier" || type == "async" ||
-        (type == "variable" &&
-         (value == "static" || value == "get" || value == "set") &&
-         cx.stream.match(/^\s+[\w$\xa1-\uffff]/, false))) {
-      cx.marked = "keyword";
-      return cont(classBody);
-    }
     if (type == "variable" || cx.style == "keyword") {
+      if ((value == "async" || value == "static" || value == "get" || value == "set" ||
+           (isTS && (value == "public" || value == "private" || value == "protected" || value == "readonly" || value == "abstract"))) &&
+          cx.stream.match(/^\s+[\w$\xa1-\uffff]/, false)) {
+        cx.marked = "keyword";
+        return cont(classBody);
+      }
       cx.marked = "property";
       return cont(isTS ? classfield : functiondef, classBody);
     }
@@ -28307,12 +28171,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     return state.lastType == "operator" || state.lastType == "," ||
       isOperatorChar.test(textAfter.charAt(0)) ||
       /[,.]/.test(textAfter.charAt(0));
-  }
-
-  function expressionAllowed(stream, state, backUp) {
-    return state.tokenize == tokenBase &&
-      /^(?:operator|sof|keyword [bc]|case|new|export|default|spread|[\[{}\(,;:]|=>)$/.test(state.lastType) ||
-      (state.lastType == "quasi" && /\{\s*$/.test(stream.string.slice(0, stream.pos - (backUp || 0))))
   }
 
   // Interface
@@ -28389,7 +28247,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     jsonMode: jsonMode,
 
     expressionAllowed: expressionAllowed,
-
     skipExpression: function(state) {
       var top = state.cc[state.cc.length - 1]
       if (top == expression || top == expressionNoComma) state.cc.pop()
@@ -28802,8 +28659,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
         style = style[0];
       }
       override = style;
-      if (type != "comment")
-        state.state = states[state.state](type, stream, state);
+      state.state = states[state.state](type, stream, state);
       return override;
     },
 
@@ -31427,7 +31283,7 @@ module.exports = getRootInstancesFromReactMount;
 
 
 var PooledClass = __webpack_require__(227);
-var ReactElement = __webpack_require__(36);
+var ReactElement = __webpack_require__(37);
 
 var emptyFunction = __webpack_require__(21);
 var traverseAllChildren = __webpack_require__(228);
@@ -31986,7 +31842,7 @@ module.exports = KeyEscapeUtils;
 
 
 
-var ReactElement = __webpack_require__(36);
+var ReactElement = __webpack_require__(37);
 
 /**
  * Create a factory that creates HTML tag elements.
@@ -32307,7 +32163,7 @@ module.exports = ReactPropTypesSecret;
 
 
 
-var _require = __webpack_require__(36),
+var _require = __webpack_require__(37),
     isValidElement = _require.isValidElement;
 
 var factory = __webpack_require__(131);
@@ -32422,7 +32278,7 @@ module.exports = '15.6.1';
 var _require = __webpack_require__(126),
     Component = _require.Component;
 
-var _require2 = __webpack_require__(36),
+var _require2 = __webpack_require__(37),
     isValidElement = _require2.isValidElement;
 
 var ReactNoopUpdateQueue = __webpack_require__(127);
@@ -32448,7 +32304,7 @@ module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 var _prodInvariant = __webpack_require__(44);
 
-var ReactElement = __webpack_require__(36);
+var ReactElement = __webpack_require__(37);
 
 var invariant = __webpack_require__(7);
 
@@ -35244,7 +35100,7 @@ module.exports = BeforeInputEventPlugin;
 
 var _assign = __webpack_require__(12);
 
-var PooledClass = __webpack_require__(37);
+var PooledClass = __webpack_require__(38);
 
 var getTextContentAccessor = __webpack_require__(145);
 
@@ -39498,7 +39354,7 @@ module.exports = flattenChildren;
 
 var _assign = __webpack_require__(12);
 
-var PooledClass = __webpack_require__(37);
+var PooledClass = __webpack_require__(38);
 var Transaction = __webpack_require__(63);
 var ReactInstrumentation = __webpack_require__(22);
 var ReactServerUpdateQueue = __webpack_require__(292);
@@ -40189,7 +40045,7 @@ var _assign = __webpack_require__(12);
 
 var EventListener = __webpack_require__(153);
 var ExecutionEnvironment = __webpack_require__(15);
-var PooledClass = __webpack_require__(37);
+var PooledClass = __webpack_require__(38);
 var ReactDOMComponentTree = __webpack_require__(13);
 var ReactUpdates = __webpack_require__(28);
 
@@ -40431,7 +40287,7 @@ module.exports = ReactInjection;
 var _assign = __webpack_require__(12);
 
 var CallbackQueue = __webpack_require__(139);
-var PooledClass = __webpack_require__(37);
+var PooledClass = __webpack_require__(38);
 var ReactBrowserEventEmitter = __webpack_require__(61);
 var ReactInputSelection = __webpack_require__(154);
 var ReactInstrumentation = __webpack_require__(22);
@@ -42737,7 +42593,7 @@ var _SlideShow = __webpack_require__(563);
 
 var _SlideShow2 = _interopRequireDefault(_SlideShow);
 
-var _ui = __webpack_require__(38);
+var _ui = __webpack_require__(35);
 
 var uiActions = _interopRequireWildcard(_ui);
 
@@ -43014,7 +42870,7 @@ var _assetTypes = __webpack_require__(46);
 
 var assetTypes = _interopRequireWildcard(_assetTypes);
 
-var _ui = __webpack_require__(38);
+var _ui = __webpack_require__(35);
 
 var uiActions = _interopRequireWildcard(_ui);
 
@@ -43503,7 +43359,6 @@ function createProvider() {
     children: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.element.isRequired
   };
   Provider.childContextTypes = (_Provider$childContex = {}, _Provider$childContex[storeKey] = __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__["a" /* storeShape */].isRequired, _Provider$childContex[subscriptionKey] = __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__["b" /* subscriptionShape */], _Provider$childContex);
-  Provider.displayName = 'Provider';
 
   return Provider;
 }
@@ -43600,34 +43455,51 @@ var REACT_STATICS = {
 };
 
 var KNOWN_STATICS = {
-    name: true,
-    length: true,
-    prototype: true,
-    caller: true,
-    arguments: true,
-    arity: true
+  name: true,
+  length: true,
+  prototype: true,
+  caller: true,
+  callee: true,
+  arguments: true,
+  arity: true
 };
 
-var isGetOwnPropertySymbolsAvailable = typeof Object.getOwnPropertySymbols === 'function';
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+var getPrototypeOf = Object.getPrototypeOf;
+var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
+var getOwnPropertyNames = Object.getOwnPropertyNames;
 
-module.exports = function hoistNonReactStatics(targetComponent, sourceComponent, customStatics) {
+module.exports = function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
     if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
-        var keys = Object.getOwnPropertyNames(sourceComponent);
 
-        /* istanbul ignore else */
-        if (isGetOwnPropertySymbolsAvailable) {
-            keys = keys.concat(Object.getOwnPropertySymbols(sourceComponent));
+        if (objectPrototype) {
+            var inheritedComponent = getPrototypeOf(sourceComponent);
+            if (inheritedComponent && inheritedComponent !== objectPrototype) {
+                hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
+            }
+        }
+
+        var keys = getOwnPropertyNames(sourceComponent);
+
+        if (getOwnPropertySymbols) {
+            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
         }
 
         for (var i = 0; i < keys.length; ++i) {
-            if (!REACT_STATICS[keys[i]] && !KNOWN_STATICS[keys[i]] && (!customStatics || !customStatics[keys[i]])) {
-                try {
-                    targetComponent[keys[i]] = sourceComponent[keys[i]];
-                } catch (error) {
-
+            var key = keys[i];
+            if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
+                // Only hoist enumerables and non-enumerable functions
+                if(propIsEnumerable.call(sourceComponent, key) || typeof sourceComponent[key] === 'function') {
+                    try { // Avoid failures from read-only properties
+                        targetComponent[key] = sourceComponent[key];
+                    } catch (e) {}
                 }
             }
         }
+
+        return targetComponent;
     }
 
     return targetComponent;
@@ -43726,6 +43598,9 @@ function createListenerCollection() {
       for (var i = 0; i < listeners.length; i++) {
         listeners[i]();
       }
+    },
+    get: function get() {
+      return next;
     },
     subscribe: function subscribe(listener) {
       var isSubscribed = true;
@@ -49983,7 +49858,7 @@ var _assets = __webpack_require__(25);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
-var _ui = __webpack_require__(38);
+var _ui = __webpack_require__(35);
 
 var uiActions = _interopRequireWildcard(_ui);
 
@@ -50685,7 +50560,7 @@ var _assets = __webpack_require__(25);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
-var _ui = __webpack_require__(38);
+var _ui = __webpack_require__(35);
 
 var uiActions = _interopRequireWildcard(_ui);
 
@@ -51210,7 +51085,7 @@ var _isPlainObject2 = __webpack_require__(416);
 
 var _isPlainObject3 = _interopRequireDefault(_isPlainObject2);
 
-var _map2 = __webpack_require__(35);
+var _map2 = __webpack_require__(36);
 
 var _map3 = _interopRequireDefault(_map2);
 
@@ -57606,7 +57481,7 @@ var _reactcss = __webpack_require__(8);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _map = __webpack_require__(35);
+var _map = __webpack_require__(36);
 
 var _map2 = _interopRequireDefault(_map);
 
@@ -57683,7 +57558,7 @@ var _reactcss = __webpack_require__(8);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _map = __webpack_require__(35);
+var _map = __webpack_require__(36);
 
 var _map2 = _interopRequireDefault(_map);
 
@@ -58513,7 +58388,7 @@ var _reactcss = __webpack_require__(8);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _map = __webpack_require__(35);
+var _map = __webpack_require__(36);
 
 var _map2 = _interopRequireDefault(_map);
 
@@ -58854,7 +58729,7 @@ var _reactcss = __webpack_require__(8);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _map = __webpack_require__(35);
+var _map = __webpack_require__(36);
 
 var _map2 = _interopRequireDefault(_map);
 
@@ -60813,7 +60688,7 @@ var _reactcss = __webpack_require__(8);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _map = __webpack_require__(35);
+var _map = __webpack_require__(36);
 
 var _map2 = _interopRequireDefault(_map);
 
@@ -60933,7 +60808,7 @@ var _reactcss = __webpack_require__(8);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _map = __webpack_require__(35);
+var _map = __webpack_require__(36);
 
 var _map2 = _interopRequireDefault(_map);
 
@@ -61112,7 +60987,7 @@ var _reactcss = __webpack_require__(8);
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _map = __webpack_require__(35);
+var _map = __webpack_require__(36);
 
 var _map2 = _interopRequireDefault(_map);
 
@@ -61337,7 +61212,7 @@ var _slides = __webpack_require__(29);
 
 var slideActions = _interopRequireWildcard(_slides);
 
-var _ui = __webpack_require__(38);
+var _ui = __webpack_require__(35);
 
 var uiActions = _interopRequireWildcard(_ui);
 
@@ -61574,7 +61449,7 @@ var SlidePreview = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: _SlidePreview2.default.thumbnail },
-          _react2.default.createElement('div', { className: _SlidePreview2.default.content, style: this.props.slide.thumbnail != undefined ? { 'background-image': 'url(' + this.props.slide.thumbnail + ')' } : {} })
+          _react2.default.createElement('div', { className: _SlidePreview2.default.content, style: this.props.slide.thumbnail != undefined ? { 'backgroundImage': 'url(' + this.props.slide.thumbnail + ')' } : {} })
         ),
         _react2.default.createElement(
           'div',
@@ -61842,7 +61717,7 @@ var _assets = __webpack_require__(25);
 
 var assetsActions = _interopRequireWildcard(_assets);
 
-var _ui = __webpack_require__(38);
+var _ui = __webpack_require__(35);
 
 var uiActions = _interopRequireWildcard(_ui);
 
@@ -61972,7 +61847,6 @@ var AssetStore = function (_React$Component) {
       var _this3 = this;
 
       _axios2.default.get('/store/assets?filter=' + filter).then(function (response) {
-        console.log(response.data);
         _this3.setState(_extends({}, _this3.state, {
           assets: response.data
         }));
@@ -62061,7 +61935,6 @@ var AssetItem = function (_React$Component) {
   _createClass(AssetItem, [{
     key: 'render',
     value: function render() {
-      console.log('test');
 
       // <div className={styles.imgBtn}><img src={'/images/ic_move_in_box_gray.png'}/></div>
       // <div className={styles.imgBtn}><img src={'/images/ic_flag_white.png'}/></div>
@@ -63258,7 +63131,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _ui = __webpack_require__(38);
+var _ui = __webpack_require__(35);
 
 var _reactAddonsUpdate = __webpack_require__(73);
 
@@ -63526,7 +63399,7 @@ var ShowListContext = function (_React$Component) {
   }, {
     key: 'openShow',
     value: function openShow(id) {
-      window.location.href = '/?show=' + id;
+      window.location.href = '/editor/?show=' + id;
     }
   }, {
     key: 'shareShow',
@@ -63989,8 +63862,6 @@ var ShowListContext = function (_React$Component) {
       var showId = url.searchParams.get("show");
       if (showId != null) {
         _axios2.default.post('/show/play/', { showId: showId }).then(function (response) {
-          console.log('asdasa');
-          console.log(response.data);
           _this3.setState({ slides: response.data });
         }).catch(function (e) {
           console.log(e);

@@ -99,7 +99,7 @@ class ShowListContext extends React.Component{
   }
 
   openShow(id){
-    window.location.href = '/?show='+id;
+    window.location.href = '/editor/?show='+id;
   }
 
   shareShow(id){
