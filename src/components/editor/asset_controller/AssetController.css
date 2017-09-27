@@ -139,8 +139,8 @@ select {
 .control_text_attribute img {
     cursor: pointer;
     margin: 8px;
-    width: 23px;
-    height: 23px;
+    width: 18px;
+    height: 18px;
 }
 
 .change_color {
