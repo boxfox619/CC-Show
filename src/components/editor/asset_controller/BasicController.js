@@ -196,7 +196,7 @@ class BasicController extends React.Component{
 
     setStyle(event) {
         let {value}=event.target;
-        this.props.setAssetStyle(value); 
+        this.props.setAssetStyle(value);
     }
 
     setAngle(event) {
@@ -205,7 +205,7 @@ class BasicController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setAssetAngle(intValue); 
+        this.props.setAssetAngle(intValue);
     }
 
     setBorderWeight(event) {
@@ -214,7 +214,7 @@ class BasicController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setAssetEdgeWeight(intValue); 
+        this.props.setAssetEdgeWeight(intValue);
     }
 
     setFillColor(color) {
@@ -224,7 +224,7 @@ class BasicController extends React.Component{
     setEdgeColor(color) {
         this.props.setEdgeColor(color.hex);
     }
-    
+
     attributeOn() {
         this.setState({
             ...this.state,

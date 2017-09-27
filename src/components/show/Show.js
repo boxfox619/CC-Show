@@ -78,8 +78,6 @@ class ShowListContext extends React.Component{
     if(showId != null){
       axios.post('/show/play/', {showId: showId})
       .then(response => {
-        console.log('asdasa');
-        console.log(response.data);
         this.setState({slides: response.data});
       })
       .catch(e =>{

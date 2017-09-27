@@ -12,7 +12,7 @@ class ImageController extends React.Component{
         this.state={
             image:true,
             image_arrow_up:false,
-            image_arrow_down:true    
+            image_arrow_down:true
         };
 
         this.imageOn=this.imageOn.bind(this);
@@ -72,5 +72,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ ...actions }, dispatch);
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(ImageController);
