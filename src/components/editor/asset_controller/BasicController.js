@@ -45,7 +45,7 @@ class BasicController extends React.Component{
     }
 
     render(){
-            console.log(this.props.style);
+        console.log(this.props.style);
         return(
             <div>
                 <div style={{'height':'13vh'}}>
@@ -98,7 +98,7 @@ class BasicController extends React.Component{
                         </div>
                         <div className={styles.control_item}>
                             <span><img src="/images/ic_line.png"/></span>
-                            <input type="text" className={styles.attribute_item_input} onChange={this.setBorderWeight} value={this.props.borderWeight}/>
+                            <input style={{width:"23%"}} type="text" className={styles.attribute_item_input} onChange={this.setBorderWeight} value={this.props.borderWeight}/>
                             <div className={styles.change_color} onClick={this.props.toggleBorderColorPicker} style={this.props.borderColor==='white' ? {border:'1px solid #5D87B5'} : {backgroundColor:this.props.borderColor}}> </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.style ? {} : {display:'none'}} className={styles.items}>
                         <div id={styles.input_style}>
-                            <textarea onChange={this.setStyle.bind()} rows="" cols="" value={this.JSONstringify(this.props.style)}></textarea>
+                            <textarea onChange={this.setStyle.bind()} rows="" cols="" value={JSON.stringify(this.props.style, null, 4)}></textarea>
                         </div>
                     </div>
                 </div>
@@ -196,7 +196,7 @@ class BasicController extends React.Component{
 
     setStyle(event) {
         let {value}=event.target;
-        this.props.setAssetStyle(value); 
+        this.props.setAssetStyle(value);
     }
 
     setAngle(event) {
@@ -205,17 +205,16 @@ class BasicController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setAssetAngle(intValue); 
+        this.props.setAssetAngle(intValue);
     }
 
     setBorderWeight(event) {
         let {value}=event.target;
         let intValue=parseInt(value);
-        console.log(value);
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setAssetEdgeWeight(intValue); 
+        this.props.setAssetEdgeWeight(intValue);
     }
 
     setFillColor(color) {
@@ -225,7 +224,7 @@ class BasicController extends React.Component{
     setEdgeColor(color) {
         this.props.setEdgeColor(color.hex);
     }
-    
+
     attributeOn() {
         this.setState({
             ...this.state,

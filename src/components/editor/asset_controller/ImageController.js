@@ -12,7 +12,7 @@ class ImageController extends React.Component{
         this.state={
             image:true,
             image_arrow_up:false,
-            image_arrow_down:true    
+            image_arrow_down:true
         };
 
         this.imageOn=this.imageOn.bind(this);
@@ -32,7 +32,7 @@ class ImageController extends React.Component{
                     </div>
                     <div className={styles.items} style={this.state.image ? {} : {display:'none'}}>
                         <div className={styles.control_item+' '+styles.URL_controller}>
-                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value={this.props.url} className={styles.attribute_item_input} onChange={this.setUrl}/>
+                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="file" value={this.props.url} className={styles.attribute_item_input} onChange={this.setUrl}/>
                         </div>
                     </div>
                 </div>
@@ -72,5 +72,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ ...actions }, dispatch);
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(ImageController);

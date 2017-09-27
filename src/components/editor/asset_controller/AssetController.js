@@ -21,7 +21,7 @@ class AssetController extends React.Component {
                 case actions.TYPE_TEXT:
                     return(
                             <TextController font = {this.props.currentSilde.assets[selectedAsset].style['font-family']}
-                                            fontSize = {this.props.currentSilde.assets[selectedAsset].style['font-size']}
+                                            fontSize = {parseInt(this.props.currentSilde.assets[selectedAsset].style['font-size'])}
                                             sort = {this.props.currentSilde.assets[selectedAsset].style['text-align']}
                                             bold = {this.props.currentSilde.assets[selectedAsset].style['font-weight']}
                                             underline = {this.props.currentSilde.assets[selectedAsset].style['text-decoration']}
@@ -29,8 +29,7 @@ class AssetController extends React.Component {
                                             strikethrough = {this.props.currentSilde.assets[selectedAsset].style['text-decoration']}
                                             textColor = {this.props.currentSilde.assets[selectedAsset].style.color}
                                             textCharacterSpacing={parseInt(this.props.currentSilde.assets[selectedAsset].style['letter-spacing'])}
-                                            textLineSpacing={parseInt(this.props.currentSilde.assets[selectedAsset].style['line-height'])}
-                                            fontWeight={this.props.currentSilde.assets[selectedAsset].style.fontWeight}/>
+                                            textLineSpacing={parseInt(this.props.currentSilde.assets[selectedAsset].style['line-height'])}/>
                     )
                 case actions.TYPE_VIDEO:
                     return(

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 p {
     font-family: 'NanumSquareEB';
 }
@@ -143,4 +144,163 @@ select {
     position: absolute;
     left: 40%;
     top: 40%;
+=======
+p {
+    font-family: 'NanumSquareEB';
+}
+
+.items {
+    height: 100%;
+    padding: 0;
+    margin: 0 0 1em 0.4em;
+}
+
+.controller_sub_wrapper {
+    margin: 20px;
+}
+
+.controller_sub_title {
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    color: #5D87B5;
+    font-weight: bold;
+    vertical-align: middle;
+    display: table;
+}
+
+.controller_sub_title:before {
+    content: "";
+    display: table-cell;
+    vertical-align: middle;
+    background: url("/images/ic_ellipse_gray.png") no-repeat left center;
+    width: 23px;
+}
+
+.control_item {
+    display: inline-table;
+    border: 1px solid #5a84b3;
+    border-radius: 20px;
+    padding: 3px 5px 3px 5px;
+    margin: 3px;
+    width: 40%;
+    height: 20px;
+    float: left;
+}
+
+.control_item span{
+    font-size:20px;
+}
+
+.video span{
+    margin: 0;
+    font-size:1vw;
+}
+
+.URL_controller {
+    width: 14.2vw;
+    display: table;
+    padding: 1px 0 1px 2px;
+}
+
+.video_margin_zero {
+    margin: 0;
+}
+
+.video {
+    text-align: center;
+    width: 4.1vw;
+    cursor: pointer;
+}
+
+.attribute_item_title {
+    border: 0;
+    margin: 0 0 0 5px;
+    width: 15%;
+    font-size: 15px;
+    color: #5a84b3;
+}
+
+.attribute_item_input {
+    width: 60%;
+    text-align: right;
+    border: 0;
+    display: inline;
+    clear: both;
+    outline-width: 0;
+}
+
+.show_items_button {
+    position: absolute;
+    cursor: pointer;
+    width: 10px;
+    margin: 3px;
+    right: 0;
+}
+
+button {
+    border: 0;
+    outline: 0;
+}
+
+.controller_hr {
+    border-top: 3px dotted #5a84b3;
+    background-color: #fff;
+    opacity: 0.3;
+    width: 100%;
+}
+
+#input_style {
+    width: 85%;
+    border: 1px solid #5a84b3;
+    border-radius: 20px;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+#input_style textarea {
+    width: 98%;
+    height: 15vh;
+    border: 0;
+}
+
+textarea:focus {
+    outline: 0;
+}
+
+select {
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+}
+
+.control_text_attribute {}
+
+
+
+.control_item img {
+    margin: 3px 0 0 5px;
+    float: left;
+}
+
+.control_text_attribute img {
+    cursor: pointer;
+    margin: 10px;
+    width: 1vw;
+}
+
+.change_color {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    float: right;
+    display: inline-block;
+}
+
+.color_picker_modal {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+>>>>>>> 1f763b1dfe0c906a772ad79f0453987f1587149d
 }
