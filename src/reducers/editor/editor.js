@@ -113,7 +113,7 @@ const editor = (state = initialState, action) => {
               assets: {
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
-                    [getAssetIndex(state, action.id)]: {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       value: {
                         $set: action.value
                       }

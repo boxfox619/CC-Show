@@ -37,7 +37,7 @@ p {
     border-radius: 20px;
     padding: 3px 5px 3px 5px;
     margin: 3px;
-    width: 117px;
+    width: 100px;
     height: 20px;
 }
 
@@ -47,13 +47,13 @@ p {
 }
 
 .URL_controller {
-    width: 260px;
+    width: 220px;
     display: table;
     padding: 1px 0 1px 2px;
 }
 
 .video_preview_toggle{
-  width: 260px;
+  width: 214px;
   color: #5a84b3;
   padding-top: 5px;
   text-align: center;
@@ -75,7 +75,7 @@ p {
 }
 
 .image_loader{
-  width: 260px;
+  width: 220px;
   color: #5a84b3;
   padding-top: 5px;
   text-align: center;
@@ -97,7 +97,7 @@ p {
 .attribute_item_title {
   border: 0;
   margin: 0 0 0 5px;
-  width: 20%;
+  width: 23%;
   max-width: 37px;
   font-size: 15px;
   color: #5a84b3;
@@ -108,7 +108,7 @@ p {
 }
 
 .attribute_item_input {
-    width: 70%;
+    width: 65%;
     min-width: calc( 100% - 50px );
     height: 100%;
     text-align: right;
@@ -122,7 +122,7 @@ p {
 
 .attribute_both_input_area {
     float: right;
-    width: 60%;
+    width: 70%;
     height: 100%;
 }
 
@@ -148,7 +148,7 @@ button {
 }
 
 #input_style {
-    width: 250px;
+    width: 218px;
     border: 1px solid #5a84b3;
     border-radius: 20px;
     margin-left: 5px;

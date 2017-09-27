@@ -5,11 +5,11 @@ import AssetController from './asset_controller/AssetController';
 import SlideManager from './slideManager/SlideManager';
 import AssetStore from './assetStore/AssetStore';
 import AssetEditor from './assetEditor/AssetEditor';
+import ColorPicker from './color_picker/ColorPicker';
 
 import SlideShow from './slide_show/SlideShow'
-import { dialogs, colorPicker } from '../../actions/ui';
+import { dialogs } from '../../actions/ui';
 
-import { SketchPicker } from 'react-color';
 import * as assetsActions from '../../actions/assets';
 import * as uiActions from '../../actions/ui';
 import * as slideActions from '../../actions/slides';
@@ -33,26 +33,10 @@ class SlideEditor extends React.Component{
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
 
-    this.handleBorderColor = this.handleBorderColor.bind(this);
-    this.handleFillColor = this.handleFillColor.bind(this);
-    this.handleTextColor = this.handleTextColor.bind(this);
-
     this.uploadShowData = this.uploadShowData.bind(this);
   }
 
   render(){
-    let kindsOfcolorPicker= () =>{
-       if(this.props.colorPicker!=undefined){
-         switch(this.props.colorPicker){
-           case colorPicker.TEXT_COLOR:
-            return (this.handleTextColor)
-           case colorPicker.FILL_COLOR:
-            return (this.handleFillColor)
-           case colorPicker.BORDER_COLOR:
-            return (this.handleBorderColor)
-         }
-       }
-    }
     let renderDialogs = ()=>{
       if(this.props.dialog!=undefined){
         switch(this.props.dialog){
@@ -63,7 +47,7 @@ class SlideEditor extends React.Component{
           case dialogs.ACCOUNT_WITH_SNS:
             return (<AccountDialog className={styles.modal}/>);
           case dialogs.COLOR_PICKER:
-            return (<div className={styles.color_picker}><SketchPicker onChangeComplete={kindsOfcolorPicker()}/></div>)
+            return (<ColorPicker className={styles.color_picker}/>)
           case dialogs.SLIDE_SHOW:
             return (<SlideShow className={styles.modal}/>);
         }
@@ -148,17 +132,6 @@ class SlideEditor extends React.Component{
       console.log(e);
     });
   }
-
-  handleFillColor(color){
-    this.props.setAssetFillColor(color.hex);
-  };
-
-  handleBorderColor(color){
-    this.props.setAssetBorderColor(color.hex);
-  };
-  handleTextColor(color){
-    this.props.setAssetTextColor(color.hex);
-  };
 }
 
 const mapStateToProps = (state) => {
@@ -166,7 +139,6 @@ const mapStateToProps = (state) => {
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager,
     visibleSlideShow: state.ui.visibleSlideShow,
-    colorPicker: state.ui.colorPicker,
     showData: state.editor
   }
 }
