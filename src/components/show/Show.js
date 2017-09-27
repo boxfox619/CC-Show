@@ -32,7 +32,7 @@ class ShowListContext extends React.Component{
     }
     let renderingAssets = (assets) => {
       return assets.map((asset)=>{
-        return <Asset controlable={false} key={asset.id} handleValueChange={this.props.setAssetValue} attribute={this.convertSize(asset)}/>
+        return <Asset controlable={false} key={this.state.currentSlide+'-'+asset.id+'-'+this.state.currentSlide} handleValueChange={this.props.setAssetValue} attribute={this.convertSize(asset)}/>
       })
     }
     return (
