@@ -3,14 +3,17 @@ import styles from './AssetEditor.css';
 import Thumbnail from './Thumbnail';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Asset from '../assets/Asset';
 import * as assetTypes from '../../../assetTypes';
 
+import domtoimage from 'dom-to-image';
 import CodeMirror from 'react-codemirror';
 import jsMode from 'codemirror/mode/javascript/javascript';
 import htmlMode from 'codemirror/mode/htmlmixed/htmlmixed';
 import cssMode from 'codemirror/mode/css/css';
+import * as uiActions from '../../../actions/ui';
 
 function getAssetNode(parent, child) {
      var node = child.parentNode;
@@ -21,6 +24,10 @@ function getAssetNode(parent, child) {
          node = node.parentNode;
      }
      return null;
+}
+
+function filter (node) {
+    return (node.tagName !== 'SELECTORLINE'&&node.tagName !== 'SELECTORDOT');
 }
 
 
@@ -73,20 +80,12 @@ class AssetEditor extends React.Component{
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseRelese = this.handleMouseRelese.bind(this);
+
+    this.submit = this.submit.bind(this);
   }
 
 
   render(){
-
-    let renderTabs = (tabs) =>{
-      return tabs.map((tab, idx)=>{
-        if(idx == this.state.activeTab){
-          return (<activetab key={"tab"+idx}>{tab.name}</activetab>)
-        }else{
-          return (<tab onClick={()=>this.selectTab(tab)} key={"tab"+idx}>{tab.name}</tab>)
-        }
-      });
-    }
 
     let renderEditors = () =>{
       if(this.state.activeTab==0){
@@ -115,9 +114,10 @@ class AssetEditor extends React.Component{
       <div className={this.props.className}>
         <header>
           <h1>ASSET EDITOR</h1>
-          <tabholder>
-            {renderTabs(tabs)}
-          </tabholder>
+          <div className={styles.rightController}>
+            <div><input className={styles.titleInput} placeholder={"에셋의 이름을 정해주세요!"} type="text"/></div>
+            <div onClick={this.submit} className={styles.saveIcon}></div>
+          </div>
         </header>
 
         <div className = {styles.content}>
@@ -157,7 +157,7 @@ class AssetEditor extends React.Component{
             onMouseUp={this.handleMouseRelese}
             onMouseLeave={this.handleMouseRelese}>
               {/* here is preview area */}
-              <Asset isSelected={this.state.mouseAction != 'none'} handleValueChange={()=>{}} attribute={{...this.state.previewAsset, value: this.state.css + this.state.html + this.state.js}}/>
+              <Asset id={'previewAsset'} isSelected={this.state.mouseAction != 'none'} handleValueChange={()=>{}} attribute={{...this.state.previewAsset, value: this.state.css + this.state.html + this.state.js}}/>
               {/* <textarea value = {this.state.html}></textarea> */}
             </div>
           </div>
@@ -189,6 +189,25 @@ class AssetEditor extends React.Component{
     //     license: this.props.data.license
     //   });
     // }
+  }
+
+  submit(){
+    let assetName = document.getElementsByClassName(styles.titleInput)[0].value;
+    let source = this.state.css + this.state.html + this.state.js;
+
+    let node = document.getElementById('preview').childNodes[0];
+    let self = this;
+      domtoimage.toPng(node, {filter: filter})
+        .then(function (dataUrl) {
+          let thumbnail = dataUrl;
+            axios.post('/store/simple/create', {name:assetName, source, thumbnail}).then(response => {
+              self.props.toggleAssetStore();
+            });
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+
   }
 
   handleMouseMove(e){
@@ -272,13 +291,6 @@ class AssetEditor extends React.Component{
   }
 
   selectTab(tab){
-    let index = tabs.findIndex((obj => obj.name == tab.name));
-    this.setState(
-      {
-        ...this.state,
-        activeTab: index
-      }
-    );
     // this.loadItems(tabs[index].filter);
     //오류나서 주석해놨어요
   }
@@ -310,7 +322,6 @@ class AssetEditor extends React.Component{
       js: '<script>' + currentText + '</script>',
       mode : 'jsMode'
     });
-    // console.log(this.state.mode);
   }
 }
 
@@ -320,4 +331,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(AssetEditor);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ ...uiActions }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AssetEditor);
