@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "341abf88bd97282e2e1e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "28eb265961db94e44889"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -21236,14 +21236,15 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".Show__context___1Sw3T{\r\n  overflow: hidden;\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.Show__left___3qH7h{\r\n  top: 0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__right___2vy9y{\r\n  top: 0;\r\n  right:0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__slide___1tAzX{\r\n  position: static;\r\n  width: 100vw;\r\n  height: 100vh;\r\n}\r\n", ""]);
+exports.push([module.i, ".Show__context___1Sw3T{\r\n  overflow: hidden;\r\n  user-drag: none;\r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.Show__left___3qH7h{\r\n  top: 0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__right___2vy9y{\r\n  top: 0;\r\n  right:0;\r\n  display: block;\r\n  position: absolute;\r\n  width: 50vw;\r\n  height: 100vh;\r\n  cursor: pointer;\r\n}\r\n\r\n.Show__slide___1tAzX{\r\n  position: static;\r\n  width: 100vw;\r\n  height: 100vh;\r\n}\r\n\r\n.Show__loader___b5Hu7{\r\n  position: fixed;\r\n  left:50%;\r\n  top:50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
 	"context": "Show__context___1Sw3T",
 	"left": "Show__left___3qH7h",
 	"right": "Show__right___2vy9y",
-	"slide": "Show__slide___1tAzX"
+	"slide": "Show__slide___1tAzX",
+	"loader": "Show__loader___b5Hu7"
 };
 
 /***/ }),
@@ -63891,6 +63892,8 @@ var ShowListContext = function (_React$Component) {
       var renderingSlides = function renderingSlides() {
         if (_this2.state.slides.length > 0) {
           return renderingAssets(_this2.state.slides[_this2.state.currentSlide].assets);
+        } else {
+          return _react2.default.createElement('img', { className: _Show2.default.loader, src: '/images/progress.gif' });
         }
       };
       var renderingAssets = function renderingAssets(assets) {
@@ -63938,8 +63941,6 @@ var ShowListContext = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var _this3 = this;
-
       window.addEventListener("keydown", this.handleKeyDown, true);
       window.addEventListener('contextmenu', function (e) {
         e.preventDefault();
@@ -63949,14 +63950,7 @@ var ShowListContext = function (_React$Component) {
       };
       var url = new URL(window.location.href);
       var showId = url.searchParams.get("show");
-      if (showId != null) {
-        _axios2.default.post('/show/play/', { showId: showId }).then(function (response) {
-          _this3.setState({ slides: response.data });
-        }).catch(function (e) {
-          console.log(e);
-          alert('존재하지 않는 ppt 입니다!');
-        });
-      }
+      if (showId != null) {}
     }
   }, {
     key: 'handleKeyDown',

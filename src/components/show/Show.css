@@ -34,3 +34,11 @@
   width: 100vw;
   height: 100vh;
 }
+
+.loader{
+  position: fixed;
+  width: 20%;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+}

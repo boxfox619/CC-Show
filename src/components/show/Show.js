@@ -26,6 +26,8 @@ class ShowListContext extends React.Component{
     let renderingSlides = () =>{
       if(this.state.slides.length>0){
         return renderingAssets(this.state.slides[this.state.currentSlide].assets);
+      }else{
+        return (<img className={styles.loader} src="/images/progress.gif"/>);
       }
     }
     let renderingAssets = (assets) => {
