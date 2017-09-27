@@ -32,7 +32,7 @@ class ImageController extends React.Component{
                     </div>
                     <div className={styles.items} style={this.state.image ? {} : {display:'none'}}>
                         <div className={styles.control_item+' '+styles.URL_controller}>
-                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="text" value={this.props.url} className={styles.attribute_item_input} onChange={this.setUrl}/>
+                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="file" value={this.props.url} className={styles.attribute_item_input} onChange={this.setUrl}/>
                         </div>
                     </div>
                 </div>

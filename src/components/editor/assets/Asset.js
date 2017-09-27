@@ -8,6 +8,7 @@ import TextAsset from './TextAsset';
 import ImageAsset from './ImageAsset';
 import VideoAsset from './VideoAsset';
 import CustomAsset from './CustomAsset';
+import PreviewAsset from './PreviewAsset';
 
 const propTypes = {
   attribute: React.PropTypes.object,
@@ -29,6 +30,7 @@ class Asset extends React.Component{
     this.getContextWidth = this.getContextWidth.bind(this);
     this.getContextHeight = this.getContextHeight.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.getClearStyle = this.getClearStyle.bind(this);
     }
 
   render(){
@@ -48,6 +50,9 @@ class Asset extends React.Component{
         break;
       case assetTypes.TYPE_CUSTOM:
         assetTag = CustomAsset;
+        break;
+      case assetTypes.TYPE_PREVIEW:
+        assetTag = PreviewAsset;
         break;
       default:
         assetTag = 'TextAsset';
@@ -86,7 +91,7 @@ class Asset extends React.Component{
       return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
       <div style={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'padding': '6px', 'position': 'absolute'}} >
         {renderSelectorLine()}
-        <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move'}} value={this.props.attribute.value}/>
+        <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} value={this.props.attribute.value}/>
           {renderSelectorDot()}
       </div>
       </asset>);
@@ -95,6 +100,19 @@ class Asset extends React.Component{
 
   handleInputChange(event) {
     this.props.handleValueChange(this.props.attribute.id,event.target.value);
+  }
+
+  getClearStyle(){
+    let clearStyle={};
+    for (var prop in this.props.attribute.style) {
+      let key = prop;
+      while(key.indexOf('-')>0){
+        let index = key.indexOf('-');
+        key = key.substring(0, index)+key.substring(index+1, index+2).toUpperCase()+key.substring(index+2, key.length);
+      }
+      clearStyle[key] = this.props.attribute.style[prop];
+    }
+    return clearStyle;
   }
 
   getContextWidth(){
@@ -123,11 +141,6 @@ class Asset extends React.Component{
       'left' : this.props.attribute.x,
       'top' : this.props.attribute.y
     };
-    if(this.props.attribute.styles != 'undefined'){
-      for (key in this.props.attribute.styles) {
-        style[key] = this.props.attribute.styles[key];
-      }
-    }
     return style;
   }
 

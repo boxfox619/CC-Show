@@ -15,7 +15,7 @@ p {
 .controller_sub_title {
     position: relative;
     width: 100%;
-    font-size: 12px;
+    font-size: 16px;
     color: #5D87B5;
     font-weight: bold;
     vertical-align: middle;
@@ -41,8 +41,17 @@ p {
     float: left;
 }
 
+.control_item span{
+    font-size:20px;
+}
+
+.video span{
+    margin: 0;
+    font-size:1vw;
+}
+
 .URL_controller {
-    width: 90%;
+    width: 14.2vw;
     display: table;
     padding: 1px 0 1px 2px;
 }
@@ -53,7 +62,7 @@ p {
 
 .video {
     text-align: center;
-    width: 25%;
+    width: 4.1vw;
     cursor: pointer;
 }
 
@@ -120,6 +129,8 @@ select {
 
 .control_text_attribute {}
 
+
+
 .control_item img {
     margin: 3px 0 0 5px;
     float: left;
@@ -128,6 +139,7 @@ select {
 .control_text_attribute img {
     cursor: pointer;
     margin: 10px;
+    width: 1vw;
 }
 
 .change_color {

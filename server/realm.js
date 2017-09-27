@@ -39,9 +39,7 @@ const SimpleAssetSchema = {
     title: {type: 'string', default: '이름없는 에셋'},
     star: {type: 'int', default: 5},
     thumbnail: {type: 'string', default: '/images/ic_cc_show.png'},
-    html: {type: 'string', default: '<div class="test"></div>'},
-    css: {type:'string', default: '.test{ width: 100px; height: 200px; background: red;}'},
-    js: {type: 'string', default: ''}
+    source: {type: 'string', default: '<div class="test"></div>'}
   }
 }
 

@@ -60,7 +60,6 @@ class SlideEditor extends React.Component{
             return (<AssetStore className={styles.modal}/>);
           case dialogs.ASSET_EDITOR:
            return (<AssetEditor className={styles.modal}/>);
-
           case dialogs.ACCOUNT_WITH_SNS:
             return (<AccountDialog className={styles.modal}/>);
           case dialogs.COLOR_PICKER:

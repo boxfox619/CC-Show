@@ -20,19 +20,16 @@ class AssetController extends React.Component {
             switch (this.props.currentSilde.assets[selectedAsset].type) {
                 case actions.TYPE_TEXT:
                     return(
-                            <TextController font = {this.props.currentSilde.assets[selectedAsset].style.font}
-                                            fontSize = {this.props.currentSilde.assets[selectedAsset].style.fontSize}
-                                            sort = {this.props.currentSilde.assets[selectedAsset].style.sort}
-                                            bold = {this.props.currentSilde.assets[selectedAsset].style.fontBold}
-                                            underline = {this.props.currentSilde.assets[selectedAsset].style.fontUnderline}
-                                            italic = {this.props.currentSilde.assets[selectedAsset].style.fontItalic}
-                                            strikethrough = {this.props.currentSilde.assets[selectedAsset].style.fontStrikethrough}
-                                            textColor = {this.props.currentSilde.assets[selectedAsset].style.textColor}
-                                            textCharacterSpacing={this.props.currentSilde.assets[selectedAsset].style.characterSpacing}
-                                            textLineSpacing={this.props.currentSilde.assets[selectedAsset].style.lineSpacing}
-                                            fontWeight={this.props.currentSilde.assets[selectedAsset].style.fontWeight}
-                                            fontSize={this.props.currentSilde.assets[selectedAsset].style.fontSize}
-                                            font={this.props.currentSilde.assets[selectedAsset].style.font}/>
+                            <TextController font = {this.props.currentSilde.assets[selectedAsset].style['font-family']}
+                                            fontSize = {parseInt(this.props.currentSilde.assets[selectedAsset].style['font-size'])}
+                                            sort = {this.props.currentSilde.assets[selectedAsset].style['text-align']}
+                                            bold = {this.props.currentSilde.assets[selectedAsset].style['font-weight']}
+                                            underline = {this.props.currentSilde.assets[selectedAsset].style['text-decoration']}
+                                            italic = {this.props.currentSilde.assets[selectedAsset].style['font-style']}
+                                            strikethrough = {this.props.currentSilde.assets[selectedAsset].style['text-decoration']}
+                                            textColor = {this.props.currentSilde.assets[selectedAsset].style.color}
+                                            textCharacterSpacing={parseInt(this.props.currentSilde.assets[selectedAsset].style['letter-spacing'])}
+                                            textLineSpacing={parseInt(this.props.currentSilde.assets[selectedAsset].style['line-height'])}/>
                     )
                 case actions.TYPE_VIDEO:
                     return(
@@ -66,9 +63,9 @@ class AssetController extends React.Component {
                                      x = {parseInt(this.props.currentSilde.assets[selectedAsset].x)}
                                      y = {parseInt(this.props.currentSilde.assets[selectedAsset].y)}
                                      angle = {parseInt(this.props.currentSilde.assets[selectedAsset].angle)}
-                                     fillColor = {this.props.currentSilde.assets[selectedAsset].style.fillColor}
-                                     borderColor = {this.props.currentSilde.assets[selectedAsset].style.borderColor}
-                                     borderWeight = {parseInt(this.props.currentSilde.assets[selectedAsset].style.borderWeight)}
+                                     fillColor = {this.props.currentSilde.assets[selectedAsset].style['background-color']}
+                                     borderColor = {this.props.currentSilde.assets[selectedAsset].style['border-color']}
+                                     borderWeight = {parseInt(this.props.currentSilde.assets[selectedAsset].style['border-width'])}
                                      style = {this.props.currentSilde.assets[selectedAsset].style}/>
                 </div>
             )
