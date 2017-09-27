@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ed8d987d3ec7550681cc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "06d0a89d5952b04435df"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -49082,7 +49082,7 @@ var SlideContext = function (_React$Component) {
           if (_this2.props.selectedAsset == asset.id) {
             _this2.selectedAsset = asset;
           }
-          return _react2.default.createElement(_Asset2.default, { key: asset.id + _this2.props.currentSilde, isSelected: _this2.props.selectedAsset == asset.id, handleValueChange: _this2.props.setAssetValue, attribute: asset });
+          return _react2.default.createElement(_Asset2.default, { key: _this2.props.currentSilde + '-' + asset.id + '-' + _this2.props.currentSilde, isSelected: _this2.props.selectedAsset == asset.id, handleValueChange: _this2.props.setAssetValue, attribute: asset });
         });
       };
       return _react2.default.createElement(
@@ -49311,6 +49311,17 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function getAssetNode(parent, child) {
+  var node = child;
+  while (node != null) {
+    if (node.tagName == parent) {
+      return node;
+    }
+    node = node.parentNode;
+  }
+  return null;
+}
+
 var ContextMenu = function (_React$Component) {
   _inherits(ContextMenu, _React$Component);
 
@@ -49492,9 +49503,9 @@ var ContextMenu = function (_React$Component) {
       var enable = false;
       var pasteable = false;
       var assetId = undefined;
-      if (event.target.parentNode.parentNode.tagName == 'ASSET') {
+      if (!!getAssetNode('ASSET', event.target)) {
         enable = true;
-        assetId = event.target.parentNode.parentNode.id;
+        assetId = getAssetNode('ASSET', event.target).id;
       }
       if (!!this.cachedAsset) {
         pasteable = true;
