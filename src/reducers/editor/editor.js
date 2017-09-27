@@ -72,6 +72,7 @@ const editor = (state = initialState, action) => {
       } else if (action.assetType === assetTypes.TYPE_VIDEO) {
         newAsset = {
           ...newAsset,
+          preview: false,
           style: {
             ...newAsset.style,
             videoController: false,
@@ -112,7 +113,7 @@ const editor = (state = initialState, action) => {
               assets: {
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
-                    [getAssetIndex(state, action.id)]: {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       value: {
                         $set: action.value
                       }
@@ -477,7 +478,7 @@ const editor = (state = initialState, action) => {
           }
         )
       }
-      case actionTypes.ASSET_SET_IMAGE_URL:
+      case actionTypes.ASSET_SET_IMAGE:
       return {
         ...state,
         slides: update(
@@ -487,10 +488,8 @@ const editor = (state = initialState, action) => {
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
-                      style: {
-                        url: {
-                          $set: action.url
-                        }
+                      value: {
+                          $set: action.value
                       }
                     }
                   }
@@ -535,7 +534,7 @@ const editor = (state = initialState, action) => {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
                         'font-weight': {
-                          $set: (state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weigth']=='bold') ? 'normal' :  'bold'
+                          $set: (state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weight']=='bold') ? 'normal' :  'bold'
                         }
                       }
                     }
@@ -696,6 +695,28 @@ const editor = (state = initialState, action) => {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       value: {
                         $set: action.url
+                      }
+                    }
+                  }
+                )
+              }
+            }
+          }
+        )
+      }
+    case actionTypes.TOGGLE_VIDEO_PREVIEW:
+    let preview = state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].preview;
+      return {
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
+                      preview: {
+                        $set: !preview
                       }
                     }
                   }

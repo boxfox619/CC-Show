@@ -45,10 +45,9 @@ class BasicController extends React.Component{
     }
 
     render(){
-        console.log(this.props.style);
         return(
             <div>
-                <div style={{'height':'160px'}}>
+                <div className={styles.fliping_controller_section}>
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>속성
 
@@ -84,7 +83,7 @@ class BasicController extends React.Component{
                     </div>
                 </div>
                 <hr className={styles.controller_hr}/>
-                <div style={{'height':'80px'}}>
+                <div className={styles.fliping_controller_section}>
                     <div className={styles.controller_sub_wrapper}>
                             <div className={styles.controller_sub_title}>도형
                                 <img onClick={this.shapeOn.bind()} src="/images/ic_arrow_up.png" style={this.state.shape_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
@@ -93,18 +92,20 @@ class BasicController extends React.Component{
                     </div>
                     <div style={this.state.shape ? {} : {display:'none'}} className={styles.items}>
                         <div className={styles.control_item}>
-                            <span><img src="/images/ic_color.png"/></span>
+                            <span className={styles.attribute_item_title}><img src="/images/ic_color.png"/></span>
                             <div className={styles.change_color} onClick={this.props.toggleFillColorPicker} style={this.props.fillColor==='white' ? {border:'1px solid #5D87B5'} : {backgroundColor:this.props.fillColor}} > </div>
                         </div>
                         <div className={styles.control_item}>
-                            <span><img src="/images/ic_line.png"/></span>
-                            <input style={{width:"23%"}} type="text" className={styles.attribute_item_input} onChange={this.setBorderWeight} value={this.props.borderWeight}/>
+                            <span className={styles.attribute_item_title}><img src="/images/ic_line.png"/></span>
+                            <div className={styles.attribute_both_input_area}>
                             <div className={styles.change_color} onClick={this.props.toggleBorderColorPicker} style={this.props.borderColor==='white' ? {border:'1px solid #5D87B5'} : {backgroundColor:this.props.borderColor}}> </div>
+                            <input style={{width:"60%"}} type="text" className={styles.attribute_item_input} onChange={this.setBorderWeight} value={this.props.borderWeight}/>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <hr className={styles.controller_hr}/>
-                <div>
+                <div className={styles.fliping_controller_section}>
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>스타일
                             <img onClick={this.styleOn.bind()} src="/images/ic_arrow_up.png" style={this.state.style_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>

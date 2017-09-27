@@ -10,6 +10,7 @@ p {
 
 .controller_sub_wrapper {
     margin: 20px;
+    margin-bottom: 10px;
 }
 
 .controller_sub_title {
@@ -36,13 +37,8 @@ p {
     border-radius: 20px;
     padding: 3px 5px 3px 5px;
     margin: 3px;
-    width: 117px;
+    width: 100px;
     height: 20px;
-    float: left;
-}
-
-.control_item span{
-    font-size:20px;
 }
 
 .video span{
@@ -51,13 +47,45 @@ p {
 }
 
 .URL_controller {
-    width: 260px;
+    width: 220px;
     display: table;
     padding: 1px 0 1px 2px;
 }
 
-.video_margin_zero {
-    margin: 0;
+.video_preview_toggle{
+  width: 214px;
+  color: #5a84b3;
+  padding-top: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.video_preview_toggle.active{
+  background: #73a5dd;
+  color: white;
+}
+.video_preview_toggle.active:hover{
+  background: #ffffff;
+  color: #5a84b3;
+}
+
+.video_preview_toggle:hover{
+  background: #73a5dd;
+  color: white;
+}
+
+.image_loader{
+  width: 220px;
+  color: #5a84b3;
+  padding-top: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.image_loader:hover{
+  background: #73a5dd;
+  color: white;
 }
 
 .video {
@@ -67,20 +95,35 @@ p {
 }
 
 .attribute_item_title {
-    border: 0;
-    margin: 0 0 0 5px;
-    width: 50px;
-    font-size: 15px;
-    color: #5a84b3;
+  border: 0;
+  margin: 0 0 0 5px;
+  width: 23%;
+  max-width: 37px;
+  font-size: 15px;
+  color: #5a84b3;
+  height: 100%;
+  display: flex;
+  float: left;
+  align-items: center;
 }
 
 .attribute_item_input {
-    width: 60%;
+    width: 65%;
+    min-width: calc( 100% - 50px );
+    height: 100%;
     text-align: right;
     border: 0;
     display: inline;
-    clear: both;
     outline-width: 0;
+    float: right;
+    margin-right: 5px;
+}
+
+
+.attribute_both_input_area {
+    float: right;
+    width: 70%;
+    height: 100%;
 }
 
 .show_items_button {
@@ -101,10 +144,11 @@ button {
     background-color: #fff;
     opacity: 0.3;
     width: 100%;
+    margin-top: 20px;
 }
 
 #input_style {
-    width: 250px;
+    width: 218px;
     border: 1px solid #5a84b3;
     border-radius: 20px;
     margin-left: 5px;
@@ -127,20 +171,11 @@ select {
     border-radius: 20px;
 }
 
-.control_text_attribute {}
-
-
-
-.control_item img {
-    margin: 3px 0 0 5px;
-    float: left;
-}
-
 .control_text_attribute img {
     cursor: pointer;
-    margin: 8px;
-    width: 23px;
-    height: 23px;
+    margin: 6px;
+    width: 17px;
+    height: 18px;
 }
 
 .change_color {

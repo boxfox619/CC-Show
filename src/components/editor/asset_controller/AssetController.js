@@ -17,26 +17,23 @@ class AssetController extends React.Component {
         super(prop);
     }
     ControllerSelector(selectedAsset) {
-            switch (this.props.currentSilde.assets[selectedAsset].type) {
+            switch (this.props.selectedAsset.type) {
                 case actions.TYPE_TEXT:
                     return(
-                            <TextController font = {this.props.currentSilde.assets[selectedAsset].style['font-family']}
-                                            fontSize = {parseInt(this.props.currentSilde.assets[selectedAsset].style['font-size'])}
-                                            sort = {this.props.currentSilde.assets[selectedAsset].style['text-align']}
-                                            bold = {this.props.currentSilde.assets[selectedAsset].style['font-weight']}
-                                            underline = {this.props.currentSilde.assets[selectedAsset].style['text-decoration']}
-                                            italic = {this.props.currentSilde.assets[selectedAsset].style['font-style']}
-                                            strikethrough = {this.props.currentSilde.assets[selectedAsset].style['text-decoration']}
-                                            textColor = {this.props.currentSilde.assets[selectedAsset].style.color}
-                                            textCharacterSpacing={parseInt(this.props.currentSilde.assets[selectedAsset].style['letter-spacing'])}
-                                            textLineSpacing={parseInt(this.props.currentSilde.assets[selectedAsset].style['line-height'])}/>
+                            <TextController font = {this.props.selectedAsset.style['font-family']}
+                                            fontSize = {parseInt(this.props.selectedAsset.style['font-size'])}
+                                            sort = {this.props.selectedAsset.style['text-align']}
+                                            bold = {this.props.selectedAsset.style['font-weight']}
+                                            underline = {this.props.selectedAsset.style['text-decoration']}
+                                            italic = {this.props.selectedAsset.style['font-style']}
+                                            strikethrough = {this.props.selectedAsset.style['text-decoration']}
+                                            textColor = {this.props.selectedAsset.style.color}
+                                            textCharacterSpacing={parseInt(this.props.selectedAsset.style['letter-spacing'])}
+                                            textLineSpacing={parseInt(this.props.selectedAsset.style['line-height'])}/>
                     )
                 case actions.TYPE_VIDEO:
                     return(
-                            <VideoController url = {this.props.currentSilde.assets[selectedAsset].style.url}
-                                             videoController = {this.props.currentSilde.assets[selectedAsset].style.videoController}
-                                             videoAutoplay = {this.props.currentSilde.assets[selectedAsset].style.videoAutoplay}
-                                             videoLoop = {this.props.currentSilde.assets[selectedAsset].style.videoLoop} />
+                            <VideoController url = {this.props.selectedAsset.value} preview={this.props.selectedAsset.preview} />
                     )
                 case actions.TYPE_SHAPE:
                     return(
@@ -44,7 +41,7 @@ class AssetController extends React.Component {
                     )
                 case actions.TYPE_IMAGE:
                     return(
-                            <ImageController img_url = {this.props.currentSilde.assets[selectedAsset].url}/>
+                            <ImageController img_url = {this.props.selectedAsset.url}/>
                     )
 
                 case actions.TYPE_CUSTOM:
@@ -53,20 +50,19 @@ class AssetController extends React.Component {
     }
 
     render() {
-        let selectedAsset=this.props.currentSilde.selectedAsset-1;
-        if(!!(selectedAsset+1)){
+        if(!!(this.props.selectedAsset)){
             return(
                 <div className={this.props.className}>
-                    {this.ControllerSelector(selectedAsset)}
-                    <BasicController width = {parseInt(this.props.currentSilde.assets[selectedAsset].width)}
-                                     height = {parseInt(this.props.currentSilde.assets[selectedAsset].height)}
-                                     x = {parseInt(this.props.currentSilde.assets[selectedAsset].x)}
-                                     y = {parseInt(this.props.currentSilde.assets[selectedAsset].y)}
-                                     angle = {parseInt(this.props.currentSilde.assets[selectedAsset].angle)}
-                                     fillColor = {this.props.currentSilde.assets[selectedAsset].style['background-color']}
-                                     borderColor = {this.props.currentSilde.assets[selectedAsset].style['border-color']}
-                                     borderWeight = {parseInt(this.props.currentSilde.assets[selectedAsset].style['border-width'])}
-                                     style = {this.props.currentSilde.assets[selectedAsset].style}/>
+                    {this.ControllerSelector(this.props.selectedAsset)}
+                    <BasicController width = {parseInt(this.props.selectedAsset.width)}
+                                     height = {parseInt(this.props.selectedAsset.height)}
+                                     x = {parseInt(this.props.selectedAsset.x)}
+                                     y = {parseInt(this.props.selectedAsset.y)}
+                                     angle = {parseInt(this.props.selectedAsset.angle)}
+                                     fillColor = {this.props.selectedAsset.style['background-color']}
+                                     borderColor = {this.props.selectedAsset.style['border-color']}
+                                     borderWeight = {parseInt(this.props.selectedAsset.style['border-width'])}
+                                     style = {this.props.selectedAsset.style}/>
                 </div>
             )
         }else{
@@ -79,19 +75,28 @@ class AssetController extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  if(state.editor.slides.length>0&&!!state.editor.slides[state.editor.selectedSlide].selectedAsset){
     return {
-        currentSilde : state.editor.slides[state.editor.selectedSlide]
+        currentSilde : state.editor.slides[state.editor.selectedSlide],
+        selectedAsset: state.editor.slides[state.editor.selectedSlide].assets[getAssetIndex(state, state.editor.slides[state.editor.selectedSlide].selectedAsset)],
+        selectedAssetIndex: getAssetIndex(state, state.editor.slides[state.editor.selectedSlide].selectedAsset)
     }
+  }else{
+    return {
+      currentSilde : undefined,
+      selectedAsset: undefined,
+      selectedAsset : undefined
+    }
+  }
 }
 
 function getAssetIndex(state, key) {
-    let index = -1;
-    state.editor.slides.forEach(function (asset, i) {
-        if (asset.id === key) {
-            index = i;
-        }
-    });
-    return index;
+  let index = -1;
+  state.editor.slides[state.editor.selectedSlide].assets.forEach(function (asset, i) {
+    if (asset.id == key) {
+      index = i;
+    }
+  });
+  return index;
 }
-
 export default connect(mapStateToProps)(AssetController);

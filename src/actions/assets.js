@@ -24,7 +24,7 @@ export const actionTypes = {
   ASSET_SET_BORDER_COLOR: 'ASSET_SET_EDGE_COLOR',
   ASSET_SET_BORDER_WEIGHT: 'ASSET_SET_EDGE_WEIGHT',
   ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
-  ASSET_SET_IMAGE_URL: 'ASSET_SET_IMAGE_URL',
+  ASSET_SET_IMAGE: 'ASSET_SET_IMAGE',
   ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',
   ASSET_SET_VIDEO_AUTOPLAY: 'ASSET_SET_VIDEO_AUTOPLAY',
   ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP',
@@ -35,7 +35,8 @@ export const actionTypes = {
   ASSET_SELECTED: "ASSET_SELECTED",
   ASSET_COPY: 'ASSET_COPY',
   ASSET_SORT: 'ASSET_SORT',
-  ASSET_DELETE: 'ASSET_DELETE'
+  ASSET_DELETE: 'ASSET_DELETE',
+  TOGGLE_VIDEO_PREVIEW: 'TOGGLE_VIDEO_PREVIEW'
 };
 
 export const createAsset = (assetType, value, style = {}) => {
@@ -309,10 +310,10 @@ export function setAssetVideoURL(url){
   }
 }
 
-export function setAssetImageURL(url){
+export function setAssetImage(value){
   return{
-    type: actionTypes.ASSET_SET_IMAGE_URL,
-    url
+    type: actionTypes.ASSET_SET_IMAGE,
+    value
   }
 }
 
@@ -338,5 +339,11 @@ export function setAssetStyle(style){
   return{
     type: actionTypes.ASSET_SET_STYLE,
     style
+  }
+}
+
+export function toggleVideoPreview(){
+  return{
+    type: actionTypes.TOGGLE_VIDEO_PREVIEW
   }
 }
