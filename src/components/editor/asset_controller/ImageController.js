@@ -12,8 +12,11 @@ class ImageController extends React.Component{
         this.state={
             image:true,
             image_arrow_up:false,
-            image_arrow_down:true
+            image_arrow_down:true,
+            src: ''
         };
+
+        this.loadImage = this.loadImage.bind(this);
 
         this.imageOn=this.imageOn.bind(this);
         this.imageOff=this.imageOff.bind(this);

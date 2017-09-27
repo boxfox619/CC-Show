@@ -7,8 +7,13 @@ const realm = require('./realm');
 const path = require('path');
 
 const app = express();
+<<<<<<< HEAD
 const port = 80;
 const devPort = 8080;
+=======
+const port = 3000;
+const devPort = 3001;
+>>>>>>> af14ee03029668f7562f86d786a31fcfaa7b7edc
 "use strict";
 app.use(bodyParser.json({limit: '1024mb'}));
 app.use(cookieParser("secret"));
