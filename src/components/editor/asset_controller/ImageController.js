@@ -12,8 +12,11 @@ class ImageController extends React.Component{
         this.state={
             image:true,
             image_arrow_up:false,
-            image_arrow_down:true
+            image_arrow_down:true,
+            src: ''
         };
+
+        this.loadImage = this.loadImage.bind(this);
 
         this.imageOn=this.imageOn.bind(this);
         this.imageOff=this.imageOff.bind(this);
@@ -62,6 +65,30 @@ class ImageController extends React.Component{
         let {value}=event.target;
         this.props.setAssetImageURL(value);
     }
+
+    // loadImage(){
+    //     var fr = new FileReader();
+    //     fr.onload = (e)=> {
+    //     this.setState({
+    //         ...this.state,
+    //         src: e.target.result
+    //     });
+    //     axios.put('/store/update/',{
+    //         id: this.props.id,
+    //         target: 'thumbnail',
+    //         data: e.target.result
+    //     }).then(response => {
+    //         console.log('test');
+    //     });
+    //     };
+    //     var inputElement = document.createElement("input");
+    //     inputElement.type = "file";
+    //     inputElement.addEventListener("change", function(){
+    //     fr.readAsDataURL(inputElement.files[0]);
+    //     });
+    //     inputElement.dispatchEvent(new MouseEvent("click"));
+
+    // }
 }
 
 const mapStateToProps = (state) => {

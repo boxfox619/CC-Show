@@ -535,7 +535,7 @@ const editor = (state = initialState, action) => {
                     [getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)]: {
                       style: {
                         'font-weight': {
-                          $set: (state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weigth']=='bold') ? 'normal' :  'bold'
+                          $set: (state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weight']=='bold') ? 'normal' :  'bold'
                         }
                       }
                     }
