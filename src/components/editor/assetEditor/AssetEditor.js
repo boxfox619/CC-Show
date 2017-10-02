@@ -76,7 +76,7 @@ class AssetEditor extends React.Component{
     };
 
     this.selectTab = this.selectTab.bind(this);
-
+    // this.loadItems = this.loadItems.bind(this);
    }
 
 
@@ -142,7 +142,7 @@ class AssetEditor extends React.Component{
           activeTab : index
         });
 
-        this.loadItems(tabs[index].filter);
+        // this.loadItems(tabs[index].filter);
        }
    
     }

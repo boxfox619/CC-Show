@@ -1,10 +1,13 @@
 .content{
-    padding: 10px 2.5%;
+    /* padding: 10px 2.5%; */
+    padding : 10px 10px 10px 10px;
+    width: 1200px;
 }
 .AssetEditor_left{
     width: 60%;
     height: 70vh ;
-    margin-left: 2em;
+    /* margin-left: 2em; */
+    margin-left: 15px;
     float: left;
 }
 .AssetEditor_preview{
@@ -77,6 +80,7 @@ display: inline-block;
 
 .AssetEditor_description{
 
+width : 705px;
 height: 380px;
 border: 1px solid #1898E5;
 margin: 0.5em 1em 0 0;
@@ -278,7 +282,7 @@ margin-bottom: 10px;
     vertical-align: middle;
     font-size: 0.5em;
     /* padding : 0 7px 0 9px; */
-    width: 40px;
+    width: 60px;
     margin-left: 1em;
     text-align: center;
 }
@@ -353,7 +357,7 @@ margin-bottom: 10px;
 }
 
 .imagePreview_ScrollDiv{
-    width: 270px;
+    width: 286px;
     height: 77px;
     float: left;
     position: relative;
@@ -412,3 +416,4 @@ margin-bottom: 10px;
     z-index: 1;
     opacity: 0;
 }
+

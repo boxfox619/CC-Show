@@ -14,7 +14,8 @@ class AssetSetting extends React.Component{
             currentImageUpload : 'previewThumbnail'
         });
     }
-    
+
+
     inputimg(e){
         this.setState({
             ...this.state,
@@ -110,32 +111,64 @@ class AssetSetting extends React.Component{
                 });
                 break;
 
-                case 'setPreviewInputimg':
-                //i=e.target.datatype
-                let previewInputimg="previewInputimg"+i;
+                case 'previewInputimg':
                 this.setState({
                     ...this.state,
-                    file2 : file2,
-                    previewInputUrl : {
-                        ...this.state.previewInputUrl,
-                        previewInputimg : ''
-                    }
+                    file : file2,
+                    previewInputUrl : reader.result
                 });
-                
                 break;
 
-                case 'pushPreviewInputimg':
-                let previewinputimg="previewinputimg"+count
+                case 'previewInputimg2':
                 this.setState({
                     ...this.state,
-                    file2 : file2,
-                    previewInputUrl : {
-                        ...this.state.previewInputUrl,
-                        previewInputimg : ' ',
-                    }
-                });
-                
+                    file : fil3,
+                    previewInputUrl2 : reader.result
+                }) 
                 break;
+
+                case 'previewInputimg3':
+                this.setState({
+                    ...this.state,
+                    file : file4,
+                    previewInputUrl3 : reader.result
+                })
+                break;
+                
+                case 'previewInputimg4':
+                this.setState({
+                    ...this.state,
+                    file : file5,
+                    previewInputUrl4 : reader.result
+                });
+                break;
+
+                // case 'setPreviewInputimg':
+                // //i=e.target.datatype
+                // let previewInputimg="previewInputimg"+i;
+                // this.setState({
+                //     ...this.state,
+                //     file2 : file2,
+                //     previewInputUrl : {
+                //         ...this.state.previewInputUrl,
+                //         previewInputimg : ''
+                //     }
+                // });
+                
+          
+
+                // case 'pushPreviewInputimg':
+                // let previewinputimg="previewinputimg"+count
+                // this.setState({
+                //     ...this.state,
+                //     file2 : file2,
+                //     previewInputUrl : {
+                //         ...this.state.previewInputUrl,
+                //         previewInputimg : ' ',
+                //     }
+                // });
+                
+                // break;
 
                 // case 'previewInputimg2':
                 // this.setState({
@@ -212,12 +245,16 @@ class AssetSetting extends React.Component{
                 //     <button className = {styles.previewText}>{$imagePreview3}(파일을 선택하세요)</button>
                 // </div>);
             // }
+
+
+
+
             const CardComponent = props => <div className = {styles.imagePreview}>
             <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)} />
             <button className = {styles.previewText}>{$imagePreview3}</button>
             </div>;
 
-            for(var i = 1; i< 8; i++){
+            for(var i = 1; i < 4; i++){
                 card.push(<CardComponent key = {i} />)
             }
 
@@ -229,6 +266,7 @@ class AssetSetting extends React.Component{
 
             this.state.previewInputUrl3 ? $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
         
+            this.state.previewInputUrl4 ? $imagePreview5 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview5 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
         return(
 
      <div className = {styles.AssetEditor_left}>
@@ -275,31 +313,8 @@ class AssetSetting extends React.Component{
                                 <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
                                 <button className = {styles.previewText}>{$imagePreview3}</button>
                             </div>
-                
+
                             {card}
-                            
-                           
-                           
-
-                            {/* <div className = {styles.imagePreview}>
-                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
-                                <button className = {styles.previewText}>{$imagePreview3}</button>
-                            </div>
-
-                            <div className = {styles.imagePreview}>
-                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
-                                <button className = {styles.previewText}>{$imagePreview3}</button>
-                            </div>
-
-                            <div className = {styles.imagePreview}>
-                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
-                                <button className = {styles.previewText}>{$imagePreview3}</button>
-                            </div>
-
-                            <div className = {styles.imagePreview}>
-                                <input type = "file" className = {styles.inputImage} onClick = {(e)=> this.inputimg2(e)} onChange = {(e)=>this.ImageChange(e)}/>
-                                <button className = {styles.previewText}>{$imagePreview3}</button>
-                            </div> */}
 
                         </div>
                     </div>
