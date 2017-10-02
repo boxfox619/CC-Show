@@ -46,7 +46,7 @@ class AssetEditor extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      activeTab: 1,
+      activeTab: 0,
       id: '',
       title: '',
       openToStore: false,
@@ -136,9 +136,14 @@ class AssetEditor extends React.Component{
       
       }
       selectTab(tab){
-        // this.loadItems(tabs[index].filter);
-  
-       };
+        let index = tabs.findIndex((obj=>obj.name == tab.name));
+        this.setState({
+          ...this.state,
+          activeTab : index
+        });
+
+        this.loadItems(tabs[index].filter);
+       }
    
     }
 
