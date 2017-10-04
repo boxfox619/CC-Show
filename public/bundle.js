@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "17374ac4db011c41ab21"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "855b743c27d0df0130ba"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -21077,7 +21077,7 @@ exports = module.exports = __webpack_require__(17)(undefined);
 exports.push([module.i, "@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);", ""]);
 
 // module
-exports.push([module.i, "body {\n  margin:0;\n  font-family: 'NanumSquare', sans-serif;\n}\n\nasset {\n-webkit-touch-callout: none;\n-webkit-user-select: none;\n-khtml-user-select: none;\n-moz-user-select: none;\n-ms-user-select: none;\nuser-select: none;\n}\n\n.SlideEditor__slideEditor___3gH22{\n      width: 100%;\n      height: 100%;\n      display: flex;\n      position: absolute;\n      flex-direction: row;\n}\n\nbody::-webkit-scrollbar-track\n{\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\n\tbackground-color: #ffffff;\n}\n\nbody::-webkit-scrollbar\n{\n\twidth: 1px;\n\tbackground-color: #ffffff;\n}\n\nbody::-webkit-scrollbar-thumb\n{\n\tbackground-color: #5D87B5;\n}\n\n.SlideEditor__assetController___1lwu_{\n    z-index: 3;\n    /*min-width: 14em;\n    max-width: 14em;*/\n    min-height: 40em;\n    height: 100vh;\n    background-color: white;\n    position: relative;\n    box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);\n    min-width: 285px;\n    overflow: auto;\n}\n\n\n.SlideEditor__assetController___1lwu_::-webkit-scrollbar-track\n{\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__assetController___1lwu_::-webkit-scrollbar\n{\n\twidth: 1px;\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__assetController___1lwu_::-webkit-scrollbar-thumb\n{\n\tbackground-color: #5D87B5;\n}\n\n\n.SlideEditor__assetCreator___2WSLP{\n    z-index: 3;\n    min-width: 12em;\n    max-width: 12em;\n    height: 100vh;\n    min-height: 40em;\n    background-color: white;\n    position: relative;\n    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\n}\n\n.SlideEditor__slideManager___30A4Y{\n  position: fixed;\n  z-index: 2;\n  top:0;\n  left: -10%;\n  background: #F5F5F6;\n  min-width: 14em;\n  height: 100vh;\n  overflow-y: scroll;\n  transition: all 0.5s ease-in-out;\n  -webkit-transition: all 0.5s ease-in-out;\n  -moz-transition: all 0.5s ease-in-out;\n  -o-transition: all 0.5s ease-in-out;\n  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);\n}\n\n.SlideEditor__slideManager___30A4Y ul{\n  height: 100%;\n  list-style: none;\n  padding: 0;\n}\n\n.SlideEditor__slideManager___30A4Y::-webkit-scrollbar {width: 0px; height: 8px;}\n\n.SlideEditor__slideManager___30A4Y.SlideEditor__show___TspON{\n    left: -2em;\n    transform: translate(100%,0);\n    -webkit-transform: translate(100%,0);\n    -o-transform: translate(100%,0);\n    -moz-transform: translate(100%,0);\n}\n\n.SlideEditor__contextWrap___1i1c3{\n    z-index: 1;\n    background-color: #ECEEF2;\n    max-height: 100%;\n    max-height: 100%;\n    min-height: 40em;\n    width: 100%;\n    height: 100%;\n    max-width: calc(100% - 24em);\n    position: relative;\n    overflow: scroll;\n}\n\n.SlideEditor__contextWrap___1i1c3.SlideEditor__disabled___2RCxa:after{\n  content:'';\n  position: fixed;\n  left:0;\n  top:0;\n  width:100%;\n  height:100%;\n  -webkit-animation: SlideEditor__fadein___yf8Ar 0.4s forwards;\n}\n\n@-webkit-keyframes SlideEditor__fadein___yf8Ar{\n    from { background-color: rgba(0, 0, 0, 0); }\n    to { background-color: rgba(0, 0, 0, 0.7); }\n}\n\n.SlideEditor__contextWrap___1i1c3::-webkit-scrollbar-track\n{\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__contextWrap___1i1c3::-webkit-scrollbar\n{\n\twidth: 5px;\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__contextWrap___1i1c3::-webkit-scrollbar-thumb\n{\n\tbackground-color: #5D87B5;\n}\n\n.SlideEditor__contextSpace___VdMSN{\n  height: 100%;\n  width: 100%;\n}\n\n@media screen and (max-width:1480px){\n  .SlideEditor__contextSpace___VdMSN{\n    height: 720px;\n    width: 1220px;\n  }\n}\n\n.SlideEditor__slideContext___3Gzor {\n    height:620px;\n    width: 1080px;\n    background-color: rgba(255, 255, 255, 1);\n    position: relative;\n    display: block;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    -ms-user-select:none;\n    user-select:none;\n    -o-user-select:none;\n    user-drag: none;\nuser-select: none;\n-moz-user-select: none;\n-webkit-user-drag: none;\n-webkit-user-select: none;\n-ms-user-select: none;\n}\n\n.SlideEditor__slideContext___3Gzor scanvas{\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  overflow: hidden;\n}\n\n.SlideEditor__assetCreator___2WSLP ul{\n  list-style-type: none;\n    padding: 0;\n}\n\n.SlideEditor__color_picker___2Ybij{\n  position: fixed;\n  z-index: 4;\n  border-radius: 20px;\n  background-color: white;\n  overflow: hidden;\n  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\n  top: -100%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  -webkit-animation: SlideEditor__modaldown___1Cxc5 0.5s forwards;\n}\n\n.SlideEditor__modal___1CVEV{\n  position: fixed;\n  z-index: 4;\n  border-radius: 20px;\n  width: 1150px;\n  height: 650px;\n  background-color: white;\n  overflow: hidden;\n  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\n  top: -100%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  -webkit-animation: SlideEditor__modaldown___1Cxc5 0.5s forwards;\n}\n\n@-webkit-keyframes SlideEditor__modaldown___1Cxc5{\n    from { top: -100%; }\n    to { top: 50%; }\n}\n\n.SlideEditor__modal___1CVEV content{\n  position: absolute;\n  overflow-y: auto;\n  height: calc( 100% - 25px);\n  width: 100%;\n}\n\n.SlideEditor__modal___1CVEV content::-webkit-scrollbar-track\n{\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__modal___1CVEV content::-webkit-scrollbar\n{\n\twidth: 5px;\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__modal___1CVEV content::-webkit-scrollbar-thumb\n{\n\tbackground-color: #5D87B5;\n}\n\n\n.SlideEditor__modal___1CVEV header{\n  position: relative;\n  color: #12AAEB;\n  padding: 10px 30px 0 30px;\n  width: calc( 100% - 60px );\n}\n\n.SlideEditor__modal___1CVEV header tabholder{\n  position: absolute;\n  text-align: right;\n  display: table;\n  table-layout: fixed;\n  width: 30%;\n  top: 10px;\n  right: 10px;\n  height: 25px;\n}\n\n.SlideEditor__modal___1CVEV header tabholder > *{\n  display: table-cell;\n  position: relative;\n  text-align: center;\n  font-weight: bold;\n  font-size: 0.8em;\n  line-height: 25px;\n  padding: 0 10px;\n  color: #D1DBE1;\n}\n\n.SlideEditor__modal___1CVEV header tabholder activetab{\n  color: #12AAEB;\n}\n\n.SlideEditor__modal___1CVEV header tabholder activetab:after{\n  content: '';\n  position: absolute;\n  display: inline-block;\n  bottom: -10px;\n  left: 20px;\n  border-bottom-style: solid;\n  border-bottom-width: 3px;\n  border-color: #12AAEB;\n  width: calc( 100% - 40px );\n  height: 0px;\n}\n\n.SlideEditor__modal___1CVEV header tabholder > *:hover{\n  color: #12AAEB;\n  cursor: pointer;\n}\n\n.SlideEditor__modal___1CVEV header tabholder > *:hover:after{\n  content: '';\n  position: absolute;\n  display: inline-block;\n  bottom: -10px;\n  left: 20px;\n  border-bottom-style: solid;\n  border-bottom-width: 3px;\n  border-color: #12AAEB;\n  width: calc( 100% - 40px );\n  height: 0px;\n}\n\n.SlideEditor__modal___1CVEV header tabholder > *:before{\n  content: '';\n  position: absolute;\n  display: inline-block;\n  left: 0px;\n  border-left-style: dashed;\n  border-left-width: 1px;\n  border-color: #D1DBE1;\n  height: 100%;\n}\n\n.SlideEditor__modal___1CVEV header tabholder > *:first-child:before{\n  display: none;\n  border-left-width: 0px;\n}\n\n.SlideEditor__modal___1CVEV header h1{\n  display: inline-block;\n  text-align: center;\n  height: 27px;\n  width: 200px;\n  font-size: 0.8em;\n  padding: 0;\n  margin: 0;\n  border-bottom: solid #12AAEB 3px;\n}\n", ""]);
+exports.push([module.i, "body {\n  margin:0;\n  font-family: 'NanumSquare', sans-serif;\n}\n\nasset {\n-webkit-touch-callout: none;\n-webkit-user-select: none;\n-khtml-user-select: none;\n-moz-user-select: none;\n-ms-user-select: none;\nuser-select: none;\n}\n\n.SlideEditor__slideEditor___3gH22{\n      width: 100%;\n      height: 100%;\n      display: flex;\n      position: absolute;\n      flex-direction: row;\n}\n\nbody::-webkit-scrollbar-track\n{\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\n\tbackground-color: #ffffff;\n}\n\nbody::-webkit-scrollbar\n{\n\twidth: 1px;\n\tbackground-color: #ffffff;\n}\n\nbody::-webkit-scrollbar-thumb\n{\n\tbackground-color: #5D87B5;\n}\n\n.SlideEditor__assetController___1lwu_{\n    z-index: 3;\n    /*min-width: 14em;\n    max-width: 14em;*/\n    min-height: 40em;\n    height: 100vh;\n    background-color: white;\n    position: relative;\n    box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);\n    min-width: 285px;\n    overflow: auto;\n}\n\n\n.SlideEditor__assetController___1lwu_::-webkit-scrollbar-track\n{\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__assetController___1lwu_::-webkit-scrollbar\n{\n\twidth: 1px;\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__assetController___1lwu_::-webkit-scrollbar-thumb\n{\n\tbackground-color: #5D87B5;\n}\n\n\n.SlideEditor__assetCreator___2WSLP{\n    z-index: 3;\n    min-width: 12em;\n    max-width: 12em;\n    height: 100vh;\n    min-height: 40em;\n    background-color: white;\n    position: relative;\n    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\n}\n\n.SlideEditor__slideManager___30A4Y{\n  position: fixed;\n  z-index: 2;\n  top:0;\n  left: -10%;\n  background: #F5F5F6;\n  min-width: 14em;\n  height: 100vh;\n  overflow-y: scroll;\n  transition: all 0.5s ease-in-out;\n  -webkit-transition: all 0.5s ease-in-out;\n  -moz-transition: all 0.5s ease-in-out;\n  -o-transition: all 0.5s ease-in-out;\n  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);\n}\n\n.SlideEditor__slideManager___30A4Y ul{\n  height: 100%;\n  list-style: none;\n  padding: 0;\n}\n\n.SlideEditor__slideManager___30A4Y::-webkit-scrollbar {width: 0px; height: 8px;}\n\n.SlideEditor__slideManager___30A4Y.SlideEditor__show___TspON{\n    left: -2em;\n    transform: translate(100%,0);\n    -webkit-transform: translate(100%,0);\n    -o-transform: translate(100%,0);\n    -moz-transform: translate(100%,0);\n}\n\n.SlideEditor__contextWrap___1i1c3{\n    z-index: 1;\n    background-color: #ECEEF2;\n    max-height: 100%;\n    max-height: 100%;\n    min-height: 40em;\n    width: 100%;\n    height: 100%;\n    max-width: calc(100% - 24em);\n    position: relative;\n    overflow: scroll;\n}\n\n.SlideEditor__contextWrap___1i1c3.SlideEditor__disabled___2RCxa:after{\n  content:'';\n  position: fixed;\n  left:0;\n  top:0;\n  width:100%;\n  height:100%;\n  -webkit-animation: SlideEditor__fadein___yf8Ar 0.4s forwards;\n}\n\n@-webkit-keyframes SlideEditor__fadein___yf8Ar{\n    from { background-color: rgba(0, 0, 0, 0); }\n    to { background-color: rgba(0, 0, 0, 0.7); }\n}\n\n.SlideEditor__contextWrap___1i1c3::-webkit-scrollbar-track\n{\n\t-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__contextWrap___1i1c3::-webkit-scrollbar\n{\n\twidth: 5px;\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__contextWrap___1i1c3::-webkit-scrollbar-thumb\n{\n\tbackground-color: #5D87B5;\n}\n\n.SlideEditor__contextSpace___VdMSN{\n  height: 100%;\n  width: 100%;\n}\n\n@media screen and (max-width:1480px){\n  .SlideEditor__contextSpace___VdMSN{\n    height: 720px;\n    width: 1220px;\n  }\n}\n\n.SlideEditor__slideContext___3Gzor {\n    height:620px;\n    width: 1080px;\n    background-color: rgba(255, 255, 255, 1);\n    position: relative;\n    display: block;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    -ms-user-select:none;\n    user-select:none;\n    -o-user-select:none;\n    user-drag: none;\nuser-select: none;\n-moz-user-select: none;\n-webkit-user-drag: none;\n-webkit-user-select: none;\n-ms-user-select: none;\n}\n\n.SlideEditor__slideContext___3Gzor scanvas{\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  overflow: hidden;\n}\n\n.SlideEditor__assetCreator___2WSLP ul{\n  list-style-type: none;\n    padding: 0;\n}\n\n.SlideEditor__color_picker___2Ybij{\n  position: fixed;\n  z-index: 4;\n  border-radius: 20px;\n  background-color: white;\n  overflow: hidden;\n  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\n  top: -100%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  -webkit-animation: SlideEditor__modaldown___1Cxc5 0.5s forwards;\n}\n\n.SlideEditor__modal___1CVEV{\n  position: fixed;\n  z-index: 4;\n  border-radius: 20px;\n  width: 1150px;\n  height: 650px;\n  background-color: white;\n  overflow: hidden;\n  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);\n  top: -100%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  -webkit-animation: SlideEditor__modaldown___1Cxc5 0.5s forwards;\n}\n\n@-webkit-keyframes SlideEditor__modaldown___1Cxc5{\n    from { top: -100%; }\n    to { top: 50%; }\n}\n\n.SlideEditor__modal___1CVEV content{\n  position: absolute;\n  overflow-y: auto;\n  height: calc( 100% - 25px);\n  width: 100%;\n}\n\n.SlideEditor__modal___1CVEV content::-webkit-scrollbar-track\n{\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__modal___1CVEV content::-webkit-scrollbar\n{\n\twidth: 5px;\n\tbackground-color: #ffffff;\n}\n\n.SlideEditor__modal___1CVEV content::-webkit-scrollbar-thumb\n{\n\tbackground-color: #5D87B5;\n}\n\n\n.SlideEditor__modal___1CVEV header{\n  position: relative;\n  color: #12AAEB;\n  padding: 10px 30px 0 30px;\n  width: calc( 100% - 60px );\n}\n\n.SlideEditor__modal___1CVEV header tabholder{\n  position: absolute;\n  text-align: right;\n  display: table;\n  table-layout: fixed;\n  width: 30%;\n  top: 10px;\n  right: 10px;\n  height: 25px;\n}\n\n.SlideEditor__modal___1CVEV header tabholder > *{\n  display: table-cell;\n  position: relative;\n  text-align: center;\n  font-weight: bold;\n  font-size: 0.8em;\n  line-height: 25px;\n  padding: 0 10px;\n  color: #D1DBE1;\n}\n\n.SlideEditor__modal___1CVEV header tabholder activetab{\n  color: #12AAEB;\n}\n\n.SlideEditor__modal___1CVEV header tabholder activetab:after{\n  content: '';\n  position: absolute;\n  display: inline-block;\n  bottom: -10px;\n  left: 20px;\n  border-bottom-style: solid;\n  border-bottom-width: 3px;\n  border-color: #12AAEB;\n  width: calc( 100% - 40px );\n  height: 0px;\n}\n\n.SlideEditor__modal___1CVEV header tabholder > *:hover{\n  color: #12AAEB;\n  cursor: pointer;\n}\n\n.SlideEditor__modal___1CVEV header tabholder > *:hover:after{\n  content: '';\n  position: absolute;\n  display: inline-block;\n  bottom: -10px;\n  left: 20px;\n  border-bottom-style: solid;\n  border-bottom-width: 3px;\n  border-color: #12AAEB;\n  width: calc( 100% - 40px );\n  height: 0px;\n}\n\n.SlideEditor__modal___1CVEV header tabholder > *:before{\n  content: '';\n  position: absolute;\n  display: inline-block;\n  left: 0px;\n  border-left-style: dashed;\n  border-left-width: 1px;\n  border-color: #D1DBE1;\n  height: 100%;\n}\n\n.SlideEditor__modal___1CVEV header tabholder > *:first-child:before{\n  display: none;\n  border-left-width: 0px;\n}\n\n.SlideEditor__modal___1CVEV header h1{\n  display: inline-block;\n  text-align: center;\n  height: 27px;\n  width: 200px;\n  font-size: 0.8em;\n  padding: 0;\n  margin: 0;\n  border-bottom: solid #12AAEB 3px;\n}\n\n.SlideEditor__select_color_button___K9CFB{\n  background-color: #5D87B5;\n  font-size: 15px;\n}", ""]);
 
 // exports
 exports.locals = {
@@ -21093,7 +21093,8 @@ exports.locals = {
 	"slideContext": "SlideEditor__slideContext___3Gzor",
 	"color_picker": "SlideEditor__color_picker___2Ybij",
 	"modaldown": "SlideEditor__modaldown___1Cxc5",
-	"modal": "SlideEditor__modal___1CVEV"
+	"modal": "SlideEditor__modal___1CVEV",
+	"select_color_button": "SlideEditor__select_color_button___K9CFB"
 };
 
 /***/ }),
@@ -42647,7 +42648,12 @@ var SlideEditor = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (SlideEditor.__proto__ || Object.getPrototypeOf(SlideEditor)).call(this, props));
 
-    _this.state = { showId: undefined };
+    _this.state = {
+      showId: undefined,
+      text_color: null,
+      fill_color: null,
+      border_color: null
+    };
 
     _this.checkContextDisabled = _this.checkContextDisabled.bind(_this);
     _this.handleClick = _this.handleClick.bind(_this);
@@ -42666,18 +42672,47 @@ var SlideEditor = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var kindsOfcolorPicker = function kindsOfcolorPicker() {
-        if (_this2.props.colorPicker != undefined) {
-          switch (_this2.props.colorPicker) {
-            case _ui.colorPicker.TEXT_COLOR:
-              return _this2.handleTextColor;
-            case _ui.colorPicker.FILL_COLOR:
-              return _this2.handleFillColor;
-            case _ui.colorPicker.BORDER_COLOR:
-              return _this2.handleBorderColor;
+      var selectedAsset = this.props.currentSilde.selectedAsset - 1;
+
+      var color_picker_funcs = {
+        kindsOfcolorPicker: function kindsOfcolorPicker() {
+          if (_this2.props.colorPicker != undefined) {
+            switch (_this2.props.colorPicker) {
+              case _ui.colorPicker.TEXT_COLOR:
+                return _this2.handleTextColor;
+              case _ui.colorPicker.FILL_COLOR:
+                return _this2.handleFillColor;
+              case _ui.colorPicker.BORDER_COLOR:
+                return _this2.handleBorderColor;
+            }
+          }
+        },
+        chooseColor: function chooseColor() {
+          if (_this2.props.colorPicker != undefined) {
+            switch (_this2.props.colorPicker) {
+              case _ui.colorPicker.TEXT_COLOR:
+                return _this2.props.currentSilde.assets[selectedAsset].style.color;
+              case _ui.colorPicker.FILL_COLOR:
+                return _this2.props.currentSilde.assets[selectedAsset].style['background-color'];
+              case _ui.colorPicker.BORDER_COLOR:
+                return _this2.props.currentSilde.assets[selectedAsset].style['border-color'];
+            }
+          }
+        },
+        setColor: function setColor() {
+          if (_this2.props.colorPicker != undefined) {
+            switch (_this2.props.colorPicker) {
+              case _ui.colorPicker.TEXT_COLOR:
+                return _this2.setTextColor;
+              case _ui.colorPicker.FILL_COLOR:
+                return _this2.setFillColor;
+              case _ui.colorPicker.BORDER_COLOR:
+                return _this2.setBorderColor;
+            }
           }
         }
       };
+
       var renderDialogs = function renderDialogs() {
         if (_this2.props.dialog != undefined) {
           switch (_this2.props.dialog) {
@@ -42691,7 +42726,12 @@ var SlideEditor = function (_React$Component) {
               return _react2.default.createElement(
                 'div',
                 { className: _SlideEditor2.default.color_picker },
-                _react2.default.createElement(_reactColor.SketchPicker, { onChangeComplete: kindsOfcolorPicker() })
+                _react2.default.createElement(_reactColor.SketchPicker, { color: color_picker_funcs.chooseColor(), onChangeComplete: color_picker_funcs.kindsOfcolorPicker() }),
+                _react2.default.createElement(
+                  'div',
+                  { className: _SlideEditor2.default.select_color_button, onClick: color_picker_funcs.setColor() },
+                  '\uC120\uD0DD'
+                )
               );
             case _ui.dialogs.SLIDE_SHOW:
               return _react2.default.createElement(_SlideShow2.default, { className: _SlideEditor2.default.modal });
@@ -42791,17 +42831,38 @@ var SlideEditor = function (_React$Component) {
   }, {
     key: 'handleFillColor',
     value: function handleFillColor(color) {
-      this.props.setAssetFillColor(color.hex);
+      this.setState(_extends({}, this.state, {
+        fill_color: color.hex
+      }));
     }
   }, {
     key: 'handleBorderColor',
     value: function handleBorderColor(color) {
-      this.props.setAssetBorderColor(color.hex);
+      this.setState(_extends({}, this.state, {
+        fill_color: color.hex
+      }));
     }
   }, {
     key: 'handleTextColor',
     value: function handleTextColor(color) {
-      this.props.setAssetTextColor(color.hex);
+      this.setState(_extends({}, this.state, {
+        fill_color: color.hex
+      }));
+    }
+  }, {
+    key: 'setFillColor',
+    value: function setFillColor() {
+      this.props.setAssetFillColor(this.state.fill_color);
+    }
+  }, {
+    key: 'setBorderColor',
+    value: function setBorderColor(color) {
+      this.props.setAssetBorderColor(this.state.border_color);
+    }
+  }, {
+    key: 'setTextColor',
+    value: function setTextColor(color) {
+      this.props.setAssetTextColor(this.state.text_color);
     }
   }]);
 
@@ -42814,7 +42875,8 @@ var mapStateToProps = function mapStateToProps(state) {
     visibleSlideManager: state.ui.visibleSlideManager,
     visibleSlideShow: state.ui.visibleSlideShow,
     colorPicker: state.ui.colorPicker,
-    showData: state.editor
+    showData: state.editor,
+    currentSilde: state.editor.slides[state.editor.selectedSlide]
   };
 };
 
@@ -50464,31 +50526,6 @@ var ImageController = function (_React$Component) {
 
             this.props.setAssetImageURL(value);
         }
-
-        // loadImage(){
-        //     var fr = new FileReader();
-        //     fr.onload = (e)=> {
-        //     this.setState({
-        //         ...this.state,
-        //         src: e.target.result
-        //     });
-        //     axios.put('/store/update/',{
-        //         id: this.props.id,
-        //         target: 'thumbnail',
-        //         data: e.target.result
-        //     }).then(response => {
-        //         console.log('test');
-        //     });
-        //     };
-        //     var inputElement = document.createElement("input");
-        //     inputElement.type = "file";
-        //     inputElement.addEventListener("change", function(){
-        //     fr.readAsDataURL(inputElement.files[0]);
-        //     });
-        //     inputElement.dispatchEvent(new MouseEvent("click"));
-
-        // }
-
     }]);
 
     return ImageController;
@@ -62771,14 +62808,13 @@ var editor = function editor() {
         }))
       });
     case _assets.actionTypes.ASSET_SET_TEXT_FONT_BOLD:
-      console.log(state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weigth']);
       return _extends({}, state, {
         slides: (0, _reactAddonsUpdate2.default)(state.slides, _defineProperty({}, state.selectedSlide, {
           assets: {
             $set: (0, _reactAddonsUpdate2.default)(state.slides[state.selectedSlide].assets, _defineProperty({}, getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset), {
               style: {
                 'font-weight': {
-                  $set: state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weigth'] == 'bold' ? 'normal' : 'bold'
+                  $set: state.slides[state.selectedSlide].assets[getAssetIndex(state, state.slides[state.selectedSlide].selectedAsset)].style['font-weight'] == 'bold' ? 'normal' : 'bold'
                 }
               }
             }))

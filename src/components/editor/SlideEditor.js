@@ -27,7 +27,12 @@ class SlideEditor extends React.Component{
   constructor(props){
     super(props);
 
-    this.state = {showId: undefined};
+    this.state = {
+      showId: undefined,
+      text_color: null,
+      fill_color: null,
+      border_color: null
+    };
 
     this.checkContextDisabled = this.checkContextDisabled.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -41,7 +46,10 @@ class SlideEditor extends React.Component{
   }
 
   render(){
-    let kindsOfcolorPicker= () =>{
+    let selectedAsset=this.props.currentSilde.selectedAsset-1;
+
+    let color_picker_funcs={
+      kindsOfcolorPicker: () =>{
        if(this.props.colorPicker!=undefined){
          switch(this.props.colorPicker){
            case colorPicker.TEXT_COLOR:
@@ -51,8 +59,35 @@ class SlideEditor extends React.Component{
            case colorPicker.BORDER_COLOR:
             return (this.handleBorderColor)
          }
-       }
+        }
+      },
+      chooseColor: () =>{
+        if(this.props.colorPicker!=undefined){
+          switch(this.props.colorPicker){
+            case colorPicker.TEXT_COLOR:
+              return (this.props.currentSilde.assets[selectedAsset].style.color)
+            case colorPicker.FILL_COLOR:
+              return (this.props.currentSilde.assets[selectedAsset].style['background-color'])
+            case colorPicker.BORDER_COLOR:
+              return (this.props.currentSilde.assets[selectedAsset].style['border-color'])
+          }
+        }
+      },
+      setColor: () => {
+        if(this.props.colorPicker!=undefined){
+          switch(this.props.colorPicker){
+            case colorPicker.TEXT_COLOR:
+              return (this.setTextColor)
+            case colorPicker.FILL_COLOR:
+              return (this.setFillColor)
+            case colorPicker.BORDER_COLOR:
+              return (this.setBorderColor)
+          }
+        }
+      }
     }
+
+
     let renderDialogs = ()=>{
       if(this.props.dialog!=undefined){
         switch(this.props.dialog){
@@ -63,7 +98,7 @@ class SlideEditor extends React.Component{
           case dialogs.ACCOUNT_WITH_SNS:
             return (<AccountDialog className={styles.modal}/>);
           case dialogs.COLOR_PICKER:
-            return (<div className={styles.color_picker}><SketchPicker onChangeComplete={kindsOfcolorPicker()}/></div>)
+            return (<div className={styles.color_picker}><SketchPicker color={color_picker_funcs.chooseColor()} onChangeComplete={color_picker_funcs.kindsOfcolorPicker()}/><div className={styles.select_color_button} onClick={color_picker_funcs.setColor()}>선택</div></div>)
           case dialogs.SLIDE_SHOW:
             return (<SlideShow className={styles.modal}/>);
         }
@@ -150,15 +185,34 @@ class SlideEditor extends React.Component{
   }
 
   handleFillColor(color){
-    this.props.setAssetFillColor(color.hex);
+    this.setState({
+      ...this.state,
+      fill_color:color.hex
+    });
   };
 
   handleBorderColor(color){
-    this.props.setAssetBorderColor(color.hex);
+    this.setState({
+      ...this.state,
+      fill_color:color.hex
+    });
   };
   handleTextColor(color){
-    this.props.setAssetTextColor(color.hex);
+    this.setState({
+      ...this.state,
+      fill_color:color.hex
+    });
   };
+  setFillColor(){
+    this.props.setAssetFillColor(this.state.fill_color);
+  };
+  setBorderColor(color){
+    this.props.setAssetBorderColor(this.state.border_color);
+  };
+
+  setTextColor(color){
+    this.props.setAssetTextColor(this.state.text_color)
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -167,7 +221,8 @@ const mapStateToProps = (state) => {
     visibleSlideManager: state.ui.visibleSlideManager,
     visibleSlideShow: state.ui.visibleSlideShow,
     colorPicker: state.ui.colorPicker,
-    showData: state.editor
+    showData: state.editor,
+    currentSilde: state.editor.slides[state.editor.selectedSlide]
   }
 }
 
