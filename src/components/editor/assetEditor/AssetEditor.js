@@ -76,13 +76,10 @@ class AssetEditor extends React.Component{
     };
 
     this.selectTab = this.selectTab.bind(this);
-    // this.loadItems = this.loadItems.bind(this);
    }
 
 
   render(){
-    console.log(this.state.activeTab);
-
     let renderTabs = (tabs) =>{
       return tabs.map((tab,idx)=>{
         if(idx == this.state.activeTab){
@@ -128,7 +125,6 @@ class AssetEditor extends React.Component{
         
         </header>
           {renderDetailsItems()}
-          {/* <AssetEditorItem /> */}
 
     </div>
 
@@ -141,7 +137,6 @@ class AssetEditor extends React.Component{
           ...this.state,
           activeTab : index
         });
-
         // this.loadItems(tabs[index].filter);
        }
    

@@ -1,12 +1,37 @@
 import React from 'react';
 import styles from './AssetEditorItem.css';
+import { connect } from 'react-redux';
+import FreeAsset from './FreeAsset';
+import ChargeAsset from './ChargeAsset';
 
 class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
         // this.previewImage = this.previewImage.bind(this);
-        this.state = {file : ' ' , file2 : ' ', file3 : ' ', ThumbnailUrl: undefined, previewInputUrl : undefined, previewInputUrl2 : undefined,previewInputUrl3 : undefined,previewInputUrl4 : undefined,  currentImageUpload: undefined, addFileCNT : 0, defWidth : 420, myWidth : 270};
+        this.state = {file : ' ' ,
+        file2 : ' ',
+        file3 : ' ',
+        ThumbnailUrl: undefined,
+        previewInputUrl : undefined,
+        previewInputUrl2 : undefined,
+        previewInputUrl3 : undefined,
+        previewInputUrl4 : undefined,
+        currentImageUpload: undefined,
+        addFileCNT : 0,
+        defWidth : 420,
+        myWidth : 270,
+        selectCharge : 0,
+        ChargeID : 1
     };
+
+    };
+
+
+    selectChargeMode(e){
+        this.setState({
+
+        })
+    }
 
     thumbNail (e){
         this.setState({
@@ -30,31 +55,6 @@ class AssetSetting extends React.Component{
         });
     }
 
-    // inputimg2(e){
-    //     this.setState({
-    //         ...this.state,
-    //         currentImageUpload : 'previewInputimg2'
-    //     });
-    // }
-
-    // inputimg3(e){
-    //     this.setState({
-    //         ...this.state,
-    //         currentImageUpload : 'previewInputimg3'
-    //     });
-    // }
-
-    // inputimg4(e){
-    //     this.setState({
-    //         ...this.stat,
-    //         currentImageUpload : 'previewInputimg4'
-    //     });
-    // }
-
-    addCard(e){
-       
-
-    }
     addFileChange(e){
         
         let add = 130;
@@ -74,21 +74,23 @@ class AssetSetting extends React.Component{
             this.setState({
                 myWidth : 680 + "px"
             })
-        }
-
-    
-        // 
-        
-        // console.log(this.state.myWidth);
-
-        // if(this.state.addFileCNT === 7){
-        //     this.setState({
-        //         ...this.state,
-        //         addFileCNT : 0
-        //     });
-        // }
+        }        
     }
 
+    openStore(e){
+       this.setState({
+           ChargeID : 1
+       });
+
+       console.log(this.state.ChargeID);
+    }
+
+    inCharge(e){
+        this.setState({
+            ChargeID : 2
+        });
+       console.log(this.state.ChargeID);
+    }
 
     ImageChange(e) {
         e.preventDefault();
@@ -143,85 +145,13 @@ class AssetSetting extends React.Component{
                 });
                 break;
 
-                // case 'setPreviewInputimg':
-                // //i=e.target.datatype
-                // let previewInputimg="previewInputimg"+i;
-                // this.setState({
-                //     ...this.state,
-                //     file2 : file2,
-                //     previewInputUrl : {
-                //         ...this.state.previewInputUrl,
-                //         previewInputimg : ''
-                //     }
-                // });
-                
-          
-
-                // case 'pushPreviewInputimg':
-                // let previewinputimg="previewinputimg"+count
-                // this.setState({
-                //     ...this.state,
-                //     file2 : file2,
-                //     previewInputUrl : {
-                //         ...this.state.previewInputUrl,
-                //         previewInputimg : ' ',
-                //     }
-                // });
-                
-                // break;
-
-                // case 'previewInputimg2':
-                // this.setState({
-                //     ...this.state,
-                //     file3 : file3,
-                //     previewInputUrl2 : reader.result,
-                // });
-                // break;
-
-                // case 'previewInputimg3':
-                // this.setState({
-                //     ...this.state,
-                //     file4 : file4,
-                //     previewInputUrl3 : reader.result,
-                // });
-                // break;
-              
-                // case 'previewInputUrl2':
-                // this.setState({
-                //     ...this.state,
-                //     file3 : file3,
-                //     previewInputUrl2 : reader.result,
-                // });
-                // break;
-
-                // case  'previewInputUrl3':
-                // this.setState({
-                //     ...this.state,
-                //     file4 : file4,
-                //     previewInputUrl3 : reader.result,
-                // });
-                // break;
-
-                // case 'previewInputUrl4':
-                // this.setState({
-                //     ...this.state,
-                //     file5 : file5,
-                //     previewInputUrl4 : reader.result,
-                // });
             }
         }
         reader.readAsDataURL(file)
       }
 
- 
-    componentWillMount(){
-        
-    }
-
-    componentDidUpdate(){
-        
-    }
     render(){
+
         let $imagePreview = null;
         let $imagePreview2 = null;
         let $imagePreview3 = null;
@@ -229,26 +159,8 @@ class AssetSetting extends React.Component{
         let $imagePreview5 = null;
         
 
-        // for(var i = 3; i < 8; i++){
-        //     var functions = eval('inputimg'+i);
-        // }
-        
         let card = [];
     
-
-        // let CardRepeat =  cardContent.map((card)=> cardContent * 8);
-       
-            // for(var i = 1; i< 8; i++){
-            //     // console.log(i);
-                // card.push(<div className = {styles.imagePreview}>
-                //     <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)} data-itemID = {i} />
-                //     <button className = {styles.previewText}>{$imagePreview3}(파일을 선택하세요)</button>
-                // </div>);
-            // }
-
-
-
-
             const CardComponent = props => <div className = {styles.imagePreview}>
             <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)} />
             <button className = {styles.previewText}>{$imagePreview3}</button>
@@ -268,7 +180,7 @@ class AssetSetting extends React.Component{
         
             this.state.previewInputUrl4 ? $imagePreview5 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview5 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
         return(
-
+<div className = {styles.content}>
      <div className = {styles.AssetEditor_left}>
             <div className = {styles.previewDiv}>
                 <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
@@ -286,11 +198,11 @@ class AssetSetting extends React.Component{
                 <div className = {styles.setting_second}>
 
                     <div className = {styles.openStoreDiv}>
-                        <button className = {styles.openStoreButton}>스토어 공개</button>
+                        <button className = {styles.openStoreButton} onClick = {(e)=>this.openStore(e)} >스토어 공개</button>
                     </div>
 
                     <div className = {styles.openStoreDiv}>
-                        <button className = {styles.openStoreButton}>유료로 변환</button>
+                        <button  className = {styles.openStoreButton} onClick = {(e)=> this.inCharge(e)}>유료로 변환</button>
                     </div>
                     
                     <div className = {styles.cover2}>
@@ -330,6 +242,9 @@ class AssetSetting extends React.Component{
                     <textarea cols = "107" rows = "50" className = {styles.description_content} placeholder ="텍스트를 입력하세요."/>
                 </div>
             </div>  
+    </div>
+    {/* <FreeAsset /> */}
+    <ChargeAsset />
     </div>
         );
     }

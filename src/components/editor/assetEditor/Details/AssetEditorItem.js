@@ -5,11 +5,12 @@ import AssetSetting from './AssetSetting';
 import ChargeAsset from './ChargeAsset';
 class AssetEditorItem extends React.Component{
     render(){
+
         return(
           <div className = {styles.content}>
                 <AssetSetting />
-                {/* <FreeAsset /> */}
-                <ChargeAsset />
+                {/* <FreeAsset />
+                <ChargeAsset /> */}
           </div>  
         );
     }
