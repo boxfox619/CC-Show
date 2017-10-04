@@ -25,15 +25,15 @@ module.exports = function (realm) {
     console.log(colors.green('[REQ]'), getIP(req), 'load asset filter=', req.query.filter);
     switch (req.query.filter) {
       case 'recommend':
-        return res.json(imagesToArray(realm.objects('SimpleAsset')));
+        return res.json(imagesToArray(realm.objects('SimpleAsset').sorted('id', true)));
       case 'new':
-        return res.json(imagesToArray(realm.objects('SimpleAsset')));
+        return res.json(imagesToArray(realm.objects('SimpleAsset').sorted('id', true)));
       case 'popular':
-        return res.json(imagesToArray(realm.objects('SimpleAsset')));
+        return res.json(imagesToArray(realm.objects('SimpleAsset').sorted('id', true)));
       case 'liked':
-        return res.json(imagesToArray(realm.objects('SimpleAsset')));
+        return res.json(imagesToArray(realm.objects('SimpleAsset').sorted('id', true)));
       case 'saved':
-        return res.json(imagesToArray(realm.objects('SimpleAsset')));
+        return res.json(imagesToArray(realm.objects('SimpleAsset').sorted('id', true)));
         break;
     }
 

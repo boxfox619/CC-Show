@@ -21,12 +21,13 @@ class ImageController extends React.Component{
         this.imageOn=this.imageOn.bind(this);
         this.imageOff=this.imageOff.bind(this);
         this.setUrl=this.setUrl.bind(this);
+        this.loadImage = this.loadImage.bind(this);
     }
 
     render(){
         return(
             <div>
-                <div style={{"height":"80px"}}>
+                <div className={styles.fliping_controller_section}>
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>이미지
                             <img onClick={this.imageOn.bind()} src="/images/ic_arrow_up.png" style={this.state.image_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
@@ -34,14 +35,28 @@ class ImageController extends React.Component{
                         </div>
                     </div>
                     <div className={styles.items} style={this.state.image ? {} : {display:'none'}}>
-                        <div className={styles.control_item+' '+styles.URL_controller}>
-                            <span className={styles.attribute_item_title+' '+styles.video_margin_zero} >URL :</span> <input type="file" value={this.props.url} className={styles.attribute_item_input} onChange={this.setUrl}/>
+                        <div className={styles.control_item+' '+styles.image_loader} onClick={this.loadImage}>
+                          이미지 불러오기
                         </div>
                     </div>
                 </div>
                 <hr className={styles.controller_hr}/>
             </div>
         )
+    }
+
+    loadImage(){
+      var fr = new FileReader();
+      fr.onload = (e)=> {
+        this.props.setAssetImage(e.target.result);
+      };
+      var inputElement = document.createElement("input");
+      inputElement.type = "file";
+      inputElement.addEventListener("change", function(){
+        fr.readAsDataURL(inputElement.files[0]);
+      });
+      inputElement.dispatchEvent(new MouseEvent("click"));
+
     }
 
     imageOn(){
@@ -63,7 +78,7 @@ class ImageController extends React.Component{
     }
     setUrl(event) {
         let {value}=event.target;
-        this.props.setAssetImageURL(value);
+        this.props.setAssetImage(value);
     }
 }
 

@@ -26,11 +26,13 @@ class ShowListContext extends React.Component{
     let renderingSlides = () =>{
       if(this.state.slides.length>0){
         return renderingAssets(this.state.slides[this.state.currentSlide].assets);
+      }else{
+        return (<img className={styles.loader} src="/images/progress.gif"/>);
       }
     }
     let renderingAssets = (assets) => {
       return assets.map((asset)=>{
-        return <Asset controlable={false} key={asset.id} handleValueChange={this.props.setAssetValue} attribute={this.convertSize(asset)}/>
+        return <Asset controlable={false} key={this.state.currentSlide+'-'+asset.id+'-'+this.state.currentSlide} handleValueChange={this.props.setAssetValue} attribute={this.convertSize(asset)}/>
       })
     }
     return (

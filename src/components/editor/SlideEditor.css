@@ -47,7 +47,7 @@ body::-webkit-scrollbar-thumb
     background-color: white;
     position: relative;
     box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);
-    min-width: 285px;
+    min-width: 250px;
     overflow: auto;
 }
 
@@ -273,7 +273,7 @@ user-select: none;
   text-align: right;
   display: table;
   table-layout: fixed;
-  width: 30%;
+  width: 50%;
   top: 10px;
   right: 10px;
   height: 25px;

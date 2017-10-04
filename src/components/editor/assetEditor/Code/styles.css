@@ -1,0 +1,150 @@
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+body {
+  margin:0;
+  font-family: 'NanumSquare', sans-serif;
+}
+.thumbnail{
+  width: 100px;
+  height: 100px;
+  background: gray;
+  cursor: pointer;
+}
+
+.thumbnail img{
+  width: 100%;
+  height: 100%;
+}
+
+.content{
+  height: 640px;
+  width: 1200px;
+  /* border: 1px solid red; */
+}
+.code{
+  height: 280px;
+  /* border: 1px solid blue; */
+}
+.preview{
+  height: 320px;
+  /* border: 1px solid red; */
+}
+
+.codeEditor{
+  width: 370px !important;
+  /* background: red; */
+  /* height: 400px !important; */
+  overflow-y: auto;
+  display: inline-block;
+}
+
+
+.CodeMirror-linenumber{
+  left: -30px !important;
+}
+.CodeMirror-scroll{
+
+}
+.CodeMirror{
+    margin-left: 10px;
+}
+.htmlArea{
+  float: left;
+  width: 384px;
+  height: 280px;
+  border-right: 1px solid #DFDFDF;
+}
+.cssArea{
+  float: left;
+  width: 384px;
+  height: 280px;
+  border-right: 1px solid #DFDFDF;
+}
+.jsArea{
+  float: left;
+  width: 384px;
+  height: 280px;
+}
+.topArea{
+  width: 385px;
+  height: 25px;
+  background-color: #DFDFDF;
+  text-align: center;
+  display: table;
+}
+.topLan{
+  display: table-cell;
+  vertical-align: middle;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 11px;
+  color: rgb(123, 123, 123);
+}
+
+.preTop{
+  width: 1150px;
+  height: 25px;
+  background-color: #DFDFDF;
+  display: table;
+  text-align: center;
+}
+
+.preLan{
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 11px;
+  color: rgb(123, 123, 123);
+  font-weight: bold;
+}
+
+.sideBar{
+  width: 30px;
+  height: 255px;
+  position: absolute;
+  z-index: 2;
+  background-color: rgb(245, 245, 245);
+  /* border-right: 1px solid #ddd; */
+}
+
+.previewArea{
+  position: absolute;
+  width: 47%;
+}
+
+.rightController{
+  position: absolute;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  right: 10px;
+}
+
+.rightController > * {
+  padding: 0 5px;
+}
+
+.titleInput{
+  border: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 0 5px;
+}
+
+.titleInput:focus {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.9);
+}
+
+.saveIcon{
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background: url('/images/ic_check_circle_dark.png') center no-repeat;
+  background-size: contain;
+}
+
+.saveIcon:hover{
+background: url('/images/ic_check_circle_light.png') center no-repeat;
+background-size: contain;
+}

@@ -1,0 +1,15 @@
+.closer{
+  height: 40px;
+  width: 100%;
+  display : flex;
+  justify-content : center;
+  align-items: center;
+  cursor : pointer;
+  z-index : 10;
+  background-color : white;
+  transition: all 0.3s ease-in;
+}
+
+.closer:hover{
+  background-color: #999999;
+}

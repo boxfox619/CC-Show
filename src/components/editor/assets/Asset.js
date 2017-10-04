@@ -35,6 +35,7 @@ class Asset extends React.Component{
 
   render(){
       let assetTag;
+      let attrs = {};
     switch(this.props.attribute.type){
       case assetTypes.TYPE_TEXT:
         assetTag = TextAsset;
@@ -44,6 +45,7 @@ class Asset extends React.Component{
         break;
       case assetTypes.TYPE_VIDEO:
         assetTag = VideoAsset;
+        attrs = {preview: (!this.props.controlable)?true:this.props.attribute.preview&&this.props.isSelected};
         break;
       case assetTypes.TYPE_SHAPE:
         assetTag = 'ShapeAsset';
@@ -88,7 +90,7 @@ class Asset extends React.Component{
       return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
       <div style={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'padding': '6px', 'position': 'absolute'}} >
         {renderSelectorLine()}
-        <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} value={this.props.attribute.value}/>
+        <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} attrs={attrs} value={this.props.attribute.value}/>
           {renderSelectorDot()}
       </div>
       </asset>);
