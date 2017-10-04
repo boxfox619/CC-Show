@@ -42,7 +42,6 @@ class SlideEditor extends React.Component{
   }
 
   render(){
-<<<<<<< HEAD
     let selectedAsset=this.props.currentSilde.selectedAsset-1;
 
     let color_picker_funcs={
@@ -85,8 +84,6 @@ class SlideEditor extends React.Component{
     }
 
 
-=======
->>>>>>> 1d30aaff21bb598f4918eb044d71b05c77fd883e
     let renderDialogs = ()=>{
       if(this.props.dialog!=undefined){
         switch(this.props.dialog){
@@ -97,11 +94,7 @@ class SlideEditor extends React.Component{
           case dialogs.ACCOUNT_WITH_SNS:
             return (<AccountDialog className={styles.modal}/>);
           case dialogs.COLOR_PICKER:
-<<<<<<< HEAD
             return (<div className={styles.color_picker}><SketchPicker color={color_picker_funcs.chooseColor()} onChangeComplete={color_picker_funcs.kindsOfcolorPicker()}/><div className={styles.select_color_button} onClick={color_picker_funcs.setColor()}>선택</div></div>)
-=======
-            return (<ColorPicker className={styles.color_picker}/>)
->>>>>>> 1d30aaff21bb598f4918eb044d71b05c77fd883e
           case dialogs.SLIDE_SHOW:
             return (<SlideShow className={styles.modal}/>);
         }
