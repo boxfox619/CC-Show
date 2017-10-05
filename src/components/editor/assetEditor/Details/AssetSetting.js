@@ -266,7 +266,7 @@ class AssetSetting extends React.Component{
                 </div>
             </div>  
     </div>
-   {renderForm()}
+   {renderForm(selectMode)}
     </div>
         );
     }
