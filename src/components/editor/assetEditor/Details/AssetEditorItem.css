@@ -269,7 +269,6 @@ margin-bottom: 10px;
     border: 2px solid #1998E5;
 }
 .cover2{
-    width: 35%;
     height: 36px;
     background-color: #1998E5;
     display: table;
@@ -327,6 +326,7 @@ margin-bottom: 10px;
     border: 1.5px solid #1998E5;
     color: #1998E5;
     cursor: pointer;
+    display: inline-block;
 }
 
 
@@ -372,13 +372,14 @@ margin-bottom: 10px;
   position: relative;
 }
 .imagePreview{
-    width: 128px;
+    width: 136px;
     height: 73px;
     border: 1.7px solid #1998E5;
     float: left;
     margin-right: 5px;
     display: table;
     position: relative;
+    margin-bottom: 1em;
 }
 
 .imagePreview img{

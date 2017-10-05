@@ -7,8 +7,8 @@ import ChargeAsset from './ChargeAsset';
 class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
-        // this.previewImage = this.previewImage.bind(this);
-        this.state = {file : ' ' ,
+        this.state = {
+        file : ' ' ,
         file2 : ' ',
         file3 : ' ',
         ThumbnailUrl: undefined,
@@ -18,20 +18,10 @@ class AssetSetting extends React.Component{
         previewInputUrl4 : undefined,
         currentImageUpload: undefined,
         addFileCNT : 0,
-        defWidth : 420,
-        myWidth : 270,
-        selectCharge : 0,
-        ChargeID : 1
+        defWidth : 434,
+        myWidth : 286,
     };
-
-    };
-
-
-    selectChargeMode(e){
-        this.setState({
-
-        })
-    }
+};
 
     thumbNail (e){
         this.setState({
@@ -39,7 +29,6 @@ class AssetSetting extends React.Component{
             currentImageUpload : 'previewThumbnail'
         });
     }
-
 
     inputimg(e){
         this.setState({
@@ -57,7 +46,7 @@ class AssetSetting extends React.Component{
 
     addFileChange(e){
         
-        let add = 130;
+        let add = 145;
                     
         this.setState({
             ...this.state,
@@ -70,9 +59,9 @@ class AssetSetting extends React.Component{
             console.log('e.preventDefault 실행');
             e.preventDefault();
         }
-        if(this.state.myWidth === '680px'){
+        if(this.state.myWidth === '880px'){
             this.setState({
-                myWidth : 680 + "px"
+                myWidth : 880 + "px"
             })
         }        
     }
@@ -81,7 +70,6 @@ class AssetSetting extends React.Component{
        this.setState({
            ChargeID : 1
        });
-
        console.log(this.state.ChargeID);
     }
 
@@ -150,17 +138,29 @@ class AssetSetting extends React.Component{
         reader.readAsDataURL(file)
       }
 
-    render(){
+    //   myClick(component, event){
+    //       if(this.props.mode == 'free'){
+    //           console.log('free');
+    //       }
+    //   }
+      clickclick(){
+          console.log('helloworld');
+      }
+
+      getMode(){
+          console.log(this.props.mode);
+      }
+
+    render(){     
+
 
         let $imagePreview = null;
         let $imagePreview2 = null;
         let $imagePreview3 = null;
         let $imagePreview4 = null;
         let $imagePreview5 = null;
-        
-
-        let card = [];
     
+        let card = [];
             const CardComponent = props => <div className = {styles.imagePreview}>
             <input type = "file" className = {styles.inputImage} onClick =  {(e)=> this.inputimg(e)} onChange = {(e)=>this.ImageChange(e)} />
             <button className = {styles.previewText}>{$imagePreview3}</button>
@@ -171,14 +171,12 @@ class AssetSetting extends React.Component{
             }
 
             this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) : $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
-
             this.state.previewInputUrl ? $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>) : $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
-       
             this.state.previewInputUrl2 ? $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>) : $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
-
             this.state.previewInputUrl3 ? $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
-        
             this.state.previewInputUrl4 ? $imagePreview5 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview5 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
+        
+        
         return(
 <div className = {styles.content}>
      <div className = {styles.AssetEditor_left}>
@@ -196,14 +194,17 @@ class AssetSetting extends React.Component{
                 </div>
 
                 <div className = {styles.setting_second}>
-
+{/* 
                     <div className = {styles.openStoreDiv}>
                         <button className = {styles.openStoreButton} onClick = {(e)=>this.openStore(e)} >스토어 공개</button>
                     </div>
 
                     <div className = {styles.openStoreDiv}>
                         <button  className = {styles.openStoreButton} onClick = {(e)=> this.inCharge(e)}>유료로 변환</button>
-                    </div>
+                    </div> */}
+                    
+                        <SelectMode clickclick = {this.clickclick} getMode = {this.getMode} />
+                    
                     
                     <div className = {styles.cover2}>
                         <span className = {styles.frontTitle2}>￦</span>
@@ -250,6 +251,43 @@ class AssetSetting extends React.Component{
     }
 }
 
+class SelectMode extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            selectMode : [
+                {mode : '스토어 공개'},
+                {mode : '유료로 변환'}
+            ]
+        };
+    }
+    getMode(){
+        console.log(mymode.mode);
+    }
+
+    render(){   
+        return(
+            <div>
+            {this.state.selectMode.map((mymode, i)=> {
+                return(
+                <div className = {styles.openStoreDiv} key = {i} >
+                    <ModeInfo mode = {mymode.mode} key = {"currentMode" + i} clickclick = {this.props.clickclick} getMode = {this.getMode}/>
+                </div>
+                )
+            })}
+            </div>
+            
+        );
+    }
+}
+
+class ModeInfo extends React.Component{
+    render(){
+        return(
+                <button className = {styles.openStoreButton} onClick = {this.props.clickclick} > {this.props.mode} </button>
+        );
+    }
+}
 
 
 export default AssetSetting;

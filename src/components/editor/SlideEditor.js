@@ -179,7 +179,6 @@ class SlideEditor extends React.Component{
       console.log(e);
     });
   }
-<<<<<<< HEAD
 
   handleFillColor(color){
     this.setState({
@@ -210,8 +209,6 @@ class SlideEditor extends React.Component{
   setTextColor(color){
     this.props.setAssetTextColor(this.state.text_color)
   }
-=======
->>>>>>> 1d30aaff21bb598f4918eb044d71b05c77fd883e
 }
 
 const mapStateToProps = (state) => {
@@ -219,13 +216,9 @@ const mapStateToProps = (state) => {
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager,
     visibleSlideShow: state.ui.visibleSlideShow,
-<<<<<<< HEAD
     colorPicker: state.ui.colorPicker,
     showData: state.editor,
     currentSilde: state.editor.slides[state.editor.selectedSlide]
-=======
-    showData: state.editor
->>>>>>> 1d30aaff21bb598f4918eb044d71b05c77fd883e
   }
 }
 
