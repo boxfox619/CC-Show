@@ -5,18 +5,14 @@ import FreeAsset from './FreeAsset';
 import ChargeAsset from './ChargeAsset';
 
 const selectMode = [
-    {mode : '스토어 공개', number : 0},
-    {mode : '유료로 전환', number : 1}
+    {mode : '스토어 공개'},
+    {mode : '유료로 전환'}
 ]
 
 class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
         this.state = {
-        selectMode : [
-                {mode : '스토어 공개'},
-                {mode : '유료로 변환'}
-            ],
         file : ' ' ,
         currentMode : 0,
         file2 : ' ',
@@ -70,9 +66,9 @@ class AssetSetting extends React.Component{
             console.log('e.preventDefault 실행');
             e.preventDefault();
         }
-        if(this.state.myWidth === '880px'){
+        if(this.state.myWidth === '724px'){
             this.setState({
-                myWidth : 880 + "px"
+                myWidth : 724 + "px"
             })
         }        
     }
@@ -144,7 +140,7 @@ class AssetSetting extends React.Component{
            return selectMode.map((mode,idx) => {
                if(idx == this.state.currentMode){
                    return( <div className = {styles.openStoreDiv} key = {idx} >
-                      <button className = {styles.openStoreButton} > {mode.mode} </button> 
+                      <button className = {styles.openStoreButtonSelected} > {mode.mode} </button> 
                             </div>)
                }else{
                    return(<div className = {styles.openStoreDiv} key = {idx} >
