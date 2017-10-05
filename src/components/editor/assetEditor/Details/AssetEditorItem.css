@@ -37,7 +37,7 @@
 .previewDiv{
     width: 48%;
     height: 160px;
-    border: 1.7px solid #1998E5;
+    border: 2px solid #1998E5;
     float: left;
     margin: 0 0.5em 0em 0;
     display: table;
@@ -106,7 +106,7 @@ display: inline-block;
 
 
 .AssetEditor_right{
- width: 33%;
+ width: 400px;
  overflow-x: hidden;
  overflow-y: auto;
  display: inline-block;
@@ -114,7 +114,7 @@ display: inline-block;
 } 
 
 .select_license{
-    width: 100%;
+    width: 380px;
     height: 5vh;
     border: 1px solid #1998E5;
     margin-bottom: 0.7em;
@@ -142,7 +142,7 @@ display: inline-block;
 }
 
 .license_content{
-    width: 99%;
+    width: 380px;
     height: 4.5vh;
     border: 1.7px solid #1998E5;
     margin-bottom: 0.7em;
@@ -313,7 +313,7 @@ margin-bottom: 10px;
 } */
 
 .openStoreDiv{
-    width: 30%;
+    width: 111px;
     height: 40px;
     float: left;
     margin-right: 4px;

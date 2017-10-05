@@ -4,11 +4,21 @@ import { connect } from 'react-redux';
 import FreeAsset from './FreeAsset';
 import ChargeAsset from './ChargeAsset';
 
+const selectMode = [
+    {mode : '스토어 공개', number : 0},
+    {mode : '유료로 전환', number : 1}
+]
+
 class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
         this.state = {
+        selectMode : [
+                {mode : '스토어 공개'},
+                {mode : '유료로 변환'}
+            ],
         file : ' ' ,
+        currentMode : 0,
         file2 : ' ',
         file3 : ' ',
         ThumbnailUrl: undefined,
@@ -21,6 +31,7 @@ class AssetSetting extends React.Component{
         defWidth : 434,
         myWidth : 286,
     };
+    this.selectModes = this.selectModes.bind(this);
 };
 
     thumbNail (e){
@@ -65,20 +76,8 @@ class AssetSetting extends React.Component{
             })
         }        
     }
-
-    openStore(e){
-       this.setState({
-           ChargeID : 1
-       });
-       console.log(this.state.ChargeID);
-    }
-
-    inCharge(e){
-        this.setState({
-            ChargeID : 2
-        });
-       console.log(this.state.ChargeID);
-    }
+    
+    
 
     ImageChange(e) {
         e.preventDefault();
@@ -137,22 +136,36 @@ class AssetSetting extends React.Component{
         }
         reader.readAsDataURL(file)
       }
-
-    //   myClick(component, event){
-    //       if(this.props.mode == 'free'){
-    //           console.log('free');
-    //       }
-    //   }
-      clickclick(){
-          console.log('helloworld');
-      }
-
-      getMode(){
-          console.log(this.props.mode);
-      }
+    
 
     render(){     
 
+       let renderMode = (selectMode) => {
+           return selectMode.map((mode,idx) => {
+               if(idx == this.state.currentMode){
+                   return( <div className = {styles.openStoreDiv} key = {idx} >
+                      <button className = {styles.openStoreButton} > {mode.mode} </button> 
+                            </div>)
+               }else{
+                   return(<div className = {styles.openStoreDiv} key = {idx} >
+                            <button onClick = {(e)=>this.selectModes(mode)} className = {styles.openStoreButton} > {mode.mode} </button> 
+                          </div>)
+               }
+           })
+       }
+
+       let renderForm = () => {
+           if(this.state.currentMode == 0){
+               return(
+                <ChargeAsset />
+               )
+           }
+           if(this.state.currentMode == 1){
+               return(
+                <FreeAsset />                
+               )
+           }
+       }
 
         let $imagePreview = null;
         let $imagePreview2 = null;
@@ -202,9 +215,18 @@ class AssetSetting extends React.Component{
                     <div className = {styles.openStoreDiv}>
                         <button  className = {styles.openStoreButton} onClick = {(e)=> this.inCharge(e)}>유료로 변환</button>
                     </div> */}
-                    
-                        <SelectMode clickclick = {this.clickclick} getMode = {this.getMode} />
-                    
+
+                    <div>
+                    {/* {selectMode.map((mymode, i)=> {
+                        return(
+                            <div className = {styles.openStoreDiv} key = {i} >
+                                 <ModeInfo mode = {mymode.mode} key = {i} clickclick = {this.clickclick}  /> 
+                            </div>
+                        )
+                    })} */}
+                    {renderMode(selectMode)}
+                        {/* <SelectMode clickclick = {this.clickclick} getMode = {this.getMode} /> */}
+                    </div>
                     
                     <div className = {styles.cover2}>
                         <span className = {styles.frontTitle2}>￦</span>
@@ -244,40 +266,17 @@ class AssetSetting extends React.Component{
                 </div>
             </div>  
     </div>
-    {/* <FreeAsset /> */}
-    <ChargeAsset />
+   {renderForm()}
     </div>
         );
     }
-}
-
-class SelectMode extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            selectMode : [
-                {mode : '스토어 공개'},
-                {mode : '유료로 변환'}
-            ]
-        };
-    }
-    getMode(){
-        console.log(mymode.mode);
-    }
-
-    render(){   
-        return(
-            <div>
-            {this.state.selectMode.map((mymode, i)=> {
-                return(
-                <div className = {styles.openStoreDiv} key = {i} >
-                    <ModeInfo mode = {mymode.mode} key = {"currentMode" + i} clickclick = {this.props.clickclick} getMode = {this.getMode}/>
-                </div>
-                )
-            })}
-            </div>
-            
-        );
+    selectModes(mode){
+        let index = selectMode.findIndex((obj=>obj.mode == mode.mode));
+        this.setState({
+            ...this.state,
+            currentMode : index
+        });
+        console.log(this.state.currentMode);
     }
 }
 
