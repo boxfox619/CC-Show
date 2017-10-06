@@ -664,6 +664,7 @@ margin-bottom: 10px;
       display : inline-block;
       height : 240px;
       top: 130px;
+      visibility: visible;
     }
     
     .license_input + .license_label{
@@ -679,6 +680,7 @@ margin-bottom: 10px;
         display : inline-block;
         height : 210px;
         top: 225px;
+        visibility: visible;
       }
       
       .license_input2 + .license_label2{
@@ -694,6 +696,7 @@ margin-bottom: 10px;
         display : inline-block;
         height : 240px;
         top: 254px;
+        visibility: visible;
       }
       
       .license_input3 + .license_label3{
@@ -708,6 +711,7 @@ margin-bottom: 10px;
         display : inline-block;
         height : 240px;
         top: 310px;
+        visibility: visible
       }
       
       .license_input4 + .license_label4{
@@ -723,6 +727,7 @@ margin-bottom: 10px;
         display : inline-block;
         height : 247px;
         top: 370px;
+        visibility: visible;
       }
       
       .license_input5 + .license_label5{
