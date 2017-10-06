@@ -26,9 +26,16 @@ class AssetSetting extends React.Component{
         addFileCNT : 0,
         defWidth : 434,
         myWidth : 286,
+        isCheckedFree : true,
+        isCheckedCharge : true
     };
-    this.selectModes = this.selectModes.bind(this);
+    this.handleChangeCharge = this.handleChangeCharge.bind(this);
+    this.handleChangeFree = this.handleChangeFree.bind(this);
 };
+
+componentWillMount(){
+    this.setState( { isChecked: this.props.isChecked } );
+}
 
     thumbNail (e){
         this.setState({
@@ -141,8 +148,10 @@ class AssetSetting extends React.Component{
                if(idx == this.state.currentMode){
                    return( <div className = {styles.openStoreDiv} key = {idx} >
                       <button className = {styles.openStoreButtonSelected} > {mode.mode} </button> 
-                            </div>)
-               }else{
+                            </div>
+                            )
+               }
+               else{
                    return(<div className = {styles.openStoreDiv} key = {idx} >
                             <button onClick = {(e)=>this.selectModes(mode)} className = {styles.openStoreButton} > {mode.mode} </button> 
                           </div>)
@@ -151,16 +160,28 @@ class AssetSetting extends React.Component{
        }
 
        let renderForm = () => {
-           if(this.state.currentMode == 0){
+           
+           if(this.state.isCheckedCharge == true && this.state.isCheckedFree == true){
+                return(
+                    <FreeAsset />
+                )
+           }
+           if(this.state.isCheckedFree == true){
                return(
-                <ChargeAsset />
+                    <ChargeAsset />
                )
            }
-           if(this.state.currentMode == 1){
+           if(this.state.isCheckedCharge == true){
                return(
-                <FreeAsset />                
+                   <FreeAsset />
                )
            }
+           if(this.state.isCheckedCharge == false && this.state.isCheckedFree == false){
+               return(
+                   <ChargeAsset />
+               )
+           }
+          
        }
 
         let $imagePreview = null;
@@ -203,24 +224,31 @@ class AssetSetting extends React.Component{
                 </div>
 
                 <div className = {styles.setting_second}>
-{/* 
-                    <div className = {styles.openStoreDiv}>
+
+                    {/* <div className = {styles.openStoreDiv}>
                         <button className = {styles.openStoreButton} onClick = {(e)=>this.openStore(e)} >스토어 공개</button>
                     </div>
 
                     <div className = {styles.openStoreDiv}>
                         <button  className = {styles.openStoreButton} onClick = {(e)=> this.inCharge(e)}>유료로 변환</button>
                     </div> */}
+                    <div className = {styles.openStoreDiv}>
+                     <input type = "checkbox"  className = {styles.modebox} checked={this.state.isCheckedFree} onChange={this.handleChangeFree}/>
+                     <label className = {styles.modeboxlabel}>
+                         <span className = {styles.openStoreSpan}>스토어 공개</span>
+                     </label>
+                    </div>
+                    <div className = {styles.openStoreDiv}>
+                     <input type = "checkbox"  className = {styles.modebox} checked={this.state.isCheckedCharge} onChange={this.handleChangeCharge}/>
+                     <label className = {styles.modeboxlabel}>
+                         <span className = {styles.openStoreSpan}>유료로 변환</span>
+                     </label>
+                        
+                    </div>
 
                     <div>
-                    {/* {selectMode.map((mymode, i)=> {
-                        return(
-                            <div className = {styles.openStoreDiv} key = {i} >
-                                 <ModeInfo mode = {mymode.mode} key = {i} clickclick = {this.clickclick}  /> 
-                            </div>
-                        )
-                    })} */}
-                    {renderMode(selectMode)}
+            
+                    {/* {renderMode(selectMode)} */}
                         {/* <SelectMode clickclick = {this.clickclick} getMode = {this.getMode} /> */}
                     </div>
                     
@@ -266,13 +294,14 @@ class AssetSetting extends React.Component{
     </div>
         );
     }
-    selectModes(mode){
-        let index = selectMode.findIndex((obj=>obj.mode == mode.mode));
-        this.setState({
-            ...this.state,
-            currentMode : index
-        });
-        console.log(this.state.currentMode);
+
+    handleChangeFree () {
+        this.setState( { isCheckedFree: !this.state.isCheckedFree } );
+       
+    }
+    handleChangeCharge(){
+        this.setState({ isCheckedCharge : !this.state.isCheckedCharge});
+
     }
 }
 
@@ -283,6 +312,7 @@ class ModeInfo extends React.Component{
         );
     }
 }
+
 
 
 export default AssetSetting;
