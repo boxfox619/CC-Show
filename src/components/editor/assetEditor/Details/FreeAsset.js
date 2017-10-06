@@ -187,8 +187,8 @@ class FreeAsset extends React.Component{
                     isCheckedCon5 : false,
                     con2margin : 10,
                     con3margin : 10,
-                    con3margin : 10,
-                    con4margin : 10
+                    con4margin : 10,
+                    con5margin : 10
                 })
             }
             this.setState({
@@ -212,8 +212,8 @@ class FreeAsset extends React.Component{
                     isCheckedCon4 : false,
                     con2margin : 10,
                     con3margin : 10,
-                    con3margin : 10,
-                    con4margin : 10
+                    con4margin : 10,
+                    con5margin : 10
                 })
             }
             this.setState({
