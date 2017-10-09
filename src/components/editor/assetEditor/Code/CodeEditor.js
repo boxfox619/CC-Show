@@ -115,14 +115,14 @@ class CodeEditor extends React.Component{
                 <span className = {styles.topLan}>HTML</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.htmlHandler} value= '' />
+              <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.htmlHandler} value= {this.props.htmlsource} />
             </div>
             <div className = {styles.cssArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>CSS</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.cssHandler} id = 'jsMode' />
+              <CodeMirror className={styles.codeEditor}  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.cssHandler} id = 'jsMode' value = {this.props.csssource} />
 
             </div>
             <div className = {styles.jsArea}>
@@ -130,7 +130,7 @@ class CodeEditor extends React.Component{
                 <span className = {styles.topLan}>JS</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'javascript'}} onChange = {this.jsHandler} />
+              <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'javascript'}} onChange = {this.jsHandler} value = {this.props.jssource} />
 
             </div>
           </div>
@@ -249,12 +249,14 @@ class CodeEditor extends React.Component{
   }
 
   htmlHandler(e) {
+    var node = document.getElementById('preview').childNodes[0]
     var currentText = e;
       this.setState({
       html: currentText,
       mode : 'htmlMode',
     });
     this.props.setHtml(e);
+    this.props.setPreview(node);
   }
   cssHandler(e) {
 
@@ -278,6 +280,9 @@ class CodeEditor extends React.Component{
   var mapStateToProps = (state) => {
   return {
     visible : state.ui.visibleAssetEditor,  
+    htmlsource : state.asseteditor.htmlsource,
+    csssource : state.asseteditor.csssource,
+    jssource : state.asseteditor.jssource
   }
 }
 

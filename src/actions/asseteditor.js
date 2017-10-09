@@ -2,7 +2,7 @@ export const SET_TITLE = 'SET_TITLE';
 export const SET_HTML = 'SET_HTML';
 export const SET_CSS = 'SET_CSS';
 export const SET_JS = 'SET_JS';
-
+export const SET_PREVIEW = 'SET_PREVIEW';
 
 export function setTitle(title){
     return{
@@ -31,4 +31,13 @@ export function setJS(jssource){
         jssource : jssource
     }
 }
+
+export function setPreview(image){
+    return{
+        type : SET_PREVIEW,
+        image : image
+    }
+}
+
+
 

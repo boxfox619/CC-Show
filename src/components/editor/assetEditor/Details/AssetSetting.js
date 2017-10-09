@@ -224,7 +224,6 @@ componentWillMount(){
         
         return(
 <div className = {styles.content}>
-    <h1>{this.props.htmlsource}</h1>
      <div className = {styles.AssetEditor_left}>
             <div className = {styles.previewDiv}>
                 <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
@@ -234,7 +233,7 @@ componentWillMount(){
 
                 <div className = {styles.setting_first}>
                     <div className = {styles.cover}><span className = {styles.frontTitle}>제목</span>
-                        <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요" onChange = {(e)=>this.titleHandler(e)}/>
+                        <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요" onChange = {(e)=>this.titleHandler(e)} value = {this.props.title}/>
                     </div>
                 </div>
 
@@ -312,7 +311,8 @@ componentWillMount(){
 
 var mapStateToProps = (state) =>{
     return{
-        htmlsource : state.asseteditor.htmlsource
+        htmlsource : state.asseteditor.htmlsource,
+        title : state.asseteditor.title
     }
 }
 
