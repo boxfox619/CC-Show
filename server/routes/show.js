@@ -48,6 +48,48 @@ module.exports = function(realm) {
         }
     });
 
+    router.get('/test', (req, res) => {
+      console.log('start');
+      let shows = realm.objects('Show');
+      for(let i = 0;i < shows.length;i++){
+        let slides = JSON.parse(shows[i].slides);
+        for(let j = 0;j < slides.length;j++){
+          for(let k = 0; k <slides[j].assets.length; k++){
+            if(slides[j].assets[k].type=='ASSET_TYPE_IMAGE'){
+              let value = slides[j].assets[k].value;
+              let name = shows[i].id+slides[j].id+''+slides[j].assets[k].id+new Date().getTime()+'.';
+              let header = value.substring(0, (value.length>20)?20:value.length);
+              let check = false;
+              if(header.includes('png')){
+                name += 'png';
+                value = value.replace(/^data:image\/png;base64,/, "");
+                check = true;
+              }else if(header.includes('jpeg')){
+                name += 'jpg';
+                value = value.replace(/^data:image\/jpeg;base64,/, "");
+                check = true;
+              }
+              if(check){
+                slides[j].assets[k].value = '/assetimage/'+name;
+                console.log(slides[j].assets[k]);
+                require("fs").writeFile(path.join(__dirname, '../../public/resources/assetimage/'+name), value, 'base64', function(err) {
+                  if(err){
+                    console.log(err);
+                  }else{
+                    console.log('/assetimage/'+name);
+                  }
+                });
+              }
+            }
+          }
+        }
+          realm.write(() => {
+            shows[i].slides = JSON.stringify(slides);
+          });
+      }
+      return res.status(200).end('asd');
+    });
+
     router.get('/play/', (req, res) => {
       console.log(colors.green('[REQ]'),getIP(req), 'slideshow');
       let showId = req.query.show;
@@ -118,7 +160,16 @@ module.exports = function(realm) {
       console.log(colors.green('[REQ]'),getIP(req), 'look up show list');
       if(!!req.signedCookies.user){
         let shows = realm.objects('Show').filtered('user = "'+JSON.parse(req.signedCookies.user).id+'"');
-        return res.json(slidesToArray(shows));
+        let showArr = shows.map(item => {
+          let show = slideArrayToJson(item);
+          let thumbnail = (show.slides.length>0)? show.slides[0].thumbnail:undefined;
+          return {
+            name : show.name,
+            id : show.id,
+            thumbnail
+          }
+        })
+        return res.json(showArr);
       }else{
         return res.status(400).end('You need login');
       }
