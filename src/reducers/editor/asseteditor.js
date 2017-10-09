@@ -1,8 +1,11 @@
-import { SET_TITLE } from '../../actions/asseteditor';
+import { SET_TITLE, SET_HTML, SET_CSS, SET_JS} from '../../actions/asseteditor';
 import combineReducers from 'redux';
 
 const InitialState = {
-  title: ' '    
+  title: ' '  ,
+  htmlsource : ' ',
+  csssource : ' ',
+  jssource : ' ',  
 }
 
 const asseteditor = (state = InitialState, action) => {
@@ -13,9 +16,26 @@ const asseteditor = (state = InitialState, action) => {
                 ...state,
                 title: action.title
             }
+
+        case SET_HTML:
+            return{
+                ...state,
+                htmlsource : action.htmlsource
+            }
+        case SET_CSS :
+            return{
+                ...state,
+                csssource : action.csssource
+            }
+        case SET_JS:
+            return{
+                ...state,
+                jssource : action.jssource
+            }
         default : 
             return state;
     }
 }
+
 
 export default asseteditor;
