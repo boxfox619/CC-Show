@@ -204,19 +204,6 @@ user-select: none;
     padding: 0;
 }
 
-.color_picker{
-  position: fixed;
-  z-index: 4;
-  border-radius: 20px;
-  background-color: white;
-  overflow: hidden;
-  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);
-  top: -100%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-animation: modaldown 0.5s forwards;
-}
-
 .modal{
   position: fixed;
   z-index: 4;
