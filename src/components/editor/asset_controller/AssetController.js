@@ -75,7 +75,7 @@ class AssetController extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  if(state.editor.slides.length>0&&!!state.editor.slides[state.editor.selectedSlide].selectedAsset){
+  if(state.editor.slides.length>0&& !!state.editor.slides[state.editor.selectedSlide] &&!!state.editor.slides[state.editor.selectedSlide].selectedAsset){
     return {
         currentSilde : state.editor.slides[state.editor.selectedSlide],
         selectedAsset: state.editor.slides[state.editor.selectedSlide].assets[getAssetIndex(state, state.editor.slides[state.editor.selectedSlide].selectedAsset)],

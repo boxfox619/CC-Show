@@ -92,6 +92,7 @@ class SlideEditor extends React.Component{
     if(showId != null){
       this.props.toggleProgressDialog();
       axios.get('/show/data?id='+showId).then(response => {
+        console.log(response.data.showData);
         this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
         this.props.initShowData(response.data.showData);
         this.setState({showId});

@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c35ea187a51de87ce569"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5828ee04187cbd06e8c7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -42637,6 +42637,7 @@ var SlideEditor = function (_React$Component) {
       if (showId != null) {
         this.props.toggleProgressDialog();
         _axios2.default.get('/show/data?id=' + showId).then(function (response) {
+          console.log(response.data.showData);
           _this3.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
           _this3.props.initShowData(response.data.showData);
           _this3.setState({ showId: showId });
@@ -42692,7 +42693,6 @@ var SlideEditor = function (_React$Component) {
       if (this.state.showId != undefined) {
         this.props.toggleProgressDialog();
         _axios2.default.post('/show/data', { showId: this.state.showId, showData: this.props.showData }).then(function (response) {
-          console.log('show data upload');
           _this4.props.toggleProgressDialog();
         }).catch(function (e) {
           console.log(e);
@@ -49137,7 +49137,7 @@ var SlideContext = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-  if (state.editor.slides.length > 0) {
+  if (state.editor.slides.length > 0 && !!state.editor.slides[state.editor.selectedSlide]) {
     return {
       currentSilde: state.editor.selectedSlide,
       selectedAsset: state.editor.slides[state.editor.selectedSlide].selectedAsset,
@@ -49559,7 +49559,7 @@ var SlideTitle = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-  if (state.editor.slides.length > 0) {
+  if (state.editor.slides.length > 0 && !!state.editor.slides[state.editor.selectedSlide]) {
     return {
       currentSlide: state.editor.selectedSlide,
       title: state.editor.slides[state.editor.selectedSlide].name };
@@ -49731,7 +49731,7 @@ var AssetController = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    if (state.editor.slides.length > 0 && !!state.editor.slides[state.editor.selectedSlide].selectedAsset) {
+    if (state.editor.slides.length > 0 && !!state.editor.slides[state.editor.selectedSlide] && !!state.editor.slides[state.editor.selectedSlide].selectedAsset) {
         return {
             currentSilde: state.editor.slides[state.editor.selectedSlide],
             selectedAsset: state.editor.slides[state.editor.selectedSlide].assets[getAssetIndex(state, state.editor.slides[state.editor.selectedSlide].selectedAsset)],
