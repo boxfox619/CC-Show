@@ -54,28 +54,17 @@ class SlideEditor extends React.Component{
       }
     }
     let contextDisabled = this.checkContextDisabled();
-    let isSlideShow = ()=>{
-      if(this.props.visibleSlideShow){
-        return(<SlideShow/>);
-      }else{
-        return(
-          <div ref={root => {this.root = root}} className={styles.slideEditor}>
-            <AssetCreator className={styles.assetCreator}/>
-            <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
-            {renderDialogs()}
-            <div onClick={this.handleClick} className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
-              <div className={styles.contextSpace}>
-                <SlideContext className={styles.slideContext}/>
-              </div>
-            </div>
-            <AssetController className={styles.assetController}/>
+    return(
+      <div ref={root => {this.root = root}} className={styles.slideEditor}>
+        <AssetCreator className={styles.assetCreator}/>
+        <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
+        {renderDialogs()}
+        <div onClick={this.handleClick} className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
+          <div className={styles.contextSpace}>
+            <SlideContext className={styles.slideContext}/>
           </div>
-        );
-      }
-    }
-    return (
-      <div>
-        {isSlideShow()}
+        </div>
+        <AssetController className={styles.assetController}/>
       </div>
     );
   }
@@ -138,7 +127,6 @@ const mapStateToProps = (state) => {
   return {
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager,
-    visibleSlideShow: state.ui.visibleSlideShow,
     showData: state.editor
   }
 }
