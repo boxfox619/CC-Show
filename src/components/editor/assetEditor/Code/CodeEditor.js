@@ -5,6 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+
 import Asset from '../../assets/Asset';
 import * as assetTypes from '../../../../assetTypes';
 
@@ -86,17 +87,6 @@ class CodeEditor extends React.Component{
 
 
   render(){
-
-    // let renderTabs = (tabs) =>{
-    //   return tabs.map((tab,idx)=>{
-    //     if(idx == this.state.activeTab){
-    //       return (<activetab key={"tab"+idx}>{tab.name}</activetab>)
-    //     }else{
-    //       return (<tab onClick={()=>this.selectTab(tab)} key={"tab"+idx}>{tab.name}</tab>)          
-    //     }
-    //   });
-    // }
-
     let renderEditors = () =>{
       if(this.state.activeTab==0){
         if(!!this.state.id){
@@ -110,14 +100,6 @@ class CodeEditor extends React.Component{
       }
     }
   }
-//   let renderDetailsItems = () => {
-//     if(this.state.activeTab == 0){
-//       return(<CodeEditor />);
-//     }
-//     if(this.state.activeTab == 1){
-//       return (<AssetEditorItem />);
-//     }
-//   }
 
     var options = {
       lineNumbers: true,
@@ -200,7 +182,7 @@ class CodeEditor extends React.Component{
 
   submit(){
     let assetName = document.getElementsByClassName(styles.titleInput)[0].value;
-    let source = this.state.css + this.state.html + this.state.js;
+    let source = this.props.html + this.props.css + this.props.js;
 
     let node = document.getElementById('preview').childNodes[0];
     let self = this;
@@ -214,7 +196,6 @@ class CodeEditor extends React.Component{
         .catch(function (error) {
             console.error(error);
         });
-
   }
 
   handleMouseMove(e){
@@ -313,6 +294,7 @@ class CodeEditor extends React.Component{
       mode : 'htmlMode',
 
     });
+
   }
   handleChange2(e) {
 
@@ -321,7 +303,6 @@ class CodeEditor extends React.Component{
       css: '<style>'+currentText+'</style>',
       mode : 'cssMode'
     });
-
   }
   handleChange3(e) {
     var currentText = e;
@@ -334,12 +315,10 @@ class CodeEditor extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    visible : state.ui.visibleAssetEditor
+    visible : state.ui.visibleAssetEditor,
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ ...uiActions }, dispatch);
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(CodeEditor);
+
+export default connect(mapStateToProps)(CodeEditor);

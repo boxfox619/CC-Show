@@ -3,6 +3,10 @@ import styles from './AssetEditorItem.css';
 import { connect } from 'react-redux';
 import FreeAsset from './FreeAsset';
 import ChargeAsset from './ChargeAsset';
+import * as actions from '../../../../actions/asseteditor';
+import Store from '../../../../store';
+import { bindActionCreators } from 'redux';
+
 
 const selectMode = [
     {mode : '스토어 공개'},
@@ -27,7 +31,8 @@ class AssetSetting extends React.Component{
         defWidth : 434,
         myWidth : 286,
         isCheckedFree : true,
-        isCheckedCharge : true
+        isCheckedCharge : true,
+        // title : title
     };
     this.handleChangeCharge = this.handleChangeCharge.bind(this);
     this.handleChangeFree = this.handleChangeFree.bind(this);
@@ -80,7 +85,10 @@ componentWillMount(){
         }        
     }
     
-    
+    titleHandler(e){
+        console.log(e.target.value);
+        this.props.setTitle(e.target.value);
+    }
 
     ImageChange(e) {
         e.preventDefault();
@@ -142,6 +150,7 @@ componentWillMount(){
     
 
     render(){     
+        // console.log(state.asseteditor.title);
 
        let renderMode = (selectMode) => {
            return selectMode.map((mode,idx) => {
@@ -219,7 +228,7 @@ componentWillMount(){
 
                 <div className = {styles.setting_first}>
                     <div className = {styles.cover}><span className = {styles.frontTitle}>제목</span>
-                        <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요"/>
+                        <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요" onChange = {(e)=>this.titleHandler(e)}/>
                     </div>
                 </div>
 
@@ -284,6 +293,7 @@ componentWillMount(){
             <div className = {styles.AssetEditor_description}>
                 <div className = {styles.AssetEditor_topbar}>
                     <span className = {styles.topbar_title}>부가설명</span>
+                    <h1> value : {this.props.myvalue}</h1> 
                 </div>
                 <div className = {styles.AssetEditor_content}>
                     <textarea cols = "107" rows = "50" className = {styles.description_content} placeholder ="텍스트를 입력하세요."/>
@@ -304,15 +314,18 @@ componentWillMount(){
 
     }
 }
-
-class ModeInfo extends React.Component{
-    render(){
-        return(
-                <button className = {styles.openStoreButton} onClick = {this.props.clickclick} > {this.props.mode} </button>
-        );
+var mapStateToProps = (state) =>{
+    return{
+        myvalue : state.asseteditor.title
     }
 }
 
+var mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({...actions}, dispatch);
+}
+        // ontitleUpdate: (title) =>  dispatch(settitle(title))
 
 
-export default AssetSetting;
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AssetSetting);
