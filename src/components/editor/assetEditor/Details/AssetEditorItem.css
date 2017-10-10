@@ -1,10 +1,13 @@
 .content{
-    padding: 10px 2.5%;
+    /* padding: 10px 2.5%; */
+    padding : 10px 10px 10px 10px;
+    width: 1200px;
 }
 .AssetEditor_left{
     width: 60%;
     height: 70vh ;
-    margin-left: 2em;
+    /* margin-left: 2em; */
+    margin-left: 15px;
     float: left;
 }
 .AssetEditor_preview{
@@ -34,7 +37,7 @@
 .previewDiv{
     width: 48%;
     height: 160px;
-    border: 1.7px solid #1998E5;
+    border: 2px solid #1998E5;
     float: left;
     margin: 0 0.5em 0em 0;
     display: table;
@@ -77,6 +80,7 @@ display: inline-block;
 
 .AssetEditor_description{
 
+width : 705px;
 height: 380px;
 border: 1px solid #1898E5;
 margin: 0.5em 1em 0 0;
@@ -102,15 +106,15 @@ display: inline-block;
 
 
 .AssetEditor_right{
- width: 33%;
+ width: 400px;
  overflow-x: hidden;
  overflow-y: auto;
  display: inline-block;
- margin-left: 1em;
+ margin-left: 0em;
 } 
 
 .select_license{
-    width: 100%;
+    width: 380px;
     height: 5vh;
     border: 1px solid #1998E5;
     margin-bottom: 0.7em;
@@ -125,42 +129,56 @@ display: inline-block;
     vertical-align: middle;
     display: table-cell;
 }
-.dropdownButt{
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 6px 6px 0 6px;
-    border-color: #1997e5 transparent transparent transparent;
-    float: right;
-    vertical-align: middle;
-    display: table-cell;
-    margin: 1em;
-}
+
 
 .license_content{
-    width: 99%;
-    height: 4.5vh;
-    border: 1.7px solid #1998E5;
-    margin-bottom: 0.7em;
-    display: table;
+    width: 380px;
+    height: 50px;
+    margin-top: 10px;
+    display: block;
     background-color: white;
-    cursor: pointer;
+
+}
+.license_content2{
+    width: 380px;
+    height: 50px;
+    margin-top: 10px;
+    display: block;
+    background-color: white;
+
+}
+.license_content3{
+    width: 380px;
+    height: 50px;
+    margin-top: 10px;
+    display: block;
+    background-color: white;
+
+}
+.license_content4{
+    width: 380px;
+    height: 50px;
+    margin-top: 10px;
+    display: block;
+    background-color: white;
+
+}
+.license_content5{
+    width: 380px;
+    height: 50px;
+    margin-top: 10px;
+    display: block;
+    background-color: white;
+
 }
 
-.license_text{
-    color: #1998E5;
-    font-size: 0.7em;
-    display: table-cell;
-    vertical-align: middle;
-    padding-left: 1em;
-    
-}
-
-.dropdownContent{
-    width: 99%;
-    height: 5em;
+/* .dropdownContent{
+    width: 379px;
+    height: 255px;
     border: 1px solid red;
-}
+    margin-top: none;
+    /* display: none; */
+
 
 .CCL_top{
     width: 100%;
@@ -216,7 +234,7 @@ margin-bottom: 10px;
 }
 
 .AssetEditor_agreeButton{
-    width: 33%;
+    width: 369px;
     height: 4.6em;
     color: white;
     background-color:#1998E5; 
@@ -265,7 +283,6 @@ margin-bottom: 10px;
     border: 2px solid #1998E5;
 }
 .cover2{
-    width: 35%;
     height: 36px;
     background-color: #1998E5;
     display: table;
@@ -278,7 +295,7 @@ margin-bottom: 10px;
     vertical-align: middle;
     font-size: 0.5em;
     /* padding : 0 7px 0 9px; */
-    width: 40px;
+    width: 60px;
     margin-left: 1em;
     text-align: center;
 }
@@ -308,13 +325,48 @@ margin-bottom: 10px;
     cursor: pointer;
     
 } */
+.modebox{
+    cursor: pointer;
+    opacity: 0;
+    width: 105px;
+    height: 33px;
+    z-index: 100;
+    position: absolute;
+}
+
+.modeboxlabel{
+    width: 108px;
+    height: 38px;
+    background: #1898E5;
+    color: white;
+    border: 1.5px solid #1898E5;
+    border-radius: 2px;
+    display: table;
+      /* position: relative; */
+    transition: all .15s ease;
+}
+.openStoreDiv input:checked~label{
+    background: white;
+    color: #1898E5;
+}
+
+.openStoreSpan{
+    font-size: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
 
 .openStoreDiv{
-    width: 30%;
+    width: 104px;
     height: 40px;
     float: left;
-    margin-right: 4px;
+    margin-right: 11px;
+    position: relative;
+    display: table-cell;
 }
+
 
 .openStoreButton{
     width: 100%;
@@ -323,21 +375,9 @@ margin-bottom: 10px;
     border: 1.5px solid #1998E5;
     color: #1998E5;
     cursor: pointer;
+    display: inline-block;
 }
 
-
-.changeCharge{
-    width: 30%;
-    height: 3em;
-    border: 1px solid #1998E5;
-    display: table-cell;
-    vertical-align: middle;
-    color: #1998E5;
-    font-size: 3px;
-    text-align: center;
-    cursor: pointer;
-   
-}
 .text{
     padding: 1em;
 }
@@ -353,7 +393,7 @@ margin-bottom: 10px;
 }
 
 .imagePreview_ScrollDiv{
-    width: 270px;
+    width: 286px;
     height: 77px;
     float: left;
     position: relative;
@@ -368,13 +408,14 @@ margin-bottom: 10px;
   position: relative;
 }
 .imagePreview{
-    width: 128px;
+    width: 136px;
     height: 73px;
     border: 1.7px solid #1998E5;
     float: left;
     margin-right: 5px;
     display: table;
     position: relative;
+    margin-bottom: 1em;
 }
 
 .imagePreview img{
@@ -382,10 +423,9 @@ margin-bottom: 10px;
     height: 100%;
 }
 .previewText{
-    width: 120px;
+    width: 131px;
     height: 65px;
     margin-left: 4px;
-    margin-top: 5px;
     color: #E2E2E2;
     background-color: white;
     font-size: 10px;
@@ -412,3 +452,300 @@ margin-bottom: 10px;
     z-index: 1;
     opacity: 0;
 }
+
+/* ---------- */
+
+.dropdownContent {
+    background : white;
+    border: 1px solid #1898E5;
+    color:#FFF;
+    position: absolute;
+    top: 118px;
+    overflow : hidden;
+    width: 384px;
+    height: 30px;
+    visibility: hidden;
+    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 100
+      
+    }
+    .dropdownContent2 {
+        background: white;
+        border: 1px solid #1898E5;
+        color:#1898E5;
+        position: absolute;
+        top: 176px;
+        overflow : hidden;
+        width: 384px;
+        height: 30px;
+        visibility: hidden;
+        transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        overflow: hidden;
+        box-sizing: border-box;
+          z-index: 96
+        }
+        .dropdownContent3 {
+            background: white;
+            color:#FFF;
+            border: 1px solid #1898E5;
+            position: absolute;
+            top: 236px;
+            overflow : hidden;
+            width: 384px;
+            height: 30px;
+            visibility: hidden;
+            transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+            overflow: hidden;
+            box-sizing: border-box;
+            z-index: 95
+              
+            }
+            .dropdownContent4 {
+                background:white;
+                border: 1px solid #1898E5;
+                color:#FFF;
+                position: absolute;
+                top: 304px;
+                overflow : hidden;
+                width: 384px;
+                height: 30px;
+                z-index: 90;
+                visibility: hidden;
+                transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                overflow: hidden;
+                box-sizing: border-box;
+                  
+                }
+                .dropdownContent5 {
+                    background:white;
+                    border: 1px solid #1898E5;
+                    color:#FFF;
+                    position: absolute;
+                    top: 360px;
+                    overflow : hidden;
+                    width: 384px;
+                    height: 1px;            
+                    visibility: hidden;        
+                    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                    overflow: hidden;
+                    box-sizing: border-box;
+                      z-index: 86
+                    }
+    
+    .license_input {
+      position:absolute;
+      appearance:none;
+      cursor:pointer;
+      left:-100%;
+      top:-100%;
+    }
+    .license_input2 {
+        position:absolute;
+        appearance:none;
+        cursor:pointer;
+        left:-100%;
+        top:-100%;
+      }
+      .license_input3 {
+        position:absolute;
+        appearance:none;
+        cursor:pointer;
+        left:-100%;
+        top:-100%;
+      } 
+      .license_input4 {
+      position:absolute;
+      appearance:none;
+      cursor:pointer;
+      left:-100%;
+      top:-100%;
+    }   
+    .license_input5 {
+        position:absolute;
+        appearance:none;
+        cursor:pointer;
+        left:-100%;
+        top:-100%;
+      }
+     .license_label {
+      position:absolute;
+      cursor:pointer;
+      padding:10px;
+      background: white;
+      border: 2px solid #1898E5;
+    width: 360px;
+      height : 24px;
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height:20px;
+    cursor: pointer;
+      transition:all 500ms ease;
+      z-index : 101;
+      display: table;
+      
+    }
+    .license_label2 {
+        position:absolute;
+        cursor:pointer;
+        padding:10px;
+        background: white;
+        border: 2px solid #1898E5;
+      width: 360px;
+        height : 24px;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height:20px;
+      cursor: pointer;
+        transition:all 500ms ease;
+        z-index : 101;
+        display: table;
+        
+      }
+      .license_label3 {
+        position:absolute;
+        cursor:pointer;
+        padding:10px;
+        background: white;
+        border: 2px solid #1898E5;
+      width: 360px;
+        height : 24px;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height:20px;
+      cursor: pointer;
+        transition:all 500ms ease;
+        z-index : 100;
+        display: table;
+        
+      }
+      .license_label4 {
+        position:absolute;
+        cursor:pointer;
+        padding:10px;
+        background: white;
+        border: 2px solid #1898E5;
+      width: 360px;
+        height : 24px;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height:20px;
+      cursor: pointer;
+        transition:all 500ms ease;
+        z-index : 100;
+        display: table;
+        
+      }
+      .license_label5 {
+        position:absolute;
+        cursor:pointer;
+        padding:10px;
+        background: white;
+        border: 2px solid #1898E5;
+      width: 360px;
+        height : 24px;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height:20px;
+      cursor: pointer;
+        transition:all 500ms ease;
+        z-index : 100;
+        display: table;
+        
+      }
+
+    .license_text{
+        display: table-cell;
+        vertical-align: middle;        
+    }
+
+    .license_input:checked ~ .dropdownContent {
+      display : inline-block;
+      height : 240px;
+      top: 130px;
+      visibility: visible;
+    }
+    
+    .license_input + .license_label{
+        color: #1898E5;
+    }
+    
+    .license_input:checked + .license_label {
+        color: white;
+        background:#1898E5;
+    }
+
+    .license_input2:checked ~ .dropdownContent2 {
+        display : inline-block;
+        height : 210px;
+        top: 225px;
+        visibility: visible;
+      }
+      
+      .license_input2 + .license_label2{
+          color: #1898E5;
+      }
+      
+      .license_input2:checked + .license_label2 {
+          color: white;
+          background:#1898E5;
+      }
+
+      .license_input3:checked ~ .dropdownContent3 {
+        display : inline-block;
+        height : 240px;
+        top: 254px;
+        visibility: visible;
+      }
+      
+      .license_input3 + .license_label3{
+          color: #1898E5;
+      }
+      
+      .license_input3:checked + .license_label3 {
+          color: white;
+          background:#1898E5;
+      }
+      .license_input4:checked ~ .dropdownContent4 {
+        display : inline-block;
+        height : 240px;
+        top: 310px;
+        visibility: visible
+      }
+      
+      .license_input4 + .license_label4{
+          color: #1898E5;
+      }
+      
+      .license_input4:checked + .license_label4 {
+          color: white;
+          background:#1898E5;
+      }
+    
+      .license_input5:checked ~ .dropdownContent5 {
+        display : inline-block;
+        height : 247px;
+        top: 370px;
+        visibility: visible;
+      }
+      
+      .license_input5 + .license_label5{
+          color: #1898E5;
+      }
+      
+      .license_input5:checked + .license_label5 {
+          color: white;
+          background:#1898E5;
+      }
+    .dropdownButt{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 6px 6px 0 6px;
+        border-color: #1997e5 transparent transparent transparent;
+        float: right;
+        vertical-align: middle;
+        display: table-cell;
+        margin: 1em 5px 1em 1em;
+    }

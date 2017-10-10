@@ -54,7 +54,7 @@ class SlideEditor extends React.Component{
       }
     }
     let contextDisabled = this.checkContextDisabled();
-    return(
+    return (
       <div ref={root => {this.root = root}} className={styles.slideEditor}>
         <AssetCreator className={styles.assetCreator}/>
         <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
