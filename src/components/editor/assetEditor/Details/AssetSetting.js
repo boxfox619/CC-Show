@@ -147,11 +147,40 @@ componentWillMount(){
         }
         reader.readAsDataURL(file)
       }
+
     
 
-    render(){     
-        // console.log(state.asseteditor.title);
-
+    render(){
+        
+        
+        var renderForm = () => {
+            
+            if(this.state.isCheckedCharge == true && this.state.isCheckedFree == true){
+                 return(
+                     <FreeAsset />
+                 )
+            }
+    
+            if(this.state.isCheckedFree == true){
+                return(
+                     <ChargeAsset />
+                )
+            }
+    
+            if(this.state.isCheckedCharge == true){
+                return(
+                    <FreeAsset />
+                )
+            }
+            
+            if(this.state.isCheckedCharge == false && this.state.isCheckedFree == false){
+                return(
+                    <ChargeAsset />
+                )
+            }
+           
+        }
+    
        let renderMode = (selectMode) => {
            return selectMode.map((mode,idx) => {
                if(idx == this.state.currentMode){
@@ -168,30 +197,7 @@ componentWillMount(){
            })
        }
 
-       let renderForm = () => {
-           
-           if(this.state.isCheckedCharge == true && this.state.isCheckedFree == true){
-                return(
-                    <FreeAsset />
-                )
-           }
-           if(this.state.isCheckedFree == true){
-               return(
-                    <ChargeAsset />
-               )
-           }
-           if(this.state.isCheckedCharge == true){
-               return(
-                   <FreeAsset />
-               )
-           }
-           if(this.state.isCheckedCharge == false && this.state.isCheckedFree == false){
-               return(
-                   <ChargeAsset />
-               )
-           }
-          
-       }
+      
 
         let $imagePreview = null;
         let $imagePreview2 = null;
@@ -223,24 +229,16 @@ componentWillMount(){
                 <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
                 <button className = {styles.AssetEditor_preview}>{$imagePreview}</button>
             </div>
-            {/* <div className = {styles.preview_Image}>{$imagePreview}</div> */}
             <div className = {styles.AssetEditor_setting}>
 
                 <div className = {styles.setting_first}>
                     <div className = {styles.cover}><span className = {styles.frontTitle}>제목</span>
-                        <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요" onChange = {(e)=>this.titleHandler(e)}/>
+                        <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요" onChange = {(e)=>this.titleHandler(e)} value = {this.props.title}/>
                     </div>
                 </div>
 
                 <div className = {styles.setting_second}>
 
-                    {/* <div className = {styles.openStoreDiv}>
-                        <button className = {styles.openStoreButton} onClick = {(e)=>this.openStore(e)} >스토어 공개</button>
-                    </div>
-
-                    <div className = {styles.openStoreDiv}>
-                        <button  className = {styles.openStoreButton} onClick = {(e)=> this.inCharge(e)}>유료로 변환</button>
-                    </div> */}
                     <div className = {styles.openStoreDiv}>
                      <input type = "checkbox"  className = {styles.modebox} checked={this.state.isCheckedFree} onChange={this.handleChangeFree}/>
                      <label className = {styles.modeboxlabel}>
@@ -256,9 +254,6 @@ componentWillMount(){
                     </div>
 
                     <div>
-            
-                    {/* {renderMode(selectMode)} */}
-                        {/* <SelectMode clickclick = {this.clickclick} getMode = {this.getMode} /> */}
                     </div>
                     
                     <div className = {styles.cover2}>
@@ -293,38 +288,37 @@ componentWillMount(){
             <div className = {styles.AssetEditor_description}>
                 <div className = {styles.AssetEditor_topbar}>
                     <span className = {styles.topbar_title}>부가설명</span>
-                    <h1> value : {this.props.myvalue}</h1> 
                 </div>
                 <div className = {styles.AssetEditor_content}>
                     <textarea cols = "107" rows = "50" className = {styles.description_content} placeholder ="텍스트를 입력하세요."/>
                 </div>
             </div>  
     </div>
-   {renderForm(selectMode)}
+    {/* <FreeAsset /> */}
+   {renderForm()}
     </div>
         );
     }
 
     handleChangeFree () {
         this.setState( { isCheckedFree: !this.state.isCheckedFree } );
-       
     }
+
     handleChangeCharge(){
         this.setState({ isCheckedCharge : !this.state.isCheckedCharge});
-
     }
 }
+
 var mapStateToProps = (state) =>{
     return{
-        myvalue : state.asseteditor.title
+        htmlsource : state.asseteditor.htmlsource,
+        title : state.asseteditor.title
     }
 }
 
 var mapDispatchToProps = (dispatch) => {
     return bindActionCreators({...actions}, dispatch);
 }
-        // ontitleUpdate: (title) =>  dispatch(settitle(title))
-
 
 
 

@@ -242,6 +242,7 @@ margin-bottom: 10px;
     position: absolute;
     font-size: 11px;
     margin-top: 2px;
+    border: none;
     }
 
 .setting_first{
@@ -679,7 +680,7 @@ margin-bottom: 10px;
     .license_input2:checked ~ .dropdownContent2 {
         display : inline-block;
         height : 210px;
-        top: 225px;
+        top: 220px;
         visibility: visible;
       }
       
