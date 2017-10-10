@@ -6,6 +6,7 @@ import SlideManager from './slideManager/SlideManager';
 import AssetStore from './assetStore/AssetStore';
 import AssetEditor from './assetEditor/AssetEditor';
 import ColorPicker from './color_picker/ColorPicker';
+import ProgressDialog from './progressDialog/ProgressDialog';
 
 import SlideShow from './slide_show/SlideShow'
 import { dialogs } from '../../actions/ui';
@@ -34,6 +35,7 @@ class SlideEditor extends React.Component{
     this.handleKeyDown = this.handleKeyDown.bind(this);
 
     this.uploadShowData = this.uploadShowData.bind(this);
+    this.onUnload = this.onUnload.bind(this);
   }
 
   render(){
@@ -47,9 +49,11 @@ class SlideEditor extends React.Component{
           case dialogs.ACCOUNT_WITH_SNS:
             return (<AccountDialog className={styles.modal}/>);
           case dialogs.COLOR_PICKER:
-            return (<ColorPicker className={styles.color_picker}/>)
+            return (<ColorPicker className={styles.modal}/>)
           case dialogs.SLIDE_SHOW:
             return (<SlideShow className={styles.modal}/>);
+          case dialogs.PROGRESS:
+            return (<ProgressDialog className={styles.modal}/>);
         }
       }
     }
@@ -71,22 +75,27 @@ class SlideEditor extends React.Component{
 
   componentDidMount(){
     window.addEventListener("keydown", this.handleKeyDown, true);
+    window.addEventListener("beforeunload", this.onUnload)
     var url = new URL(window.location.href);
     var showId = url.searchParams.get("show");
     if(showId != null){
+      this.props.toggleProgressDialog();
       axios.get('/show/data?id='+showId).then(response => {
         this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
         this.props.initShowData(response.data.showData);
         this.setState({showId});
+        this.props.toggleProgressDialog();
       })
       .catch(e =>{
         console.log(e);
+        this.props.toggleProgressDialog();
       });
     }
   }
 
   componentWillUnmount(){
     window.removeEventListener("keydown", this.handleKeyDown);
+    window.removeEventListener("beforeunload", this.onUnload)
   }
 
   handleKeyDown(e) {
@@ -104,6 +113,10 @@ class SlideEditor extends React.Component{
     }
   }
 
+  onUnload(event){
+    return event.returnValue = "발표자료를 저장하셨나요? (Ctrl + S)";
+  }
+
   checkContextDisabled(){
     let check = false;
     if(this.props.visibleSlideManager||this.props.dialog!=undefined){
@@ -113,13 +126,16 @@ class SlideEditor extends React.Component{
   }
 
   uploadShowData(){
-    if(this.state.showId!=undefined)
+    if(this.state.showId!=undefined){
+      this.props.toggleProgressDialog();
     axios.post('/show/data', {showId: this.state.showId, showData: this.props.showData}).then(response => {
-      console.log('show data upload');
+        this.props.toggleProgressDialog();
     })
     .catch(e =>{
       console.log(e);
+        this.props.toggleProgressDialog();
     });
+  }
   }
 }
 

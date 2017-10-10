@@ -10,6 +10,7 @@ export const dialogs = {
   ASSET_EDITOR: 'AssetEditor',
   ACCOUNT_WITH_SNS: 'AccountDialog',
   SLIDE_SHOW: 'SLIDE_SHOW',
+  PROGRESS: 'PROGRESS',
   COLOR_PICKER: 'COLOR_PICKER'
 }
 
@@ -71,11 +72,10 @@ export const toggleSlideShow = () => {
   }
 }
 
-export const toggleAccountDialog = () => {
-
+export const toggleProgressDialog = () => {
   return {
     type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.ACCOUNT_WITH_SNS
+    target: dialogs.PROGRESS
   }
 }
 

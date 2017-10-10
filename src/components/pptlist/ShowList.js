@@ -36,11 +36,7 @@ class ShowListContext extends React.Component{
         return (<div onClick={this.createShow} className={styles.tempShow}>발표자료가 없습니다<br/>새 발표자료 만들기</div>);
       }else
       return showList.map((show)=>{
-        let thumbnail = undefined;
-        if(show.slides.length>0){
-          thumbnail = show.slides[0].thumbnail;
-        }
-        return (<ShowItem key={show.id} name={show.name} thumbnail={thumbnail} open={()=>this.openShow(show.id)} share={()=>this.shareShow(show.id)} delete={()=>this.deleteShow(show.id)} />)
+        return (<ShowItem key={show.id} name={show.name} thumbnail={show.thumbnail} open={()=>this.openShow(show.id)} share={()=>this.shareShow(show.id)} delete={()=>this.deleteShow(show.id)} />)
       });
     }
     let renderShowDialog = (job)=>{

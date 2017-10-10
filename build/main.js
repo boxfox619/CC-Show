@@ -32,6 +32,7 @@ if (process.env.NODE_ENV == 'development') {
     });
 }
 app.use('/', express.static(__dirname + '/../public/'));
+app.use('/assetimage', express.static(__dirname + '/../public/resources/assetimage'));
 app.get('/main/', (req, res) => {
     res.sendFile('main.html', { root: path.join(__dirname, '../public') });
 });
@@ -42,6 +43,8 @@ const store = require('./routes/store');
 app.use('/store', store(realm));
 const show = require('./routes/show');
 app.use('/show', show(realm));
+const assets = require('./routes/assets');
+app.use('/assets', assets(realm));
 
 const server = app.listen(port, () => {
     console.log('Express listening on port', port);
