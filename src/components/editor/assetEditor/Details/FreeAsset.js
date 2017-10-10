@@ -51,11 +51,13 @@ class FreeAsset extends React.Component{
     submit(){
         
                 let assetName = this.props.assetName;
+                assetName = String(assetName);
+                console.log("a"+typeof(assetName));
                 let source = this.props.htmlsource + this.props.csssource + this.props.jssource;
         
                 let node = this.props.image;
                 let self = this;
-                
+               
                     domtoimage.toPng(node, {filter: filter})
                     .then(function (dataUrl) {
                       let thumbnail = dataUrl;
@@ -265,7 +267,7 @@ class FreeAsset extends React.Component{
 
 var mapStateToProps = (state) => {
     return{
-        assetname : state.asseteditor.title,
+        assetName : state.asseteditor.title,
         htmlsource : state.asseteditor.htmlsource,
         csssource : state.asseteditor.csssource,
         jssource : state.asseteditor.jssource,
