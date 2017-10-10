@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "988c43dd5f2925560c28"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c475c3f0bac23af6200e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -27941,10 +27941,9 @@ var ChargeAsset = function (_React$Component) {
     _createClass(ChargeAsset, [{
         key: 'submit',
         value: function submit() {
-
             var assetName = this.props.assetName;
             var source = this.props.htmlsource + this.props.csssource + this.props.jssource;
-
+            console.log(source);
             var node = this.props.image;
             var self = this;
 
@@ -28016,7 +28015,7 @@ var ChargeAsset = function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
     return {
-        assetname: state.asseteditor.title,
+        assetName: state.asseteditor.title,
         htmlsource: state.asseteditor.htmlsource,
         csssource: state.asseteditor.csssource,
         jssource: state.asseteditor.jssource,
@@ -28026,7 +28025,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)(_extends({}, actions), dispatch);
+    return (0, _redux.bindActionCreators)(_extends({}, actions, { uiActions: uiActions }), dispatch);
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ChargeAsset);
@@ -47192,11 +47191,11 @@ var _redux2 = _interopRequireDefault(_redux);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var InitialState = {
-    title: ' ',
-    htmlsource: ' ',
-    csssource: ' ',
-    jssource: ' ',
-    image: ' '
+    title: '',
+    htmlsource: '',
+    csssource: '',
+    jssource: '',
+    image: ''
 };
 
 var asseteditor = function asseteditor() {

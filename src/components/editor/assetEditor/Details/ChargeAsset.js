@@ -87,7 +87,7 @@ var mapStateToProps = (state) => {
 }
 
 var mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({...actions}, dispatch );
+    return bindActionCreators({...actions, uiActions}, dispatch );
 }
 
 
