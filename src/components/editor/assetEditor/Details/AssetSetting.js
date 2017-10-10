@@ -3,6 +3,10 @@ import styles from './AssetEditorItem.css';
 import { connect } from 'react-redux';
 import FreeAsset from './FreeAsset';
 import ChargeAsset from './ChargeAsset';
+import * as actions from '../../../../actions/asseteditor';
+import Store from '../../../../store';
+import { bindActionCreators } from 'redux';
+
 
 const selectMode = [
     {mode : '스토어 공개'},
@@ -27,7 +31,8 @@ class AssetSetting extends React.Component{
         defWidth : 434,
         myWidth : 286,
         isCheckedFree : true,
-        isCheckedCharge : true
+        isCheckedCharge : true,
+        // title : title
     };
     this.handleChangeCharge = this.handleChangeCharge.bind(this);
     this.handleChangeFree = this.handleChangeFree.bind(this);
@@ -80,7 +85,10 @@ componentWillMount(){
         }        
     }
     
-    
+    titleHandler(e){
+        console.log(e.target.value);
+        this.props.setTitle(e.target.value);
+    }
 
     ImageChange(e) {
         e.preventDefault();
@@ -139,10 +147,40 @@ componentWillMount(){
         }
         reader.readAsDataURL(file)
       }
+
     
 
-    render(){     
-
+    render(){
+        
+        
+        var renderForm = () => {
+            
+            if(this.state.isCheckedCharge == true && this.state.isCheckedFree == true){
+                 return(
+                     <FreeAsset />
+                 )
+            }
+    
+            if(this.state.isCheckedFree == true){
+                return(
+                     <ChargeAsset />
+                )
+            }
+    
+            if(this.state.isCheckedCharge == true){
+                return(
+                    <FreeAsset />
+                )
+            }
+            
+            if(this.state.isCheckedCharge == false && this.state.isCheckedFree == false){
+                return(
+                    <ChargeAsset />
+                )
+            }
+           
+        }
+    
        let renderMode = (selectMode) => {
            return selectMode.map((mode,idx) => {
                if(idx == this.state.currentMode){
@@ -159,30 +197,7 @@ componentWillMount(){
            })
        }
 
-       let renderForm = () => {
-           
-           if(this.state.isCheckedCharge == true && this.state.isCheckedFree == true){
-                return(
-                    <FreeAsset />
-                )
-           }
-           if(this.state.isCheckedFree == true){
-               return(
-                    <ChargeAsset />
-               )
-           }
-           if(this.state.isCheckedCharge == true){
-               return(
-                   <FreeAsset />
-               )
-           }
-           if(this.state.isCheckedCharge == false && this.state.isCheckedFree == false){
-               return(
-                   <ChargeAsset />
-               )
-           }
-          
-       }
+      
 
         let $imagePreview = null;
         let $imagePreview2 = null;
@@ -214,24 +229,16 @@ componentWillMount(){
                 <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
                 <button className = {styles.AssetEditor_preview}>{$imagePreview}</button>
             </div>
-            {/* <div className = {styles.preview_Image}>{$imagePreview}</div> */}
             <div className = {styles.AssetEditor_setting}>
 
                 <div className = {styles.setting_first}>
                     <div className = {styles.cover}><span className = {styles.frontTitle}>제목</span>
-                        <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요"/>
+                        <input type = "text" className = {styles.title} placeholder=" 타이틀을 입력하세요" onChange = {(e)=>this.titleHandler(e)} value = {this.props.title}/>
                     </div>
                 </div>
 
                 <div className = {styles.setting_second}>
 
-                    {/* <div className = {styles.openStoreDiv}>
-                        <button className = {styles.openStoreButton} onClick = {(e)=>this.openStore(e)} >스토어 공개</button>
-                    </div>
-
-                    <div className = {styles.openStoreDiv}>
-                        <button  className = {styles.openStoreButton} onClick = {(e)=> this.inCharge(e)}>유료로 변환</button>
-                    </div> */}
                     <div className = {styles.openStoreDiv}>
                      <input type = "checkbox"  className = {styles.modebox} checked={this.state.isCheckedFree} onChange={this.handleChangeFree}/>
                      <label className = {styles.modeboxlabel}>
@@ -247,9 +254,6 @@ componentWillMount(){
                     </div>
 
                     <div>
-            
-                    {/* {renderMode(selectMode)} */}
-                        {/* <SelectMode clickclick = {this.clickclick} getMode = {this.getMode} /> */}
                     </div>
                     
                     <div className = {styles.cover2}>
@@ -290,29 +294,32 @@ componentWillMount(){
                 </div>
             </div>  
     </div>
-   {renderForm(selectMode)}
+    {/* <FreeAsset /> */}
+   {renderForm()}
     </div>
         );
     }
 
     handleChangeFree () {
         this.setState( { isCheckedFree: !this.state.isCheckedFree } );
-       
     }
+
     handleChangeCharge(){
         this.setState({ isCheckedCharge : !this.state.isCheckedCharge});
-
     }
 }
 
-class ModeInfo extends React.Component{
-    render(){
-        return(
-                <button className = {styles.openStoreButton} onClick = {this.props.clickclick} > {this.props.mode} </button>
-        );
+var mapStateToProps = (state) =>{
+    return{
+        htmlsource : state.asseteditor.htmlsource,
+        title : state.asseteditor.title
     }
+}
+
+var mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({...actions}, dispatch);
 }
 
 
 
-export default AssetSetting;
+export default connect(mapStateToProps, mapDispatchToProps)(AssetSetting);

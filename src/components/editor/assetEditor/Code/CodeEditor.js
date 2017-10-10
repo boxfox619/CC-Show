@@ -5,6 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+
 import Asset from '../../assets/Asset';
 import * as assetTypes from '../../../../assetTypes';
 
@@ -13,6 +14,7 @@ import CodeMirror from 'react-codemirror';
 import jsMode from 'codemirror/mode/javascript/javascript';
 import htmlMode from 'codemirror/mode/htmlmixed/htmlmixed';
 import cssMode from 'codemirror/mode/css/css';
+import * as actions from '../../../../actions/asseteditor';
 import * as uiActions from '../../../../actions/ui';
 
 function getAssetNode(parent, child) {
@@ -73,30 +75,19 @@ class CodeEditor extends React.Component{
     };
 
     // this.selectTab = this.selectTab.bind(this);
-    this.handleChange1 = this.handleChange1.bind(this);
-    this.handleChange2 = this.handleChange2.bind(this);
-    this.handleChange3 = this.handleChange3.bind(this);
+    this.htmlHandler = this.htmlHandler.bind(this);
+    this.cssHandler = this.cssHandler.bind(this);
+    this.jsHandler = this.jsHandler.bind(this);
 
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseRelese = this.handleMouseRelese.bind(this);
 
-    this.submit = this.submit.bind(this);
+    // this.submit = this.submit.bind(this);
   }
 
 
   render(){
-
-    // let renderTabs = (tabs) =>{
-    //   return tabs.map((tab,idx)=>{
-    //     if(idx == this.state.activeTab){
-    //       return (<activetab key={"tab"+idx}>{tab.name}</activetab>)
-    //     }else{
-    //       return (<tab onClick={()=>this.selectTab(tab)} key={"tab"+idx}>{tab.name}</tab>)          
-    //     }
-    //   });
-    // }
-
     let renderEditors = () =>{
       if(this.state.activeTab==0){
         if(!!this.state.id){
@@ -110,14 +101,6 @@ class CodeEditor extends React.Component{
       }
     }
   }
-//   let renderDetailsItems = () => {
-//     if(this.state.activeTab == 0){
-//       return(<CodeEditor />);
-//     }
-//     if(this.state.activeTab == 1){
-//       return (<AssetEditorItem />);
-//     }
-//   }
 
     var options = {
       lineNumbers: true,
@@ -125,7 +108,6 @@ class CodeEditor extends React.Component{
     };
     return (
       <div className={this.props.className}>
-
         <div className = {styles.content}>
           <div className = {styles.code}>
             <div className = {styles.htmlArea}>
@@ -133,14 +115,14 @@ class CodeEditor extends React.Component{
                 <span className = {styles.topLan}>HTML</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.handleChange1} value= '' />
+              <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.htmlHandler} value= {this.props.htmlsource} />
             </div>
             <div className = {styles.cssArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>CSS</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.handleChange2} id = 'jsMode' />
+              <CodeMirror className={styles.codeEditor}  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.cssHandler} id = 'jsMode' value = {this.props.csssource} />
 
             </div>
             <div className = {styles.jsArea}>
@@ -148,7 +130,7 @@ class CodeEditor extends React.Component{
                 <span className = {styles.topLan}>JS</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'javascript'}} onChange = {this.handleChange3} />
+              <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'javascript'}} onChange = {this.jsHandler} value = {this.props.jssource} />
 
             </div>
           </div>
@@ -175,47 +157,7 @@ class CodeEditor extends React.Component{
       </div>
     );
   }
-  componentDidMount(){
-    // if(!(!!this.props.assetData)){
-    //   axios.post('/store/new').then(response => {
-    //     this.setState({
-    //       ...state,
-    //       id: response.data.id
-    //     });
-    //   });
-    // }else{
-    //   this.setState({
-    //     ...state,
-    //     id: this.props.data.id,
-    //     title: this.props.data.title,
-    //     openToStore: this.props.data.openToStore,
-    //     thumbnail: this.props.data.thumbnail,
-    //     images: this.props.data.images,
-    //     content: this.props.data.content,
-    //     price: this.props.data.price,
-    //     license: this.props.data.license
-    //   });
-    // }
-  }
 
-  submit(){
-    let assetName = document.getElementsByClassName(styles.titleInput)[0].value;
-    let source = this.state.css + this.state.html + this.state.js;
-
-    let node = document.getElementById('preview').childNodes[0];
-    let self = this;
-      domtoimage.toPng(node, {filter: filter})
-        .then(function (dataUrl) {
-          let thumbnail = dataUrl;
-            axios.post('/store/simple/create', {name:assetName, source, thumbnail}).then(response => {
-              self.props.toggleAssetStore();
-            });
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
-
-  }
 
   handleMouseMove(e){
     if(this.state.mouseAction != 'none'&& this.mouseDowned){
@@ -306,40 +248,48 @@ class CodeEditor extends React.Component{
 
   }
 
-  handleChange1(e) {
+  htmlHandler(e) {
+    var node = document.getElementById('preview').childNodes[0]
     var currentText = e;
       this.setState({
       html: currentText,
       mode : 'htmlMode',
-
     });
+    this.props.setHtml(e);
+    this.props.setPreview(node);
   }
-  handleChange2(e) {
+  cssHandler(e) {
 
     var currentText = e;
       this.setState({
       css: '<style>'+currentText+'</style>',
       mode : 'cssMode'
     });
-
+    this.props.setCss(e);
   }
-  handleChange3(e) {
+  jsHandler(e) {
     var currentText = e;
       this.setState({
       js: '<script>' + currentText + '</script>',
       mode : 'jsMode'
     });
+    this.props.setJs(e);
   }
 }
 
-const mapStateToProps = (state) => {
+  var mapStateToProps = (state) => {
   return {
-    visible : state.ui.visibleAssetEditor
+    visible : state.ui.visibleAssetEditor,  
+    htmlsource : state.asseteditor.htmlsource,
+    csssource : state.asseteditor.csssource,
+    jssource : state.asseteditor.jssource
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ ...uiActions }, dispatch);
-}
+  var mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({...actions}, dispatch);
+  }
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(CodeEditor);
