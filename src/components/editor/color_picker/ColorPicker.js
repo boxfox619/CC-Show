@@ -82,7 +82,7 @@ function getAssetIndex(state, key) {
 const mapStateToProps = (state) => {
   return {
     colorPicker: state.ui.colorPicker,
-    currentAsset: state.editor.slides[state.editor.selectedSlide].assets[getAssetIndex(state, state.editor.slides[state.editor.selectedSlide].selectedAsset)]
+    currentAsset: state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset]
   }
 }
 

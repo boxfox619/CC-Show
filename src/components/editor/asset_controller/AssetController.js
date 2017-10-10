@@ -75,11 +75,14 @@ class AssetController extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  if(state.editor.slides.length>0&&!!state.editor.slides[state.editor.selectedSlide].selectedAsset){
+  if(state.editor.slides.length>0&&state.editor.slides[state.editor.selectedSlide].selectedAsset!=undefined){
+    let currentSlide = state.editor.slides[state.editor.selectedSlide];
+    let selectedAssetIndex = currentSlide.selectedAsset;
+    let selectedAsset = currentSlide.assets[selectedAssetIndex];
     return {
-        currentSilde : state.editor.slides[state.editor.selectedSlide],
-        selectedAsset: state.editor.slides[state.editor.selectedSlide].assets[getAssetIndex(state, state.editor.slides[state.editor.selectedSlide].selectedAsset)],
-        selectedAssetIndex: getAssetIndex(state, state.editor.slides[state.editor.selectedSlide].selectedAsset)
+        currentSlide,
+        selectedAsset,
+        selectedAssetIndex
     }
   }else{
     return {
@@ -88,15 +91,5 @@ const mapStateToProps = (state) => {
       selectedAsset : undefined
     }
   }
-}
-
-function getAssetIndex(state, key) {
-  let index = -1;
-  state.editor.slides[state.editor.selectedSlide].assets.forEach(function (asset, i) {
-    if (asset.id == key) {
-      index = i;
-    }
-  });
-  return index;
 }
 export default connect(mapStateToProps)(AssetController);

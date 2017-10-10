@@ -10,7 +10,6 @@ const InitialState = {
 }
 
 const asseteditor = (state = InitialState, action) => {
-    console.log(action);
     switch(action.type){
         case actionTypes.SET_TITLE:
             return {
