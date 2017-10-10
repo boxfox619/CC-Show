@@ -1,6 +1,11 @@
 #realm
 default.realm
 default.realm.lock
+realm-object-server/
+
+#express
+build/
+public/bundle.js
 
 # Logs
 logs
