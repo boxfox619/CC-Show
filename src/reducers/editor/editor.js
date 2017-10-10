@@ -82,6 +82,7 @@ const editor = (state = initialState, action) => {
         }
       } else if (action.assetType === assetTypes.TYPE_IMAGE) {
       } else if (action.assetType === assetTypes.TYPE_SHAPE) {
+        
       } else if (action.assetType === assetTypes.TYPE_CUSTOM) {
       } else {
         alert('type error');
