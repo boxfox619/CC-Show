@@ -67,7 +67,7 @@ class ChargeAsset extends React.Component{
                 <div className = {styles.isAsset_Content}></div>
             </div>       
           
-            <button type = "submit" className = {styles.AssetEditor_agreeButton} onClick = {this.submit} > 해당 약관에 동의합니다 </button>
+            <input type = "submit" className = {styles.AssetEditor_agreeButton} onClick = {this.submit} value = "해당 약관에 동의합니다." />
          
         </div>
         );

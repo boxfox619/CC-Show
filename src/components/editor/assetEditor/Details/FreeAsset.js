@@ -1,12 +1,26 @@
 import React from 'react';
 import styles from './AssetEditorItem.css';
-import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+import * as actions from '../../../../actions/asseteditor';
+import { bindActionCreators }from 'redux';
+import * as uiActions from '../../../../actions/ui';
+import domtoimage from 'dom-to-image';
+import Store from '../../../../store';
 import newId from './newid';
-// import { findDOMNode } from 'react-dom';
+
+import * as assetTypes from '../../../../assetTypes';
+import Asset from '../../assets/Asset';
+
+import axios from 'axios';
+
+function filter (node) {
+    return (node.tagName !== 'SELECTORLINE'&&node.tagName !== 'SELECTORDOT');
+}
 
 class FreeAsset extends React.Component{
     constructor(props){
         super(props);
+        this.submit = this.submit.bind(this);
         this.state={
             isCheckedCon1 : false,
             isCheckedCon2 : false,
@@ -34,6 +48,27 @@ class FreeAsset extends React.Component{
         this.id4 = newId();
         this.id5 = newId();
     }
+    submit(){
+        
+                let assetName = this.props.assetName;
+                let source = this.props.htmlsource + this.props.csssource + this.props.jssource;
+        
+                let node = this.props.image;
+                let self = this;
+                
+                    domtoimage.toPng(node, {filter: filter})
+                    .then(function (dataUrl) {
+                      let thumbnail = dataUrl;
+                        axios.post('/store/simple/create', {name:assetName, source, thumbnail}).then(response => {
+                          self.props.toggleAssetStore();
+                        });
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+                
+            
+              }
     render(){
 
         return(
@@ -46,7 +81,7 @@ class FreeAsset extends React.Component{
 
              <div>
                 <div className = {styles.license_content}>
-                    <input type="checkbox" name="toggle" id={this.id} className = {styles.license_input} checked = {this.state.isCheckedCon1} onChange = {this.handleChange}/>
+                    <input type="checkbox" name="toggle" id={this.id} className = {styles.license_input} checked = {this.state.isCheckedCon1} onChange = {this.handleChange} onClick = {this.submit}/>
                     <label htmlFor={this.id} className = {styles.license_label}>
                         <span className = {styles.license_text}>GPI</span>
                         <div className = {styles.dropdownButt}></div>
@@ -55,7 +90,7 @@ class FreeAsset extends React.Component{
                  </div>
 
                  <div className = {styles.license_content2} style = {{marginTop : this.state.con2margin+"px"}}>
-                    <input type="checkbox" name="toggle" id={this.id2} className = {styles.license_input2} checked = {this.state.isCheckedCon2} onChange = {this.handleChange2} />
+                    <input type="checkbox" name="toggle" id={this.id2} className = {styles.license_input2} checked = {this.state.isCheckedCon2} onChange = {this.handleChange2} onClick = {this.submit} />
                     <label htmlFor={this.id2} className = {styles.license_label2}>
                         <span className = {styles.license_text}>LGPI</span>
                         <div className = {styles.dropdownButt}></div>
@@ -64,7 +99,7 @@ class FreeAsset extends React.Component{
                  </div>
 
                  <div className = {styles.license_content3} style = {{marginTop : this.state.con3margin+"px"}}>
-                    <input type="checkbox" name="toggle" id={this.id3} className = {styles.license_input3} checked = {this.state.isCheckedCon3} onChange = {this.handleChange3}/>
+                    <input type="checkbox" name="toggle" id={this.id3} className = {styles.license_input3} checked = {this.state.isCheckedCon3} onChange = {this.handleChange3} onClick = {this.submit}/>
                     <label htmlFor={this.id3} className = {styles.license_label3}>
                         <span className = {styles.license_text}>BSD</span>
                         <div className = {styles.dropdownButt}></div>
@@ -73,7 +108,7 @@ class FreeAsset extends React.Component{
                  </div>
 
                  <div className = {styles.license_content4} style = {{marginTop : this.state.con4margin+"px"}}>
-                    <input type="checkbox" name="toggle" id={this.id4} className = {styles.license_input4} checked = {this.state.isCheckedCon4} onChange = {this.handleChange4}/>
+                    <input type="checkbox" name="toggle" id={this.id4} className = {styles.license_input4} checked = {this.state.isCheckedCon4} onChange = {this.handleChange4} onClick = {this.submit}/>
                     <label htmlFor={this.id4} className = {styles.license_label4}>
                         <span className = {styles.license_text}>MIT</span>
                         <div className = {styles.dropdownButt}></div>
@@ -82,7 +117,7 @@ class FreeAsset extends React.Component{
                  </div>
 
                  <div className = {styles.license_content5} style = {{marginTop : this.state.con5margin+"px"}}>
-                    <input type="checkbox" name="toggle" id={this.id5} className = {styles.license_input5} checked = {this.state.isCheckedCon5} onChange = {this.handleChange5}/>
+                    <input type="checkbox" name="toggle" id={this.id5} className = {styles.license_input5} checked = {this.state.isCheckedCon5} onChange = {this.handleChange5} onClick = {this.submit}/>
                     <label htmlFor={this.id5} className = {styles.license_label5}>
                         <span className = {styles.license_text}>CCL</span>
                         <div className = {styles.dropdownButt}></div>
@@ -228,9 +263,21 @@ class FreeAsset extends React.Component{
     }
 }
 
+var mapStateToProps = (state) => {
+    return{
+        assetname : state.asseteditor.title,
+        htmlsource : state.asseteditor.htmlsource,
+        csssource : state.asseteditor.csssource,
+        jssource : state.asseteditor.jssource,
+        image : state.asseteditor.image
+    }
+}
 
+var mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({...actions}, dispatch);
+}
 
-export default FreeAsset;
+export default connect(mapStateToProps, mapDispatchToProps)(FreeAsset);
 {/* <script>
     $(document).ready(function(){
         $('.license_content').on('click', function(event){
