@@ -11,6 +11,7 @@ const port = 3000;
 const devPort = 3001;
 "use strict";
 app.use(bodyParser.json({limit: '1024mb'}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser("secret"));
 
 app.use(function(req, res, next) {

@@ -746,6 +746,7 @@ section#final .slider-wrap .imgSlide {
   height: 40px;
   display: table-cell;
   cursor: pointer;
+  text-decoration: none;
 }
 
 #signup{

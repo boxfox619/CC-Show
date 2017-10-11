@@ -1,3 +1,5 @@
+import update from 'react-addons-update';
+
 export default function(state, action, actionTypes){
   switch (action.type) {
     case actionTypes.ASSET_SET_ANGLE:

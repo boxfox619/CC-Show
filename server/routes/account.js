@@ -5,6 +5,10 @@ const path = require('path');
 
 const CLIENT_ID = '201742033376-s4258t2qoo2be1aej3lb1qturs6kgsp3.apps.googleusercontent.com';
 
+const NAVER_CLIENT_ID = 'izyBVrhNSbSGRI9hHjxA';
+const NAVER_CLIENT_SECRET = 'Bihcf7Bvkn';
+const redirectURI = encodeURI("http://ccshow.co.kr/account/naver");
+
 const FACEBOOK_ACCESSTOKEN_CHECK_URL = 'https://graph.facebook.com/oauth/access_token_info?access_token=';
 const GOOGLE_ACCESSTOKEN_CHECK_URL = 'https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=';
 
@@ -40,6 +44,26 @@ module.exports = function(realm) {
 
     const router = express.Router();
 
+     router.get('/naver', function (req, res) {
+        let code = req.query.code;
+        let state = req.query.state;
+        let api_url = 'https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id='
+         + NAVER_CLIENT_ID + '&client_secret=' + NAVER_CLIENT_SECRET + '&redirect_uri=' + redirectURI + '&code=' + code + '&state=' + state;
+        var request = require('request');
+        var options = {
+            url: api_url,
+            headers: {'X-Naver-Client-Id':NAVER_CLIENT_ID, 'X-Naver-Client-Secret': NAVER_CLIENT_SECRET}
+         };
+        request.get(options, function (error, response, body) {
+          if (!error && response.statusCode == 200) {
+            res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
+            res.end(body);
+          } else {
+            res.status(response.statusCode).end();
+            console.log('error = ' + response.statusCode);
+          }
+        });
+      });
 
     router.get('/check/', (req, res)=>{
         console.log(colors.green('[REQ]'), 'account check', getIP(req));
@@ -96,7 +120,8 @@ module.exports = function(realm) {
               let user = realm.create('User', {
                 key: randomKey,
                 id: req.body.email,
-                nickname: req.body.name
+                nickname: req.body.name,
+                profileImageUrl: req.body.profile
               });
                 setCookie(res, user);
               return 200;
@@ -111,14 +136,14 @@ module.exports = function(realm) {
     router.post('/facebook/', (req, res) => {
         console.log(colors.green('[REQ]'), 'facebook', getIP(req));
       let checkUrl = FACEBOOK_ACCESSTOKEN_CHECK_URL+ req.body.accessToken;
-      request(checkUrl, function (error, response, body) {
+      return request(checkUrl, function (error, response, body) {
         let result = ()=>{
         if(error || JSON.parse(body).error){
           return 400;
         }else{
           return snsAccountJob(req, res);
         }};
-        res.status(result()).end();
+        return res.status(result()).end();
       });
     });
 

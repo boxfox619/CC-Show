@@ -51,7 +51,8 @@ const UserSchema = {
     key: {type: 'string'},
     id: {type: 'string'},
     password: {type: 'string', optional: true},
-    nickname: {type: 'string' }
+    nickname: {type: 'string' },
+    profileImageUrl: {type: 'string', optional: true}
   }
 };
 
