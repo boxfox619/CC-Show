@@ -55,7 +55,7 @@ class AssetCreator extends React.Component{
       <ClickableButton name={'텍스트'} onClick={()=>this.doJob(()=>this.createAsset(assetTypes.TYPE_TEXT))} />
       <ClickableButton name={'이미지'} onClick={()=>this.doJob(()=>this.createAsset(assetTypes.TYPE_IMAGE))} />
       <ClickableButton name={'비디오'} onClick={()=>this.doJob(()=>this.createAsset(assetTypes.TYPE_VIDEO))} />
-      <ClickableButton name={'도형'} onClick={()=>this.doJob(()=>this.showDialog(this.shapeTypes))} />
+      <ClickableButton name={'도형'} onClick={()=>this.doJob(()=>this.createAsset(assetTypes.TYPE_SHAPE))} />
       <ClickableButton name={'기타'} onClick={()=>this.doJob(()=>this.props.toggleAssetStore())} />
       <span className={styles.hr}/>
       <ClickableButton name={'슬라이드 리스트'} onClick={()=>this.doJob(()=>this.props.toggleSlideManager())} />

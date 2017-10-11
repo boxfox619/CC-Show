@@ -73,7 +73,7 @@ export const createAssetByType = (type) => {
     case assetTypes.TYPE_VIDEO:
       return createAsset(type, 'https://www.youtube.com/watch?v=VQtonf1fv_s');
     case assetTypes.TYPE_SHAPE:
-      return createAsset(type, '');
+      return createAsset(type, '' ,{'border':'1px solid black'});
     default:
       return createAsset(type, 'asdasd');
   }
