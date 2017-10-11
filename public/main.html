@@ -4,8 +4,10 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="google-signin-client_id" content="201742033376-pc8n0bgo8d5q4k1e4p86c5os3kbojsjs.apps.googleusercontent.com">
   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="./js/javascript.fullPage.js"></script>
   <script src="./js/main.js"></script>
@@ -65,7 +67,7 @@
               <p onClick="facebookLogin()" class="login_button">페이스북으로 로그인</p>
             </div>
             <div id="google_login" class="another_login">
-              <p class="login_button">구글로 로그인</p>
+              <p onClick="googleLogin()" class="login_button">구글로 로그인</p>
             </div>
           </div>
         </div>

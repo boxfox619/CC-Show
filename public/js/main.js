@@ -120,6 +120,13 @@ $(function () {
         logined = result.result;
       }
     });
+      gapi.load('auth2', function() {
+        gapi.auth2.init({
+          client_id: '201742033376-pc8n0bgo8d5q4k1e4p86c5os3kbojsjs.apps.googleusercontent.com',
+          fetch_basic_profile: false,
+          scope: 'profile'
+        });
+      });
 });
 
 window.fbAsyncInit = function() {
@@ -159,6 +166,20 @@ function facebookLogin(){
     console.log(response);
   }
 }, {scope: 'public_profile,email'});
+}
+
+function googleLogin(){
+  gapi.auth2.getAuthInstance().signIn().then(function() {
+    var profile = auth2.currentUser.get().getBasicProfile();
+        $.ajax({
+          type: 'POST',
+          url: '/account/google',
+          data: {"accessToken":accessToken, email : profile.getEmail(), name: profile.getName(), profile: response.getImageUrl()},
+          complete : function() {
+            location.reload();
+          }
+        });
+  });
 }
 
 
