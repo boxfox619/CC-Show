@@ -44,7 +44,7 @@ class ColorPicker extends React.Component{
          }
       }
     return (
-      <div className={this.props.className}>
+      <div className={this.props.className} style={{'width':'auto', 'height':'auto'}}>
         <SketchPicker style={{'box-shadow':'none'}} color={kindOfColor()} onChangeComplete={kindsOfcolorPicker()}/>
         <div className={styles.closer} onClick={this.props.releaseDialog}>닫기</div>
       </div>
@@ -82,7 +82,7 @@ function getAssetIndex(state, key) {
 const mapStateToProps = (state) => {
   return {
     colorPicker: state.ui.colorPicker,
-    currentAsset: state.editor.slides[state.editor.selectedSlide].assets[getAssetIndex(state, state.editor.slides[state.editor.selectedSlide].selectedAsset)]
+    currentAsset: state.editor.slides[state.editor.selectedSlide].assets[state.editor.slides[state.editor.selectedSlide].selectedAsset]
   }
 }
 

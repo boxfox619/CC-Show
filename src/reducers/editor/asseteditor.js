@@ -1,46 +1,45 @@
-import { SET_TITLE, SET_HTML, SET_CSS, SET_JS, SET_PREVIEW} from '../../actions/asseteditor';
+import { actionTypes } from '../../actions/asseteditor';
 import combineReducers from 'redux';
 
 const InitialState = {
   title: ''  ,
   htmlsource : '',
   csssource : '',
-  jssource : '',  
-  image : '',
+  jssource : '',
+  image : ''
 }
 
 const asseteditor = (state = InitialState, action) => {
-    console.log(action);
     switch(action.type){
-        case SET_TITLE:
+        case actionTypes.SET_TITLE:
             return {
                 ...state,
                 title: action.title
             }
 
-        case SET_HTML:
+        case actionTypes.SET_HTML:
             return{
                 ...state,
                 htmlsource : action.htmlsource
             }
-        case SET_CSS :
+        case actionTypes.SET_CSS :
             return{
                 ...state,
                 csssource : action.csssource
             }
-        case SET_JS:
+        case actionTypes.SET_JS:
             return{
                 ...state,
                 jssource : action.jssource
             }
 
-        case SET_PREVIEW:
+        case actionTypes.SET_PREVIEW:
             return{
                 ...state,
                 image : action.image
             }
 
-        default : 
+        default :
             return state;
     }
 }

@@ -41,11 +41,14 @@ class SlideContext extends React.Component{
 
     render(){
       let renderingAssets = (assets) => {
+        let idx = 0;
         return assets.map((asset)=>{
-          if(this.props.selectedAsset==asset.id){
+          let isSelected = false;
+          if(this.props.selectedAsset==idx++){
             this.selectedAsset = asset;
+            isSelected = true;
           }
-          return <Asset key={this.props.currentSilde+'-'+asset.id+'-'+this.props.currentSilde} isSelected={this.props.selectedAsset==asset.id} handleValueChange={this.props.setAssetValue} attribute={asset}/>
+          return <Asset key={this.props.currentSilde+'-'+asset.id+'-'+this.props.currentSilde} isSelected={isSelected} handleValueChange={this.props.setAssetValue} attribute={asset}/>
         })
       };
       return (
@@ -195,7 +198,7 @@ class SlideContext extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-  if(state.editor.slides.length > 0){
+  if(state.editor.slides.length > 0 && !!state.editor.slides[state.editor.selectedSlide]){
     return {
       currentSilde: state.editor.selectedSlide,
       selectedAsset: state.editor.slides[state.editor.selectedSlide].selectedAsset,

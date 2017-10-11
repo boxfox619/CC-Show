@@ -6,6 +6,7 @@ import SlideManager from './slideManager/SlideManager';
 import AssetStore from './assetStore/AssetStore';
 import AssetEditor from './assetEditor/AssetEditor';
 import ColorPicker from './color_picker/ColorPicker';
+import ProgressDialog from './progressDialog/ProgressDialog';
 
 import SlideShow from './slide_show/SlideShow'
 import { dialogs } from '../../actions/ui';
@@ -27,63 +28,17 @@ class SlideEditor extends React.Component{
   constructor(props){
     super(props);
 
-    this.state = {
-      showId: undefined,
-      text_color: null,
-      fill_color: null,
-      border_color: null
-    };
+    this.state = {showId: undefined};
 
     this.checkContextDisabled = this.checkContextDisabled.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
 
     this.uploadShowData = this.uploadShowData.bind(this);
+    this.onUnload = this.onUnload.bind(this);
   }
 
   render(){
-    let selectedAsset=this.props.currentSilde.selectedAsset-1;
-
-    let color_picker_funcs={
-      kindsOfcolorPicker: () =>{
-       if(this.props.colorPicker!=undefined){
-         switch(this.props.colorPicker){
-           case colorPicker.TEXT_COLOR:
-            return (this.handleTextColor)
-           case colorPicker.FILL_COLOR:
-            return (this.handleFillColor)
-           case colorPicker.BORDER_COLOR:
-            return (this.handleBorderColor)
-         }
-        }
-      },
-      chooseColor: () =>{
-        if(this.props.colorPicker!=undefined){
-          switch(this.props.colorPicker){
-            case colorPicker.TEXT_COLOR:
-              return (this.props.currentSilde.assets[selectedAsset].style.color)
-            case colorPicker.FILL_COLOR:
-              return (this.props.currentSilde.assets[selectedAsset].style['background-color'])
-            case colorPicker.BORDER_COLOR:
-              return (this.props.currentSilde.assets[selectedAsset].style['border-color'])
-          }
-        }
-      },
-      setColor: () => {
-        if(this.props.colorPicker!=undefined){
-          switch(this.props.colorPicker){
-            case colorPicker.TEXT_COLOR:
-              return (this.setTextColor)
-            case colorPicker.FILL_COLOR:
-              return (this.setFillColor)
-            case colorPicker.BORDER_COLOR:
-              return (this.setBorderColor)
-          }
-        }
-      }
-    }
-
-
     let renderDialogs = ()=>{
       if(this.props.dialog!=undefined){
         switch(this.props.dialog){
@@ -94,57 +49,53 @@ class SlideEditor extends React.Component{
           case dialogs.ACCOUNT_WITH_SNS:
             return (<AccountDialog className={styles.modal}/>);
           case dialogs.COLOR_PICKER:
-            return (<div className={styles.color_picker}><SketchPicker color={color_picker_funcs.chooseColor()} onChangeComplete={color_picker_funcs.kindsOfcolorPicker()}/><div className={styles.select_color_button} onClick={color_picker_funcs.setColor()}>선택</div></div>)
+            return (<ColorPicker className={styles.modal}/>)
           case dialogs.SLIDE_SHOW:
             return (<SlideShow className={styles.modal}/>);
+          case dialogs.PROGRESS:
+            return (<ProgressDialog className={styles.modal}/>);
         }
       }
     }
     let contextDisabled = this.checkContextDisabled();
-    let isSlideShow = ()=>{
-      if(this.props.visibleSlideShow){
-        return(<SlideShow/>);
-      }else{
-        return(
-          <div ref={root => {this.root = root}} className={styles.slideEditor}>
-            <AssetCreator className={styles.assetCreator}/>
-            <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
-            {renderDialogs()}
-            <div onClick={this.handleClick} className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
-              <div className={styles.contextSpace}>
-                <SlideContext className={styles.slideContext}/>
-              </div>
-            </div>
-            <AssetController className={styles.assetController}/>
-          </div>
-        );
-      }
-    }
     return (
-      <div>
-        {isSlideShow()}
+      <div ref={root => {this.root = root}} className={styles.slideEditor}>
+        <AssetCreator className={styles.assetCreator}/>
+        <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
+        {renderDialogs()}
+        <div onClick={this.handleClick} className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
+          <div className={styles.contextSpace}>
+            <SlideContext className={styles.slideContext}/>
+          </div>
+        </div>
+        <AssetController className={styles.assetController}/>
       </div>
     );
   }
 
   componentDidMount(){
     window.addEventListener("keydown", this.handleKeyDown, true);
+    window.addEventListener("beforeunload", this.onUnload)
     var url = new URL(window.location.href);
     var showId = url.searchParams.get("show");
     if(showId != null){
+      this.props.toggleProgressDialog();
       axios.get('/show/data?id='+showId).then(response => {
         this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
         this.props.initShowData(response.data.showData);
         this.setState({showId});
+        this.props.toggleProgressDialog();
       })
       .catch(e =>{
         console.log(e);
+        this.props.toggleProgressDialog();
       });
     }
   }
 
   componentWillUnmount(){
     window.removeEventListener("keydown", this.handleKeyDown);
+    window.removeEventListener("beforeunload", this.onUnload)
   }
 
   handleKeyDown(e) {
@@ -162,6 +113,10 @@ class SlideEditor extends React.Component{
     }
   }
 
+  onUnload(event){
+    return event.returnValue = "발표자료를 저장하셨나요? (Ctrl + S)";
+  }
+
   checkContextDisabled(){
     let check = false;
     if(this.props.visibleSlideManager||this.props.dialog!=undefined){
@@ -171,43 +126,16 @@ class SlideEditor extends React.Component{
   }
 
   uploadShowData(){
-    if(this.state.showId!=undefined)
+    if(this.state.showId!=undefined){
+      this.props.toggleProgressDialog();
     axios.post('/show/data', {showId: this.state.showId, showData: this.props.showData}).then(response => {
-      console.log('show data upload');
+        this.props.toggleProgressDialog();
     })
     .catch(e =>{
       console.log(e);
+        this.props.toggleProgressDialog();
     });
   }
-
-  handleFillColor(color){
-    this.setState({
-      ...this.state,
-      fill_color:color.hex
-    });
-  };
-
-  handleBorderColor(color){
-    this.setState({
-      ...this.state,
-      fill_color:color.hex
-    });
-  };
-  handleTextColor(color){
-    this.setState({
-      ...this.state,
-      fill_color:color.hex
-    });
-  };
-  setFillColor(){
-    this.props.setAssetFillColor(this.state.fill_color);
-  };
-  setBorderColor(color){
-    this.props.setAssetBorderColor(this.state.border_color);
-  };
-
-  setTextColor(color){
-    this.props.setAssetTextColor(this.state.text_color)
   }
 }
 
@@ -215,10 +143,7 @@ const mapStateToProps = (state) => {
   return {
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager,
-    visibleSlideShow: state.ui.visibleSlideShow,
-    colorPicker: state.ui.colorPicker,
-    showData: state.editor,
-    currentSilde: state.editor.slides[state.editor.selectedSlide]
+    showData: state.editor
   }
 }
 

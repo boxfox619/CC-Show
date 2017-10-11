@@ -1,8 +1,10 @@
-export const SET_TITLE = 'SET_TITLE';
-export const SET_HTML = 'SET_HTML';
-export const SET_CSS = 'SET_CSS';
-export const SET_JS = 'SET_JS';
-export const SET_PREVIEW = 'SET_PREVIEW';
+export const actionTypes = {
+  SET_TITLE : 'SET_TITLE',
+  SET_HTML : 'SET_HTML',
+  SET_CSS : 'SET_CSS',
+  SET_JS : 'SET_JS',
+  SET_PREVIEW : 'SET_PREVIEW'
+}
 
 export function setTitle(title){
     return{
@@ -38,6 +40,3 @@ export function setPreview(image){
         image : image
     }
 }
-
-
-

@@ -3,7 +3,8 @@ import update from 'react-addons-update';
 
 const initialState = {
   dialog: undefined,
-  visibleSlideManager: false
+  visibleSlideManager: false,
+  colorPicker: undefined
 }
 
 const ui = (state = initialState, action) => {
@@ -11,7 +12,8 @@ const ui = (state = initialState, action) => {
     case actionTypes.TOGGLE_DIALOG:
       return {
         ...state,
-        dialog : (state.dialog!=action.target)? action.target : undefined
+        dialog : (state.dialog!=action.target)? action.target : undefined,
+        colorPicker : (state.colorPicker===action.colorPicker)? state.colorPicker : action.colorPicker
       };
     case actionTypes.RELEASE_DIALOG:
       return {

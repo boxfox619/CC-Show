@@ -11,6 +11,7 @@ const port = 3000;
 const devPort = 3001;
 "use strict";
 app.use(bodyParser.json({limit: '1024mb'}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser("secret"));
 
 app.use(function(req, res, next) {
@@ -31,16 +32,10 @@ if(process.env.NODE_ENV == 'development') {
         console.log('webpack-dev-server is listening on port', devPort);
     });
 }
-app.use('/', express.static(__dirname + '/../public/resources'));
-app.use('/bundle.js', (req, res) =>{
-  res.sendFile('bundle.js', { root: path.join(__dirname, '../public') });
-});
-app.get('/', (req, res) => {
+app.use('/', express.static(__dirname + '/../public/'));
+app.use('/assetimage', express.static(__dirname + '/../public/resources/assetimage'));
+app.get('/main/', (req, res) => {
   res.sendFile('main.html', { root: path.join(__dirname, '../public') });
-});
-
-app.get('/editor/', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, '../public') });;
 });
 
 const account = require('./routes/account');
@@ -49,6 +44,8 @@ const store = require('./routes/store');
 app.use('/store', store(realm));
 const show = require('./routes/show');
 app.use('/show', show(realm));
+const assets = require('./routes/assets');
+app.use('/assets', assets(realm));
 
 const server = app.listen(port, () => {
     console.log('Express listening on port', port);
