@@ -62,8 +62,8 @@ class ShapeController extends React.Component{
                             <img src="/images/ic_spade_50.png" onClick={this.changeShape} style={this.props.shape==='spade' ? {display:'none'}: {}} className={styles.shape_kind_img}/>
                             <img src="/images/ic_clover.png" onClick={this.changeShape} style={this.props.shape==='clover' ? {} : {display:'none'}} className={styles.shape_kind_img}/>
                             <img src="/images/ic_clover_50.png" onClick={this.changeShape} style={this.props.shape==='clover' ? {display:'none'}: {}} className={styles.shape_kind_img}/>
-                            <img src="/images/ic_stain.png" onClick={this.changeShape} style={this.props.shape==='clover' ? {} : {display:'none'}} className={styles.shape_kind_img}/>
-                            <img src="/images/ic_stain_50.png" onClick={this.changeShape} style={this.props.shape==='clover' ? {display:'none'}: {}} className={styles.shape_kind_img}/>
+                            <img src="/images/ic_stain.png" onClick={this.changeShape} style={this.props.shape==='stain' ? {} : {display:'none'}} className={styles.shape_kind_img}/>
+                            <img src="/images/ic_stain_50.png" onClick={this.changeShape} style={this.props.shape==='stain' ? {display:'none'}: {}} className={styles.shape_kind_img}/>
                         </div>
                         <div>
                             <img src="/images/ic_arrow1.png" onClick={this.changeShape} style={this.props.shape==='arrow1' ? {} : {display:'none'}} className={styles.shape_kind_img}/>
