@@ -21,23 +21,16 @@ class ChargeAsset extends React.Component{
         super(props);
         this.submit = this.submit.bind(this);
     }
+
     submit(){
         let assetName = this.props.assetName;
+        assetName = String(assetName);        
         let source = this.props.htmlsource + this.props.csssource + this.props.jssource;
-        console.log(source);
-        let node = this.props.image;
         let self = this;
-
-          domtoimage.toPng(node, {filter: filter})
-            .then(function (dataUrl) {
-              let thumbnail = dataUrl;
-                axios.post('/store/simple/create', {name:assetName, source, thumbnail}).then(response => {
-                    self.props.toggleAssetStore();
-                });
-            })
-            .catch(function (error) {
-                console.error(error);
-            });
+        let thumbnail = this.props.previewImage
+        
+        axios.post('/store/simple/create', {name:assetName, source, thumbnail})
+        self.props.toggleAssetStore();
     
       }
     render(){
@@ -82,7 +75,8 @@ var mapStateToProps = (state) => {
        htmlsource : state.asseteditor.htmlsource,
        csssource : state.asseteditor.csssource,
        jssource : state.asseteditor.jssource,
-       image : state.asseteditor.image
+       image : state.asseteditor.image,
+       previewImage : state.asseteditor.previewImage
 
     }
 }
