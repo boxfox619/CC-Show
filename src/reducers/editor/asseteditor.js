@@ -6,7 +6,8 @@ const InitialState = {
   htmlsource : '',
   csssource : '',
   jssource : '',
-  image : ''
+  image : '',
+  previewImage : '',
 }
 
 const asseteditor = (state = InitialState, action) => {
@@ -37,6 +38,12 @@ const asseteditor = (state = InitialState, action) => {
             return{
                 ...state,
                 image : action.image
+            }
+
+        case actionTypes.GET_PREVIEW_IMAGE: 
+            return{
+                ...state,
+                previewImage : action.previewImage
             }
 
         default :

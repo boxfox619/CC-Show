@@ -159,3 +159,8 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.modifyButton{
+  background-color: transparent;
+  opacity: 100;
+}

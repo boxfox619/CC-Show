@@ -265,7 +265,7 @@ class CodeEditor extends React.Component{
       css: '<style>'+currentText+'</style>',
       mode : 'cssMode'
     });
-    this.props.setCss(e);
+    this.props.setCSS(e);
   }
   jsHandler(e) {
     var currentText = e;

@@ -6,6 +6,7 @@ import ChargeAsset from './ChargeAsset';
 import * as actions from '../../../../actions/asseteditor';
 import Store from '../../../../store';
 import { bindActionCreators } from 'redux';
+import * as uiActions from '../../../../actions/ui';
 
 
 const selectMode = [
@@ -109,6 +110,9 @@ componentWillMount(){
                     file : file,
                     ThumbnailUrl : reader.result,
                 });
+                var image = this.props.getPreviewImage;
+                image = this.state.ThumbnailUrl;
+                console.log(image);
                 break;
 
                 case 'previewInputimg':
@@ -313,6 +317,7 @@ var mapStateToProps = (state) =>{
     return{
         htmlsource : state.asseteditor.htmlsource,
         title : state.asseteditor.title
+        
     }
 }
 

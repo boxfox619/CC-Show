@@ -1,6 +1,11 @@
 import React from 'react';
 import styles from './AssetItem.css';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import * as actions from '../../../../actions/asseteditor';
+import Store from '../../../../store';
+import { bindActionCreators } from 'redux';
+import * as uiActions from '../../../../actions/ui';
 
 const propTypes = {
   id: React.PropTypes.string.isRequired,
@@ -15,7 +20,7 @@ class AssetItem extends React.Component{
 
   constructor(props){
     super(props);
-
+    
     this.onClick = this.onClick.bind(this);
   }
 
@@ -25,7 +30,7 @@ class AssetItem extends React.Component{
       // <div className={styles.imgBtn}><img src={'/images/ic_flag_white.png'}/></div>
     return (
       <div onClick={this.props.useAsset} className={styles.asset}>
-      <div className={styles.thumbnail}><img src={this.props.thumbnail}/></div>
+      <div className={styles.thumbnail}><img src={this.props.previewImage}/></div>
         <div className={styles.buttonHeader}>
         </div>
         <div className={styles.inner}></div>
@@ -47,6 +52,8 @@ class AssetItem extends React.Component{
     );
   }
 
+
+
   onClick(){
     axios.get('/store/lookup?asset='+this.props.id).then(response => {
       this.setState({
@@ -59,4 +66,14 @@ class AssetItem extends React.Component{
 
 AssetItem.PropTypes = propTypes;
 
-export default AssetItem;
+var mapStateToProps = (state) => {
+  return{
+    previewImage : state.asseteditor.previewImage
+  }
+}
+
+var mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({...actions},dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AssetItem);

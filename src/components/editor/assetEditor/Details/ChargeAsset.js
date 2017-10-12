@@ -32,7 +32,7 @@ class ChargeAsset extends React.Component{
             .then(function (dataUrl) {
               let thumbnail = dataUrl;
                 axios.post('/store/simple/create', {name:assetName, source, thumbnail}).then(response => {
-                  self.props.toggleAssetStore();
+                    self.props.toggleAssetStore();
                 });
             })
             .catch(function (error) {
@@ -41,7 +41,8 @@ class ChargeAsset extends React.Component{
     
       }
     render(){
-        
+        var node = this.props.image;
+        console.log(node);
         return(
         <div className = {styles.AssetEditor_right}>
             <div className = {styles.AssetEditor_isAsset}>
@@ -87,7 +88,7 @@ var mapStateToProps = (state) => {
 }
 
 var mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({...actions, uiActions}, dispatch );
+    return bindActionCreators({...actions, ...uiActions}, dispatch );
 }
 
 

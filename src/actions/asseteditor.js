@@ -3,40 +3,48 @@ export const actionTypes = {
   SET_HTML : 'SET_HTML',
   SET_CSS : 'SET_CSS',
   SET_JS : 'SET_JS',
-  SET_PREVIEW : 'SET_PREVIEW'
+  SET_PREVIEW : 'SET_PREVIEW',
+  GET_PREVIEW_IMAGE : 'GET_PREVIEW_IMAGE' 
 }
 
 export function setTitle(title){
     return{
-        type : SET_TITLE,
+        type : actionTypes.SET_TITLE,
         title : title
     }
 }
 
 export function setHtml(htmlsource){
     return{
-        type : SET_HTML,
+        type : actionTypes.SET_HTML,
         htmlsource : htmlsource
     }
 }
 
 export function setCSS(csssource){
     return{
-        type : SET_CSS,
+        type : actionTypes.SET_CSS,
         csssource : csssource
     }
 }
 
 export function setJS(jssource){
     return{
-        type : SET_JS,
+        type : actionTypes.SET_JS,
         jssource : jssource
     }
 }
 
 export function setPreview(image){
     return{
-        type : SET_PREVIEW,
+        type : actionTypes.SET_PREVIEW,
         image : image
+    }
+}
+
+export function getPreviewImage(previewImage){
+    return{
+        type : actionTypes.GET_PREVIEW_IMAGE,
+        previewImage : previewImage
     }
 }
