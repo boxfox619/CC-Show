@@ -70,6 +70,26 @@ export default function(state, action, actionTypes){
           }
         )
       }
+      case actionTypes.ASSET_SET_CHANGE_SHAPE:
+      console.log(action);
+      return {
+        ...state,
+        slides: update(
+          state.slides, {
+            [state.selectedSlide]: {
+              assets: {
+                $set: update(
+                  state.slides[state.selectedSlide].assets, {
+                    [state.slides[state.selectedSlide].selectedAsset]: {
+                      value: { $set: action.shape }
+                    }
+                  }
+                )
+              }
+            }
+          }
+        )
+      }
     default:
       return state;
   }

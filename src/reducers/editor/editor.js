@@ -91,10 +91,15 @@ const editor = (state = initialState, action) => {
         }
       } else if (action.assetType === assetTypes.TYPE_IMAGE) {
       } else if (action.assetType === assetTypes.TYPE_SHAPE) {
+        newAsset = {
+          ...newAsset,
+          style: action.style
+        }
       } else if (action.assetType === assetTypes.TYPE_CUSTOM) {
       } else {
         alert('type error');
       }
+      console.log(newAsset);
       return {
         ...state,
         slides: update(

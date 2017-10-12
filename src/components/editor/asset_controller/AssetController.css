@@ -192,3 +192,12 @@ select {
     left: 40%;
     top: 40%;
 }
+
+.shape_kind_img{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.shapes{
+    width: 218px;
+}

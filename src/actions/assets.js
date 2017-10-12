@@ -36,7 +36,8 @@ export const actionTypes = {
   ASSET_COPY: 'ASSET_COPY',
   ASSET_SORT: 'ASSET_SORT',
   ASSET_DELETE: 'ASSET_DELETE',
-  TOGGLE_VIDEO_PREVIEW: 'TOGGLE_VIDEO_PREVIEW'
+  TOGGLE_VIDEO_PREVIEW: 'TOGGLE_VIDEO_PREVIEW',
+  ASSET_SET_CHANGE_SHAPE: 'ASSET_SET_CHANGE_SHAPE'
 };
 
 export const createAsset = (assetType, value, style = {}) => {
@@ -73,7 +74,10 @@ export const createAssetByType = (type) => {
     case assetTypes.TYPE_VIDEO:
       return createAsset(type, 'https://www.youtube.com/watch?v=VQtonf1fv_s');
     case assetTypes.TYPE_SHAPE:
-      return createAsset(type, '' ,{'border':'1px solid black'});
+      return createAsset(type, 'square' ,
+          {'background-color': '#5a84b3',
+          'border-color': '#5a84b3',
+          'border-width': '1px'});
     default:
       return createAsset(type, 'asdasd');
   }
@@ -345,5 +349,12 @@ export function setAssetStyle(style){
 export function toggleVideoPreview(){
   return{
     type: actionTypes.TOGGLE_VIDEO_PREVIEW
+  }
+}
+
+export function setAssetChangeShape(shape){
+  return{
+    type: actionTypes.ASSET_SET_CHANGE_SHAPE,
+    shape
   }
 }

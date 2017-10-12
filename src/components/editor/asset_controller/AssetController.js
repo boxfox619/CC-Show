@@ -37,7 +37,7 @@ class AssetController extends React.Component {
                     )
                 case actions.TYPE_SHAPE:
                     return(
-                            <ShapeController/>
+                            <ShapeController shape={this.props.selectedAsset.value} />
                     )
                 case actions.TYPE_IMAGE:
                     return(
