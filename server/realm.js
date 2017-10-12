@@ -7,7 +7,7 @@ const AssetSchema = {
     id: {type: 'int', indexed: true },
     view: {type: 'int', default: 0},
     title: {type: 'string', default: ''},
-    subTitle: {type: 'string'},
+    user: {type: 'string'},
     date: {type: 'date'},
     star: {type: 'float', default: 0},
     openToStore: {type: 'bool', default: false},
@@ -85,6 +85,6 @@ const ShowSchema = {
   }
 }
 
-const realm = new Realm({schema: [UserSchema, AssetSchema, ShowSchema, SimpleAssetSchema ]});
+const realm = new Realm({schema: [UserSchema, AssetSchema, AssetScriptSchema, ShowSchema, SimpleAssetSchema ]});
 
 module.exports = realm;
