@@ -252,7 +252,7 @@ module.exports = function(realm) {
             console.log(err);
             return res.status(400).end();
           }else{
-            return res.status(200).end('/assetimage/'+name);
+            return res.status(200).end('/storeimage/'+name);
           }
         });
       }else{
