@@ -10,6 +10,7 @@ module.exports = function(realm) {
     function simpleImagesToArray(realmResult){
       return imagesToArray(realmResult).map(x => {
         let asset = {
+          id: x.id,
           title: x.title,
           user: x.user,
           star: x.star,
@@ -37,16 +38,15 @@ module.exports = function(realm) {
         console.log(colors.green('[REQ]'),getIP(req), 'load asset filter=', req.query.filter);
         switch(req.query.filter){
           case 'recommend':
-            return res.json(simpleImagesToArray(realm.objects('SimpleAsset').sorted('id',true)));
+            return res.json(simpleImagesToArray(realm.objects('Asset').sorted('id',true)));
           case 'new':
-            return res.json(simpleImagesToArray(realm.objects('SimpleAsset').sorted('id',true)));
+            return res.json(simpleImagesToArray(realm.objects('Asset').sorted('id',true)));
           case 'popular':
-            return res.json(simpleImagesToArray(realm.objects('SimpleAsset').sorted('id',true)));
+            return res.json(simpleImagesToArray(realm.objects('Asset').sorted('id',true)));
           case 'liked':
-            return res.json(simpleImagesToArray(realm.objects('SimpleAsset').sorted('id',true)));
+            return res.json(simpleImagesToArray(realm.objects('Asset').sorted('id',true)));
           case 'saved':
-            return res.json(simpleImagesToArray(realm.objects('SimpleAsset').sorted('id',true)));
-          break;
+            return res.json(simpleImagesToArray(realm.objects('Asset').sorted('id',true)));
         }
 
           // switch(req.query.filter){
