@@ -4,7 +4,10 @@ export const actionTypes = {
   SET_CSS : 'SET_CSS',
   SET_JS : 'SET_JS',
   SET_PREVIEW : 'SET_PREVIEW',
-  GET_PREVIEW_IMAGE : 'GET_PREVIEW_IMAGE' 
+  GET_PREVIEW_IMAGE : 'GET_PREVIEW_IMAGE',
+  GET_CONTENT : 'GET_CONTENT',
+  GET_PRICE : 'GET_PRICE',
+  GET_LICENSE : 'GET_LICENSE',
 }
 
 export function setTitle(title){
@@ -46,5 +49,26 @@ export function getPreviewImage(previewImage){
     return{
         type : actionTypes.GET_PREVIEW_IMAGE,
         previewImage : previewImage
+    }
+}
+
+export function getContent(content){
+    return{
+        type : actionTypes.GET_CONTENT,
+        content : content
+    }
+}
+
+export function getPrice(price){
+    return{
+        type : actionTypes.GET_PRICE,
+        price : price
+    }
+}
+
+export function getLicense(license){
+    return {
+        type : actionTypes.GET_LICENSE,
+        license : license
     }
 }

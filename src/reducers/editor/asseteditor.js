@@ -8,6 +8,9 @@ const InitialState = {
   jssource : '',
   image : '',
   previewImage : '',
+  content : '',
+  price : '',
+  license : '',
 }
 
 const asseteditor = (state = InitialState, action) => {
@@ -44,6 +47,22 @@ const asseteditor = (state = InitialState, action) => {
             return{
                 ...state,
                 previewImage : action.previewImage
+            }
+        case actionTypes.GET_CONTENT:
+            return{
+                ...state,
+                content : action.content
+            }
+
+        case actionTypes.GET_PRICE:
+            return{
+                ...state,
+                price : action.price
+            }
+        case actionTypes.GET_LICENSE:
+            return{
+                ...state,
+                license : action.license
             }
 
         default :

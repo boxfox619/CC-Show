@@ -16,6 +16,10 @@ function filter (node) {
     return (node.tagName !== 'SELECTORLINE'&&node.tagName !== 'SELECTORDOT');
 }
 
+const defaultProps = {
+    id : React.PropTypes.number.isRequired
+}
+
 class ChargeAsset extends React.Component{
     constructor(props){
         super(props);
@@ -23,19 +27,35 @@ class ChargeAsset extends React.Component{
     }
 
     submit(){
-        let assetName = this.props.assetName;
-        assetName = String(assetName);        
-        let source = this.props.htmlsource + this.props.csssource + this.props.jssource;
+        let assetId;
+        let title = this.props.assetName;
+        let thumbnail = this.props.previewImage;
+        let content = this.props.content;
+        let price = this.props.price;
+        let html = this.props.htmlsource;
+        let css = this.props.csssource;
+        let js = this.props.jssource;
         let self = this;
-        let thumbnail = this.props.previewImage
+
+        axios.post('/store/create/')
+        .then(function(response){
+            console.log('heheheh' + response);
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+
+        //에셋 정보 업데이트
+        // axios.put('/store/update', {id : assetId, name :title, thumbnail : thumbnail,  content : content, price : price, license, openToStore, images})
         
-        axios.post('/store/simple/create', {name:assetName, source, thumbnail})
-        self.props.toggleAssetStore();
-    
-      }
+        //Asset Script 업데이트
+        // axios.put('/store/html', { id : assetId ,html : html })
+        // axios.put('/store/css', {id : assetId, css : css});
+        // axios.put('/store/js', {id : assetId, js : js});
+
+    }
     render(){
-        var node = this.props.image;
-        console.log(node);
+       
         return(
         <div className = {styles.AssetEditor_right}>
             <div className = {styles.AssetEditor_isAsset}>
@@ -76,7 +96,8 @@ var mapStateToProps = (state) => {
        csssource : state.asseteditor.csssource,
        jssource : state.asseteditor.jssource,
        image : state.asseteditor.image,
-       previewImage : state.asseteditor.previewImage
+       previewImage : state.asseteditor.previewImage,
+       content : state.asseteditor.content
 
     }
 }

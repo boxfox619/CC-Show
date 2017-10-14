@@ -43,6 +43,15 @@ componentWillMount(){
     this.setState( { isChecked: this.props.isChecked } );
 }
 
+    priceHandler(e){
+        var price = e.target.value
+        this.props.getPrice(price)
+    }
+    contentHandler(e){
+       var content = e.target.value
+       this.props.getContent(content)
+    }
+
     thumbNail (e){
         this.setState({
             ...this.state,
@@ -87,7 +96,6 @@ componentWillMount(){
     }
     
     titleHandler(e){
-        console.log(e.target.value);
         this.props.setTitle(e.target.value);
     }
 
@@ -150,7 +158,7 @@ componentWillMount(){
             }
         }
         reader.readAsDataURL(file)
-      }
+    }
 
     
 
@@ -219,7 +227,7 @@ componentWillMount(){
                 card.push(<CardComponent key = {i} />)
             }
 
-            this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) : $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
+            // this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) : $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
             this.state.previewInputUrl ? $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>) : $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
             this.state.previewInputUrl2 ? $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>) : $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
             this.state.previewInputUrl3 ? $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
@@ -231,7 +239,7 @@ componentWillMount(){
      <div className = {styles.AssetEditor_left}>
             <div className = {styles.previewDiv}>
                 <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
-                <button className = {styles.AssetEditor_preview}>{$imagePreview}</button>
+                <button className = {styles.AssetEditor_preview}><img src = {this.props.thumbnail}/></button>
             </div>
             <div className = {styles.AssetEditor_setting}>
 
@@ -262,7 +270,7 @@ componentWillMount(){
                     
                     <div className = {styles.cover2}>
                         <span className = {styles.frontTitle2}>￦</span>
-                        <input type = "number" className = {styles.title2} />
+                        <input type = "number" className = {styles.price} onChange = {(e)=> this.priceHandler(e)} />
                     </div>
                     
                 </div>
@@ -294,7 +302,7 @@ componentWillMount(){
                     <span className = {styles.topbar_title}>부가설명</span>
                 </div>
                 <div className = {styles.AssetEditor_content}>
-                    <textarea cols = "107" rows = "50" className = {styles.description_content} placeholder ="텍스트를 입력하세요."/>
+                    <textarea cols = "107" rows = "50" className = {styles.description_content} onChange = {(e)=> this.contentHandler(e)} placeholder ="텍스트를 입력하세요." />
                 </div>
             </div>  
     </div>
@@ -317,6 +325,7 @@ var mapStateToProps = (state) =>{
     return{
         htmlsource : state.asseteditor.htmlsource,
         title : state.asseteditor.title,
+        thumbnail : state.asseteditor.previewImage
     }
 }
 
