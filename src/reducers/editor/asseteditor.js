@@ -11,6 +11,7 @@ const InitialState = {
   content : '',
   price : '',
   license : '',
+  mode : '',
 }
 
 const asseteditor = (state = InitialState, action) => {
@@ -63,6 +64,11 @@ const asseteditor = (state = InitialState, action) => {
             return{
                 ...state,
                 license : action.license
+            }
+        case actionTypes.GET_OPEN_TO_STORE:
+            return{
+                ...state,
+                mode : action.mode
             }
 
         default :

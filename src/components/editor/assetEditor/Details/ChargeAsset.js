@@ -32,23 +32,26 @@ class ChargeAsset extends React.Component{
         let thumbnail = this.props.previewImage;
         let content = this.props.content;
         let price = this.props.price;
+        let license = this.props.license;
         let html = this.props.htmlsource;
         let css = this.props.csssource;
         let js = this.props.jssource;
         let self = this;
+        let mode = this.props.mode;
 
+        //create asset in only id
         axios.post('/store/create/')
         .then(function(response){
-            console.log('heheheh' + response);
+            assetId = response.data.id
         })
         .catch(function(error){
             console.log(error);
         })
 
-        //에셋 정보 업데이트
-        // axios.put('/store/update', {id : assetId, name :title, thumbnail : thumbnail,  content : content, price : price, license, openToStore, images})
+        //create new asset
+        // axios.put('/store/update', {id : assetId, name :title, thumbnail : thumbnail,  content : content, price : price, license, openToStore : mode, images})
         
-        //Asset Script 업데이트
+        //update Asset Script 
         // axios.put('/store/html', { id : assetId ,html : html })
         // axios.put('/store/css', {id : assetId, css : css});
         // axios.put('/store/js', {id : assetId, js : js});
@@ -97,8 +100,10 @@ var mapStateToProps = (state) => {
        jssource : state.asseteditor.jssource,
        image : state.asseteditor.image,
        previewImage : state.asseteditor.previewImage,
-       content : state.asseteditor.content
-
+       content : state.asseteditor.content,
+       price : state.asseteditor.price,
+       license : state.asseteditor.license,
+       mode : state.asseteditor.mode
     }
 }
 

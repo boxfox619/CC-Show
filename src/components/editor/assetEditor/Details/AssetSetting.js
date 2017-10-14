@@ -313,6 +313,7 @@ componentWillMount(){
     }
 
     handleChangeFree () {
+        this.props.getOpenToStore(this.state.isCheckedFree);
         this.setState( { isCheckedFree: !this.state.isCheckedFree } );
     }
 

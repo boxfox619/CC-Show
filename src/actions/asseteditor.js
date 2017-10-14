@@ -8,6 +8,7 @@ export const actionTypes = {
   GET_CONTENT : 'GET_CONTENT',
   GET_PRICE : 'GET_PRICE',
   GET_LICENSE : 'GET_LICENSE',
+  GET_OPEN_TO_STORE : 'GET_OPEN_TO_STORE',
 }
 
 export function setTitle(title){
@@ -70,5 +71,12 @@ export function getLicense(license){
     return {
         type : actionTypes.GET_LICENSE,
         license : license
+    }
+}
+
+export function getOpenToStore(mode){
+    return{
+        type : actionTypes.GET_OPEN_TO_STORE,
+        mode : mode
     }
 }
