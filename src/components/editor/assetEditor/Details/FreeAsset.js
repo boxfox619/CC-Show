@@ -52,7 +52,6 @@ class FreeAsset extends React.Component{
         
                 let assetName = this.props.assetName;
                 assetName = String(assetName);
-                console.log("a"+typeof(assetName));
                 let source = this.props.htmlsource + this.props.csssource + this.props.jssource;
                 let self = this;
                 // let node = this.props.image;

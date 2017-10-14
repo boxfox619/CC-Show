@@ -110,9 +110,9 @@ componentWillMount(){
                     file : file,
                     ThumbnailUrl : reader.result,
                 });
-                var image = this.props.getPreviewImage;
-                image = this.state.ThumbnailUrl;
-                console.log(image);
+                this.props.getPreviewImage(this.state.ThumbnailUrl);
+                // var image = this.props.getPreviewImage;
+                // image = this.state.ThumbnailUrl;
                 break;
 
                 case 'previewInputimg':
@@ -316,13 +316,12 @@ componentWillMount(){
 var mapStateToProps = (state) =>{
     return{
         htmlsource : state.asseteditor.htmlsource,
-        title : state.asseteditor.title
-        
+        title : state.asseteditor.title,
     }
 }
 
 var mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({...actions}, dispatch);
+    return bindActionCreators({...actions, ...uiActions}, dispatch);
 }
 
 
