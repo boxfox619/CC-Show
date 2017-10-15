@@ -7,11 +7,12 @@ const InitialState = {
   csssource : '',
   jssource : '',
   image : '',
-  previewImage : '',
+  previewImage : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL6v5yhwgKwAsUds6iG8KJ5dLdIN6rh2C-lO89CqsCrzlnMu4D',
   content : '',
   price : '',
   license : '',
-  mode : '',
+  mode : false,
+  bool : false,
 }
 
 const asseteditor = (state = InitialState, action) => {
@@ -69,6 +70,11 @@ const asseteditor = (state = InitialState, action) => {
             return{
                 ...state,
                 mode : action.mode
+            }
+        case actionTypes.GET_CHANGE_TO_CHARGE:
+            return{
+                ...state,
+                bool : action.bool
             }
 
         default :

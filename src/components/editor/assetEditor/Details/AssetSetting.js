@@ -8,12 +8,6 @@ import Store from '../../../../store';
 import { bindActionCreators } from 'redux';
 import * as uiActions from '../../../../actions/ui';
 
-
-const selectMode = [
-    {mode : '스토어 공개'},
-    {mode : '유료로 전환'}
-]
-
 class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
@@ -22,7 +16,7 @@ class AssetSetting extends React.Component{
         currentMode : 0,
         file2 : ' ',
         file3 : ' ',
-        ThumbnailUrl: undefined,
+        ThumbnailUrl: 'asdfasdf',
         previewInputUrl : undefined,
         previewInputUrl2 : undefined,
         previewInputUrl3 : undefined,
@@ -31,17 +25,17 @@ class AssetSetting extends React.Component{
         addFileCNT : 0,
         defWidth : 434,
         myWidth : 286,
-        isCheckedFree : true,
-        isCheckedCharge : true,
+        isCheckedFree : false,
+        isCheckedCharge : false,
         // title : title
     };
     this.handleChangeCharge = this.handleChangeCharge.bind(this);
     this.handleChangeFree = this.handleChangeFree.bind(this);
 };
 
-componentWillMount(){
-    this.setState( { isChecked: this.props.isChecked } );
-}
+// componentWillMount(){
+//     this.setState( { isChecked: this.props.isChecked } );
+// }
 
     priceHandler(e){
         var price = e.target.value
@@ -85,7 +79,6 @@ componentWillMount(){
         })
         // console.log(this.state.myWidth);
         if(this.state.addFileCNT === 3){
-            console.log('e.preventDefault 실행');
             e.preventDefault();
         }
         if(this.state.myWidth === '724px'){
@@ -167,49 +160,29 @@ componentWillMount(){
         
         var renderForm = () => {
             
-            if(this.state.isCheckedCharge == true && this.state.isCheckedFree == true){
-                 return(
-                     <FreeAsset />
-                 )
-            }
-    
-            if(this.state.isCheckedFree == true){
-                return(
-                     <ChargeAsset />
-                )
-            }
-    
-            if(this.state.isCheckedCharge == true){
-                return(
-                    <FreeAsset />
-                )
-            }
-            
-            if(this.state.isCheckedCharge == false && this.state.isCheckedFree == false){
+            if(this.state.isCheckedFree == true && this.state.isCheckedCharge == true){
                 return(
                     <ChargeAsset />
                 )
             }
-           
-        }
-    
-       let renderMode = (selectMode) => {
-           return selectMode.map((mode,idx) => {
-               if(idx == this.state.currentMode){
-                   return( <div className = {styles.openStoreDiv} key = {idx} >
-                      <button className = {styles.openStoreButtonSelected} > {mode.mode} </button> 
-                            </div>
-                            )
-               }
-               else{
-                   return(<div className = {styles.openStoreDiv} key = {idx} >
-                            <button onClick = {(e)=>this.selectModes(mode)} className = {styles.openStoreButton} > {mode.mode} </button> 
-                          </div>)
-               }
-           })
-       }
+            if(this.state.isCheckedFree == false && this.state.isCheckedCharge == false){
+                return(
+                    <FreeAsset />
+                )
+            }
+            if(this.state.isCheckedFree == true && this.state.isCheckedCharge == false){
+                return(
+                    <FreeAsset />
+                )
+            }
 
-      
+            if(this.state.isCheckedCharge == true && this.state.isCheckedFree == false){
+                return(
+                    <ChargeAsset />
+                )
+            }
+        }
+
 
         let $imagePreview = null;
         let $imagePreview2 = null;
@@ -239,7 +212,7 @@ componentWillMount(){
      <div className = {styles.AssetEditor_left}>
             <div className = {styles.previewDiv}>
                 <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
-                <button className = {styles.AssetEditor_preview}><img src = {this.props.thumbnail}/></button>
+                <button className = {styles.AssetEditor_preview}><img className = {styles.thumbnailImg} src = {this.props.thumbnail} /></button>
             </div>
             <div className = {styles.AssetEditor_setting}>
 
@@ -252,13 +225,13 @@ componentWillMount(){
                 <div className = {styles.setting_second}>
 
                     <div className = {styles.openStoreDiv}>
-                     <input type = "checkbox"  className = {styles.modebox} checked={this.state.isCheckedFree} onChange={this.handleChangeFree}/>
+                     <input type = "checkbox"  className = {styles.modebox}  onChange={this.handleChangeFree}/>
                      <label className = {styles.modeboxlabel}>
                          <span className = {styles.openStoreSpan}>스토어 공개</span>
                      </label>
                     </div>
                     <div className = {styles.openStoreDiv}>
-                     <input type = "checkbox"  className = {styles.modebox} checked={this.state.isCheckedCharge} onChange={this.handleChangeCharge}/>
+                     <input type = "checkbox"  className = {styles.modebox} onChange={this.handleChangeCharge}/>
                      <label className = {styles.modeboxlabel}>
                          <span className = {styles.openStoreSpan}>유료로 변환</span>
                      </label>
@@ -313,12 +286,15 @@ componentWillMount(){
     }
 
     handleChangeFree () {
-        this.props.getOpenToStore(this.state.isCheckedFree);
         this.setState( { isCheckedFree: !this.state.isCheckedFree } );
+        this.props.getOpenToStore(this.state.isCheckedFree);  
+        console.log(this.state.isCheckedFree);      
     }
 
     handleChangeCharge(){
-        this.setState({ isCheckedCharge : !this.state.isCheckedCharge});
+        this.setState({ isCheckedCharge : !this.state.isCheckedCharge });        
+        this.props.getChangeToCharge(this.state.isCheckedCharge);
+        console.log(this.state.isCheckedCharge);
     }
 }
 
@@ -326,7 +302,7 @@ var mapStateToProps = (state) =>{
     return{
         htmlsource : state.asseteditor.htmlsource,
         title : state.asseteditor.title,
-        thumbnail : state.asseteditor.previewImage
+        thumbnail : state.asseteditor.previewImage,
     }
 }
 

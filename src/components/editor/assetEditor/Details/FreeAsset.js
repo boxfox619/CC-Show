@@ -7,10 +7,8 @@ import * as uiActions from '../../../../actions/ui';
 import domtoimage from 'dom-to-image';
 import Store from '../../../../store';
 import newId from './newid';
-
 import * as assetTypes from '../../../../assetTypes';
 import Asset from '../../assets/Asset';
-
 import axios from 'axios';
 
 function filter (node) {
@@ -32,8 +30,6 @@ class FreeAsset extends React.Component{
             con4margin : 10,
             con5margin : 10,
             con6margin : 10
-
-
         }
         this.gpiHandler = this.gpiHandler.bind(this);
         this.LGPLHanlder = this.LGPLHanlder.bind(this);

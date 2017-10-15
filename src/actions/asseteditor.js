@@ -9,6 +9,7 @@ export const actionTypes = {
   GET_PRICE : 'GET_PRICE',
   GET_LICENSE : 'GET_LICENSE',
   GET_OPEN_TO_STORE : 'GET_OPEN_TO_STORE',
+  GET_CHANGE_TO_CHARGE : 'GET_CHANGE_TO_CHARGE',
 }
 
 export function setTitle(title){
@@ -78,5 +79,12 @@ export function getOpenToStore(mode){
     return{
         type : actionTypes.GET_OPEN_TO_STORE,
         mode : mode
+    }
+}
+
+export function getChangeToCharge(bool){
+    return{
+        type : actionTypes.GET_CHANGE_TO_CHARGE,
+        bool : bool
     }
 }

@@ -44,6 +44,7 @@ class ChargeAsset extends React.Component{
         .then(function(response){
             assetId = response.data.id
         })
+        
         .catch(function(error){
             console.log(error);
         })
