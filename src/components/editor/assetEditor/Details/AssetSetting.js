@@ -25,8 +25,8 @@ class AssetSetting extends React.Component{
         addFileCNT : 0,
         defWidth : 434,
         myWidth : 286,
-        isCheckedFree : false,
-        isCheckedCharge : false,
+        isCheckedFree : true,
+        isCheckedCharge : true,
         // title : title
     };
     this.handleChangeCharge = this.handleChangeCharge.bind(this);
@@ -56,14 +56,14 @@ class AssetSetting extends React.Component{
     inputimg(e){
         this.setState({
             ...this.state,
-            currentImageUpload : 'pushPreviewInputimg'
+            currentImageUpload : 'previewInputimg'
         });
     }
 
-    inputimg1(e){
+    inputimg2(e){
         this.setState({
             ...this.state,
-            currentImageUpload : 'setPreviewInputimg'
+            currentImageUpload : 'previewInputimg'
         });
     }
 
@@ -119,7 +119,7 @@ class AssetSetting extends React.Component{
                 case 'previewInputimg':
                 this.setState({
                     ...this.state,
-                    file : file2,
+                    file2 : file2,
                     previewInputUrl : reader.result
                 });
                 break;
@@ -127,7 +127,7 @@ class AssetSetting extends React.Component{
                 case 'previewInputimg2':
                 this.setState({
                     ...this.state,
-                    file : fil3,
+                    file3 : file3,
                     previewInputUrl2 : reader.result
                 }) 
                 break;
@@ -225,13 +225,13 @@ class AssetSetting extends React.Component{
                 <div className = {styles.setting_second}>
 
                     <div className = {styles.openStoreDiv}>
-                     <input type = "checkbox"  className = {styles.modebox}  onChange={this.handleChangeFree}/>
+                     <input type = "checkbox"  className = {styles.modebox} defaultChecked={this.state.isCheckedFree}  onChange={this.handleChangeFree}/>
                      <label className = {styles.modeboxlabel}>
                          <span className = {styles.openStoreSpan}>스토어 공개</span>
                      </label>
                     </div>
                     <div className = {styles.openStoreDiv}>
-                     <input type = "checkbox"  className = {styles.modebox} onChange={this.handleChangeCharge}/>
+                     <input type = "checkbox"  className = {styles.modebox} defaultChecked = {this.state.isCheckedCharge} onChange={this.handleChangeCharge}/>
                      <label className = {styles.modeboxlabel}>
                          <span className = {styles.openStoreSpan}>유료로 변환</span>
                      </label>

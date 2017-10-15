@@ -399,7 +399,7 @@ margin-bottom: 10px;
   position: relative;
 }
 .imagePreview{
-    width: 136px;
+    width: 135px;
     height: 73px;
     border: 1.7px solid #1998E5;
     float: left;
@@ -415,7 +415,7 @@ margin-bottom: 10px;
 }
 .previewText{
     width: 131px;
-    height: 65px;
+    height: 75px;
     margin-left: 4px;
     color: #E2E2E2;
     background-color: white;
@@ -425,6 +425,7 @@ margin-bottom: 10px;
     text-align: center;
     position: relative;
     z-index: -1;
+    padding: none;
 }
 .filebutton{
     width: 64px;
