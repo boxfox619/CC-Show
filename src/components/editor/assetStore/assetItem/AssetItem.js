@@ -30,7 +30,7 @@ class AssetItem extends React.Component{
       // <div className={styles.imgBtn}><img src={'/images/ic_flag_white.png'}/></div>
     return (
       <div onClick={this.props.useAsset} className={styles.asset}>
-      <div className={styles.thumbnail}><img src={this.props.previewImage}/></div>
+      <div className={styles.thumbnail}><img src={this.props.thumbnail}/></div>
         <div className={styles.buttonHeader}>
         </div>
         <div className={styles.inner}></div>
