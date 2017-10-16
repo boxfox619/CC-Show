@@ -93,13 +93,16 @@ const editor = (state = initialState, action) => {
       } else if (action.assetType === assetTypes.TYPE_SHAPE) {
         newAsset = {
           ...newAsset,
-          style: action.style
+          style: {
+            'border-color' : '#5a84b3',
+            'background-color' : '#5a84b3',
+            'border-width' : '1px'
+          }
         }
       } else if (action.assetType === assetTypes.TYPE_CUSTOM) {
       } else {
         alert('type error');
       }
-      console.log(newAsset);
       return {
         ...state,
         slides: update(

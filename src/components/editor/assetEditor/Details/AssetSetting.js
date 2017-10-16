@@ -8,12 +8,6 @@ import Store from '../../../../store';
 import { bindActionCreators } from 'redux';
 import * as uiActions from '../../../../actions/ui';
 
-
-const selectMode = [
-    {mode : '스토어 공개'},
-    {mode : '유료로 전환'}
-]
-
 class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
@@ -22,7 +16,7 @@ class AssetSetting extends React.Component{
         currentMode : 0,
         file2 : ' ',
         file3 : ' ',
-        ThumbnailUrl: undefined,
+        ThumbnailUrl: 'asdfasdf',
         previewInputUrl : undefined,
         previewInputUrl2 : undefined,
         previewInputUrl3 : undefined,
@@ -39,9 +33,18 @@ class AssetSetting extends React.Component{
     this.handleChangeFree = this.handleChangeFree.bind(this);
 };
 
-componentWillMount(){
-    this.setState( { isChecked: this.props.isChecked } );
-}
+// componentWillMount(){
+//     this.setState( { isChecked: this.props.isChecked } );
+// }
+
+    priceHandler(e){
+        var price = e.target.value
+        this.props.getPrice(price)
+    }
+    contentHandler(e){
+       var content = e.target.value
+       this.props.getContent(content)
+    }
 
     thumbNail (e){
         this.setState({
@@ -53,14 +56,14 @@ componentWillMount(){
     inputimg(e){
         this.setState({
             ...this.state,
-            currentImageUpload : 'pushPreviewInputimg'
+            currentImageUpload : 'previewInputimg'
         });
     }
 
-    inputimg1(e){
+    inputimg2(e){
         this.setState({
             ...this.state,
-            currentImageUpload : 'setPreviewInputimg'
+            currentImageUpload : 'previewInputimg'
         });
     }
 
@@ -76,7 +79,6 @@ componentWillMount(){
         })
         // console.log(this.state.myWidth);
         if(this.state.addFileCNT === 3){
-            console.log('e.preventDefault 실행');
             e.preventDefault();
         }
         if(this.state.myWidth === '724px'){
@@ -87,7 +89,6 @@ componentWillMount(){
     }
     
     titleHandler(e){
-        console.log(e.target.value);
         this.props.setTitle(e.target.value);
     }
 
@@ -118,7 +119,7 @@ componentWillMount(){
                 case 'previewInputimg':
                 this.setState({
                     ...this.state,
-                    file : file2,
+                    file2 : file2,
                     previewInputUrl : reader.result
                 });
                 break;
@@ -126,7 +127,7 @@ componentWillMount(){
                 case 'previewInputimg2':
                 this.setState({
                     ...this.state,
-                    file : fil3,
+                    file3 : file3,
                     previewInputUrl2 : reader.result
                 }) 
                 break;
@@ -150,7 +151,7 @@ componentWillMount(){
             }
         }
         reader.readAsDataURL(file)
-      }
+    }
 
     
 
@@ -159,49 +160,29 @@ componentWillMount(){
         
         var renderForm = () => {
             
-            if(this.state.isCheckedCharge == true && this.state.isCheckedFree == true){
-                 return(
-                     <FreeAsset />
-                 )
-            }
-    
-            if(this.state.isCheckedFree == true){
-                return(
-                     <ChargeAsset />
-                )
-            }
-    
-            if(this.state.isCheckedCharge == true){
-                return(
-                    <FreeAsset />
-                )
-            }
-            
-            if(this.state.isCheckedCharge == false && this.state.isCheckedFree == false){
+            if(this.state.isCheckedFree == true && this.state.isCheckedCharge == true){
                 return(
                     <ChargeAsset />
                 )
             }
-           
-        }
-    
-       let renderMode = (selectMode) => {
-           return selectMode.map((mode,idx) => {
-               if(idx == this.state.currentMode){
-                   return( <div className = {styles.openStoreDiv} key = {idx} >
-                      <button className = {styles.openStoreButtonSelected} > {mode.mode} </button> 
-                            </div>
-                            )
-               }
-               else{
-                   return(<div className = {styles.openStoreDiv} key = {idx} >
-                            <button onClick = {(e)=>this.selectModes(mode)} className = {styles.openStoreButton} > {mode.mode} </button> 
-                          </div>)
-               }
-           })
-       }
+            if(this.state.isCheckedFree == false && this.state.isCheckedCharge == false){
+                return(
+                    <FreeAsset />
+                )
+            }
+            if(this.state.isCheckedFree == true && this.state.isCheckedCharge == false){
+                return(
+                    <FreeAsset />
+                )
+            }
 
-      
+            if(this.state.isCheckedCharge == true && this.state.isCheckedFree == false){
+                return(
+                    <ChargeAsset />
+                )
+            }
+        }
+
 
         let $imagePreview = null;
         let $imagePreview2 = null;
@@ -219,7 +200,7 @@ componentWillMount(){
                 card.push(<CardComponent key = {i} />)
             }
 
-            this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) : $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
+            // this.state.ThumbnailUrl ? $imagePreview = (<img src={this.state.ThumbnailUrl} accept="image/*"/>) : $imagePreview = (<div className="preview_Image">미리보기<br/>(파일을 선택하세요)</div>);
             this.state.previewInputUrl ? $imagePreview2 = (<img src={this.state.previewInputUrl} accept="image/*"/>) : $imagePreview2 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
             this.state.previewInputUrl2 ? $imagePreview3 = (<img src={this.state.previewInputUrl2} accept="image/*"/>) : $imagePreview3 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
             this.state.previewInputUrl3 ? $imagePreview4 = (<img src={this.state.previewInputUrl3} accept="image/*"/>) :$imagePreview4 = (<div className="previewinputimg"><br/>(파일을 선택하세요)</div>);
@@ -231,7 +212,7 @@ componentWillMount(){
      <div className = {styles.AssetEditor_left}>
             <div className = {styles.previewDiv}>
                 <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
-                <button className = {styles.AssetEditor_preview}>{$imagePreview}</button>
+                <button className = {styles.AssetEditor_preview}><img className = {styles.thumbnailImg} src = {this.props.thumbnail} /></button>
             </div>
             <div className = {styles.AssetEditor_setting}>
 
@@ -244,13 +225,13 @@ componentWillMount(){
                 <div className = {styles.setting_second}>
 
                     <div className = {styles.openStoreDiv}>
-                     <input type = "checkbox"  className = {styles.modebox} checked={this.state.isCheckedFree} onChange={this.handleChangeFree}/>
+                     <input type = "checkbox"  className = {styles.modebox} defaultChecked={this.state.isCheckedFree}  onChange={this.handleChangeFree}/>
                      <label className = {styles.modeboxlabel}>
                          <span className = {styles.openStoreSpan}>스토어 공개</span>
                      </label>
                     </div>
                     <div className = {styles.openStoreDiv}>
-                     <input type = "checkbox"  className = {styles.modebox} checked={this.state.isCheckedCharge} onChange={this.handleChangeCharge}/>
+                     <input type = "checkbox"  className = {styles.modebox} defaultChecked = {this.state.isCheckedCharge} onChange={this.handleChangeCharge}/>
                      <label className = {styles.modeboxlabel}>
                          <span className = {styles.openStoreSpan}>유료로 변환</span>
                      </label>
@@ -262,7 +243,7 @@ componentWillMount(){
                     
                     <div className = {styles.cover2}>
                         <span className = {styles.frontTitle2}>￦</span>
-                        <input type = "number" className = {styles.title2} />
+                        <input type = "number" className = {styles.price} onChange = {(e)=> this.priceHandler(e)} />
                     </div>
                     
                 </div>
@@ -294,7 +275,7 @@ componentWillMount(){
                     <span className = {styles.topbar_title}>부가설명</span>
                 </div>
                 <div className = {styles.AssetEditor_content}>
-                    <textarea cols = "107" rows = "50" className = {styles.description_content} placeholder ="텍스트를 입력하세요."/>
+                    <textarea cols = "107" rows = "50" className = {styles.description_content} onChange = {(e)=> this.contentHandler(e)} placeholder ="텍스트를 입력하세요." />
                 </div>
             </div>  
     </div>
@@ -306,10 +287,14 @@ componentWillMount(){
 
     handleChangeFree () {
         this.setState( { isCheckedFree: !this.state.isCheckedFree } );
+        this.props.getOpenToStore(this.state.isCheckedFree);  
+        console.log(this.state.isCheckedFree);      
     }
 
     handleChangeCharge(){
-        this.setState({ isCheckedCharge : !this.state.isCheckedCharge});
+        this.setState({ isCheckedCharge : !this.state.isCheckedCharge });        
+        this.props.getChangeToCharge(this.state.isCheckedCharge);
+        console.log(this.state.isCheckedCharge);
     }
 }
 
@@ -317,6 +302,7 @@ var mapStateToProps = (state) =>{
     return{
         htmlsource : state.asseteditor.htmlsource,
         title : state.asseteditor.title,
+        thumbnail : state.asseteditor.previewImage,
     }
 }
 

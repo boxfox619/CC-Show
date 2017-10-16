@@ -46,9 +46,13 @@ class AssetStore extends React.Component{
     }
 
     let renderActionItem = () => {
+
+      var data;
       if(this.state.activeTab==tabs.length-1){
-        return (<ActionItem img={'/images/ic_add_white.png'} text={'새 에셋 만들기'} onClick={()=>this.props.toggleAssetEditor()}/>);
+        return (
+        <ActionItem img={'/images/ic_add_white.png'} text={'새 에셋 만들기'} onClick={()=>this.props.toggleAssetEditor()}/>);
       }
+     
     }
 
     return (
