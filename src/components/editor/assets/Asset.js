@@ -9,6 +9,7 @@ import ImageAsset from './ImageAsset';
 import VideoAsset from './VideoAsset';
 import CustomAsset from './CustomAsset';
 import PreviewAsset from './PreviewAsset';
+import ShapeAsset from './ShapeAsset';
 
 const propTypes = {
   attribute: React.PropTypes.object,
@@ -48,7 +49,7 @@ class Asset extends React.Component{
         attrs = {preview: (!this.props.controlable)?true:this.props.attribute.preview&&this.props.isSelected};
         break;
       case assetTypes.TYPE_SHAPE:
-        assetTag = 'ShapeAsset';
+        assetTag = ShapeAsset;
         break;
       case assetTypes.TYPE_CUSTOM:
         assetTag = CustomAsset;
@@ -90,8 +91,8 @@ class Asset extends React.Component{
       return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
       <div style={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'padding': '6px', 'position': 'absolute'}} >
         {renderSelectorLine()}
-        <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} attrs={attrs} value={this.props.attribute.value}/>
-          {renderSelectorDot()}
+        <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} attrs={attrs} value={this.props.attribute.value} asset={this.props.attribute}/>
+        {renderSelectorDot()}
       </div>
       </asset>);
   }
