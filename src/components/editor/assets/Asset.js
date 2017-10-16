@@ -8,7 +8,6 @@ import TextAsset from './TextAsset';
 import ImageAsset from './ImageAsset';
 import VideoAsset from './VideoAsset';
 import CustomAsset from './CustomAsset';
-import PreviewAsset from './PreviewAsset';
 
 const propTypes = {
   attribute: React.PropTypes.object,
@@ -52,9 +51,11 @@ class Asset extends React.Component{
         break;
       case assetTypes.TYPE_CUSTOM:
         assetTag = CustomAsset;
+        attrs = {type: true};
         break;
       case assetTypes.TYPE_PREVIEW:
-        assetTag = PreviewAsset;
+        assetTag = CustomAsset;
+        attrs = {type: false};
         break;
       default:
         assetTag = 'TextAsset';
