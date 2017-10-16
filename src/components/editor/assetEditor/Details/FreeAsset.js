@@ -7,10 +7,8 @@ import * as uiActions from '../../../../actions/ui';
 import domtoimage from 'dom-to-image';
 import Store from '../../../../store';
 import newId from './newid';
-
 import * as assetTypes from '../../../../assetTypes';
 import Asset from '../../assets/Asset';
-
 import axios from 'axios';
 
 function filter (node) {
@@ -32,14 +30,12 @@ class FreeAsset extends React.Component{
             con4margin : 10,
             con5margin : 10,
             con6margin : 10
-
-
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleChange2 = this.handleChange2.bind(this);
-        this.handleChange3 = this.handleChange3.bind(this);
-        this.handleChange4 = this.handleChange4.bind(this);
-        this.handleChange5 = this.handleChange5.bind(this);
+        this.gpiHandler = this.gpiHandler.bind(this);
+        this.LGPLHanlder = this.LGPLHanlder.bind(this);
+        this.bsdHandler = this.bsdHandler.bind(this);
+        this.mitHandler = this.mitHandler.bind(this);
+        this.cclHandler = this.cclHandler.bind(this);
     }
     componentWillMount() {
         this.id = newId();
@@ -59,12 +55,12 @@ class FreeAsset extends React.Component{
                
                     // domtoimage.toPng(node, {filter: filter})
                     // .then
-                    (function (dataUrl) {
-                      let thumbnail = this.props.previewImage;
-                        axios.post('/store/simple/create', {name:assetName, source, thumbnail}).then(response => {
-                          self.props.toggleAssetStore;
-                        });
-                    })
+                    // (function (dataUrl) {
+                    //   let thumbnail = this.props.previewImage;
+                    //     axios.post('/store/simple/create', {name:assetName, source, thumbnail}).then(response => {
+                    //       self.props.toggleAssetStore;
+                    //     });
+                    // })
                     // .catch(function (error) {
                     //     console.error(error);
                     // });
@@ -76,14 +72,14 @@ class FreeAsset extends React.Component{
         return(
             <div className = {styles.AssetEditor_right}>
             <div className = {styles.select_license}>
-                <span className = {styles.select_license_text}>라이센스를 선택하세요. (GPI, LGPI, BSD, MIT, CCL 중 택1)</span>
+                <span className = {styles.select_license_text}>라이센스를 선택하세요. (GPI, LGPL, BSD, MIT, CCL 중 택1)</span>
                 
             </div>
 
 
              <div>
                 <div className = {styles.license_content}>
-                    <input type="checkbox" name="toggle" id={this.id} className = {styles.license_input} checked = {this.state.isCheckedCon1} onChange = {this.handleChange} onClick = {this.submit}/>
+                    <input type="checkbox" name="toggle" id={this.id} className = {styles.license_input} checked = {this.state.isCheckedCon1} onChange = {this.gpiHandler} onClick = {this.submit}/>
                     <label htmlFor={this.id} className = {styles.license_label}>
                         <span className = {styles.license_text}>GPI</span>
                         <div className = {styles.dropdownButt}></div>
@@ -92,16 +88,16 @@ class FreeAsset extends React.Component{
                  </div>
 
                  <div className = {styles.license_content2} style = {{marginTop : this.state.con2margin+"px"}}>
-                    <input type="checkbox" name="toggle" id={this.id2} className = {styles.license_input2} checked = {this.state.isCheckedCon2} onChange = {this.handleChange2} onClick = {this.submit} />
+                    <input type="checkbox" name="toggle" id={this.id2} className = {styles.license_input2} checked = {this.state.isCheckedCon2} onChange = {this.LGPLHanlder} onClick = {this.submit} />
                     <label htmlFor={this.id2} className = {styles.license_label2}>
-                        <span className = {styles.license_text}>LGPI</span>
+                        <span className = {styles.license_text}>LGPL</span>
                         <div className = {styles.dropdownButt}></div>
                     </label>
                     <div className = {styles.dropdownContent2}></div>
                  </div>
 
                  <div className = {styles.license_content3} style = {{marginTop : this.state.con3margin+"px"}}>
-                    <input type="checkbox" name="toggle" id={this.id3} className = {styles.license_input3} checked = {this.state.isCheckedCon3} onChange = {this.handleChange3} onClick = {this.submit}/>
+                    <input type="checkbox" name="toggle" id={this.id3} className = {styles.license_input3} checked = {this.state.isCheckedCon3} onChange = {this.bsdHandler} onClick = {this.submit}/>
                     <label htmlFor={this.id3} className = {styles.license_label3}>
                         <span className = {styles.license_text}>BSD</span>
                         <div className = {styles.dropdownButt}></div>
@@ -110,7 +106,7 @@ class FreeAsset extends React.Component{
                  </div>
 
                  <div className = {styles.license_content4} style = {{marginTop : this.state.con4margin+"px"}}>
-                    <input type="checkbox" name="toggle" id={this.id4} className = {styles.license_input4} checked = {this.state.isCheckedCon4} onChange = {this.handleChange4} onClick = {this.submit}/>
+                    <input type="checkbox" name="toggle" id={this.id4} className = {styles.license_input4} checked = {this.state.isCheckedCon4} onChange = {this.mitHandler} onClick = {this.submit}/>
                     <label htmlFor={this.id4} className = {styles.license_label4}>
                         <span className = {styles.license_text}>MIT</span>
                         <div className = {styles.dropdownButt}></div>
@@ -119,7 +115,7 @@ class FreeAsset extends React.Component{
                  </div>
 
                  <div className = {styles.license_content5} style = {{marginTop : this.state.con5margin+"px"}}>
-                    <input type="checkbox" name="toggle" id={this.id5} className = {styles.license_input5} checked = {this.state.isCheckedCon5} onChange = {this.handleChange5} onClick = {this.submit}/>
+                    <input type="checkbox" name="toggle" id={this.id5} className = {styles.license_input5} checked = {this.state.isCheckedCon5} onChange = {this.cclHandler} onClick = {this.submit}/>
                     <label htmlFor={this.id5} className = {styles.license_label5}>
                         <span className = {styles.license_text}>CCL</span>
                         <div className = {styles.dropdownButt}></div>
@@ -139,7 +135,8 @@ class FreeAsset extends React.Component{
         );
     }
 
-    handleChange(){
+    gpiHandler(){
+        var license = 'GPI';
         this.setState({ isCheckedCon1 : !this.state.isCheckedCon1});    
         if(this.state.isCheckedCon1 == false){
             if(this.state.isCheckedCon2 == true || this.state.isCheckedCon3 == true || this.state.isCheckedCon4 == true || this.state.isCheckedCon5 == true){
@@ -162,8 +159,11 @@ class FreeAsset extends React.Component{
                 con2margin : 10
             })
         }
+        this.props.getLicense(license);
+        
     }
-    handleChange2(){
+    LGPLHanlder(){
+        var license = 'LGPL'
         this.setState({ isCheckedCon2 : !this.state.isCheckedCon2});    
         if(this.state.isCheckedCon2 == false){
             if(this.state.isCheckedCon1 == true || this.state.isCheckedCon3 == true || this.state.isCheckedCon4 == true || this.state.isCheckedCon5 == true){
@@ -187,8 +187,10 @@ class FreeAsset extends React.Component{
                 con3margin : 10
             })
         }
+        this.props.getLicense(license);
     }
-    handleChange3(){
+    bsdHandler(){
+        var license = 'BSD'
         this.setState({ isCheckedCon3 : !this.state.isCheckedCon3});    
         if(this.state.isCheckedCon3 == false){
             if(this.state.isCheckedCon1 == true || this.state.isCheckedCon2 == true || this.state.isCheckedCon4 == true || this.state.isCheckedCon5 == true){
@@ -212,8 +214,10 @@ class FreeAsset extends React.Component{
                 con4margin : 10
             })
         }
+        this.props.getLicense(license)
     }
-    handleChange4(){
+    mitHandler(){
+        var license = 'MIT'
         this.setState({ isCheckedCon4 : !this.state.isCheckedCon4});    
         if(this.state.isCheckedCon4 == false){
             if(this.state.isCheckedCon1 == true || this.state.isCheckedCon2 == true || this.state.isCheckedCon3 == true || this.state.isCheckedCon5 == true){
@@ -237,8 +241,10 @@ class FreeAsset extends React.Component{
                 con5margin : 10
             })
         }
+        this.props.getLicense(license)
     }
-    handleChange5(){
+    cclHandler(){
+        var license = 'CCL'
         this.setState({ isCheckedCon5 : !this.state.isCheckedCon5});    
         if(this.state.isCheckedCon5 == false){
             if(this.state.isCheckedCon1 == true || this.state.isCheckedCon2 == true || this.state.isCheckedCon3 == true || this.state.isCheckedCon4 == true){
@@ -262,6 +268,7 @@ class FreeAsset extends React.Component{
                 con6margin : 10
             })
         }
+        this.props.getLicense(license)    
     }
 }
 

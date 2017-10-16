@@ -38,6 +38,9 @@ app.use('/storeimage', express.static(__dirname + '/../public/resources/storeima
 app.get('/main/', (req, res) => {
   res.sendFile('main.html', { root: path.join(__dirname, '../public') });
 });
+app.get('/editor/', (req, res) => {
+  res.sendFile('index.html', { root: path.join(__dirname, '../public') });;
+});
 
 const account = require('./routes/account');
 app.use('/account', account(realm));

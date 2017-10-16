@@ -11,7 +11,8 @@ import ProgressDialog from './progressDialog/ProgressDialog';
 import SlideShow from './slide_show/SlideShow'
 import { dialogs } from '../../actions/ui';
 
-import * as assetsActions from '../../actions/assets';
+import * as editorActions from '../../actions/asseteditor';
+import * as assetActions from '../../actions/asseteditor';
 import * as uiActions from '../../actions/ui';
 import * as slideActions from '../../actions/slides';
 import * as accountActions from '../../actions/account';
@@ -108,9 +109,30 @@ class SlideEditor extends React.Component{
   }
 
   handleClick(event){
+    var title = ''
+    var html = ''
+    var css = ''
+    var js = ''
+    var preview = ''
+    var content = ''
+    var price = ''
+    var license = ''
+    var openToStore = ''
+    var charge = ''
     if(this.checkContextDisabled()){
+      this.props.setTitle(title);
+      this.props.setHtml(html);
+      this.props.setCSS(css);
+      this.props.setJS(js);
+      this.props.getPreviewImage(preview);
+      this.props.getContent(content)
+      this.props.getPrice(price);
+      this.props.getLicense(license);
+      this.props.getOpenToStore(openToStore);
+      this.props.getChangeToCharge(charge);
       this.props.releaseDialog();
     }
+
   }
 
   onUnload(event){
@@ -148,7 +170,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...assetsActions, ...accountActions, ...slideActions, ...uiActions}, dispatch);
+    return bindActionCreators({ ...assetActions, ...accountActions, ...slideActions, ...uiActions, ...assetActions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideEditor);
