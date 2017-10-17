@@ -8,18 +8,20 @@ import Store from '../../../../store';
 import { bindActionCreators } from 'redux';
 import * as uiActions from '../../../../actions/ui';
 import update from 'react-addons-update'
+import PreviewImage from './PreviewImage';
 import Previews from './Previews';
-import PreviewInfo from './PreviewInfo';
 
-class PreviewImage extends React.Component{
+class PreviewInfo extends React.Component{
     render(){
-        return(           
-            <div>
-            <Previews />
+        return(
+            <div className = {styles.previewBox} id = {this.props.cnt} >
+                {this.props.cnt}
+                <input type = "file" className = {styles.inputFile} />
+                <button className = {styles.inputButton}></button>
             </div>
         );
     }
+    
 }
 
-
-export default PreviewImage;
+export default PreviewInfo;
