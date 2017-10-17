@@ -13,6 +13,7 @@ const InitialState = {
   license : '',
   mode : false,
   bool : false,
+  Thumbnail : '',
 }
 
 const asseteditor = (state = InitialState, action) => {
