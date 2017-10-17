@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './AssetEditor.css';
 import Thumbnail from './Thumbnail';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -85,7 +84,7 @@ class AssetEditor extends React.Component{
         if(idx == this.state.activeTab){
           return (<activetab key={"tab"+idx}>{tab.name}</activetab>)
         }else{
-          return (<tab onClick={()=>this.selectTab(tab)} key={"tab"+idx}>{tab.name}</tab>)          
+          return (<tab onClick={()=>this.selectTab(tab)} key={"tab"+idx}>{tab.name}</tab>)
         }
       });
     }
@@ -104,7 +103,7 @@ class AssetEditor extends React.Component{
     }
   }
   let renderDetailsItems = () => {
-    
+
     if(this.state.activeTab == 0){
       return (<AssetEditorItem />);
     }
@@ -112,7 +111,7 @@ class AssetEditor extends React.Component{
     if(this.state.activeTab == 1){
       return(<CodeEditorItem />);
     }
-   
+
   }
     return (
       <div className={this.props.className}>
@@ -121,15 +120,15 @@ class AssetEditor extends React.Component{
           <tabholder>
             {renderTabs(tabs)}
           </tabholder>
-      
-        
+
+
         </header>
           {renderDetailsItems()}
 
     </div>
 
         );
-      
+
       }
       selectTab(tab){
         let index = tabs.findIndex((obj=>obj.name == tab.name));
@@ -139,8 +138,8 @@ class AssetEditor extends React.Component{
         });
         // this.loadItems(tabs[index].filter);
        }
-   
+
     }
 
-   
+
     export default AssetEditor;
