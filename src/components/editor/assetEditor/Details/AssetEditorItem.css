@@ -374,9 +374,11 @@ margin-bottom: 10px;
 }
 
 .setting_third{
-    width: 99%;
+    width: 350px;
     margin-top: 12px;
     height: 80px;
+    border: 1px solid black;
+    position: absolute;
 }
 
 .preview_Image{
@@ -746,3 +748,18 @@ margin-bottom: 10px;
     .thumbnailImg{
         border: none;
     }
+
+.previewBox{
+    width: 134px;
+    height: 70px;
+    border: 1px solid black;
+    float: left;
+}
+
+.addButton{
+    cursor: pointer;
+    width: 50px;
+    height: 70px;
+    background-color: black;
+    float: right;
+}

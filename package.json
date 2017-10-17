@@ -16,7 +16,7 @@
     "mongoose": "^4.10.6",
     "prop-types": "^15.5.10",
     "react": "^15.6.2",
-    "react-addons-update": "^15.6.0",
+    "react-addons-update": "^15.6.2",
     "react-codemirror": "^1.0.0",
     "react-color": "^2.13.8",
     "react-dom": "^15.6.1",
