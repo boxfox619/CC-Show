@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Assets.css';
-var fs=require("fs");
+import fs from 'fs';
 
 class ShapeAsset extends React.Component{
   constructor(props){

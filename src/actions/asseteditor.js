@@ -10,6 +10,7 @@ export const actionTypes = {
   GET_LICENSE : 'GET_LICENSE',
   GET_OPEN_TO_STORE : 'GET_OPEN_TO_STORE',
   GET_CHANGE_TO_CHARGE : 'GET_CHANGE_TO_CHARGE',
+  GET_DOM_ID : 'GET_DOM_ID',
 }
 
 export function setTitle(title){
@@ -86,5 +87,12 @@ export function getChangeToCharge(bool){
     return{
         type : actionTypes.GET_CHANGE_TO_CHARGE,
         bool : bool
+    }
+}
+
+export function getDomId(id){
+    return{
+        type : actionTypes.GET_DOM_ID,
+        id : id
     }
 }

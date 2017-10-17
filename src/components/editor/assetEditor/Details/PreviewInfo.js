@@ -12,14 +12,22 @@ import PreviewImage from './PreviewImage';
 import Previews from './Previews';
 
 class PreviewInfo extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            imageSrc : []
+        }
+    }
     render(){
         return(
             <div className = {styles.previewBox} id = {this.props.cnt} >
                 {this.props.cnt}
-                <input type = "file" className = {styles.inputFile} />
-                <button className = {styles.inputButton}></button>
+                <input type = "file" className = {styles.inputFile} onChange = {(e)=> imageChange(e)}/>
+                <button onClick = {(e) => hello(e)}className = {styles.inputButton}></button>
             </div>
         );
+    }
+    imageChange(e){      
     }
     
 }
