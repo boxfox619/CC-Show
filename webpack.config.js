@@ -19,23 +19,23 @@ module.exports = {
     },
 
     module: {
-            loaders: [ //loader를 통해 es6, react js 형식을 일반 js형식으로 변환해줌
-                {
-                    test: /\.js$/,
-                    loader: ['react-hot-loader', 'babel-loader?' + JSON.stringify({
-                        cacheDirectory: true,
-                        presets: ['es2015', 'react'],
-                        plugins: ["transform-object-rest-spread"]
-                    })], //hot load가 되더라도 state를 유지시키기 위해 react hot loader 적용
-                    exclude: /node_modules/
-                },
-                {
+        loaders: [ //loader를 통해 es6, react js 형식을 일반 js형식으로 변환해줌
+            {
+                test: /\.js$/,
+                loader: ['react-hot-loader', 'babel-loader?' + JSON.stringify({
+                    cacheDirectory: true,
+                    presets: ['es2015', 'react'],
+                    plugins: ["transform-object-rest-spread"]
+                })], //hot load가 되더라도 state를 유지시키기 위해 react hot loader 적용
+                exclude: /node_modules/
+            },
+            {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-                }
-            ]
-        },
+            }
+        ]
+    },
     plugins: [
-      new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ]
 };

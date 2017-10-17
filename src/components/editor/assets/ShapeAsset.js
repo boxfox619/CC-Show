@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Assets.css';
+var fs=require("fs");
 
 class ShapeAsset extends React.Component{
   constructor(props){
@@ -9,35 +10,61 @@ class ShapeAsset extends React.Component{
   }
   render() {
     return (
-      <div className={this.getShpaeStyle(this.props.value)} style={this.props.asset.style}></div>
+      <div>{this.getShpaeStyle(this.props.value)}</div>
     )
   }
   getShpaeStyle(value) {
     switch(value){
-    case 'square' : return styles.square;
-    case 'roundSquare' : return styles.roundSquare;
-    case 'ellipse' : return styles.ellipse;
-    case 'triangle' : return styles.triangle;
-    case 'diamond' : return styles.diamond;
-    case 'pentagon' : return styles.pentagon;
-    case 'hexagon' : return styles.hexagon;
-    case 'octagon' : return styles.octagon;
-    case 'star' : return styles.star;
-    case 'heart' : return styles.heart;
-    case 'moon' : return styles.moon;
-    case 'spade' : return styles.spade;
-    case 'clover' : return styles.clover;
-    case 'stain' : return styles.stain;
-    case 'arrow1' : return styles.arrow1;
-    case 'arrow2' : return styles.arrow2;
-    case 'arrow3' : return styles.arrow3;
-    case 'arrow4' : return styles.arrow4;
-    case 'arrow5' : return styles.arrow5;
-    case 'arrow6' : return styles.arrow6;
-    case 'arrow7' : return styles.arrow7
-    case 'arrow8' : return styles.arrow8;
-    default: return styles.square;
+    case 'square' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/square.svg"/>);
+    case 'roundSquare' :
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/roundSquare.svg"/>);
+    case 'ellipse' :
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/ellipse.svg"/>);
+    case 'triangle' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/triangle.svg"/>);
+    case 'diamond' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/diamond.svg"/>);
+    case 'pentagon' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/pentagon.svg"/>);
+    case 'hexagon' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/hexagon.svg"/>);
+    case 'octagon' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/octagon.svg"/>);
+    case 'star' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/star.svg"/>);
+    case 'heart' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/heart.svg"/>);
+    case 'moon' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/moon.svg"/>);
+    case 'spade' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/spade.svg"/>);
+    case 'clover' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/clover.svg"/>);
+    case 'stain' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/stain.svg"/>);
+    case 'arrow1' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/arrow1.svg"/>);
+    case 'arrow2' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/arrow2.svg"/>);
+    case 'arrow3' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/arrow3.svg"/>);
+    case 'arrow4' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/arrow4.svg"/>);
+    case 'arrow5' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/arrow5.svg"/>);
+    case 'arrow6' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/arrow6.svg"/>);
+    case 'arrow7' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/arrow7.svg"/>);
+    case 'arrow8' : 
+      this.changeAssetAttribute( fs.readFileSync('/svg/square.svg', 'utf8')); return (<img src="/svg/arrow8.svg"/>);
+    default: return (<img src="/svg/square.svg"/>);
     }
+  }
+
+  changeAssetAttribute(data){
+    console.log(data);
   }
 }
 export default ShapeAsset;
