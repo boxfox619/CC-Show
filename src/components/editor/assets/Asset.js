@@ -31,7 +31,7 @@ class Asset extends React.Component{
     this.getContextHeight = this.getContextHeight.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.getClearStyle = this.getClearStyle.bind(this);
-    }
+  }
 
   render(){
       let assetTag;
