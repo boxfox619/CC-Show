@@ -15,19 +15,37 @@ class PreviewInfo extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            imageSrc : []
+            imageSrc : [],
+            file: '',
+            imagePreviewUrl: ''
         }
     }
     render(){
         return(
             <div className = {styles.previewBox} id = {this.props.cnt} >
                 {this.props.cnt}
-                <input type = "file" className = {styles.inputFile} onChange = {(e)=> imageChange(e)}/>
-                <button onClick = {(e) => hello(e)}className = {styles.inputButton}></button>
+                <input type = "file" className = {styles.inputFile}  onChange = {(e)=> this.imageChange(e)}/>
+                <button className = {styles.inputButton}></button>
             </div>
         );
     }
+
     imageChange(e){      
+        e.preventDefault();
+        // var reader = new FileReader();
+        // var file = e.target.files[0];
+        // var currentId = this.props.cnt;       
+        // var imageUrl; 
+
+        var fr = new FileReader();
+        fr.onload = (e) => {
+            this.setState({
+                ...this.state,
+                imagePreviewUrl : e.target.result
+            });            
+        }
+        console.log(e.target.result);        
+        console.log(this.props.cnt);
     }
     
 }
