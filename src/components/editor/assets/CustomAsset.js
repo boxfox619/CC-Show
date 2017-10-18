@@ -28,21 +28,45 @@ function convertCode(str){
   let randomCode = generateRandomCode(8);
   str = replaceStyleClass(str, randomCode);
   str = replaceClass(str, randomCode);
+  str = replaceJsNativeClass(str, randomCode);
+  str = replaceQueryClass(str, randomCode);
   return str;
 }
 
-function replaceStyleClass(str, randomCode){
-    	var pattern = /\.[^.{ ]+/g;
-    	let classes = str.match(pattern);
-    	for(let i = 0 ; i < classes.length; i++){
-      		let nm = new String(classes[i]).replace('\.', '');
-	  		str = str.replace('\.'+nm, '.'+nm+'_'+randomCode);
-    	}
-       	return str;
-    }
+function replaceQueryClass(str, randomCode){
+  
+}
+
+function replaceJsNativeClass(str, randomCode){
+   var pattern = /getElement(s)?By[a-zA-Z]+\(['"][a-zA-Z-_0-9]+['"]\)/g;
+   let selectors = str.match(pattern);
+     if(!!selectors)
+     for(let i = 0 ; i < selectors.length; i++){
+         let nms = new String(selectors[i]).match(/\(['"][^"')(]+['"]\)/);
+           if(!!nms){
+             let nm = new String(nms[0]).replace(/\(['"]/, '').replace(/['"]\)/, '');
+               nm+='_'+randomCode;
+         str = str.replace(selectors[i], selectors[i].replace(nms[0], '("'+nm+'")'));
+           }
+     }
+     return str;
+ }
+
+ function replaceStyleClass(str, randomCode){
+     	var pattern = /[.#][^.{} :@]+/g;
+     	let classes = str.match(pattern);
+       if(!!classes)
+     	for(let i = 0 ; i < classes.length; i++){
+         	let op = new String(classes[i]).substr(0, 1);
+       		let nm = new String(classes[i]).substr(1, classes[i].length);
+ 	  		str = str.replace(op+nm, op+nm+'_'+randomCode);
+     	}
+        	return str;
+     }
 
 function replaceClass(str, randomCode){
     let classes = str.match(/class=\".*\"/g);
+    if(!!classes)
       for(let i = 0 ; i < classes.length; i++){
       	let classList = classes[i].match(/\".*\"/)[0].replace(/\"/g,'').split(' ');
         let replacement = 'class="';
