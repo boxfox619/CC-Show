@@ -1,66 +1,67 @@
 import React from 'react';
 import styles from './Assets.css';
 
-// import Square from '../../../../../public/svg/square.svg';
-// import RoundSquare from '../../../../../public/svg/roundSquare.svg';
-// import Ellipse from '../../../../../public/svg/ellipse.svg';
-// import Triangle from '../../../../../public/svg/triangle.svg';
-// import Diamond from '../../../../../public/svg/diamond.svg';
-// import Pentagon from '../../../../../public/svg/pentagon.svg';
-// import Hexagon from '../../../../../public/svg/hexagon.svg';
-// import Octagon from '../../../../../public/svg/octagon.svg';
-// import Star from '../../../../../public/svg/star.svg';
-// import Heart from '../../../../../public/svg/heart.svg';
-// import Moon from '../../../../../public/svg/moon.svg';
-// import Spade from '../../../../../public/svg/spade.svg';
-// import Clover from '../../../../../public/svg/clover.svg';
-// import Stain from '../../../../../public/svg/stain.svg';
-// import Arrow1 from '../../../../../public/svg/arrow1.svg';
-// import Arrow2 from '../../../../../public/svg/arrow2.svg';
-// import Arrow3 from '../../../../../public/svg/arrow3.svg';
-// import Arrow4 from '../../../../../public/svg/arrow4.svg';
-// import Arrow5 from '../../../../../public/svg/arrow5.svg';
-// import Arrow6 from '../../../../../public/svg/arrow6.svg';
-// import Arrow7 from '../../../../../public/svg/arrow7.svg';
-// import Arrow8 from '../../../../../public/svg/arrow8.svg';
+import Square from './ShapeAssets/Square';
+import RoundSquare from './ShapeAssets/RoundSquare';
+import Ellipse from './ShapeAssets/Ellipse';
+import Triangle from './ShapeAssets/Triangle';
+import Diamond from './ShapeAssets/Diamond';
+import Pentagon from './ShapeAssets/Pentagon';
+import Hexagon from './ShapeAssets/Hexagon';
+import Octagon from './ShapeAssets/Octagon';
+import Star from './ShapeAssets/Star';
+import Heart from './ShapeAssets/Heart';
+import Moon from './ShapeAssets/Moon';
+import Spade from './ShapeAssets/Spade';
+import Clover from './ShapeAssets/Clover';
+import Stain from './ShapeAssets/Stain';
+import Arrow1 from './ShapeAssets/Arrow1';
+import Arrow2 from './ShapeAssets/Arrow2';
+import Arrow3 from './ShapeAssets/Arrow3';
+import Arrow4 from './ShapeAssets/Arrow4';
+import Arrow5 from './ShapeAssets/Arrow5';
+import Arrow6 from './ShapeAssets/Arrow6';
+import Arrow7 from './ShapeAssets/Arrow7';
+import Arrow8 from './ShapeAssets/Arrow8';
 
-// class ShapeAsset extends React.Component{
-//   constructor(props){
-//     super(props);
 
-//     this.getShpaeStyle=this.getShpaeStyle.bind(this);
-//   }
-//   render() {
-//     return (
-//       <div>{this.getShpaeStyle(this.props.value)}</div>
-//     )
-//   }
-//   getShpaeStyle(value) {
-//     switch(value){
-//     case 'square' : return (<Square/>);
-//     case 'roundSquare' :return (<RoundSquare/>);
-//     case 'ellipse' :return (<Ellipse/>);
-//     case 'triangle' : return (<Triangle/>);
-//     case 'diamond' : return (<Diamond/>);
-//     case 'pentagon' : return (<Pentagon/>);
-//     case 'hexagon' : return (<Hexagon/>);
-//     case 'octagon' : return (<Octagon/>);
-//     case 'star' : return (<Star/>);
-//     case 'heart' : return (<Heart/>);
-//     case 'moon' : return (<Moon/>);
-//     case 'spade' : return (<Spade/>);
-//     case 'clover' : return (<Clover/>);
-//     case 'stain' : return (<Stain/>);
-//     case 'arrow1' : return (<Arrow1/>);
-//     case 'arrow2' : return (<Arrow2/>);
-//     case 'arrow3' : return (<Arrow3/>);
-//     case 'arrow4' : return (<Arrow4/>);
-//     case 'arrow5' : return (<Arrow5/>);
-//     case 'arrow6' : return (<Arrow6/>);
-//     case 'arrow7' : return (<Arrow7/>);
-//     case 'arrow8' : return (<Arrow8/>);
-//     default: return (<Square/>);
-//     }
-//   }
-// }
+class ShapeAsset extends React.Component{
+  constructor(props){
+    super(props);
+
+    this.getShpaeStyle=this.getShpaeStyle.bind(this);
+  }
+  render() {
+    return (
+      this.getShpaeStyle(this.props.value)
+    )
+  }
+  getShpaeStyle(value) {
+    switch(value){
+    case 'square' : return <Square asset={this.props.asset}/>
+    case 'roundSquare' :return <RoundSquare asset={this.props.asset}/>
+    case 'ellipse' :return <Ellipse asset={this.props.asset}/>
+    case 'triangle' : return <Triangle asset={this.props.asset}/>
+    case 'diamond' : return <Diamond asset={this.props.asset}/>
+    case 'pentagon' : return <Pentagon asset={this.props.asset}/>
+    case 'hexagon' : return <Hexagon asset={this.props.asset}/>
+    case 'octagon' : return <Octagon asset={this.props.asset}/>
+    case 'star' : return <Star asset={this.props.asset}/>
+    case 'heart' : return <Heart asset={this.props.asset}/>
+    case 'moon' : return <Moon asset={this.props.asset}/>
+    case 'spade' : return <Spade asset={this.props.asset}/>
+    case 'clover' : return <Clover asset={this.props.asset}/>
+    case 'stain' : return <Stain asset={this.props.asset}/>
+    case 'arrow1' : return <Arrow1 asset={this.props.asset}/>
+    case 'arrow2' : return <Arrow2 asset={this.props.asset}/>
+    case 'arrow3' : return <Arrow3 asset={this.props.asset}/>
+    case 'arrow4' : return <Arrow4 asset={this.props.asset}/>
+    case 'arrow5' : return <Arrow5 asset={this.props.asset}/>
+    case 'arrow6' : return <Arrow6 asset={this.props.asset}/>
+    case 'arrow7' : return <Arrow7 asset={this.props.asset}/>
+    case 'arrow8' : return <Arrow8 asset={this.props.asset}/>
+    default: return <Square asset={this.props.asset}/>
+    }
+  }
+}
 export default ShapeAsset;
