@@ -8,7 +8,6 @@ import TextAsset from './TextAsset';
 import ImageAsset from './ImageAsset';
 import VideoAsset from './VideoAsset';
 import CustomAsset from './CustomAsset';
-import ShapeAsset from './ShapeAsset';
 
 const propTypes = {
   attribute: React.PropTypes.object,
@@ -48,7 +47,6 @@ class Asset extends React.Component{
         attrs = {preview: (!this.props.controlable)?true:this.props.attribute.preview&&this.props.isSelected};
         break;
       case assetTypes.TYPE_SHAPE:
-        assetTag = ShapeAsset;
         break;
       case assetTypes.TYPE_CUSTOM:
         assetTag = CustomAsset;
