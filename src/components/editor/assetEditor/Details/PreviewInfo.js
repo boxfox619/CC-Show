@@ -9,45 +9,62 @@ import { bindActionCreators } from 'redux';
 import * as uiActions from '../../../../actions/ui';
 import update from 'react-addons-update'
 import PreviewImage from './PreviewImage';
-import Previews from './Previews';
 
 class PreviewInfo extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             imageSrc : [],
-            file: '',
-            imagePreviewUrl: ''
+            previewUrl : '',
+            images : [],
+            defaultNum : 0
         }
     }
     render(){
         return(
             <div className = {styles.previewBox} id = {this.props.cnt} >
                 {this.props.cnt}
-                <input type = "file" className = {styles.inputFile}  onChange = {(e)=> this.imageChange(e)}/>
+                <input type = "file" className = {styles.inputFile}  onChange = {(e)=> this.ImageChange(e)} />
                 <button className = {styles.inputButton}></button>
             </div>
         );
     }
 
-    imageChange(e){      
-        e.preventDefault();
-        // var reader = new FileReader();
-        // var file = e.target.files[0];
-        // var currentId = this.props.cnt;       
-        // var imageUrl; 
-
-        var fr = new FileReader();
-        fr.onload = (e) => {
-            this.setState({
-                ...this.state,
-                imagePreviewUrl : e.target.result
-            });            
+    ImageChange(e){      
+        
+        var currentId = this.props.cnt;               
+        let reader = new FileReader();
+        let file = e.target.files[0];
+        reader.onloadend = () => {
+            this.state.previewUrl = reader.result;
+            console.log(this.state.previewUrl);
         }
-        console.log(e.target.result);        
-        console.log(this.props.cnt);
+        console.log('hello');
+        this.setState({
+            imageSrc : update(
+                this.state.imageSrc,
+                {
+                    $push : [ this.state.previewUrl]
+                }
+            )
+        })
+        console.log(this.state.previewUrl);      
+        reader.readAsDataURL(file);
+       
+
     }
     
 }
+
+var mapStateToProps = (state) => {
+    return{
+        
+    }
+}
+
+var mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({...actions, ...uiActions}, dispatch);
+}
+
 
 export default PreviewInfo;

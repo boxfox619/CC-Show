@@ -19,7 +19,6 @@ class AssetSetting extends React.Component{
         super(prop);
         this.state = {
         ThumbnailUrl: undefined,
-        currentImageUpload: undefined,
         addFileCNT : 0,
         defWidth : 434,
         myWidth : 286,
@@ -41,13 +40,6 @@ componentWillMount(){
     contentHandler(e){
        var content = e.target.value
        this.props.getContent(content)
-    }
-
-    thumbNail (e){
-        this.setState({
-            ...this.state,
-            currentImageUpload : 'previewThumbnail'
-        });
     }
 
 
@@ -84,19 +76,12 @@ componentWillMount(){
         let file = e.target.files[0];
 
         reader.onloadend = () => {
-            switch(this.state.currentImageUpload){
-
-                case 'previewThumbnail':
                 this.setState({
                     ...this.state,
-                    file : file,
+                    // file : file,
                     ThumbnailUrl : reader.result,
                 });
                 this.props.getPreviewImage(this.state.ThumbnailUrl);
-                // var image = this.props.getPreviewImage;
-                // image = this.state.ThumbnailUrl;
-                break;
-            }
         }
         reader.readAsDataURL(file)
     }
@@ -139,7 +124,7 @@ componentWillMount(){
 <div className = {styles.content}>
      <div className = {styles.AssetEditor_left}>
             <div className = {styles.previewDiv}>
-                <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
+                <input type = "file" className = {styles.previewFile} onChange = {(e)=>this.ImageChange(e)}/>
                 <button className = {styles.AssetEditor_preview}><img src = {this.props.thumbnail}/></button>
             </div>
             <div className = {styles.AssetEditor_setting}>
