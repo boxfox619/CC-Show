@@ -20,6 +20,14 @@ function getAssetNode(parent, child) {
      return null;
 }
 
+function clearSelection() {
+if (window.getSelection) {
+    window.getSelection().removeAllRanges();
+} else if (document.selection) {
+    document.selection.empty();
+}
+}
+
 class SlideContext extends React.Component{
 
   /* mouseDowned
@@ -31,24 +39,30 @@ class SlideContext extends React.Component{
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseRelese = this.handleMouseRelese.bind(this);
+    this.handleDoubleClickItem = this.handleDoubleClickItem.bind(this);
+
+    this.state = {doubleClicked: false};
 
     this.mouseAction = 'none';
     this.xInElement = 0;
     this.yInElement = 0;
     this.selectedAsset = undefined;
     this.resizeTarget = undefined;
+    this.selectedAssetId = undefined;
   }
 
     render(){
       let renderingAssets = (assets) => {
         let idx = 0;
         return assets.map((asset)=>{
+          let assetKey = this.props.currentSilde+'-'+asset.id+'-'+this.props.currentSilde;
+          let assetValue = this.props.setAssetValue;
           let isSelected = false;
           if(this.props.selectedAsset==idx++){
             this.selectedAsset = asset;
             isSelected = true;
           }
-          return <Asset key={this.props.currentSilde+'-'+asset.id+'-'+this.props.currentSilde} isSelected={isSelected} handleValueChange={this.props.setAssetValue} attribute={asset}/>
+          return <Asset key={assetKey} isSelected={isSelected} doubleClicked={this.state.doubleClicked} handleValueChange={assetValue} attribute={asset}/>
         })
       };
       return (
@@ -59,7 +73,8 @@ class SlideContext extends React.Component{
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}
         onMouseUp={this.handleMouseRelese}
-        onMouseLeave={this.handleMouseRelese}>
+        onMouseLeave={this.handleMouseRelese}
+        onDoubleClick={this.handleDoubleClickItem}>
           {renderingAssets(this.props.assets)}
           </scanvas>
         </div>
@@ -68,6 +83,10 @@ class SlideContext extends React.Component{
 
     componentDidMount(){
 
+    }
+
+    handleDoubleClickItem(e){
+      this.setState({doubleClicked: true});
     }
 
     handleMouseMove(e){
@@ -148,8 +167,15 @@ class SlideContext extends React.Component{
       document.activeElement.blur();
       e.target.focus();
       this.mouseDowned = true;
+
       if(!!getAssetNode('ASSET', e.target)){
-          this.props.assetSelected(getAssetNode('ASSET', e.target).id);
+        if(this.selectedAssetId==getAssetNode('ASSET', e.target).id&&this.state.doubleClicked){
+          this.props.assetDeselected();
+          return;
+        }
+        this.setState({doubleClicked: false});
+        this.selectedAssetId = getAssetNode('ASSET', e.target).id;
+          this.props.assetSelected(this.selectedAssetId);
           this.mouseAction = 'move';
           if(e.target.tagName=='SELECTORDOT'||e.target.tagName=='SELECTORLINE'){
             this.mouseAction = 'resize';
@@ -157,10 +183,14 @@ class SlideContext extends React.Component{
           }
           this.xInElement = e.pageX;
           this.yInElement = e.pageY;
+          e.preventDefault();
       }else{
+        this.setState({doubleClicked: false});
+        this.selectedAssetId = undefined;
         this.props.assetDeselected();
+        e.preventDefault();
+        clearSelection();
       }
-      e.preventDefault();
     }
 
     handleMouseRelese(e){

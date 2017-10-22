@@ -13,12 +13,14 @@ const propTypes = {
   attribute: React.PropTypes.object,
   isSelected: React.PropTypes.bool,
   handleValueChange: React.PropTypes.func,
-  controlable: React.PropTypes.bool
+  controlable: React.PropTypes.bool,
+  doubleClicked: React.PropTypes.bool
 }
 
 const defaultProps = {
   isSelected: false,
-  controlable: true
+  controlable: true,
+  doubleClicked: false
 }
 
 class Asset extends React.Component{
@@ -38,6 +40,7 @@ class Asset extends React.Component{
     switch(this.props.attribute.type){
       case assetTypes.TYPE_TEXT:
         assetTag = TextAsset;
+        attrs = {edit: this.props.doubleClicked};
         break;
       case assetTypes.TYPE_IMAGE:
         assetTag = ImageAsset;

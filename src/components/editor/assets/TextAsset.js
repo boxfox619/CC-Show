@@ -3,15 +3,23 @@ import styles from './Assets.css';
 
 const propTypes = {
   styles: React.PropTypes.object.isRequired,
-  value: React.PropTypes.string.isRequired
+  value: React.PropTypes.string.isRequired,
+  attrs: React.PropTypes.object.isRequired
 };
 
 class TextAsset extends React.Component{
 
   render() {
+    let styleObj = this.props.styles;
+    if(this.props.attrs.edit){
+      styleObj = {
+        ...styleObj,
+        'cursor': 'auto'
+      }
+    }
     return (
-      <textarea style={this.props.styles} onChange={this.props.handleChange} defaultValue={this.props.value}>
-      </textarea>
+      <div style={styleObj} onChange={this.props.handleChange} contentEditable={true}>{this.props.value}
+      </div>
     )
   }
 }
