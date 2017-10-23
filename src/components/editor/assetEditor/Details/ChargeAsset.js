@@ -20,10 +20,56 @@ const defaultProps = {
     id : React.PropTypes.number.isRequired
 }
 
+var licenses = [
+    {type : '유효 에셋 라이센스 안내'},
+    {type : '유효 에셋 등록과정 안내'},
+    {type : '판매자 이용약관 안내'}
+];
+
+
 class ChargeAsset extends React.Component{
     constructor(props){
         super(props);
         this.submit = this.submit.bind(this);
+    }
+
+    render(){
+
+        let renderLicenses = (licenses) =>{
+            return licenses.map((license, idx) =>{
+                <div className = {styles.AssetEditor_isAsset} key = {idx}>
+                    <div className = {styles.isAsset_Header}>
+                        <span className = {styles.isAsset_titleText}>{license.type}</span>
+                    </div>
+                    <div className = {styles.isAsset_Content}></div>
+                </div>
+            });
+        }
+
+
+        return(
+        
+        <div className = {styles.AssetEditor_right}>    
+            {renderLicenses(licenses)}
+
+            {/* <div className = {styles.AssetEditor_Process}>
+                 <div className = {styles.isAsset_Header}>
+                    <span className = {styles.isAsset_titleText}>유효 에셋 등록과정 안내</span>
+                </div>
+                <div className = {styles.isAsset_Content}></div>
+            </div>
+
+            <div className = {styles.AssetEditor_Process}>    
+                <div className = {styles.isAsset_Header}>
+                    <span className = {styles.isAsset_titleText}>판매자 이용약관 안내</span>
+                </div>
+                <div className = {styles.isAsset_Content}></div>
+            </div>       
+           */}
+            <input type = "submit" className = {styles.AssetEditor_agreeButton} onClick = {this.submit} value = "해당 약관에 동의합니다." />
+         
+        </div>
+        );
     }
 
     submit(){
@@ -58,40 +104,10 @@ class ChargeAsset extends React.Component{
         // axios.put('/store/js', {id : assetId, js : js});
 
     }
-    render(){
-       
-        return(
-        <div className = {styles.AssetEditor_right}>
-            <div className = {styles.AssetEditor_isAsset}>
-                <div className = {styles.isAsset_Header}>
-                    <span className = {styles.isAsset_titleText}>유효 에셋 라이센스 안내</span>
-                </div>
-                <div className = {styles.isAsset_Content}>
-                </div>
-            </div>
-
-            <div className = {styles.AssetEditor_Process}>
-                 <div className = {styles.isAsset_Header}>
-                    <span className = {styles.isAsset_titleText}>유효 에셋 등록과정 안내</span>
-                </div>
-                <div className = {styles.isAsset_Content}></div>
-            </div>
-
-            <div className = {styles.AssetEditor_Process}>    
-                <div className = {styles.isAsset_Header}>
-                    <span className = {styles.isAsset_titleText}>판매자 이용약관 안내</span>
-                </div>
-                <div className = {styles.isAsset_Content}></div>
-            </div>       
-          
-            <input type = "submit" className = {styles.AssetEditor_agreeButton} onClick = {this.submit} value = "해당 약관에 동의합니다." />
-         
-        </div>
-        );
-    }
 
    
 }
+
 
 var mapStateToProps = (state) => {
     return{

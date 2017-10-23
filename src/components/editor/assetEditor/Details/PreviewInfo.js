@@ -37,7 +37,7 @@ class PreviewInfo extends React.Component{
         let file = e.target.files[0];
         reader.onloadend = () => {
             this.state.previewUrl = reader.result;
-            console.log(this.state.previewUrl);
+            console.log('Hello' + this.state.previewUrl);
         }
         console.log('hello');
         this.setState({
@@ -47,8 +47,7 @@ class PreviewInfo extends React.Component{
                     $push : [ this.state.previewUrl]
                 }
             )
-        })
-        console.log(this.state.previewUrl);      
+        })    
         reader.readAsDataURL(file);
        
 

@@ -1,16 +1,15 @@
 import React from 'react';
-import styles from './AssetEditorItem.css';
-import FreeAsset from './FreeAsset';
-import AssetSetting from './AssetSetting';
-import ChargeAsset from './ChargeAsset';
+import styles from './Details/AssetEditorItem.css';
+import FreeAsset from './Details/FreeAsset';
+import AssetSetting from './Details/AssetSetting';
+import ChargeAsset from './Details/ChargeAsset';
+
 class AssetEditorItem extends React.Component{
     render(){
 
         return(
           <div className = {styles.content}>
                 <AssetSetting />
-                {/* <FreeAsset />
-                <ChargeAsset /> */}
           </div>  
         );
     }

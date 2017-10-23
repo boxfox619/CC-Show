@@ -76,6 +76,7 @@ class FreeAsset extends React.Component{
                 
             </div>
 
+            
 
              <div>
                 <div className = {styles.license_content}>

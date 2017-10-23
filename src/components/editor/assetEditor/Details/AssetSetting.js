@@ -8,6 +8,8 @@ import Store from '../../../../store';
 import { bindActionCreators } from 'redux';
 import * as uiActions from '../../../../actions/ui';
 import PreviewImage from './PreviewImage';
+import Description from './Description';
+import Thumbnail from './Thumbnail';
 
 const selectMode = [
     {mode : '스토어 공개'},
@@ -123,10 +125,7 @@ componentWillMount(){
         return(
 <div className = {styles.content}>
      <div className = {styles.AssetEditor_left}>
-            <div className = {styles.previewDiv}>
-                <input type = "file" className = {styles.previewFile} onChange = {(e)=>this.ImageChange(e)}/>
-                <button className = {styles.AssetEditor_preview}><img src = {this.props.thumbnail}/></button>
-            </div>
+            <Thumbnail />
             <div className = {styles.AssetEditor_setting}>
 
                 <div className = {styles.setting_first}>
@@ -150,9 +149,6 @@ componentWillMount(){
                      </label>
                         
                     </div>
-
-                    <div>
-                    </div>
                     
                     <div className = {styles.cover2}>
                         <span className = {styles.frontTitle2}>￦</span>
@@ -164,14 +160,7 @@ componentWillMount(){
             <PreviewImage />
 
         </div>
-            <div className = {styles.AssetEditor_description}>
-                <div className = {styles.AssetEditor_topbar}>
-                    <span className = {styles.topbar_title}>부가설명</span>
-                </div>
-                <div className = {styles.AssetEditor_content}>
-                    <textarea cols = "107" rows = "50" className = {styles.description_content} onChange = {(e)=> this.contentHandler(e)} placeholder ="텍스트를 입력하세요." />
-                </div>
-            </div>  
+            <Description />
     </div>
    {renderForm()}
     </div>
