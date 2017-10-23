@@ -49,7 +49,7 @@ export const createAsset = (assetType, value, style = {}) => {
   }
 };
 
-export const setAssetValue = (id, value) =>{
+export const setAssetValue = (id, value) => {
   return {
     type: actionTypes.ASSET_SET_VALUE,
     id,
@@ -57,7 +57,7 @@ export const setAssetValue = (id, value) =>{
   }
 }
 
-export const createCustomAsset = (assetId) =>{
+export const createCustomAsset = (assetId) => {
   return {
     type: actionTypes.ASSET_CREATE,
     assetType: assetTypes.TYPE_CUSTOM,
@@ -66,15 +66,19 @@ export const createCustomAsset = (assetId) =>{
 }
 
 export const createAssetByType = (type) => {
-  switch(type){
+  switch (type) {
     case assetTypes.TYPE_TEXT:
-      return createAsset(type, '텍스트를 입력해 주세요', {'font-size': '12px'});
+      return createAsset(type, '텍스트를 입력해 주세요', {
+        'font-size': '12px'
+      });
     case assetTypes.TYPE_IMAGE:
       return createAsset(type, '/images/AppIcon.png');
     case assetTypes.TYPE_VIDEO:
       return createAsset(type, 'https://www.youtube.com/watch?v=VQtonf1fv_s');
     case assetTypes.TYPE_SHAPE:
       return createAsset(type, 'square');
+    case assetTypes.TYPE_TABLE:
+      return createAsset(type, {row: '2', column: '2'});
     default:
       return createAsset(type, 'asdasd');
   }
@@ -137,7 +141,7 @@ export function setAssetAngle(value) {
   }
 }
 
-export function copyAsset(id, slide, x, y){
+export function copyAsset(id, slide, x, y) {
   return {
     type: actionTypes.ASSET_COPY,
     id,
@@ -147,39 +151,39 @@ export function copyAsset(id, slide, x, y){
   }
 }
 
-export function sortFirstAsset(id){
-  return{
+export function sortFirstAsset(id) {
+  return {
     type: actionTypes.ASSET_SORT,
     id,
     to: 'min'
   }
 }
 
-export function sortLastAsset(id){
-  return{
+export function sortLastAsset(id) {
+  return {
     type: actionTypes.ASSET_SORT,
     id,
     to: 'max'
   }
 }
 
-export function sortBackAsset(id){
-  return{
+export function sortBackAsset(id) {
+  return {
     type: actionTypes.ASSET_SORT,
     id,
     to: 'front'
   }
 }
 
-export function sortFrontAsset(id){
-  return{
+export function sortFrontAsset(id) {
+  return {
     type: actionTypes.ASSET_SORT,
     target: id,
     to: 'back'
   }
 }
 
-export function deleteAsset(id){
+export function deleteAsset(id) {
   return {
     type: actionTypes.ASSET_DELETE,
     id
@@ -199,82 +203,82 @@ export const setAttributes = (attrs) => {
 }
 
 export function setAssetTextFont(font) {
-  return{
+  return {
     type: actionTypes.ASSET_SET_TEXT_FONT,
     font
   }
 }
 
 export function setAssetFontSize(fontSize) {
-  fontSize+='px';
-  return{
+  fontSize += 'px';
+  return {
     type: actionTypes.ASSET_SET_TEXT_FONT_SIZE,
     fontSize
   }
 }
 
 export function setAssetTextCharacterSpacing(value) {
-  value+='px';
-  return{
+  value += 'px';
+  return {
     type: actionTypes.ASSET_SET_TEXT_CHARACTER_SPACING,
     value
   }
 }
 
 export function setAssetTextLineSpacing(value) {
-  value+='%';
-  return{
+  value += '%';
+  return {
     type: actionTypes.ASSET_SET_TEXT_LINE_SPACING,
     value
   }
 }
 
 export function setAssetFontWeight(value) {
-  return{
+  return {
     type: actionTypes.ASSET_SET_TEXT_FONT_WEIGHT,
     value
   }
 }
 
 export function setAssetTextSort(sort) {
-  return{
+  return {
     type: actionTypes.ASSET_SET_TEXT_SORT,
     sort
   }
 }
 
 export function setAssetFontBold() {
-  return{
+  return {
     type: actionTypes.ASSET_SET_TEXT_FONT_BOLD
   }
 }
 
 export function setAssetFontStrikethrough() {
-  return{
+  return {
     type: actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH
   }
 }
 
 export function setAssetFontUnderline() {
-  return{
+  return {
     type: actionTypes.ASSET_SET_TEXT_FONT_UNDERLINE
   }
 }
 
 export function setAssetFontItalic() {
-  return{
+  return {
     type: actionTypes.ASSET_SET_TEXT_FONT_ITALIC
   }
 }
 
 export function setFontStrikethrough() {
-  return{
+  return {
     type: actionTypes.ASSET_SET_TEXT_FONT_STRIKETHROUGH
   }
 }
 
 export function setAssetTextColor(textColor) {
-  return{
+  return {
     type: actionTypes.ASSET_SET_TEXT_COLOR,
     textColor
   }
@@ -282,75 +286,75 @@ export function setAssetTextColor(textColor) {
 
 export function setAssetFillColor(fillColor) {
   console.log(fillColor);
-  return{
+  return {
     type: actionTypes.ASSET_SET_FILL_COLOR,
     fillColor
   }
 }
 
 export function setAssetBorderColor(borderColor) {
-  return{
+  return {
     type: actionTypes.ASSET_SET_BORDER_COLOR,
     borderColor
   }
 }
 
 export function setAssetEdgeWeight(weight) {
-  weight+='px';
+  weight += 'px';
   console.log(weight);
-  return{
+  return {
     type: actionTypes.ASSET_SET_BORDER_WEIGHT,
     weight
   }
 }
 
-export function setAssetVideoURL(url){
-  return{
+export function setAssetVideoURL(url) {
+  return {
     type: actionTypes.ASSET_SET_VIDEO_URL,
     url
   }
 }
 
-export function setAssetImage(value){
-  return{
+export function setAssetImage(value) {
+  return {
     type: actionTypes.ASSET_SET_IMAGE,
     value
   }
 }
 
-export function setAssetVideoController(){
-  return{
+export function setAssetVideoController() {
+  return {
     type: actionTypes.ASSET_SET_VIDEO_CONTROLLER
   }
 }
 
-export function setAssetVideoAutoplay(){
-  return{
+export function setAssetVideoAutoplay() {
+  return {
     type: actionTypes.ASSET_SET_VIDEO_AUTOPLAY
   }
 }
 
-export function setAssetVideoLoop(){
-  return{
+export function setAssetVideoLoop() {
+  return {
     type: actionTypes.ASSET_SET_VIDEO_LOOP
   }
 }
 
-export function setAssetStyle(style){
-  return{
+export function setAssetStyle(style) {
+  return {
     type: actionTypes.ASSET_SET_STYLE,
     style
   }
 }
 
-export function toggleVideoPreview(){
-  return{
+export function toggleVideoPreview() {
+  return {
     type: actionTypes.TOGGLE_VIDEO_PREVIEW
   }
 }
 
-export function setAssetChangeShape(shape){
-  return{
+export function setAssetChangeShape(shape) {
+  return {
     type: actionTypes.ASSET_SET_CHANGE_SHAPE,
     shape
   }

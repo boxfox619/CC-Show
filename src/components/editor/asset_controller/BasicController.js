@@ -99,7 +99,7 @@ class BasicController extends React.Component{
                             <span className={styles.attribute_item_title}><img src="/images/ic_line.png"/></span>
                             <div className={styles.attribute_both_input_area}>
                             <div className={styles.change_color} onClick={this.props.toggleBorderColorPicker} style={this.props.borderColor==='white' ? {border:'1px solid #5D87B5'} : {backgroundColor:this.props.borderColor}}> </div>
-                            <input style={{width:"60%"}} type="text" className={styles.attribute_item_input} onChange={this.setBorderWeight} value={this.props.borderWeight}/>
+                            <input type="text" className={styles.attribute_item_input} onChange={this.setBorderWeight} value={this.props.borderWeight}/>
                             </div>
                         </div>
                     </div>

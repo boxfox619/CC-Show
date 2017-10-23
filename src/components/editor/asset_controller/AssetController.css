@@ -97,7 +97,7 @@ p {
 .attribute_item_title {
   border: 0;
   margin: 0 0 0 5px;
-  width: 23%;
+  width: 24px;
   max-width: 37px;
   font-size: 15px;
   color: #5a84b3;
@@ -108,7 +108,7 @@ p {
 }
 
 .attribute_item_input {
-    width: 65%;
+    width: 10px;
     min-width: calc( 100% - 50px );
     height: 100%;
     text-align: right;
