@@ -148,7 +148,7 @@ class CodeEditor extends React.Component{
               <Asset id={'previewAsset'} isSelected={this.state.mouseAction != 'none'} handleValueChange={()=>{}} attribute={{...this.state.previewAsset, value: this.state.css + this.state.html + this.state.js}}/>
               {/* <textarea value = {this.state.html}></textarea> */}
             </div>
-            
+
           </div>
         </div>
         <div>
@@ -273,13 +273,13 @@ class CodeEditor extends React.Component{
       js: '<script>' + currentText + '</script>',
       mode : 'jsMode'
     });
-    this.props.setJs(e);
+    this.props.setJS(e);
   }
 }
 
   var mapStateToProps = (state) => {
   return {
-    visible : state.ui.visibleAssetEditor,  
+    visible : state.ui.visibleAssetEditor,
     htmlsource : state.asseteditor.htmlsource,
     csssource : state.asseteditor.csssource,
     jssource : state.asseteditor.jssource
