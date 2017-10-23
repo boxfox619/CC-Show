@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const propTypes = {
   styles: React.PropTypes.object.isRequired,
-  value: React.PropTypes.number.isRequired,
+  value: React.PropTypes.string.isRequired,
   attrs: React.PropTypes.object.isRequired
 };
 
@@ -25,16 +25,55 @@ function generateRandomCode(howMany, chars) {
 }
 
 function convertCode(str){
+  if(str.length==0)return str;
   let randomCode = generateRandomCode(8);
-  str = replaceStyleClass(str, randomCode);
-  str = replaceClass(str, randomCode);
-  str = replaceJsNativeClass(str, randomCode);
-  str = replaceQueryClass(str, randomCode);
-  return str;
+  let css = getStyle(str);
+  let html = getHtml(str);
+  let js = getStyle(str);
+  html = replaceClass(html, randomCode);
+  html = replaceHtmlTags(html, randomCode);
+  if(!!css){
+    css = replaceStyleClass(css, randomCode);
+    css = replaceStyleTags(css, randomCode);
+  }
+  if(!!js){
+    js = replaceJsNativeClass(js, randomCode);
+    js = replaceQueryClass(js, randomCode);
+  }
+  return ((!!css)?css:'')+html+((!!js)?js:'');
+}
+
+function getStyle(str){
+  let style = str.match(/<style>(.|\n|\r)*<\/style>/)
+  return (!!style)?style[0]:null
+}
+
+function getJavascript(str){
+  let script = str.match(/<script>(.|\n|\r)*<\/script>/)
+  return (!!script)?script[0]:null
+}
+
+function getHtml(str){
+  let html = str;
+  if(!!getStyle(str))
+    html = html.replace(getStyle(str), '')
+  if(!!getJavascript(str))
+    html = html.replace(getJavascript(str), '')
+  return html;
+}
+
+function replaceHtmlTags(str, randomCode){
+	let tags = str.match(/<[^>]+>/g);
+    if(!!tags)
+    for(let i=0;i<tags.length;i++){
+    	let tagName = tags[i].match(/[^ <>/]+/)[0];
+        str = str.replace(tags[i], tags[i].replace(tagName, tagName+'_'+randomCode))
+    }
+    return str
 }
 
 function replaceQueryClass(str, randomCode){
-  
+
 }
 
 function replaceJsNativeClass(str, randomCode){
@@ -52,6 +91,10 @@ function replaceJsNativeClass(str, randomCode){
      return str;
  }
 
+ function replaceStyleTags(str, randomCode){
+
+ }
+
  function replaceStyleClass(str, randomCode){
      	var pattern = /[.#][^.{} :@]+/g;
      	let classes = str.match(pattern);
@@ -62,7 +105,7 @@ function replaceJsNativeClass(str, randomCode){
  	  		str = str.replace(op+nm, op+nm+'_'+randomCode);
      	}
         	return str;
-     }
+}
 
 function replaceClass(str, randomCode){
     let classes = str.match(/class=\".*\"/g);
@@ -87,11 +130,21 @@ class CustomAsset extends React.Component{
     this.state = {
       code:''
     }
+    this.code = ''
+    this.clearCode = ''
   }
 
   render() {
+    let code = this.state.code;
+    if(!this.props.attrs.type){
+      if(this.code!=this.props.value){
+        this.code = this.props.value
+        this.clearCode = convertCode(this.props.value)
+      }
+      code = this.clearCode
+    }
     return (
-      <div style={this.props.styles} dangerouslySetInnerHTML={ {__html: this.state.code}}/>
+      <div style={this.props.styles} dangerouslySetInnerHTML={ {__html: code}}/>
     )
   }
 
@@ -102,8 +155,6 @@ class CustomAsset extends React.Component{
       this.setState({code : convertCode(response.data.code)});
     }).catch(err => {
     });
-  }else{
-    this.setState({code : convertCode(this.props.value)});
     }
   }
 }
