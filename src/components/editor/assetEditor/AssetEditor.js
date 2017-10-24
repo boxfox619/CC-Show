@@ -3,7 +3,7 @@ import Thumbnail from './Thumbnail';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import AssetEditorItem from './Details/AssetEditorItem';
+import AssetEditorItem from './AssetEditorItem';
 import CodeEditorItem from './Code/CodeEditor';
 import Asset from '../assets/Asset';
 import * as assetTypes from '../../../assetTypes';

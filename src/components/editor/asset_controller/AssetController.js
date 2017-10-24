@@ -8,7 +8,7 @@ import VideoController from './VideoController';
 import ImageController from './ImageController';
 import ShapeController from './ShapeController';
 import BasicController from './BasicController';
-
+import Asset from '../assets/Asset';
 
 import styles from './AssetController.css';
 
@@ -50,6 +50,9 @@ class AssetController extends React.Component {
     }
 
     render() {
+        if(this.props.isSelected){
+            console.log('isSelected');
+        }
         if(!!(this.props.selectedAsset)){
             return(
                 <div className={this.props.className}>

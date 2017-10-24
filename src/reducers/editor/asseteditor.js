@@ -14,6 +14,11 @@ const InitialState = {
   mode : false,
   bool : false,
   Thumbnail : '',
+  id : '',
+  cntData : [
+      {cnt : 0},
+      {cnt : 1}
+  ],
 }
 
 const asseteditor = (state = InitialState, action) => {
@@ -76,6 +81,16 @@ const asseteditor = (state = InitialState, action) => {
             return{
                 ...state,
                 bool : action.bool
+            }
+        case actionTypes.GET_DOM_ID :
+            return{
+                ...state,
+                id : action.id
+            }
+        case actionTypes.SET_DOM_ID :
+            return{
+                ...state,
+                cntData : action.cntData,
             }
 
         default :

@@ -51,6 +51,8 @@ class Asset extends React.Component{
         break;
       case assetTypes.TYPE_SHAPE:
         break;
+      case assetTypes.TYPE_TABLE:
+        assetTag = TableAsset;
       case assetTypes.TYPE_CUSTOM:
         assetTag = CustomAsset;
         attrs = {type: true};

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Assets.css';
+// import fs from 'fs';
 
 import Square from './ShapeAssets/Square';
 import RoundSquare from './ShapeAssets/RoundSquare';
