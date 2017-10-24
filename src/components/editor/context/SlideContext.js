@@ -195,6 +195,14 @@ class SlideContext extends React.Component{
 
     handleMouseRelese(e){
       this.mouseAction = 'none';
+      let txt = (document.all) ? window.selection.createRange() : window.getSelection();
+      let start = txt.anchorOffset;
+      let end = txt.focusOffset;
+      if(start>end){
+        start = txt.focusOffset;
+        end = txt.anchorOffset;
+      }
+      this.props.setTextSelectionRange(start, end);
     }
 
     percentHeightToPixel(val){
