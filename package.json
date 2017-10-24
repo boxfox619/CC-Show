@@ -20,7 +20,6 @@
     "react-addons-update": "^15.6.2",
     "react-codemirror": "^1.0.0",
     "react-color": "^2.13.8",
-    "react-contenteditable": "^2.0.5",
     "react-dom": "^15.6.1",
     "react-facebook-login": "^3.6.2",
     "react-google-login": "^2.9.3",
