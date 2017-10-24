@@ -99,6 +99,8 @@ const editor = (state = initialState, action) => {
             'border-width' : '1px'
           }
         }
+      } else if(action.assetType === assetTypes.TYPE_TABLE){
+
       } else if (action.assetType === assetTypes.TYPE_CUSTOM) {
       } else {
         alert('type error');

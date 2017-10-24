@@ -32,11 +32,13 @@ class ShapeAsset extends React.Component{
     this.getShpaeStyle=this.getShpaeStyle.bind(this);
   }
   render() {
+    console.log('asdffd');
     return (
       this.getShpaeStyle(this.props.value)
     )
   }
   getShpaeStyle(value) {
+    console.log(value);
     switch(value){
     case 'square' : return <Square asset={this.props.asset}/>
     case 'roundSquare' :return <RoundSquare asset={this.props.asset}/>
