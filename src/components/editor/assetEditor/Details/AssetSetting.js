@@ -8,12 +8,19 @@ import Store from '../../../../store';
 import { bindActionCreators } from 'redux';
 import * as uiActions from '../../../../actions/ui';
 import PreviewImage from './PreviewImage';
+import Description from './Description';
+import Thumbnail from './Thumbnail';
+
+const selectMode = [
+    {mode : '스토어 공개'},
+    {mode : '유료로 전환'}
+]
 
 class AssetSetting extends React.Component{
     constructor(prop){
         super(prop);
         this.state = {
-        cnt : 2,
+        ThumbnailUrl: undefined,
         addFileCNT : 0,
         defWidth : 434,
         myWidth : 286,
@@ -23,6 +30,11 @@ class AssetSetting extends React.Component{
     this.handleChangeCharge = this.handleChangeCharge.bind(this);
     this.handleChangeFree = this.handleChangeFree.bind(this);
 };
+
+componentWillMount(){
+    this.setState( { isChecked: this.props.isChecked } );
+}
+
     priceHandler(e){
         var price = e.target.value
         this.props.getPrice(price)
@@ -32,24 +44,8 @@ class AssetSetting extends React.Component{
        this.props.getContent(content)
     }
 
-    thumbNail (e){
-        this.setState({
-            ...this.state,
-            currentImageUpload : 'previewThumbnail'
-        });
-    }
-
-    inputimg(e){
-        this.setState({
-            ...this.state,
-            currentImageUpload : 'previewInputimg'
-        });
-    }
 
     addFileChange(e){
-
-        this.state.cnt ++;
-        console.log(this.state.cnt);
         
         let add = 145;
                     
@@ -61,6 +57,7 @@ class AssetSetting extends React.Component{
         })
         // console.log(this.state.myWidth);
         if(this.state.addFileCNT === 3){
+            console.log('e.preventDefault 실행');
             e.preventDefault();
         }
         if(this.state.myWidth === '724px'){
@@ -74,43 +71,61 @@ class AssetSetting extends React.Component{
         this.props.setTitle(e.target.value);
     }
 
+    ImageChange(e) {
+        e.preventDefault();
+    
+        let reader = new FileReader();
+        let file = e.target.files[0];
+
+        reader.onloadend = () => {
+                this.setState({
+                    ...this.state,
+                    // file : file,
+                    ThumbnailUrl : reader.result,
+                });
+                this.props.getPreviewImage(this.state.ThumbnailUrl);
+        }
+        reader.readAsDataURL(file)
+    }
+
+    
+
     render(){
         
         
         var renderForm = () => {
             
-            if(this.state.isCheckedFree == true && this.state.isCheckedCharge == true){
+            if(this.state.isCheckedCharge == true && this.state.isCheckedFree == true){
+                 return(
+                     <FreeAsset />
+                 )
+            }
+    
+            if(this.state.isCheckedFree == true){
                 return(
-                    <ChargeAsset />
+                     <ChargeAsset />
                 )
             }
-            if(this.state.isCheckedFree == false && this.state.isCheckedCharge == false){
+    
+            if(this.state.isCheckedCharge == true){
                 return(
                     <FreeAsset />
                 )
             }
-            if(this.state.isCheckedFree == true && this.state.isCheckedCharge == false){
-                return(
-                    <FreeAsset />
-                )
-            }
-
-            if(this.state.isCheckedCharge == true && this.state.isCheckedFree == false){
+            
+            if(this.state.isCheckedCharge == false && this.state.isCheckedFree == false){
                 return(
                     <ChargeAsset />
                 )
             }
+           
         }
 
-
-        
+      
         return(
 <div className = {styles.content}>
      <div className = {styles.AssetEditor_left}>
-            <div className = {styles.previewDiv}>
-                <input type = "file" className = {styles.previewFile} onClick = {(e)=>this.thumbNail(e)} onChange = {(e)=>this.ImageChange(e)}/>
-                <button className = {styles.AssetEditor_preview}><img className = {styles.thumbnailImg} src = {this.props.thumbnail} /></button>
-            </div>
+            <Thumbnail />
             <div className = {styles.AssetEditor_setting}>
 
                 <div className = {styles.setting_first}>
@@ -122,20 +137,17 @@ class AssetSetting extends React.Component{
                 <div className = {styles.setting_second}>
 
                     <div className = {styles.openStoreDiv}>
-                     <input type = "checkbox"  className = {styles.modebox} defaultChecked={this.state.isCheckedFree}  onChange={this.handleChangeFree}/>
+                     <input type = "checkbox"  className = {styles.modebox} checked={this.state.isCheckedFree} onChange={this.handleChangeFree}/>
                      <label className = {styles.modeboxlabel}>
                          <span className = {styles.openStoreSpan}>스토어 공개</span>
                      </label>
                     </div>
                     <div className = {styles.openStoreDiv}>
-                     <input type = "checkbox"  className = {styles.modebox} defaultChecked = {this.state.isCheckedCharge} onChange={this.handleChangeCharge}/>
+                     <input type = "checkbox"  className = {styles.modebox} checked={this.state.isCheckedCharge} onChange={this.handleChangeCharge}/>
                      <label className = {styles.modeboxlabel}>
                          <span className = {styles.openStoreSpan}>유료로 변환</span>
                      </label>
                         
-                    </div>
-
-                    <div>
                     </div>
                     
                     <div className = {styles.cover2}>
@@ -145,17 +157,10 @@ class AssetSetting extends React.Component{
                     
                 </div>
 
-              <PreviewImage />
+            <PreviewImage />
 
         </div>
-            <div className = {styles.AssetEditor_description}>
-                <div className = {styles.AssetEditor_topbar}>
-                    <span className = {styles.topbar_title}>부가설명</span>
-                </div>
-                <div className = {styles.AssetEditor_content}>
-                    <textarea cols = "107" rows = "50" className = {styles.description_content} onChange = {(e)=> this.contentHandler(e)} placeholder ="텍스트를 입력하세요." />
-                </div>
-            </div>  
+            <Description />
     </div>
    {renderForm()}
     </div>
@@ -163,15 +168,12 @@ class AssetSetting extends React.Component{
     }
 
     handleChangeFree () {
+        this.props.getOpenToStore(this.state.isCheckedFree);
         this.setState( { isCheckedFree: !this.state.isCheckedFree } );
-        this.props.getOpenToStore(this.state.isCheckedFree);  
-        console.log(this.state.isCheckedFree);      
     }
 
     handleChangeCharge(){
-        this.setState({ isCheckedCharge : !this.state.isCheckedCharge });        
-        this.props.getChangeToCharge(this.state.isCheckedCharge);
-        console.log(this.state.isCheckedCharge);
+        this.setState({ isCheckedCharge : !this.state.isCheckedCharge});
     }
 }
 
@@ -179,7 +181,7 @@ var mapStateToProps = (state) =>{
     return{
         htmlsource : state.asseteditor.htmlsource,
         title : state.asseteditor.title,
-        thumbnail : state.asseteditor.previewImage,
+        thumbnail : state.asseteditor.previewImage
     }
 }
 

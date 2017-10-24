@@ -47,8 +47,19 @@ class Previews extends React.Component{
                 }
             )
         })
+        this.props.setDomId(this.state.cntData);
         this.forceUpdate();
     }
 }
 
-export default Previews;
+var mapStateToProps = (state) => {
+    return{
+        Datas : state.asseteditor.cntData
+    }
+}
+
+var mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({...actions}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Previews);

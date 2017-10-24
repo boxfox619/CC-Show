@@ -9,7 +9,6 @@ import { bindActionCreators } from 'redux';
 import * as uiActions from '../../../../actions/ui';
 import update from 'react-addons-update'
 import Previews from './Previews';
-import PreviewInfo from './PreviewInfo';
 
 class PreviewImage extends React.Component{
     render(){

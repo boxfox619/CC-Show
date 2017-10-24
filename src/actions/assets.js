@@ -37,7 +37,8 @@ export const actionTypes = {
   ASSET_SORT: 'ASSET_SORT',
   ASSET_DELETE: 'ASSET_DELETE',
   TOGGLE_VIDEO_PREVIEW: 'TOGGLE_VIDEO_PREVIEW',
-  ASSET_SET_CHANGE_SHAPE: 'ASSET_SET_CHANGE_SHAPE'
+  ASSET_SET_CHANGE_SHAPE: 'ASSET_SET_CHANGE_SHAPE',
+  ASSET_SET_TEXT_SELECT_RANGE: 'ASSET_SET_TEXT_SELECT_RANGE'
 };
 
 export const createAsset = (assetType, value, style = {}) => {
@@ -357,5 +358,13 @@ export function setAssetChangeShape(shape) {
   return {
     type: actionTypes.ASSET_SET_CHANGE_SHAPE,
     shape
+  }
+}
+
+export function setTextSelectionRange(start, end){
+  return {
+    type: actionTypes.ASSET_SET_TEXT_SELECT_RANGE,
+    start,
+    end
   }
 }
