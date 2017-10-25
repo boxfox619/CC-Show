@@ -37,6 +37,9 @@ class Asset extends React.Component{
   }
 
   render(){
+    if(this.props.isSelected){
+      console.log('isSelected!');
+    }
       let assetTag;
       let attrs = {};
     switch(this.props.attribute.type){

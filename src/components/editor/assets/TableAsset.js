@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Assets.css';
-import ReactTable from 'react-table'
 
 class TableAsset extends React.Component{
   constructor(props){
