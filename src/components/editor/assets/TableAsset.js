@@ -6,31 +6,25 @@ class TableAsset extends React.Component{
     super(props);
   }
   render() {
-
+    let styles={'border-style':'solid', ...this.props.asset.style};
     let getColumns=() => {
-      let columns=[];
-      for(let i=0;i<this.props.asset.value.column; i++) columns.push('a');
-      
       return(
-        columns.map(function(i){
+        this.props.asset.cells.map(function(row){
           return(
             <tr>
-              {getRows()}
+              {getRows(row)}
             </tr>            
             )
         })
       )
     }
 
-    let getRows=() => {
-      let rows=[];
-      for(let i=0;i<this.props.asset.value.row; i++) rows.push('a');
-      
+    let getRows=(row) => {
       return(
-        rows.map(function(str){
+        row.map(function(value){
           return(
-            <td>
-              {str}
+            <td contentEditable={true} onChange="" style={{'border-spacing':'0', ...styles}}>
+              {value}
             </td>
           )
         })
@@ -38,8 +32,10 @@ class TableAsset extends React.Component{
     }
 
     return(
-      <table>
-        {getColumns()}
+      <table style={{'border-spacing':'0', 'padding':'0', ...this.props.styles}}>
+        <tbody>
+          {getColumns()}
+        </tbody>
       </table>
     )
   }

@@ -100,7 +100,10 @@ const editor = (state = initialState, action) => {
           }
         }
       } else if(action.assetType === assetTypes.TYPE_TABLE){
-
+        newAsset = {
+          ...newAsset,
+          cells: [['a', 'a'],['a', 'a']]
+        }
       } else if (action.assetType === assetTypes.TYPE_CUSTOM) {
       } else {
         alert('type error');
