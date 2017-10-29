@@ -10,7 +10,7 @@ class Triangle extends React.Component{
            Created by potrace 1.14, written by Peter Selinger 2001-2017
            </metadata>
            <g transform="translate(0.000000,20.000000) scale(0.100000,-0.100000)"
-           fill="#5a84b3" stroke="none">
+           fill={this.props.asset.style['background-color']} stroke={this.props.asset.style['border-color']} strokeWidth={this.props.asset.style['border-width']}>
            <path d="M58 102 l-56 -97 54 -3 c29 -2 80 -2 113 0 l59 3 -55 95 c-30 52 -56 96 -57 97 -1 1 -27 -41 -58 -95z"/>
            </g>
            </svg>
