@@ -15,7 +15,7 @@ class TableAsset extends React.Component{
         function (th) {
           th.style.position = 'relative';
 
-          var grip = document.createElement('div');
+          var grip = document.createElement('col-resizer');
           grip.innerHTML = "&nbsp;";
           grip.style.top = 0;
           grip.style.right = 0;
@@ -45,14 +45,13 @@ class TableAsset extends React.Component{
 
   render() {
     let styles={'borderStyle':'solid', ...this.props.asset.style};
-    console.log(this.props.styles);
     let getColumns=() => {
       return(
         this.props.asset.cells.map(function(row){
           return(
             <tr>
               {getRows(row)}
-            </tr>            
+            </tr>
             )
         })
       )
@@ -69,7 +68,7 @@ class TableAsset extends React.Component{
         })
       )
     }
-    
+
     return(
       <table style={{'borderSpacing':'0', 'padding':'0', ...this.props.styles}}>
         <tbody>
