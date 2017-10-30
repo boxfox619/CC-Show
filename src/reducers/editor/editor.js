@@ -65,7 +65,7 @@ const editor = (state = initialState, action) => {
       if (action.assetType === assetTypes.TYPE_TEXT) {
         newAsset = {
           ...newAsset,
-          subStyles: [],
+          subStyle: [],
           style: {
             ...newAsset.style,
             'font-family': '굴림',
