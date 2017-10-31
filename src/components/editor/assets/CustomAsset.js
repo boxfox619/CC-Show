@@ -72,6 +72,25 @@ function replaceHtmlTags(str, randomCode){
     return str
 }
 
+function replaceStyleSelectors(str, randomCode){
+  var match =  str.match(/(.+){[^}]*}/i);
+  var textInDe = match[1];
+  match = textInDe.match(/[ ]?[.|#| ]{1}([^ .#]+)/g);
+  let selectorStr = '';
+  for(let i = 0 ;i<match.length; i++){
+  	let selector = match[i];
+    if(selector.indexOf('[')>-1){
+    	if(selector.split('[')[0].length>1){
+    		selectorStr += selector.split('[')[0]+'_'+randomCode+selector.substring(selector.split('[')[0].length, selector.length);
+        }else{
+        	selectorStr += selector;
+        }
+    }else{
+    	selectorStr += selector+'_'+randomCode;
+    }
+  }
+}
+
 function replaceQueryClass(str, randomCode){
 
 }
