@@ -90,7 +90,7 @@ class Asset extends React.Component{
       return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
       <div style={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'padding': '6px', 'position': 'absolute'}} >
         {renderSelectorLine()}
-        <AssetContext handleChange={this.handleInputChange} styles={{'border-style':'solid', 'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} attrs={attrs} value={this.props.attribute.value}/>
+        <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} attrs={attrs} value={this.props.attribute.value}/>
           {renderSelectorDot()}
       </div>
       </asset>);

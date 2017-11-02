@@ -8,7 +8,8 @@ const propTypes = {
   subTitle: React.PropTypes.string.isRequired,
   star: React.PropTypes.number.isRequired,
   thumbnail: React.PropTypes.string.isRequired,
-  useAsset: React.PropTypes.func.isRequired
+  useAsset: React.PropTypes.func.isRequired,
+  deleteAsset: React.PropTypes.func.isRequired
 }
 
 class AssetItem extends React.Component{
@@ -24,12 +25,12 @@ class AssetItem extends React.Component{
       // <div className={styles.imgBtn}><img src={'/images/ic_move_in_box_gray.png'}/></div>
       // <div className={styles.imgBtn}><img src={'/images/ic_flag_white.png'}/></div>
     return (
-      <div onClick={this.props.useAsset} className={styles.asset}>
-      <div className={styles.thumbnail}><img src={this.props.thumbnail}/></div>
+      <div className={styles.asset}>
+      <div onClick={this.props.useAsset} className={styles.thumbnail}><img src={this.props.thumbnail}/></div>
         <div className={styles.buttonHeader}>
         </div>
         <div className={styles.inner}></div>
-        <div className={styles.bookmark}/>
+        <div onClick={this.props.deleteAsset} className={styles.bookmark}/>
         <div className={styles.footer}>
           <div className={styles.texts}>
             <div className={styles.title}>{this.props.title}</div>

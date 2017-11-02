@@ -1,5 +1,7 @@
 import React from 'react';
 
+import * as assetTypes from '../../assetTypes';
+
 import Asset from '../editor/assets/Asset';
 
 import styles from './Show.css';
@@ -45,17 +47,26 @@ class ShowListContext extends React.Component{
   }
 
   convertSize(asset){
+  let assetItem = JSON.parse(JSON.stringify(asset));
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
     let editorHeight = 620;
     let editorWidth = 1080;
     let perX = windowWidth / editorWidth;
     let perY = windowHeight / editorHeight;
-    let assetItem = JSON.parse(JSON.stringify(asset));
-    assetItem.height = perY*parseInt(asset.height)+'px';
-    assetItem.width = perX*parseInt(asset.width)+'px';
-    assetItem.y = perY*parseInt(asset.y)+'px';
-    assetItem.x = perX*parseInt(asset.x)+'px';
+    if(asset.type!=assetTypes.TYPE_CUSTOM){
+      assetItem.height = perY*parseInt(asset.height)+'px';
+      assetItem.width = perX*parseInt(asset.width)+'px';
+      assetItem.y = perY*parseInt(asset.y)+'px';
+      assetItem.x = perX*parseInt(asset.x)+'px';
+    }else{
+      let centerX = (parseInt(asset.width)+parseInt(asset.x))/2;
+      let centerY = (parseInt(asset.height)+parseInt(asset.y))/2;
+      let afterX = perX*centerX - (parseInt(asset.width)/2);
+      let afterY = perY*centerY - (parseInt(asset.height)/2);
+      assetItem.y = afterY+'px';
+      assetItem.x = afterX+'px';
+    }
     return assetItem;
   }
 

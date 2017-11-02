@@ -33,10 +33,11 @@ export const toggleAssetStore = () => {
   }
 }
 
-export const toggleAssetEditor = () => {
+export const toggleAssetEditor = (assetId) => {
   return {
     type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.ASSET_EDITOR
+    target: dialogs.ASSET_EDITOR,
+    assetId
   }
 }
 

@@ -120,6 +120,18 @@ module.exports = function(realm) {
           return res.status(400).end('Target not found');
         }
     });
+
+    router.get('/simple/delete', (req, res)=>{
+        console.log(colors.green('[REQ]'),getIP(req), 'asset delete', req.query.id);
+        if(!!req.query.id&&realm.objects('SimpleAsset').filtered('id=$0',parseInt(req.query.id)).length>0){
+          return realm.write(() => {
+            realm.delete(realm.objects('SimpleAsset').filtered('id=$0',parseInt(req.query.id))[0]);
+            return res.status(200).end('Success');
+          });
+        }else{
+          return res.status(400).end('Target not found');
+        }
+    });
     /* simple asset end */
 
 
