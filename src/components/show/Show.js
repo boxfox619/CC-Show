@@ -60,12 +60,10 @@ class ShowListContext extends React.Component{
       assetItem.y = perY*parseInt(asset.y)+'px';
       assetItem.x = perX*parseInt(asset.x)+'px';
     }else{
-      let centerX = (parseInt(asset.width)+parseInt(asset.x))/2;
-      let centerY = (parseInt(asset.height)+parseInt(asset.y))/2;
-      let afterX = perX*centerX - (parseInt(asset.width)/2);
-      let afterY = perY*centerY - (parseInt(asset.height)/2);
-      assetItem.y = afterY+'px';
-      assetItem.x = afterX+'px';
+      let halfHeight = parseInt(assetItem.height) / 2;
+      let halfWidth = parseInt(assetItem.width) / 2;
+      assetItem.y = perY*(parseInt(assetItem.y)+halfHeight) - halfHeight+'px';
+      assetItem.x = perX*(parseInt(assetItem.x)+halfWidth) - halfWidth+'px';
     }
     return assetItem;
   }
