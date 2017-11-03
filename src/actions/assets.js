@@ -80,7 +80,7 @@ export const createAssetByType = (type) => {
     case assetTypes.TYPE_SHAPE:
       return createAsset(type, 'square');
     case assetTypes.TYPE_TABLE:
-      return createAsset(type, {row: '2', column: '2'});
+      return createAsset(type, [['a', 'a'],['a', 'a']]);
     default:
       return createAsset(type, 'asdasd');
   }
@@ -371,7 +371,6 @@ export function setTextSelectionRange(start, end){
 }
 
 export function setCellValue(i, j, value){
-  console.log(i, j, value);
   return{
     type: actionTypes.CELL_SET_VALUE,
     i,

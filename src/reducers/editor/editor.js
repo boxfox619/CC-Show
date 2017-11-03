@@ -103,7 +103,12 @@ const editor = (state = initialState, action) => {
       } else if(action.assetType === assetTypes.TYPE_TABLE){
         newAsset = {
           ...newAsset,
-          cells: [['a', 'a'],['a', 'a']]
+          cells: [[{}, {}],[{}, {}]],
+          style: {
+            'border-color': 'black',
+            'border-width': '1px',
+            'background-color': 'white'
+          }
         }
       } else if (action.assetType === assetTypes.TYPE_CUSTOM) {
       } else {

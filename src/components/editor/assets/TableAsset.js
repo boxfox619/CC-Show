@@ -6,7 +6,43 @@ class TableAsset extends React.Component{
     super(props);
   }
 
-  componentDidUpdate(){
+  render() {
+    let asset=this.props.asset;
+    let styles={'borderStyle':'solid', ...asset.style};
+    let getColumns=() => {
+      return(
+        asset.value.map(function(row){
+          return(
+            <tr>
+              {getRows(row)}
+            </tr>
+            )
+        })
+      )
+    }
+
+    let getRows=(row) => {
+      return(
+        row.map(function(value){
+          return(
+            <td onChange="" style={{'borderSpacing':'0', ...styles}}>
+              {value}
+            </td>
+          )
+        })
+      )
+    }
+
+    return(
+      <table style={{'borderSpacing':'0', 'padding':'0', ...this.props.styles}}>
+        <tbody>
+          {getColumns()}
+        </tbody>
+      </table>
+    )
+  }
+
+  componentDidMount(){
     (function () {
       var thElm;
       var startOffset;
@@ -41,41 +77,6 @@ class TableAsset extends React.Component{
         thElm = undefined;
       });
     })();
-  }
-
-  render() {
-    let styles={'borderStyle':'solid', ...this.props.asset.style};
-    let getColumns=() => {
-      return(
-        this.props.asset.cells.map(function(row){
-          return(
-            <tr>
-              {getRows(row)}
-            </tr>
-            )
-        })
-      )
-    }
-
-    let getRows=(row) => {
-      return(
-        row.map(function(value){
-          return(
-            <td onChange="" style={{'borderSpacing':'0', ...styles}}>
-              {value}
-            </td>
-          )
-        })
-      )
-    }
-
-    return(
-      <table style={{'borderSpacing':'0', 'padding':'0', ...this.props.styles}}>
-        <tbody>
-          {getColumns()}
-        </tbody>
-      </table>
-    )
   }
 }
 
