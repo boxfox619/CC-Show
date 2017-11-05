@@ -94,7 +94,7 @@ module.exports = function(realm) {
     router.post('/simple/create/', (req, res)=>{
     console.log(colors.green('[REQ]'),getIP(req), 'new asset');
         if(!!req.signedCookies.user){
-          let id = realm.objects('SimpleAsset').length;
+          let id = new Date().getTime();
           return realm.write(()=>{
             realm.create('SimpleAsset', {
               id,

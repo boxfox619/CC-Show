@@ -880,7 +880,7 @@ const editor = (state = initialState, action) => {
         slides: update(
           state.slides, {
             $splice: [
-              [getSlideIndex(state, action.target), 1]
+              [action.target, 1]
             ]
           }
         )
@@ -890,7 +890,7 @@ const editor = (state = initialState, action) => {
         ...state,
         slides: update(
           state.slides, {
-            [getSlideIndex(state, action.target)]: {
+            [action.target]: {
               name: {
                 $set: action.name
               }
@@ -908,7 +908,7 @@ const editor = (state = initialState, action) => {
         ...state,
         slides: update(
           state.slides, {
-            [getSlideIndex(state, action.target)]: {
+            [action.target]: {
               thumbnail: {
                 $set: action.thumbnail
               }

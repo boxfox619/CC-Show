@@ -19,6 +19,13 @@ class CustomAsset extends React.Component{
       <div style={this.props.styles} dangerouslySetInnerHTML={ {__html: this.props.value}}/>
     )
   }
+
+  componentDidUpdate(){
+    if(this.props.value.length>0){
+      var extractscript=/<script>([\S\s]+)<\/script>/gi.exec(this.props.value);
+      window.eval(extractscript[extractscript.length-1]);
+    }
+  }
 }
 
 CustomAsset.propTypes = propTypes;

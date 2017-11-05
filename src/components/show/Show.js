@@ -40,8 +40,6 @@ class ShowListContext extends React.Component{
     return (
       <div className={styles.context}>
         {renderingSlides()}
-        <div onClick={()=>this.doSlide(-1)} className={styles.left}></div>
-        <div onClick={()=>this.doSlide(1)} className={styles.right}></div>
       </div>
     )
   }

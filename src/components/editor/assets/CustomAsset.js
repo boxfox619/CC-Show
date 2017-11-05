@@ -24,6 +24,14 @@ class CustomAsset extends React.Component{
     )
   }
 
+  componentDidUpdate(){
+    if(!!this.state.code&&this.state.code.length>0){
+      var extractscript=/<script>([\S\s]+)<\/script>/gi.exec(this.state.code);
+      if(!!extractscript&&extractscript.length>0)
+        window.eval(extractscript[extractscript.length-1]);
+    }
+  }
+
   componentDidMount(){
     axios.get('/store/simple/?id='+this.props.value)
     .then(response => {

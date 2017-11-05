@@ -9,7 +9,6 @@ const propTypes = {
 class ImageAsset extends React.Component{
 
   render() {
-    console.log(this.props.value);
     return (
       <img style={this.props.styles} src={this.props.value}/>
     )
