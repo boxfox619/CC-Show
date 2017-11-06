@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Assets.css';
-import crypto from 'crypto';
 
 import axios from 'axios';
 
@@ -154,27 +153,25 @@ class CustomAsset extends React.Component{
   }
 
   render() {
-    let code = this.state.code;
-    if(!this.props.attrs.type){
-      if(this.code!=this.props.value){
-        this.code = this.props.value
-        this.clearCode = convertCode(this.props.value)
-      }
-      code = this.clearCode
-    }
     return (
-      <div style={this.props.styles} dangerouslySetInnerHTML={ {__html: code}}/>
+      <div style={this.props.styles} dangerouslySetInnerHTML={ {__html: this.state.code}}/>
     )
   }
 
+  componentDidUpdate(){
+    if(!!this.state.code&&this.state.code.length>0){
+      var extractscript=/<script>([\S\s]+)<\/script>/gi.exec(this.state.code);
+      if(!!extractscript&&extractscript.length>0)
+        window.eval(extractscript[extractscript.length-1]);
+    }
+  }
+
   componentDidMount(){
-    if(this.props.attrs.type){
     axios.get('/store/simple/?id='+this.props.value)
     .then(response => {
       this.setState({code : convertCode(response.data.code)});
     }).catch(err => {
     });
-    }
   }
 }
 
