@@ -1,43 +1,3 @@
-// import React from 'react';
-// import MonacoEditor from 'react-monaco-editor';
-// class Monaco extends React.Component{
-//     constructor(props){
-//         super(props);
-//         this.state={
-//             code : ' // type your code!'
-//         }
-//     }
-//     editorDidMount(editor, monaco){
-//         console.log('editorDidmount', editor);
-//         editor.focus();
-//     }
-//     onChange(newValue, e){
-//         console.log('onChange', newValue, e);
-//     }
-//     render(){
-//         const code = this.state.code;
-//         const options = {
-//             selectOnLineNumbers : true
-//         };
-//         return(
-//             <div>
-//             <MonacoEditor 
-//             width = "400"
-//             height = "400"
-//             language = "javascript"
-//             theme = "vs-dark"
-//             value = {code}
-//             options= {options}
-//             onChange = {this.onChange}
-//             editorDidMount = {this.editorDidMount}
-//             />
-//             </div>
-//         )
-//     }
-// }
-
-// export default Monaco;
-
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { render } from 'react-dom';
@@ -59,10 +19,6 @@ class Monaco extends React.Component {
   }
 
   editorDidMount(editor){
-    // eslint-disable-next-line no-console
-    // console.log('editorDidMount', editor, editor.getValue(), editor.getModel());
-    // this.editor = editor;
-
     console.log('editorDidMount', editor);
     editor.focus();
   }
@@ -88,14 +44,11 @@ class Monaco extends React.Component {
     };
     return (
       <div>
-        {/* <div>
-          <button onClick={this.changeEditorValue}>Change value</button>
-          <button onClick={this.changeBySetState}>Change by setState</button>
-        </div>
-        <hr /> */}
+
         <MonacoEditor
           height="500"
-          language="javascript"
+          width = "300"
+          language="css"
           value={code}
           options={options}
           onChange={this.onChange}

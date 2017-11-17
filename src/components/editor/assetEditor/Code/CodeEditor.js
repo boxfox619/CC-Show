@@ -10,10 +10,10 @@ import Asset from '../../assets/Asset';
 import * as assetTypes from '../../../../assetTypes';
 import Monaco from './Monaco';
 import domtoimage from 'dom-to-image';
-// import CodeMirror from 'react-codemirror';
-// import jsMode from 'codemirror/mode/javascript/javascript';
-// import htmlMode from 'codemirror/mode/htmlmixed/htmlmixed';
-// import cssMode from 'codemirror/mode/css/css';
+import HTMLCode from './HTMLCode';
+import CSSCode from './CSSCode';
+import JSCode from './JSCode';
+
 import * as actions from '../../../../actions/asseteditor';
 import * as uiActions from '../../../../actions/ui';
 
@@ -108,59 +108,59 @@ class CodeEditor extends React.Component{
     // };
     
     return (
-      <div>
-        <Monaco  />
-        monaco
+
+      <div className={this.props.className}>
+        <div className = {styles.content}>
+          <div className = {styles.code}>
+            <div className = {styles.htmlArea}>
+              <div className = {styles.topArea}>
+                <span className = {styles.topLan}>HTML</span>
+              </div>
+              <div className = {styles.sideBar}></div>
+              <HTMLCode />
+              {/* <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.htmlHandler} value= {this.props.htmlsource} /> */}
+            </div>
+            <div className = {styles.cssArea}>
+              <div className = {styles.topArea}>
+                <span className = {styles.topLan}>CSS</span>
+              </div>
+              <div className = {styles.sideBar}></div>
+              <CSSCode />
+
+              {/* <CodeMirror className={styles.codeEditor}  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.cssHandler} id = 'jsMode' value = {this.props.csssource} /> */}
+
+            </div>
+            <div className = {styles.jsArea}>
+              <div className = {styles.topArea}>
+                <span className = {styles.topLan}>JS</span>
+              </div>
+              <div className = {styles.sideBar}></div>
+              {/* <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'javascript'}} onChange = {this.jsHandler} value = {this.props.jssource} /> */}
+              <JSCode />
+
+            </div>
+          </div>
+
+          <div className = {styles.preview}>
+            <div className = {styles.preTop}>
+              <span className = {styles.preLan}>PREVIEW</span>
+            </div>
+            <div className = {styles.previewArea}
+            onMouseDown={this.handleMouseDown}
+            onMouseMove={this.handleMouseMove}
+            onMouseUp={this.handleMouseRelese}
+            onMouseLeave={this.handleMouseRelese}>
+              {/* here is preview area */}
+              <Asset id={'previewAsset'} isSelected={this.state.mouseAction != 'none'} handleValueChange={()=>{}} attribute={{...this.state.previewAsset, value: this.state.css + this.state.html + this.state.js}}/>
+              {/* <textarea value = {this.state.html}></textarea> */}
+            </div>
+
+          </div>
+        </div>
+        <div>
+
+        </div>
       </div>
-      // <div className={this.props.className}>
-      //   <div className = {styles.content}>
-      //     <div className = {styles.code}>
-      //       <div className = {styles.htmlArea}>
-      //         <div className = {styles.topArea}>
-      //           <span className = {styles.topLan}>HTML</span>
-      //         </div>
-      //         <div className = {styles.sideBar}></div>
-      //         {/* <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.htmlHandler} value= {this.props.htmlsource} /> */}
-      //         <Monaco />
-      //       </div>
-      //       <div className = {styles.cssArea}>
-      //         <div className = {styles.topArea}>
-      //           <span className = {styles.topLan}>CSS</span>
-      //         </div>
-      //         <div className = {styles.sideBar}></div>
-      //         {/* <CodeMirror className={styles.codeEditor}  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.cssHandler} id = 'jsMode' value = {this.props.csssource} /> */}
-
-      //       </div>
-      //       <div className = {styles.jsArea}>
-      //         <div className = {styles.topArea}>
-      //           <span className = {styles.topLan}>JS</span>
-      //         </div>
-      //         <div className = {styles.sideBar}></div>
-      //         {/* <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'javascript'}} onChange = {this.jsHandler} value = {this.props.jssource} /> */}
-
-      //       </div>
-      //     </div>
-
-      //     <div className = {styles.preview}>
-      //       <div className = {styles.preTop}>
-      //         <span className = {styles.preLan}>PREVIEW</span>
-      //       </div>
-      //       <div className = {styles.previewArea}
-      //       onMouseDown={this.handleMouseDown}
-      //       onMouseMove={this.handleMouseMove}
-      //       onMouseUp={this.handleMouseRelese}
-      //       onMouseLeave={this.handleMouseRelese}>
-      //         {/* here is preview area */}
-      //         <Asset id={'previewAsset'} isSelected={this.state.mouseAction != 'none'} handleValueChange={()=>{}} attribute={{...this.state.previewAsset, value: this.state.css + this.state.html + this.state.js}}/>
-      //         {/* <textarea value = {this.state.html}></textarea> */}
-      //       </div>
-
-      //     </div>
-      //   </div>
-      //   <div>
-
-      //   </div>
-      // </div>
     );
     document.getElementById('Editor');    
   }
