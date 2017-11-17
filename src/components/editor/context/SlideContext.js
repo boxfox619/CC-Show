@@ -170,7 +170,9 @@ class SlideContext extends React.Component{
 
       if(!!getAssetNode('ASSET', e.target)){
         if(this.selectedAssetId==getAssetNode('ASSET', e.target).id&&this.state.doubleClicked){
-          this.props.assetDeselected();
+          return;
+        }
+        if(e.target.tagName=='COL-RESIZER'){
           return;
         }
         this.setState({doubleClicked: false});

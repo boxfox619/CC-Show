@@ -38,7 +38,8 @@ export const actionTypes = {
   ASSET_DELETE: 'ASSET_DELETE',
   TOGGLE_VIDEO_PREVIEW: 'TOGGLE_VIDEO_PREVIEW',
   ASSET_SET_CHANGE_SHAPE: 'ASSET_SET_CHANGE_SHAPE',
-  ASSET_SET_TEXT_SELECT_RANGE: 'ASSET_SET_TEXT_SELECT_RANGE'
+  ASSET_SET_TEXT_SELECT_RANGE: 'ASSET_SET_TEXT_SELECT_RANGE',
+  CELL_SET_VALUE:'CELL_SET_VALUE'
 };
 
 export const createAsset = (assetType, value, style = {}) => {
@@ -79,7 +80,7 @@ export const createAssetByType = (type) => {
     case assetTypes.TYPE_SHAPE:
       return createAsset(type, 'square');
     case assetTypes.TYPE_TABLE:
-      return createAsset(type, {row: '2', column: '2'});
+      return createAsset(type, [['a', 'a'],['a', 'a']]);
     default:
       return createAsset(type, 'asdasd');
   }
@@ -366,5 +367,13 @@ export function setTextSelectionRange(start, end){
     type: actionTypes.ASSET_SET_TEXT_SELECT_RANGE,
     start,
     end
+  }
+}
+
+export function setCellValue(i, j, value){
+  return{
+    type: actionTypes.CELL_SET_VALUE,
+    i,
+    j
   }
 }

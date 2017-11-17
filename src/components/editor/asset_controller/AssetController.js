@@ -49,9 +49,6 @@ class AssetController extends React.Component {
     }
 
     render() {
-        if(this.props.selectedAsset){
-            console.log('selectedAsset');
-        }
         if(!!(this.props.selectedAsset)){
             return(
                 <div className={this.props.className}>

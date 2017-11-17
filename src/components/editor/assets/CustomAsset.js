@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Assets.css';
-import crypto from 'crypto';
 
 import axios from 'axios';
 
@@ -72,6 +71,25 @@ function replaceHtmlTags(str, randomCode){
     return str
 }
 
+function replaceStyleSelectors(str, randomCode){
+  var match =  str.match(/(.+){[^}]*}/i);
+  var textInDe = match[1];
+  match = textInDe.match(/[ ]?[.|#| ]{1}([^ .#]+)/g);
+  let selectorStr = '';
+  for(let i = 0 ;i<match.length; i++){
+  	let selector = match[i];
+    if(selector.indexOf('[')>-1){
+    	if(selector.split('[')[0].length>1){
+    		selectorStr += selector.split('[')[0]+'_'+randomCode+selector.substring(selector.split('[')[0].length, selector.length);
+        }else{
+        	selectorStr += selector;
+        }
+    }else{
+    	selectorStr += selector+'_'+randomCode;
+    }
+  }
+}
+
 function replaceQueryClass(str, randomCode){
 
 }
@@ -135,27 +153,25 @@ class CustomAsset extends React.Component{
   }
 
   render() {
-    let code = this.state.code;
-    if(!this.props.attrs.type){
-      if(this.code!=this.props.value){
-        this.code = this.props.value
-        this.clearCode = convertCode(this.props.value)
-      }
-      code = this.clearCode
-    }
     return (
-      <div style={this.props.styles} dangerouslySetInnerHTML={ {__html: code}}/>
+      <div style={this.props.styles} dangerouslySetInnerHTML={ {__html: this.state.code}}/>
     )
   }
 
+  componentDidUpdate(){
+    if(!!this.state.code&&this.state.code.length>0){
+      var extractscript=/<script>([\S\s]+)<\/script>/gi.exec(this.state.code);
+      if(!!extractscript&&extractscript.length>0)
+        window.eval(extractscript[extractscript.length-1]);
+    }
+  }
+
   componentDidMount(){
-    if(this.props.attrs.type){
     axios.get('/store/simple/?id='+this.props.value)
     .then(response => {
       this.setState({code : convertCode(response.data.code)});
     }).catch(err => {
     });
-    }
   }
 }
 

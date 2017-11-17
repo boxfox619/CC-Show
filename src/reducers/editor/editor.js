@@ -65,6 +65,7 @@ const editor = (state = initialState, action) => {
       if (action.assetType === assetTypes.TYPE_TEXT) {
         newAsset = {
           ...newAsset,
+          subStyle: [],
           style: {
             ...newAsset.style,
             'font-family': '굴림',
@@ -100,7 +101,15 @@ const editor = (state = initialState, action) => {
           }
         }
       } else if(action.assetType === assetTypes.TYPE_TABLE){
-
+        newAsset = {
+          ...newAsset,
+          cells: [[{'width':'20px'}, {'width':'20px'}],[{'width':'20px'}, {'width':'20px'}]],
+          style: {
+            'border-color': 'black',
+            'border-width': '1px',
+            'background-color': 'white'
+          }
+        }
       } else if (action.assetType === assetTypes.TYPE_CUSTOM) {
       } else {
         alert('type error');
@@ -359,7 +368,7 @@ const editor = (state = initialState, action) => {
         slides: update(
           state.slides, {
             $splice: [
-              [getSlideIndex(state, action.target), 1]
+              [action.target, 1]
             ]
           }
         )
@@ -369,7 +378,7 @@ const editor = (state = initialState, action) => {
         ...state,
         slides: update(
           state.slides, {
-            [getSlideIndex(state, action.target)]: {
+            [action.target]: {
               name: {
                 $set: action.name
               }
@@ -387,7 +396,7 @@ const editor = (state = initialState, action) => {
         ...state,
         slides: update(
           state.slides, {
-            [getSlideIndex(state, action.target)]: {
+            [action.target]: {
               thumbnail: {
                 $set: action.thumbnail
               }
