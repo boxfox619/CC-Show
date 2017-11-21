@@ -38,7 +38,6 @@ export const actionTypes = {
   ASSET_DELETE: 'ASSET_DELETE',
   TOGGLE_VIDEO_PREVIEW: 'TOGGLE_VIDEO_PREVIEW',
   ASSET_SET_CHANGE_SHAPE: 'ASSET_SET_CHANGE_SHAPE',
-  ASSET_SET_TEXT_SELECT_RANGE: 'ASSET_SET_TEXT_SELECT_RANGE',
   CELL_SET_VALUE:'CELL_SET_VALUE'
 };
 
@@ -359,14 +358,6 @@ export function setAssetChangeShape(shape) {
   return {
     type: actionTypes.ASSET_SET_CHANGE_SHAPE,
     shape
-  }
-}
-
-export function setTextSelectionRange(start, end){
-  return {
-    type: actionTypes.ASSET_SET_TEXT_SELECT_RANGE,
-    start,
-    end
   }
 }
 

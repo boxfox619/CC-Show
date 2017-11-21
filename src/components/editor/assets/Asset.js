@@ -106,8 +106,8 @@ class Asset extends React.Component{
   }
 
 
-  handleInputChange(event) {
-    this.props.handleValueChange(this.props.attribute.id,event.target.value);
+  handleInputChange(value) {
+    this.props.handleValueChange(this.props.attribute.id, value);
   }
 
   getClearStyle(){

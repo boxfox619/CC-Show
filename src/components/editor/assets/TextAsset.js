@@ -12,7 +12,6 @@ class TextAsset extends React.Component{
 
   constructor(props){
     super(props);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   render() {
@@ -24,14 +23,13 @@ class TextAsset extends React.Component{
       }
     }
     return (
-      <div name={this.props.attrs.id} contentEditable={true} style={styleObj}>
-
+      <div name={this.props.attrs.id} contentEditable={true} style={{...styleObj, 'width': '100%','height':'100%'}} dangerouslySetInnerHTML={{__html: this.props.value}}>
       </div>
     )
   }
 
-  handleChange(event){
-    this.props.handleChange(event);
+  shouldComponentUpdate(nextProps){
+         return nextProps.value !== ReactDOM.findDOMNode(this).innerHTML;
   }
 
   componentDidMount(){
@@ -41,10 +39,10 @@ class TextAsset extends React.Component{
 		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
 		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] }
 	]};
-    CKEDITOR.inline(this.props.attrs.id, config);
-    CKEDITOR.instances[this.props.attrs.id].on("change", function() {
-        let data = CKEDITOR.instances[this.props.attrs.id].getData();
-        this.onInput(data);
+    let instance = CKEDITOR.inline(this.props.attrs.id, config);
+    instance.on("change", function() {
+        let data = instance.getData();
+        this.props.handleChange(data);
     }.bind(this));
     CKEDITOR.disableAutoInline = true;
   }
