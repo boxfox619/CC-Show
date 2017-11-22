@@ -37,7 +37,7 @@ class JSCode extends React.Component{
             automaticLayout: false,
         };
         return(
-            <MonacoEditor height = "500" width = "380" language = "javascript"
+            <MonacoEditor height = "200" width = "380" language = "javascript"
             value = {code} options = {options} onChange = {this.onChange}
             editorDidMount = {this.editorDidMount}/>
         )

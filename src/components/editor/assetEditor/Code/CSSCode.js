@@ -39,7 +39,7 @@ class CSSCode extends React.Component{
         return(
             <MonacoEditor
             className = "monaco"
-            height = "500" width = "380" language = "css "
+            height = "200" width = "380" language = "css "
             value = {code} options = {options} onChange = {this.onChange}
             editorDidMount = {this.editorDidMount} />
 
