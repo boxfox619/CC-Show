@@ -37,15 +37,12 @@ class Asset extends React.Component{
   }
 
   render(){
-    if(this.props.isSelected){
-      console.log('isSelected!');
-    }
       let assetTag;
       let attrs = {};
     switch(this.props.attribute.type){
       case assetTypes.TYPE_TEXT:
         assetTag = TextAsset;
-        attrs = {edit: this.props.doubleClicked};
+        attrs = {edit: this.props.doubleClicked, id: this.props.attribute.id+'_editor'};
         break;
       case assetTypes.TYPE_IMAGE:
         assetTag = ImageAsset;
@@ -109,8 +106,8 @@ class Asset extends React.Component{
   }
 
 
-  handleInputChange(event) {
-    this.props.handleValueChange(this.props.attribute.id,event.target.value);
+  handleInputChange(value) {
+    this.props.handleValueChange(this.props.attribute.id, value);
   }
 
   getClearStyle(){
