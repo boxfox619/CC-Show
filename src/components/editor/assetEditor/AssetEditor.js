@@ -120,8 +120,6 @@ class AssetEditor extends React.Component{
           <tabholder>
             {renderTabs(tabs)}
           </tabholder>
-
-
         </header>
           {renderDetailsItems()}
 

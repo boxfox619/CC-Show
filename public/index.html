@@ -4,60 +4,39 @@
     <head>
         <meta charset="utf-8">
         <title>CC Show - Create Unlimited Show!</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.7.0/codemirror.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.7.0/theme/solarized.min.css">
-        <script src="https://cdn.ckeditor.com/4.7.3/full/ckeditor.js"></script>
-        <style>
-          .CodeMirror-gutter-wrapper{
-            position: absolute;
-          }
-          .CodeMirror-gutter .CodeMirror-linenumbers{
-
-          }
-          .cm-s-default{
-              height : 255px;
-              /* overflow-y: scroll; */
-          }
-          .CodeMirror-scroll{
-              height: 240px;
-              /* overflow-y : scroll */
-          }
-          .CodeMirror-gutters{
-             /* position: absolute; */
-            /* z-index: 1; */
-            /* height: 1000px !important; */
-          }
-
-          .CodeMirror-vscrollbar::-webkit-scrollbar-track
-          {
-          	-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
-          	background-color: #ffffff;
-          }
-
-          .CodeMirror-vscrollbar::-webkit-scrollbar
-          {
-          	width: 1px;
-          	background-color: #ffffff;
-          }
-
-          .CodeMirror-vscrollbar::-webkit-scrollbar-thumb
-          {
-          	background-color: #5D87B5;
-          }
-          .CodeMirror-gutter-elt{
-              /* position: absolute; */
-              z-index: 4;
-              position: absolute;
-          }
-
-        </style>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.7.0/codemirror.min.css"> -->
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.7.0/theme/solarized.min.css"> -->
     </head>
 
     <body>
-        <div id="Editor" class="__react-root"></div>
+        <div class = "__react-root" id="Editor" style="display: inline-block; border:1px solid grey"></div>
         <script src="/bundle.js"></script>
+        <script src="monaco-editor/min/vs/loader.js"></script>        
     </body>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.7.0/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.7.0/mode/javascript/javascript.min.js"></script>
+    <style>
+    .react-monaco-editor-container{
+        display: inline-block !important ;
+        margin-top: 3px !important;
+    }
+    .slider{
+        display: none;
+    }
+    .decorationsOverviewRuler{
+        display: none;
+    }
+    .view-lines{
+        height: 395px;
+    }
+    .monaco-editor{
+        height: 246px;
+    }
+
+    .margin-view-overlays{
+        margin-left: 10px;
+    }
+    .view-lines{
+        margin-left: 10px;
+    }
+    </style>
 </html>

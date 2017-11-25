@@ -8,12 +8,12 @@ import { bindActionCreators } from 'redux';
 
 import Asset from '../../assets/Asset';
 import * as assetTypes from '../../../../assetTypes';
-
+import Monaco from './Monaco';
 import domtoimage from 'dom-to-image';
-import CodeMirror from 'react-codemirror';
-import jsMode from 'codemirror/mode/javascript/javascript';
-import htmlMode from 'codemirror/mode/htmlmixed/htmlmixed';
-import cssMode from 'codemirror/mode/css/css';
+import HTMLCode from './HTMLCode';
+import CSSCode from './CSSCode';
+import JSCode from './JSCode';
+
 import * as actions from '../../../../actions/asseteditor';
 import * as uiActions from '../../../../actions/ui';
 
@@ -56,7 +56,7 @@ class CodeEditor extends React.Component{
       license: '',
       value : '',
       nowMode : '',
-      code : '',
+      // code : '',
       html : '',
       css : '',
       js : '',
@@ -102,11 +102,13 @@ class CodeEditor extends React.Component{
     }
   }
 
-    var options = {
-      lineNumbers: true,
-      mode: 'javascript'
-    };
+    // var options = {
+    //   lineNumbers: true,
+    //   mode: 'javascript'
+    // };
+    
     return (
+
       <div className={this.props.className}>
         <div className = {styles.content}>
           <div className = {styles.code}>
@@ -115,14 +117,17 @@ class CodeEditor extends React.Component{
                 <span className = {styles.topLan}>HTML</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.htmlHandler} value= {this.props.htmlsource} />
+              <HTMLCode />
+              {/* <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.htmlHandler} value= {this.props.htmlsource} /> */}
             </div>
             <div className = {styles.cssArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>CSS</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror className={styles.codeEditor}  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.cssHandler} id = 'jsMode' value = {this.props.csssource} />
+              <CSSCode />
+
+              {/* <CodeMirror className={styles.codeEditor}  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.cssHandler} id = 'jsMode' value = {this.props.csssource} /> */}
 
             </div>
             <div className = {styles.jsArea}>
@@ -130,7 +135,8 @@ class CodeEditor extends React.Component{
                 <span className = {styles.topLan}>JS</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'javascript'}} onChange = {this.jsHandler} value = {this.props.jssource} />
+              {/* <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'javascript'}} onChange = {this.jsHandler} value = {this.props.jssource} /> */}
+              <JSCode />
 
             </div>
           </div>
@@ -156,6 +162,7 @@ class CodeEditor extends React.Component{
         </div>
       </div>
     );
+    document.getElementById('Editor');    
   }
 
 
