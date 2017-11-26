@@ -19,6 +19,7 @@ function renderAppInElement(el) {
   ReactDOM.render(<App {...props} />, el);
 }
 
+
 document
   .querySelectorAll('.__react-root')
   .forEach(renderAppInElement)

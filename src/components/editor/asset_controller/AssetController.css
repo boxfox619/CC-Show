@@ -4,8 +4,9 @@ p {
 
 .items {
     height: 100%;
+    width: 310px;
     padding: 0;
-    margin: 0 0 1em 0.4em;
+    margin: auto;
 }
 
 .controller_sub_wrapper {
@@ -16,11 +17,13 @@ p {
 .controller_sub_title {
     position: relative;
     width: 100%;
-    font-size: 16px;
-    color: #5D87B5;
+    font-size: 13px;
+    color: #5682b2;
+    font-family: NanumSquareEB;
     font-weight: bold;
     vertical-align: middle;
     display: table;
+    margin-bottom: 30px;
 }
 
 .controller_sub_title:before {
@@ -28,16 +31,16 @@ p {
     display: table-cell;
     vertical-align: middle;
     background: url("/images/ic_ellipse_gray.png") no-repeat left center;
-    width: 23px;
+    width: 20px;
 }
 
 .control_item {
     display: inline-table;
-    border: 1px solid #5a84b3;
+    border: 1.8px solid #5682b2;
     border-radius: 20px;
     padding: 3px 5px 3px 5px;
     margin: 3px;
-    width: 100px;
+    width: 125px;
     height: 20px;
 }
 
@@ -47,13 +50,20 @@ p {
 }
 
 .URL_controller {
-    width: 220px;
+    width: 278px;
+    height: 20px;
+    margin:0;
     display: table;
-    padding: 1px 0 1px 2px;
+    padding: 5px 0 5px 2px;
+    margin: 3px;
+}
+
+.URL_controller .attribute_item_title {
+    width: 34px;
 }
 
 .video_preview_toggle{
-  width: 214px;
+  width: 270px;
   color: #5a84b3;
   padding-top: 5px;
   text-align: center;
@@ -75,7 +85,8 @@ p {
 }
 
 .image_loader{
-  width: 220px;
+  width: 270px;
+  margin: auto;
   color: #5a84b3;
   padding-top: 5px;
   text-align: center;
@@ -99,17 +110,20 @@ p {
   margin: 0 0 0 5px;
   width: 24px;
   max-width: 37px;
-  font-size: 15px;
+  font-size: 13px;
   color: #5a84b3;
   height: 100%;
   display: flex;
   float: left;
   align-items: center;
+  font-family: NanumSquareEB;
 }
+
+
 
 .attribute_item_input {
     width: 10px;
-    min-width: calc( 100% - 50px );
+    min-width: calc( 100% - 55px );
     height: 100%;
     text-align: right;
     border: 0;
@@ -148,10 +162,10 @@ button {
 }
 
 #input_style {
-    width: 218px;
-    border: 1px solid #5a84b3;
+    width: 300px;
+    border: 0;
     border-radius: 20px;
-    margin-left: 5px;
+    margin: auto;
     padding: 5px;
 }
 
@@ -171,9 +185,15 @@ select {
     border-radius: 20px;
 }
 
+.control_text_attribute {
+    width: 300px;
+    margin: auto;
+}
+
 .control_text_attribute img {
     cursor: pointer;
-    margin: 6px;
+    margin-top: 30px;
+    margin-right: 20px;
     width: 17px;
     height: 18px;
 }

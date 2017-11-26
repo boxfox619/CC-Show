@@ -1,6 +1,9 @@
 @import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
 body {
   margin:0;
+  padding:0;
+  width: 100%;
+  height: 100vh;
   font-family: 'NanumSquare', sans-serif;
 }
 
@@ -14,10 +17,9 @@ user-select: none;
 }
 
 .slideEditor{
-      width: 100%;
+      width: 100vw;
       height: 100%;
       display: flex;
-      position: absolute;
       flex-direction: row;
 }
 
@@ -47,7 +49,7 @@ body::-webkit-scrollbar-thumb
     background-color: white;
     position: relative;
     box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);
-    min-width: 250px;
+    min-width: 350px;
     overflow: auto;
 }
 
@@ -120,7 +122,6 @@ body::-webkit-scrollbar-thumb
     max-height: 100%;
     min-height: 40em;
     width: 100%;
-    height: 100%;
     max-width: calc(100% - 24em);
     position: relative;
     overflow: scroll;
