@@ -117,7 +117,7 @@ class CodeEditor extends React.Component{
                 <span className = {styles.topLan}>HTML</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <HTMLCode />
+              <HTMLCode onChange = {this.htmlHandler} value = {this.props.htmlsource}/>
               {/* <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.htmlHandler} value= {this.props.htmlsource} /> */}
             </div>
             <div className = {styles.cssArea}>
@@ -125,7 +125,7 @@ class CodeEditor extends React.Component{
                 <span className = {styles.topLan}>CSS</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CSSCode />
+              <CSSCode onChange = {this.cssHandler} value = {this.props.csssource} />
 
               {/* <CodeMirror className={styles.codeEditor}  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.cssHandler} id = 'jsMode' value = {this.props.csssource} /> */}
 
@@ -136,7 +136,7 @@ class CodeEditor extends React.Component{
               </div>
               <div className = {styles.sideBar}></div>
               {/* <CodeMirror className={styles.codeEditor} value=''  options={{lineNumbers: true, mode: 'javascript'}} onChange = {this.jsHandler} value = {this.props.jssource} /> */}
-              <JSCode />
+              <JSCode onChange = {this.jsHandler} value = {this.props.jssource} />
 
             </div>
           </div>
@@ -262,8 +262,8 @@ class CodeEditor extends React.Component{
       html: currentText,
       mode : 'htmlMode',
     });
+    console.log(currentText);
     this.props.setHtml(e);
-    this.props.setPreview(node);
   }
   cssHandler(e) {
 
