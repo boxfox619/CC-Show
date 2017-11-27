@@ -71,7 +71,6 @@ export default function(state, action, actionTypes){
         )
       }
       case actionTypes.ASSET_SET_CHANGE_SHAPE:
-      console.log(action);
       return {
         ...state,
         slides: update(

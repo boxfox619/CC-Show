@@ -29,7 +29,7 @@ class TextAsset extends React.Component{
   }
 
   shouldComponentUpdate(nextProps){
-    if(this.props.attrs.edit){
+    if(nextProps.attrs.edit){
       document.getElementById(this.props.attrs.id).focus();
     }else{
       document.getElementById(this.props.attrs.id).blur();

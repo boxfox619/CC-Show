@@ -217,6 +217,7 @@ select {
 .shape_kind_img{
     margin-top: 5px;
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .shapes{

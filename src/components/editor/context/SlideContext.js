@@ -165,7 +165,6 @@ class SlideContext extends React.Component{
 
     handleMouseDown(e){
       document.activeElement.blur();
-      e.target.focus();
       this.mouseDowned = true;
 
       if(!!getAssetNode('ASSET', e.target)){
