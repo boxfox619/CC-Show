@@ -37,12 +37,14 @@ class Asset extends React.Component{
   }
 
   render(){
+    let controllerVisible = this.props.controlable;
       let assetTag;
       let attrs = {};
     switch(this.props.attribute.type){
       case assetTypes.TYPE_TEXT:
         assetTag = TextAsset;
-        attrs = {edit: this.props.doubleClicked, id: this.props.attribute.id+'_editor'};
+        controllerVisible = (controllerVisible&&this.props.doubleClicked)? false:controllerVisible;
+        attrs = {edit: this.props.isSelected&&controllerVisible&&this.props.doubleClicked, id: this.props.attribute.id+'_editor'};
         break;
       case assetTypes.TYPE_IMAGE:
         assetTag = ImageAsset;
@@ -79,7 +81,7 @@ class Asset extends React.Component{
     const leftAttr = {'target': 'left'};
     const rightAttr = {'target': 'right'};
     let renderSelectorLine = ()=>{
-      if(this.props.controlable){
+      if(controllerVisible){
         return (<div><selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer+this.getSubStyleClass()}/>
         <selectorline {...bottomAttr} style={{'top': 'calc('+this.getContextHeight()+' + 7px)'}} className={styles.horizontalResizer+this.getSubStyleClass()}/>
         <selectorline {...leftAttr} style={{'left': '3px'}} className={styles.verticalResizer+this.getSubStyleClass()}/>
@@ -88,7 +90,7 @@ class Asset extends React.Component{
       }
     }
     let renderSelectorDot = ()=>{
-      if(this.props.controlable){
+      if(controllerVisible){
         return (<div><selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>
       <selectordot {...topRightAttr} style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+this.getContextWidth()+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}/>
       <selectordot {...bottomLeftAttr} style={{'cursor': 'ne-resize', 'top': 'calc('+this.getContextHeight()+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>

@@ -23,13 +23,18 @@ class TextAsset extends React.Component{
       }
     }
     return (
-      <div name={this.props.attrs.id} contentEditable={true} style={{...styleObj, 'width': '100%','height':'100%'}} dangerouslySetInnerHTML={{__html: this.props.value}}>
+      <div id={this.props.attrs.id} name={this.props.attrs.id} contentEditable={true} style={{...styleObj, 'width': '100%','height':'100%'}} dangerouslySetInnerHTML={{__html: this.props.value}}>
       </div>
     )
   }
 
   shouldComponentUpdate(nextProps){
-         return nextProps.value !== ReactDOM.findDOMNode(this).innerHTML;
+    if(this.props.attrs.edit){
+      document.getElementById(this.props.attrs.id).focus();
+    }else{
+      document.getElementById(this.props.attrs.id).blur();
+    }
+    return nextProps.value !== ReactDOM.findDOMNode(this).innerHTML;
   }
 
   componentDidMount(){
