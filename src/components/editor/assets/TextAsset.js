@@ -34,7 +34,7 @@ class TextAsset extends React.Component{
     }else{
       document.getElementById(this.props.attrs.id).blur();
     }
-    return nextProps.value !== ReactDOM.findDOMNode(this).innerHTML;
+    return nextProps.value !== ReactDOM.findDOMNode(this).innerHTML||nextProps.attrs.edit!=this.props.attrs.edit;
   }
 
   componentDidMount(){

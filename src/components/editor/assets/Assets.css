@@ -9,6 +9,11 @@ asset textarea {
 
 asset div {}
 
+p {
+    font-family: 'NanumSquareEB';
+    margin: 0;
+}
+
 .asset {
   position: absolute !important;
   overflow: hidden;

@@ -76,7 +76,7 @@ const editor = (state = initialState, action) => {
             'text-decoration' : 'none',
             color: 'black',
             'letter-spacing': '0px',
-            'line-height': '100%'
+            'line-height': 'normal'
           }
         }
       } else if (action.assetType === assetTypes.TYPE_VIDEO) {
