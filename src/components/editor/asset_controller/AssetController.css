@@ -1,6 +1,6 @@
 .items {
     height: 100%;
-    width: 310px;
+    width: 90%;
     padding: 0;
     margin: auto;
 }
@@ -35,7 +35,7 @@
     border-radius: 20px;
     padding: 3px 5px 3px 5px;
     margin: 3px;
-    width: 125px;
+    width: 110px;
     height: 20px;
 }
 
@@ -181,14 +181,14 @@ select {
 }
 
 .control_text_attribute {
-    width: 300px;
+    width: 90%;
     margin: auto;
 }
 
 .control_text_attribute img {
     cursor: pointer;
-    margin-top: 30px;
-    margin-right: 20px;
+    margin-top: 15px;
+    margin-right: 13px;
     width: 17px;
     height: 18px;
 }

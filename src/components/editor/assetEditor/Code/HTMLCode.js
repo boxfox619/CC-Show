@@ -11,18 +11,18 @@ class HTMLCode extends React.Component{
     onChange(newValue, e){
         console.log('onChange', newValue, e); // eslint-disable-line no-console
       }
-    
+
       editorDidMount(editor){
         console.log('editorDidMount', editor);
         editor.focus();
       }
-    
+
       changeEditorValue(){
         if (this.editor) {
           this.editor.setValue('// code changed! \n');
         }
       }
-    
+
       changeBySetState(){
         this.setState({ code: '// code changed by setState! \n' });
       }
@@ -37,7 +37,7 @@ class HTMLCode extends React.Component{
             automaticLayout: false,
         };
         return(
-            <MonacoEditor height = "200" width = "380" language = "html "
+            <MonacoEditor height = "252" width = "450" language = "html"
             value = {code} options = {options} onChange = {this.onChange}
             editorDidMount = {this.editorDidMount}/>
         );

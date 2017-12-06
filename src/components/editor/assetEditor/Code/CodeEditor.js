@@ -106,13 +106,13 @@ class CodeEditor extends React.Component{
     //   lineNumbers: true,
     //   mode: 'javascript'
     // };
-    
+
     return (
 
       <div className={this.props.className}>
         <div className = {styles.content}>
           <div className = {styles.code}>
-            <div className = {styles.htmlArea}>
+            <div className = {styles.codeArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>HTML</span>
               </div>
@@ -120,7 +120,7 @@ class CodeEditor extends React.Component{
               <HTMLCode onChange = {this.htmlHandler} value = {this.props.htmlsource}/>
               {/* <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.htmlHandler} value= {this.props.htmlsource} /> */}
             </div>
-            <div className = {styles.cssArea}>
+            <div className = {styles.codeArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>CSS</span>
               </div>
@@ -130,7 +130,7 @@ class CodeEditor extends React.Component{
               {/* <CodeMirror className={styles.codeEditor}  options={{lineNumbers: true, mode: 'css'}}  onChange = {this.cssHandler} id = 'jsMode' value = {this.props.csssource} /> */}
 
             </div>
-            <div className = {styles.jsArea}>
+            <div className = {styles.codeArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>JS</span>
               </div>
@@ -162,7 +162,7 @@ class CodeEditor extends React.Component{
         </div>
       </div>
     );
-    document.getElementById('Editor');    
+    document.getElementById('Editor');
   }
 
 
