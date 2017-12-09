@@ -8,7 +8,6 @@ import { bindActionCreators } from 'redux';
 
 import Asset from '../../assets/Asset';
 import * as assetTypes from '../../../../assetTypes';
-import Monaco from './Monaco';
 import domtoimage from 'dom-to-image';
 import HTMLCode from './HTMLCode';
 import CSSCode from './CSSCode';
@@ -32,11 +31,6 @@ function filter (node) {
     return (node.tagName !== 'SELECTORLINE'&&node.tagName !== 'SELECTORDOT');
 }
 
-
-const tabs = [
-{name:'Details'},
-{name:'Code'}];
-
 const defaultProps = {
   assetData: React.PropTypes.object
 }
@@ -45,7 +39,6 @@ class CodeEditor extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      activeTab:0,
       id: '',
       title: '',
       openToStore: false,
@@ -74,7 +67,6 @@ class CodeEditor extends React.Component{
       }
     };
 
-    // this.selectTab = this.selectTab.bind(this);
     this.htmlHandler = this.htmlHandler.bind(this);
     this.cssHandler = this.cssHandler.bind(this);
     this.jsHandler = this.jsHandler.bind(this);
@@ -88,27 +80,7 @@ class CodeEditor extends React.Component{
 
 
   render(){
-    let renderEditors = () =>{
-      if(this.state.activeTab==0){
-        if(!!this.state.id){
-          return(
-            <div>
-            <Thumbnail id={this.state.id} />
-
-            </div>
-          );
-      }else{
-      }
-    }
-  }
-
-    // var options = {
-    //   lineNumbers: true,
-    //   mode: 'javascript'
-    // };
-
     return (
-
       <div className={this.props.className}>
         <div className = {styles.content}>
           <div className = {styles.code}>
@@ -244,15 +216,6 @@ class CodeEditor extends React.Component{
 
   handleMouseRelese(e){
     this.mouseDowned = false;
-  }
-
-  selectTab(tab){
-    // this.loadItems(tabs[index].filter);
-    //오류나서 주석해놨어요
-  }
-
-  getActiveTab(){
-
   }
 
   htmlHandler(e) {
