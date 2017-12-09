@@ -3,6 +3,7 @@ import ProgressDialog from '../editor/progressDialog/ProgressDialog';
 import { bindActionCreators } from 'redux';
 import AssetEditorItem from './AssetEditorItem';
 import CodeEditorItem from './Code/CodeEditor';
+import * as assetTypes from '../../assetTypes'
 import axios from 'axios';
 
 import styles from './style.css';

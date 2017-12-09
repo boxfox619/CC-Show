@@ -5,12 +5,8 @@ import Editor from './components/Editor';
 import ShowList from './components/ShowList';
 import SlideShow from './components/SlideShow';
 import AssetEditor from './components/asset_editor';
-
-const APPS = {
-  Editor,
-  ShowList,
-  SlideShow
-};
+import { Provider } from 'react-redux';
+import store from './store';
 
 function renderAppInElement(el) {
   ReactDOM.render(
