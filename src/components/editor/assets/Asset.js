@@ -10,6 +10,7 @@ import VideoAsset from './VideoAsset';
 import TableAsset from './TableAsset';
 import CustomAsset from './CustomAsset';
 import ShapeAsset from './ShapeAsset';
+import PreviewAsset from './PreviewAsset';
 
 const propTypes = {
   attribute: React.PropTypes.object,
@@ -64,7 +65,7 @@ class Asset extends React.Component{
         attrs = {type: true};
         break;
       case assetTypes.TYPE_PREVIEW:
-        assetTag = CustomAsset;
+        assetTag = PreviewAsset;
         attrs = {type: false};
         break;
       default:
@@ -101,7 +102,7 @@ class Asset extends React.Component{
       return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
       <div style={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'padding': '6px', 'position': 'absolute'}} >
         {renderSelectorLine()}
-        <AssetContext handleChange={this.handleInputChange} styles={{'borderStyle':'solid' ,'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} attrs={attrs} value={this.props.attribute.value} asset={this.props.attribute}/>
+        <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} attrs={attrs} value={this.props.attribute.value} asset={this.props.attribute}/>
         {renderSelectorDot()}
       </div>
       </asset>);

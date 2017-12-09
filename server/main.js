@@ -39,7 +39,10 @@ app.get('/main/', (req, res) => {
   res.sendFile('main.html', { root: path.join(__dirname, '../public') });
 });
 app.get('*', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, '../public') });;
+  res.sendFile('index.html', { root: path.join(__dirname, '../public') });
+});
+app.get('/editor/vs/loader.js', (req, res) =>{
+  res.sendFile('loader.js', { root: path.join(__dirname, '../public/editor/vs') });
 });
 
 const account = require('./routes/account');

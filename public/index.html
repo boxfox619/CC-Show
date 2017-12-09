@@ -10,9 +10,9 @@
     </head>
 
     <body>
-        <div class = "__react-root" id="Editor" style="display: inline-block;"></div>
+        <div class = "__react-root" style="display: inline-block;"></div>
         <script src="/bundle.js"></script>
-        <script src="monaco-editor/min/vs/loader.js"></script>        
+        <script src="/editor/vs/loader.js"></script>
     </body>
 
     <style>
@@ -32,9 +32,16 @@
     .monaco-editor{
         height: 246px;
     }
+    .monaco-editor .margin{
+      background: #F5F5F5;
+    }
 
-    .margin-view-overlays{
-        margin-left: 10px;
+    .monaco-editor{
+      width: calc(120% - 5vw) !important;
+    }
+
+    .overflow-guard{
+      width: calc(120% - 5vw) !important;
     }
     /* .view-lines{
         margin-left: 10px;

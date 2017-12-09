@@ -23,7 +23,8 @@ class CustomAsset extends React.Component{
   componentDidUpdate(){
     if(this.props.value.length>0){
       var extractscript=/<script>([\S\s]+)<\/script>/gi.exec(this.props.value);
-      window.eval(extractscript[extractscript.length-1]);
+      if(extractscript)
+        window.eval(extractscript[extractscript.length-1]);
     }
   }
 }

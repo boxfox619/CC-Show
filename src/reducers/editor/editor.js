@@ -59,6 +59,7 @@ const editor = (state = initialState, action) => {
         style: {
           'background-color': 'white',
           'border-color': 'white',
+          'border-style': 'solid',
           'border-width': '0px'
         }
       };
@@ -97,7 +98,7 @@ const editor = (state = initialState, action) => {
           style: {
             'border-color' : '#5a84b3',
             'background-color' : '#5a84b3',
-            'border-width' : '1px'
+            'border-width' : '0px'
           }
         }
       } else if(action.assetType === assetTypes.TYPE_TABLE){
@@ -106,7 +107,7 @@ const editor = (state = initialState, action) => {
           cells: [[{'width':'20px'}, {'width':'20px'}],[{'width':'20px'}, {'width':'20px'}]],
           style: {
             'border-color': 'black',
-            'border-width': '1px',
+            'border-width' : '0px',
             'background-color': 'white'
           }
         }

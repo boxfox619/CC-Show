@@ -17,7 +17,7 @@ body {
 
 .content{
   height: 640px;
-  width: 1200px;
+  width: 100vw;
   /* border: 1px solid red; */
 }
 .code{
@@ -50,7 +50,7 @@ body {
 .codeArea{
   position: relative;
   float: left;
-  width: 384px;
+  width: 33.26%;
   height: 100%;
   border-right: 1px solid #DFDFDF;
 }
@@ -60,7 +60,7 @@ body {
 }
 
 .topArea{
-  width: 385px;
+  width: 100%;
   height: 25px;
   background-color: #DFDFDF;
   text-align: center;
@@ -76,7 +76,7 @@ body {
 }
 
 .preTop{
-  width: 1150px;
+  width: 100%;
   height: 25px;
   background-color: #DFDFDF;
   display: table;
@@ -91,19 +91,11 @@ body {
   font-weight: bold;
 }
 
-.sideBar{
-  width: 30px;
-  height: 255px;
-  position: absolute;
-  z-index: 2;
-  background-color: rgb(245, 245, 245);
-  /* border-right: 1px solid #ddd; */
-}
-
 .previewArea{
   position: absolute;
   width: 100%;
   height: 47%;
+  overflow: hidden;
 }
 
 .rightController{
