@@ -1,13 +1,11 @@
 import React from 'react';
-import ProgressDialog from './progressDialog/ProgressDialog';
+import ProgressDialog from '../editor/progressDialog/ProgressDialog';
 import { bindActionCreators } from 'redux';
 import AssetEditorItem from './AssetEditorItem';
 import CodeEditorItem from './Code/CodeEditor';
 import axios from 'axios';
 
 import styles from './style.css';
-
-import axios from 'axios';
 
 
 class AssetEditor extends React.Component{

@@ -3,16 +3,16 @@ import styles from './AssetEditorItem.css';
 import { connect } from 'react-redux';
 import FreeAsset from './FreeAsset';
 import ChargeAsset from './ChargeAsset';
-import * as actions from '../../../../actions/asseteditor';
-import Store from '../../../../store';
+import * as actions from '../../../actions/asseteditor';
+import Store from '../../../store';
 import { bindActionCreators } from 'redux';
-import * as uiActions from '../../../../actions/ui';
+import * as uiActions from '../../../actions/ui';
 import update from 'react-addons-update'
 import Previews from './Previews';
 
 class PreviewImage extends React.Component{
     render(){
-        return(           
+        return(
             <div>
             <Previews />
             </div>

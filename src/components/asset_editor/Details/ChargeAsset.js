@@ -1,14 +1,13 @@
 import React from 'react';
 import styles from './AssetEditorItem.css';
 import { connect } from 'react-redux';
-import * as actions from '../../../../actions/asseteditor';
+import * as actions from '../../../actions/asseteditor';
 import { bindActionCreators }from 'redux';
-import * as uiActions from '../../../../actions/ui';
+import * as uiActions from '../../../actions/ui';
 import domtoimage from 'dom-to-image';
-import Store from '../../../../store';
+import Store from '../../../store';
 
-import * as assetTypes from '../../../../assetTypes';
-import Asset from '../../assets/Asset';
+import * as assetTypes from '../../../assetTypes';
 
 import axios from 'axios';
 
@@ -48,8 +47,8 @@ class ChargeAsset extends React.Component{
 
 
         return(
-        
-        <div className = {styles.AssetEditor_right}>    
+
+        <div className = {styles.AssetEditor_right}>
             {renderLicenses(licenses)}
 
             {/* <div className = {styles.AssetEditor_Process}>
@@ -59,15 +58,15 @@ class ChargeAsset extends React.Component{
                 <div className = {styles.isAsset_Content}></div>
             </div>
 
-            <div className = {styles.AssetEditor_Process}>    
+            <div className = {styles.AssetEditor_Process}>
                 <div className = {styles.isAsset_Header}>
                     <span className = {styles.isAsset_titleText}>판매자 이용약관 안내</span>
                 </div>
                 <div className = {styles.isAsset_Content}></div>
-            </div>       
+            </div>
            */}
             <input type = "submit" className = {styles.AssetEditor_agreeButton} onClick = {this.submit} value = "해당 약관에 동의합니다." />
-         
+
         </div>
         );
     }
@@ -90,22 +89,22 @@ class ChargeAsset extends React.Component{
         .then(function(response){
             assetId = response.data.id
         })
-        
+
         .catch(function(error){
             console.log(error);
         })
 
         //create new asset
         // axios.put('/store/update', {id : assetId, name :title, thumbnail : thumbnail,  content : content, price : price, license, openToStore : mode, images})
-        
-        //update Asset Script 
+
+        //update Asset Script
         // axios.put('/store/html', { id : assetId ,html : html })
         // axios.put('/store/css', {id : assetId, css : css});
         // axios.put('/store/js', {id : assetId, js : js});
 
     }
 
-   
+
 }
 
 

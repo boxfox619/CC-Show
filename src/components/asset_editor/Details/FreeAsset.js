@@ -1,14 +1,13 @@
 import React from 'react';
 import styles from './AssetEditorItem.css';
 import { connect } from 'react-redux';
-import * as actions from '../../../../actions/asseteditor';
+import * as actions from '../../../actions/asseteditor';
 import { bindActionCreators }from 'redux';
-import * as uiActions from '../../../../actions/ui';
+import * as uiActions from '../../../actions/ui';
 import domtoimage from 'dom-to-image';
-import Store from '../../../../store';
+import Store from '../../../store';
 import newId from './newid';
-import * as assetTypes from '../../../../assetTypes';
-import Asset from '../../assets/Asset';
+import * as assetTypes from '../../../assetTypes';
 import axios from 'axios';
 
 function filter (node) {
@@ -23,7 +22,7 @@ class FreeAsset extends React.Component{
             isCheckedCon1 : false,
             isCheckedCon2 : false,
             isCheckedCon3 : false,
-            isCheckedCon4 : false, 
+            isCheckedCon4 : false,
             isCheckedCon5 : false,
             con2margin : 10,
             con3margin : 10,
@@ -45,14 +44,14 @@ class FreeAsset extends React.Component{
         this.id5 = newId();
     }
     submit(){
-        
+
                 let assetName = this.props.assetName;
                 assetName = String(assetName);
                 let source = this.props.htmlsource + this.props.csssource + this.props.jssource;
                 let self = this;
                 // let node = this.props.image;
-                
-               
+
+
                     // domtoimage.toPng(node, {filter: filter})
                     // .then
                     // (function (dataUrl) {
@@ -64,8 +63,8 @@ class FreeAsset extends React.Component{
                     // .catch(function (error) {
                     //     console.error(error);
                     // });
-                
-            
+
+
               }
     render(){
 
@@ -73,10 +72,10 @@ class FreeAsset extends React.Component{
             <div className = {styles.AssetEditor_right}>
             <div className = {styles.select_license}>
                 <span className = {styles.select_license_text}>라이센스를 선택하세요. (GPI, LGPL, BSD, MIT, CCL 중 택1)</span>
-                
+
             </div>
 
-            
+
 
              <div>
                 <div className = {styles.license_content}>
@@ -123,28 +122,28 @@ class FreeAsset extends React.Component{
                     </label>
                     <div className = {styles.dropdownContent5}></div>
                  </div>
-    
+
                 {/* <div className = {styles.toggleDown}></div> */}
 
                 </div>
-                
+
             </div>
 
-             
 
-     
+
+
         );
     }
 
     gpiHandler(){
         var license = 'GPI';
-        this.setState({ isCheckedCon1 : !this.state.isCheckedCon1});    
+        this.setState({ isCheckedCon1 : !this.state.isCheckedCon1});
         if(this.state.isCheckedCon1 == false){
             if(this.state.isCheckedCon2 == true || this.state.isCheckedCon3 == true || this.state.isCheckedCon4 == true || this.state.isCheckedCon5 == true){
                 this.setState({
                     isCheckedCon2 : false,
                     con2margin : 10,
-                    isCheckedCon3 : false, 
+                    isCheckedCon3 : false,
                     con3margin : 10,
                     isCheckedCon4 : false,
                     con4margin : 10,
@@ -152,7 +151,7 @@ class FreeAsset extends React.Component{
                 })
             }
             this.setState({
-                con2margin : 220 
+                con2margin : 220
             })
         }
         if(this.state.isCheckedCon1 == true){
@@ -161,11 +160,11 @@ class FreeAsset extends React.Component{
             })
         }
         this.props.getLicense(license);
-        
+
     }
     LGPLHanlder(){
         var license = 'LGPL'
-        this.setState({ isCheckedCon2 : !this.state.isCheckedCon2});    
+        this.setState({ isCheckedCon2 : !this.state.isCheckedCon2});
         if(this.state.isCheckedCon2 == false){
             if(this.state.isCheckedCon1 == true || this.state.isCheckedCon3 == true || this.state.isCheckedCon4 == true || this.state.isCheckedCon5 == true){
                 this.setState({
@@ -180,7 +179,7 @@ class FreeAsset extends React.Component{
                 })
             }
             this.setState({
-                con3margin : 220 
+                con3margin : 220
             })
         }
         if(this.state.isCheckedCon2 == true){
@@ -192,7 +191,7 @@ class FreeAsset extends React.Component{
     }
     bsdHandler(){
         var license = 'BSD'
-        this.setState({ isCheckedCon3 : !this.state.isCheckedCon3});    
+        this.setState({ isCheckedCon3 : !this.state.isCheckedCon3});
         if(this.state.isCheckedCon3 == false){
             if(this.state.isCheckedCon1 == true || this.state.isCheckedCon2 == true || this.state.isCheckedCon4 == true || this.state.isCheckedCon5 == true){
                 this.setState({
@@ -207,7 +206,7 @@ class FreeAsset extends React.Component{
                 })
             }
             this.setState({
-                con4margin : 220 
+                con4margin : 220
             })
         }
         if(this.state.isCheckedCon3 == true){
@@ -219,7 +218,7 @@ class FreeAsset extends React.Component{
     }
     mitHandler(){
         var license = 'MIT'
-        this.setState({ isCheckedCon4 : !this.state.isCheckedCon4});    
+        this.setState({ isCheckedCon4 : !this.state.isCheckedCon4});
         if(this.state.isCheckedCon4 == false){
             if(this.state.isCheckedCon1 == true || this.state.isCheckedCon2 == true || this.state.isCheckedCon3 == true || this.state.isCheckedCon5 == true){
                 this.setState({
@@ -234,7 +233,7 @@ class FreeAsset extends React.Component{
                 })
             }
             this.setState({
-                con5margin : 220 
+                con5margin : 220
             })
         }
         if(this.state.isCheckedCon4 == true){
@@ -246,7 +245,7 @@ class FreeAsset extends React.Component{
     }
     cclHandler(){
         var license = 'CCL'
-        this.setState({ isCheckedCon5 : !this.state.isCheckedCon5});    
+        this.setState({ isCheckedCon5 : !this.state.isCheckedCon5});
         if(this.state.isCheckedCon5 == false){
             if(this.state.isCheckedCon1 == true || this.state.isCheckedCon2 == true || this.state.isCheckedCon3 == true || this.state.isCheckedCon4 == true){
                 this.setState({
@@ -261,7 +260,7 @@ class FreeAsset extends React.Component{
                 })
             }
             this.setState({
-                con6margin : 220 
+                con6margin : 220
             })
         }
         if(this.state.isCheckedCon5 == true){
@@ -269,7 +268,7 @@ class FreeAsset extends React.Component{
                 con6margin : 10
             })
         }
-        this.props.getLicense(license)    
+        this.props.getLicense(license)
     }
 }
 

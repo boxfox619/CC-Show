@@ -3,10 +3,10 @@ import styles from './AssetEditorItem.css';
 import { connect } from 'react-redux';
 import FreeAsset from './FreeAsset';
 import ChargeAsset from './ChargeAsset';
-import * as actions from '../../../../actions/asseteditor';
-import Store from '../../../../store';
+import * as actions from '../../../actions/asseteditor';
+import Store from '../../../store';
 import { bindActionCreators } from 'redux';
-import * as uiActions from '../../../../actions/ui';
+import * as uiActions from '../../../actions/ui';
 import update from 'react-addons-update'
 import PreviewImage from './PreviewImage';
 
@@ -30,9 +30,9 @@ class PreviewInfo extends React.Component{
         );
     }
 
-    ImageChange(e){      
-        
-        var currentId = this.props.cnt;               
+    ImageChange(e){
+
+        var currentId = this.props.cnt;
         let reader = new FileReader();
         let file = e.target.files[0];
         reader.onloadend = () => {
@@ -47,17 +47,17 @@ class PreviewInfo extends React.Component{
                     $push : [ this.state.previewUrl]
                 }
             )
-        })    
+        })
         reader.readAsDataURL(file);
-       
+
 
     }
-    
+
 }
 
 var mapStateToProps = (state) => {
     return{
-        
+
     }
 }
 

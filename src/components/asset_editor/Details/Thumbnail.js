@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './AssetEditorItem.css';
 import { connect } from 'react-redux';
-import * as actions from '../../../../actions/asseteditor';
-import Store from '../../../../store';
+import * as actions from '../../../actions/asseteditor';
+import Store from '../../../store';
 import { bindActionCreators } from 'redux';
 
 class Thumbnail extends React.Component{

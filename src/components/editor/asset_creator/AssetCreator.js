@@ -12,8 +12,6 @@ import * as slideActions from '../../../actions/slides';
 import * as assetTypes from '../../../assetTypes';
 import * as uiActions from '../../../actions/ui';
 
-import AssetEditor from '../assetEditor/AssetEditor';
-
 function filter (node) {
     return (node.tagName !== 'SELECTORLINE'&&node.tagName !== 'SELECTORDOT');
 }

@@ -6,15 +6,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 
-import Asset from '../../assets/Asset';
-import * as assetTypes from '../../../../assetTypes';
+import Asset from '../../editor/assets/Asset';
+import * as assetTypes from '../../../assetTypes';
 import domtoimage from 'dom-to-image';
 import HTMLCode from './HTMLCode';
 import CSSCode from './CSSCode';
 import JSCode from './JSCode';
 
-import * as actions from '../../../../actions/asseteditor';
-import * as uiActions from '../../../../actions/ui';
+import * as actions from '../../../actions/asseteditor';
+import * as uiActions from '../../../actions/ui';
 
 function getAssetNode(parent, child) {
      var node = child.parentNode;

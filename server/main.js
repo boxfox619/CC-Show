@@ -38,7 +38,7 @@ app.use('/storeimage', express.static(__dirname + '/../public/resources/storeima
 app.get('/main/', (req, res) => {
   res.sendFile('main.html', { root: path.join(__dirname, '../public') });
 });
-app.get('/editor/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile('index.html', { root: path.join(__dirname, '../public') });;
 });
 

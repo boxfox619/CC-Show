@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, browserHistory, IndexRoute } from 'react-router-dom';
 import Editor from './components/Editor';
 import ShowList from './components/ShowList';
 import SlideShow from './components/SlideShow';
+import AssetEditor from './components/asset_editor';
 
 const APPS = {
   Editor,
@@ -11,12 +13,18 @@ const APPS = {
 };
 
 function renderAppInElement(el) {
-  var App = APPS[el.id];
-  if (!App) return;
-
-  // get props from elements data attribute, like the post_id
-  const props = Object.assign({}, el.dataset);
-  ReactDOM.render(<App {...props} />, el);
+  ReactDOM.render(
+      <Provider store = {store}>
+        <Router history = {browserHistory}>
+          <div>
+            <Route exact path = "/" component = {Editor}/>
+            <Route exact path = "/editor" component = {Editor}/>
+            <Route exact path = "/editor/asset" component = {AssetEditor}/>
+            <Route exact path = "/show" component = {ShowList}/>
+            <Route exact path = "/show/play" component = {SlideShow}/>
+          </div>
+        </Router>
+      </Provider>, el);
 }
 
 

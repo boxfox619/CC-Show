@@ -3,10 +3,10 @@ import styles from './AssetEditorItem.css';
 import { connect } from 'react-redux';
 import FreeAsset from './FreeAsset';
 import ChargeAsset from './ChargeAsset';
-import * as actions from '../../../../actions/asseteditor';
-import Store from '../../../../store';
+import * as actions from '../../../actions/asseteditor';
+import Store from '../../../store';
 import { bindActionCreators } from 'redux';
-import * as uiActions from '../../../../actions/ui';
+import * as uiActions from '../../../actions/ui';
 import PreviewImage from './PreviewImage';
 import Description from './Description';
 import Thumbnail from './Thumbnail';
@@ -46,9 +46,9 @@ componentWillMount(){
 
 
     addFileChange(e){
-        
+
         let add = 145;
-                    
+
         this.setState({
             ...this.state,
             addFileCNT : this.state.addFileCNT+1,
@@ -64,16 +64,16 @@ componentWillMount(){
             this.setState({
                 myWidth : 724 + "px"
             })
-        }        
+        }
     }
-    
+
     titleHandler(e){
         this.props.setTitle(e.target.value);
     }
 
     ImageChange(e) {
         e.preventDefault();
-    
+
         let reader = new FileReader();
         let file = e.target.files[0];
 
@@ -88,40 +88,40 @@ componentWillMount(){
         reader.readAsDataURL(file)
     }
 
-    
+
 
     render(){
-        
-        
+
+
         var renderForm = () => {
-            
+
             if(this.state.isCheckedCharge == true && this.state.isCheckedFree == true){
                  return(
                      <FreeAsset />
                  )
             }
-    
+
             if(this.state.isCheckedFree == true){
                 return(
                      <ChargeAsset />
                 )
             }
-    
+
             if(this.state.isCheckedCharge == true){
                 return(
                     <FreeAsset />
                 )
             }
-            
+
             if(this.state.isCheckedCharge == false && this.state.isCheckedFree == false){
                 return(
                     <ChargeAsset />
                 )
             }
-           
+
         }
 
-      
+
         return(
 <div className = {styles.content}>
      <div className = {styles.AssetEditor_left}>
@@ -147,14 +147,14 @@ componentWillMount(){
                      <label className = {styles.modeboxlabel}>
                          <span className = {styles.openStoreSpan}>유료로 변환</span>
                      </label>
-                        
+
                     </div>
-                    
+
                     <div className = {styles.cover2}>
                         <span className = {styles.frontTitle2}>￦</span>
                         <input type = "number" className = {styles.price} onChange = {(e)=> this.priceHandler(e)} />
                     </div>
-                    
+
                 </div>
 
             <PreviewImage />
