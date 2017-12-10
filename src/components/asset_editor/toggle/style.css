@@ -1,0 +1,42 @@
+.modebox{
+    cursor: pointer;
+    opacity: 0;
+    width: 105px;
+    height: 33px;
+    z-index: 100;
+    position: absolute;
+}
+
+.modeboxlabel{
+    width: 108px;
+    height: 38px;
+    background: #1898E5;
+    color: white;
+    border: 1.5px solid #1898E5;
+    border-radius: 2px;
+    display: table;
+      /* position: relative; */
+    transition: all .15s ease;
+}
+.toggle_div input:checked~label{
+    background: white;
+    color: #1898E5;
+}
+
+.toggle_span{
+    font-size: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+.toggle_div{
+    width: 104px;
+    height: 40px;
+    float: left;
+    margin-right: 11px;
+    position: relative;
+    display: table-cell;
+    margin: 10px;
+}

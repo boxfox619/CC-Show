@@ -7,25 +7,37 @@ import axios from 'axios';
 
 import styles from './style.css';
 
+import Title from './title';
+import Toggle from './toggle';
+
 
 class AssetEditor extends React.Component{
 
   constructor(props){
     super(props);
     this.state = {
-      activeTab: 0,
       title: '',
       openToStore: false,
       content: ''
     };
+    this.titleHandle = this.titleHandle.bind(this);
+    this.openToStoreHandle = this.openToStoreHandle.bind(this);
+  }
 
-    this.state = {showId: undefined};
+  titleHandle(e){
+    this.setState({title:e.target.value});
+  }
+  openToStoreHandle(e){
+    this.setState({openToStore: e.target.checked});
   }
 
   render(){
+    let headerHeight = document.getElementsByTagName('header')[0].scrollHeight;
     return (
-      <div ref={root => {this.root = root}}>
+      <div style={{'marginTop':headerHeight}} ref={root => {this.root = root}}>
       <div className={styles.attribute_editor}>
+      <Title title={this.state.title} onChange={this.titleHandle}/>
+      <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
       </div>
         <CodeEditorItem/>
       </div>
