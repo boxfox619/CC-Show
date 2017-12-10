@@ -36,8 +36,8 @@ class AssetEditor extends React.Component{
     return (
       <div style={{'marginTop':headerHeight}} ref={root => {this.root = root}}>
       <div className={styles.attribute_editor}>
-      <Title title={this.state.title} onChange={this.titleHandle}/>
-      <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
+        <Title title={this.state.title} onChange={this.titleHandle}/>
+        <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
       </div>
         <CodeEditorItem/>
       </div>
