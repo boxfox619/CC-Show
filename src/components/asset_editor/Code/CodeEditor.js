@@ -37,9 +37,7 @@ class CodeEditor extends React.Component{
             automaticLayout: false,
         };
         const requireConfig = {
-          paths: {
-            'vs': '/vs'
-          }
+          paths: { 'vs': '/vs' }
         }
         return(
             <MonacoEditor height = "252" width = "110%" language = {this.props.codeType}

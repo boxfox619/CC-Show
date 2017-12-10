@@ -38,6 +38,19 @@ app.use('/storeimage', express.static(__dirname + '/../public/resources/storeima
 app.get('/', (req, res) => {
   res.sendFile('main.html', { root: path.join(__dirname, '../public') });
 });
+
+app.get('/show/', (req, res) => {
+  res.sendFile('pptlist.html', { root: path.join(__dirname, '../public') });
+});
+app.get('/show/play/', (req, res) => {
+  res.sendFile('slideshow.html', { root: path.join(__dirname, '../public') });
+});
+app.get('/editor/', (req, res) => {
+  res.sendFile('index.html', { root: path.join(__dirname, '../public') });
+});
+app.get('/editor/asset', (req, res) => {
+  res.sendFile('asseteditor.html', { root: path.join(__dirname, '../public') });
+});
 app.get('*', (req, res) => {
   res.sendFile('index.html', { root: path.join(__dirname, '../public') });
 });

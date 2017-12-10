@@ -72,22 +72,24 @@ body {
   font-family: inherit;
   font-weight: bold;
   font-size: 11px;
-  color: rgb(123, 123, 123);
+  background-color: #12aaeb;
+  color: white;
 }
 
 .preTop{
   width: 100%;
   height: 25px;
-  background-color: #DFDFDF;
+  background-color: #12aaeb;
   display: table;
   text-align: center;
+  color: white;
 }
 
 .preLan{
   display: table-cell;
   vertical-align: middle;
   font-size: 11px;
-  color: rgb(123, 123, 123);
+  color: white;
   font-weight: bold;
 }
 

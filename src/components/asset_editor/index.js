@@ -24,7 +24,9 @@ class AssetEditor extends React.Component{
 
   render(){
     return (
-      <div ref={root => {this.root = root}} >
+      <div ref={root => {this.root = root}}>
+      <div className={styles.attribute_editor}>
+      </div>
         <CodeEditorItem/>
       </div>
     );
