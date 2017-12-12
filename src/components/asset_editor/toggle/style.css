@@ -1,15 +1,15 @@
 .modebox{
     cursor: pointer;
     opacity: 0;
-    width: 105px;
-    height: 33px;
+    width: 135px;
+    height: 44px;
     z-index: 100;
     position: absolute;
 }
 
 .modeboxlabel{
-    width: 108px;
-    height: 38px;
+    width: 138px;
+    height: 47px;
     background: #1898E5;
     color: white;
     border: 1.5px solid #1898E5;
@@ -24,7 +24,7 @@
 }
 
 .toggle_span{
-    font-size: 10px;
+    font-size: 17px;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
@@ -32,11 +32,8 @@
 
 
 .toggle_div{
-    width: 104px;
-    height: 40px;
-    float: left;
-    margin-right: 11px;
+    width: 134px;
+    height: 45px;
     position: relative;
     display: table-cell;
-    margin: 10px;
 }

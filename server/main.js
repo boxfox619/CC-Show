@@ -39,6 +39,7 @@ app.get('/', (req, res) => {
   res.sendFile('main.html', { root: path.join(__dirname, '../public') });
 });
 
+app.use('/editor/vs/', express.static(__dirname + '/../public/vs/'));
 app.get('/show/', (req, res) => {
   res.sendFile('pptlist.html', { root: path.join(__dirname, '../public') });
 });
@@ -50,9 +51,6 @@ app.get('/editor/', (req, res) => {
 });
 app.get('/editor/asset', (req, res) => {
   res.sendFile('asseteditor.html', { root: path.join(__dirname, '../public') });
-});
-app.get('*', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, '../public') });
 });
 
 const account = require('./routes/account');

@@ -1,34 +1,32 @@
 .cover{
-    width: 300px;
-    height: 30px;
+    width: 400px;
+    height: 45px;
     display: table;
     background-color: #1998E5;
     border: 2px solid #1998E5;
     float: left;
-    margin: 10px;
 }
 
 .title_label{
     color: white;
     display: table-cell;
     vertical-align: middle;
-    font-size: 0.5em;
-    /* padding : 0 7px 0 9px; */
-    width: 60px;
+    font-size: 17px;
+    width: 100px;
     margin-left: 1em;
     text-align: center;
 }
 
 .title{
     border : none;
-    height: 35px;
+    height: 45px;
     padding-top: 0;
     display: inline-block;
     vertical-align: middle;
-    width: 220px;
     outline: none;
-    float: right;
-    padding: 0 10px;
+    width: 300px;
+    padding: 0 11px;
+    font-size: 17px;
     /* margin-left: 4px; */
     /* text-align: center; */
 }

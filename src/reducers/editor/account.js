@@ -4,7 +4,7 @@ import update from 'react-addons-update';
 const initialState = {
   name: 'Guest',
   email: '로그인이 필요합니다',
-  profile: '/images/tmpprofile.png'
+  profile: '/images/tmpprofile.jpg'
 }
 
 const account = (state = initialState, action) => {
