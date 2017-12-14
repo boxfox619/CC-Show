@@ -139,21 +139,32 @@ module.exports = function(realm) {
     console.log(colors.green('[REQ]'),getIP(req), 'asset update', req.body.assetId);
       if(!!req.signedCookies.user){
           if(!!req.body.assetId&&realm.objects('Asset').filtered('id=$0',req.body.assetId).length>0){
-            let asset = realm.objects('Asset').filtered('id=$0',req.body.assetId)[0];
-            if(asset.user===JSON.parse(req.signedCookies.user).id){
-              return realm.write(()=>{
-                asset.title = req.body.title;
-                asset.openToStore = req.body.openToStore;
-                asset.thumbnail = req.body.thumbnail;
-                asset.images = JSON.stringify(req.body.images);
-                asset.content = req.body.content;
-                asset.price = req.body.price;
-                asset.license = req.body.license;
-                return res.status(200).end();
-              });
+            if(req.body.assetId){
+              let asset = realm.objects('Asset').filtered('id=$0',req.body.assetId)[0];
+              if(asset.user===JSON.parse(req.signedCookies.user).id){
+                return realm.write(()=>{
+                  asset.title = req.body.title;
+                  asset.openToStore = req.body.openToStore;
+                  asset.thumbnail = req.body.thumbnail;
+                  asset.images = JSON.stringify(req.body.images);
+                  return res.status(200).end();
+                });
+              }else{
+                return res.status(400).end('You are not own this asset');
+              }
             }else{
-              return res.status(400).end('You are not own this asset');
+              let id = realm.objects('Asset').length;
+               realm.create('Asset', {
+                id,
+                user: JSON.parse(req.signedCookies.user).id,
+                date: new Date(),
+                title: req.body.title,
+                openToStore: req.body.openToStore,
+                thumbnail: req.body.thumbnail,
+                content: req.body.content,
+              });
             }
+
           }else{
             return res.status(400).end('Target not found');
           }
@@ -176,7 +187,7 @@ module.exports = function(realm) {
             return res.status(400).end('You are not own this asset');
           }
         }else{
-          return res.status(400).end('Target not found');
+          return res.status(400).end('Target no`t found');
         }
       }else{
         return res.status(400).end('You need login');
