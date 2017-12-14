@@ -20,6 +20,7 @@ class AssetEditor extends React.Component{
       openToStore: false,
       content: ''
     };
+    this.saveAsset = this.saveAsset.bind(this);
     this.titleHandle = this.titleHandle.bind(this);
     this.openToStoreHandle = this.openToStoreHandle.bind(this);
   }
@@ -43,6 +44,20 @@ class AssetEditor extends React.Component{
       </div>
     );
   }
+
+  saveAsset(){
+    axios.post('/update', this.state)
+    .then(function (response) {
+      console.log('success');
+    })
+    .catch(function (error) {
+      console.log('fail');
+    });
+  }
+
+    componentDidMount(){
+      document.getElementById('save').addEventListener('click', this.saveAsset);
+    }
 }
 
 export default AssetEditor;

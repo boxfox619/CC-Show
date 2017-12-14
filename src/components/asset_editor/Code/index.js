@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import Asset from '../../editor/assets/Asset';
 import * as assetTypes from '../../../assetTypes';
 import domtoimage from 'dom-to-image';
-import CodeEditor from './CodeEditor';
+import CodeEditor from './codeEditor';
 
 import * as actions from '../../../actions/asseteditor';
 import * as uiActions from '../../../actions/ui';
