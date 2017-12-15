@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import Asset from '../../editor/assets/Asset';
 import * as assetTypes from '../../../assetTypes';
 import domtoimage from 'dom-to-image';
-import CodeEditor from './codeEditor';
+import CodeEditor from './CodeEditor';
 
 import * as actions from '../../../actions/asseteditor';
 import * as uiActions from '../../../actions/ui';
@@ -24,12 +24,10 @@ function getAssetNode(parent, child) {
      return null;
 }
 
-function filter (node) {
-    return (node.tagName !== 'SELECTORLINE'&&node.tagName !== 'SELECTORDOT');
-}
-
-const defaultProps = {
-  assetData: React.PropTypes.object
+const propTypes = {
+  onChangeJs: React.PropTypes.func.isRequired,
+  onChangeCss: React.PropTypes.func.isRequired,
+  onChangeHtml: React.PropTypes.func.isRequired
 }
 
 class AssetEditor extends React.Component{
@@ -196,23 +194,23 @@ class AssetEditor extends React.Component{
       this.setState({
       html: currentText
     });
-    this.props.setHtml(currentText);
+    this.props.onChangeHtml(currentText);
   }
   cssHandler(currentText) {
       this.setState({
       css: '<style>'+currentText+'</style>'
     });
-    this.props.setCSS(currentText);
+    this.props.onChangeCSS(currentText);
   }
   jsHandler(currentText) {
       this.setState({
       js: '<script>' + currentText + '</script>'
     });
-    this.props.setJS(currentText);
+    this.props.onChangeJs(currentText);
   }
 }
 
-  var mapStateToProps = (state) => {
+var mapStateToProps = (state) => {
   return {
     visible : state.ui.visibleAssetEditor,
     htmlsource : state.asseteditor.htmlsource,
@@ -221,9 +219,11 @@ class AssetEditor extends React.Component{
   }
 }
 
-  var mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({...actions}, dispatch);
-  }
+var mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({...actions}, dispatch);
+}
+
+AssetEditor.propTypes = propTypes;
 
 
 

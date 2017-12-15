@@ -20,6 +20,7 @@ class AssetEditor extends React.Component{
       openToStore: false,
       content: ''
     };
+    this.codeHandle = this.codeHandle.bind(this);
     this.saveAsset = this.saveAsset.bind(this);
     this.titleHandle = this.titleHandle.bind(this);
     this.openToStoreHandle = this.openToStoreHandle.bind(this);
@@ -40,9 +41,17 @@ class AssetEditor extends React.Component{
         <Title title={this.state.title} onChange={this.titleHandle}/>
         <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
       </div>
-        <CodeEditorItem/>
+        <CodeEditorItem
+          onChangeJs={code=>this.codeHandle('js', code)}
+          onChangeCss={code=>this.codeHandle('css', code)}
+          onChangeHtml={code=>this.codeHandle('html', code)}
+        />
       </div>
     );
+  }
+
+  codeHandle(type, code){
+    this.setState({[type] : code});
   }
 
   saveAsset(){
