@@ -99,42 +99,6 @@ module.exports = function(realm) {
       }
     });
 
-    /* simple asset */
-
-    //create 호출
-    //asset/simple/update/ post html, css, js
-    router.post('/simple/create/', (req, res)=>{
-    console.log(colors.green('[REQ]'),getIP(req), 'new asset');
-        if(!!req.signedCookies.user){
-          let id = realm.objects('SimpleAsset').length;
-          return realm.write(()=>{
-            realm.create('SimpleAsset', {
-              id,
-              title: req.body.name,
-              user: JSON.parse(req.signedCookies.user).id,
-              source : req.body.source,
-              thumbnail : req.body.thumbnail
-            });
-          return res.json({id});
-        });
-      }else{
-        return res.status(400).end('You need login');
-      }
-    });
-
-    router.get('/simple/', (req, res)=>{
-        console.log(colors.green('[REQ]'),getIP(req), 'asset lookup', req.query.id);
-        if(!!req.query.id&&realm.objects('SimpleAsset').filtered('id=$0',parseInt(req.query.id)).length>0){
-          let asset = realm.objects('SimpleAsset').filtered('id=$0',parseInt(req.query.id))[0];
-          let html = asset.source;
-          return res.json({code : html});
-        }else{
-          return res.status(400).end('Target not found');
-        }
-    });
-    /* simple asset end */
-
-
     router.put('/update/', (req, res)=>{
     console.log(colors.green('[REQ]'),getIP(req), 'asset update', req.body.assetId);
       if(!!req.signedCookies.user){
@@ -173,103 +137,19 @@ module.exports = function(realm) {
       }
     });
 
-    router.put('/html/', (req, res)=>{
-    console.log(colors.green('[REQ]'),getIP(req), 'custom asset html update');
+    router.delete('/', (req, res)=>{
+    console.log(colors.green('[REQ]'),getIP(req), 'delete asset');
       if(!!req.signedCookies.user){
-        if(!!req.body.assetId&&realm.objects('AssetScript').filtered('id=$0',req.body.assetId).length>0){
-          let asset = realm.objects('Asset').filtered('id=$0',req.body.assetId);
-          if(asset.user===JSON.parse(req.signedCookies.user).id){
-            return realm.write(()=>{
-              realm.objects('AssetScript').filtered('id=$0',req.body.assetId).html = req.body.html;
-              return res.status(200).end();
-            });
-          }else{
-            return res.status(400).end('You are not own this asset');
-          }
-        }else{
-          return res.status(400).end('Target no`t found');
-        }
+          return realm.write(()=>{
+            let asset = realm.objects('Asset').filtered('id='+req.query.assetId)[0];
+            realm.delete(asset);
+            return res.status(200).end();
+          });
       }else{
         return res.status(400).end('You need login');
       }
     });
 
-    router.put('/css/', (req, res)=>{
-    console.log(colors.green('[REQ]'),getIP(req), 'custom asset css update');
-      if(!!req.signedCookies.user){
-        if(!!req.body.assetId&&realm.objects('AssetScript').filtered('id=$0',req.body.assetId).length>0){
-            let asset = realm.objects('Asset').filtered('id=$0',req.body.assetId);
-            if(asset.user===JSON.parse(req.signedCookies.user).id){
-              return realm.write(()=>{
-                realm.objects('AssetScript').filtered('id=$0',req.body.assetId).css = req.body.css;
-                return res.status(200).end();
-              });
-            }else{
-              return res.status(400).end('You are not own this asset');
-            }
-        }else{
-          return res.status(400).end('Target not found');
-        }
-      }else{
-        return res.status(400).end('You need login');
-      }
-    });
-
-    router.put('/js/', (req, res)=>{
-    console.log(colors.green('[REQ]'),getIP(req), 'custom asset js update');
-      if(!!req.signedCookies.user){
-        if(!!req.body.assetId&&realm.objects('AssetScript').filtered('id=$0',req.body.assetId).length>0){
-          let asset = realm.objects('Asset').filtered('id=$0',req.body.assetId);
-          if(asset.user===JSON.parse(req.signedCookies.user).id){
-            return realm.write(()=>{
-              realm.objects('AssetScript').filtered('id=$0',req.body.assetId).js = req.body.js;
-              return res.status(200).end();
-            });
-          }else{
-            return res.status(400).end('You are not own this asset');
-          }
-        }else{
-          return res.status(400).end('Target not found');
-        }
-      }else{
-        return res.status(400).end('You need login');
-      }
-    });
-
-
-
-    router.post('/image', (req, res) => {
-      console.log(colors.green('[REQ]'),getIP(req), 'custom asset thumbnail update');
-        let value = req.body.data;
-        let name = new Date().getTime()+'.';
-        let header = value.substring(0, (value.length>20)?20:value.length);
-        let check = false;
-        if(header.includes('png')){
-          name += 'png';
-          value = value.replace(/^data:image\/png;base64,/, "");
-          check = true;
-        }else if(header.includes('jpeg')){
-          name += 'jpg';
-          value = value.replace(/^data:image\/jpeg;base64,/, "");
-          check = true;
-        }else if(header.includes('gif')){
-          name += 'gif';
-          value = value.replace(/^data:image\/gif;base64,/, "");
-          check = true;
-        }
-      if(check){
-        return require("fs").writeFile(path.join(__dirname, '../../public/resources/storeimage/'+name), value, 'base64', function(err) {
-          if(err){
-            console.log(err);
-            return res.status(400).end();
-          }else{
-            return res.status(200).end('/storeimage/'+name);
-          }
-        });
-      }else{
-        return res.status(400).end();
-      }
-    });
 
     return router;
 

@@ -55,7 +55,7 @@ class AssetEditor extends React.Component{
   }
 
   saveAsset(){
-    axios.post('/update', this.state)
+    axios.put('/update', this.state)
     .then(function (response) {
       console.log('success');
     })
