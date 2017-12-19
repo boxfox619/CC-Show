@@ -100,7 +100,7 @@ class AssetStore extends React.Component{
   }
 
   deleteAsset(assetID){
-    axios.get('/store/delete/?id='+assetID).then(response => {
+    axios.delete('/store/?id='+assetID).then(response => {
       this.loadItems(tabs[this.state.activeTab].filter);
     });
   }
