@@ -21,7 +21,6 @@ import { connect } from 'react-redux';
 
 import axios from 'axios';
 
-
 class SlideEditor extends React.Component{
 
   constructor(props){
@@ -35,6 +34,7 @@ class SlideEditor extends React.Component{
 
     this.uploadShowData = this.uploadShowData.bind(this);
     this.onUnload = this.onUnload.bind(this);
+    this.setTimeout = this.setTimeout.bind(this);
   }
 
   render(){
@@ -62,7 +62,9 @@ class SlideEditor extends React.Component{
         {renderDialogs()}
         <div onClick={this.handleClick} className={styles.contextWrap+' '+(contextDisabled?styles.disabled:'')}>
           <div className={styles.contextSpace}>
-            <SlideContext className={styles.slideContext}/>
+            <SlideContext
+              className={styles.slideContext}
+              onModified={this.setTimeout}/>
           </div>
         </div>
         <AssetController className={styles.assetController}/>
@@ -84,7 +86,6 @@ class SlideEditor extends React.Component{
         this.props.toggleProgressDialog();
       })
       .catch(e =>{
-        console.log(e);
         this.props.toggleProgressDialog();
       });
     }
@@ -102,6 +103,14 @@ class SlideEditor extends React.Component{
       this.uploadShowData();
       e.preventDefault()
     }
+  }
+
+  setTimeout(){
+    if (this.timeoutId) clearTimeout(this.timeoutId);
+    let _self = this;
+    this.timeoutId = setTimeout(function () {
+      _self.uploadShowData();
+    }, 3000);
   }
 
   handleClick(event){
@@ -128,7 +137,7 @@ class SlideEditor extends React.Component{
       this.props.getChangeToCharge(charge);
       this.props.releaseDialog();
     }
-
+    setTimeout();
   }
 
   onUnload(event){
@@ -147,11 +156,10 @@ class SlideEditor extends React.Component{
     if(this.state.showId!=undefined){
       this.props.toggleProgressDialog();
     axios.post('/show/data', {showId: this.state.showId, showData: this.props.showData}).then(response => {
-        this.props.toggleProgressDialog();
+      this.props.toggleProgressDialog();
     })
     .catch(e =>{
-      console.log(e);
-        this.props.toggleProgressDialog();
+      this.props.toggleProgressDialog();
     });
   }
   }

@@ -28,6 +28,10 @@ if (window.getSelection) {
 }
 }
 
+const propTypes = {
+  onModified: React.PropTypes.func.isRequired
+}
+
 class SlideContext extends React.Component{
 
   /* mouseDowned
@@ -161,6 +165,7 @@ class SlideContext extends React.Component{
           this.yInElement = e.pageY;
         }
       }
+      this.props.onModified();
     }
 
     handleMouseDown(e){
@@ -192,6 +197,7 @@ class SlideContext extends React.Component{
         e.preventDefault();
         clearSelection();
       }
+      this.props.onModified();
     }
 
     handleMouseRelese(e){
