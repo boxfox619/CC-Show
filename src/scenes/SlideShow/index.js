@@ -2,9 +2,9 @@ import React from 'react';
 
 import * as assetTypes from '../../assetTypes';
 
-import Asset from '../editor/assets/Asset';
+import Asset from '../../components/Asset';
 
-import styles from './Show.css';
+import styles from './style.css';
 
 import axios from 'axios';
 
