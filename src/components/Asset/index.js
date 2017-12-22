@@ -4,13 +4,13 @@ import styles from './style.css';
 
 import * as assetTypes from '../../../assetTypes';
 
-import TextAsset from './TextAsset';
-import ImageAsset from './ImageAsset';
-import VideoAsset from './VideoAsset';
-import TableAsset from './TableAsset';
-import CustomAsset from './CustomAsset';
-import ShapeAsset from './ShapeAsset';
-import PreviewAsset from './PreviewAsset';
+import TextAsset from './components/TextAsset';
+import ImageAsset from './components/ImageAsset';
+import VideoAsset from './components/VideoAsset';
+import TableAsset from './components/TableAsset';
+import CustomAsset from './components/CustomAsset';
+import ShapeAsset from './components/ShapeAsset';
+import PreviewAsset from './components/PreviewAsset';
 
 const propTypes = {
   attribute: React.PropTypes.object,

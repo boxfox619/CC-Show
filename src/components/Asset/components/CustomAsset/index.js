@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Assets.css';
 
 import axios from 'axios';
 
