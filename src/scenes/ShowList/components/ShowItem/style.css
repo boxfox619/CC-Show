@@ -1,0 +1,75 @@
+.showItem{
+  text-align: left;
+  display: inline-block;
+  position: relative;
+  width: 350px;
+  height: 220px;
+  border-radius: 5px;
+  margin: auto 10px;
+  margin-bottom: 2em;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  background: #ffffff;
+  box-shadow: 0 3px 20px 4px rgba(0, 0, 0, 0.26);
+}
+
+.footer{
+  position: absolute;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  bottom: 0px;
+  width: 100%;
+  height: 25%;
+  background: rgba(0, 0, 0, 0.6);
+  display: table;
+}
+
+.footer .texts{
+  display: table-cell;
+  padding-left: 17px;
+  width: 60%;
+  vertical-align: middle;
+}
+
+.footer .texts .title{
+  color: #FFFFFF;
+  font-size: 13px;
+}
+
+.footer .texts .subTitle{
+  color: #9E9E9F;
+  font-size: 9px;
+}
+
+.footer .buttons{
+  display: table-cell;
+  width:40%;
+  vertical-align: middle;
+  text-align: right;
+  padding-right: 17px;
+}
+.footer .buttons .imgBtn{
+  width: 35px;
+  height: 20px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.imgBtn:hover {
+		background-color: transparent;
+		transform: rotate(90deg);
+		cursor: pointer;
+}
+
+#share{
+  background: url('/images/ic_share_white.png') no-repeat center;
+}
+
+#delete{
+  background: url('/images/ic_delete_white.png') no-repeat center;
+}

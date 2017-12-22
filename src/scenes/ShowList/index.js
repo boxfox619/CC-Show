@@ -1,10 +1,10 @@
 import React from 'react';
 
-import styles from './ShowList.css';
+import styles from './style.css';
 
-import Dialog from './dialog/ShowManageDialog';
+import Dialog from './components/Dialog';
 
-import ShowItem  from './ShowItem';
+import ShowItem  from './components/ShowItem';
 import axios from 'axios';
 
 

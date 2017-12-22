@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './ShowManageDialog.css';
+import styles from './style.css';
 
 const propTypes = {
   msg: React.PropTypes.string.isRequired,

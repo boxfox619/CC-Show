@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './ShowList.css';
+import styles from './style.css';
 
 const propTypes ={
   name: React.PropTypes.string.isRequired,

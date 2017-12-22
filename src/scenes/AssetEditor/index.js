@@ -1,14 +1,14 @@
 import React from 'react';
 import ProgressDialog from '../editor/progressDialog/ProgressDialog';
 import { bindActionCreators } from 'redux';
-import CodeEditorItem from './Code';
 import * as assetTypes from '../../assetTypes'
 import axios from 'axios';
 
 import styles from './style.css';
 
-import Title from './Title';
-import Toggle from './Toggle';
+import CodeEditor from './components/CodeEditor';
+import Title from './components/Title';
+import Toggle from './components/Toggle';
 
 
 class AssetEditor extends React.Component{
@@ -41,7 +41,7 @@ class AssetEditor extends React.Component{
         <Title title={this.state.title} onChange={this.titleHandle}/>
         <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
       </div>
-        <CodeEditorItem
+        <CodeEditor
           onChangeJs={code=>this.codeHandle('js', code)}
           onChangeCss={code=>this.codeHandle('css', code)}
           onChangeHtml={code=>this.codeHandle('html', code)}
