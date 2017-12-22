@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './SlideManager.css';
+import styles from './style.css';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';

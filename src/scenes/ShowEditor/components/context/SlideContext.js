@@ -1,5 +1,5 @@
 import React from 'react';
-import Asset from '../assets/Asset';
+import Asset from '/components/Asset';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ContextMenu from './contextMenu/ContextMenu';

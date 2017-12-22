@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Assets.css';
+import styles from './style.css';
 
 import * as assetTypes from '../../../assetTypes';
 

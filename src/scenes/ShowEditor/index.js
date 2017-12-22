@@ -16,12 +16,12 @@ import * as slideActions from '../../actions/slides';
 import * as accountActions from '../../actions/account';
 import { bindActionCreators } from 'redux';
 
-import styles from './SlideEditor.css';
+import styles from './style.css';
 import { connect } from 'react-redux';
 
 import axios from 'axios';
 
-class SlideEditor extends React.Component{
+class ShowEditor extends React.Component{
 
   constructor(props){
     super(props);
@@ -56,7 +56,7 @@ class SlideEditor extends React.Component{
     }
     let contextDisabled = this.checkContextDisabled();
     return (
-      <div ref={root => {this.root = root}} className={styles.slideEditor}>
+      <div ref={root => {this.root = root}} className={styles.showEditor}>
         <AssetCreator className={styles.assetCreator}/>
         <SlideManager className={styles.slideManager+' '+(this.props.visibleSlideManager?styles.show:'')}/>
         {renderDialogs()}
@@ -177,4 +177,4 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ ...assetActions, ...accountActions, ...slideActions, ...uiActions, ...assetActions}, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SlideEditor);
+export default connect(mapStateToProps, mapDispatchToProps)(ShowEditor);
