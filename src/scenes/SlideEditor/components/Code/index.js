@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import Asset from '../../editor/assets/Asset';
 import * as assetTypes from '../../../assetTypes';
 import domtoimage from 'dom-to-image';
-import CodeEditor from './CodeEditor';
+import MonacoEditor from './MonacoEditor';
 
 import * as actions from '../../../actions/asseteditor';
 import * as uiActions from '../../../actions/ui';
@@ -72,20 +72,20 @@ class AssetEditor extends React.Component{
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>HTML</span>
               </div>
-              <CodeEditor codeType={'html'} onChange = {this.htmlHandler} value = {this.props.htmlsource}/>
+              <MonacoEditor codeType={'html'} onChange = {this.htmlHandler} value = {this.props.htmlsource}/>
             </div>
             <div className = {styles.codeArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>CSS</span>
               </div>
-              <CodeEditor codeType={'css'} onChange = {this.cssHandler} value = {this.props.csssource} />
+              <MonacoEditor codeType={'css'} onChange = {this.cssHandler} value = {this.props.csssource} />
 
             </div>
             <div className = {styles.codeArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>JS</span>
               </div>
-              <CodeEditor codeType={'javascript'} onChange = {this.jsHandler} value = {this.props.jssource} />
+              <MonacoEditor codeType={'javascript'} onChange = {this.jsHandler} value = {this.props.jssource} />
 
             </div>
           </div>

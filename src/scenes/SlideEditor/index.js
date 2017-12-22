@@ -7,8 +7,8 @@ import axios from 'axios';
 
 import styles from './style.css';
 
-import Title from './title';
-import Toggle from './toggle';
+import Title from './Title';
+import Toggle from './Toggle';
 
 
 class AssetEditor extends React.Component{
