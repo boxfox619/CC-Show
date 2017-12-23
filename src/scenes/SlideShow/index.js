@@ -8,8 +8,10 @@ import styles from './style.css';
 
 import axios from 'axios';
 
+import * as Loader from './services/SlideLoader'
 
-class ShowListContext extends React.Component{
+
+class SlideShow extends React.Component{
 
   constructor(props){
     super(props);
@@ -21,7 +23,6 @@ class ShowListContext extends React.Component{
 
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.doSlide = this.doSlide.bind(this);
-    this.convertSize = this.convertSize.bind(this);
   }
 
   render(){
@@ -34,7 +35,7 @@ class ShowListContext extends React.Component{
     }
     let renderingAssets = (assets) => {
       return assets.map((asset)=>{
-        return <Asset controlable={false} key={this.state.currentSlide+'-'+asset.id+'-'+this.state.currentSlide} handleValueChange={this.props.setAssetValue} attribute={this.convertSize(asset)}/>
+        return <Asset controlable={false} key={this.state.currentSlide+'-'+asset.id+'-'+this.state.currentSlide} handleValueChange={this.props.setAssetValue} attribute={Loader.convertSize(asset)}/>
       })
     }
     return (
@@ -42,28 +43,6 @@ class ShowListContext extends React.Component{
         {renderingSlides()}
       </div>
     )
-  }
-
-  convertSize(asset){
-  let assetItem = JSON.parse(JSON.stringify(asset));
-    let windowWidth = window.innerWidth;
-    let windowHeight = window.innerHeight;
-    let editorHeight = 620;
-    let editorWidth = 1080;
-    let perX = windowWidth / editorWidth;
-    let perY = windowHeight / editorHeight;
-    if(asset.type!=assetTypes.TYPE_CUSTOM){
-      assetItem.height = perY*parseInt(asset.height)+'px';
-      assetItem.width = perX*parseInt(asset.width)+'px';
-      assetItem.y = perY*parseInt(asset.y)+'px';
-      assetItem.x = perX*parseInt(asset.x)+'px';
-    }else{
-      let halfHeight = parseInt(assetItem.height) / 2;
-      let halfWidth = parseInt(assetItem.width) / 2;
-      assetItem.y = perY*(parseInt(assetItem.y)+halfHeight) - halfHeight+'px';
-      assetItem.x = perX*(parseInt(assetItem.x)+halfWidth) - halfWidth+'px';
-    }
-    return assetItem;
   }
 
   doSlide(change){
@@ -82,18 +61,13 @@ class ShowListContext extends React.Component{
     document.oncontextmenu = function () {
       return false;
     };
-    var url = new URL(window.location.href);
-    var showId = url.searchParams.get("show");
-    if(showId != null){
-      axios.post('/show/play/', {showId: showId})
-      .then(response => {
-        this.setState({slides: response.data});
-      })
-      .catch(e =>{
-        console.log(e);
-        alert('존재하지 않는 ppt 입니다!');
-      });
-    }
+    Loader.load(function(slides){
+      if(slides){
+        this.setState({slides})
+      }else{
+        // 실패
+      }
+    })
   }
 
   handleKeyDown(e){
@@ -105,4 +79,4 @@ class ShowListContext extends React.Component{
   }
 
 }
-export default (ShowListContext);
+export default (SlideShow);
