@@ -4,22 +4,6 @@ export const actionTypes = {
   TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER'
 }
 
-export const dialogs = {
-  SLIDE_MANAGER: 'SlideManager',
-  ASSET_STORE: 'AssetStore',
-  ASSET_EDITOR: 'AssetEditor',
-  ACCOUNT_WITH_SNS: 'AccountDialog',
-  SLIDE_SHOW: 'SLIDE_SHOW',
-  PROGRESS: 'PROGRESS',
-  COLOR_PICKER: 'COLOR_PICKER'
-}
-
-export const colorPicker = {
-  TEXT_COLOR: 'TextColor',
-  FILL_COLOR: 'FillColor',
-  BORDER_COLOR: 'BorderColor'
-}
-
 export const toggleFillColorPicker = () => {
   return {
     type: actionTypes.TOGGLE_DIALOG,

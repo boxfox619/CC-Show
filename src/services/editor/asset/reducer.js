@@ -1,12 +1,12 @@
-import { actionTypes } from './actions';
-import { getState } from '../../store';
-import update from 'react-addons-update';
-import * as assetTypes from './assetTypes';
+import attributeController from './controller/attr/reducer';
+import shapeController from './controller/shape/reducer';
+import textController from './controller/text/reducer';
+import videoController from './controller/video/reducer';
 
-import attributeController from './Controller/attributeController';
-import shapeController from './Controller/shapeController';
-import textController from './Controller/textController';
-import videoController from './Controller/videoController';
+import { actionTypes } from './actions';
+import { getState } from 'store';
+import update from 'react-addons-update';
+import * as assetTypes from './controller/assetTypes';
 
 const defaultAsset = {
   id: '',
@@ -333,5 +333,3 @@ function getAssetIndex(state, key) {
   });
   return index;
 }
-
-export default editor;

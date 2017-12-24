@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './SlideManager.css';
+import styles from './style.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as slideActions from '../../../actions/slides';
+import * as slideActions from 'services/editor/slide/actions';
 
 class SlideCreator extends React.Component{
 

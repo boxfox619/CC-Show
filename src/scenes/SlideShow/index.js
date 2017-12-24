@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as assetTypes from '../../assetTypes';
+import * as assetTypes from 'services/editor/asset/assetTypes';
 
 import Asset from '../../components/Asset';
 

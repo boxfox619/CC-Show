@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './SlidePreview.css';
-import * as slideActions from '../../../../actions/slides';
 import IconButton from './IconButton';
 
 const defaultProps = {

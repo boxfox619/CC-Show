@@ -7,9 +7,9 @@ import { bindActionCreators } from 'redux';
 
 import SlidePreview from './slidePreview/SlidePreview';
 import SlideCreator from './SlideCreator';
-import * as assetsActions from '../../../actions/assets';
-import * as slideActions from '../../../actions/slides';
-import * as uiActions from '../../../actions/ui';
+import * as slideActions from 'services/editor/slide/actions';
+import * as assetsActions from 'services/editor/asset/actions';
+import * as uiActions from 'services/ui/actions';
 
 const defaultProps = {
   className: React.PropTypes.string.required

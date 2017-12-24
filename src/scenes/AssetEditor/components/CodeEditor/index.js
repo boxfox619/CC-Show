@@ -5,13 +5,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 
-import Asset from '../../editor/assets/Asset';
-import * as assetTypes from '../../../assetTypes';
+import Asset from 'components/Asset';
+import * as assetTypes from 'services/editor/asset/assetTypes';
 import domtoimage from 'dom-to-image';
 import MonacoEditor from './MonacoEditor';
-
-import * as actions from '../../../actions/asseteditor';
-import * as uiActions from '../../../actions/ui';
 
 function getAssetNode(parent, child) {
      var node = child.parentNode;
@@ -72,20 +69,20 @@ class AssetEditor extends React.Component{
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>HTML</span>
               </div>
-              <MonacoEditor codeType={'html'} onChange = {this.htmlHandler} value = {this.props.htmlsource}/>
+              <MonacoEditor codeType={'html'} onChange = {this.htmlHandler} value = {this.state.html}/>
             </div>
             <div className = {styles.codeArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>CSS</span>
               </div>
-              <MonacoEditor codeType={'css'} onChange = {this.cssHandler} value = {this.props.csssource} />
+              <MonacoEditor codeType={'css'} onChange = {this.cssHandler} value = {this.state.css} />
 
             </div>
             <div className = {styles.codeArea}>
               <div className = {styles.topArea}>
                 <span className = {styles.topLan}>JS</span>
               </div>
-              <MonacoEditor codeType={'javascript'} onChange = {this.jsHandler} value = {this.props.jssource} />
+              <MonacoEditor codeType={'javascript'} onChange = {this.jsHandler} value = {this.state.js} />
 
             </div>
           </div>
@@ -210,21 +207,4 @@ class AssetEditor extends React.Component{
   }
 }
 
-var mapStateToProps = (state) => {
-  return {
-    visible : state.ui.visibleAssetEditor,
-    htmlsource : state.asseteditor.htmlsource,
-    csssource : state.asseteditor.csssource,
-    jssource : state.asseteditor.jssource
-  }
-}
-
-var mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({...actions}, dispatch);
-}
-
-AssetEditor.propTypes = propTypes;
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(AssetEditor);
+export default AssetEditor;

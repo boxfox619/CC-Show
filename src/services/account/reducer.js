@@ -1,4 +1,4 @@
-import { actionTypes } from '../../actions/account';
+import { actionTypes } from './actions';
 import update from 'react-addons-update';
 
 const initialState = {

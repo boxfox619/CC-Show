@@ -1,4 +1,4 @@
-import reducers from './reducers'
+import reducers from 'services/reducer'
 import { createStore } from 'redux'
 
 const store = createStore(reducers);

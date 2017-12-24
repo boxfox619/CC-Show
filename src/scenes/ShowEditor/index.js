@@ -1,19 +1,20 @@
 import React from 'react';
-import AssetCreator from './asset_creator/AssetCreator';
-import SlideContext from './context/SlideContext';
-import AssetController from './asset_controller/AssetController';
-import SlideManager from './slideManager/SlideManager';
-import AssetStore from './assetStore/AssetStore';
-import ColorPicker from './color_picker/ColorPicker';
-import ProgressDialog from './progressDialog/ProgressDialog';
+import AssetCreator from './components/assetCreator';
+import SlideContext from './components/slideContext';
+import AssetController from './components/assetController';
+import SlideManager from './components/slideManager';
+import AssetStore from './components/assetStore';
+import ColorPicker from './components/colorPicker';
+import SlideShow from './components/slideShow';
 
-import SlideShow from './slide_show/SlideShow'
-import { dialogs } from '../../actions/ui';
+import ProgressDialog from 'components/progressDialog';
 
-import * as assetActions from '../../actions/asseteditor';
-import * as uiActions from '../../actions/ui';
-import * as slideActions from '../../actions/slides';
-import * as accountActions from '../../actions/account';
+import * as dialogs from 'services/ui/dialogs';
+
+import * as assetActions from 'services/editor/asset/actions';
+import * as uiActions from 'services/ui/actions';
+import * as slideActions from 'services/editor/slide/actions';
+import * as accountActions from 'services/account/actions';
 import { bindActionCreators } from 'redux';
 
 import styles from './style.css';

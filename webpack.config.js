@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -44,5 +45,12 @@ module.exports = {
                 to: 'vs',
             }
         ])
-    ]
+    ],
+
+    resolve: {
+      modules: [
+        path.resolve(__dirname + '/src'),
+        path.resolve(__dirname + '/node_modules')
+      ]
+    }
 };

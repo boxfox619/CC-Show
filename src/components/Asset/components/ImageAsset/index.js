@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Assets.css';
 
 const propTypes = {
   styles: React.PropTypes.object.isRequired,
