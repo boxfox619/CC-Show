@@ -1,5 +1,6 @@
 import asset from './asset/reducer';
 import slide from './slide/reducer';
+import controller from './assetcontroller/reducer';
 
 const initialState = {
   sizeUnit: 'px',
@@ -20,6 +21,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   state = asset(state, action);
   state = slide(state, action);
+  state = controller(state, action);
   return state;
 }
 
