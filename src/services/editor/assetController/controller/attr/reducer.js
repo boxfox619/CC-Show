@@ -1,7 +1,9 @@
 import update from 'react-addons-update';
-export default function(state, action, actionTypes){
+import * as actionTypes from './actions';
+
+export default function(state, action){
   switch (action.type) {
-    case actionTypes.ASSET_SET_VIDEO_URL:
+    case actionTypes.ASSET_SET_ANGLE:
       return {
         ...state,
         slides: update(
@@ -11,8 +13,8 @@ export default function(state, action, actionTypes){
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
-                      value: {
-                        $set: action.url
+                      angle: {
+                        $set: action.value
                       }
                     }
                   }
@@ -22,8 +24,7 @@ export default function(state, action, actionTypes){
           }
         )
       }
-    case actionTypes.TOGGLE_VIDEO_PREVIEW:
-    let preview = state.slides[state.selectedSlide].assets[state.slides[state.selectedSlide].selectedAsset].preview;
+    case actionTypes.ASSET_SET_WIDTH:
       return {
         ...state,
         slides: update(
@@ -33,8 +34,8 @@ export default function(state, action, actionTypes){
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
-                      preview: {
-                        $set: !preview
+                      width: {
+                        $set: parseInt(action.value) + getState().slideContext.sizeUnit
                       }
                     }
                   }
@@ -44,7 +45,7 @@ export default function(state, action, actionTypes){
           }
         )
       }
-    case actionTypes.ASSET_SET_VIDEO_CONTROLLER:
+    case actionTypes.ASSET_SET_HEIGHT:
       return {
         ...state,
         slides: update(
@@ -54,10 +55,8 @@ export default function(state, action, actionTypes){
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
-                      style: {
-                        videoController: {
-                          $set: !state.slides[state.selectedSlide].assets[state.slides[state.selectedSlide].selectedAsset].style.videoController
-                        }
+                      height: {
+                        $set: parseInt(action.value) + getState().slideContext.sizeUnit
                       }
                     }
                   }
@@ -67,7 +66,7 @@ export default function(state, action, actionTypes){
           }
         )
       }
-    case actionTypes.ASSET_SET_VIDEO_AUTOPLAY:
+    case actionTypes.ASSET_SET_X_POSTION:
       return {
         ...state,
         slides: update(
@@ -77,10 +76,8 @@ export default function(state, action, actionTypes){
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
-                      style: {
-                        videoAutoplay: {
-                          $set: !state.slides[state.selectedSlide].assets[state.slides[state.selectedSlide].selectedAsset].style.videoAutoplay
-                        }
+                      x: {
+                        $set: parseInt(action.value) + getState().slideContext.positionUnit
                       }
                     }
                   }
@@ -90,7 +87,7 @@ export default function(state, action, actionTypes){
           }
         )
       }
-    case actionTypes.ASSET_SET_VIDEO_LOOP:
+    case actionTypes.ASSET_SET_Y_POSTION:
       return {
         ...state,
         slides: update(
@@ -100,10 +97,8 @@ export default function(state, action, actionTypes){
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
-                      style: {
-                        videoLoop: {
-                          $set: !state.slides[state.selectedSlide].assets[state.slides[state.selectedSlide].selectedAsset].style.videoLoop
-                        }
+                      y: {
+                        $set: parseInt(action.value) + getState().slideContext.positionUnit
                       }
                     }
                   }

@@ -1,4 +1,4 @@
-import * as assetTypes from '../assetTypes';
+import * as assetTypes from './assetTypes';
 export const actionTypes = {
   ASSET_SET_LEFT: "ASSET_SET_LEFT",
   ASSET_SET_TOP: "ASSET_SET_TOP",

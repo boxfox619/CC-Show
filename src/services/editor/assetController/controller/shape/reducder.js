@@ -1,8 +1,9 @@
 import update from 'react-addons-update';
+import * as actionTypes from './actions';
 
-export default function(state, action, actionTypes){
+export default function(state, action){
   switch (action.type) {
-    case actionTypes.ASSET_SET_ANGLE:
+    case actionTypes.ASSET_SET_FILL_COLOR:
       return {
         ...state,
         slides: update(
@@ -12,8 +13,10 @@ export default function(state, action, actionTypes){
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
-                      angle: {
-                        $set: action.value
+                      style: {
+                        'background-color': {
+                          $set: action.fillColor
+                        }
                       }
                     }
                   }
@@ -23,7 +26,7 @@ export default function(state, action, actionTypes){
           }
         )
       }
-    case actionTypes.ASSET_SET_WIDTH:
+    case actionTypes.ASSET_SET_BORDER_COLOR:
       return {
         ...state,
         slides: update(
@@ -33,8 +36,10 @@ export default function(state, action, actionTypes){
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
-                      width: {
-                        $set: parseInt(action.value) + getState().slideContext.sizeUnit
+                      style: {
+                        'border-color': {
+                          $set: action.borderColor
+                        }
                       }
                     }
                   }
@@ -44,7 +49,7 @@ export default function(state, action, actionTypes){
           }
         )
       }
-    case actionTypes.ASSET_SET_HEIGHT:
+    case actionTypes.ASSET_SET_BORDER_WEIGHT:
       return {
         ...state,
         slides: update(
@@ -54,8 +59,10 @@ export default function(state, action, actionTypes){
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
-                      height: {
-                        $set: parseInt(action.value) + getState().slideContext.sizeUnit
+                      style: {
+                        'border-width': {
+                          $set: action.weight
+                        }
                       }
                     }
                   }
@@ -65,7 +72,7 @@ export default function(state, action, actionTypes){
           }
         )
       }
-    case actionTypes.ASSET_SET_X_POSTION:
+      case actionTypes.ASSET_SET_CHANGE_SHAPE:
       return {
         ...state,
         slides: update(
@@ -75,30 +82,7 @@ export default function(state, action, actionTypes){
                 $set: update(
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
-                      x: {
-                        $set: parseInt(action.value) + getState().slideContext.positionUnit
-                      }
-                    }
-                  }
-                )
-              }
-            }
-          }
-        )
-      }
-    case actionTypes.ASSET_SET_Y_POSTION:
-      return {
-        ...state,
-        slides: update(
-          state.slides, {
-            [state.selectedSlide]: {
-              assets: {
-                $set: update(
-                  state.slides[state.selectedSlide].assets, {
-                    [state.slides[state.selectedSlide].selectedAsset]: {
-                      y: {
-                        $set: parseInt(action.value) + getState().slideContext.positionUnit
-                      }
+                      value: { $set: action.shape }
                     }
                   }
                 )

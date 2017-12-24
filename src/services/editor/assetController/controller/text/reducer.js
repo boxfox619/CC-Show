@@ -1,6 +1,7 @@
-import {setSelectAssetStyle, getSelectedAssetStyle, getSelectedAsset, replaceSelectAssetObj} from './ControllerUtil';
+import {setSelectAssetStyle, getSelectedAssetStyle, getSelectedAsset, replaceSelectAssetObj} from '../ControllerUtil';
+import * as actionTypes from './actions';
 
-export default function(state, action, actionTypes){
+export default function(state, action){
   switch (action.type) {
   case actionTypes.ASSET_SET_TEXT_COLOR:
     if(textSelectionRange.start==textSelectionRange.end)
