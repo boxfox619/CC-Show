@@ -4,7 +4,7 @@ import account from './account/reducer';
 import ui from './ui/reducer';
 
 const reducers = combineReducers({
-  editor, slideContext, account, ui, asseteditor
+  editor, account, ui
 });
 
 export default reducers;

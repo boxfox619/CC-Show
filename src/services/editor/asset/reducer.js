@@ -1,12 +1,12 @@
-import attributeController from './controller/attr/reducer';
-import shapeController from './controller/shape/reducer';
-import textController from './controller/text/reducer';
-import videoController from './controller/video/reducer';
+import attributeController from './attr/reducer';
+import shapeController from './shape/reducer';
+import textController from './text/reducer';
+import videoController from './video/reducer';
 
 import { actionTypes } from './actions';
 import { getState } from 'store';
 import update from 'react-addons-update';
-import * as assetTypes from './controller/assetTypes';
+import * as assetTypes from './assetTypes';
 
 const defaultAsset = {
   id: '',
@@ -27,8 +27,8 @@ export default function(state, action){
   state = videoController(state, action, actionTypes);
   switch (action.type) {
     case actionTypes.ASSET_CREATE:
-      let sizeUnit = getState().slideContext.sizeUnit;
-      let positionUnit = getState().slideContext.positionUnit;
+      let sizeUnit = getState().editor.sizeUnit;
+      let positionUnit = getState().editor.positionUnit;
       let currentId = state.slides[state.selectedSlide].assetIdCount + 1;
       let newAsset = {
         ...defaultAsset,

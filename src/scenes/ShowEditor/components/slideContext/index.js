@@ -6,6 +6,10 @@ import ContextMenu from './components/contextMenu';
 
 import * as slideActions from 'services/editor/slide/actions'
 import * as assetsActions from 'services/editor/asset/actions'
+import * as assetsAttrActions from 'services/editor/asset/attr/actions'
+import * as assetsShapeActions from 'services/editor/asset/shape/actions';
+import * as assetsTextActions from 'services/editor/asset/text/actions';
+import * as assetsVideoActions from 'services/editor/asset/video/actions';
 
 import SlideTitle from './components/slideTitle';
 
@@ -250,7 +254,13 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({...assetsActions, ...slideActions}, dispatch);
+  return bindActionCreators({
+    ...assetsActions,
+    ...slideActions,
+    ...assetsAttrActions,
+    ...assetsShapeActions,
+    ...assetsTextActions,
+    ...assetsVideoActions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideContext);

@@ -23,4 +23,4 @@ const reducer = (state = initialState, action) => {
   return state;
 }
 
-export default slideContext;
+export default reducer;

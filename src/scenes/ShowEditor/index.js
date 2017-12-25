@@ -12,9 +12,11 @@ import ProgressDialog from 'components/progressDialog';
 import * as dialogs from 'services/ui/dialogs';
 
 import * as assetActions from 'services/editor/asset/actions';
+import * as assetAttrActions from 'services/editor/asset/attr/actions';
 import * as uiActions from 'services/ui/actions';
 import * as slideActions from 'services/editor/slide/actions';
 import * as accountActions from 'services/account/actions';
+
 import { bindActionCreators } from 'redux';
 
 import styles from './style.css';
@@ -138,7 +140,7 @@ class ShowEditor extends React.Component{
       this.props.getChangeToCharge(charge);
       this.props.releaseDialog();
     }
-    setTimeout();
+    this.setTimeout();
   }
 
   onUnload(event){
@@ -175,7 +177,12 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...assetActions, ...accountActions, ...slideActions, ...uiActions, ...assetActions}, dispatch);
+    return bindActionCreators({
+       ...assetActions,
+       ...accountActions,
+       ...slideActions,
+       ...uiActions,
+       ...assetActions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowEditor);
