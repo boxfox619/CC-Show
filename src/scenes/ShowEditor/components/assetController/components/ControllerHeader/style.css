@@ -1,0 +1,31 @@
+.show_items_button {
+    position: absolute;
+    cursor: pointer;
+    width: 10px;
+    margin: 3px;
+    right: 0;
+}
+
+.controller_sub_title {
+    position: relative;
+    width: 100%;
+    font-size: 13px;
+    color: #5682b2;
+    font-family: NanumSquareEB;
+    font-weight: bold;
+    vertical-align: middle;
+    display: table;
+}
+
+.controller_sub_title:before {
+    content: "";
+    display: table-cell;
+    vertical-align: middle;
+    background: url("/images/ic_ellipse_gray.png") no-repeat left center;
+    width: 20px;
+}
+
+.controller_sub_wrapper {
+    margin: 20px;
+    margin-bottom: 10px;
+}
