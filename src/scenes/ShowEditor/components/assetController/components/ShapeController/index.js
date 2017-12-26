@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from 'services/editor/asset/actions';
+import ControllerHeader from '../controllerHeader';
 
 import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
@@ -25,12 +26,7 @@ class ShapeController extends React.Component{
         return(
             <div>
                 <div className={styles.fliping_controller_section}>
-                    <div className={styles.controller_sub_wrapper}>
-                    <div className={styles.controller_sub_title}>도형
-                        <img onClick={this.shapeOn.bind()} src="/images/ic_arrow_up.png" style={this.state.shape_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
-                        <img onClick={this.shapeOff.bind()} src="/images/ic_arrow_down.png" style={this.state.shape_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
-                    </div>
-                </div>
+                    <ControllerHeader title={'도형'}  onToggle={(toggle)=>{this.setState({shape : toggle})}}/>
                 <div className={styles.items} style={this.state.shape ? {} : {display:'none'}}>
                     <div className={styles.control_item+' '+styles.shapes}>
                         <div>
@@ -96,23 +92,6 @@ class ShapeController extends React.Component{
         let shape=src.split('_')[1].split('.')[0];
         if(shape.split('_').length>1) shape=shape.split('_')[0];
         this.props.setAssetChangeShape(shape);
-    }
-    shapeOn(){
-        this.setState({
-            ...this.state,
-            shape:true,
-            shae_arrow_up:false,
-            shape_arrow_down:true
-        });
-    }
-
-    shapeOff(){
-        this.setState({
-            ...this.state,
-            shape:false,
-            shape_arrow_up:true,
-            shape_arrow_down:false
-        });
     }
 }
 

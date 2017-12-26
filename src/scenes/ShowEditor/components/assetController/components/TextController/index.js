@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
+import ControllerHeader from '../controllerHeader';
 
 class TextController extends React.Component{
     constructor(prop) {
@@ -29,12 +30,7 @@ class TextController extends React.Component{
         return(
             <div>
                 <div className={styles.fliping_controller_section}>
-                    <div className={styles.controller_sub_wrapper}>
-                    <div className={styles.controller_sub_title}>텍스트
-                        <img onClick={this.textOn.bind()} src="/images/ic_arrow_up.png" style={this.state.text_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
-                        <img onClick={this.textOff.bind()} src="/images/ic_arrow_down.png" style={this.state.text_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
-                    </div>
-                </div>
+                    <ControllerHeader title={'텍스트'}  onToggle={(toggle)=>{this.setState({text : toggle})}}/>
                 <div style={this.state.text ? {} : {display:'none'}} className={styles.items}>
                 <div>
                     <div>
@@ -112,24 +108,6 @@ class TextController extends React.Component{
         <hr className={styles.controller_hr}/>
         </div>
         )
-    }
-
-    textOn() {
-        this.setState({
-            ...this.state,
-            text:true,
-            text_arrow_up:false,
-            text_arrow_down:true
-        });
-    }
-
-    textOff() {
-        this.setState({
-            ...this.state,
-            text:false,
-            text_arrow_up:true,
-            text_arrow_down:false
-        });
     }
 
     setFontWeight(event) {

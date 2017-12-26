@@ -6,6 +6,8 @@ import { SketchPicker } from 'react-color';
 
 import { bindActionCreators } from 'redusx';
 
+import ControllerHeader from '../controllerHeader';
+
 import styles from '../../style.css';
 class BasicController extends React.Component{
     constructor(prop) {

@@ -8,6 +8,9 @@ import axios from 'axios';
 import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
 
+import ControllerHeader from '../controllerHeader';
+import Request from './services/request';
+
 class ImageController extends React.Component{
     constructor(prop) {
         super(prop);
@@ -31,12 +34,7 @@ class ImageController extends React.Component{
         return(
             <div>
                 <div className={styles.fliping_controller_section}>
-                    <div className={styles.controller_sub_wrapper}>
-                        <div className={styles.controller_sub_title}>이미지
-                            <img onClick={this.imageOn.bind()} src="/images/ic_arrow_up.png" style={this.state.image_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
-                            <img onClick={this.imageOff.bind()} src="/images/ic_arrow_down.png" style={this.state.image_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
-                        </div>
-                    </div>
+                    <ControllerHeader title={'이미지'}  onToggle={(toggle)=>{this.setState({image : toggle})}}/>
                     <div className={styles.items} style={this.state.image ? {} : {display:'none'}}>
                         <div className={styles.control_item+' '+styles.image_loader} onClick={this.loadImage}>
                           이미지 불러오기
@@ -53,15 +51,11 @@ class ImageController extends React.Component{
       fr.onload = (e)=> {
         let data = e.target.result;
         this.props.toggleProgressDialog();
-        axios.post('/assets/image', {data}).then(response => {
-          console.log(response.data);
-          this.props.setAssetImage(response.data);
+        Request.uploadImage(data, function(response){
+          if(response.result == true)
+            this.props.setAssetImage(response.data);
           this.props.toggleProgressDialog();
         })
-        .catch(e =>{
-          console.log(e);
-          this.props.toggleProgressDialog();
-        });
       };
       var inputElement = document.createElement("input");
       inputElement.type = "file";
@@ -72,23 +66,6 @@ class ImageController extends React.Component{
 
     }
 
-    imageOn(){
-        this.setState({
-            ...this.state,
-            image:true,
-            image_arrow_up:false,
-            image_arrow_down:true
-        });
-    }
-
-    imageOff(){
-        this.setState({
-            ...this.state,
-            image:false,
-            image_arrow_up:true,
-            image_arrow_down:false
-        });
-    }
     setUrl(event) {
         let {value}=event.target;
         this.props.setAssetImage(value);

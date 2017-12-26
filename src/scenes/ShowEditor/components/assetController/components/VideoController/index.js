@@ -4,6 +4,7 @@ import * as actions from 'services/editor/asset/actions';
 
 import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
+import ControllerHeader from '../controllerHeader';
 
 class VideoController extends React.Component {
     constructor(props){
@@ -24,12 +25,7 @@ class VideoController extends React.Component {
         return (
             <div>
                 <div className={styles.fliping_controller_section}>
-                    <div className={styles.controller_sub_wrapper}>
-                    <div className={styles.controller_sub_title}>비디오
-                        <img onClick={this.videoOn.bind()} src="/images/ic_arrow_up.png" style={this.state.video_arrow_up ? {} : {display:'none'}} className={styles.show_items_button}/>
-                        <img onClick={this.videoOff.bind()} src="/images/ic_arrow_down.png" style={this.state.video_arrow_down ? {} : {display:'none'}} className={styles.show_items_button}/>
-                    </div>
-                </div>
+                    <ControllerHeader title={'비디오'}  onToggle={(toggle)=>{this.setState({video : toggle})}}/>
                 <div className={styles.items} style={this.state.video ? {} : {display:'none'}}>
                     <div className={styles.control_item+' '+styles.URL_controller}>
                         <span className={styles.attribute_item_title} >URL :</span>
@@ -48,25 +44,7 @@ class VideoController extends React.Component {
     togglePreview(){
       this.props.toggleVideoPreview();
     }
-
-    videoOn(){
-        this.setState({
-            ...this.state,
-            video:true,
-            video_arrow_up:false,
-            video_arrow_down:true
-        });
-    }
-
-    videoOff(){
-        this.setState({
-            ...this.state,
-            video:false,
-            video_arrow_up:true,
-            video_arrow_down:false
-        });
-    }
-
+    
     setUrl(event) {
         let {value}=event.target;
         this.props.setAssetVideoURL(value);
