@@ -17,7 +17,7 @@ class AssetController extends React.Component {
     constructor(prop) {
         super(prop);
     }
-    ControllerSelector(selectedAsset) {
+    renderController(selectedAsset) {
             switch (this.props.selectedAsset.type) {
                 case actions.TYPE_TEXT:
                     return(
@@ -54,7 +54,7 @@ class AssetController extends React.Component {
         if(!!(this.props.selectedAsset)){
             return(
                 <div className={this.props.className}>
-                    {this.ControllerSelector(this.props.selectedAsset)}
+                    {this.renderController(this.props.selectedAsset)}
                     <BasicController width = {parseInt(this.props.selectedAsset.width)}
                                      height = {parseInt(this.props.selectedAsset.height)}
                                      x = {parseInt(this.props.selectedAsset.x)}

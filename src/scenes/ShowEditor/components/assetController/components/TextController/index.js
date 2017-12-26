@@ -1,24 +1,21 @@
 import React from 'react';
-import * as assetsActions from 'services/editor/asset/actions';
-import * as uiActions from 'services/ui/actions';
 import { connect } from 'react-redux';
-
 import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
 import ControllerHeader from '../controllerHeader';
+
+import * as assetsActions from 'services/editor/asset/actions';
+import * as assetsTextActions from 'services/editor/asset/text/actions';
+import * as uiActions from 'services/ui/actions';
 
 class TextController extends React.Component{
     constructor(prop) {
         super(prop);
 
         this.state={
-            text:true,
-            text_arrow_up:false,
-            text_arrow_down:true
+            text:true
         };
 
-        this.textOn=this.textOn.bind(this);
-        this.textOff=this.textOff.bind(this);
         this.setFont=this.setFont.bind(this);
         this.setFontSize=this.setFontSize.bind(this);
         this.setCharacterSpacing=this.setCharacterSpacing.bind(this);
@@ -159,7 +156,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...assetsActions, ...uiActions }, dispatch);
+    return bindActionCreators({ ...assetsActions, ...assetsTextActions, ...uiActions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextController);

@@ -24,8 +24,6 @@ class ImageController extends React.Component{
 
         this.loadImage = this.loadImage.bind(this);
 
-        this.imageOn=this.imageOn.bind(this);
-        this.imageOff=this.imageOff.bind(this);
         this.setUrl=this.setUrl.bind(this);
         this.loadImage = this.loadImage.bind(this);
     }

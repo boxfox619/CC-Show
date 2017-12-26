@@ -1,4 +1,3 @@
-import * as assetTypes from '../assetTypes';
 export const actionTypes = {
   ASSET_SET_WIDTH: "ASSET_SET_WIDTH",
   ASSET_SET_HEIGHT: "ASSET_SET_HEIGHT",

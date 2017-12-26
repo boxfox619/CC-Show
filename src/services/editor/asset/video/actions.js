@@ -1,4 +1,3 @@
-import * as assetTypes from '../assetTypes';
 export const actionTypes = {
   ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
   ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',

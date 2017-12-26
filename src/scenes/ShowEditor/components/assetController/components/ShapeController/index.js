@@ -17,8 +17,6 @@ class ShapeController extends React.Component{
             shape_arrow_down:true
         };
 
-        this.shapeoOn=this.shapeOn.bind(this);
-        this.shapeOff=this.shapeOff.bind(this);
         this.changeShape=this.changeShape.bind(this);
     }
 

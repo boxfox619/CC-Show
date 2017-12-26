@@ -1,5 +1,5 @@
 import update from 'react-addons-update';
-import * as actionTypes from './actions';
+import {actionTypes} from './actions';
 
 export default function(state, action){
   switch (action.type) {
@@ -35,7 +35,7 @@ export default function(state, action){
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
                       width: {
-                        $set: parseInt(action.value) + getState().slideContext.sizeUnit
+                        $set: parseInt(action.value) + state.sizeUnit
                       }
                     }
                   }
@@ -56,7 +56,7 @@ export default function(state, action){
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
                       height: {
-                        $set: parseInt(action.value) + getState().slideContext.sizeUnit
+                        $set: parseInt(action.value) + state.sizeUnit
                       }
                     }
                   }
@@ -77,7 +77,7 @@ export default function(state, action){
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
                       x: {
-                        $set: parseInt(action.value) + getState().slideContext.positionUnit
+                        $set: parseInt(action.value) + state.positionUnit
                       }
                     }
                   }
@@ -98,7 +98,7 @@ export default function(state, action){
                   state.slides[state.selectedSlide].assets, {
                     [state.slides[state.selectedSlide].selectedAsset]: {
                       y: {
-                        $set: parseInt(action.value) + getState().slideContext.positionUnit
+                        $set: parseInt(action.value) + state.positionUnit
                       }
                     }
                   }

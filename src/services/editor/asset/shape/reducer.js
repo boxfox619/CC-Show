@@ -1,5 +1,5 @@
 import update from 'react-addons-update';
-import * as actionTypes from './actions';
+import {actionTypes} from './actions';
 
 export default function(state, action){
   switch (action.type) {

@@ -1,10 +1,12 @@
 import React from 'react';
 import * as assetsActions from 'services/editor/asset/actions';
+import * as assetsShapeActions from 'services/editor/asset/shape/actions';
+import * as assetsAttrActions from 'services/editor/asset/attr/actions';
 import * as uiActions from 'services/ui/actions';
 import { connect } from 'react-redux';
 import { SketchPicker } from 'react-color';
 
-import { bindActionCreators } from 'redusx';
+import { bindActionCreators } from 'redux';
 
 import ControllerHeader from '../controllerHeader';
 
@@ -174,7 +176,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...assetsActions, ...uiActions }, dispatch);
+    return bindActionCreators({ ...assetsActions, ...assetsShapeActions, ...assetsAttrActions, ...uiActions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BasicController);

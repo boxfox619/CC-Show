@@ -1,4 +1,3 @@
-import * as assetTypes from '../assetTypes';
 export const actionTypes = {
   ASSET_SET_TEXT_FONT: 'ASSET_SET_TEXT_FONT',
   ASSET_SET_TEXT_FONT_SIZE: 'ASSET_SET_TEXT_FONT_SIZE',

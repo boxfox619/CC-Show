@@ -1,4 +1,3 @@
-import * as assetTypes from '../assetTypes';
 export const actionTypes = {
   ASSET_SET_FILL_COLOR: 'ASSET_SET_FILL_COLOR',
   ASSET_SET_BORDER_COLOR: 'ASSET_SET_EDGE_COLOR',

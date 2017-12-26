@@ -1,5 +1,5 @@
 import {setSelectAssetStyle, getSelectedAssetStyle, getSelectedAsset, replaceSelectAssetObj} from '../ControllerUtil';
-import * as actionTypes from './actions';
+import {actionTypes} from './actions';
 
 export default function(state, action){
   switch (action.type) {
