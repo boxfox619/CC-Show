@@ -86,8 +86,7 @@ const mapStateToProps = (state) => {
   }else{
     return {
       currentSilde : undefined,
-      selectedAsset: undefined,
-      selectedAsset : undefined
+      selectedAsset: undefined
     }
   }
 }

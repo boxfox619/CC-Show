@@ -17,12 +17,12 @@ import * as uiActions from 'services/ui/actions';
 import * as slideActions from 'services/editor/slide/actions';
 import * as accountActions from 'services/account/actions';
 
+import * as slideApi from 'services/editor/slide/api';
+
 import { bindActionCreators } from 'redux';
 
 import styles from './style.css';
 import { connect } from 'react-redux';
-
-import axios from 'axios';
 
 class ShowEditor extends React.Component{
 
@@ -82,14 +82,13 @@ class ShowEditor extends React.Component{
     var showId = url.searchParams.get("show");
     if(showId != null){
       this.props.toggleProgressDialog();
-      axios.get('/show/data?id='+showId).then(response => {
-        this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
-        this.props.initShowData(response.data.showData);
-        this.setState({showId});
-        this.props.toggleProgressDialog();
-      })
-      .catch(e =>{
-        this.props.toggleProgressDialog();
+      slideApi.load(function(response){
+        if(response.result == true){
+          this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
+          this.props.initShowData(response.data.showData);
+          this.setState({showId});
+        }
+          this.props.toggleProgressDialog();
       });
     }
   }
@@ -158,13 +157,10 @@ class ShowEditor extends React.Component{
   uploadShowData(){
     if(this.state.showId!=undefined){
       this.props.toggleProgressDialog();
-    axios.post('/show/data', {showId: this.state.showId, showData: this.props.showData}).then(response => {
-      this.props.toggleProgressDialog();
-    })
-    .catch(e =>{
-      this.props.toggleProgressDialog();
-    });
-  }
+      slideApi.upload(function(response){
+        this.props.toggleProgressDialog();
+      });
+    }
   }
 }
 
