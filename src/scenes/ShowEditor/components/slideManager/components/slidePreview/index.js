@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './SlidePreview.css';
-import IconButton from './IconButton';
+import styles from './style.css';
+import IconButton from '../iconButton';
 
 const defaultProps = {
   slide: React.PropTypes.object.isRequired,

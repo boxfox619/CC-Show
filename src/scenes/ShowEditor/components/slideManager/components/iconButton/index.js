@@ -1,6 +1,5 @@
 import React from 'react';
 
-console.log(React.PropTypes.func);
 const defaultProps = {
   icon: React.PropTypes.string.isRequired,
   onClick: React.PropTypes.func.isRequired,

@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 
 import * as actions from 'services/editor/asset/assetTypes';
 
-import TextController from './components/TextController';
-import VideoController from './components/VideoController';
-import ImageController from './components/ImageController';
-import ShapeController from './components/ShapeController';
-import BasicController from './components/BasicController';
+import TextController from './components/textController';
+import VideoController from './components/videoController';
+import ImageController from './components/imageController';
+import ShapeController from './components/shapeController';
+import BasicController from './components/basicController';
 
 import styles from './style.css';
 
 // Refactoring
-// ㄴcontroller 틀 중복코드 제거 필요
+// controller 틀 중복코드 제거 필요
 class AssetController extends React.Component {
     constructor(prop) {
         super(prop);
