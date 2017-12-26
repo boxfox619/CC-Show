@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from 'services/editor/asset/actions';
 
 import { bindActionCreators } from 'redux';
-import styles from './AssetController.css';
+import styles from '../../style.css';
 
 class VideoController extends React.Component {
     constructor(props){

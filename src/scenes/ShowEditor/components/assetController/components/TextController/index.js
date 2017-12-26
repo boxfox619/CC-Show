@@ -4,7 +4,7 @@ import * as uiActions from 'services/ui/actions';
 import { connect } from 'react-redux';
 
 import { bindActionCreators } from 'redux';
-import styles from './AssetController.css';
+import styles from '../../style.css';
 
 class TextController extends React.Component{
     constructor(prop) {

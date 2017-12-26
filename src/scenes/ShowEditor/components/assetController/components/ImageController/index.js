@@ -6,7 +6,7 @@ import * as uiActions from 'services/ui/actions';
 import axios from 'axios';
 
 import { bindActionCreators } from 'redux';
-import styles from './AssetController.css';
+import styles from '../../style.css';
 
 class ImageController extends React.Component{
     constructor(prop) {

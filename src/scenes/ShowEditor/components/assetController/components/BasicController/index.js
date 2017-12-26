@@ -4,9 +4,9 @@ import * as uiActions from 'services/ui/actions';
 import { connect } from 'react-redux';
 import { SketchPicker } from 'react-color';
 
-import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redusx';
 
-import styles from './AssetController.css';
+import styles from '../../style.css';
 class BasicController extends React.Component{
     constructor(prop) {
         super(prop);

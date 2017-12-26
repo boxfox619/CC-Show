@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styles from './AssetController.css';
 
 import * as actions from 'services/editor/asset/actions';
 
 import { bindActionCreators } from 'redux';
+import styles from '../../style.css';
 
 class ShapeController extends React.Component{
     constructor(prop) {
