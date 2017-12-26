@@ -17,7 +17,7 @@ import * as uiActions from 'services/ui/actions';
 import * as slideActions from 'services/editor/slide/actions';
 import * as accountActions from 'services/account/actions';
 
-import * as slideApi from 'services/editor/slide/api';
+import * as showApi from 'services/editor/api';
 
 import { bindActionCreators } from 'redux';
 
@@ -82,7 +82,7 @@ class ShowEditor extends React.Component{
     var showId = url.searchParams.get("show");
     if(showId != null){
       this.props.toggleProgressDialog();
-      slideApi.load(function(response){
+      showApi.load(function(response){
         if(response.result == true){
           this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
           this.props.initShowData(response.data.showData);
@@ -157,7 +157,7 @@ class ShowEditor extends React.Component{
   uploadShowData(){
     if(this.state.showId!=undefined){
       this.props.toggleProgressDialog();
-      slideApi.upload(function(response){
+      showApi.upload(this.state.showId, this.props.showData, function(response){
         this.props.toggleProgressDialog();
       });
     }

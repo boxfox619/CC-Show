@@ -6,6 +6,8 @@ import axios from 'axios';
 
 import styles from './style.css';
 
+import assetEditorApi from './services/api';
+
 import CodeEditor from './components/CodeEditor';
 import Title from './components/Title';
 import Toggle from './components/Toggle';
@@ -55,12 +57,8 @@ class AssetEditor extends React.Component{
   }
 
   saveAsset(){
-    axios.put('/update', this.state)
-    .then(function (response) {
-      console.log('success');
-    })
-    .catch(function (error) {
-      console.log('fail');
+    assetEditorApi.upload(this.state, function(result){
+
     });
   }
 

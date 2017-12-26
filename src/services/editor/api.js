@@ -12,9 +12,9 @@ export const load = (callback) => {
   });
 }
 
-export const upload = (callback) => {
+export const upload = (showId, showData, callback) => {
   let result = {'result' : false};
-  axios.post('/show/data', {showId: this.state.showId, showData: this.props.showData}).then(response => {
+  axios.post('/show/data', {showId, showData}).then(response => {
     result['result'] = true;
     callback(result);
   })
