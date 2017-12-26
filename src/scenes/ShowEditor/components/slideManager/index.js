@@ -5,8 +5,8 @@ import styles from './style.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import SlidePreview from './slidePreview/SlidePreview';
-import SlideCreator from './SlideCreator';
+import SlidePreview from './components/slidePreview';
+import SlideCreator from './components/slideCreator';
 import * as slideActions from 'services/editor/slide/actions';
 import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';
