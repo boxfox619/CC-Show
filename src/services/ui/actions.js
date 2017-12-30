@@ -1,3 +1,6 @@
+import dialogs from './dialogs';
+import colorPicker from './colorPicker';
+
 export const actionTypes = {
   TOGGLE_DIALOG: 'TOGGLE_DIALOG',
   RELEASE_DIALOG: 'RELEASE_DIALOG',
