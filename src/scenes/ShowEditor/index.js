@@ -9,7 +9,7 @@ import SlideShow from './components/slideShow';
 
 import ProgressDialog from 'components/progressDialog';
 
-import * as dialogs from 'services/ui/dialogs';
+import dialogs from 'services/ui/dialogs';
 
 import * as assetActions from 'services/editor/asset/actions';
 import * as assetAttrActions from 'services/editor/asset/attr/actions';
