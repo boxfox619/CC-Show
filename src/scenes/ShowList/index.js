@@ -5,7 +5,7 @@ import styles from './style.css';
 import Dialog from './components/Dialog';
 
 import ShowItem  from './components/ShowItem';
-import axios from 'axios';
+import Request from './services/request'
 
 
 class ShowListContext extends React.Component{
@@ -60,10 +60,9 @@ class ShowListContext extends React.Component{
   }
 
   updateShowList(){
-    axios.get('/show/list')
-    .then(response => {
-      this.setState({showList : response.data});
-    }).catch(err => {
+    Request.loadShowList(function(response){
+      if(response.result)
+        this.setState({showList : response.data});
     });
   }
 
@@ -77,10 +76,9 @@ class ShowListContext extends React.Component{
       this.setState({text: undefined});
     }else
     if(result!=undefined&&result.length>0){
-      axios.post('/show/create', {name: result})
-      .then(response => {
-      this.updateShowList();
-      }).catch(err => {
+      Request.createShow(result, function(response){
+        if(response.result)
+          this.updateShowList();
       });
     }
     this.setState({job: undefined});
@@ -104,10 +102,9 @@ class ShowListContext extends React.Component{
   }
 
   deleteShow(id){
-    axios.post('/show/delete', {id})
-    .then(response => {
-      this.updateShowList();
-    }).catch(err => {
+    Request.deleteShow(function(result){
+      if(result)
+        this.updateShowList();
     });
   }
 
