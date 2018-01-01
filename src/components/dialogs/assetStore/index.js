@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import update from 'react-addons-update';
-import AssetItem from './assetItem';
-import ActionItem from './actionItem';
+import AssetItem from './components/assetItem';
+import ActionItem from './components/actionItem';
 import axios from 'axios';
 
 import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';
+import * as Request from './services/request';
 
 const tabs = [
 {name:'추천', filter: 'recommend'},
@@ -91,7 +92,7 @@ class AssetStore extends React.Component{
   }
 
   loadItems(filter){
-    axios.get('/store/assets?filter='+filter).then(response => {
+    Request.load(filter, function(response){
       this.setState({
         ...this.state,
         assets: response.data
@@ -100,9 +101,9 @@ class AssetStore extends React.Component{
   }
 
   deleteAsset(assetID){
-    axios.delete('/store/?id='+assetID).then(response => {
+    Request.delete(assetID, function(result){
       this.loadItems(tabs[this.state.activeTab].filter);
-    });
+    })
   }
 
   getActiveTab(){
