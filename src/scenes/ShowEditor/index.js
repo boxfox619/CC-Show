@@ -3,8 +3,8 @@ import AssetCreator from './components/assetCreator';
 import SlideContext from './components/slideContext';
 import AssetController from './components/assetController';
 import SlideManager from './components/slideManager';
-import AssetStore from './components/assetStore';
-import ColorPicker from './components/colorPicker';
+import AssetStore from 'components/dialogs/assetStore';
+import ColorPicker from 'components/dialogs/colorPicker';
 import SlideShow from './components/slideShow';
 
 import ProgressDialog from 'components/progressDialog';
