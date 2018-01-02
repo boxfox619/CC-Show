@@ -13,24 +13,10 @@ class ColorPicker extends React.Component{
   constructor(props){
     super(props);
 
-    this.handleBorderColor = this.handleBorderColor.bind(this);
-    this.handleFillColor = this.handleFillColor.bind(this);
-    this.handleTextColor = this.handleTextColor.bind(this);
+    this.handleSelectColor = this.handleSelectColor.bind(this);
   }
 
   render() {
-      let kindsOfcolorPicker = () =>{
-         if(this.props.colorPicker!=undefined){
-           switch(this.props.colorPicker){
-             case colorPicker.TEXT_COLOR:
-              return (this.handleTextColor)
-             case colorPicker.FILL_COLOR:
-              return (this.handleFillColor)
-             case colorPicker.BORDER_COLOR:
-              return (this.handleBorderColor)
-           }
-         }
-      }
       let kindOfColor = () =>{
          if(this.props.colorPicker!=undefined){
            switch(this.props.colorPicker){
@@ -45,27 +31,24 @@ class ColorPicker extends React.Component{
       }
     return (
       <div className={this.props.className} style={{'width':'auto', 'height':'auto'}}>
-        <SketchPicker style={{'box-shadow':'none'}} color={kindOfColor()} onChangeComplete={kindsOfcolorPicker()}/>
+        <SketchPicker style={{'box-shadow':'none'}} color={kindOfColor()} onChangeComplete={this.handleSelectColor}/>
         <div className={styles.closer} onClick={this.props.releaseDialog}>닫기</div>
       </div>
     )
   }
 
-  getCloserStyle(){
-    return{
-
+  handleSelectColor(color){
+    switch(this.props.colorPicker){
+      case colorPicker.TEXT_COLOR:
+        this.props.setAssetTextColor(color.hex);
+        break;
+      case colorPicker.FILL_COLOR:
+        this.props.setAssetFillColor(color.hex);
+        break;
+      case colorPicker.BORDER_COLOR:
+        this.props.setAssetBorderColor(color.hex);
+        break;
     }
-  }
-
-  handleFillColor(color){
-    this.props.setAssetFillColor(color.hex);
-  };
-
-  handleBorderColor(color){
-    this.props.setAssetBorderColor(color.hex);
-  };
-  handleTextColor(color){
-    this.props.setAssetTextColor(color.hex);
   };
 }
 
