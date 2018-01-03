@@ -116,30 +116,9 @@ class ShowEditor extends React.Component{
   }
 
   handleClick(event){
-    var title = ''
-    var html = ''
-    var css = ''
-    var js = ''
-    var preview = ''
-    var content = ''
-    var price = ''
-    var license = ''
-    var openToStore = ''
-    var charge = ''
     if(this.checkContextDisabled()){
-      this.props.setTitle(title);
-      this.props.setHtml(html);
-      this.props.setCSS(css);
-      this.props.setJS(js);
-      this.props.getPreviewImage(preview);
-      this.props.getContent(content)
-      this.props.getPrice(price);
-      this.props.getLicense(license);
-      this.props.getOpenToStore(openToStore);
-      this.props.getChangeToCharge(charge);
       this.props.releaseDialog();
     }
-    this.setTimeout();
   }
 
   onUnload(event){
