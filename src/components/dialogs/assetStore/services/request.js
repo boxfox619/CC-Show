@@ -9,7 +9,7 @@ export const load = (filter, callback) => {
   });
 }
 
-export const delete = (assetID, callback) => {
+export const deleteAsset = (assetID, callback) => {
   let result = {'result' : true};
   axios.delete('/store/?id='+assetID).then(response => {
     callback(result);
