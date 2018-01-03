@@ -154,28 +154,6 @@ export default function(state, action){
     }else{
       return {...state}
     }
-    case actionTypes.ASSET_SET_BOTH_POSITION:
-      return {
-        ...state,
-        slides: update(
-          state.slides, {
-            [state.selectedSlide]: {
-              assets: {
-                $set: update(
-                  state.slides[state.selectedSlide].assets, {
-                    [state.slides[state.selectedSlide].selectedAsset]: {
-                      x: {
-                        $set: parseInt(action.x) + getState().slideContext.positionUnit
-                      },
-                      y: {
-                        $set: parseInt(action.y) + getState().slideContext.positionUnit
-                      }
-                    }
-                  })
-              }
-            }
-          })
-      }
     case actionTypes.ASSET_COPY:
     let currentAssetId = state.slides[state.selectedSlide].assetIdCount + 1;
     let copiedAsset = state.slides[action.slide].assets[getAssetIndex(state, action.id)];

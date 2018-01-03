@@ -108,6 +108,28 @@ export default function(state, action){
           }
         )
       }
+    case actionTypes.ASSET_SET_BOTH_POSITION:
+        return {
+          ...state,
+          slides: update(
+            state.slides, {
+              [state.selectedSlide]: {
+                assets: {
+                  $set: update(
+                    state.slides[state.selectedSlide].assets, {
+                      [state.slides[state.selectedSlide].selectedAsset]: {
+                        x: {
+                          $set: parseInt(action.x) + state.positionUnit
+                        },
+                        y: {
+                          $set: parseInt(action.y) + state.positionUnit
+                        }
+                      }
+                    })
+                }
+              }
+            })
+      }
     default:
       return state;
   }

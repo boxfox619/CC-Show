@@ -36,7 +36,7 @@ export function setAssetY(value) {
   }
 }
 
-export const setAssetXY = (x, y) => {
+export function setAssetXY(x, y) {
   return {
     type: actionTypes.ASSET_SET_BOTH_POSITION,
     x,
