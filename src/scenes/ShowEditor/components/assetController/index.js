@@ -30,7 +30,7 @@ class AssetController extends React.Component {
                                             strikethrough = {this.props.selectedAsset.style['text-decoration']}
                                             textColor = {this.props.selectedAsset.style.color}
                                             textCharacterSpacing={parseInt(this.props.selectedAsset.style['letter-spacing'])}
-                                            textLineSpacing={parseInt(this.props.selectedAsset.style['line-height'])}/>
+                                            textLineSpacing={this.props.selectedAsset.style['line-height']}/>
                     )
                 case actions.TYPE_VIDEO:
                     return(

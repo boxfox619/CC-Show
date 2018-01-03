@@ -114,7 +114,9 @@
   font-family: NanumSquareEB;
 }
 
-
+.attribute_item_title img{
+  cursor: pointer;
+}
 
 .attribute_item_input {
     width: 10px;

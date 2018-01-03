@@ -21,6 +21,7 @@ class TextController extends React.Component{
         this.setCharacterSpacing=this.setCharacterSpacing.bind(this);
         this.setFontWeight=this.setFontWeight.bind(this);
         this.setLineSpacing=this.setLineSpacing.bind(this);
+        this.getLineSpacing = this.getLineSpacing.bind(this);
     }
 
     render(){
@@ -57,8 +58,8 @@ class TextController extends React.Component{
                     </div>
 
                     <div className={styles.control_item}>
-                        <span className={styles.attribute_item_title}><img src="/images/ic_format_line.png"/></span>
-                        <input type="text" className={styles.attribute_item_input} value={this.props.textLineSpacing} onChange={this.setLineSpacing}/>
+                        <span className={styles.attribute_item_title}><img src="/images/ic_format_line.png" onClick={()=>this.props.setAssetTextLineSpacing('normal')}/></span>
+                        <input type="text" className={styles.attribute_item_input} value={this.getLineSpacing()} onChange={this.setLineSpacing}/>
                     </div>
                 </div>
 
@@ -107,6 +108,11 @@ class TextController extends React.Component{
         )
     }
 
+    getLineSpacing(){
+      let lineSpacing = this.props.textLineSpacing;
+      return (lineSpacing!='normal')? parseInt(lineSpacing) : lineSpacing;
+    }
+
     setFontWeight(event) {
         let {value}=event.target;
         let intValue=parseInt(value);
@@ -127,7 +133,7 @@ class TextController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setAssetFontSize(intValue);
+        this.props.setAssetFontSize(intValue+'px');
     }
 
     setLineSpacing(event) {
@@ -136,7 +142,7 @@ class TextController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setAssetTextLineSpacing(intValue);
+        this.props.setAssetTextLineSpacing(intValue+'%');
     }
 
     setCharacterSpacing(event) {
@@ -145,7 +151,7 @@ class TextController extends React.Component{
         if(isNaN(intValue)){
             intValue=0;
         }
-        this.props.setAssetTextCharacterSpacing(intValue);
+        this.props.setAssetTextCharacterSpacing(intValue+'px');
     }
 }
 
