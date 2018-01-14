@@ -24,44 +24,93 @@ import Arrow6 from './components/Arrow6';
 import Arrow7 from './components/Arrow7';
 import Arrow8 from './components/Arrow8';
 
+const propTypes = {
+  styles: React.PropTypes.object.isRequired,
+  value: React.PropTypes.string.isRequired,
+  attrs: React.PropTypes.object.isRequired
+};
 
 class ShapeAsset extends React.Component{
   constructor(props){
     super(props);
+  }
 
-    this.getShpaeStyle=this.getShpaeStyle.bind(this);
-  }
   render() {
-    return (
-      this.getShpaeStyle(this.props.value)
-    )
-  }
-  getShpaeStyle(value) {
-    switch(value){
-    case 'square' : return <Square asset={this.props.asset}/>
-    case 'roundSquare' :return <RoundSquare asset={this.props.asset}/>
-    case 'ellipse' :return <Ellipse asset={this.props.asset}/>
-    case 'triangle' : return <Triangle asset={this.props.asset}/>
-    case 'diamond' : return <Diamond asset={this.props.asset}/>
-    case 'pentagon' : return <Pentagon asset={this.props.asset}/>
-    case 'hexagon' : return <Hexagon asset={this.props.asset}/>
-    case 'octagon' : return <Octagon asset={this.props.asset}/>
-    case 'star' : return <Star asset={this.props.asset}/>
-    case 'heart' : return <Heart asset={this.props.asset}/>
-    case 'moon' : return <Moon asset={this.props.asset}/>
-    case 'spade' : return <Spade asset={this.props.asset}/>
-    case 'clover' : return <Clover asset={this.props.asset}/>
-    case 'stain' : return <Stain asset={this.props.asset}/>
-    case 'arrow1' : return <Arrow1 asset={this.props.asset}/>
-    case 'arrow2' : return <Arrow2 asset={this.props.asset}/>
-    case 'arrow3' : return <Arrow3 asset={this.props.asset}/>
-    case 'arrow4' : return <Arrow4 asset={this.props.asset}/>
-    case 'arrow5' : return <Arrow5 asset={this.props.asset}/>
-    case 'arrow6' : return <Arrow6 asset={this.props.asset}/>
-    case 'arrow7' : return <Arrow7 asset={this.props.asset}/>
-    case 'arrow8' : return <Arrow8 asset={this.props.asset}/>
-    default: return <Square asset={this.props.asset}/>
+    let assetTag = Square
+    switch(this.props.value){
+    case 'square' :
+      assetTag = Square
+      break;
+    case 'roundSquare' :
+      assetTag = RoundSquare
+      break;
+    case 'ellipse' :
+      assetTag = Ellipse
+      break;
+    case 'triangle' :
+      assetTag = Triangle
+      break;
+    case 'diamond' :
+      assetTag = Diamond
+      break;
+    case 'pentagon' :
+      assetTag = Pentagon
+      break;
+    case 'hexagon' :
+      assetTag = Hexagon
+      break;
+    case 'octagon' :
+      assetTag = Octagon
+      break;
+    case 'star' :
+      assetTag = Star
+      break;
+    case 'heart' :
+      assetTag = Heart
+      break;
+    case 'moon' :
+      assetTag = Moon
+      break;
+    case 'spade' :
+      assetTag = Spade
+      break;
+    case 'clover' :
+      assetTag = Clover
+      break;
+    case 'stain' :
+      assetTag = Stain
+      break;
+    case 'arrow1' :
+      assetTag = Arrow1
+      break;
+    case 'arrow2' :
+      assetTag = Arrow2
+      break;
+    case 'arrow3' :
+      assetTag = Arrow3
+      break;
+    case 'arrow4' :
+      assetTag = Arrow4
+      break;
+    case 'arrow5' :
+      assetTag = Arrow5
+      break;
+    case 'arrow6' :
+      assetTag = Arrow6
+      break;
+    case 'arrow7' :
+      assetTag = Arrow7
+      break;
+    case 'arrow8' :
+      assetTag = Arrow8
+      break;
     }
+    const ShapeAsset = assetTag;
+    return (
+      <div style={{'cursor':'move'}}>
+        <ShapeAsset attrs={this.props.attrs}/>
+      </div>
+    )
   }
 }
 export default ShapeAsset;

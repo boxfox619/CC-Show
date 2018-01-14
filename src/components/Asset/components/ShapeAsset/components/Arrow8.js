@@ -1,5 +1,8 @@
 import React from 'react';
 
+const propTypes = {
+  attrs: React.PropTypes.object.isRequired
+}
 class Arrow8 extends React.Component{
     render() {
         return (
@@ -15,6 +18,6 @@ class Arrow8 extends React.Component{
            </svg>
         )
     }
-} 
+}
 
 export default Arrow8;

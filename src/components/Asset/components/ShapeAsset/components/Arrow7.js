@@ -1,5 +1,8 @@
 import React from 'react';
 
+const propTypes = {
+  attrs: React.PropTypes.object.isRequired
+}
 class Arrow7 extends React.Component{
     render() {
         return (
@@ -12,9 +15,9 @@ class Arrow7 extends React.Component{
            <g transform="translate(0.000000,7.000000) scale(0.100000,-0.100000)"
            fill="#000000" stroke="none">
            </g>
-           </svg>   
+           </svg>
         )
     }
-} 
+}
 
 export default Arrow7;

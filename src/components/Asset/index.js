@@ -56,6 +56,7 @@ class Asset extends React.Component{
         break;
       case assetTypes.TYPE_SHAPE:
         assetTag=ShapeAsset;
+        attrs = this.props.attribute;
         break;
       case assetTypes.TYPE_TABLE:
         assetTag = TableAsset;
@@ -102,7 +103,7 @@ class Asset extends React.Component{
       return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
       <div style={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'padding': '6px', 'position': 'absolute'}} >
         {renderSelectorLine()}
-        <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} attrs={attrs} value={this.props.attribute.value} asset={this.props.attribute}/>
+        <AssetContext handleChange={this.handleInputChange} styles={{'width': this.getContextWidth(), 'height': this.getContextHeight(),'overflow':'hidden', 'cursor' : 'move', ...this.getClearStyle()}} attrs={attrs} value={this.props.attribute.value}/>
         {renderSelectorDot()}
       </div>
       </asset>);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as actions from 'services/editor/asset/actions';
+import * as actions from 'services/editor/asset/shape/actions';
 import ControllerHeader from '../controllerHeader';
 
 import { bindActionCreators } from 'redux';
