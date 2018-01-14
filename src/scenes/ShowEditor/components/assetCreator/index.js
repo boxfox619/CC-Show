@@ -2,7 +2,6 @@ import React from 'react';
 import ClickableButton from './clickableButton';
 
 import styles from './style.css';
-import domtoimage from 'dom-to-image';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -11,10 +10,6 @@ import * as assetsActions from 'services/editor/asset/actions';
 import * as slideActions from 'services/editor/slide/actions';
 import * as assetTypes from 'services/editor/asset/assetTypes';
 import * as uiActions from 'services/ui/actions';
-
-function filter (node) {
-    return (node.tagName !== 'SELECTORLINE'&&node.tagName !== 'SELECTORDOT');
-}
 
 class AssetCreator extends React.Component{
 
@@ -32,8 +27,6 @@ class AssetCreator extends React.Component{
          { icon : 'slidePreview', onClick : this.showSlidePreview},
          { icon : 'slideController', onClick : this.showSlideController}
        ];
-       this.updateThumbnailSlide = this.updateThumbnailSlide.bind(this);
-       this.doJob = this.doJob.bind(this);
   }
 
   render(){
@@ -50,37 +43,19 @@ class AssetCreator extends React.Component{
         </div>
       </div>
       <span className={styles.hr}/>
-      <ClickableButton name={'텍스트'} onClick={()=>this.doJob(()=>this.createAsset(assetTypes.TYPE_TEXT))} />
-      <ClickableButton name={'이미지'} onClick={()=>this.doJob(()=>this.createAsset(assetTypes.TYPE_IMAGE))} />
-      <ClickableButton name={'비디오'} onClick={()=>this.doJob(()=>this.createAsset(assetTypes.TYPE_VIDEO))} />
-      <ClickableButton name={'도형'} onClick={()=>this.doJob(()=>this.createAsset(assetTypes.TYPE_SHAPE))} />
-      <ClickableButton name={'표'} onClick={()=>this.doJob(()=>this.createAsset(assetTypes.TYPE_TABLE))} />
-      <ClickableButton name={'기타'} onClick={()=>this.doJob(()=>this.props.toggleAssetStore())} />
+      <ClickableButton name={'텍스트'} onClick={()=>this.createAsset(assetTypes.TYPE_TEXT)} />
+      <ClickableButton name={'이미지'} onClick={()=>this.createAsset(assetTypes.TYPE_IMAGE)} />
+      <ClickableButton name={'비디오'} onClick={()=>this.createAsset(assetTypes.TYPE_VIDEO)} />
+      <ClickableButton name={'도형'} onClick={()=>this.createAsset(assetTypes.TYPE_SHAPE)} />
+      <ClickableButton name={'표'} onClick={()=>this.createAsset(assetTypes.TYPE_TABLE)} />
+      <ClickableButton name={'기타'} onClick={()=>this.props.toggleAssetStore()} />
       <span className={styles.hr}/>
-      <ClickableButton name={'슬라이드 리스트'} onClick={()=>this.doJob(()=>this.props.toggleSlideManager())} />
-      <ClickableButton name={'슬라이드 쇼'} onClick={()=>this.doJob(()=>this.props.toggleSlideShow())} />
+      <ClickableButton name={'슬라이드 리스트'} onClick={()=>this.props.toggleSlideManager()} />
+      <ClickableButton name={'슬라이드 쇼'} onClick={()=>this.props.toggleSlideShow()} />
       </div>
       <div className={styles.logo}/>
       </div>
     );
-  }
-
-  doJob(func){
-    this.updateThumbnailSlide();
-    func();
-  }
-
-  updateThumbnailSlide(){
-      let node = document.getElementsByTagName('scanvas')[0];
-      let self = this;
-      let currentSilde = this.props.currentSilde;
-      domtoimage.toPng(node, {filter: filter})
-      .then(function (dataUrl) {
-          self.props.updateThumbnailSlide(currentSilde, dataUrl);
-      })
-      .catch(function (error) {
-          console.error(error);
-      });
   }
 
   showSlideController(){
@@ -105,8 +80,7 @@ const mapStateToProps = (state) => {
   return {
     name: state.account.name,
     email: state.account.email,
-    profile: state.account.profile,
-    currentSilde: state.editor.selectedSlide
+    profile: state.account.profile
   }
 }
 

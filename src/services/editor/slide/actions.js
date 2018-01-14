@@ -70,7 +70,7 @@ export const selectSlide = (target) =>{
   }
 }
 
-export const updateThumbnailSlide = (target, thumbnail) => {
+export const updateSlideThumbnail = (target, thumbnail) => {
   return {
     type: actionTypes.SLIDE_SET_THUMBNAIL,
     target,

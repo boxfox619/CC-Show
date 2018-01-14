@@ -6,10 +6,10 @@ import SlideManager from './components/slideManager';
 import AssetStore from 'components/dialogs/assetStore';
 import ColorPicker from 'components/dialogs/colorPicker';
 import SlideShow from './components/slideShow';
-
 import ProgressDialog from 'components/progressDialog';
-
 import dialogs from 'services/ui/dialogs';
+
+import domtoimage from 'dom-to-image';
 
 import * as assetActions from 'services/editor/asset/actions';
 import * as assetAttrActions from 'services/editor/asset/attr/actions';
@@ -112,7 +112,7 @@ class ShowEditor extends React.Component{
     let _self = this;
     this.timeoutId = setTimeout(function () {
       _self.uploadShowData();
-    }, 3000);
+    }, 1000);
   }
 
   handleClick(event){
@@ -134,12 +134,27 @@ class ShowEditor extends React.Component{
   }
 
   uploadShowData(){
-    if(this.state.showId!=undefined){
-      this.props.toggleProgressDialog();
-      showApi.upload(this.state.showId, this.props.showData, function(response){
-        this.props.toggleProgressDialog();
+    console.log('upload show data');
+      let filter = (node) => {
+          return (node.tagName !== 'SELECTORLINE'&&node.tagName !== 'SELECTORDOT');
+      }
+      let node = document.getElementsByTagName('scanvas')[0];
+      let _self = this;
+      let currentSilde = this.props.currentSilde;
+      domtoimage.toPng(node, {filter: filter})
+      .then(function (dataUrl) {
+          _self.props.updateSlideThumbnail(currentSilde, dataUrl);
+
+        if(_self.state.showId!=undefined){
+          _self.props.toggleProgressDialog();
+          showApi.upload(this.state.showId, _self.props.showData, function(response){
+            _self.props.toggleProgressDialog();
+          });
+        }
+      })
+      .catch(function (error) {
+          console.error(error);
       });
-    }
   }
 }
 
@@ -147,7 +162,8 @@ const mapStateToProps = (state) => {
   return {
     dialog: state.ui.dialog,
     visibleSlideManager: state.ui.visibleSlideManager,
-    showData: state.editor
+    showData: state.editor,
+    currentSilde: state.editor.selectedSlide
   }
 }
 
