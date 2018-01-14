@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const uploadImage = (data, callback) =>{
   let result = {'result' : false};
   axios.post('/assets/image', {data}).then(response => {

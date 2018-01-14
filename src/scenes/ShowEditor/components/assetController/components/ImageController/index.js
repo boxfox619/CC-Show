@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as assetsActions from 'services/editor/asset/actions';
+import * as imageActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';
-
-import axios from 'axios';
 
 import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
 
 import ControllerHeader from '../controllerHeader';
-import Request from './services/request';
+import * as Request from './services/request';
 
 class ImageController extends React.Component{
     constructor(prop) {
@@ -46,13 +45,14 @@ class ImageController extends React.Component{
 
     loadImage(){
       var fr = new FileReader();
+      let _self = this;
       fr.onload = (e)=> {
         let data = e.target.result;
         this.props.toggleProgressDialog();
         Request.uploadImage(data, function(response){
           if(response.result == true)
-            this.props.setAssetImage(response.data);
-          this.props.toggleProgressDialog();
+            _self.props.setAssetValue(_self.props.selectedAsset.id, response.data);
+          _self.props.toggleProgressDialog();
         })
       };
       var inputElement = document.createElement("input");
@@ -66,16 +66,20 @@ class ImageController extends React.Component{
 
     setUrl(event) {
         let {value}=event.target;
-        this.props.setAssetImage(value);
+        this.props.setAssetValue(this.props.selectedAsset.id, this.props.value);
     }
 }
 
 const mapStateToProps = (state) => {
+  let currentSlide = state.editor.slides[state.editor.selectedSlide];
+  let selectedAssetIndex = currentSlide.selectedAsset;
+  let selectedAsset = currentSlide.assets[selectedAssetIndex];
     return {
+      selectedAsset
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...actions, ...uiActions }, dispatch);
+    return bindActionCreators({ ...assetsActions, ...uiActions }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ImageController);
