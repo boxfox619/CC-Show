@@ -2,7 +2,8 @@ export const actionTypes = {
   ASSET_SET_VIDEO_URL: 'ASSET_SET_VIDEO_URL',
   ASSET_SET_VIDEO_CONTROLLER: 'ASSET_SET_VIDEO_CONTROLLER',
   ASSET_SET_VIDEO_AUTOPLAY: 'ASSET_SET_VIDEO_AUTOPLAY',
-  ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP'
+  ASSET_SET_VIDEO_LOOP: 'ASSET_SET_VIDEO_LOOP',
+  TOGGLE_VIDEO_PREVIEW: 'TOGGLE_VIDEO_PREVIEW'
 };
 
 export function setAssetVideoURL(url) {
@@ -27,5 +28,11 @@ export function setAssetVideoAutoplay() {
 export function setAssetVideoLoop() {
   return {
     type: actionTypes.ASSET_SET_VIDEO_LOOP
+  }
+}
+
+export function toggleVideoPreview(){
+  return {
+    type: actionTypes.TOGGLE_VIDEO_PREVIEW
   }
 }

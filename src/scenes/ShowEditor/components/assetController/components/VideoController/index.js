@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from 'services/editor/asset/actions';
+import * as actions from 'services/editor/asset/video/actions';
 
 import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
@@ -16,8 +16,6 @@ class VideoController extends React.Component {
             video_arrow_down:true
         };
 
-        this.videoOn=this.videoOn.bind(this);
-        this.videoOff=this.videoOff.bind(this);
         this.setUrl=this.setUrl.bind(this);
         this.togglePreview = this.togglePreview.bind(this);
     }
@@ -44,7 +42,7 @@ class VideoController extends React.Component {
     togglePreview(){
       this.props.toggleVideoPreview();
     }
-    
+
     setUrl(event) {
         let {value}=event.target;
         this.props.setAssetVideoURL(value);

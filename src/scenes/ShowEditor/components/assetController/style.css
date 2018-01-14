@@ -45,7 +45,7 @@
 }
 
 .URL_controller {
-    width: 278px;
+  width: 90%;
     height: 20px;
     margin:0;
     display: table;
@@ -58,7 +58,7 @@
 }
 
 .video_preview_toggle{
-  width: 270px;
+  width: 90%;
   color: #5a84b3;
   padding-top: 5px;
   text-align: center;
@@ -114,7 +114,7 @@
   font-family: NanumSquareEB;
 }
 
-.attribute_item_title img{
+. item_title img{
   cursor: pointer;
 }
 
