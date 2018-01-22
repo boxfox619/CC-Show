@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import update from 'react-addons-update';
 import AssetItem from './components/assetItem';
 import ActionItem from './components/actionItem';
-import axios from 'axios';
 
 import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';
@@ -49,7 +48,7 @@ class AssetStore extends React.Component{
 
     let renderActionItem = () => {
       if(this.state.activeTab==tabs.length-1){
-        return (<ActionItem img={'/images/ic_add_white.png'} text={'새 에셋 만들기'} onClick={()=>this.props.toggleAssetEditor()}/>);
+        return (<ActionItem img={'/images/ic_add_white.png'} text={'새 에셋 만들기'} onClick={()=>window.open("/editor/asset", "_blank")}/>);
       }
     }
 
@@ -92,17 +91,19 @@ class AssetStore extends React.Component{
   }
 
   loadItems(filter){
+    let _self = this;
     Request.load(filter, function(response){
-      this.setState({
-        ...this.state,
+      _self.setState({
+        ..._self.state,
         assets: response.data
       });
     });
   }
 
   deleteAsset(assetID){
+    let _self = this;
     Request.deleteAsset(assetID, function(result){
-      this.loadItems(tabs[this.state.activeTab].filter);
+      _self.loadItems(tabs[_self.state.activeTab].filter);
     })
   }
 

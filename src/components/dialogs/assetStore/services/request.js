@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const load = (filter, callback) => {
   let result = {'result' : true};
   axios.get('/store/assets?filter='+filter).then(response => {
