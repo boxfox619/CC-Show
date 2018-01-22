@@ -1,3 +1,32 @@
+.title{
+  width: 100%;
+  font-size : 17px;
+  color : #5D87B5;
+  font-weight : bold;
+  vertical-align: middle;
+  display: table;
+  padding: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid;
+  margin-bottom: 25px;
+}
+
+.title:before {
+  content: "";
+  display: table-cell;
+  vertical-align: middle;
+  width: 15px;
+  height: 1px;
+  background: url("/images/ic_ellipse_gray.png");
+  background-size:     contain;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+.title > div{
+  margin-left: 10px;
+}
+
 .items {
     height: 100%;
     width: 90%;

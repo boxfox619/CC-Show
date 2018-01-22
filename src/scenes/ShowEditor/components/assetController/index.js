@@ -18,60 +18,63 @@ class AssetController extends React.Component {
         super(prop);
     }
     renderController(selectedAsset) {
-            switch (this.props.selectedAsset.type) {
-                case actions.TYPE_TEXT:
-                    return(
-                            <TextController font = {this.props.selectedAsset.style['font-family']}
-                                            fontSize = {parseInt(this.props.selectedAsset.style['font-size'])}
-                                            sort = {this.props.selectedAsset.style['text-align']}
-                                            bold = {this.props.selectedAsset.style['font-weight']}
-                                            underline = {this.props.selectedAsset.style['text-decoration']}
-                                            italic = {this.props.selectedAsset.style['font-style']}
-                                            strikethrough = {this.props.selectedAsset.style['text-decoration']}
-                                            textColor = {this.props.selectedAsset.style.color}
-                                            textCharacterSpacing={parseInt(this.props.selectedAsset.style['letter-spacing'])}
-                                            textLineSpacing={this.props.selectedAsset.style['line-height']}/>
-                    )
-                case actions.TYPE_VIDEO:
-                    return(
-                            <VideoController url = {this.props.selectedAsset.value} preview={this.props.selectedAsset.preview} />
-                    )
-                case actions.TYPE_SHAPE:
-                    return(
-                            <ShapeController shape={this.props.selectedAsset.value} />
-                    )
-                case actions.TYPE_IMAGE:
-                    return(
-                            <ImageController img_url = {this.props.selectedAsset.url}/>
-                    )
-
-                case actions.TYPE_CUSTOM:
-                    return;
-            }
+      let renderSubController = () => {
+              switch (selectedAsset.type) {
+                  case actions.TYPE_TEXT:
+                      return(
+                              <TextController font = {selectedAsset.style['font-family']}
+                                              fontSize = {parseInt(selectedAsset.style['font-size'])}
+                                              sort = {selectedAsset.style['text-align']}
+                                              bold = {selectedAsset.style['font-weight']}
+                                              underline = {selectedAsset.style['text-decoration']}
+                                              italic = {selectedAsset.style['font-style']}
+                                              strikethrough = {selectedAsset.style['text-decoration']}
+                                              textColor = {selectedAsset.style.color}
+                                              textCharacterSpacing={parseInt(selectedAsset.style['letter-spacing'])}
+                                              textLineSpacing={selectedAsset.style['line-height']}/>
+                      )
+                  case actions.TYPE_VIDEO:
+                      return(
+                              <VideoController url = {selectedAsset.value} preview={selectedAsset.preview} />
+                      )
+                  case actions.TYPE_SHAPE:
+                      return(
+                              <ShapeController shape={selectedAsset.value} />
+                      )
+                  case actions.TYPE_IMAGE:
+                      return(
+                              <ImageController img_url = {selectedAsset.url}/>
+                      )
+                  case actions.TYPE_CUSTOM:
+                      return;
+              }
+      };
+      if(!!selectedAsset)
+      return (
+        <div>
+          {renderSubController(selectedAsset)}
+        <BasicController width = {parseInt(selectedAsset.width)}
+                         height = {parseInt(selectedAsset.height)}
+                         x = {parseInt(selectedAsset.x)}
+                         y = {parseInt(selectedAsset.y)}
+                         angle = {parseInt(selectedAsset.angle)}
+                         fillColor = {selectedAsset.style['background-color']}
+                         borderColor = {selectedAsset.style['border-color']}
+                         borderWeight = {parseInt(selectedAsset.style['border-width'])}
+                         style = {selectedAsset.style}/>
+        </div>
+      )
     }
 
     render() {
-        if(!!(this.props.selectedAsset)){
-            return(
-                <div className={this.props.className}>
-                    {this.renderController(this.props.selectedAsset)}
-                    <BasicController width = {parseInt(this.props.selectedAsset.width)}
-                                     height = {parseInt(this.props.selectedAsset.height)}
-                                     x = {parseInt(this.props.selectedAsset.x)}
-                                     y = {parseInt(this.props.selectedAsset.y)}
-                                     angle = {parseInt(this.props.selectedAsset.angle)}
-                                     fillColor = {this.props.selectedAsset.style['background-color']}
-                                     borderColor = {this.props.selectedAsset.style['border-color']}
-                                     borderWeight = {parseInt(this.props.selectedAsset.style['border-width'])}
-                                     style = {this.props.selectedAsset.style}/>
-                </div>
-            )
-        }else{
-            return(
-                <div className={this.props.className}>
-                </div>
-            )
-        }
+      return(
+          <div className={this.props.className}>
+            <div className={styles.title}>
+              <div>Asset Controller</div>
+            </div>
+              {this.renderController(this.props.selectedAsset)}
+          </div>
+      )
     }
 }
 

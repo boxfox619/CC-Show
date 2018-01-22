@@ -5,6 +5,7 @@ body {
   width: 100%;
   height: 100vh;
   font-family: 'NanumSquare', sans-serif;
+  overflow: hidden;
 }
 
 asset {
