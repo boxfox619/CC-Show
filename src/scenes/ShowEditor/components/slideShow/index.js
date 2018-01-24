@@ -52,7 +52,7 @@ class SlideShow extends React.Component{
                                 <img onClick={()=>this.doSlide(+1)} className={styles.next_slide+' '+styles.slideController} src="/images/ic_arrow_right_small.png"/>
                             </div>
                             <div className={styles.slideOptionButton}>
-                              <img src="/images/ic_fullscreen.png"/>
+                              <img src="/images/ic_fullscreen.png" onClick={()=>window.open("/show/play/?show="+this.props.showId, "_blank")}/>
                               <img src="/images/ic_slide_show.png"/>
                             </div>
                         </div>
@@ -82,7 +82,8 @@ class SlideShow extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    slides: state.editor.slides
+    slides: state.editor.slides,
+    showId: state.editor.showId
   }
 }
 

@@ -85,7 +85,7 @@ class ShowEditor extends React.Component{
       showApi.load(function(response){
         if(response.result == true){
           this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
-          this.props.initShowData(response.data.showData);
+          this.props.initShowData(showId,response.data.showData);
           this.setState({showId});
         }
           this.props.toggleProgressDialog();

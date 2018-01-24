@@ -123,7 +123,8 @@ export default function(state, action){
       };
       case actionTypes.INIT_SHOW_DATA:
       return {
-        ...action.data
+        ...action.data,
+          showId: action.showId
       }
     default:
       return state

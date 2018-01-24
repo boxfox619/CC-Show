@@ -86,9 +86,10 @@ export const exchangeSlide = (to, from) => {
   }
 }
 
-export const initShowData = (data) =>{
+export const initShowData = (showId, data) =>{
   return {
     type: actionTypes.INIT_SHOW_DATA,
+    showId,
     data
   }
 }
