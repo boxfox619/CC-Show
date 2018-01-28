@@ -21,7 +21,11 @@ class AssetStore extends React.Component{
   constructor(props){
     super(props);
 
-    this.state = {activeTab: 0, assets:[]}
+    this.state = {
+      activeTab: 0,
+      selectedAsset: undefined,
+      assets:[]}
+
     this.selectTab = this.selectTab.bind(this);
     this.getActiveTab = this.getActiveTab.bind(this);
     this.loadItems = this.loadItems.bind(this);
@@ -42,13 +46,28 @@ class AssetStore extends React.Component{
 
     let renderAssetItems = (assets) =>{
       return assets.map((asset)=>{
-        return (<AssetItem key={'assetitem'+asset.id} deleteAsset={()=>this.deleteAsset(asset.id)} useAsset={()=>this.useAsset(asset.id)} id={asset.id} title={asset.title} subTitle={asset.user} star={asset.star} thumbnail={asset.thumbnail}/>)
+        return (<AssetItem key={'assetitem'+asset.id} deleteAsset={()=>this.deleteAsset(asset.id)} onClick={()=>this.previewAsset(asset.id)} useAsset={()=>this.useAsset(asset.id)} id={asset.id} title={asset.title} subTitle={asset.user} star={asset.star} thumbnail={asset.thumbnail}/>)
       });
     }
 
     let renderActionItem = () => {
       if(this.state.activeTab==tabs.length-1){
         return (<ActionItem img={'/images/ic_add_white.png'} text={'새 에셋 만들기'} onClick={()=>window.open("/editor/asset", "_blank")}/>);
+      }
+    }
+
+    let renderContents = (assets) => {
+      if(!!this.state.selectedAsset){
+        return (
+          asdasd
+        )
+      }else{
+        return (
+          <div>
+            {renderAssetItems(assets)}
+            {renderActionItem()}
+          </div>
+        )
       }
     }
 
@@ -62,12 +81,15 @@ class AssetStore extends React.Component{
         </header>
         <content>
           <div style={{'padding': '20px 2.5%'}}>
-            {renderAssetItems(this.state.assets)}
-            {renderActionItem()}
+            {renderContents(this.state.assets)}
           </div>
         </content>
       </div>
     );
+  }
+
+  previewAsset(id){
+    this.setState({selectedAsset:id});
   }
 
   useAsset(id){
@@ -84,6 +106,7 @@ class AssetStore extends React.Component{
     this.setState(
       {
         ...this.state,
+        selectedAsset: undefined,
         activeTab: index
       }
     );
