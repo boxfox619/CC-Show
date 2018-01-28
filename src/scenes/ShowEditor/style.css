@@ -152,6 +152,7 @@ body::-webkit-scrollbar-thumb
 .contextWrap::-webkit-scrollbar
 {
 	width: 5px;
+  height: 5px;
 	background-color: #ffffff;
 }
 
