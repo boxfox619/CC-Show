@@ -9,7 +9,7 @@ import styles from './style.css';
 import assetEditorApi from './services/api';
 
 import CodeEditor from './components/CodeEditor';
-import Title from './components/Title';
+import TextInput from './components/textInput';
 import Toggle from './components/Toggle';
 
 
@@ -40,7 +40,8 @@ class AssetEditor extends React.Component{
     return (
       <div style={{'marginTop':headerHeight}} ref={root => {this.root = root}}>
       <div className={styles.attribute_editor}>
-        <Title title={this.state.title} onChange={this.titleHandle}/>
+        <TextInput label={'제목'} text={this.state.title} onChange={this.titleHandle}/>
+        <TextInput label={'태그'} text={this.state.title} onChange={this.titleHandle}/>
         <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
       </div>
         <CodeEditor
