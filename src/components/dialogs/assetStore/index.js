@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import update from 'react-addons-update';
 import AssetItem from './components/assetItem';
 import ActionItem from './components/actionItem';
+import AssetDetail from './components/assetDetail';
 
 import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';
@@ -57,10 +58,8 @@ class AssetStore extends React.Component{
     }
 
     let renderContents = (assets) => {
+      return (<AssetDetail id={this.state.selectedAsset}/>)
       if(!!this.state.selectedAsset){
-        return (
-          asdasd
-        )
       }else{
         return (
           <div>

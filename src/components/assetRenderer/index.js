@@ -7,7 +7,7 @@ const propTypes = {
   assets : React.PropTypes.array.isRequired,
   onModified : React.PropTypes.func.isRequired,
   selectedAsset : React.PropTypes.number,
-  currentSlide : React.PropTypes.number,
+  currentSlide : React.PropTypes.number.isRequired,
   assetSelected : React.PropTypes.func.isRequired,
   assetDeselected : React.PropTypes.func.isRequired,
   setAssetXY : React.PropTypes.func.isRequired,
@@ -18,7 +18,8 @@ const propTypes = {
 
 const defaultProps = {
   className : '',
-  currentSlide : 0
+  currentSlide : 0,
+  onModified : ()=>{}
 }
 
 function getAssetNode(parent, child) {

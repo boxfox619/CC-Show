@@ -11,7 +11,8 @@ const propTypes = {
   subTitle: React.PropTypes.string.isRequired,
   star: React.PropTypes.number.isRequired,
   thumbnail: React.PropTypes.string.isRequired,
-  useAsset: React.PropTypes.func.isRequired
+  useAsset: React.PropTypes.func.isRequired,
+  onClick: React.PropTypes.func.isRequired
 }
 
 class AssetItem extends React.Component{
