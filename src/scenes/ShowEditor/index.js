@@ -17,7 +17,7 @@ import * as uiActions from 'services/ui/actions';
 import * as slideActions from 'services/editor/slide/actions';
 import * as accountActions from 'services/account/actions';
 
-import * as showApi from 'services/editor/api';
+import * as showApi from './services/api';
 
 import { bindActionCreators } from 'redux';
 
@@ -77,20 +77,16 @@ class ShowEditor extends React.Component{
 
   componentDidMount(){
     window.addEventListener("keydown", this.handleKeyDown, true);
-    window.addEventListener("beforeunload", this.onUnload)
-    var url = new URL(window.location.href);
-    var showId = url.searchParams.get("show");
-    if(showId != null){
-      this.props.toggleProgressDialog();
-      showApi.load(function(response){
-        if(response.result == true){
-          this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
-          this.props.initShowData(showId,response.data.showData);
-          this.setState({showId});
-        }
-          this.props.toggleProgressDialog();
-      });
-    }
+    window.addEventListener("beforeunload", this.onUnload);
+    this.props.toggleProgressDialog();
+    showApi.load(function(response){
+      if(response.result == true){
+        this.props.updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile);
+        this.props.initShowData(response.showId, response.data.showData);
+        this.setState({ showId : response.showId });
+      }
+        this.props.toggleProgressDialog();
+    }.bind(this));
   }
 
   componentWillUnmount(){
@@ -134,7 +130,6 @@ class ShowEditor extends React.Component{
   }
 
   uploadShowData(){
-    console.log('upload show data');
       let filter = (node) => {
           return (node.tagName !== 'SELECTORLINE'&&node.tagName !== 'SELECTORDOT');
       }
@@ -147,7 +142,7 @@ class ShowEditor extends React.Component{
 
         if(_self.state.showId!=undefined){
           _self.props.toggleProgressDialog();
-          showApi.upload(this.state.showId, _self.props.showData, function(response){
+          showApi.upload(_self.state.showId, _self.props.showData, function(response){
             _self.props.toggleProgressDialog();
           });
         }
