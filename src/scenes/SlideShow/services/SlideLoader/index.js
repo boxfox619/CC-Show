@@ -1,13 +1,16 @@
+import * as assetTypes from 'services/editor/asset/assetTypes';
+import axios from 'axios';
 
 export const load = (callback) => {
   var url = new URL(window.location.href);
   var showId = url.searchParams.get("show");
   if(showId != null){
-    axios.post('/show/play/', {showId: showId})
+    axios.post('/show/play/', {showId})
     .then(response => {
       callback(response.data);
     })
     .catch(e =>{
+      console.log(e);
       callback();
     });
   }

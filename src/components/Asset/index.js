@@ -45,7 +45,7 @@ class Asset extends React.Component{
       case assetTypes.TYPE_TEXT:
         assetTag = TextAsset;
         controllerVisible = (controllerVisible&&this.props.doubleClicked)? false:controllerVisible;
-        attrs = {edit: this.props.isSelected&&this.props.controlable&&this.props.doubleClicked, id: this.props.attribute.id+'_editor'};
+        attrs = {edit: this.props.isSelected&&this.props.doubleClicked, controlable: this.props.controlable, id: this.props.attribute.id+'_editor'};
         break;
       case assetTypes.TYPE_IMAGE:
         assetTag = ImageAsset;

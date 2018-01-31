@@ -1,13 +1,12 @@
 import React from 'react';
 
-import * as assetTypes from 'services/editor/asset/assetTypes';
-
 import Asset from '../../components/Asset';
 
 import styles from './style.css';
 
 import axios from 'axios';
 
+import * as DomController from './services/dom';
 import * as Loader from './services/SlideLoader'
 
 
@@ -54,20 +53,13 @@ class SlideShow extends React.Component{
   }
 
   componentDidMount(){
-    window.addEventListener("keydown", this.handleKeyDown, true);
-    window.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    }, false);
-    document.oncontextmenu = function () {
-      return false;
-    };
+    DomController.initSlideShow.bind(this);
     Loader.load(function(slides){
       if(slides){
         this.setState({slides})
       }else{
-        // 실패
       }
-    })
+    }.bind(this))
   }
 
   handleKeyDown(e){

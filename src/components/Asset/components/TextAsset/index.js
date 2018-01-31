@@ -22,7 +22,7 @@ class TextAsset extends React.Component{
       }
     }
     return (
-      <div id={this.props.attrs.id} name={this.props.attrs.id} contentEditable={true} style={{...styleObj, 'width': '100%','height':'100%'}} dangerouslySetInnerHTML={{__html: this.props.value}}>
+      <div id={this.props.attrs.id} name={this.props.attrs.id} contentEditable={this.props.attrs.controlable} style={{...styleObj, 'width': '100%','height':'100%'}} dangerouslySetInnerHTML={{__html: this.props.value}}>
       </div>
     )
   }
@@ -38,17 +38,19 @@ class TextAsset extends React.Component{
 
   componentDidMount(){
     let config = {toolbar: [
-		{ name: 'styles', items: [ 'Font', 'FontSize' ] },
-		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike'] },
-		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
-		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] }
-	]};
-    let instance = CKEDITOR.inline(this.props.attrs.id, config);
-    instance.on("change", function() {
-        let data = instance.getData();
-        this.props.handleChange(data);
-    }.bind(this));
-    CKEDITOR.disableAutoInline = true;
+  		{ name: 'styles', items: [ 'Font', 'FontSize' ] },
+  		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike'] },
+  		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+  		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] }
+	  ]};
+    if(this.props.attrs.controlable && typeof CKEDITOR !== 'undefined'){
+      let instance = CKEDITOR.inline(this.props.attrs.id, config);
+      instance.on("change", function() {
+          let data = instance.getData();
+          this.props.handleChange(data);
+      }.bind(this));
+      CKEDITOR.disableAutoInline = true;
+    }
   }
 }
 
