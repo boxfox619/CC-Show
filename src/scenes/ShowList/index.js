@@ -5,7 +5,7 @@ import styles from './style.css';
 import Dialog from './components/Dialog';
 
 import ShowItem  from './components/ShowItem';
-import Request from './services/request'
+import * as Request from './services/request';
 
 
 class ShowListContext extends React.Component{
@@ -52,7 +52,7 @@ class ShowListContext extends React.Component{
       return <Dialog msg={msg} text={this.state.text} callback={this.dialogCallback}/>
     }
     return (
-      <div style={{'margin-top':headerHeight}} className={styles.context}>
+      <div style={{'marginTop':headerHeight}} className={styles.context}>
         <div className={styles.showlist}>{renderShowList(this.state.showList)}</div>
         {renderShowDialog(this.state.job)}
       </div>
@@ -60,9 +60,10 @@ class ShowListContext extends React.Component{
   }
 
   updateShowList(){
+    let _self = this;
     Request.loadShowList(function(response){
       if(response.result)
-        this.setState({showList : response.data});
+        _self.setState({showList : response.data});
     });
   }
 
@@ -72,13 +73,14 @@ class ShowListContext extends React.Component{
   }
 
   dialogCallback(result){
+    let _self = this;
     if(this.state.job=='share'){
       this.setState({text: undefined});
     }else
     if(result!=undefined&&result.length>0){
       Request.createShow(result, function(response){
         if(response.result)
-          this.updateShowList();
+          _self.updateShowList();
       });
     }
     this.setState({job: undefined});
@@ -102,9 +104,10 @@ class ShowListContext extends React.Component{
   }
 
   deleteShow(id){
-    Request.deleteShow(function(result){
+    let _self = this;
+    Request.deleteShow(id, function(result){
       if(result)
-        this.updateShowList();
+        _self.updateShowList();
     });
   }
 

@@ -23,7 +23,7 @@ export const loadShowList = (callback) =>{
   });
 }
 
-export const deleteShow = (callback) =>{
+export const deleteShow = (id, callback) =>{
   axios.post('/show/delete', {id})
   .then(response => {
     callback(true);
