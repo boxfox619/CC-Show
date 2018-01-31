@@ -9,7 +9,7 @@ class ImageAsset extends React.Component{
 
   render() {
     return (
-      <img style={this.props.styles} src={this.props.value}/>
+      <img style={this.props.styles} onDragStart={(e)=>{e.preventDefault()}} src={this.props.value}/>
     )
   }
 }
