@@ -1,8 +1,4 @@
 import React from 'react';
-import ProgressDialog from 'components/progressDialog';
-import { bindActionCreators } from 'redux';
-import * as assetTypes from 'services/editor/asset/assetTypes';
-import axios from 'axios';
 
 import styles from './style.css';
 

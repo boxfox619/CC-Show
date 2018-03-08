@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, browserHistory, IndexRoute } from 'react-router-dom';
-import Editor from './scenes/ShowEditor';
-import ShowList from './scenes/ShowList';
-import SlideShow from './scenes/SlideShow';
-import AssetEditor from './scenes/AssetEditor';
+import Editor from 'views/ShowEditor';
+import ShowList from 'views/ShowList';
+import SlideShow from 'views/SlideShow';
+import AssetEditor from 'views/AssetEditor';
 import { Provider } from 'react-redux';
 import store from './store';
 
