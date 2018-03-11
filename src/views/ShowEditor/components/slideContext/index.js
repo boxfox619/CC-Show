@@ -12,7 +12,7 @@ import * as assetsTextActions from 'services/editor/asset/text/actions';
 import * as assetsVideoActions from 'services/editor/asset/video/actions';
 
 import SlideTitle from './components/slideTitle';
-import AssetRenderer from 'components/assetRenderer';
+import AssetRenderer from 'components/AssetRenderer';
 
 const propTypes = {
   onModified: React.PropTypes.func.isRequired
@@ -28,13 +28,6 @@ class SlideContext extends React.Component{
     super(props);
 
     this.state = {doubleClicked: false};
-
-    this.mouseAction = 'none';
-    this.xInElement = 0;
-    this.yInElement = 0;
-    this.selectedAsset = undefined;
-    this.resizeTarget = undefined;
-    this.selectedAssetId = undefined;
   }
 
     render(){

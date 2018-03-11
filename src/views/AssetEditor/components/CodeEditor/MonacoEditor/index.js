@@ -2,50 +2,34 @@ import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 
 const propTypes = {
-  codeType : React.PropTypes.string.isRequired,
-  onChange : React.PropTypes.func.isRequired
+    codeType: React.PropTypes.string.isRequired,
+    onChange: React.PropTypes.func.isRequired
 }
 
-class CodeEditor extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            code : ''
-        }
-        this.onChange = this.onChange.bind(this);
+export default function CodeEditor({codeType, onChange}) {
+    const code = this.state.code;
+    const options = {
+        selectOnLineNumbers: true,
+        roundedSelection: false,
+        readOnly: false,
+        cursorStyle: 'line',
+        automaticLayout: false,
+    };
+    const requireConfig = {
+        paths: {'vs': '/vs'}
     }
-    onChange(newValue, e){
-      this.setState({code: newValue});
-      this.props.onChange(newValue);
+
+    const onChange = (newValue, e) => {
+        this.setState({code: newValue});
+        this.props.onChange(newValue);
     }
 
-      editorDidMount(editor){}
-
-      changeEditorValue(){
-      }
-
-      changeBySetState(){
-      }
-
-    render(){
-        const code = this.state.code;
-        const options = {
-            selectOnLineNumbers: true,
-            roundedSelection: false,
-            readOnly: false,
-            cursorStyle: 'line',
-            automaticLayout: false,
-        };
-        const requireConfig = {
-          paths: { 'vs': '/vs' }
-        }
-        return(
-            <MonacoEditor height = "252" width = "110%" language = {this.props.codeType}
-            value = {code} options = {options} onChange = {this.onChange}
-            requireConfig = {requireConfig}
-            editorDidMount = {this.editorDidMount}/>
-        );
-    }
+    return (
+        <MonacoEditor height="252" width="110%" language={codeType}
+                      value={code} options={options} onChange={onChange}
+                      requireConfig={requireConfig}
+                      editorDidMount={this.editorDidMount}/>
+    );
 }
 
-export default CodeEditor;
+CodeEditor.propTypes = propTypes;

@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './style.css';
 import Asset from 'components/Asset';
 
 const propTypes = {
