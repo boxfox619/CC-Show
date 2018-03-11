@@ -19,14 +19,14 @@ export default function CodeEditor({codeType, onChange}) {
         paths: {'vs': '/vs'}
     }
 
-    const onChange = (newValue, e) => {
+    const onChangeHandler = (newValue, e) => {
         this.setState({code: newValue});
-        this.props.onChange(newValue);
+        onChange(newValue);
     }
 
     return (
         <MonacoEditor height="252" width="110%" language={codeType}
-                      value={code} options={options} onChange={onChange}
+                      value={code} options={options} onChange={onChangeHandler}
                       requireConfig={requireConfig}
                       editorDidMount={this.editorDidMount}/>
     );
