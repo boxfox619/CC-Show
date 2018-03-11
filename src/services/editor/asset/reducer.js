@@ -137,6 +137,25 @@ export default function(state, action){
           }
         )
       }
+      case actionTypes.ASSET_SET_ATTRIBUTE:
+          let currentAsset = state.slides[state.selectedSlide].assets[getAssetIndex(state, action.id)];
+          currentAsset[action.attrName] = action.attr;
+        return {
+            ...state,
+            slides: update(
+                state.slides, {
+                    [state.selectedSlide]: {
+                        assets: {
+                            $set: update(
+                                state.slides[state.selectedSlide].assets, {
+                                    [getAssetIndex(state, action.id)]: currentAsset
+                                }
+                            )
+                        }
+                    }
+                }
+            )
+        }
     case actionTypes.ASSET_SELECTED:
     if(state.slides.length>0){
       return {
@@ -290,16 +309,6 @@ function insertItem(array, index, item) {
   let newArray = array.slice();
   newArray.splice(index, 0, item);
   return newArray;
-}
-
-function getSlideIndex(state, key) {
-  let index = -1;
-  state.slides.forEach(function (slide, i) {
-    if (slide.id == key) {
-      index = i;
-    }
-  });
-  return index;
 }
 
 function getAssetIndex(state, key) {

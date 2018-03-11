@@ -6,6 +6,16 @@ const initialState = {
   positionUnit: 'px'
 }
 
+function getSlideIndex(state, key) {
+    let index = -1;
+    state.slides.forEach(function (slide, i) {
+        if (slide.id == key) {
+            index = i;
+        }
+    });
+    return index;
+}
+
 export default function(state, action){
   switch (action.type) {
     case actionTypes.SLIDE_CONTEXT_SET_SIZE_UNIT:

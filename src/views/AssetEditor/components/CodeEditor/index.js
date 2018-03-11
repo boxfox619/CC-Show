@@ -34,6 +34,7 @@ class AssetEditor extends React.Component {
         this.assetDeselected = this.assetDeselected.bind(this);
         this.setAssetXY = this.setAssetXY.bind(this);
         this.setAttributes = this.setAttributes.bind(this);
+        this.getPreviewAsset = this.getPreviewAsset.bind(this);
     }
 
 
@@ -74,7 +75,7 @@ class AssetEditor extends React.Component {
                         </div>
                         <AssetRenderer
                             className={styles.previewArea}
-                            assets={this.previewAsset}
+                            assets={this.getPreviewAsset()}
                             selectedAsset={this.state.selectedAsset}
                             assetSelected={this.assetSelected}
                             assetDeselected={this.assetDeselected}
@@ -126,10 +127,12 @@ class AssetEditor extends React.Component {
         );
     }
 
-    get previewAsset() {
+    getPreviewAsset() {
+        let css = '<style>' + this.props.css + '</style>';
+        let js = '<script>' + this.props.js + '</script>';
         return [{
             ...this.state.previewAsset,
-            value: this.state.css + this.state.html + this.state.js
+            value: css + this.props.html + js
         }];
     }
 }
