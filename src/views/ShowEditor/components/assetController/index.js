@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import * as actions from 'services/editor/asset/assetTypes';
+import * as actions from 'services/editor/asset/actions';
+import * as assetTypes from 'services/editor/asset/assetTypes';
 
 import TextController from './components/textController';
 import VideoController from './components/videoController';
@@ -10,6 +11,7 @@ import ShapeController from './components/shapeController';
 import BasicController from './components/basicController';
 
 import styles from './style.css';
+import {bindActionCreators} from "redux";
 
 // Refactoring
 // controller 틀 중복코드 제거 필요
@@ -21,7 +23,7 @@ class AssetController extends React.Component {
     renderController(selectedAsset) {
         let renderSubController = () => {
             switch (selectedAsset.type) {
-                case actions.TYPE_TEXT:
+                case assetTypes.TYPE_TEXT:
                     return (
                         <TextController font={selectedAsset.style['font-family']}
                                         fontSize={parseInt(selectedAsset.style['font-size'])}
@@ -32,21 +34,24 @@ class AssetController extends React.Component {
                                         strikethrough={selectedAsset.style['text-decoration']}
                                         textColor={selectedAsset.style.color}
                                         textCharacterSpacing={parseInt(selectedAsset.style['letter-spacing'])}
-                                        textLineSpacing={selectedAsset.style['line-height']}/>
+                                        textLineSpacing={selectedAsset.style['line-height']}
+                                        onChangeAttribute = {this.props.setSelectedAssetAttribute}
+                                        onChangeStyle = {this.props.setSelectedAssetStyle}/>
                     )
-                case actions.TYPE_VIDEO:
+                case assetTypes.TYPE_VIDEO:
                     return (
                         <VideoController url={selectedAsset.value} preview={selectedAsset.preview}/>
                     )
-                case actions.TYPE_SHAPE:
+                case assetTypes.TYPE_SHAPE:
                     return (
-                        <ShapeController shape={selectedAsset.value}/>
+                        <ShapeController shape={selectedAsset.value}
+                                         onChangeAttribute = {this.onChangeAttribute}/>
                     )
-                case actions.TYPE_IMAGE:
+                case assetTypes.TYPE_IMAGE:
                     return (
                         <ImageController img_url={selectedAsset.url}/>
                     )
-                case actions.TYPE_CUSTOM:
+                case assetTypes.TYPE_CUSTOM:
                     return;
             }
         };
@@ -63,7 +68,8 @@ class AssetController extends React.Component {
                                      borderColor={selectedAsset.style['border-color']}
                                      borderWeight={parseInt(selectedAsset.style['border-width'])}
                                      style={selectedAsset.style}
-                                     onChangeAttribute = {this.onChangeAttribute}/>
+                                     onChangeAttribute = {this.props.setSelectedAssetAttribute}
+                                     onChangeStyle = {this.props.setSelectedAssetStyle}/>
                 </div>
             )
     }
@@ -79,9 +85,6 @@ class AssetController extends React.Component {
         )
     }
 
-    onChangeAttribute(attrName, attr) {
-        this.props.setSelectedAssetAttribute(attrName, attr);
-    }
 }
 
 const mapStateToProps = (state) => {
@@ -101,4 +104,12 @@ const mapStateToProps = (state) => {
         }
     }
 }
-export default connect(mapStateToProps)(AssetController);
+
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        ...actions
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AssetController);

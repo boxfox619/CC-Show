@@ -12,7 +12,6 @@ import dialogs from 'services/ui/dialogs';
 import domtoimage from 'dom-to-image';
 
 import * as assetActions from 'services/editor/asset/actions';
-import * as assetAttrActions from 'services/editor/asset/attr/actions';
 import * as uiActions from 'services/ui/actions';
 import * as slideActions from 'services/editor/slide/actions';
 import * as accountActions from 'services/account/actions';

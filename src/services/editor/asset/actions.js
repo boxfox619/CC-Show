@@ -9,7 +9,8 @@ export const actionTypes = {
     ASSET_SORT: 'ASSET_SORT',
     ASSET_DELETE: 'ASSET_DELETE',
     ASSET_SET_VALUE: "ASSET_SET_VALUE",
-    ASSET_SET_ATTRIBUTE: "ASSET_SET_ATTRIBUTE"
+    ASSET_SET_ATTRIBUTE: "ASSET_SET_ATTRIBUTE",
+    ASSET_SET_STYLE: "ASSET_SET_STYLE"
 };
 
 export const createAsset = (assetType, value, style = {}) => {
@@ -22,7 +23,14 @@ export const createAsset = (assetType, value, style = {}) => {
 };
 
 export const setSelectedAssetAttribute = (attrName, attr) => {
-    console.log(attrName);
+    return {
+        type: actionTypes.ASSET_SET_ATTRIBUTE,
+        attrName,
+        attr
+    }
+}
+
+export const setSelectedAssetStyle = (styleName, style) => {
     return {
         type: actionTypes.ASSET_SET_ATTRIBUTE,
         attrName,

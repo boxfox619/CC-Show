@@ -1,9 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as assetsActions from 'services/editor/asset/actions';
 
 import styles from './style.css';
 
@@ -16,6 +11,10 @@ function getAssetNode(parent, child) {
          node = node.parentNode;
      }
      return null;
+}
+
+const propTypes = {
+    currentSlide: React.PropTypes.number.isRequired
 }
 
 class ContextMenu extends React.Component {
@@ -75,22 +74,22 @@ class ContextMenu extends React.Component {
     handleOptionClick(event){
       let action = event.target.textContent;
       if(action.includes("붙여넣기")&&!!this.state.copyAsset){
-        this.props.copyAsset(this.state.copyAsset.id, this.state.copyAsset.slide, this.state.x+'px', this.state.y+'px');
+        this.copyAsset(this.state.copyAsset.id, this.state.copyAsset.slide, this.state.x+'px', this.state.y+'px');
       }else if(!!this.state.assetId){
         if(action.includes("복사")){
           this.setState({copyAsset: {id: this.state.assetId, slide: this.props.currentSlide}});
         }else if(action.includes("삭제")){
-          this.props.deleteAsset(this.state.assetId);
+          this.deleteAsset(this.state.assetId);
         }else if(action.includes("잘라내기")){
 
         }else if(action.includes("맨 앞으로 가져오기")){
-          this.props.sortFirstAsset(this.state.assetId);
+          this.sortFirstAsset(this.state.assetId);
         }else if(action.includes("앞으로 가져오기")){
-          this.props.sortFrontAsset(this.state.assetId);
+          this.sortFrontAsset(this.state.assetId);
         }else if(action.includes("뒤로 보내기")){
-          this.props.sortBackAsset(this.state.assetId);
+          this.sortBackAsset(this.state.assetId);
         }else if(action.includes("맨 뒤로 보내기")){
-          this.props.sortLastAsset(this.state.assetId);
+          this.sortLastAsset(this.state.assetId);
         }
       }
     }
@@ -128,22 +127,24 @@ class ContextMenu extends React.Component {
     handleClick(event){
       if (this.state.visible) this.setState({ visible: false });
     }
-}
 
-const mapStateToProps = (state) => {
-  if(state.editor.slides.length > 0){
-    return {
-      currentSlide: state.editor.selectedSlide
+    copyAsset(id, slide, x, y){
     }
-  } else {
-    return{
-      currentSlide: -1
+    deleteAsset(id){
     }
-  }
-}
+    sortFirstAsset(id){
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({...assetsActions}, dispatch);
-}
+    }
+    sortFrontAsset(id){
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContextMenu);
+    }
+    sortBackAsset(id){
+
+    }
+    sortLastAsset(id){
+
+    }
+
+}
+ContextMenu.propTypes = propTypes;
+export default ContextMenu;

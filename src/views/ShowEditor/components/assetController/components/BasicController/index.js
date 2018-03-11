@@ -5,6 +5,7 @@ import styles from '../../style.css';
 
 const propTypes = {
     onChangeAttribute: React.PropTypes.func.isRequired,
+    onChangeStyle: React.PropTypes.func.isRequired,
     width: React.PropTypes.number.isRequired,
     height: React.PropTypes.number.isRequired,
     x: React.PropTypes.number.isRequired,
@@ -13,7 +14,7 @@ const propTypes = {
     fillColor: React.PropTypes.string.isRequired,
     borderColor: React.PropTypes.string.isRequired,
     borderWeight: React.PropTypes.number.isRequired,
-    style: React.PropTypes.string.isRequired
+    style: React.PropTypes.object.isRequired
 }
 
 function getIntFromTarget(event) {
@@ -48,8 +49,10 @@ class BasicController extends React.Component {
         this.setY_location = this.setY_location.bind(this);
         this.setAngle = this.setAngle.bind(this);
         this.setStyle = this.setStyle.bind(this);
-        this.setBorderWeight = this.setBorderWeight.bind(this);
+        this.setBorderWidth = this.setBorderWidth.bind(this);
         this.setStyle = this.setStyle.bind(this);
+        this.borderColorClickHandler = this.borderColorClickHandler.bind(this);
+        this.fillColorClickHandler = this.fillColorClickHandler.bind(this);
     }
 
     render() {
@@ -99,16 +102,16 @@ class BasicController extends React.Component {
                     <div style={this.state.shape ? {} : {display: 'none'}} className={styles.items}>
                         <div className={styles.control_item}>
                             <span className={styles.attribute_item_title}><img src="/images/ic_color.png"/></span>
-                            <div className={styles.change_color} onClick={this.props.toggleFillColorPicker}
+                            <div className={styles.change_color} onClick={this.fillColorClickHandler}
                                  style={this.props.fillColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.fillColor}}></div>
                         </div>
                         <div className={styles.control_item}>
                             <span className={styles.attribute_item_title}><img src="/images/ic_line.png"/></span>
                             <div className={styles.attribute_both_input_area}>
-                                <div className={styles.change_color} onClick={this.props.toggleBorderColorPicker}
+                                <div className={styles.change_color} onClick={this.borderColorClickHandler}
                                      style={this.props.borderColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.borderColor}}></div>
                                 <input type="text" className={styles.attribute_item_input}
-                                       onChange={this.setBorderWeight} value={this.props.borderWeight}/>
+                                       onChange={this.setBorderWidth} value={this.props.borderWeight}/>
                             </div>
                         </div>
                     </div>
@@ -159,9 +162,17 @@ class BasicController extends React.Component {
         this.props.onChangeAttribute('angle', val);
     }
 
-    setBorderWeight(event) {
+    setBorderWidth(event) {
         let val = getIntFormTarget(event);
-        this.props.onChangeAttribute('weight', val);
+        this.props.onChangeStyle('border-width', val);
+    }
+
+    fillColorClickHandler(){
+
+    }
+
+    borderColorClickHandler(){
+
     }
 }
 

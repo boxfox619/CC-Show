@@ -1,22 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-import * as actions from 'services/editor/asset/shape/actions';
 import ControllerHeader from '../controllerHeader';
-
-import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
 
+const propTypes = {
+    onChangeAttribute: React.PropTypes.func.isRequired,
+    shape: React.PropTypes.func.isRequired
+
+}
 class ShapeController extends React.Component{
     constructor(prop) {
         super(prop);
-
         this.state={
             shape:true,
             shpae_arrow_up:false,
             shape_arrow_down:true
         };
-
         this.changeShape=this.changeShape.bind(this);
     }
 
@@ -89,18 +88,10 @@ class ShapeController extends React.Component{
         let {src}=event.target;
         let shape=src.split('_')[1].split('.')[0];
         if(shape.split('_').length>1) shape=shape.split('_')[0];
-        this.props.setAssetChangeShape(shape);
+        this.props.onChangeAttribute('value', shape);
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        currentSilde : state.editor.slides[state.editor.selectedSlide]
-    }
-}
+ShapeController.propTypes = propTypes;
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...actions }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ShapeController);
+export default ShapeController;
