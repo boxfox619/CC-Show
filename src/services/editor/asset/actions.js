@@ -9,8 +9,7 @@ export const actionTypes = {
     ASSET_SORT: 'ASSET_SORT',
     ASSET_DELETE: 'ASSET_DELETE',
     ASSET_SET_VALUE: "ASSET_SET_VALUE",
-    ASSET_SET_ATTRIBUTE: "ASSET_SET_ATTRIBUTE",
-    ASSET_SET_STYLE: "ASSET_SET_STYLE"
+    ASSET_SET_ATTRIBUTE: "ASSET_SET_ATTRIBUTE"
 };
 
 export const createAsset = (assetType, value, style = {}) => {

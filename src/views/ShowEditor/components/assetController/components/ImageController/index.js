@@ -1,14 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as assetsActions from 'services/editor/asset/actions';
-import * as imageActions from 'services/editor/asset/actions';
-import * as uiActions from 'services/ui/actions';
-
-import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
 
 import ControllerHeader from '../controllerHeader';
-import * as Request from './services/request';
+
+const propTypes = {
+    setAssetImage: React.PropTypes.func.isRequired,
+    selectedAsset: React.PropTypes.object.isRequired
+}
 
 class ImageController extends React.Component{
     constructor(prop) {
@@ -48,12 +46,7 @@ class ImageController extends React.Component{
       let _self = this;
       fr.onload = (e)=> {
         let data = e.target.result;
-        this.props.toggleProgressDialog();
-        Request.uploadImage(data, function(response){
-          if(response.result == true)
-            _self.props.setAssetValue(_self.props.selectedAsset.id, response.data);
-          _self.props.toggleProgressDialog();
-        })
+        _self.props.setAssetImage(_self.props.selectedAsset.id, data);
       };
       var inputElement = document.createElement("input");
       inputElement.type = "file";
@@ -69,17 +62,5 @@ class ImageController extends React.Component{
         this.props.setAssetValue(this.props.selectedAsset.id, this.props.value);
     }
 }
-
-const mapStateToProps = (state) => {
-  let currentSlide = state.editor.slides[state.editor.selectedSlide];
-  let selectedAssetIndex = currentSlide.selectedAsset;
-  let selectedAsset = currentSlide.assets[selectedAssetIndex];
-    return {
-      selectedAsset
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...assetsActions, ...uiActions }, dispatch);
-}
-export default connect(mapStateToProps, mapDispatchToProps)(ImageController);
+ImageController.propTypes = propTypes;
+export default ImageController;

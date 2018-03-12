@@ -1,6 +1,5 @@
 import { actionTypes } from './actions';
 import dialogs from './dialogs';
-import update from 'react-addons-update';
 
 const initialState = {
   dialog: undefined,
