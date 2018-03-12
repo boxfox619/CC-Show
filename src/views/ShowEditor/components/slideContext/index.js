@@ -29,7 +29,8 @@ class SlideContext extends React.Component {
         return (
             <div className={this.props.className} id={'SlideContext'}>
                 <SlideTitle/>
-                <ContextMenu/>
+                <ContextMenu
+                    currentSlide={this.props.currentSlide}/>
                 <AssetRenderer
                     onModified={this.props.onModified}
                     assets={this.props.assets}
@@ -52,7 +53,7 @@ class SlideContext extends React.Component {
 const mapStateToProps = (state) => {
     if (state.editor.slides.length > 0 && !!state.editor.slides[state.editor.selectedSlide]) {
         return {
-            currentSilde: state.editor.selectedSlide,
+            currentSlide: state.editor.selectedSlide,
             selectedAsset: state.editor.slides[state.editor.selectedSlide].selectedAsset,
             assets: state.editor.slides[state.editor.selectedSlide].assets
         }
