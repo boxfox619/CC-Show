@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from '../../style.css';
 import ControllerHeader from '../controllerHeader';
+import {getSelectedAssetStyle} from "../../../../../../services/editor/asset/ControllerUtil";
 
 const propTypes = {
     onChangeAttribute: React.PropTypes.func.isRequired,
     onChangeStyle: React.PropTypes.func.isRequired,
-
+    style: React.PropTypes.object.isRequired
 }
+
 
 class TextController extends React.Component {
     constructor(prop) {
@@ -19,7 +21,7 @@ class TextController extends React.Component {
         this.setFont = this.setFont.bind(this);
         this.setFontSize = this.setFontSize.bind(this);
         this.setCharacterSpacing = this.setCharacterSpacing.bind(this);
-        this.setFontWeight = this.setFontWeight.bind(this);
+        this.setFontWidth = this.setFontWidth.bind(this);
         this.setLineSpacing = this.setLineSpacing.bind(this);
         this.getLineSpacing = this.getLineSpacing.bind(this);
     }
@@ -28,9 +30,7 @@ class TextController extends React.Component {
         return (
             <div>
                 <div className={styles.fliping_controller_section}>
-                    <ControllerHeader title={'텍스트'} onToggle={(toggle) => {
-                        this.setState({text: toggle})
-                    }}/>
+                    <ControllerHeader title={'텍스트'} onToggle={(toggle) => this.setState({text: toggle})}/>
                     <div style={this.state.text ? {} : {display: 'none'}} className={styles.items}>
                         <div>
                             <div>
@@ -52,7 +52,7 @@ class TextController extends React.Component {
 
                                 <div className={styles.control_item}>
                                     <input type="text" className={styles.attribute_item_input}
-                                           value={this.props.fontWeight} onChange={this.setFontWeight}/>
+                                           value={this.getFontWidth()} onChange={this.setFontWidth}/>
                                 </div>
                             </div>
 
@@ -61,7 +61,7 @@ class TextController extends React.Component {
                                     <span className={styles.attribute_item_title}><img
                                         src="/images/ic_format_size.png"/></span>
                                     <input type="text" className={styles.attribute_item_input}
-                                           value={this.props.fontSize} onChange={this.setFontSize}/>
+                                           value={this.getFontSize()} onChange={this.setFontSize}/>
                                 </div>
 
                                 <div className={styles.control_item}>
@@ -77,74 +77,74 @@ class TextController extends React.Component {
                                     <span className={styles.attribute_item_title}><img
                                         src="/images/ic_between.png"/></span>
                                     <input type="text" className={styles.attribute_item_input}
-                                           value={this.props.textCharacterSpacing} onChange={this.setCharacterSpacing}/>
+                                           value={this.getLatterSpacing()} onChange={this.setCharacterSpacing}/>
                                 </div>
 
                                 <div className={styles.control_item}>
                                     <span className={styles.attribute_item_title}><img
                                         src="/images/ic_color.png"/></span>
                                     <div className={styles.change_color} onClick={this.props.toggleTextColorPicker}
-                                         style={this.props.textColor === 'black' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.textColor}}></div>
+                                         style={this.getTextColor() === 'black' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.getTextColor()}}></div>
                                 </div>
                             </div>
 
                         </div>
                         <div className={styles.control_text_attribute}>
                             <img src="/images/ic_format_align_left.png"
-                                 style={this.props.sort === 'left' ? {display: 'none'} : {}}
-                                 onClick={() => this.props.setAssetTextSort('left')}/>
+                                 style={this.getTextAlign() === 'left' ? {display: 'none'} : {}}
+                                 onClick={() => this.props.onChangeStyle( 'text-align','left')}/>
                             <img src="/images/ic_format_align_left_apply.png"
-                                 style={this.props.sort === 'left' ? {} : {display: 'none'}}
-                                 onClick={() => this.props.setAssetTextSort('justify')}/>
+                                 style={this.getTextAlign() === 'left' ? {} : {display: 'none'}}
+                                 onClick={() => this.props.onChangeStyle( 'text-align','justify')}/>
 
                             <img src="/images/ic_format_align_center.png"
-                                 style={this.props.sort === 'center' ? {display: 'none'} : {}}
-                                 onClick={() => this.props.setAssetTextSort('center')}/>
+                                 style={this.getTextAlign() === 'center' ? {display: 'none'} : {}}
+                                 onClick={() => this.props.onChangeStyle( 'text-align','center')}/>
                             <img src="/images/ic_format_align_center_apply.png"
-                                 style={this.props.sort === 'center' ? {} : {display: 'none'}}
-                                 onClick={() => this.props.setAssetTextSort('justify')}/>
+                                 style={this.getTextAlign() === 'center' ? {} : {display: 'none'}}
+                                 onClick={() => this.props.onChangeStyle( 'text-align','justify')}/>
 
                             <img src="/images/ic_format_align_right.png"
-                                 style={this.props.sort === 'right' ? {display: 'none'} : {}}
-                                 onClick={() => this.props.setAssetTextSort('right')}/>
+                                 style={this.getTextAlign() === 'right' ? {display: 'none'} : {}}
+                                 onClick={() => this.props.onChangeStyle( 'text-align','right')}/>
                             <img src="/images/ic_format_align_right_apply.png"
-                                 style={this.props.sort === 'right' ? {} : {display: 'none'}}
-                                 onClick={() => this.props.setAssetTextSort('justify')}/>
+                                 style={this.getTextAlign() === 'right' ? {} : {display: 'none'}}
+                                 onClick={() => this.props.onChangeStyle( 'text-align', 'justify')}/>
 
                             <img src="/images/ic_format_align_justify.png"
-                                 style={this.props.sort === 'justify' ? {display: 'none'} : {}}
-                                 onClick={() => this.props.setAssetTextSort('justify')}/>
+                                 style={this.getTextAlign() === 'justify' ? {display: 'none'} : {}}
+                                 onClick={() => this.props.onChangeStyle( 'text-align','justify')}/>
                             <img src="/images/ic_format_align_justify_apply.png"
-                                 style={this.props.sort === 'justify' ? {} : {display: 'none'}}
-                                 onClick={() => this.props.setAssetTextSort('justify')}/>
+                                 style={this.getTextAlign() === 'justify' ? {} : {display: 'none'}}
+                                 onClick={() => this.props.onChangeStyle( 'text-align','justify')}/>
 
                             <img src="/images/ic_format_bold.png"
-                                 style={this.props.bold == 'normal' ? {} : {display: 'none'}}
-                                 onClick={this.props.setAssetFontBold}/>
+                                 style={this.getFontWeight() == 'normal' ? {} : {display: 'none'}}
+                                 onClick={this.props.onChangeStyle('font-weight', 'normal')}/>
                             <img src="/images/ic_format_bold_apply.png"
-                                 style={this.props.bold == 'normal' ? {display: 'none'} : {}}
-                                 onClick={this.props.setAssetFontBold}/>
+                                 style={this.getFontWeight() == 'normal' ? {display: 'none'} : {}}
+                                 onClick={this.props.onChangeStyle('font-weight', 'bold')}/>
 
                             <img src="/images/ic_format_italic.png"
-                                 style={this.props.italic == 'normal' ? {} : {display: 'none'}}
-                                 onClick={this.props.setAssetFontItalic}/>
+                                 style={this.getFontStyle() == 'normal' ? {} : {display: 'none'}}
+                                 onClick={this.props.onChangeStyle('font-style', 'normal')}/>
                             <img src="/images/ic_format_italic_apply.png"
-                                 style={this.props.italic == 'normal' ? {display: 'none'} : {}}
-                                 onClick={this.props.setAssetFontItalic}/>
+                                 style={this.getFontStyle() == 'normal' ? {display: 'none'} : {}}
+                                 onClick={this.props.onChangeStyle('font-style', 'italic')}/>
 
                             <img src="/images/ic_format_underlined.png"
-                                 style={this.props.underline == 'underline' ? {display: 'none'} : {}}
-                                 onClick={this.props.setAssetFontUnderline}/>
+                                 style={this.getTextDecoration() == 'underline' ? {display: 'none'} : {}}
+                                 onClick={this.props.onChangeStyle('text-decoration', 'none')}/>
                             <img src="/images/ic_format_underlined_apply.png"
-                                 style={this.props.underline == 'underline' ? {} : {display: 'none'}}
-                                 onClick={this.props.setAssetFontUnderline}/>
+                                 style={this.getTextDecoration() == 'underline' ? {} : {display: 'none'}}
+                                 onClick={this.props.onChangeStyle('text-decoration', 'underline')}/>
 
                             <img src="/images/ic_format_strikethrough.png"
-                                 style={this.props.strikethrough == 'line-through' ? {display: 'none'} : {}}
-                                 onClick={this.props.setAssetFontStrikethrough}/>
+                                 style={this.getTextDecoration() == 'line-through' ? {display: 'none'} : {}}
+                                 onClick={this.props.onChangeStyle('text-decoration', 'none')}/>
                             <img src="/images/ic_format_strikethrough_apply.png"
-                                 style={this.props.strikethrough == 'line-through' ? {} : {display: 'none'}}
-                                 onClick={this.props.setAssetFontStrikethrough}/>
+                                 style={this.getTextDecoration() == 'line-through' ? {} : {display: 'none'}}
+                                 onClick={this.props.onChangeStyle('text-decoration', 'line-through')}/>
                         </div>
                     </div>
                 </div>
@@ -153,12 +153,44 @@ class TextController extends React.Component {
         )
     }
 
+    getFontWidth() {
+        return this.props.style['font-width'];
+    }
+
+    getFontSize() {
+        return this.props.style['font-size'];
+    }
+
+    getLatterSpacing() {
+        return parseInt(this.props.style['letter-spacing']);
+    }
+
+    getTextColor() {
+        return this.props.style.color;
+    }
+
+    getTextAlign() {
+        return this.props.style['text-align'];
+    }
+
+    getFontWeight() {
+        return this.props.style['font-weight'];
+    }
+
+    getFontStyle() {
+        return this.props.style['font-style'];
+    }
+
+    getTextDecoration() {
+        return this.props.style['text-decoration'];
+    }
+
     getLineSpacing() {
         let lineSpacing = this.props.textLineSpacing;
         return (lineSpacing != 'normal') ? parseInt(lineSpacing) : lineSpacing;
     }
 
-    setFontWeight(event) {
+    setFontWidth(event) {
         let {value} = event.target;
         let intValue = parseInt(value);
         if (isNaN(intValue)) {

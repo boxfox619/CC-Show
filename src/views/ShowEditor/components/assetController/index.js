@@ -26,16 +26,7 @@ class AssetController extends React.Component {
             switch (selectedAsset.type) {
                 case assetTypes.TYPE_TEXT:
                     return (
-                        <TextController font={selectedAsset.style['font-family']}
-                                        fontSize={parseInt(selectedAsset.style['font-size'])}
-                                        sort={selectedAsset.style['text-align']}
-                                        bold={selectedAsset.style['font-weight']}
-                                        underline={selectedAsset.style['text-decoration']}
-                                        italic={selectedAsset.style['font-style']}
-                                        strikethrough={selectedAsset.style['text-decoration']}
-                                        textColor={selectedAsset.style.color}
-                                        textCharacterSpacing={parseInt(selectedAsset.style['letter-spacing'])}
-                                        textLineSpacing={selectedAsset.style['line-height']}
+                        <TextController style={selectedAsset.style}
                                         onChangeAttribute = {this.props.setSelectedAssetAttribute}
                                         onChangeStyle = {this.props.setSelectedAssetStyle}/>
                     )
