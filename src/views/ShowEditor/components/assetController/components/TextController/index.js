@@ -9,7 +9,6 @@ const propTypes = {
     style: React.PropTypes.object.isRequired
 }
 
-
 class TextController extends React.Component {
     constructor(prop) {
         super(prop);

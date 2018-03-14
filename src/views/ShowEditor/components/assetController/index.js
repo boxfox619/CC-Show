@@ -27,23 +27,26 @@ class AssetController extends React.Component {
                 case assetTypes.TYPE_TEXT:
                     return (
                         <TextController style={selectedAsset.style}
-                                        onChangeAttribute = {this.props.setSelectedAssetAttribute}
-                                        onChangeStyle = {this.props.setSelectedAssetStyle}/>
+                                        onChangeAttribute={this.props.setSelectedAssetAttribute}
+                                        onChangeStyle={this.props.setSelectedAssetStyle}/>
                     )
                 case assetTypes.TYPE_VIDEO:
                     return (
-                        <VideoController url={selectedAsset.value} preview={selectedAsset.preview}/>
+                        <VideoController
+                            onChangeAttribute={this.props.setSelectedAssetAttribute}
+                            url={selectedAsset.value}
+                            preview={selectedAsset.preview}/>
                     )
                 case assetTypes.TYPE_SHAPE:
                     return (
                         <ShapeController shape={selectedAsset.value}
-                                         onChangeAttribute = {this.onChangeAttribute}/>
+                                         onChangeAttribute={this.onChangeAttribute}/>
                     )
                 case assetTypes.TYPE_IMAGE:
                     return (
                         <ImageController img_url={selectedAsset.url}
-                        setAssetImage={this.props.setAssetImage}
-                        selectedAsset={this.props.selectedAsset}/>
+                                         setAssetImage={this.props.setAssetImage}
+                                         selectedAsset={this.props.selectedAsset}/>
                     )
                 case assetTypes.TYPE_CUSTOM:
                     return;
@@ -62,8 +65,8 @@ class AssetController extends React.Component {
                                      borderColor={selectedAsset.style['border-color']}
                                      borderWeight={parseInt(selectedAsset.style['border-width'])}
                                      style={selectedAsset.style}
-                                     onChangeAttribute = {this.props.setSelectedAssetAttribute}
-                                     onChangeStyle = {this.props.setSelectedAssetStyle}/>
+                                     onChangeAttribute={this.props.setSelectedAssetAttribute}
+                                     onChangeStyle={this.props.setSelectedAssetStyle}/>
                 </div>
             )
     }

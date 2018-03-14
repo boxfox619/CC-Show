@@ -6,6 +6,12 @@ import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
 import ControllerHeader from '../controllerHeader';
 
+const propTypes = {
+    onChangeAttribute: React.PropTypes.func.isRequired,
+    url: React.PropTypes.string.isRequired,
+    preview: React.PropTypes.bool.isRequired
+}
+
 class VideoController extends React.Component {
     constructor(props){
         super(props);
@@ -40,22 +46,15 @@ class VideoController extends React.Component {
     }
 
     togglePreview(){
-      this.props.toggleVideoPreview();
+      this.props.onChangeAttribute('preview', !this.props.preview);
     }
 
     setUrl(event) {
         let {value}=event.target;
-        this.props.setAssetVideoURL(value);
+        this.props.onChangeAttribute('value', value);
     }
 }
 
-const mapStateToProps = (state) => {
-    return{
-    }
-}
+VideoController.propTypes = propTypes;
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...actions }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(VideoController);
+export default VideoController;
