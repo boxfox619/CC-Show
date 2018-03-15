@@ -6,6 +6,7 @@ import {getSelectedAssetStyle} from "../../../../../../services/editor/asset/Con
 const propTypes = {
     onChangeAttribute: React.PropTypes.func.isRequired,
     onChangeStyle: React.PropTypes.func.isRequired,
+    onChangeColor: React.PropTypes.func.isRequired,
     style: React.PropTypes.object.isRequired
 }
 
@@ -165,7 +166,7 @@ class TextController extends React.Component {
     }
 
     getTextColor() {
-        return this.props.style.color;
+        return this.props.onChangeColor('color');
     }
 
     getTextAlign() {

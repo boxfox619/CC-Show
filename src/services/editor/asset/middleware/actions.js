@@ -13,7 +13,18 @@ const uploadImage = (data, callback) => {
     });
 };
 
-export const setAssetImage = (id, data) => {
+export const setSelectedAssetImage = (id, data) => {
+    return (dispatch, getState) => {
+        dispatch(toggleProgressDialog());
+        uploadImage(data, function (response) {
+            if (response.result == true)
+                dispatch(setAssetValue(id, response.data));
+            dispatch(toggleProgressDialog());
+        });
+    };
+};
+
+export const setSelectedAssetStyleColor = (id, data) => {
     return (dispatch, getState) => {
         dispatch(toggleProgressDialog());
         uploadImage(data, function (response) {

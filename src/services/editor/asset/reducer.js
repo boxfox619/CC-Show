@@ -1,6 +1,3 @@
-import textController from './text/reducer';
-import videoController from './video/reducer';
-
 import {actionTypes} from './actions';
 import {getState} from 'store';
 import update from 'react-addons-update';
@@ -19,8 +16,6 @@ const defaultAsset = {
 };
 
 export default function (state, action) {
-    state = textController(state, action, actionTypes);
-    state = videoController(state, action, actionTypes);
     let selectedAssetIndex = state.slides[state.selectedSlide].selectedAsset;
     let currentAsset = state.slides[state.selectedSlide].assets[selectedAssetIndex];
     switch (action.type) {

@@ -6,6 +6,7 @@ import styles from '../../style.css';
 const propTypes = {
     onChangeAttribute: React.PropTypes.func.isRequired,
     onChangeStyle: React.PropTypes.func.isRequired,
+    onChangeColor: React.PropTypes.func.isRequired,
     width: React.PropTypes.number.isRequired,
     height: React.PropTypes.number.isRequired,
     x: React.PropTypes.number.isRequired,
@@ -13,9 +14,20 @@ const propTypes = {
     angle: React.PropTypes.number.isRequired,
     fillColor: React.PropTypes.string.isRequired,
     borderColor: React.PropTypes.string.isRequired,
-    borderWeight: React.PropTypes.number.isRequired,
+    borderWidth: React.PropTypes.number.isRequired,
     style: React.PropTypes.object.isRequired
 }
+
+const defaultProps = {
+    width: 50,
+    height: 50,
+    x: 0,
+    y: 0,
+    angle: 0,
+    fillColor: 'rgba(0,0,0,0)',
+    borderColor: 'rgba(0,0,0,0)',
+    borderWidth: '1' ,
+    style: {}}
 
 function getIntFromTarget(event) {
     let {value} = event.target;
@@ -111,7 +123,7 @@ class BasicController extends React.Component {
                                 <div className={styles.change_color} onClick={this.borderColorClickHandler}
                                      style={this.props.borderColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.borderColor}}></div>
                                 <input type="text" className={styles.attribute_item_input}
-                                       onChange={this.setBorderWidth} value={this.props.borderWeight}/>
+                                       onChange={this.setBorderWidth} value={this.props.borderWidth}/>
                             </div>
                         </div>
                     </div>
@@ -167,15 +179,16 @@ class BasicController extends React.Component {
         this.props.onChangeStyle('border-width', val);
     }
 
-    fillColorClickHandler(){
-
+    fillColorClickHandler() {
+        this.props.onChangeColor('fill-color');
     }
 
-    borderColorClickHandler(){
-
+    borderColorClickHandler() {
+        this.props.onChangeColor('border-color');
     }
 }
 
 BasicController.propTypes = propTypes;
+BasicController.defaultProps = defaultProps;
 
 export default BasicController;

@@ -14,8 +14,6 @@ import BasicController from './components/basicController';
 import styles from './style.css';
 import {bindActionCreators} from "redux";
 
-// Refactoring
-// controller 틀 중복코드 제거 필요
 class AssetController extends React.Component {
     constructor(prop) {
         super(prop);
@@ -26,27 +24,30 @@ class AssetController extends React.Component {
             switch (selectedAsset.type) {
                 case assetTypes.TYPE_TEXT:
                     return (
-                        <TextController style={selectedAsset.style}
-                                        onChangeAttribute={this.props.setSelectedAssetAttribute}
-                                        onChangeStyle={this.props.setSelectedAssetStyle}/>
+                        <TextController
+                            style={selectedAsset.style}
+                            onChangeAttribute={this.props.setSelectedAssetAttribute}
+                            onChangeStyle={this.props.setSelectedAssetStyle}/>
                     )
                 case assetTypes.TYPE_VIDEO:
                     return (
                         <VideoController
-                            onChangeAttribute={this.props.setSelectedAssetAttribute}
                             url={selectedAsset.value}
-                            preview={selectedAsset.preview}/>
+                            preview={selectedAsset.preview}
+                            onChangeAttribute={this.props.setSelectedAssetAttribute}/>
                     )
                 case assetTypes.TYPE_SHAPE:
                     return (
-                        <ShapeController shape={selectedAsset.value}
-                                         onChangeAttribute={this.onChangeAttribute}/>
+                        <ShapeController
+                            shape={selectedAsset.value}
+                            onChangeAttribute={this.onChangeAttribute}/>
                     )
                 case assetTypes.TYPE_IMAGE:
                     return (
-                        <ImageController img_url={selectedAsset.url}
-                                         setAssetImage={this.props.setAssetImage}
-                                         selectedAsset={this.props.selectedAsset}/>
+                        <ImageController
+                            img_url={selectedAsset.url}
+                            setAssetImage={this.props.setSelectedAssetImage}
+                            selectedAsset={this.props.selectedAsset}/>
                     )
                 case assetTypes.TYPE_CUSTOM:
                     return;
@@ -56,17 +57,19 @@ class AssetController extends React.Component {
             return (
                 <div>
                     {renderSubController(selectedAsset)}
-                    <BasicController width={parseInt(selectedAsset.width)}
-                                     height={parseInt(selectedAsset.height)}
-                                     x={parseInt(selectedAsset.x)}
-                                     y={parseInt(selectedAsset.y)}
-                                     angle={parseInt(selectedAsset.angle)}
-                                     fillColor={selectedAsset.style['background-color']}
-                                     borderColor={selectedAsset.style['border-color']}
-                                     borderWeight={parseInt(selectedAsset.style['border-width'])}
-                                     style={selectedAsset.style}
-                                     onChangeAttribute={this.props.setSelectedAssetAttribute}
-                                     onChangeStyle={this.props.setSelectedAssetStyle}/>
+                    <BasicController
+                        width={parseInt(selectedAsset.width)}
+                        height={parseInt(selectedAsset.height)}
+                        x={parseInt(selectedAsset.x)}
+                        y={parseInt(selectedAsset.y)}
+                        angle={parseInt(selectedAsset.angle)}
+                        fillColor={selectedAsset.style['background-color']}
+                        borderColor={selectedAsset.style['border-color']}
+                        borderWidth={parseInt(selectedAsset.style['border-width'])}
+                        style={selectedAsset.style}
+                        onChangeAttribute={this.props.setSelectedAssetAttribute}
+                        onChangeStyle={this.props.setSelectedAssetStyle}
+                        onChangeColor={this.props.setSelectedAssetStyleColor}/>
                 </div>
             )
     }
