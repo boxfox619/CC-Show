@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import * as actions from 'services/editor/asset/actions';
-import * as imageActions from 'services/editor/asset/image/actions';
 import * as assetTypes from 'services/editor/asset/assetTypes';
 
 import TextController from './components/textController';
@@ -45,9 +44,9 @@ class AssetController extends React.Component {
                 case assetTypes.TYPE_IMAGE:
                     return (
                         <ImageController
-                            img_url={selectedAsset.url}
-                            setAssetImage={this.props.setSelectedAssetImage}
-                            selectedAsset={this.props.selectedAsset}/>
+                            selectedAsset={this.props.selectedAsset}
+                            onChangeImage={this.props.setSelectedAssetImage}
+                            onChangeAttribute={this.props.setSelectedAssetAttribute}/>
                     )
                 case assetTypes.TYPE_CUSTOM:
                     return;
@@ -108,8 +107,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        ...actions,
-        ...imageActions
+        ...actions
     }, dispatch);
 }
 

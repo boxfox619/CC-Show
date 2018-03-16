@@ -26,33 +26,17 @@ const defaultProps = {
     angle: 0,
     fillColor: 'rgba(0,0,0,0)',
     borderColor: 'rgba(0,0,0,0)',
-    borderWidth: '1' ,
-    style: {}}
-
-function getIntFromTarget(event) {
-    let {value} = event.target;
-    let intValue = parseInt(value);
-    if (isNaN(intValue)) {
-        intValue = 0;
-    }
-    return intValue;
+    borderWidth: '1',
+    style: {}
 }
 
 class BasicController extends React.Component {
     constructor(prop) {
         super(prop);
         this.state = {
-            attribute_arrow_up: false,
-            attribute_arrow_down: true,
             attribute: true,
-            shape_arrow_up: false,
-            shape_arrow_down: true,
             shape: true,
-            style_arrow_up: false,
-            style_arrow_down: true,
             style: true,
-            fill_color_picker: false,
-            edge_color_picker: false
         };
 
         this.setWidth = this.setWidth.bind(this);
@@ -71,10 +55,9 @@ class BasicController extends React.Component {
         return (
             <div>
                 <div className={styles.fliping_controller_section}>
-                    <ControllerHeader title={'속성'} onToggle={(toggle) => {
-                        this.setState({attribute: toggle})
-                    }}/>
-                    <div style={this.state.attribute ? {} : {display: 'none'}} className={styles.items}>
+                    <ControllerHeader title={'속성'} onToggle={(toggle) => this.setState({attribute: toggle})}/>
+                    {this.state.attribute &&
+                    <div className={styles.items}>
                         <div>
                             <div className={styles.control_item}>
                                 <span className={styles.attribute_item_title}>H :</span>
@@ -105,13 +88,14 @@ class BasicController extends React.Component {
                                    onChange={this.setAngle}/>
                         </div>
                     </div>
+                    }
                 </div>
                 <hr className={styles.controller_hr}/>
+
                 <div className={styles.fliping_controller_section}>
-                    <ControllerHeader title={'도형'} onToggle={(toggle) => {
-                        this.setState({shape: toggle})
-                    }}/>
-                    <div style={this.state.shape ? {} : {display: 'none'}} className={styles.items}>
+                    <ControllerHeader title={'도형'} onToggle={(toggle) => this.setState({shape: toggle})}/>
+                    {this.state.shape &&
+                    <div className={styles.items}>
                         <div className={styles.control_item}>
                             <span className={styles.attribute_item_title}><img src="/images/ic_color.png"/></span>
                             <div className={styles.change_color} onClick={this.fillColorClickHandler}
@@ -127,18 +111,19 @@ class BasicController extends React.Component {
                             </div>
                         </div>
                     </div>
+                    }
                 </div>
                 <hr className={styles.controller_hr}/>
                 <div className={styles.fliping_controller_section}>
-                    <ControllerHeader title={'스타일'} onToggle={(toggle) => {
-                        this.setState({style: toggle})
-                    }}/>
-                    <div style={this.state.style ? {} : {display: 'none'}} className={styles.items}>
+                    <ControllerHeader title={'스타일'} onToggle={(toggle) => this.setState({style: toggle})}/>
+                    {this.state.style &&
+                    <div className={styles.items}>
                         <div id={styles.input_style}>
                             <textarea onChange={this.setStyle.bind()} rows="" cols=""
                                       value={JSON.stringify(this.props.style, null, 4)}></textarea>
                         </div>
                     </div>
+                    }
                 </div>
             </div>
         )

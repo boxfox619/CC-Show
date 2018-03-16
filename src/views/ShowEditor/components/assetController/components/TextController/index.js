@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../../style.css';
 import ControllerHeader from '../controllerHeader';
-import {getSelectedAssetStyle} from "../../../../../../services/editor/asset/ControllerUtil";
 
 const propTypes = {
     onChangeAttribute: React.PropTypes.func.isRequired,
@@ -31,7 +30,8 @@ class TextController extends React.Component {
             <div>
                 <div className={styles.fliping_controller_section}>
                     <ControllerHeader title={'텍스트'} onToggle={(toggle) => this.setState({text: toggle})}/>
-                    <div style={this.state.text ? {} : {display: 'none'}} className={styles.items}>
+                    {this.state.text &&
+                    <div className={styles.items}>
                         <div>
                             <div>
                                 <div className={styles.control_item}>
@@ -92,31 +92,31 @@ class TextController extends React.Component {
                         <div className={styles.control_text_attribute}>
                             <img src="/images/ic_format_align_left.png"
                                  style={this.getTextAlign() === 'left' ? {display: 'none'} : {}}
-                                 onClick={() => this.props.onChangeStyle( 'text-align','left')}/>
+                                 onClick={() => this.props.onChangeStyle('text-align', 'left')}/>
                             <img src="/images/ic_format_align_left_apply.png"
                                  style={this.getTextAlign() === 'left' ? {} : {display: 'none'}}
-                                 onClick={() => this.props.onChangeStyle( 'text-align','justify')}/>
+                                 onClick={() => this.props.onChangeStyle('text-align', 'justify')}/>
 
                             <img src="/images/ic_format_align_center.png"
                                  style={this.getTextAlign() === 'center' ? {display: 'none'} : {}}
-                                 onClick={() => this.props.onChangeStyle( 'text-align','center')}/>
+                                 onClick={() => this.props.onChangeStyle('text-align', 'center')}/>
                             <img src="/images/ic_format_align_center_apply.png"
                                  style={this.getTextAlign() === 'center' ? {} : {display: 'none'}}
-                                 onClick={() => this.props.onChangeStyle( 'text-align','justify')}/>
+                                 onClick={() => this.props.onChangeStyle('text-align', 'justify')}/>
 
                             <img src="/images/ic_format_align_right.png"
                                  style={this.getTextAlign() === 'right' ? {display: 'none'} : {}}
-                                 onClick={() => this.props.onChangeStyle( 'text-align','right')}/>
+                                 onClick={() => this.props.onChangeStyle('text-align', 'right')}/>
                             <img src="/images/ic_format_align_right_apply.png"
                                  style={this.getTextAlign() === 'right' ? {} : {display: 'none'}}
-                                 onClick={() => this.props.onChangeStyle( 'text-align', 'justify')}/>
+                                 onClick={() => this.props.onChangeStyle('text-align', 'justify')}/>
 
                             <img src="/images/ic_format_align_justify.png"
                                  style={this.getTextAlign() === 'justify' ? {display: 'none'} : {}}
-                                 onClick={() => this.props.onChangeStyle( 'text-align','justify')}/>
+                                 onClick={() => this.props.onChangeStyle('text-align', 'justify')}/>
                             <img src="/images/ic_format_align_justify_apply.png"
                                  style={this.getTextAlign() === 'justify' ? {} : {display: 'none'}}
-                                 onClick={() => this.props.onChangeStyle( 'text-align','justify')}/>
+                                 onClick={() => this.props.onChangeStyle('text-align', 'justify')}/>
 
                             <img src="/images/ic_format_bold.png"
                                  style={this.getFontWeight() == 'normal' ? {} : {display: 'none'}}
@@ -147,6 +147,7 @@ class TextController extends React.Component {
                                  onClick={this.props.onChangeStyle('text-decoration', 'line-through')}/>
                         </div>
                     </div>
+                    }
                 </div>
                 <hr className={styles.controller_hr}/>
             </div>

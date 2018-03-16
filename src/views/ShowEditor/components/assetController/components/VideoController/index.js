@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from 'services/editor/asset/video/actions';
 
 import { bindActionCreators } from 'redux';
 import styles from '../../style.css';
@@ -18,8 +17,6 @@ class VideoController extends React.Component {
 
         this.state={
             video:true,
-            video_arrow_up:false,
-            video_arrow_down:true
         };
 
         this.setUrl=this.setUrl.bind(this);
@@ -29,16 +26,18 @@ class VideoController extends React.Component {
         return (
             <div>
                 <div className={styles.fliping_controller_section}>
-                    <ControllerHeader title={'비디오'}  onToggle={(toggle)=>{this.setState({video : toggle})}}/>
-                <div className={styles.items} style={this.state.video ? {} : {display:'none'}}>
-                    <div className={styles.control_item+' '+styles.URL_controller}>
-                        <span className={styles.attribute_item_title} >URL :</span>
-                        <input type="text" value={this.props.url} className={styles.attribute_item_input} style={{'textAlign': 'left'}} onChange={this.setUrl}/>
-                    </div>
-                    <div className={styles.control_item+' '+styles.video_preview_toggle+' '+((this.props.preview)?styles.active:'')} onClick={this.togglePreview}>
-                      미리보기
-                    </div>
-                </div>
+                    <ControllerHeader title={'비디오'}  onToggle={(toggle)=>this.setState({video : toggle})}/>
+                    {this.state.video &&
+                        <div className={styles.items}>
+                            <div className={styles.control_item+' '+styles.URL_controller}>
+                                <span className={styles.attribute_item_title} >URL :</span>
+                                <input type="text" value={this.props.url} className={styles.attribute_item_input} style={{'textAlign': 'left'}} onChange={this.setUrl}/>
+                            </div>
+                            <div className={styles.control_item+' '+styles.video_preview_toggle+' '+((this.props.preview)?styles.active:'')} onClick={this.togglePreview}>
+                              미리보기
+                            </div>
+                        </div>
+                    }
                 </div>
                 <hr className={styles.controller_hr}/>
             </div>
