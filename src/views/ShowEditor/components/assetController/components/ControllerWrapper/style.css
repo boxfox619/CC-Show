@@ -29,3 +29,11 @@
     margin: 20px;
     margin-bottom: 10px;
 }
+
+.controller_hr {
+    border-top: 3px dotted #5a84b3;
+    background-color: #fff;
+    opacity: 0.3;
+    width: 100%;
+    margin-top: 20px;
+}

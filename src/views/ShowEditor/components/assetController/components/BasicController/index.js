@@ -1,6 +1,7 @@
 import React from 'react';
-import ControllerHeader from '../controllerHeader';
 import styles from '../../style.css';
+
+import ControllerWrapper from '../ControllerWrapper'
 
 
 const propTypes = {
@@ -54,9 +55,7 @@ class BasicController extends React.Component {
     render() {
         return (
             <div>
-                <div className={styles.fliping_controller_section}>
-                    <ControllerHeader title={'속성'} onToggle={(toggle) => this.setState({attribute: toggle})}/>
-                    {this.state.attribute &&
+                <ControllerWrapper title={'속성'}>
                     <div className={styles.items}>
                         <div>
                             <div className={styles.control_item}>
@@ -88,13 +87,9 @@ class BasicController extends React.Component {
                                    onChange={this.setAngle}/>
                         </div>
                     </div>
-                    }
-                </div>
-                <hr className={styles.controller_hr}/>
+                </ControllerWrapper>
 
-                <div className={styles.fliping_controller_section}>
-                    <ControllerHeader title={'도형'} onToggle={(toggle) => this.setState({shape: toggle})}/>
-                    {this.state.shape &&
+                <ControllerWrapper title={'도형'}>
                     <div className={styles.items}>
                         <div className={styles.control_item}>
                             <span className={styles.attribute_item_title}><img src="/images/ic_color.png"/></span>
@@ -111,20 +106,16 @@ class BasicController extends React.Component {
                             </div>
                         </div>
                     </div>
-                    }
-                </div>
-                <hr className={styles.controller_hr}/>
-                <div className={styles.fliping_controller_section}>
-                    <ControllerHeader title={'스타일'} onToggle={(toggle) => this.setState({style: toggle})}/>
-                    {this.state.style &&
+                </ControllerWrapper>
+
+                <ControllerWrapper title={'스타일'}>
                     <div className={styles.items}>
                         <div id={styles.input_style}>
                             <textarea onChange={this.setStyle.bind()} rows="" cols=""
                                       value={JSON.stringify(this.props.style, null, 4)}></textarea>
                         </div>
                     </div>
-                    }
-                </div>
+                </ControllerWrapper>
             </div>
         )
     }

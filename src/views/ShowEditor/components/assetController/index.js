@@ -5,6 +5,7 @@ import * as actions from 'services/editor/asset/actions';
 import * as assetTypes from 'services/editor/asset/assetTypes';
 import * as uiActions from 'services/ui/actions';
 
+import ControllerWrapper from './components/ControllerWrapper';
 import TextController from './components/textController';
 import VideoController from './components/videoController';
 import ImageController from './components/imageController';
@@ -17,6 +18,10 @@ import {bindActionCreators} from "redux";
 class AssetController extends React.Component {
     constructor(prop) {
         super(prop);
+        this.state = {
+            text: true,
+            video: true
+        }
     }
 
     renderController(selectedAsset) {
@@ -24,31 +29,39 @@ class AssetController extends React.Component {
             switch (selectedAsset.type) {
                 case assetTypes.TYPE_TEXT:
                     return (
-                        <TextController
-                            style={selectedAsset.style}
-                            onChangeAttribute={this.props.setSelectedAssetAttribute}
-                            onChangeStyle={this.props.setSelectedAssetStyle}
-                            showColorPicker={this.props.showColorPicker}/>
+                        <ControllerWrapper title="텍스트">
+                            <TextController
+                                style={selectedAsset.style}
+                                onChangeAttribute={this.props.setSelectedAssetAttribute}
+                                onChangeStyle={this.props.setSelectedAssetStyle}
+                                showColorPicker={this.props.showColorPicker}/>
+                        </ControllerWrapper>
                     )
                 case assetTypes.TYPE_VIDEO:
                     return (
-                        <VideoController
-                            url={selectedAsset.value}
-                            preview={selectedAsset.preview}
-                            onChangeAttribute={this.props.setSelectedAssetAttribute}/>
+                        <ControllerWrapper title="비디오">
+                            <VideoController
+                                url={selectedAsset.value}
+                                preview={selectedAsset.preview}
+                                onChangeAttribute={this.props.setSelectedAssetAttribute}/>
+                        </ControllerWrapper>
                     )
                 case assetTypes.TYPE_SHAPE:
                     return (
-                        <ShapeController
-                            shape={selectedAsset.value}
-                            onChangeAttribute={this.onChangeAttribute}/>
+                        <ControllerWrapper title="도형">
+                            <ShapeController
+                                shape={selectedAsset.value}
+                                onChangeAttribute={this.onChangeAttribute}/>
+                        </ControllerWrapper>
                     )
                 case assetTypes.TYPE_IMAGE:
                     return (
-                        <ImageController
-                            selectedAsset={this.props.selectedAsset}
-                            onChangeImage={this.props.setSelectedAssetImage}
-                            onChangeAttribute={this.props.setSelectedAssetAttribute}/>
+                        <ControllerWrapper title="이미지">
+                            <ImageController
+                                selectedAsset={this.props.selectedAsset}
+                                onChangeImage={this.props.setSelectedAssetImage}
+                                onChangeAttribute={this.props.setSelectedAssetAttribute}/>
+                        </ControllerWrapper>
                     )
                 case assetTypes.TYPE_CUSTOM:
                     return;
