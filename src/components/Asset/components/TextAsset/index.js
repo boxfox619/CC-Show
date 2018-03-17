@@ -22,7 +22,7 @@ class TextAsset extends React.Component{
       }
     }
     return (
-      <div id={this.props.attrs.id} name={this.props.attrs.id} contentEditable={this.props.attrs.controlable} style={{...styleObj, 'width': '100%','height':'100%'}} dangerouslySetInnerHTML={{__html: this.props.value}}>
+      <div id={this.props.attrs.id} name={this.props.attrs.id} contentEditable={this.props.attrs.controlable} style={{...styleObj}} dangerouslySetInnerHTML={{__html: this.props.value}}>
       </div>
     )
   }
