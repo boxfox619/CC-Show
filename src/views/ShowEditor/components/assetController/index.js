@@ -5,7 +5,6 @@ import * as actions from 'services/editor/asset/actions';
 import * as assetTypes from 'services/editor/asset/assetTypes';
 import * as uiActions from 'services/ui/actions';
 
-import ControllerWrapper from './components/ControllerWrapper';
 import TextController from './components/textController';
 import VideoController from './components/videoController';
 import ImageController from './components/imageController';
@@ -29,39 +28,31 @@ class AssetController extends React.Component {
             switch (selectedAsset.type) {
                 case assetTypes.TYPE_TEXT:
                     return (
-                        <ControllerWrapper title="텍스트">
                             <TextController
                                 style={selectedAsset.style}
                                 onChangeAttribute={this.props.setSelectedAssetAttribute}
                                 onChangeStyle={this.props.setSelectedAssetStyle}
                                 showColorPicker={this.props.showColorPicker}/>
-                        </ControllerWrapper>
                     )
                 case assetTypes.TYPE_VIDEO:
                     return (
-                        <ControllerWrapper title="비디오">
                             <VideoController
                                 url={selectedAsset.value}
                                 preview={selectedAsset.preview}
                                 onChangeAttribute={this.props.setSelectedAssetAttribute}/>
-                        </ControllerWrapper>
                     )
                 case assetTypes.TYPE_SHAPE:
                     return (
-                        <ControllerWrapper title="도형">
-                            <ShapeController
-                                shape={selectedAsset.value}
-                                onChangeAttribute={this.onChangeAttribute}/>
-                        </ControllerWrapper>
+                        <ShapeController
+                            shape={selectedAsset.value}
+                            onChangeAttribute={this.onChangeAttribute}/>
                     )
                 case assetTypes.TYPE_IMAGE:
                     return (
-                        <ControllerWrapper title="이미지">
-                            <ImageController
-                                selectedAsset={this.props.selectedAsset}
-                                onChangeImage={this.props.setSelectedAssetImage}
-                                onChangeAttribute={this.props.setSelectedAssetAttribute}/>
-                        </ControllerWrapper>
+                        <ImageController
+                            selectedAsset={this.props.selectedAsset}
+                            onChangeImage={this.props.setSelectedAssetImage}
+                            onChangeAttribute={this.props.setSelectedAssetAttribute}/>
                     )
                 case assetTypes.TYPE_CUSTOM:
                     return;

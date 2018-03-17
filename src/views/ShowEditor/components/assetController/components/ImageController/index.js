@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from '../../style.css';
+import ControllerWrapper from '../ControllerWrapper';
 
 const propTypes = {
-    onChangeAssetImage: React.PropTypes.func.isRequired,
-    onChangeAttribute: React.PropTypes.func.isRequired
+    onChangeImage: React.PropTypes.func.isRequired,
+    onChangeAttribute: React.PropTypes.func.isRequired,
+    selectedAsset: React.PropTypes.object.isRequired
 }
 
 class ImageController extends React.Component {
@@ -16,12 +18,14 @@ class ImageController extends React.Component {
 
     render() {
         return (
-            <div className={styles.items}>
-                <div className={styles.control_item + ' ' + styles.image_loader}
-                     onClick={this.loadLocalImage}>
-                    이미지 불러오기
+            <ControllerWrapper title="이미지">
+                <div className={styles.items}>
+                    <div className={styles.control_item + ' ' + styles.image_loader}
+                         onClick={this.loadLocalImage}>
+                        이미지 불러오기
+                    </div>
                 </div>
-            </div>
+            </ControllerWrapper>
         )
     }
 
@@ -30,7 +34,7 @@ class ImageController extends React.Component {
         let _self = this;
         fr.onload = (e) => {
             let data = e.target.result;
-            _self.props.setAssetImage(_self.props.selectedAsset.id, data);
+            _self.props.onChangeImage(_self.props.selectedAsset.id, data);
         };
         var inputElement = document.createElement("input");
         inputElement.type = "file";

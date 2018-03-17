@@ -14,8 +14,6 @@ class ControllerWrapper extends React.Component {
         this.state = {
             toggle: true
         }
-
-        this.toggle = this.toggle.bind(this);
     }
 
     render() {
@@ -24,7 +22,7 @@ class ControllerWrapper extends React.Component {
                 <div className={styles.fliping_controller_section}>
                     <div className={styles.controller_sub_wrapper}>
                         <div className={styles.controller_sub_title}>{this.props.title}
-                            <img onClick={this.toggle}
+                            <img onClick={() => this.setState({toggle: !this.state.toggle})}
                                  src={(this.state.toggle) ? "/images/ic_arrow_down.png" : "/images/ic_arrow_up.png"}
                                  className={styles.show_items_button}/>
                         </div>
@@ -34,11 +32,6 @@ class ControllerWrapper extends React.Component {
                 <hr className={styles.controller_hr}/>
             </div>
         );
-    }
-
-    toggle() {
-        let toggle = !this.state.toggle;
-        this.setState({toggle});
     }
 }
 
