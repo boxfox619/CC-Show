@@ -13,7 +13,7 @@ const propTypes = {
     x: React.PropTypes.number.isRequired,
     y: React.PropTypes.number.isRequired,
     angle: React.PropTypes.number.isRequired,
-    fillColor: React.PropTypes.string.isRequired,
+    backgroundColor: React.PropTypes.string.isRequired,
     borderColor: React.PropTypes.string.isRequired,
     borderWidth: React.PropTypes.number.isRequired,
     style: React.PropTypes.object.isRequired
@@ -25,10 +25,18 @@ const defaultProps = {
     x: 0,
     y: 0,
     angle: 0,
-    fillColor: 'rgba(0,0,0,0)',
+    backgroundColor: 'rgba(0,0,0,0)',
     borderColor: 'rgba(0,0,0,0)',
-    borderWidth: '1',
+    borderWidth: 1,
     style: {}
+}
+
+const getPixel = (e) => {
+    let val = e.target.value;
+    if (!val || val.length == 0) {
+        val = 0;
+    }
+    return val + 'px';
 }
 
 class BasicController extends React.Component {
@@ -47,9 +55,8 @@ class BasicController extends React.Component {
         this.setAngle = this.setAngle.bind(this);
         this.setStyle = this.setStyle.bind(this);
         this.setBorderWidth = this.setBorderWidth.bind(this);
-        this.setStyle = this.setStyle.bind(this);
         this.borderColorClickHandler = this.borderColorClickHandler.bind(this);
-        this.fillColorClickHandler = this.fillColorClickHandler.bind(this);
+        this.backgroundColorClickHandler = this.backgroundColorClickHandler.bind(this);
     }
 
     render() {
@@ -93,8 +100,8 @@ class BasicController extends React.Component {
                     <div className={styles.items}>
                         <div className={styles.control_item}>
                             <span className={styles.attribute_item_title}><img src="/images/ic_color.png"/></span>
-                            <div className={styles.change_color} onClick={this.fillColorClickHandler}
-                                 style={this.props.fillColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.fillColor}}></div>
+                            <div className={styles.change_color} onClick={this.backgroundColorClickHandler}
+                                 style={this.props.backgroundColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.backgroundColor}}></div>
                         </div>
                         <div className={styles.control_item}>
                             <span className={styles.attribute_item_title}><img src="/images/ic_line.png"/></span>
@@ -111,7 +118,7 @@ class BasicController extends React.Component {
                 <ControllerWrapper title={'스타일'}>
                     <div className={styles.items}>
                         <div id={styles.input_style}>
-                            <textarea onChange={this.setStyle.bind()} rows="" cols=""
+                            <textarea onChange={this.setStyle} rows="" cols=""
                                       value={JSON.stringify(this.props.style, null, 4)}></textarea>
                         </div>
                     </div>
@@ -121,42 +128,42 @@ class BasicController extends React.Component {
     }
 
     setHeight(event) {
-        let val = getIntFormTarget(event);
+        let val = getPixel(event);
         this.props.onChangeAttribute('height', val);
     }
 
     setWidth(event) {
-        let val = getIntFormTarget(event);
+        let val = getPixel(event);
         this.props.onChangeAttribute('width', val);
     }
 
     setX_location(event) {
-        let val = getIntFormTarget(event);
+        let val = getPixel(event);
         this.props.onChangeAttribute('x', val);
     }
 
     setY_location(event) {
-        let val = getIntFormTarget(event);
+        let val = getPixel(event);
         this.props.onChangeAttribute('y', val);
     }
 
     setStyle(event) {
         let {value} = event.target;
-        this.props.onChangeAttribute('style', value);
+        this.props.onChangeAttribute('style', JSON.parse(value));
     }
 
     setAngle(event) {
-        let val = getIntFormTarget(event);
+        let val = parseInt(event.target.value);
         this.props.onChangeAttribute('angle', val);
     }
 
     setBorderWidth(event) {
-        let val = getIntFormTarget(event);
+        let val = getPixel(event);
         this.props.onChangeStyle('border-width', val);
     }
 
-    fillColorClickHandler() {
-        this.props.showColorPicker('fill-color', this.props.fillColor);
+    backgroundColorClickHandler() {
+        this.props.showColorPicker('background-color', this.props.backgroundColor);
     }
 
     borderColorClickHandler() {

@@ -115,31 +115,31 @@ class TextController extends React.Component {
 
                         <img src="/images/ic_format_bold.png"
                              style={this.getFontWeight() === 'normal' ? {} : {display: 'none'}}
-                             onclick={() => this.props.onChangeStyle('font-weight', 'normal')}/>
+                             onClick={() => this.props.onChangeStyle('font-weight', 'bold')}/>
                         <img src="/images/ic_format_bold_apply.png"
                              style={this.getFontWeight() === 'normal' ? {display: 'none'} : {}}
-                             onclick={() => this.props.onChangeStyle('font-weight', 'bold')}/>
+                             onClick={() => this.props.onChangeStyle('font-weight', 'normal')}/>
 
                         <img src="/images/ic_format_italic.png"
                              style={this.getFontStyle() === 'normal' ? {} : {display: 'none'}}
-                             onclick={() => this.props.onChangeStyle('font-style', 'normal')}/>
+                             onClick={() => this.props.onChangeStyle('font-style', 'italic')}/>
                         <img src="/images/ic_format_italic_apply.png"
                              style={this.getFontStyle() === 'normal' ? {display: 'none'} : {}}
-                             onClick={() => this.props.onChangeStyle('font-style', 'italic')}/>
+                             onClick={() => this.props.onChangeStyle('font-style', 'normal')}/>
 
                         <img src="/images/ic_format_underlined.png"
                              style={this.getTextDecoration() === 'underline' ? {display: 'none'} : {}}
-                             onclick={() => this.props.onChangeStyle('text-decoration', 'none')}/>
+                             onClick={() => this.props.onChangeStyle('text-decoration', 'underline')}/>
                         <img src="/images/ic_format_underlined_apply.png"
                              style={this.getTextDecoration() === 'underline' ? {} : {display: 'none'}}
-                             onclick={() => this.props.onChangeStyle('text-decoration', 'underline')}/>
+                             onClick={() => this.props.onChangeStyle('text-decoration', 'none')}/>
 
                         <img src="/images/ic_format_strikethrough.png"
                              style={this.getTextDecoration() === 'line-through' ? {display: 'none'} : {}}
-                             onclick={() => this.props.onChangeStyle('text-decoration', 'none')}/>
+                             onClick={() => this.props.onChangeStyle('text-decoration', 'line-through')}/>
                         <img src="/images/ic_format_strikethrough_apply.png"
                              style={this.getTextDecoration() === 'line-through' ? {} : {display: 'none'}}
-                             onclick={() => this.props.onChangeStyle('text-decoration', 'line-through')}/>
+                             onClick={() => this.props.onChangeStyle('text-decoration', 'none')}/>
                     </div>
                 </div>
             </ControllerWrapper>

@@ -68,7 +68,7 @@ class AssetController extends React.Component {
                         x={parseInt(selectedAsset.x)}
                         y={parseInt(selectedAsset.y)}
                         angle={parseInt(selectedAsset.angle)}
-                        fillColor={selectedAsset.style['background-color']}
+                        backgroundColor={selectedAsset.style['background-color']}
                         borderColor={selectedAsset.style['border-color']}
                         borderWidth={parseInt(selectedAsset.style['border-width'])}
                         style={selectedAsset.style}
