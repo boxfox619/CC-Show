@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import * as actions from 'services/editor/asset/actions';
 import * as assetTypes from 'services/editor/asset/assetTypes';
+import * as uiActions from 'services/ui/actions';
 
 import TextController from './components/textController';
 import VideoController from './components/videoController';
@@ -26,7 +27,8 @@ class AssetController extends React.Component {
                         <TextController
                             style={selectedAsset.style}
                             onChangeAttribute={this.props.setSelectedAssetAttribute}
-                            onChangeStyle={this.props.setSelectedAssetStyle}/>
+                            onChangeStyle={this.props.setSelectedAssetStyle}
+                            showColorPicker={this.props.showColorPicker}/>
                     )
                 case assetTypes.TYPE_VIDEO:
                     return (
@@ -68,7 +70,7 @@ class AssetController extends React.Component {
                         style={selectedAsset.style}
                         onChangeAttribute={this.props.setSelectedAssetAttribute}
                         onChangeStyle={this.props.setSelectedAssetStyle}
-                        onChangeColor={this.props.setSelectedAssetStyleColor}/>
+                        showColorPicker={this.props.showColorPicker}/>
                 </div>
             )
     }
@@ -107,7 +109,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        ...actions
+        ...actions,
+        ...uiActions
     }, dispatch);
 }
 

@@ -6,7 +6,7 @@ import styles from '../../style.css';
 const propTypes = {
     onChangeAttribute: React.PropTypes.func.isRequired,
     onChangeStyle: React.PropTypes.func.isRequired,
-    onChangeColor: React.PropTypes.func.isRequired,
+    showColorPicker: React.PropTypes.func.isRequired,
     width: React.PropTypes.number.isRequired,
     height: React.PropTypes.number.isRequired,
     x: React.PropTypes.number.isRequired,
@@ -165,11 +165,11 @@ class BasicController extends React.Component {
     }
 
     fillColorClickHandler() {
-        this.props.onChangeColor('fill-color');
+        this.props.showColorPicker('fill-color', this.props.fillColor);
     }
 
     borderColorClickHandler() {
-        this.props.onChangeColor('border-color');
+        this.props.showColorPicker('border-color', this.props.borderColor);
     }
 }
 

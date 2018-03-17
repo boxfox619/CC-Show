@@ -7,30 +7,16 @@ export const actionTypes = {
   TOGGLE_SLIDE_MANAGER: 'TOGGLE_SLIDE_MANAGER'
 }
 
-export const toggleFillColorPicker = () => {
+export const showColorPicker = (styleClass, defaultColor) => {
   return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.COLOR_PICKER,
-    colorPicker: colorPicker.FILL_COLOR
+      type: actionTypes.TOGGLE_DIALOG,
+      target: dialogs.COLOR_PICKER,
+      colorPicker: {
+          styleClass,
+          defaultColor
+      }
   }
 }
-
-export const toggleBorderColorPicker = () => {
-  return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.COLOR_PICKER,
-    colorPicker: colorPicker.BORDER_COLOR
-  }
-}
-
-export const toggleTextColorPicker = () => {
-  return {
-    type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.COLOR_PICKER,
-    colorPicker: colorPicker.TEXT_COLOR
-  }
-}
-
 
 export const toggleSlideManager = () => {
   return {

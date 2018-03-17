@@ -5,7 +5,7 @@ import ControllerHeader from '../controllerHeader';
 const propTypes = {
     onChangeAttribute: React.PropTypes.func.isRequired,
     onChangeStyle: React.PropTypes.func.isRequired,
-    onChangeColor: React.PropTypes.func.isRequired,
+    showColorPicker: React.PropTypes.func.isRequired,
     style: React.PropTypes.object.isRequired
 }
 
@@ -120,31 +120,31 @@ class TextController extends React.Component {
 
                             <img src="/images/ic_format_bold.png"
                                  style={this.getFontWeight() == 'normal' ? {} : {display: 'none'}}
-                                 onClick={this.props.onChangeStyle('font-weight', 'normal')}/>
+                                 onclick={() => this.props.onChangeStyle('font-weight', 'normal')}/>
                             <img src="/images/ic_format_bold_apply.png"
                                  style={this.getFontWeight() == 'normal' ? {display: 'none'} : {}}
-                                 onClick={this.props.onChangeStyle('font-weight', 'bold')}/>
+                                 onclick={() => this.props.onChangeStyle('font-weight', 'bold')}/>
 
                             <img src="/images/ic_format_italic.png"
                                  style={this.getFontStyle() == 'normal' ? {} : {display: 'none'}}
-                                 onClick={this.props.onChangeStyle('font-style', 'normal')}/>
+                                 onclick={() => this.props.onChangeStyle('font-style', 'normal')}/>
                             <img src="/images/ic_format_italic_apply.png"
                                  style={this.getFontStyle() == 'normal' ? {display: 'none'} : {}}
-                                 onClick={this.props.onChangeStyle('font-style', 'italic')}/>
+                                 onClick={() => this.props.onChangeStyle('font-style', 'italic')}/>
 
                             <img src="/images/ic_format_underlined.png"
                                  style={this.getTextDecoration() == 'underline' ? {display: 'none'} : {}}
-                                 onClick={this.props.onChangeStyle('text-decoration', 'none')}/>
+                                 onclick={() => this.props.onChangeStyle('text-decoration', 'none')}/>
                             <img src="/images/ic_format_underlined_apply.png"
                                  style={this.getTextDecoration() == 'underline' ? {} : {display: 'none'}}
-                                 onClick={this.props.onChangeStyle('text-decoration', 'underline')}/>
+                                 onclick={() => this.props.onChangeStyle('text-decoration', 'underline')}/>
 
                             <img src="/images/ic_format_strikethrough.png"
                                  style={this.getTextDecoration() == 'line-through' ? {display: 'none'} : {}}
-                                 onClick={this.props.onChangeStyle('text-decoration', 'none')}/>
+                                 onclick={() => this.props.onChangeStyle('text-decoration', 'none')}/>
                             <img src="/images/ic_format_strikethrough_apply.png"
                                  style={this.getTextDecoration() == 'line-through' ? {} : {display: 'none'}}
-                                 onClick={this.props.onChangeStyle('text-decoration', 'line-through')}/>
+                                 onclick={() => this.props.onChangeStyle('text-decoration', 'line-through')}/>
                         </div>
                     </div>
                     }
@@ -167,7 +167,7 @@ class TextController extends React.Component {
     }
 
     getTextColor() {
-        return this.props.onChangeColor('color');
+        return this.props.style.color;
     }
 
     getTextAlign() {
