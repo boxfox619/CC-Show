@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import update from 'react-addons-update';
-import AssetItem from './components/assetItem';
-import ActionItem from './components/actionItem';
-import AssetDetail from './components/assetDetail';
+import AssetItem from './components/assetItem/index';
+import ActionItem from './components/actionItem/index';
+import AssetDetail from './components/assetDetail/index';
 
 import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';

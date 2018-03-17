@@ -52,16 +52,6 @@ class ColorPicker extends React.Component{
   };
 }
 
-function getAssetIndex(state, key) {
-  let index = -1;
-  state.editor.slides[state.editor.selectedSlide].assets.forEach(function (asset, i) {
-    if (asset.id == key) {
-      index = i;
-    }
-  });
-  return index;
-}
-
 const mapStateToProps = (state) => {
   return {
     colorPicker: state.ui.colorPicker,
