@@ -19,7 +19,7 @@ class ColorPicker extends React.Component {
             <div className={this.props.className} style={{'width': 'auto', 'height': 'auto'}}>
                 <SketchPicker
                     style={{'box-shadow': 'none'}} color={this.props.color}
-                    onChangeComplete={color => this.props.setSelectedAssetStyleColor(this.props.colorType, color.hex)}
+                    onChangeComplete={color => this.props.setSelectedAssetStyle(this.props.colorType, color.hex)}
                 />
                 <div className={styles.closer} onClick={this.props.releaseDialog}>닫기</div>
             </div>
@@ -29,8 +29,8 @@ class ColorPicker extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        color: state.ui.colorPicker.color,
-        colorType: state.ui.colorPicker.type
+        color: state.ui.colorPicker.defaultColor,
+        colorType: state.ui.colorPicker.styleClass
     }
 }
 

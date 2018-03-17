@@ -149,7 +149,7 @@ export default function (state, action) {
                 )
             }
         case actionTypes.ASSET_SET_STYLE:
-            currentAsset, style[action.styleName] = action.style;
+            currentAsset.style[action.styleName] = action.style;
             return {
                 ...state,
                 slides: update(

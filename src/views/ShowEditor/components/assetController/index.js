@@ -61,7 +61,7 @@ class AssetController extends React.Component {
         if (!!selectedAsset)
             return (
                 <div>
-                    {renderSubController(selectedAsset)}
+                    {renderSubController()}
                     <BasicController
                         width={parseInt(selectedAsset.width)}
                         height={parseInt(selectedAsset.height)}
@@ -89,7 +89,6 @@ class AssetController extends React.Component {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state) => {

@@ -33,7 +33,7 @@ export const setSelectedAssetAttribute = (attrName, attr) => {
 
 export const setSelectedAssetStyle = (styleName, style) => {
     return {
-        type: actionTypes.ASSET_SET_ATTRIBUTE,
+        type: actionTypes.ASSET_SET_STYLE,
         styleName,
         style
     }
