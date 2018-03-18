@@ -26,6 +26,33 @@ const defaultProps = {
   doubleClicked: false
 }
 
+
+const renderSelectorDot = (width, height, subStyleClass)=>{
+    const topLeftAttr = {'target': 'topleft'};
+    const topRightAttr = {'target': 'topright'};
+    const bottomLeftAttr = {'target': 'bottomleft'};
+    const bottomRightAttr = {'target': 'bottomright'};
+        return (<div><selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot+subStyleClass}/>
+            <selectordot {...topRightAttr} style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+width+' + 3.5px)'}} className={styles.selectorDot+subStyleClass}/>
+            <selectordot {...bottomLeftAttr} style={{'cursor': 'ne-resize', 'top': 'calc('+height+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot+subStyleClass}/>
+            <selectordot {...bottomRightAttr} style={{'cursor': 'nw-resize', 'top': 'calc('+height+' + 3.5px)', 'left': 'calc('+width+' + 3.5px)'}} className={styles.selectorDot+subStyleClass}/>
+        </div>)
+}
+
+
+let renderSelectorLine = (width, height, subStyleClass)=>{
+    const topAttr = {'target': 'top'};
+    const bottomAttr = {'target': 'bottom'};
+    const leftAttr = {'target': 'left'};
+    const rightAttr = {'target': 'right'};
+        return (<div><selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer+subStyleClass}/>
+            <selectorline {...bottomAttr} style={{'top': 'calc('+height+' + 7px)'}} className={styles.horizontalResizer+subStyleClass}/>
+            <selectorline {...leftAttr} style={{'left': '3px'}} className={styles.verticalResizer+subStyleClass}/>
+            <selectorline {...rightAttr} style={{'left': 'calc('+width+' + 7px)'}} className={styles.verticalResizer+subStyleClass}/>
+        </div>);
+}
+
+
 class Asset extends React.Component{
 
   constructor(props){
@@ -36,84 +63,62 @@ class Asset extends React.Component{
   }
 
   render(){
-    let controllerVisible = this.props.controlable;
+      let controllerVisible = this.props.controlable;
       let assetTag;
       let attrs = {};
-    switch(this.props.attribute.type){
-      case assetTypes.TYPE_TEXT:
-        assetTag = TextAsset;
-        controllerVisible = (controllerVisible&&this.props.doubleClicked)? false:controllerVisible;
-        attrs = {edit: this.props.isSelected&&this.props.doubleClicked, controlable: this.props.controlable, id: this.props.attribute.id+'_editor'};
-        break;
-      case assetTypes.TYPE_IMAGE:
-        assetTag = ImageAsset;
-        break;
-      case assetTypes.TYPE_VIDEO:
-        assetTag = VideoAsset;
-        attrs = {preview: (!this.props.controlable)?true:this.props.attribute.preview&&this.props.isSelected};
-        break;
-      case assetTypes.TYPE_SHAPE:
-        assetTag=ShapeAsset;
-        attrs = this.props.attribute;
-        break;
-      case assetTypes.TYPE_TABLE:
-        assetTag = TableAsset;
-        break;
-      case assetTypes.TYPE_CUSTOM:
-        assetTag = CustomAsset;
-        attrs = {type: true};
-        break;
-      case assetTypes.TYPE_PREVIEW:
-        assetTag = PreviewAsset;
-        attrs = {type: false};
-        break;
-      default:
-        assetTag = 'TextAsset';
-        break;
-    }
-    const AssetContext = assetTag;
-    const topLeftAttr = {'target': 'topleft'};
-    const topRightAttr = {'target': 'topright'};
-    const bottomLeftAttr = {'target': 'bottomleft'};
-    const bottomRightAttr = {'target': 'bottomright'};
-    const topAttr = {'target': 'top'};
-    const bottomAttr = {'target': 'bottom'};
-    const leftAttr = {'target': 'left'};
-    const rightAttr = {'target': 'right'};
-    let renderSelectorLine = ()=>{
-      if(controllerVisible){
-        return (<div><selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer+this.getSubStyleClass()}/>
-        <selectorline {...bottomAttr} style={{'top': 'calc('+this.props.attribute.height+' + 7px)'}} className={styles.horizontalResizer+this.getSubStyleClass()}/>
-        <selectorline {...leftAttr} style={{'left': '3px'}} className={styles.verticalResizer+this.getSubStyleClass()}/>
-        <selectorline {...rightAttr} style={{'left': 'calc('+this.props.attribute.width+' + 7px)'}} className={styles.verticalResizer+this.getSubStyleClass()}/>
-      </div>);
+      switch (this.props.attribute.type) {
+          case assetTypes.TYPE_TEXT:
+              assetTag = TextAsset;
+              controllerVisible = (controllerVisible && this.props.doubleClicked) ? false : controllerVisible;
+              attrs = {
+                  edit: this.props.isSelected && this.props.doubleClicked,
+                  controlable: this.props.controlable,
+                  id: this.props.attribute.id + '_editor'
+              };
+              break;
+          case assetTypes.TYPE_IMAGE:
+              assetTag = ImageAsset;
+              break;
+          case assetTypes.TYPE_VIDEO:
+              assetTag = VideoAsset;
+              attrs = {preview: (!this.props.controlable) ? true : this.props.attribute.preview && this.props.isSelected};
+              break;
+          case assetTypes.TYPE_SHAPE:
+              assetTag = ShapeAsset;
+              attrs = this.props.attribute;
+              break;
+          case assetTypes.TYPE_TABLE:
+              assetTag = TableAsset;
+              break;
+          case assetTypes.TYPE_CUSTOM:
+              assetTag = CustomAsset;
+              attrs = {type: true};
+              break;
+          case assetTypes.TYPE_PREVIEW:
+              assetTag = PreviewAsset;
+              attrs = {type: false};
+              break;
+          default:
+              assetTag = 'TextAsset';
+              break;
       }
-    }
-    let renderSelectorDot = ()=>{
-      if(controllerVisible){
-        return (<div><selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>
-      <selectordot {...topRightAttr} style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+this.props.attribute.width+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}/>
-      <selectordot {...bottomLeftAttr} style={{'cursor': 'ne-resize', 'top': 'calc('+this.props.attribute.height+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot+this.getSubStyleClass()}/>
-      <selectordot {...bottomRightAttr} style={{'cursor': 'nw-resize', 'top': 'calc('+this.props.attribute.height+' + 3.5px)', 'left': 'calc('+this.props.attribute.width+' + 3.5px)'}} className={styles.selectorDot+this.getSubStyleClass()}/>
-        </div>)
-      }
-    }
+      const AssetContext = assetTag;
       return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
       <div style={{'width': this.props.attribute.width, 'height': this.props.attribute.height,'padding': '6px', 'position': 'absolute'}} >
-          {renderSelectorLine()}
+          {controllerVisible && renderSelectorLine(this.props.attribute.width, this.props.attribute.height, this.getSubStyleClass())}
           <AssetContext handleChange={this.handleInputChange}
                         styles={this.getClearStyle()}
                         attrs={attrs}
                         value={this.props.attribute.value}/>
-          {renderSelectorDot()}
+          {controllerVisible && renderSelectorDot(this.props.attribute.width, this.props.attribute.height, this.getSubStyleClass())}
       </div>
       </asset>);
   }
 
 
-  handleInputChange(value) {
-    this.props.handleValueChange(this.props.attribute.id, value);
-  }
+    handleInputChange(value) {
+        this.props.handleValueChange(this.props.attribute.id, value);
+    }
 
     getClearStyle() {
         let clearStyle = {};
@@ -125,48 +130,33 @@ class Asset extends React.Component{
             }
             clearStyle[key] = this.props.attribute.style[prop];
         }
-        clearStyle['width'] = parseInt(this.props.attribute.width) - parseInt(this.props.attribute.style['border-width'])*2 + 'px';
-        clearStyle['height'] = parseInt(this.props.attribute.height) - parseInt(this.props.attribute.style['border-width'])*2 + 'px';
+        clearStyle['width'] = parseInt(this.props.attribute.width) - parseInt(this.props.attribute.style['border-width']) * 2 + 'px';
+        clearStyle['height'] = parseInt(this.props.attribute.height) - parseInt(this.props.attribute.style['border-width']) * 2 + 'px';
         clearStyle['overflow'] = 'hidden';
         clearStyle['cursor'] = this.props.controlable ? 'move' : 'normal';
         return clearStyle;
     }
 
-  createAttrs(key, object){
-    return {key: object};
-  }
+    createAttrs(key, object) {
+        return {key: object};
+    }
 
-  getStyle(){
-    let style = {
-      'height': 'calc('+this.props.attribute.height+' + 12px)',
-      'width': 'calc('+this.props.attribute.width+' + 12px)',
-      'left' : this.props.attribute.x,
-      'top' : this.props.attribute.y
-    };
-    return style;
-  }
+    getStyle() {
+        let style = {
+            'height': 'calc(' + this.props.attribute.height + ' + 12px)',
+            'width': 'calc(' + this.props.attribute.width + ' + 12px)',
+            'left': this.props.attribute.x,
+            'top': this.props.attribute.y
+        };
+        return style;
+    }
 
-  getSubStyleClass(){
-    return((this.props.isSelected)?' '+styles.isSelected:'');
-  }
+    getSubStyleClass() {
+        return ((this.props.isSelected) ? ' ' + styles.isSelected : '');
+    }
 }
 
 Asset.propTypes = propTypes;
 Asset.defaultProps = defaultProps;
-/*
-{ id: '123',
-  isSelected: false,
-  type: 'text',
-  width: '100px',
-  height: '300px',
-  left: '20px',
-  top:'10px',
-  value:'가나다라',
-  styles : {
-    font-size: '30px'
-  }
-}
-*/
-
 
 export default Asset;
