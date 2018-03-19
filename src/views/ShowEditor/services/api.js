@@ -14,14 +14,3 @@ export const load = (callback) => {
     callback(result);
   });
 }
-
-export const upload = (showId, showData, callback) => {
-  let result = {'result' : false};
-  axios.post('/show/data', {showId, showData}).then(response => {
-    result['result'] = true;
-    callback(result);
-  })
-  .catch(e =>{
-    callback(result);
-  });
-}
