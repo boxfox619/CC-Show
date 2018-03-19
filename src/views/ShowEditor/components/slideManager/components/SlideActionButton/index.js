@@ -1,12 +1,12 @@
 import React from 'react';
 
-const defaultProps = {
+const propTypes = {
   icon: React.PropTypes.string.isRequired,
   onClick: React.PropTypes.func.isRequired,
   className: React.PropTypes.string.isRequired
 };
 
-class IconButton extends React.Component{
+class SlideActionButton extends React.Component{
 
   constructor(props){
     super(props);
@@ -19,6 +19,6 @@ class IconButton extends React.Component{
   }
 }
 
-IconButton.defaultProps = defaultProps;
+SlideActionButton.propTypes = propTypes;
 
-export default IconButton;
+export default SlideActionButton;

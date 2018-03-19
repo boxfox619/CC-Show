@@ -1,4 +1,4 @@
-.slideCreator{
+.slideCreateCard{
   cursor: pointer;
   position: relative;
   height: 140px;
@@ -8,7 +8,7 @@
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.26);
 }
 
-.slideCreator::before{
+.slideCreateCard::before{
   content:'';
   position: absolute;
   left:0;
@@ -21,11 +21,11 @@
   border-radius: 10px;
 }
 
-.slideCreator:hover::before{
+.slideCreateCard:hover::before{
   background-color: rgba(0,0,0,0.4);
 }
 
-.slideCreator .description{
+.slideCreateCard .description{
   position: absolute;
   text-align: center;
   font-weight: gray;
@@ -35,7 +35,7 @@
   bottom: 15%;
 }
 
-.slideCreator img{
+.slideCreateCard img{
   position: absolute;
   width: 5em;
   height: 5em;

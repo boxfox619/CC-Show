@@ -2,142 +2,76 @@ import React from 'react';
 
 import styles from './style.css';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-import SlidePreview from './components/slidePreview';
-import SlideCreator from './components/slideCreator';
+import SlidePreviewCard from './components/SlidePreviewCard';
+import SlideCreator from './components/SlideCreateCard';
+import DraggableCardList from './components/DraggableCardList';
 import * as slideActions from 'services/editor/slide/actions';
 import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';
 
 const defaultProps = {
-  className: React.PropTypes.string.required
+    className: React.PropTypes.string.required
 };
 
 var placeholder = document.createElement("li");
 placeholder.className = "placeholder";
 
-class SlideManager extends React.Component{
+class SlideManager extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.dragStart = this.dragStart.bind(this);
-    this.dragEnd = this.dragEnd.bind(this);
-    this.dragOver = this.dragOver.bind(this);
-    this.selectSlide = this.selectSlide.bind(this);
-  }
-
-  render(){
-      let renderSlidePreviews = (slides) => {
-        return slides.map((slide, idx)=>{
-          let active = idx==this.props.currentSilde;
-          return <li
-            data-id={idx}
-            key={'slide'+slide.id}
-            draggable="true"
-            onDragEnd={this.dragEnd}
-            onDragStart={this.dragStart}>
-          <SlidePreview
-          active={active}
-          slide={slide}
-          idx={idx}
-          shareSlide={this.props.shareSlide}
-          copySlide={this.props.copySlide}
-          deleteSlide={this.props.deleteSlide}
-          onClick={this.selectSlide}
-          />
-          </li>
-        })
-      };
-
-    return (
-      <div className={this.props.className}>
-        <div className={styles.inner}>
-          <div className={styles.title}>
-            슬라이드 리스트
-          </div>
-          <div className={styles.hide} onClick={this.props.toggleSlideManager}>
-          </div>
-          <ul onDragOver={this.dragOver}>
-          {renderSlidePreviews(this.props.slides)}
-          </ul>
-          <SlideCreator/>
-        </div>
-      </div>
-    );
-  }
-
-
-  componentDidMount(){
-  }
-
-  selectSlide(target){
-    this.props.selectSlide(target);
-  }
-
-  dragStart(e) {
-    let target = e.currentTarget;
-    while(target.tagName != 'LI'){
-      target = target.parentNode;
+    constructor(props) {
+        super(props);
+        this.selectSlide = this.selectSlide.bind(this);
     }
-    this.dragged = target;
-    e.dataTransfer.effectAllowed = 'move';
-    // Firefox requires dataTransfer data to be set
-    e.dataTransfer.setData("text/html", e.currentTarget);
-  }
 
-  dragEnd(e) {
-    this.dragged.style.display = "block";
-    if(!this.dragged.parentNode.contains(placeholder))return;
-    this.dragged.parentNode.removeChild(placeholder);
-    var from = Number(this.dragged.dataset.id);
-    var to = Number(this.over.dataset.id);
-    if(from < to) to--;
-    if(this.nodePlacement == "after") to++;
-    this.props.exchangeSlide(to, from);
-  }
+    render() {
+        let renderSlidePreviews = (slides) => {
+            return slides.map((slide, idx) => {
+                let active = idx == this.props.currentSilde;
+                return (
+                    <SlidePreviewCard
+                        active={active}
+                        slide={slide}
+                        idx={idx}
+                        shareSlide={this.props.shareSlide}
+                        copySlide={this.props.copySlide}
+                        deleteSlide={this.props.deleteSlide}
+                        onClick={target => this.props.selectSlide(target)}
+                    />)
+            })
+        };
 
-  dragOver(e) {
-    e.preventDefault();
-    this.dragged.style.display = "none";
-    let target = e.target;
-    if(e.target.className == "placeholder" || target.tagName=='UL') return;
-    while(target.tagName != 'LI'){
-      target = target.parentNode;
+        return (
+            <div className={this.props.className}>
+                <div className={styles.inner}>
+                    <div className={styles.title}>
+                        슬라이드 리스트
+                    </div>
+                    <div className={styles.hide} onClick={this.props.toggleSlideManager}>
+                    </div>
+                    <DraggableCardList onExchangeSlide={this.props.exchangeSlide}>
+                        {renderSlidePreviews(this.props.slides)}
+                    </DraggableCardList>
+                    <SlideCreator createSlide={this.props.createSlide}/>
+                </div>
+            </div>
+        );
     }
-    this.over = target;
-    var relY = e.clientY - this.over.offsetTop;
-    var height = this.over.offsetHeight / 2;
-    var parent = e.target;
-    while(parent.tagName != 'UL'){
-      parent = parent.parentNode;
-    }
-    while(target.tagName != 'LI'){
-      target = target.parentNode;
-    }
-    if(relY > height) {
-      this.nodePlacement = "after";
-      parent.insertBefore(placeholder, target.nextElementSibling);
-    }
-    else if(relY < height) {
-      this.nodePlacement = "before"
-      parent.insertBefore(placeholder, target);
-    }
-  }
 }
 
 SlideManager.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
-  return {
-    slides: state.editor.slides,
-    currentSilde: state.editor.selectedSlide
-  }
+    return {
+        slides: state.editor.slides,
+        currentSilde: state.editor.selectedSlide
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ ...assetsActions, ...slideActions, ...uiActions }, dispatch);
+    return bindActionCreators({...assetsActions, ...slideActions, ...uiActions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideManager);
