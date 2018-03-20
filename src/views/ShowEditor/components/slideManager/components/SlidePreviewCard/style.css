@@ -80,7 +80,7 @@
   vertical-align: middle;
 }
 
-.iconButton {
+.slideActionButton {
 		font-size: 1.5rem;
     width: 0.6em;
 		color: white;
@@ -89,7 +89,7 @@
 		transition: transform 0.3s ease;
 }
 
-.iconButton:hover {
+.slideActionButton:hover {
 		background-color: transparent;
 		transform: rotate(90deg);
 		cursor: pointer;

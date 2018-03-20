@@ -42,10 +42,6 @@ class SlideContext extends React.Component {
             </div>
         );
     }
-
-    componentDidMount() {
-
-    }
 }
 
 const mapStateToProps = (state) => {
@@ -69,5 +65,7 @@ const mapDispatchToProps = (dispatch) => {
         ...slideActions
     }, dispatch);
 }
+
+SlideContext.propTypes = propTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlideContext);
