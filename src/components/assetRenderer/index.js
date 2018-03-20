@@ -9,9 +9,7 @@ const propTypes = {
     currentSlide: React.PropTypes.number.isRequired,
     assetSelected: React.PropTypes.func.isRequired,
     assetDeselected: React.PropTypes.func.isRequired,
-    onChangeAttribute: React.PropTypes.func.isRequired,
-    setAttributes: React.PropTypes.func.isRequired,
-    setAssetValue: React.PropTypes.func.isRequired,
+    onChangeAttributes: React.PropTypes.func.isRequired
 }
 
 
@@ -67,7 +65,8 @@ class AssetRenderer extends React.Component {
                     isSelected = true;
                 }
                 return <Asset key={assetKey} isSelected={isSelected} doubleClicked={this.state.doubleClicked}
-                              handleValueChange={this.props.setAssetValue} attribute={asset}/>
+                              handleValueChange={val => this.props.onChangeAttributes({'value': val})}
+                              attribute={asset}/>
             })
         };
         return (
@@ -154,7 +153,7 @@ class AssetRenderer extends React.Component {
                         modifyAttrs = {'width': afterWidth};
                         break;
                 }
-                this.props.setAttributes(modifyAttrs);
+                this.props.onChangeAttributes(modifyAttrs);
                 this.xInElement = e.pageX;
                 this.yInElement = e.pageY;
             }
