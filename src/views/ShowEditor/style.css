@@ -73,7 +73,7 @@ body::-webkit-scrollbar-thumb
 }
 
 
-.assetCreator{
+.sideController{
     z-index: 3;
     min-width: 12em;
     max-width: 12em;
@@ -202,7 +202,7 @@ user-select: none;
   overflow: hidden;
 }
 
-.assetCreator ul{
+.sideController ul{
   list-style-type: none;
     padding: 0;
 }

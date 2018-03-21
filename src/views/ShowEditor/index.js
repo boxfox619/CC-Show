@@ -1,5 +1,5 @@
 import React from 'react';
-import AssetCreator from './components/assetCreator';
+import SideController from './components/SideController';
 import SlideContext from './components/slideContext';
 import AssetController from './components/assetController';
 import SlideManager from './components/slideManager';
@@ -13,7 +13,7 @@ import * as editorActions from 'services/editor/actions';
 import * as uiActions from 'services/ui/actions';
 import * as accountActions from 'services/account/actions';
 
-import * as showApi from './services/api';
+import * as classnames from 'classnames';
 
 import {bindActionCreators} from 'redux';
 
@@ -53,15 +53,11 @@ class ShowEditor extends React.Component {
         }
         let contextDisabled = this.checkContextDisabled();
         return (
-            <div ref={root => {
-                this.root = root
-            }} className={styles.showEditor}>
-                <AssetCreator className={styles.assetCreator}/>
-                <SlideManager
-                    className={styles.slideManager + ' ' + (this.props.visibleSlideManager ? styles.show : '')}/>
+            <div ref={root => {this.root = root}} className={styles.showEditor}>
+                <SideController className={styles.sideController}/>
+                <SlideManager className={classnames(styles.slideManager, (this.props.visibleSlideManager ? styles.show : ''))}/>
                 {renderDialogs()}
-                <div onClick={this.handleClick}
-                     className={styles.contextWrap + ' ' + (contextDisabled ? styles.disabled : '')}>
+                <div onClick={this.handleClick} className={classnames(styles.contextWrap, (contextDisabled ? styles.disabled : ''))}>
                     <div className={styles.contextSpace}>
                         <SlideContext
                             className={styles.slideContext}
@@ -131,4 +127,4 @@ const mapDispatchToProps = (dispatch) => {
     }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowEditor);
+export default connect(mapStateToProps, mapDispatchToProps)(c);

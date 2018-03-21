@@ -3,7 +3,6 @@ import {actionTypes, updateSlideThumbnail} from './slide/actions';
 import {updateAccountData} from '../account/actions';
 import domtoimage from "dom-to-image";
 import axios from "axios/index";
-import * as showApi from "../../views/ShowEditor/services/api";
 import {dispatch} from "../../store";
 
 export * from './slide/actions';
