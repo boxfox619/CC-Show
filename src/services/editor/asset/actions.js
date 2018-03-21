@@ -39,6 +39,23 @@ export const setSelectedAssetStyle = (styleName, style) => {
     }
 }
 
+export const setSelectedAssetAttributes = (attrs) => {
+    Object.keys(attrs).map(function (key, index) {
+        attrs[key] = {
+            $set: attrs[key]
+        };
+    });
+    return {
+        type: actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE,
+        attrs
+    }
+}
+
+
+
+
+
+
 export const setAssetValue = (id, value) => {
     return {
         type: actionTypes.ASSET_SET_VALUE,
@@ -134,18 +151,6 @@ export function deleteAsset(id) {
     return {
         type: actionTypes.ASSET_DELETE,
         id
-    }
-}
-
-export const setAttributes = (attrs) => {
-    Object.keys(attrs).map(function (key, index) {
-        attrs[key] = {
-            $set: attrs[key]
-        };
-    });
-    return {
-        type: actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE,
-        attrs
     }
 }
 

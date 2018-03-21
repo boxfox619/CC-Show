@@ -38,9 +38,7 @@ class SlideContext extends React.Component {
                     currentSlide={this.props.currentSlide}
                     assetSelected={this.props.assetSelected}
                     assetDeselected={this.props.assetDeselected}
-                    onChangeAttribute={this.props.setSelectedAssetAttribute}
-                    setAttributes={this.props.setAttributes}
-                    setAssetValue={this.props.setAssetValue}/>
+                    onChangeAttributes={this.props.setSelectedAssetAttributes}/>
             </div>
         );
     }
