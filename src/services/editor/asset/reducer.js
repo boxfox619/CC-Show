@@ -16,7 +16,7 @@ const defaultAsset = {
 };
 
 export default function (state, action) {
-    let selectedAssetIndex = state.slides[state.selectedSlide].selectedAsset;
+    let selectedAssetIndex = state.slides[state.selectedSlide].selectedAssetIndex;
     let currentAsset = state.slides[state.selectedSlide].assets[selectedAssetIndex];
     switch (action.type) {
         case actionTypes.ASSET_CREATE:
@@ -175,7 +175,7 @@ export default function (state, action) {
                     slides: update(
                         state.slides, {
                             [state.selectedSlide]: {
-                                selectedAsset: {
+                                selectedAssetIndex: {
                                     $set: getAssetIndex(state, action.assetId)
                                 }
                             }
@@ -244,7 +244,7 @@ export default function (state, action) {
                         [state.selectedSlide]: {
                             $set: {
                                 ...state.slides[state.selectedSlide],
-                                selectedAsset: undefined,
+                                selectedAssetIndex: undefined,
                                 assets: update(
                                     state.slides[state.selectedSlide].assets, {
                                         $splice: [[getAssetIndex(state, action.id), 1]]
@@ -264,7 +264,7 @@ export default function (state, action) {
                             assets: {
                                 $set: update(
                                     state.slides[state.selectedSlide].assets, {
-                                        [state.slides[state.selectedSlide].selectedAsset]: {
+                                        [selectedAssetIndex]: {
                                             value: {
                                                 $set: action.value
                                             }
@@ -285,7 +285,7 @@ export default function (state, action) {
                             assets: {
                                 $set: update(
                                     state.slides[state.selectedSlide].assets, {
-                                        [state.slides[state.selectedSlide].selectedAsset]: {
+                                        [selectedAssetIndex]: {
                                             style: {
                                                 $set: JSON.parse(action.style)
                                             }
@@ -306,7 +306,7 @@ export default function (state, action) {
                             assets: {
                                 $set: update(
                                     state.slides[state.selectedSlide].assets, {
-                                        [state.slides[state.selectedSlide].selectedAsset]: action.attrs
+                                        [selectedAssetIndex]: action.attrs
                                     })
                             }
                         }

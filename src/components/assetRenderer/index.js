@@ -5,7 +5,7 @@ const propTypes = {
     className: React.PropTypes.string.isRequired,
     assets: React.PropTypes.array.isRequired,
     onModified: React.PropTypes.func.isRequired,
-    selectedAsset: React.PropTypes.number,
+    selectedAssetIndex: React.PropTypes.number,
     currentSlide: React.PropTypes.number.isRequired,
     assetSelected: React.PropTypes.func.isRequired,
     onChangeAttributes: React.PropTypes.func.isRequired
@@ -49,8 +49,6 @@ class AssetRenderer extends React.Component {
         this.handleMouseMove = this.handleMouseMove.bind(this);
         this.handleMouseRelese = this.handleMouseRelese.bind(this);
         this.handleDoubleClickItem = this.handleDoubleClickItem.bind(this);
-
-        // this.submit = this.submit.bind(this);
     }
 
     render() {
@@ -59,7 +57,7 @@ class AssetRenderer extends React.Component {
             return assets.map((asset) => {
                 let assetKey = this.props.currentSlide + '-' + asset.id + '-' + this.props.currentSlide;
                 let isSelected = false;
-                if (this.props.selectedAsset == idx++) {
+                if (this.props.selectedAssetIndex == idx++) {
                     this.selectedAsset = asset;
                     isSelected = true;
                 }
@@ -85,7 +83,7 @@ class AssetRenderer extends React.Component {
     }
 
     handleMouseMove(e) {
-        if (this.props.selectedAsset != undefined && this.mouseAction != 'none') {
+        if (this.props.selectedAssetIndex != undefined && this.mouseAction != 'none') {
             if (this.selectedAsset.type == 'ASSET_TYPE_VIDEO' && this.selectedAsset.preview) {
                 this.mouseAction = 'none';
                 return;

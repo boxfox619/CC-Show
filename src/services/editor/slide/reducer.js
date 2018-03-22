@@ -60,7 +60,7 @@ export default function(state, action){
               $push: [{
                 id: state.slideIdCount + 1,
                 name: 'NEW-SLIDE' + (state.slideIdCount + 1),
-                selectedAsset: undefined,
+                selectedAssetIndex: undefined,
                 assetIdCount: 0,
                 assets: []
               }]

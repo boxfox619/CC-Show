@@ -76,7 +76,7 @@ class AssetEditor extends React.Component {
                         <AssetRenderer
                             className={styles.previewArea}
                             assets={this.getPreviewAsset()}
-                            selectedAsset={this.state.selectedAsset}
+                            selectedAssetIndex={this.state.selectedAsset}
                             assetSelected={this.assetSelected}
                             onChangeAttributes={this.setAttributes}/>
                     </div>

@@ -12,7 +12,7 @@ const initialState = {
         id: 0,
         thumbnail: '',
         note: '',
-        selectedAsset: undefined,
+        selectedAssetIndex: undefined,
         assetIdCount: 0,
         assets: []
     }]

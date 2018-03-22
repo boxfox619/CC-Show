@@ -34,7 +34,7 @@ class SlideContext extends React.Component {
                 <AssetRenderer
                     onModified={this.props.onModified}
                     assets={this.props.assets}
-                    selectedAsset={this.props.selectedAsset}
+                    selectedAssetIndex={this.props.selectedAssetIndex}
                     currentSlide={this.props.currentSlide}
                     assetSelected={this.props.assetSelected}
                     onChangeAttributes={this.props.setSelectedAssetAttributes}/>
@@ -47,12 +47,12 @@ const mapStateToProps = (state) => {
     if (state.editor.slides.length > 0 && !!state.editor.slides[state.editor.selectedSlide]) {
         return {
             currentSlide: state.editor.selectedSlide,
-            selectedAsset: state.editor.slides[state.editor.selectedSlide].selectedAsset,
+            selectedAssetIndex: state.editor.slides[state.editor.selectedSlide].selectedAsset,
             assets: state.editor.slides[state.editor.selectedSlide].assets
         }
     } else {
         return {
-            selectedAsset: -1,
+            selectedAssetIndex: -1,
             assets: []
         }
     }
