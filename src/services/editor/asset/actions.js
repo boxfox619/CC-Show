@@ -53,17 +53,6 @@ export const setSelectedAssetAttributes = (attrs) => {
 
 
 
-
-
-
-export const setAssetValue = (id, value) => {
-    return {
-        type: actionTypes.ASSET_SET_VALUE,
-        id,
-        value
-    }
-}
-
 export const createCustomAsset = (assetId) => {
     return {
         type: actionTypes.ASSET_CREATE,
@@ -97,13 +86,6 @@ export const assetSelected = (assetId) => {
         assetId
     }
 };
-
-export const assetDeselected = () => {
-    return {
-        type: actionTypes.ASSET_SELECTED,
-        assetId: undefined
-    }
-}
 
 export function copyAsset(id, slide, x, y) {
     return {

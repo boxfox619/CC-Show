@@ -18,7 +18,7 @@ class AssetEditor extends React.Component {
         this.state = {
             selectedAsset: undefined,
             previewAsset: {
-                id: 'preview',
+                id: '0',
                 type: assetTypes.TYPE_PREVIEW,
                 value: '',
                 height: '50px',
@@ -78,22 +78,15 @@ class AssetEditor extends React.Component {
                             assets={this.getPreviewAsset()}
                             selectedAsset={this.state.selectedAsset}
                             assetSelected={this.assetSelected}
-                            assetDeselected={this.assetDeselected}
-                            setAssetXY={this.setAssetXY}
-                            setAttributes={this.setAttributes}
-                            setAssetValue={this.setAssetValue}/>
+                            onChangeAttributes={this.setAttributes}/>
                     </div>
                 </div>
             </div>
         );
     }
 
-    assetSelected() {
-        this.setState({selectedAsset: 0});
-    }
-
-    assetDeselected() {
-        this.setState({selectedAsset: undefined});
+    assetSelected(target) {
+        this.setState({selectedAsset: target});
     }
 
     setAssetXY(x, y) {
@@ -114,17 +107,6 @@ class AssetEditor extends React.Component {
             asset[key] = attrs[key];
         });
         this.setState({previewAsset: asset});
-    }
-
-    setAssetValue(id, value) {
-        this.setState(
-            {
-                previewAsset: {
-                    ...this.state.previewAsset,
-                    value
-                }
-            }
-        );
     }
 
     getPreviewAsset() {

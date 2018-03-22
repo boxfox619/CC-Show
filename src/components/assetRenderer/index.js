@@ -8,7 +8,6 @@ const propTypes = {
     selectedAsset: React.PropTypes.number,
     currentSlide: React.PropTypes.number.isRequired,
     assetSelected: React.PropTypes.func.isRequired,
-    assetDeselected: React.PropTypes.func.isRequired,
     onChangeAttributes: React.PropTypes.func.isRequired
 }
 
@@ -65,7 +64,7 @@ class AssetRenderer extends React.Component {
                     isSelected = true;
                 }
                 return <Asset key={assetKey} isSelected={isSelected} doubleClicked={this.state.doubleClicked}
-                              handleValueChange={val => this.props.onChangeAttributes({'value': val})}
+                              onChangeAttributes={this.props.onChangeAttributes}
                               attribute={asset}/>
             })
         };
@@ -102,8 +101,7 @@ class AssetRenderer extends React.Component {
                     afterX = this.pixelWidthToPercent(afterX);
                     afterY = this.pixelHeightToPercent(afterY);
                 }
-                this.props.onChangeAttribute('x', afterX);
-                this.props.onChangeAttribute('y', afterY);
+                this.props.onChangeAttributes({'x': afterX, 'y': afterY});
             } else if (this.mouseAction == 'resize') {
                 let devX = (this.resizeTarget.includes('left')) ? this.xInElement - e.pageX : e.pageX - this.xInElement;
                 let devY = (this.resizeTarget.includes('top')) ? this.yInElement - e.pageY : e.pageY - this.yInElement;
@@ -186,7 +184,7 @@ class AssetRenderer extends React.Component {
         } else {
             this.setState({doubleClicked: false});
             this.selectedAssetId = undefined;
-            this.props.assetDeselected();
+            this.props.assetSelected(undefined);
             e.preventDefault();
             clearSelection();
         }

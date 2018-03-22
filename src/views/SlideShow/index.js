@@ -34,7 +34,7 @@ class SlideShow extends React.Component{
     }
     let renderingAssets = (assets) => {
       return assets.map((asset)=>{
-        return <Asset controlable={false} key={this.state.currentSlide+'-'+asset.id+'-'+this.state.currentSlide} handleValueChange={this.props.setAssetValue} attribute={Loader.convertSize(asset)}/>
+        return <Asset controlable={false} key={this.state.currentSlide+'-'+asset.id+'-'+this.state.currentSlide} onChangeAttributes={this.props.setSelectedAssetAttributes} attribute={Loader.convertSize(asset)}/>
       })
     }
     return (

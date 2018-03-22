@@ -1,4 +1,4 @@
-import {setAssetValue} from '../actions';
+import {setSelectedAssetAttribute} from '../actions';
 import {toggleProgressDialog} from "services/ui/actions";
 import axios from 'axios';
 
@@ -18,7 +18,7 @@ export const setSelectedAssetImage = (id, data) => {
         dispatch(toggleProgressDialog());
         uploadImage(data, function (response) {
             if (response.result == true)
-                dispatch(setAssetValue(id, response.data));
+                dispatch(setSelectedAssetAttribute('value', response.data));
             dispatch(toggleProgressDialog());
         });
     };

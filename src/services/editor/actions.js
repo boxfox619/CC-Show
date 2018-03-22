@@ -49,8 +49,6 @@ export const initShowData = (showId, data) => {
     }
 }
 
-
-
 const load = (callback) => {
     var url = new URL(window.location.href);
     var showId = url.searchParams.get("show");

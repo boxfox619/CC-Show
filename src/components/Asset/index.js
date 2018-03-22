@@ -13,11 +13,11 @@ import ShapeAsset from './components/ShapeAsset';
 import PreviewAsset from './components/PreviewAsset';
 
 const propTypes = {
-  attribute: React.PropTypes.object,
-  isSelected: React.PropTypes.bool,
-  handleValueChange: React.PropTypes.func,
-  controlable: React.PropTypes.bool,
-  doubleClicked: React.PropTypes.bool
+    attribute: React.PropTypes.object,
+    isSelected: React.PropTypes.bool,
+    onChangeAttributes: React.PropTypes.func,
+    controlable: React.PropTypes.bool,
+    doubleClicked: React.PropTypes.bool
 }
 
 const defaultProps = {
@@ -117,7 +117,7 @@ class Asset extends React.Component{
 
 
     handleInputChange(value) {
-        this.props.handleValueChange(this.props.attribute.id, value);
+        this.props.onChangeAttributes({value});
     }
 
     getClearStyle() {
