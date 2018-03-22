@@ -8,6 +8,7 @@ module.exports = {
         'webpack/hot/only-dev-server'
     ],
 
+    devtool: "source-map",
     //public 디렉토리의 bundle.js로 저장
     output: {
         path: '/',

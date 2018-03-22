@@ -11,6 +11,7 @@ module.exports = {
         filename: 'bundle.js'
     },
 
+    devtool: "source-map",
     //개발서버 설정
     devServer: {
         hot: true, //수정될 때 마다 리로딩
