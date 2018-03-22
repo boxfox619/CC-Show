@@ -1,34 +1,32 @@
-export const actionTypes = {
-  SLIDE_CONTEXT_SET_SIZE_UNIT : "SLIDE_CONTEXT_SET_SIZE_UNIT",
-  SLIDE_CONTEXT_SET_POSITION_UNIT : "SLIDE_CONTEXT_SET_POSITION_UNIT",
-  SLIDE_CREATE : 'SLIDE_CREATE',
-  SLIDE_COPY : 'SLIDE_COPY',
-  SLIDE_DELETE : 'SLIDE_DELETE',
-  SLIDE_RENAME : 'SLIDE_RENAME',
-  SLIDE_SELECT : 'SLIDE_SELECT',
-  SLIDE_SET_THUMBNAIL: 'SLIDE_SET_THUMBNAIL',
-  EXCHANGE_SLIDE : 'EXCHANGE_SLIDE',
-  SLIDE_SET_NOTE : 'SLIDE_SET_NOTE'
-};
+export const SLIDE_CONTEXT_SET_SIZE_UNIT = "SLIDE_CONTEXT_SET_SIZE_UNIT";
+export const SLIDE_CONTEXT_SET_POSITION_UNIT = "SLIDE_CONTEXT_SET_POSITION_UNIT";
+export const SLIDE_CREATE = 'SLIDE_CREATE';
+export const SLIDE_COPY = 'SLIDE_COPY';
+export const SLIDE_DELETE = 'SLIDE_DELETE';
+export const SLIDE_RENAME = 'SLIDE_RENAME';
+export const SLIDE_SELECT = 'SLIDE_SELECT';
+export const SLIDE_SET_THUMBNAIL= 'SLIDE_SET_THUMBNAIL';
+export const EXCHANGE_SLIDE = 'EXCHANGE_SLIDE';
+export const SLIDE_SET_NOTE = 'SLIDE_SET_NOTE';
 
 
 export const setSizeUnit = (unit) => {
   return {
-    type: actionTypes.SLIDE_CONTEXT_SET_SIZE_UNIT,
+    type: SLIDE_CONTEXT_SET_SIZE_UNIT,
     unit
   }
 };
 
 export const setPositionUnit = (unit) => {
   return {
-    type: actionTypes.SLIDE_CONTEXT_SET_POSITION_UNIT,
+    type: SLIDE_CONTEXT_SET_POSITION_UNIT,
     unit
   }
 };
 
 export const setSlideNote = (target, note) => {
   return {
-    type: actionTypes.SLIDE_SET_NOTE,
+    type: SLIDE_SET_NOTE,
     target,
     note
   }
@@ -36,27 +34,27 @@ export const setSlideNote = (target, note) => {
 
 export const createSlide = () =>{
   return {
-    type: actionTypes.SLIDE_CREATE
+    type: SLIDE_CREATE
   }
 }
 
 export const copySlide = (target) => {
   return {
-    type: actionTypes.SLIDE_COPY,
+    type: SLIDE_COPY,
     target
   }
 }
 
 export const deleteSlide = (target) =>{
   return {
-    type: actionTypes.SLIDE_DELETE,
+    type: SLIDE_DELETE,
     target: target
   }
 }
 
 export const renameSlide = (target, name) =>{
   return {
-    type: actionTypes.SLIDE_RENAME,
+    type: SLIDE_RENAME,
     target: target,
     name
   }
@@ -64,14 +62,14 @@ export const renameSlide = (target, name) =>{
 
 export const selectSlide = (target) =>{
   return {
-    type: actionTypes.SLIDE_SELECT,
+    type: SLIDE_SELECT,
     target: target.id
   }
 }
 
 export const updateSlideThumbnail = (target, thumbnail) => {
   return {
-    type: actionTypes.SLIDE_SET_THUMBNAIL,
+    type: SLIDE_SET_THUMBNAIL,
     target,
     thumbnail
   }
@@ -79,7 +77,7 @@ export const updateSlideThumbnail = (target, thumbnail) => {
 
 export const exchangeSlide = (to, from) => {
   return {
-    type: actionTypes.EXCHANGE_SLIDE,
+    type: EXCHANGE_SLIDE,
     to,
     from
   }

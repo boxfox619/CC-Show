@@ -13,7 +13,7 @@ import * as editorActions from 'services/editor/actions';
 import * as uiActions from 'services/ui/actions';
 import * as accountActions from 'services/account/actions';
 
-import * as classnames from 'classnames';
+import classnames from 'classnames';
 
 import {bindActionCreators} from 'redux';
 
@@ -127,4 +127,4 @@ const mapDispatchToProps = (dispatch) => {
     }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(c);
+export default connect(mapStateToProps, mapDispatchToProps)(ShowEditor);

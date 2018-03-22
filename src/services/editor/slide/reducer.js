@@ -1,5 +1,5 @@
 import update from 'react-addons-update';
-import {actionTypes} from './actions';
+import * as actionTypes from './actions';
 
 const initialState = {
   sizeUnit: 'px',

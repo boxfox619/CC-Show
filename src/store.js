@@ -1,8 +1,8 @@
-import reducers from 'services/reducer';
-import { createStore, applyMiddleware } from 'redux';
+import reducer from 'services/reducer';
+import { createStore, applyMiddleware , compose} from 'redux';
 import ReduxThunk from 'redux-thunk';;
 
-const store = createStore(reducers, applyMiddleware(ReduxThunk));
+const store = createStore(reducer, compose(applyMiddleware(ReduxThunk)));
 
 export const subscribe = (select,callback)=>{
   let prevState = select(store.getState());

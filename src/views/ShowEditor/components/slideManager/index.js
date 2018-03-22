@@ -23,7 +23,6 @@ class SlideManager extends React.Component {
 
     constructor(props) {
         super(props);
-        this.selectSlide = this.selectSlide.bind(this);
     }
 
     render() {
@@ -35,6 +34,7 @@ class SlideManager extends React.Component {
                         active={active}
                         slide={slide}
                         idx={idx}
+                        key={idx+'-'+slide.id}
                         shareSlide={this.props.shareSlide}
                         copySlide={this.props.copySlide}
                         deleteSlide={this.props.deleteSlide}

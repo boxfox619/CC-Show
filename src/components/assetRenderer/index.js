@@ -19,6 +19,11 @@ const defaultProps = {
     }
 }
 
+const TAG_ASSET = 'ASSET';
+const TAG_COL_RESIZER = 'COL-RESIZER';
+const TAG_SELECTORDOT = 'SELECTORDOT';
+const TAG_SELECTORLINE = 'SELECTORLINE';
+
 function getAssetNode(parent, child) {
     var node = child.parentNode;
     while (node != null) {
@@ -43,7 +48,10 @@ class AssetRenderer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mouseAction: 'none'
+            mouseAction: 'none',
+            doubleClicked: false,
+            xInElement: 0,
+            yInElement: 0
         };
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -61,9 +69,13 @@ class AssetRenderer extends React.Component {
                     this.selectedAsset = asset;
                     isSelected = true;
                 }
-                return <Asset key={assetKey} isSelected={isSelected} doubleClicked={this.state.doubleClicked}
-                              onChangeAttributes={this.props.onChangeAttributes}
-                              attribute={asset}/>
+                return (<Asset
+                            key={assetKey}
+                            isSelected={isSelected}
+                            doubleClicked={this.state.doubleClicked}
+                            onChangeAttributes={this.props.onChangeAttributes}
+                            attribute={asset}
+                        />)
             })
         };
         return (
@@ -78,31 +90,31 @@ class AssetRenderer extends React.Component {
         );
     }
 
-    handleDoubleClickItem(e) {
+    handleDoubleClickItem() {
         this.setState({doubleClicked: true});
     }
 
     handleMouseMove(e) {
-        if (this.props.selectedAssetIndex != undefined && this.mouseAction != 'none') {
+        if (this.props.selectedAssetIndex != undefined && this.state.mouseAction != 'none') {
             if (this.selectedAsset.type == 'ASSET_TYPE_VIDEO' && this.selectedAsset.preview) {
-                this.mouseAction = 'none';
+                this.setState({mouseAction: 'none'});
                 return;
             }
-            if (this.mouseAction == 'move') {
+            if (this.state.mouseAction == 'move') {
                 let x = e.pageX;
                 let y = e.pageY;
-                let afterX = parseInt(this.percentWidthToPixel(this.selectedAsset.x)) + (x - this.xInElement) + 'px';
-                let afterY = parseInt(this.percentHeightToPixel(this.selectedAsset.y)) + (y - this.yInElement) + 'px';
-                this.xInElement = x;
-                this.yInElement = y;
+                let afterX = parseInt(this.percentWidthToPixel(this.selectedAsset.x)) + (x - this.state.xInElement) + 'px';
+                let afterY = parseInt(this.percentHeightToPixel(this.selectedAsset.y)) + (y - this.state.yInElement) + 'px';
+                this.setState({xInElement: x});
+                this.setState({yInElement: y});
                 if (this.selectedAsset.x.endsWith('%')) {
                     afterX = this.pixelWidthToPercent(afterX);
                     afterY = this.pixelHeightToPercent(afterY);
                 }
                 this.props.onChangeAttributes({'x': afterX, 'y': afterY});
-            } else if (this.mouseAction == 'resize') {
-                let devX = (this.resizeTarget.includes('left')) ? this.xInElement - e.pageX : e.pageX - this.xInElement;
-                let devY = (this.resizeTarget.includes('top')) ? this.yInElement - e.pageY : e.pageY - this.yInElement;
+            } else if (this.state.mouseAction == 'resize') {
+                let devX = (this.resizeTarget.includes('left')) ? this.state.xInElement - e.pageX : e.pageX - this.state.xInElement;
+                let devY = (this.resizeTarget.includes('top')) ? this.state.yInElement - e.pageY : e.pageY - this.state.yInElement;
                 let currentX = parseInt(this.percentHeightToPixel(this.selectedAsset.x));
                 let currentY = parseInt(this.percentWidthToPixel(this.selectedAsset.y));
                 let currentWidth = parseInt(this.percentWidthToPixel(this.selectedAsset.width));
@@ -150,8 +162,8 @@ class AssetRenderer extends React.Component {
                         break;
                 }
                 this.props.onChangeAttributes(modifyAttrs);
-                this.xInElement = e.pageX;
-                this.yInElement = e.pageY;
+                this.setState({xInElement: e.pageX});
+                this.setState({yInElement: e.pageY});
             }
         }
         this.props.onModified();
@@ -159,25 +171,24 @@ class AssetRenderer extends React.Component {
 
     handleMouseDown(e) {
         document.activeElement.blur();
-        this.mouseDowned = true;
 
-        if (!!getAssetNode('ASSET', e.target)) {
-            if (this.selectedAssetId == getAssetNode('ASSET', e.target).id && this.state.doubleClicked) {
+        if (!!getAssetNode(TAG_ASSET, e.target)) {
+            if (this.selectedAssetId == getAssetNode(TAG_ASSET, e.target).id && this.state.doubleClicked) {
                 return;
             }
-            if (e.target.tagName == 'COL-RESIZER') {
+            if (e.target.tagName == TAG_COL_RESIZER) {
                 return;
             }
             this.setState({doubleClicked: false});
-            this.selectedAssetId = getAssetNode('ASSET', e.target).id;
+            this.selectedAssetId = getAssetNode(TAG_ASSET, e.target).id;
             this.props.assetSelected(this.selectedAssetId);
-            this.mouseAction = 'move';
-            if (e.target.tagName == 'SELECTORDOT' || e.target.tagName == 'SELECTORLINE') {
-                this.mouseAction = 'resize';
+            this.setState({mouseAction: 'move'});
+            if (e.target.tagName == TAG_SELECTORDOT || e.target.tagName == TAG_SELECTORLINE) {
+                this.setState({mouseAction: 'resize'});
                 this.resizeTarget = e.target.getAttribute('target');
             }
-            this.xInElement = e.pageX;
-            this.yInElement = e.pageY;
+            this.setState({ xInElement : e.pageX});
+            this.setState({ yInElement : e.pageY});
             e.preventDefault();
         } else {
             this.setState({doubleClicked: false});
@@ -189,8 +200,8 @@ class AssetRenderer extends React.Component {
         this.props.onModified();
     }
 
-    handleMouseRelese(e) {
-        this.mouseAction = 'none';
+    handleMouseRelese() {
+        this.setState({ mouseAction: 'none' });
     }
 
     percentHeightToPixel(val) {

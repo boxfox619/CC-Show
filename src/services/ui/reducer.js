@@ -1,4 +1,4 @@
-import { actionTypes } from './actions';
+import * as actionTypes from './actions';
 import dialogs from './dialogs';
 
 const initialState = {

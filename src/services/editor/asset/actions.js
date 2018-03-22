@@ -2,21 +2,19 @@ import * as assetTypes from './assetTypes';
 
 export * from './middleware/actions';
 
-export const actionTypes = {
-    ASSET_SET_MULTIPLE_ATTRIBUTE: 'ASSET_SET_MULTIPLE_ATTRIBUTE',
-    ASSET_SET_STYLE: 'ASSET_SET_STYLE',
-    ASSET_CREATE: "ASSET_CREATE",
-    ASSET_SELECTED: "ASSET_SELECTED",
-    ASSET_COPY: 'ASSET_COPY',
-    ASSET_SORT: 'ASSET_SORT',
-    ASSET_DELETE: 'ASSET_DELETE',
-    ASSET_SET_VALUE: "ASSET_SET_VALUE",
-    ASSET_SET_ATTRIBUTE: "ASSET_SET_ATTRIBUTE"
-};
+export const ASSET_SET_MULTIPLE_ATTRIBUTE = 'ASSET_SET_MULTIPLE_ATTRIBUTE';
+export const ASSET_SET_STYLE = 'ASSET_SET_STYLE';
+export const ASSET_CREATE = "ASSET_CREATE";
+export const ASSET_SELECTED = "ASSET_SELECTED";
+export const ASSET_COPY = 'ASSET_COPY';
+export const ASSET_SORT = 'ASSET_SORT';
+export const ASSET_DELETE = 'ASSET_DELETE';
+export const ASSET_SET_VALUE = "ASSET_SET_VALUE";
+export const ASSET_SET_ATTRIBUTE = "ASSET_SET_ATTRIBUTE";
 
 export const createAsset = (assetType, value, style = {}) => {
     return {
-        type: actionTypes.ASSET_CREATE,
+        type: ASSET_CREATE,
         assetType,
         value,
         style
@@ -25,7 +23,7 @@ export const createAsset = (assetType, value, style = {}) => {
 
 export const setSelectedAssetAttribute = (attrName, attr) => {
     return {
-        type: actionTypes.ASSET_SET_ATTRIBUTE,
+        type: ASSET_SET_ATTRIBUTE,
         attrName,
         attr
     }
@@ -33,7 +31,7 @@ export const setSelectedAssetAttribute = (attrName, attr) => {
 
 export const setSelectedAssetStyle = (styleName, style) => {
     return {
-        type: actionTypes.ASSET_SET_STYLE,
+        type: ASSET_SET_STYLE,
         styleName,
         style
     }
@@ -46,7 +44,7 @@ export const setSelectedAssetAttributes = (attrs) => {
         };
     });
     return {
-        type: actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE,
+        type: ASSET_SET_MULTIPLE_ATTRIBUTE,
         attrs
     }
 }
@@ -55,7 +53,7 @@ export const setSelectedAssetAttributes = (attrs) => {
 
 export const createCustomAsset = (assetId) => {
     return {
-        type: actionTypes.ASSET_CREATE,
+        type: ASSET_CREATE,
         assetType: assetTypes.TYPE_CUSTOM,
         value: assetId
     }
@@ -82,14 +80,14 @@ export const createAssetByType = (type) => {
 
 export const assetSelected = (assetId) => {
     return {
-        type: actionTypes.ASSET_SELECTED,
+        type: ASSET_SELECTED,
         assetId
     }
 };
 
 export function copyAsset(id, slide, x, y) {
     return {
-        type: actionTypes.ASSET_COPY,
+        type: ASSET_COPY,
         id,
         slide,
         x,
@@ -99,7 +97,7 @@ export function copyAsset(id, slide, x, y) {
 
 export function sortFirstAsset(id) {
     return {
-        type: actionTypes.ASSET_SORT,
+        type: ASSET_SORT,
         id,
         to: 'min'
     }
@@ -107,7 +105,7 @@ export function sortFirstAsset(id) {
 
 export function sortLastAsset(id) {
     return {
-        type: actionTypes.ASSET_SORT,
+        type: ASSET_SORT,
         id,
         to: 'max'
     }
@@ -115,7 +113,7 @@ export function sortLastAsset(id) {
 
 export function sortBackAsset(id) {
     return {
-        type: actionTypes.ASSET_SORT,
+        type: ASSET_SORT,
         id,
         to: 'front'
     }
@@ -123,7 +121,7 @@ export function sortBackAsset(id) {
 
 export function sortFrontAsset(id) {
     return {
-        type: actionTypes.ASSET_SORT,
+        type: ASSET_SORT,
         target: id,
         to: 'back'
     }
@@ -131,14 +129,14 @@ export function sortFrontAsset(id) {
 
 export function deleteAsset(id) {
     return {
-        type: actionTypes.ASSET_DELETE,
+        type: ASSET_DELETE,
         id
     }
 }
 
 export function setAssetStyle(style) {
     return {
-        type: actionTypes.ASSET_SET_STYLE,
+        type: ASSET_SET_STYLE,
         style
     }
 }

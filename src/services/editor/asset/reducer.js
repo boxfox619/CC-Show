@@ -1,4 +1,4 @@
-import {actionTypes} from './actions';
+import * as actionTypes from './actions';
 import {getState} from 'store';
 import update from 'react-addons-update';
 import * as assetTypes from './assetTypes';

@@ -1,4 +1,4 @@
-import {toggleProgressDialog} from "../ui/actions";
+import {toggleProgressDialog} from "services/ui/actions";
 import {actionTypes, updateSlideThumbnail} from './slide/actions';
 import {updateAccountData} from '../account/actions';
 import domtoimage from "dom-to-image";
@@ -58,25 +58,26 @@ const load = (callback) => {
         result['data'] = response.data;
         result['showId'] = showId;
         callback(result);
-    })
-        .catch(e =>{
-            callback(result);
-        });
+    }).catch(e => {
+        callback(result);
+    });
 }
 
 export const loadShowData = () => {
-    this.props.toggleProgressDialog();
-    load(function (response) {
-        if (response.result == true) {
-            dispatch(updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile));
-            dispatch(initShowData(response.showId, response.data.showData));
-        }
-        this.props.toggleProgressDialog();
-    }.bind(this));
+    return (dispatch, getState) => {
+        dispatch(toggleProgressDialog());
+        load(function (response) {
+            if (response.result == true) {
+                dispatch(updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile));
+                dispatch(initShowData(response.showId, response.data.showData));
+            }
+            dispatch(toggleProgressDialog());
+        });
+    }
 }
 
 let timeoutId = undefined;
-export const saveShowDataAfterTimeout = (showId) => {
+const saveShowDataAfterTimeout = (showId) => {
     if (timeoutId) clearTimeout(timeoutId);
     timeoutId = setTimeout(function () {
         saveShowData(showId);
