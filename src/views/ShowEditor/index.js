@@ -3,10 +3,10 @@ import SideController from './components/SideController';
 import SlideContext from './components/slideContext';
 import AssetController from './components/assetController';
 import SlideManager from './components/slideManager';
-import AssetStore from 'containers/Dialogs/AssetStore';
-import ColorPicker from 'containers/Dialogs/ColorPicker';
+import AssetStore from 'components/Dialog/AssetStore';
+import ColorPicker from 'components/Dialog/ColorPicker';
 import SlideShow from './components/slideShow';
-import ProgressDialog from 'components/progressDialog';
+import ProgressDialog from 'components/Dialog/Progress';
 import dialogs from 'services/ui/dialogs';
 
 import * as editorActions from 'services/editor/actions';

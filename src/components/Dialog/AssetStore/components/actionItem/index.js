@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './style.css';
-import axios from 'axios';
 
 const propTypes = {
   text: React.PropTypes.string.isRequired,

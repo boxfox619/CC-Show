@@ -1,9 +1,6 @@
 import React from 'react';
 import styles from './style.css';
 import axios from 'axios';
-import { connect } from 'react-redux';
-import Store from 'store';
-import { bindActionCreators } from 'redux';
 
 const propTypes = {
   id: React.PropTypes.string.isRequired,
