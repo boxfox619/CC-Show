@@ -36,8 +36,8 @@ class ShowEditor extends React.Component {
 
     render() {
         let renderDialogs = () => {
-            if (this.props.dialog != undefined) {
-                switch (this.props.dialog) {
+            if (this.props.ui.dialog != undefined) {
+                switch (this.props.ui.dialog) {
                     case dialogs.ASSET_STORE:
                         return (<AssetStore className={styles.modal}/>);
                     case dialogs.ACCOUNT_WITH_SNS:
@@ -61,7 +61,7 @@ class ShowEditor extends React.Component {
                     <div className={styles.contextSpace}>
                         <SlideContext
                             className={styles.slideContext}
-                            onModified={() => this.props.saveShowDataAfterTimeout(this.props.showId)}/>
+                            onModified={() => this.props.editorActions.saveShowDataAfterTimeout(this.props.showId)}/>
                     </div>
                 </div>
                 <AssetController className={styles.assetController}/>
@@ -72,7 +72,7 @@ class ShowEditor extends React.Component {
     componentDidMount() {
         window.addEventListener("keydown", this.handleKeyDown, true);
         window.addEventListener("beforeunload", this.onUnload);
-        this.props.loadShowData();
+        this.props.editorActions.loadShowData();
     }
 
     componentWillUnmount() {
@@ -82,16 +82,16 @@ class ShowEditor extends React.Component {
 
     handleKeyDown(e) {
         if (e.keyCode === 27) {
-            this.props.releaseDialog();
+            this.props.uiActions.releaseDialog();
         } else if ((e.which == 83 && e.ctrlKey)) {
-            this.props.saveShowData(this.props.showId);
+            this.props.editorActions.saveShowData(this.props.showId);
             e.preventDefault()
         }
     }
 
     handleClick(event) {
         if (this.checkContextDisabled()) {
-            this.props.releaseDialog();
+            this.props.uiActions.releaseDialog();
         }
     }
 
@@ -101,7 +101,7 @@ class ShowEditor extends React.Component {
 
     checkContextDisabled() {
         let check = false;
-        if (this.props.visibleSlideManager || this.props.dialog != undefined) {
+        if (this.props.visibleSlideManager || this.props.ui.dialog != undefined) {
             check = true;
         }
         return check;
@@ -111,20 +111,20 @@ class ShowEditor extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        dialog: state.ui.dialog,
-        visibleSlideManager: state.ui.visibleSlideManager,
+        ui: state.ui,
         showData: state.editor,
+        visibleSlideManager: state.ui.visibleSlideManager,
         currentSilde: state.editor.selectedSlide,
         showId: state.editor.showId
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        ...accountActions,
-        ...editorActions,
-        ...uiActions
-    }, dispatch);
+    return {
+        accountActions : bindActionCreators(accountActions, dispatch),
+        uiActions : bindActionCreators(uiActions, dispatch),
+        editorActions : bindActionCreators(editorActions, dispatch)
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowEditor);

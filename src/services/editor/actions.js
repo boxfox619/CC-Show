@@ -3,7 +3,6 @@ import {actionTypes, updateSlideThumbnail} from './slide/actions';
 import {updateAccountData} from '../account/actions';
 import domtoimage from "dom-to-image";
 import axios from "axios/index";
-import {dispatch} from "../../store";
 
 export * from './slide/actions';
 export * from './asset/actions';
@@ -25,7 +24,7 @@ export const saveShowData = (showId) => {
             return (node.tagName !== 'SELECTORLINE' && node.tagName !== 'SELECTORDOT')
         };
         let node = document.getElementsByTagName('scanvas')[0];
-        let currentSilde = this.props.currentSilde;
+        let currentSilde = getState().editor.selectedSlide;
         domtoimage.toPng(node, {filter: filter}).then(function (dataUrl) {
             dispatch(updateSlideThumbnail(currentSilde, dataUrl));
             if (showId != undefined) {
@@ -77,9 +76,11 @@ export const loadShowData = () => {
 }
 
 let timeoutId = undefined;
-const saveShowDataAfterTimeout = (showId) => {
-    if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(function () {
-        saveShowData(showId);
-    }, 1000);
+export const saveShowDataAfterTimeout = (showId) => {
+    return (dispatch, getState) => {
+        if (timeoutId) clearTimeout(timeoutId);
+        timeoutId = setTimeout(function () {
+            dispatch(saveShowData(showId));
+        }, 1000);
+    }
 }
