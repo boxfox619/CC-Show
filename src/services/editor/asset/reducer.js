@@ -2,6 +2,7 @@ import * as actionTypes from './actions';
 import {getState} from 'store';
 import update from 'react-addons-update';
 import * as assetTypes from './assetTypes';
+import {insertItem} from '../util';
 
 const defaultAsset = {
     id: '',
@@ -17,10 +18,10 @@ const defaultAsset = {
 
 export default function (state, action) {
     let currentSlide = state.slides[state.selectedSlide];
-    let selectedAssetIndex = currentSlide.selectedAssetIndex;
-    let currentAsset = currentSlide.assets[selectedAssetIndex];
-    let assetIdCount = currentSlide.assetIdCount;
-    let currentAssetId = state.selectedSlide+':'+(assetIdCount + 1);
+    let selectedAssetIndex = (currentSlide) ? currentSlide.selectedAssetIndex : undefined;
+    let currentAsset = (currentSlide) ? currentSlide.assets[selectedAssetIndex] : undefined;
+    let assetIdCount = (currentSlide) ? currentSlide.assetIdCount : undefined;
+    let currentAssetId = state.selectedSlide + ':' + (assetIdCount + 1);
 
     switch (action.type) {
         case actionTypes.ASSET_CREATE:
@@ -325,12 +326,6 @@ export default function (state, action) {
         default:
             return state;
     }
-}
-
-function insertItem(array, index, item) {
-    let newArray = array.slice();
-    newArray.splice(index, 0, item);
-    return newArray;
 }
 
 function getAssetIndex(currentSlide, key) {

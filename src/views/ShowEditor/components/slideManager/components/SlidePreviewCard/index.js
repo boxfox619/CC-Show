@@ -5,7 +5,10 @@ import SlideActionButton from '../SlideActionButton';
 const propTypes = {
     slide: React.PropTypes.object.isRequired,
     idx: React.PropTypes.number.isRequired,
-    active: React.PropTypes.bool.isRequired
+    active: React.PropTypes.bool.isRequired,
+    shareSlide: React.PropTypes.func.isRequired,
+    copySlide: React.PropTypes.func.isRequired,
+    deleteSlide: React.PropTypes.func.isRequired
 };
 
 class SlidePreviewCard extends React.Component {

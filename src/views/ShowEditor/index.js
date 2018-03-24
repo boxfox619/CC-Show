@@ -55,7 +55,13 @@ class ShowEditor extends React.Component {
         return (
             <div ref={root => {this.root = root}} className={styles.showEditor}>
                 <SideController className={styles.sideController}/>
-                <SlideManager className={classnames(styles.slideManager, (this.props.visibleSlideManager ? styles.show : ''))}/>
+                <SlideManager
+                    className={classnames(styles.slideManager, (this.props.visibleSlideManager ? styles.show : ''))}
+                    slides={this.props.showData.slides}
+                    currentSlideIndex={this.props.showData.selectedSlide}
+                    uiActions={this.props.uiActions}
+                    editorActions={this.props.editorActions}
+                />
                 {renderDialogs()}
                 <div onClick={this.handleClick} className={classnames(styles.contextWrap, (contextDisabled ? styles.disabled : ''))}>
                     <div className={styles.contextSpace}>
@@ -117,7 +123,6 @@ const mapStateToProps = (state) => {
         ui: state.ui,
         showData: state.editor,
         visibleSlideManager: state.ui.visibleSlideManager,
-        currentSilde: state.editor.selectedSlide,
         showId: state.editor.showId
     }
 }

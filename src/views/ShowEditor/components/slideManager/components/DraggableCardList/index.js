@@ -4,6 +4,9 @@ const propTypes = {
     onExchangeSlide: React.PropTypes.func.isRequired
 };
 
+var placeholder = document.createElement("li");
+placeholder.className = "placeholder";
+
 class DragableCardList extends React.Component {
 
     constructor(props) {
@@ -25,7 +28,7 @@ class DragableCardList extends React.Component {
         return childs.map((slide, idx) => {
             return (
                 <li data-id={idx}
-                    key={'slide' + slide.id}
+                    key={'slide' + slide.key}
                     draggable="true"
                     onDragEnd={this.dragEnd}
                     onDragStart={this.dragStart}>

@@ -2,22 +2,17 @@ import React from 'react';
 
 import styles from './style.css';
 
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-
 import SlidePreviewCard from './components/SlidePreviewCard';
 import SlideCreator from './components/SlideCreateCard';
 import DraggableCardList from './components/DraggableCardList';
-import * as slideActions from 'services/editor/slide/actions';
-import * as assetsActions from 'services/editor/asset/actions';
-import * as uiActions from 'services/ui/actions';
 
-const defaultProps = {
-    className: React.PropTypes.string.required
+const propTypes = {
+    className: React.PropTypes.string.isRequired,
+    editorActions: React.PropTypes.object.isRequired,
+    uiActions: React.PropTypes.object.isRequired,
+    slides: React.PropTypes.array.isRequired,
+    currentSlideIndex: React.PropTypes.number
 };
-
-var placeholder = document.createElement("li");
-placeholder.className = "placeholder";
 
 class SlideManager extends React.Component {
 
@@ -28,17 +23,17 @@ class SlideManager extends React.Component {
     render() {
         let renderSlidePreviews = (slides) => {
             return slides.map((slide, idx) => {
-                let active = idx == this.props.currentSilde;
+                let active = idx == this.props.currentSlideIndex;
                 return (
                     <SlidePreviewCard
                         active={active}
                         slide={slide}
                         idx={idx}
                         key={idx+'-'+slide.id}
-                        shareSlide={this.props.shareSlide}
-                        copySlide={this.props.copySlide}
-                        deleteSlide={this.props.deleteSlide}
-                        onClick={target => this.props.selectSlide(target)}
+                        shareSlide={this.props.editorActions.shareSlide}
+                        copySlide={this.props.editorActions.copySlide}
+                        deleteSlide={this.props.editorActions.deleteSlide}
+                        onClick={() => this.props.editorActions.selectSlide(slide.id)}
                     />)
             })
         };
@@ -49,29 +44,18 @@ class SlideManager extends React.Component {
                     <div className={styles.title}>
                         슬라이드 리스트
                     </div>
-                    <div className={styles.hide} onClick={this.props.toggleSlideManager}>
+                    <div className={styles.hide} onClick={this.props.uiActions.toggleSlideManager}>
                     </div>
-                    <DraggableCardList onExchangeSlide={this.props.exchangeSlide}>
+                    <DraggableCardList onExchangeSlide={this.props.editorActions.exchangeSlide}>
                         {renderSlidePreviews(this.props.slides)}
                     </DraggableCardList>
-                    <SlideCreator createSlide={this.props.createSlide}/>
+                    <SlideCreator createSlide={this.props.editorActions.createSlide}/>
                 </div>
             </div>
         );
     }
 }
 
-SlideManager.defaultProps = defaultProps;
+SlideManager.propTypes = propTypes;
 
-const mapStateToProps = (state) => {
-    return {
-        slides: state.editor.slides,
-        currentSilde: state.editor.selectedSlide
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({...assetsActions, ...slideActions, ...uiActions}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SlideManager);
+export default SlideManager;

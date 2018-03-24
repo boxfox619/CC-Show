@@ -1,5 +1,6 @@
 import update from 'react-addons-update';
 import * as actionTypes from './actions';
+import {insertItem} from '../util';
 
 const initialState = {
   sizeUnit: 'px',
@@ -67,17 +68,17 @@ export default function(state, action){
             })
         }
       case actionTypes.SLIDE_DELETE:
-        let selectedSlide = state.selectedSlide;
-        if (selectedSlide > state.slides.length && selectedSlide > 0) {
-          selectedSlide -= 1;
+        let index = getSlideIndex(state, action.target);
+        if (index > 0) {
+            index = index - 1;
         }
         return {
           ...state,
-          selectedSlide,
+          selectedSlide: index,
           slides: update(
             state.slides, {
               $splice: [
-                [action.target, 1]
+                [getSlideIndex(state, action.target), 1]
               ]
             }
           )

@@ -60,11 +60,19 @@ export const renameSlide = (target, name) =>{
   }
 }
 
-export const selectSlide = (target) =>{
+export const selectSlide = (slideId) =>{
   return {
     type: SLIDE_SELECT,
-    target: target.id
+    target: slideId
   }
+}
+
+export const shareSlide = (target) => {
+    return (dispatch) =>{
+      /*
+      * @TODO implement share slide
+      */
+    }
 }
 
 export const updateSlideThumbnail = (target, thumbnail) => {

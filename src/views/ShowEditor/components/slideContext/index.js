@@ -30,7 +30,6 @@ class SlideContext extends React.Component {
             selectedAssetIndex = showData.slides[showData.selectedSlide].selectedAssetIndex;
             assets = showData.slides[showData.selectedSlide].assets;
         }
-        console.log(this.props.showData.cachedAsset);
         return (
             <div className={this.props.className} id={'SlideContext'}>
                 <SlideTitle/>
