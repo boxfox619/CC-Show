@@ -14,7 +14,8 @@ function getAssetNode(parent, child) {
 }
 
 const propTypes = {
-    currentSlide: React.PropTypes.number.isRequired
+    cachedAsset: React.PropTypes.object,
+    actions: React.PropTypes.object.isRequired
 }
 
 class ContextMenu extends React.Component {
@@ -52,7 +53,7 @@ class ContextMenu extends React.Component {
             <div ref={root => {this.root = root}} style={{'left':this.state.x, 'top':this.state.y}} className={styles.contextMenu}>
               <div className={styles.content}>
                 <div onClick={this.handleOptionClick} className={styles.option+' '+((!!this.state.assetId)?'':styles.disabled)}>복사<div className={styles.shortcut}>Ctrl + C</div></div>
-                <div onClick={this.handleOptionClick} className={styles.option+' '+((!!this.state.copyAsset)?'':styles.disabled)}>붙여넣기<div className={styles.shortcut}>Ctrl + V</div></div>
+                <div onClick={this.handleOptionClick} className={styles.option+' '+((!!this.props.cachedAsset)?'':styles.disabled)}>붙여넣기<div className={styles.shortcut}>Ctrl + V</div></div>
                 <div onClick={this.handleOptionClick} className={styles.option+' '+((!!this.state.assetId)?'':styles.disabled)}>삭제<div className={styles.shortcut}>Ctrl + D</div></div>
                 <div onClick={this.handleOptionClick} className={styles.option+' '+((!!this.state.assetId)?'':styles.disabled)}>잘라내기<div className={styles.shortcut}>Ctrl + X</div></div>
                 <div className={styles.separator}/>
@@ -73,23 +74,23 @@ class ContextMenu extends React.Component {
 
     handleOptionClick(event){
       let action = event.target.textContent;
-      if(action.includes("붙여넣기")&&!!this.state.copyAsset){
-        this.copyAsset(this.state.copyAsset.id, this.state.copyAsset.slide, this.state.x+'px', this.state.y+'px');
+      if(action.includes("붙여넣기")&&!!this.props.cachedAsset){
+        this.props.actions.pasteAsset(this.state.x+'px', this.state.y+'px');
       }else if(!!this.state.assetId){
         if(action.includes("복사")){
-          this.setState({copyAsset: {id: this.state.assetId, slide: this.props.currentSlide}});
+          this.props.actions.copyAsset(this.state.assetId);
         }else if(action.includes("삭제")){
-          this.deleteAsset(this.state.assetId);
+          this.props.actions.deleteAsset(this.state.assetId);
         }else if(action.includes("잘라내기")){
-
+            this.props.actions.cutAsset(this.state.assetId);
         }else if(action.includes("맨 앞으로 가져오기")){
-          this.sortFirstAsset(this.state.assetId);
+          this.props.actions.sortFirstAsset(this.state.assetId);
         }else if(action.includes("앞으로 가져오기")){
-          this.sortFrontAsset(this.state.assetId);
+          this.props.actions.sortFrontAsset(this.state.assetId);
         }else if(action.includes("뒤로 보내기")){
-          this.sortBackAsset(this.state.assetId);
+          this.props.actions.sortBackAsset(this.state.assetId);
         }else if(action.includes("맨 뒤로 보내기")){
-          this.sortLastAsset(this.state.assetId);
+          this.props.actions.sortLastAsset(this.state.assetId);
         }
       }
     }
@@ -127,24 +128,6 @@ class ContextMenu extends React.Component {
     handleClick(event){
       if (this.state.visible) this.setState({ visible: false });
     }
-
-    copyAsset(id, slide, x, y){
-    }
-    deleteAsset(id){
-    }
-    sortFirstAsset(id){
-
-    }
-    sortFrontAsset(id){
-
-    }
-    sortBackAsset(id){
-
-    }
-    sortLastAsset(id){
-
-    }
-
 }
 ContextMenu.propTypes = propTypes;
 export default ContextMenu;

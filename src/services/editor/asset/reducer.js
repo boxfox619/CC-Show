@@ -16,16 +16,19 @@ const defaultAsset = {
 };
 
 export default function (state, action) {
-    let selectedAssetIndex = state.slides[state.selectedSlide].selectedAssetIndex;
-    let currentAsset = state.slides[state.selectedSlide].assets[selectedAssetIndex];
+    let currentSlide = state.slides[state.selectedSlide];
+    let selectedAssetIndex = currentSlide.selectedAssetIndex;
+    let currentAsset = currentSlide.assets[selectedAssetIndex];
+    let assetIdCount = currentSlide.assetIdCount;
+    let currentAssetId = state.selectedSlide+':'+(assetIdCount + 1);
+
     switch (action.type) {
         case actionTypes.ASSET_CREATE:
             let sizeUnit = getState().editor.sizeUnit;
             let positionUnit = getState().editor.positionUnit;
-            let currentId = state.slides[state.selectedSlide].assetIdCount + 1;
             let newAsset = {
                 ...defaultAsset,
-                id: currentId,
+                id: currentAssetId,
                 type: action.assetType,
                 value: action.value,
                 height: '50' + sizeUnit,
@@ -95,11 +98,11 @@ export default function (state, action) {
                     state.slides, {
                         [state.selectedSlide]: {
                             assetIdCount: {
-                                $set: currentId
+                                $set: assetIdCount + 1
                             },
                             assets: {
                                 $set: update(
-                                    state.slides[state.selectedSlide].assets, {
+                                    currentSlide.assets, {
                                         $push: [newAsset]
                                     })
                             }
@@ -115,7 +118,7 @@ export default function (state, action) {
                         [state.selectedSlide]: {
                             assets: {
                                 $set: update(
-                                    state.slides[state.selectedSlide].assets, {
+                                    currentSlide.assets, {
                                         [selectedAssetIndex]: {
                                             value: {
                                                 $set: action.value
@@ -137,7 +140,7 @@ export default function (state, action) {
                         [state.selectedSlide]: {
                             assets: {
                                 $set: update(
-                                    state.slides[state.selectedSlide].assets, {
+                                    currentSlide.assets, {
                                         [selectedAssetIndex]: {
                                             $set: currentAsset
                                         }
@@ -157,7 +160,7 @@ export default function (state, action) {
                         [state.selectedSlide]: {
                             assets: {
                                 $set: update(
-                                    state.slides[state.selectedSlide].assets, {
+                                    currentSlide.assets, {
                                         [selectedAssetIndex]: {
                                             $set: currentAsset
                                         }
@@ -176,7 +179,7 @@ export default function (state, action) {
                         state.slides, {
                             [state.selectedSlide]: {
                                 selectedAssetIndex: {
-                                    $set: getAssetIndex(state, action.assetId)
+                                    $set: getAssetIndex(currentSlide, action.assetId)
                                 }
                             }
                         }
@@ -185,35 +188,42 @@ export default function (state, action) {
             } else {
                 return {...state}
             }
-        case actionTypes.ASSET_COPY:
-            let currentAssetId = state.slides[state.selectedSlide].assetIdCount + 1;
-            let copiedAsset = state.slides[action.slide].assets[getAssetIndex(state, action.id)];
-            return {
-                ...state,
-                slides: update(
-                    state.slides, {
-                        [state.selectedSlide]: {
-                            $set: {
-                                ...state.slides[state.selectedSlide],
-                                assetIdCount: currentAssetId,
-                                assets: update(
-                                    state.slides[state.selectedSlide].assets, {
-                                        $push: [{
-                                            ...copiedAsset,
-                                            id: currentAssetId,
-                                            x: action.x,
-                                            y: action.y
-                                        }]
-                                    })
+        case actionTypes.ASSET_PASTE:
+            if (!!state.cachedAsset)
+                return {
+                    ...state,
+                    slides: update(
+                        state.slides, {
+                            [state.selectedSlide]: {
+                                $set: {
+                                    ...currentSlide,
+                                    assetIdCount: assetIdCount + 1,
+                                    assets: update(
+                                        currentSlide.assets, {
+                                            $push: [{
+                                                ...state.cachedAsset,
+                                                id: currentAssetId,
+                                                x: action.x,
+                                                y: action.y
+                                            }]
+                                        })
+                                }
                             }
                         }
-                    }
-                )
+                    )
+                }
+            else {
+                return {...state}
+            }
+        case actionTypes.ASSET_COPY:
+            return {
+                ...state,
+                cachedAsset : {...currentSlide.assets[getAssetIndex(currentSlide, action.id)]}
             }
         case actionTypes.ASSET_SORT:
-            let assetsArr = state.slides[state.selectedSlide].assets;
-            let targetIndex = getAssetIndex(state, action.target);
-            let assetIndex = getAssetIndex(state, action.target);
+            let assetsArr = currentSlide.assets;
+            let targetIndex = getAssetIndex(currentSlide, action.target);
+            let assetIndex = getAssetIndex(currentSlide, action.target);
             if (action.to == 'min') {
                 assetIndex = 0;
             } else if (action.to == 'max') {
@@ -229,7 +239,7 @@ export default function (state, action) {
                     state.slides, {
                         [state.selectedSlide]: {
                             $set: {
-                                ...state.slides[state.selectedSlide],
+                                ...currentSlide,
                                 assets: insertItem(assetsArr, assetIndex, assetsArr.splice(targetIndex, 1)[0])
                             }
                         }
@@ -243,11 +253,11 @@ export default function (state, action) {
                     state.slides, {
                         [state.selectedSlide]: {
                             $set: {
-                                ...state.slides[state.selectedSlide],
+                                ...currentSlide,
                                 selectedAssetIndex: undefined,
                                 assets: update(
-                                    state.slides[state.selectedSlide].assets, {
-                                        $splice: [[getAssetIndex(state, action.id), 1]]
+                                    currentSlide.assets, {
+                                        $splice: [[getAssetIndex(currentSlide, action.id), 1]]
                                     }
                                 )
                             }
@@ -263,7 +273,7 @@ export default function (state, action) {
                         [state.selectedSlide]: {
                             assets: {
                                 $set: update(
-                                    state.slides[state.selectedSlide].assets, {
+                                    currentSlide.assets, {
                                         [selectedAssetIndex]: {
                                             value: {
                                                 $set: action.value
@@ -284,7 +294,7 @@ export default function (state, action) {
                         [state.selectedSlide]: {
                             assets: {
                                 $set: update(
-                                    state.slides[state.selectedSlide].assets, {
+                                    currentSlide.assets, {
                                         [selectedAssetIndex]: {
                                             style: {
                                                 $set: JSON.parse(action.style)
@@ -305,7 +315,7 @@ export default function (state, action) {
                         [state.selectedSlide]: {
                             assets: {
                                 $set: update(
-                                    state.slides[state.selectedSlide].assets, {
+                                    currentSlide.assets, {
                                         [selectedAssetIndex]: action.attrs
                                     })
                             }
@@ -323,9 +333,9 @@ function insertItem(array, index, item) {
     return newArray;
 }
 
-function getAssetIndex(state, key) {
+function getAssetIndex(currentSlide, key) {
     let index = undefined;
-    state.slides[state.selectedSlide].assets.forEach(function (asset, i) {
+    currentSlide.assets.forEach(function (asset, i) {
         if (asset.id == key) {
             index = i;
         }

@@ -1,16 +1,13 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+
 import ContextMenu from './components/contextMenu';
-
-import * as slideActions from 'services/editor/slide/actions'
-import * as assetsActions from 'services/editor/asset/actions'
-
 import SlideTitle from './components/slideTitle';
 import AssetRenderer from 'components/AssetRenderer';
 
 const propTypes = {
-    onModified: React.PropTypes.func.isRequired
+    onModified: React.PropTypes.func.isRequired,
+    showData: React.PropTypes.object.isRequired,
+    editorActions: React.PropTypes.object.isRequired
 }
 
 class SlideContext extends React.Component {
@@ -26,45 +23,31 @@ class SlideContext extends React.Component {
     }
 
     render() {
+        let showData = this.props.showData;
+        let selectedAssetIndex = -1;
+        let assets = [];
+        if (showData.slides.length > 0 && !!showData.slides[showData.selectedSlide]) {
+            selectedAssetIndex = showData.slides[showData.selectedSlide].selectedAssetIndex;
+            assets = showData.slides[showData.selectedSlide].assets;
+        }
+        console.log(this.props.showData.cachedAsset);
         return (
             <div className={this.props.className} id={'SlideContext'}>
                 <SlideTitle/>
                 <ContextMenu
-                    currentSlide={this.props.currentSlide}/>
+                    cachedAsset={this.props.showData.cachedAsset}
+                    actions={this.props.editorActions}/>
                 <AssetRenderer
+                    assets={assets}
+                    selectedAssetIndex={selectedAssetIndex}
                     onModified={this.props.onModified}
-                    assets={this.props.assets}
-                    selectedAssetIndex={this.props.selectedAssetIndex}
-                    currentSlide={this.props.currentSlide}
-                    assetSelected={this.props.assetSelected}
-                    onChangeAttributes={this.props.setSelectedAssetAttributes}/>
+                    onAssetSelected={this.props.editorActions.assetSelected}
+                    onChangeAttributes={this.props.editorActions.setSelectedAssetAttributes}/>
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    if (state.editor.slides.length > 0 && !!state.editor.slides[state.editor.selectedSlide]) {
-        return {
-            currentSlide: state.editor.selectedSlide,
-            selectedAssetIndex: state.editor.slides[state.editor.selectedSlide].selectedAssetIndex,
-            assets: state.editor.slides[state.editor.selectedSlide].assets
-        }
-    } else {
-        return {
-            selectedAssetIndex: -1,
-            assets: []
-        }
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        ...assetsActions,
-        ...slideActions
-    }, dispatch);
-}
-
 SlideContext.propTypes = propTypes;
 
-export default connect(mapStateToProps, mapDispatchToProps)(SlideContext);
+export default SlideContext;

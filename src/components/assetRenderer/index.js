@@ -6,15 +6,13 @@ const propTypes = {
     assets: React.PropTypes.array.isRequired,
     onModified: React.PropTypes.func.isRequired,
     selectedAssetIndex: React.PropTypes.number,
-    currentSlide: React.PropTypes.number.isRequired,
-    assetSelected: React.PropTypes.func.isRequired,
+    onAssetSelected: React.PropTypes.func.isRequired,
     onChangeAttributes: React.PropTypes.func.isRequired
 }
 
 
 const defaultProps = {
     className: '',
-    currentSlide: 0,
     onModified: () => {
     }
 }
@@ -63,14 +61,13 @@ class AssetRenderer extends React.Component {
         let renderingAssets = (assets) => {
             let idx = 0;
             return assets.map((asset) => {
-                let assetKey = this.props.currentSlide + '-' + asset.id + '-' + this.props.currentSlide;
                 let isSelected = false;
                 if (this.props.selectedAssetIndex == idx++) {
                     this.selectedAsset = asset;
                     isSelected = true;
                 }
                 return (<Asset
-                            key={assetKey}
+                            key={asset.id}
                             isSelected={isSelected}
                             doubleClicked={this.state.doubleClicked}
                             onChangeAttributes={this.props.onChangeAttributes}
@@ -181,7 +178,7 @@ class AssetRenderer extends React.Component {
             }
             this.setState({doubleClicked: false});
             this.selectedAssetId = getAssetNode(TAG_ASSET, e.target).id;
-            this.props.assetSelected(this.selectedAssetId);
+            this.props.onAssetSelected(this.selectedAssetId);
             this.setState({mouseAction: 'move'});
             if (e.target.tagName == TAG_SELECTORDOT || e.target.tagName == TAG_SELECTORLINE) {
                 this.setState({mouseAction: 'resize'});
@@ -193,7 +190,7 @@ class AssetRenderer extends React.Component {
         } else {
             this.setState({doubleClicked: false});
             this.selectedAssetId = undefined;
-            this.props.assetSelected(undefined);
+            this.props.onAssetSelected(undefined);
             e.preventDefault();
             clearSelection();
         }

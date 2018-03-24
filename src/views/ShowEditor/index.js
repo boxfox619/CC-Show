@@ -61,7 +61,10 @@ class ShowEditor extends React.Component {
                     <div className={styles.contextSpace}>
                         <SlideContext
                             className={styles.slideContext}
-                            onModified={() => this.props.editorActions.saveShowDataAfterTimeout(this.props.showId)}/>
+                            onModified={() => this.props.editorActions.saveShowDataAfterTimeout(this.props.showId)}
+                            showData={this.props.showData}
+                            editorActions={this.props.editorActions}
+                        />
                     </div>
                 </div>
                 <AssetController className={styles.assetController}/>

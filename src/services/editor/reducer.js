@@ -7,6 +7,7 @@ const initialState = {
     positionUnit: 'px',
     selectedSlide: 0,
     slideIdCount: 0,
+    cachedAsset: undefined,
     slides: [{
         name: 'TEST-SLIDE',
         id: 0,

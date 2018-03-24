@@ -102,18 +102,25 @@ class Asset extends React.Component{
               break;
       }
       const AssetContext = assetTag;
-      return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
-      <div style={{'width': this.props.attribute.width, 'height': this.props.attribute.height,'padding': '6px', 'position': 'absolute'}} >
-          {this.props.isSelected && renderSelectorLine(this.props.attribute.width, this.props.attribute.height)}
-          <AssetContext
-              handleChange={this.handleInputChange}
-              styles={this.getClearStyle()}
-              attrs={attrs}
-              value={this.props.attribute.value}
-          />
-          {this.props.isSelected && renderSelectorDot(this.props.attribute.width, this.props.attribute.height)}
-      </div>
-      </asset>);
+      return (
+          <asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
+              <div style={{
+                  'width': this.props.attribute.width,
+                  'height': this.props.attribute.height,
+                  'padding': '6px',
+                  'position': 'absolute'
+              }}>
+                  {this.props.isSelected && renderSelectorLine(this.props.attribute.width, this.props.attribute.height)}
+                  <AssetContext
+                      handleChange={this.handleInputChange}
+                      styles={this.getClearStyle()}
+                      attrs={attrs}
+                      value={this.props.attribute.value}
+                  />
+                  {this.props.isSelected && renderSelectorDot(this.props.attribute.width, this.props.attribute.height)}
+              </div>
+          </asset>
+      );
   }
 
 
