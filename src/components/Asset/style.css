@@ -1,13 +1,16 @@
-.assetWrapper {}
-
-.textAsset {}
-
-asset textarea {
-  border-style: none;
-  resize: none;
+.assetWrapper {
 }
 
-asset div {}
+.textAsset {
+}
+
+asset textarea {
+    border-style: none;
+    resize: none;
+}
+
+asset div {
+}
 
 p {
     font-family: 'NanumSquareEB';
@@ -15,70 +18,69 @@ p {
 }
 
 .asset {
-  position: absolute !important;
-  overflow: hidden;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  margin: 3px;
+    position: absolute !important;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin: 3px;
 }
 
 .assetContext {
-  position: absolute;
-  width: calc(100% - 2px);
-  height: calc(100% - 2px);
-  cursor: move;
-}
-
-.isSelected {
-  background-color: #038AFD;
+    position: absolute;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    cursor: move;
 }
 
 .selectorDot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background-color: #038AFD;
 }
 
 .horizontalResizer {
-  position: absolute;
-  height: 2px;
-  width: calc( 100% - 10px);
-  cursor: ns-resize;
-  z-index: 99;
+    position: absolute;
+    height: 2px;
+    width: calc(100% - 10px);
+    cursor: ns-resize;
+    z-index: 99;
+    background-color: #038AFD;
 }
 
 .verticalResizer {
-  position: absolute;
-  height: calc( 100% - 10px);
-  width: 2px;
-  cursor: ew-resize;
-  z-index: 99;
+    position: absolute;
+    height: calc(100% - 10px);
+    width: 2px;
+    cursor: ew-resize;
+    z-index: 99;
+    background-color: #038AFD;
 }
 
 .ellipse {
-  width: 100%;
-  height: 100%;
-  background: #5a84b3;
-  border-color: #5a84b3;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  border-radius: 100px;
+    width: 100%;
+    height: 100%;
+    background: #5a84b3;
+    border-color: #5a84b3;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 100px;
 }
 
 .triangle {
-  width: 0;
-  height: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 50px solid #5a84b3;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid #5a84b3;
 }
 
 .square {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }

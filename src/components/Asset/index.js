@@ -27,28 +27,28 @@ const defaultProps = {
 }
 
 
-const renderSelectorDot = (width, height, subStyleClass)=>{
+const renderSelectorDot = (width, height)=>{
     const topLeftAttr = {'target': 'topleft'};
     const topRightAttr = {'target': 'topright'};
     const bottomLeftAttr = {'target': 'bottomleft'};
     const bottomRightAttr = {'target': 'bottomright'};
-        return (<div><selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot+subStyleClass}/>
-            <selectordot {...topRightAttr} style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+width+' + 3.5px)'}} className={styles.selectorDot+subStyleClass}/>
-            <selectordot {...bottomLeftAttr} style={{'cursor': 'ne-resize', 'top': 'calc('+height+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot+subStyleClass}/>
-            <selectordot {...bottomRightAttr} style={{'cursor': 'nw-resize', 'top': 'calc('+height+' + 3.5px)', 'left': 'calc('+width+' + 3.5px)'}} className={styles.selectorDot+subStyleClass}/>
+        return (<div><selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot}/>
+            <selectordot {...topRightAttr} style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+width+' + 3.5px)'}} className={styles.selectorDot}/>
+            <selectordot {...bottomLeftAttr} style={{'cursor': 'ne-resize', 'top': 'calc('+height+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot}/>
+            <selectordot {...bottomRightAttr} style={{'cursor': 'nw-resize', 'top': 'calc('+height+' + 3.5px)', 'left': 'calc('+width+' + 3.5px)'}} className={styles.selectorDot}/>
         </div>)
 }
 
 
-let renderSelectorLine = (width, height, subStyleClass)=>{
+let renderSelectorLine = (width, height)=>{
     const topAttr = {'target': 'top'};
     const bottomAttr = {'target': 'bottom'};
     const leftAttr = {'target': 'left'};
     const rightAttr = {'target': 'right'};
-        return (<div><selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer+subStyleClass}/>
-            <selectorline {...bottomAttr} style={{'top': 'calc('+height+' + 7px)'}} className={styles.horizontalResizer+subStyleClass}/>
-            <selectorline {...leftAttr} style={{'left': '3px'}} className={styles.verticalResizer+subStyleClass}/>
-            <selectorline {...rightAttr} style={{'left': 'calc('+width+' + 7px)'}} className={styles.verticalResizer+subStyleClass}/>
+        return (<div><selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer}/>
+            <selectorline {...bottomAttr} style={{'top': 'calc('+height+' + 7px)'}} className={styles.horizontalResizer}/>
+            <selectorline {...leftAttr} style={{'left': '3px'}} className={styles.verticalResizer}/>
+            <selectorline {...rightAttr} style={{'left': 'calc('+width+' + 7px)'}} className={styles.verticalResizer}/>
         </div>);
 }
 
@@ -57,7 +57,6 @@ class Asset extends React.Component{
 
   constructor(props){
     super(props);
-    this.getSubStyleClass = this.getSubStyleClass.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.getClearStyle = this.getClearStyle.bind(this);
   }
@@ -105,12 +104,14 @@ class Asset extends React.Component{
       const AssetContext = assetTag;
       return (<asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
       <div style={{'width': this.props.attribute.width, 'height': this.props.attribute.height,'padding': '6px', 'position': 'absolute'}} >
-          {controllerVisible && renderSelectorLine(this.props.attribute.width, this.props.attribute.height, this.getSubStyleClass())}
-          <AssetContext handleChange={this.handleInputChange}
-                        styles={this.getClearStyle()}
-                        attrs={attrs}
-                        value={this.props.attribute.value}/>
-          {controllerVisible && renderSelectorDot(this.props.attribute.width, this.props.attribute.height, this.getSubStyleClass())}
+          {this.props.isSelected && renderSelectorLine(this.props.attribute.width, this.props.attribute.height)}
+          <AssetContext
+              handleChange={this.handleInputChange}
+              styles={this.getClearStyle()}
+              attrs={attrs}
+              value={this.props.attribute.value}
+          />
+          {this.props.isSelected && renderSelectorDot(this.props.attribute.width, this.props.attribute.height)}
       </div>
       </asset>);
   }
@@ -149,10 +150,6 @@ class Asset extends React.Component{
             'top': this.props.attribute.y
         };
         return style;
-    }
-
-    getSubStyleClass() {
-        return ((this.props.isSelected) ? ' ' + styles.isSelected : '');
     }
 }
 

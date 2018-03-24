@@ -47,7 +47,7 @@ const mapStateToProps = (state) => {
     if (state.editor.slides.length > 0 && !!state.editor.slides[state.editor.selectedSlide]) {
         return {
             currentSlide: state.editor.selectedSlide,
-            selectedAssetIndex: state.editor.slides[state.editor.selectedSlide].selectedAsset,
+            selectedAssetIndex: state.editor.slides[state.editor.selectedSlide].selectedAssetIndex,
             assets: state.editor.slides[state.editor.selectedSlide].assets
         }
     } else {
