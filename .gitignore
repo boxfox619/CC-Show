@@ -6,6 +6,7 @@ realm-object-server/
 #express
 build/
 public/bundle.js
+public/bundle.js.map
 
 # Logs
 logs
