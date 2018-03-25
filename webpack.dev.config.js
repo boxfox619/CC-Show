@@ -32,7 +32,7 @@ module.exports = {
         loaders: [ //loader를 통해 es6, react js 형식을 일반 js형식으로 변환해줌
             {
                 test: /\.js$/,
-                loader: ['react-hot-loader', 'babel-loader?' + JSON.stringify({
+                loader: ['react-hot-loader', 'eslint-loader', 'babel-loader?' + JSON.stringify({
                     cacheDirectory: true,
                     presets: ['es2015', 'react'],
                     plugins: ["transform-object-rest-spread"]
