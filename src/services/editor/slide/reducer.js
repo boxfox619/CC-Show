@@ -18,6 +18,7 @@ function getSlideIndex(state, key) {
 }
 
 export default function(state, action){
+    let currentSlideIndex = state.selectedSlide;
   switch (action.type) {
     case actionTypes.SLIDE_CONTEXT_SET_SIZE_UNIT:
       return {
@@ -84,18 +85,22 @@ export default function(state, action){
           )
         }
       case actionTypes.SLIDE_RENAME:
-        return {
-          ...state,
-          slides: update(
-            state.slides, {
-              [action.target]: {
-                name: {
-                  $set: action.name
-                }
+          if (state.slides.length == 0) {
+            return {...state};
+          } else {
+              return {
+                  ...state,
+                  slides: update(
+                      state.slides, {
+                          [currentSlideIndex]: {
+                              name: {
+                                  $set: action.name
+                              }
+                          }
+                      }
+                  )
               }
-            }
-          )
-        }
+          }
       case actionTypes.SLIDE_SELECT:
         return {
           ...state,

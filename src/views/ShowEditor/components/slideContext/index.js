@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ContextMenu from './components/contextMenu';
-import SlideTitle from './components/slideTitle';
+import TitleField from './components/TitleField';
 import AssetRenderer from 'components/AssetRenderer';
 
 const propTypes = {
@@ -26,13 +26,18 @@ class SlideContext extends React.Component {
         let showData = this.props.showData;
         let selectedAssetIndex = -1;
         let assets = [];
-        if (showData.slides.length > 0 && !!showData.slides[showData.selectedSlide]) {
-            selectedAssetIndex = showData.slides[showData.selectedSlide].selectedAssetIndex;
-            assets = showData.slides[showData.selectedSlide].assets;
+        let currentSlide = showData.slides[showData.selectedSlide];
+        if (showData.slides.length > 0 && !!currentSlide) {
+            selectedAssetIndex = currentSlide.selectedAssetIndex;
+            assets = currentSlide.assets;
         }
         return (
             <div className={this.props.className} id={'SlideContext'}>
-                <SlideTitle/>
+                <TitleField
+                    title={currentSlide.name}
+                    onChange={this.props.editorActions.renameCurrentSlide}
+                    currentSlideIndex={showData.selectedSlide}
+                />
                 <ContextMenu
                     cachedAsset={this.props.showData.cachedAsset}
                     actions={this.props.editorActions}/>

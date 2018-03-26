@@ -52,10 +52,9 @@ export const deleteSlide = (target) =>{
   }
 }
 
-export const renameSlide = (target, name) =>{
+export const renameCurrentSlide = (name) =>{
   return {
     type: SLIDE_RENAME,
-    target: target,
     name
   }
 }
