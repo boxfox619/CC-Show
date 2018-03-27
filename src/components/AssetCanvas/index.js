@@ -2,7 +2,6 @@ import React from 'react';
 import Asset from 'components/Asset';
 
 const propTypes = {
-    className: React.PropTypes.string.isRequired,
     assets: React.PropTypes.array.isRequired,
     onModified: React.PropTypes.func.isRequired,
     selectedAssetIndex: React.PropTypes.number,
@@ -41,7 +40,7 @@ function clearSelection() {
     }
 }
 
-class AssetRenderer extends React.Component {
+class AssetCanvas extends React.Component {
 
     constructor(props) {
         super(props);
@@ -231,7 +230,7 @@ class AssetRenderer extends React.Component {
     }
 }
 
-AssetRenderer.propTypes = propTypes;
-AssetRenderer.defaultProps = defaultProps;
+AssetCanvas.propTypes = propTypes;
+AssetCanvas.defaultProps = defaultProps;
 
-export default AssetRenderer;
+export default AssetCanvas;
