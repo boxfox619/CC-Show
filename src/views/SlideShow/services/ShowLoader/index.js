@@ -16,7 +16,7 @@ export const load = (callback) => {
   }
 }
 
-export const convertSize = (asset) => {
+export const convertStyleSize = (asset) => {
     let assetItem = JSON.parse(JSON.stringify(asset));
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;

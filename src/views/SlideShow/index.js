@@ -4,11 +4,9 @@ import Asset from '../../components/Asset';
 
 import styles from './style.css';
 
-import axios from 'axios';
-
 import * as DomController from './services/dom';
-import * as Loader from './services/SlideLoader'
-
+import * as Loader from './services/ShowLoader'
+import Slide from "./services/Slide";
 
 class SlideShow extends React.Component{
 
@@ -25,21 +23,18 @@ class SlideShow extends React.Component{
   }
 
   render(){
-    let renderingSlides = () =>{
-      if(this.state.slides.length>0){
-        return renderingAssets(this.state.slides[this.state.currentSlide].assets);
+    let renderingSlides = (slides, currentSlideIdx) =>{
+      if(slides.length>0){
+        return slides.map((slide,idx)=>{
+          return <Slide visible={idx == currentSlideIdx} slide={slide}/>
+        })
       }else{
         return (<img className={styles.loader} src="/images/progress.gif"/>);
       }
     }
-    let renderingAssets = (assets) => {
-      return assets.map((asset)=>{
-        return <Asset controlable={false} key={this.state.currentSlide+'-'+asset.id+'-'+this.state.currentSlide} onChangeAttributes={this.props.setSelectedAssetAttributes} attribute={Loader.convertSize(asset)}/>
-      })
-    }
     return (
       <div className={styles.context}>
-        {renderingSlides()}
+        {renderingSlides(this.state.slides, this.state.currentSlide)}
       </div>
     )
   }
@@ -57,7 +52,6 @@ class SlideShow extends React.Component{
     Loader.load(function(slides){
       if(slides){
         this.setState({slides})
-      }else{
       }
     }.bind(this))
   }
