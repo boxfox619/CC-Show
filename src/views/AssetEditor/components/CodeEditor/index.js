@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './style.css';
 
-import AssetRenderer from 'components/AssetRenderer';
+import AssetCanvas from 'components/AssetCanvas';
 import * as assetTypes from 'services/editor/asset/assetTypes';
 import MonacoEditor from './MonacoEditor';
 
@@ -73,7 +73,7 @@ class AssetEditor extends React.Component {
                         <div className={styles.preTop}>
                             <span className={styles.preLan}>PREVIEW</span>
                         </div>
-                        <AssetRenderer
+                        <AssetCanvas
                             className={styles.previewArea}
                             assets={this.getPreviewAsset()}
                             selectedAssetIndex={this.state.selectedAsset}
