@@ -10,7 +10,6 @@ export const ASSET_COPY = 'ASSET_COPY';
 export const ASSET_PASTE = 'ASSET_PASTE';
 export const ASSET_SORT = 'ASSET_SORT';
 export const ASSET_DELETE = 'ASSET_DELETE';
-export const ASSET_SET_VALUE = "ASSET_SET_VALUE";
 export const ASSET_SET_ATTRIBUTE = "ASSET_SET_ATTRIBUTE";
 
 export const createAsset = (assetType, value, style = {}) => {
@@ -144,12 +143,5 @@ export function deleteAsset(id) {
     return {
         type: ASSET_DELETE,
         id
-    }
-}
-
-export function setAssetStyle(style) {
-    return {
-        type: ASSET_SET_STYLE,
-        style
     }
 }

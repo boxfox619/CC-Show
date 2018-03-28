@@ -1,20 +1,34 @@
 import * as actionTypes from './actions';
-import {getState} from 'store';
 import update from 'react-addons-update';
-import * as assetTypes from './assetTypes';
 import {insertItem} from '../util';
+import {createAssetReducer as create} from './create';
 
-const defaultAsset = {
-    id: '',
-    type: '',
-    value: '',
-    height: '50px',
-    width: '50px',
-    x: '0px',
-    y: '0px',
-    angle: '0',
-    style: {}
-};
+const updateAsset = (state, updateData) => {
+    let currentSlide = state.slides[state.selectedSlide];
+    let selectedAssetIndex = (currentSlide) ? currentSlide.selectedAssetIndex : undefined;
+
+    return updateCurrentSlide(state, {
+        assets: {
+            $set: update(
+                currentSlide.assets, {[selectedAssetIndex]: updateData}
+            )
+        }
+    })
+}
+
+const updateCurrentSlide = (state, updateData) => {
+
+    return {
+        ...state,
+        slides: update(
+            state.slides, {
+                [state.selectedSlide]: updateData
+            }
+        )
+    }
+
+}
+
 
 export default function (state, action) {
     let currentSlide = state.slides[state.selectedSlide];
@@ -25,201 +39,47 @@ export default function (state, action) {
 
     switch (action.type) {
         case actionTypes.ASSET_CREATE:
-            let sizeUnit = getState().editor.sizeUnit;
-            let positionUnit = getState().editor.positionUnit;
-            let newAsset = {
-                ...defaultAsset,
-                id: currentAssetId,
-                type: action.assetType,
-                value: action.value,
-                height: '50' + sizeUnit,
-                width: '50' + sizeUnit,
-                x: '0' + positionUnit,
-                y: '0' + positionUnit,
-                style: {
-                    'background-color': 'white',
-                    'border-color': 'white',
-                    'border-style': 'solid',
-                    'border-width': '0px'
-                }
-            };
-            if (action.assetType === assetTypes.TYPE_TEXT) {
-                newAsset = {
-                    ...newAsset,
-                    subStyle: [],
-                    style: {
-                        ...newAsset.style,
-                        'font-family': '굴림',
-                        'font-size': '12px',
-                        'text-align': 'justify',
-                        'font-weight': 'normal',
-                        'font-style': 'normal',
-                        'text-decoration': 'none',
-                        color: 'black',
-                        'letter-spacing': '0px',
-                        'line-height': 'normal'
-                    }
-                }
-            } else if (action.assetType === assetTypes.TYPE_VIDEO) {
-                newAsset = {
-                    ...newAsset,
-                    preview: false,
-                    style: {
-                        ...newAsset.style,
-                        videoController: false,
-                        videoLoop: false,
-                        videoAutoplay: false
-                    }
-                }
-            } else if (action.assetType === assetTypes.TYPE_IMAGE) {
-            } else if (action.assetType === assetTypes.TYPE_SHAPE) {
-                newAsset = {
-                    ...newAsset,
-                    style: {
-                        'border-color': '#5a84b3',
-                        'background-color': '#5a84b3',
-                        'border-width': '0px'
-                    }
-                }
-            } else if (action.assetType === assetTypes.TYPE_TABLE) {
-                newAsset = {
-                    ...newAsset,
-                    cells: [[{'width': '20px'}, {'width': '20px'}], [{'width': '20px'}, {'width': '20px'}]],
-                    style: {
-                        'border-color': 'black',
-                        'border-width': '0px',
-                        'background-color': 'white'
-                    }
-                }
-            } else if (action.assetType === assetTypes.TYPE_CUSTOM) {
-            }
-            return {
-                ...state,
-                slides: update(
-                    state.slides, {
-                        [state.selectedSlide]: {
-                            assetIdCount: {
-                                $set: assetIdCount + 1
-                            },
-                            assets: {
-                                $set: update(
-                                    currentSlide.assets, {
-                                        $push: [newAsset]
-                                    })
-                            }
-                        }
-                    }
-                )
-            };
-        case actionTypes.ASSET_SET_VALUE:
-            return {
-                ...state,
-                slides: update(
-                    state.slides, {
-                        [state.selectedSlide]: {
-                            assets: {
-                                $set: update(
-                                    currentSlide.assets, {
-                                        [selectedAssetIndex]: {
-                                            value: {
-                                                $set: action.value
-                                            }
-                                        }
-                                    }
-                                )
-                            }
-                        }
-                    }
-                )
-            }
+            return create(state, action);
         case actionTypes.ASSET_SET_ATTRIBUTE:
             currentAsset[action.attrName] = action.attr;
-            return {
-                ...state,
-                slides: update(
-                    state.slides, {
-                        [state.selectedSlide]: {
-                            assets: {
-                                $set: update(
-                                    currentSlide.assets, {
-                                        [selectedAssetIndex]: {
-                                            $set: currentAsset
-                                        }
-                                    }
-                                )
-                            }
-                        }
-                    }
-                )
-            }
+            return updateAsset(state, {$set: currentAsset});
         case actionTypes.ASSET_SET_STYLE:
             currentAsset.style[action.styleName] = action.style;
-            return {
-                ...state,
-                slides: update(
-                    state.slides, {
-                        [state.selectedSlide]: {
-                            assets: {
-                                $set: update(
-                                    currentSlide.assets, {
-                                        [selectedAssetIndex]: {
-                                            $set: currentAsset
-                                        }
-                                    }
-                                )
-                            }
-                        }
-                    }
-                )
-            }
+            return updateAsset(state, {$set: currentAsset});
         case actionTypes.ASSET_SELECTED:
             if (state.slides.length > 0) {
-                return {
-                    ...state,
-                    slides: update(
-                        state.slides, {
-                            [state.selectedSlide]: {
-                                selectedAssetIndex: {
-                                    $set: getAssetIndex(currentSlide, action.assetId)
-                                }
-                            }
-                        }
-                    )
-                };
+                return updateCurrentSlide(state, {
+                    selectedAssetIndex: {
+                        $set: getAssetIndex(currentSlide, action.assetId)
+                    }
+                });
             } else {
                 return {...state}
             }
         case actionTypes.ASSET_PASTE:
             if (!!state.cachedAsset)
-                return {
-                    ...state,
-                    slides: update(
-                        state.slides, {
-                            [state.selectedSlide]: {
-                                $set: {
-                                    ...currentSlide,
-                                    assetIdCount: assetIdCount + 1,
-                                    assets: update(
-                                        currentSlide.assets, {
-                                            $push: [{
-                                                ...state.cachedAsset,
-                                                id: currentAssetId,
-                                                x: action.x,
-                                                y: action.y
-                                            }]
-                                        })
-                                }
-                            }
-                        }
-                    )
-                }
+                return updateCurrentSlide(state, {
+                    $set: {
+                        ...currentSlide,
+                        assetIdCount: assetIdCount + 1,
+                        assets: update(
+                            currentSlide.assets, {
+                                $push: [{
+                                    ...state.cachedAsset,
+                                    id: currentAssetId,
+                                    x: action.x,
+                                    y: action.y
+                                }]
+                            })
+                    }
+                });
             else {
                 return {...state}
             }
         case actionTypes.ASSET_COPY:
             return {
                 ...state,
-                cachedAsset : {...currentSlide.assets[getAssetIndex(currentSlide, action.id)]}
+                cachedAsset: {...currentSlide.assets[getAssetIndex(currentSlide, action.id)]}
             }
         case actionTypes.ASSET_SORT:
             let assetsArr = currentSlide.assets;
@@ -234,95 +94,32 @@ export default function (state, action) {
             } else if (action.to == 'back' && assetIndex < assetsArr.length - 1) {
                 assetIndex += 1;
             }
-            return {
-                ...state,
-                slides: update(
-                    state.slides, {
-                        [state.selectedSlide]: {
-                            $set: {
-                                ...currentSlide,
-                                assets: insertItem(assetsArr, assetIndex, assetsArr.splice(targetIndex, 1)[0])
-                            }
-                        }
-                    }
-                )
-            }
+            return updateCurrentSlide(state, {
+                $set: {
+                    ...currentSlide,
+                    assets: insertItem(assetsArr, assetIndex, assetsArr.splice(targetIndex, 1)[0])
+                }
+            });
         case actionTypes.ASSET_DELETE:
-            return {
-                ...state,
-                slides: update(
-                    state.slides, {
-                        [state.selectedSlide]: {
-                            $set: {
-                                ...currentSlide,
-                                selectedAssetIndex: undefined,
-                                assets: update(
-                                    currentSlide.assets, {
-                                        $splice: [[getAssetIndex(currentSlide, action.id), 1]]
-                                    }
-                                )
-                            }
+            return updateCurrentSlide(state, {
+                $set: {
+                    ...currentSlide,
+                    selectedAssetIndex: undefined,
+                    assets: update(
+                        currentSlide.assets, {
+                            $splice: [[getAssetIndex(currentSlide, action.id), 1]]
                         }
-                    }
-                )
-            }
-        case actionTypes.ASSET_SET_IMAGE:
-            return {
-                ...state,
-                slides: update(
-                    state.slides, {
-                        [state.selectedSlide]: {
-                            assets: {
-                                $set: update(
-                                    currentSlide.assets, {
-                                        [selectedAssetIndex]: {
-                                            value: {
-                                                $set: action.value
-                                            }
-                                        }
-                                    }
-                                )
-                            }
-                        }
-                    }
-                )
-            }
+                    )
+                }
+            });
         case actionTypes.ASSET_SET_STYLE:
-            return {
-                ...state,
-                slides: update(
-                    state.slides, {
-                        [state.selectedSlide]: {
-                            assets: {
-                                $set: update(
-                                    currentSlide.assets, {
-                                        [selectedAssetIndex]: {
-                                            style: {
-                                                $set: JSON.parse(action.style)
-                                            }
-                                        }
-                                    }
-                                )
-                            }
-                        }
-                    }
-                )
-            }
+            return updateAsset(state, {
+                style: {
+                    $set: JSON.parse(action.style)
+                }
+            });
         case actionTypes.ASSET_SET_MULTIPLE_ATTRIBUTE:
-            return {
-                ...state,
-                slides: update(
-                    state.slides, {
-                        [state.selectedSlide]: {
-                            assets: {
-                                $set: update(
-                                    currentSlide.assets, {
-                                        [selectedAssetIndex]: action.attrs
-                                    })
-                            }
-                        }
-                    })
-            }
+            return updateAsset(state, action.attrs);
         default:
             return state;
     }
