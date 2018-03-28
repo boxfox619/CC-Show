@@ -55,10 +55,10 @@ class ShowEditor extends React.Component {
         let contextDisabled = this.checkContextDisabled();
         return (
             <div ref={root => {this.root = root}} className={styles.showEditor}>
-              <SideController className={styles.sideController}
-                              buttonMap={this.sideControllerActions}
-                              account={this.props.account}/>
-              <SlideManager
+                <SideController className={styles.sideController}
+                                buttonMap={this.sideControllerActions}
+                                account={this.props.account}/>
+                <SlideManager
                     className={classnames(styles.slideManager, (this.props.visibleSlideManager ? styles.show : ''))}
                     slides={this.props.showData.slides}
                     currentSlideIndex={this.props.showData.selectedSlide}
@@ -83,18 +83,18 @@ class ShowEditor extends React.Component {
 
     get sideControllerActions(){
         return [
-          [
-            { label: '텍스트',  action: () => this.props.createAssetByType(assetTypes.TYPE_TEXT) },
-            { label: '이미지',  action: () => this.props.createAssetByType(assetTypes.TYPE_IMAGE) },
-            { label: '비디오',  action: () => this.props.createAssetByType(assetTypes.TYPE_VIDEO) },
-            { label: '도형',  action: () => this.props.createAssetByType(assetTypes.TYPE_SHAPE) },
-            { label: '표',  action: () => this.props.createAssetByType(assetTypes.TYPE_TABLE) },
-            { label: '기타',  action: () => this.props.toggleAssetStore() }
-          ],
-          [
-            { label: '슬라이드 리스트',  action: () => this.props.toggleSlideManager() },
-            { label: '슬라이드 쇼',  action: () => this.props.toggleSlideShow() }
-          ]
+            [
+                { label: '텍스트',  action: () => this.props.editorActions.createAssetByType(assetTypes.TYPE_TEXT) },
+                { label: '이미지',  action: () => this.props.editorActions.createAssetByType(assetTypes.TYPE_IMAGE) },
+                { label: '비디오',  action: () => this.props.editorActions.createAssetByType(assetTypes.TYPE_VIDEO) },
+                { label: '도형',  action: () => this.props.editorActions.createAssetByType(assetTypes.TYPE_SHAPE) },
+                { label: '표',  action: () => this.props.editorActions.createAssetByType(assetTypes.TYPE_TABLE) },
+                { label: '기타',  action: () => this.props.uiActions.toggleAssetStore() }
+            ],
+            [
+                { label: '슬라이드 리스트',  action: () => this.props.uiActions.toggleSlideManager() },
+                { label: '슬라이드 쇼',  action: () => this.props.uiActions.toggleSlideShow() }
+            ]
         ];
     }
 

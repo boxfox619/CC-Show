@@ -12,10 +12,6 @@ const propTypes = {
 
 class SlideContext extends React.Component {
 
-    /* mouseDowned
-     * xInElement
-     * yInElement
-    */
     constructor(props) {
         super(props);
 

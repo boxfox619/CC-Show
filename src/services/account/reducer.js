@@ -1,5 +1,4 @@
 import { actionTypes } from './actions';
-import update from 'react-addons-update';
 
 const initialState = {
   name: 'Guest',
