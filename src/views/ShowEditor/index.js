@@ -1,7 +1,7 @@
 import React from 'react';
 import SideController from 'components/Controller/SideController';
 import AssetController from 'components/Controller/AssetController';
-import AssetStore from 'components/Dialog/AssetStore';
+import AssetStore from 'components/Dialog/AssetManager';
 import SlideContext from './components/slideContext';
 import SlideManager from './components/slideManager';
 import ColorPicker from 'components/Dialog/ColorPicker';
@@ -58,6 +58,7 @@ class ShowEditor extends React.Component {
                 <SideController className={styles.sideController}
                                 buttonMap={this.sideControllerActions}
                                 account={this.props.account}/>
+                <AssetStore className={styles.modal}/>
                 <SlideManager
                     className={classnames(styles.slideManager, (this.props.visibleSlideManager ? styles.show : ''))}
                     slides={this.props.showData.slides}

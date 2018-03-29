@@ -21,7 +21,7 @@ export const toggleSlideManager = () => {
   }
 }
 
-export const toggleAssetStore = () => {
+export const toggleAssetManager = () => {
   return {
     type: TOGGLE_DIALOG,
     target: dialogs.ASSET_STORE
