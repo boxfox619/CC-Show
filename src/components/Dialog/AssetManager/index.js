@@ -19,14 +19,22 @@ class AssetManager extends React.Component {
     }
 
     render() {
-
+        console.log(this.state.lookupAsset);
+        let renderContent = () => {
+            if (!this.state.lookupAsset) {
+                return (
+                    <AssetStore
+                        onCloseDialog={this.props.toggleAssetManager}
+                        onCreateCustomAsset={this.props.createCustomAsset}
+                        onLookupAssetDetail={this.lookupAssetDetail}
+                    />);
+            } else {
+                return (<AssetDetail asset={this.state.lookupAsset}/>);
+            }
+        }
         return (
             <div className={this.props.className}>
-                <AssetStore
-                    onCloseDialog={this.props.toggleAssetManager}
-                    onCreateCustomAsset={this.props.createCustomAsset}
-                    onLookupAssetDetail={this.lookupAssetDetail}
-                />
+                {renderContent()}
             </div>
         );
     }
