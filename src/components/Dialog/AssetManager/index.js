@@ -40,6 +40,7 @@ class AssetManager extends React.Component {
     }
 
     lookupAssetDetail(asset) {
+        console.log('adasas'+ asset);
         this.setState({lookupAsset: asset});
     }
 

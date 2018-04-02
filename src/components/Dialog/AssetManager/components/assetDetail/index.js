@@ -1,21 +1,63 @@
 import React from 'react';
 import styles from './style.css';
+import AssetCanvas from 'components/AssetCanvas';
+import * as assetTypes from 'services/editor/asset/assetTypes';
 
 const propTypes = {
   asset: React.PropTypes.object.isRequired
 }
 
 class AssetDetail extends React.Component{
-  render(){
-    return (
-      <div>
-        <h1 className={styles.title}>이건 무슨 에셋일까?</h1>
-        <div className={styles.description}> ㅁㄴㅇㅁㄴㅇ ㅁㄴㅇ ㅁㄴㅇ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅁㄴㅇ ㅁㄴㅇ ㅁ나ㅓㅀㅂㄹ ㅜㅂㅈㄹ ㅗ뮤ㅡ ㅁㄶ랴봐류 ㅁㅇ낳럼 유리마저다 ㅎ뮺ㄷㅎ  ㅓ</div>
-        <div>
-        </div>
-      </div>
-    );
-  }
+
+    constructor(props){
+        super(props);
+        this.state = {
+            selectedAsset: undefined,
+            previewAsset: {
+                id: '0',
+                type: assetTypes.TYPE_PREVIEW,
+                value: '',
+                height: '50px',
+                width: '50px',
+                x: '0px',
+                y: '0px',
+                angle: '0',
+                style: {}
+            }
+        };
+    }
+    render() {
+        return (
+            <div className={styles.asset_detail}>
+                <h1 className={styles.title}>{this.props.asset.title}</h1>
+                <div className={styles.description}>{this.props.asset.content}</div>
+                <AssetCanvas
+                    className={styles.previewArea}
+                    assets={this.getPreviewAsset()}
+                    selectedAssetIndex={this.state.selectedAsset}
+                    onAssetSelected={() => {}}
+                    onChangeAttributes={this.setAttributes}/>
+
+
+
+            </div>
+        );
+    }
+
+    getPreviewAsset() {
+        return [{
+            ...this.state.previewAsset,
+            value: ''
+        }];
+    }
+
+    setAttributes(attrs) {
+        let asset = this.state.previewAsset;
+        Object.keys(attrs).map(function (key, index) {
+            asset[key] = attrs[key];
+        });
+        this.setState({previewAsset: asset});
+    }
 }
 
 AssetDetail.propTypes = propTypes;

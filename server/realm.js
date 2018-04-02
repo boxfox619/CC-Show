@@ -1,18 +1,19 @@
 const Realm = require('realm');
 
 const AssetSchema = {
-  name: 'Asset',
-  primaryKey: 'id',
-  properties: {
-    id: {type: 'int', indexed: true },
-    view: {type: 'int', default: 0},
-    title: {type: 'string', default: ''},
-    user: {type: 'string'},
-    date: {type: 'date'},
-    star: {type: 'float', default: 0},
-    openToStore: {type: 'bool', default: false},
-    thumbnail: {type: 'string', default: ''}
-  }
+    name: 'Asset',
+    primaryKey: 'id',
+    properties: {
+        id: {type: 'int', indexed: true},
+        view: {type: 'int', default: 0},
+        title: {type: 'string', default: ''},
+        user: {type: 'string'},
+        date: {type: 'date'},
+        star: {type: 'float', default: 0},
+        openToStore: {type: 'bool', default: false},
+        thumbnail: {type: 'string', default: ''},
+        content: {type: 'string', default: ''}
+    }
 };
 
 const AssetScriptSchema = {
