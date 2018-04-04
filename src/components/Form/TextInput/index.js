@@ -14,7 +14,8 @@ class TextInput extends React.Component{
 
     render(){
         return(
-          <div className = {styles.cover}><span className = {styles.title_label}>{this.props.label}</span>
+          <div className = {styles.cover}>
+              <span className = {styles.title_label}>{this.props.label}</span>
               <input type = "text" className = {styles.title} placeholder={this.props.label+"을 입력하세요"} onChange = {(e)=>this.onChange(e)} value = {this.props.text}/>
           </div>
         );

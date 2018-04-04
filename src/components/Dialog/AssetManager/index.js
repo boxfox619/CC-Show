@@ -6,30 +6,35 @@ import AssetStore from './components/Store';
 
 import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';
+import Editor from "./components/Editor";
 
 class AssetManager extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            lookupAsset: null
+            lookupAsset: null,
+            mode: 'editor'
         }
 
         this.lookupAssetDetail = this.lookupAssetDetail.bind(this);
     }
 
     render() {
-        console.log(this.state.lookupAsset);
         let renderContent = () => {
-            if (!this.state.lookupAsset) {
-                return (
-                    <AssetStore
-                        onCloseDialog={this.props.toggleAssetManager}
-                        onCreateCustomAsset={this.props.createCustomAsset}
-                        onLookupAssetDetail={this.lookupAssetDetail}
-                    />);
+            if (this.state.mode === 'default') {
+                if (!this.state.lookupAsset) {
+                    return (
+                        <AssetStore
+                            onCloseDialog={this.props.toggleAssetManager}
+                            onCreateCustomAsset={this.props.createCustomAsset}
+                            onLookupAssetDetail={this.lookupAssetDetail}
+                        />);
+                } else {
+                    return (<AssetDetail asset={this.state.lookupAsset}/>);
+                }
             } else {
-                return (<AssetDetail asset={this.state.lookupAsset}/>);
+                return (<Editor/>)
             }
         }
         return (

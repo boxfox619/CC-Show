@@ -1,16 +1,11 @@
 import React from 'react';
+import TextInput from 'components/Form/TextInput';
+import Toggle from 'components/Form/Toggle';
+import CodeEditor from 'components/Form/CodeEditor';
 
-import styles from './style.css';
+class Editor extends React.Component{
 
-import assetEditorApi from './services/api';
-
-import CodeEditor from './components/CodeEditor';
-import TextInput from './components/TextInput';
-import Toggle from './components/Toggle';
-
-class AssetEditor extends React.Component {
-
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
             title: '',
@@ -27,20 +22,18 @@ class AssetEditor extends React.Component {
     }
 
     render() {
-        let headerHeight = document.getElementsByTagName('header')[0].scrollHeight;
         return (
-            <div style={{'marginTop': headerHeight}} ref={root => {
-                this.root = root
-            }}>
-                <div className={styles.attribute_editor}>
+            <div>
+                <div >
                     <TextInput label={'제목'} text={this.state.title} onChange={this.titleHandle}/>
                     <TextInput label={'태그'} text={this.state.title} onChange={this.titleHandle}/>
                     <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
                 </div>
                 <CodeEditor
-                    onChangeJs={code => this.codeHandle('js', code)}
-                    onChangeCss={code => this.codeHandle('css', code)}
-                    onChangeHtml={code => this.codeHandle('html', code)}
+                    onChangeCode={this.codeHandle}
+                    html={this.state.html}
+                    css={this.state.css}
+                    js={this.state.js}
                 />
             </div>
         );
@@ -59,14 +52,7 @@ class AssetEditor extends React.Component {
     }
 
     saveAsset() {
-        assetEditorApi.upload(this.state, function (result) {
-            // @TODO Something
-        });
-    }
-
-    componentDidMount() {
-        document.getElementById('save').addEventListener('click', this.saveAsset);
     }
 }
 
-export default AssetEditor;
+export default Editor;

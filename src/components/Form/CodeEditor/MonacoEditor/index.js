@@ -6,8 +6,8 @@ const propTypes = {
     onChange: React.PropTypes.func.isRequired
 }
 
-export default function CodeEditor({codeType, onChange}) {
-    const code = this.state.code;
+export default function CodeEditor({codeType, onChange, value}) {
+    const code = value;
     const options = {
         selectOnLineNumbers: true,
         roundedSelection: false,
@@ -24,12 +24,18 @@ export default function CodeEditor({codeType, onChange}) {
         onChange(newValue);
     }
 
+
+    const editorDidMount = (editor, monaco) => {
+        editor.focus();
+    }
+
     return (
         <MonacoEditor height="252" width="110%" language={codeType}
                       value={code} options={options} onChange={onChangeHandler}
                       requireConfig={requireConfig}
-                      editorDidMount={this.editorDidMount}/>
+                      editorDidMount={editorDidMount}/>
     );
+
 }
 
 CodeEditor.propTypes = propTypes;

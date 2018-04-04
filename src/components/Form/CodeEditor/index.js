@@ -31,7 +31,6 @@ class AssetEditor extends React.Component {
         };
 
         this.assetSelected = this.assetSelected.bind(this);
-        this.assetDeselected = this.assetDeselected.bind(this);
         this.setAssetXY = this.setAssetXY.bind(this);
         this.setAttributes = this.setAttributes.bind(this);
         this.getPreviewAsset = this.getPreviewAsset.bind(this);
@@ -103,7 +102,7 @@ class AssetEditor extends React.Component {
 
     setAttributes(attrs) {
         let asset = this.state.previewAsset;
-        Object.keys(attrs).map(function (key, index) {
+        Object.keys(attrs).map(function (key) {
             asset[key] = attrs[key];
         });
         this.setState({previewAsset: asset});
