@@ -1,6 +1,6 @@
 import React from 'react';
-import AssetItem from './components/AssetItem';
-import ActionItem from './components/ActionItem';
+import AssetItem from './components/AssetItem/index';
+import ActionItem from './components/ActionItem/index';
 
 import * as Request from '../../services/request';
 
@@ -50,7 +50,7 @@ const renderTabs = (_self) => {
         if (idx == _self.state.activeTab) {
             return (<activetab key={"tab" + idx}>{tab.name}</activetab>)
         } else {
-            return (<tab onClick={() => this.selectTab(tab)} key={"tab" + idx}>{tab.name}</tab>)
+            return (<tab onClick={() => _self.selectTab(tab)} key={"tab" + idx}>{tab.name}</tab>)
         }
     });
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import AssetDetail from './components/assetDetail';
-import AssetStore from './components/AssetStore';
+import AssetDetail from './components/Detail';
+import AssetStore from './components/Store';
 
 import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';

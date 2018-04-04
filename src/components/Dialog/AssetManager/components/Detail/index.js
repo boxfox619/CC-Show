@@ -7,7 +7,7 @@ const propTypes = {
   asset: React.PropTypes.object.isRequired
 }
 
-class AssetDetail extends React.Component{
+class Detail extends React.Component{
 
     constructor(props){
         super(props);
@@ -60,6 +60,6 @@ class AssetDetail extends React.Component{
     }
 }
 
-AssetDetail.propTypes = propTypes;
+Detail.propTypes = propTypes;
 
-export default AssetDetail;
+export default Detail;
