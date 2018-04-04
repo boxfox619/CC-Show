@@ -9,6 +9,9 @@ HTML CSS JavaScript로 발표자료를 만들어보자!
 pull request를 통한 코드 성형수술은 언제든지 환영합니다!
 
 # 사용기술
+- travis
+- realm
+- express
 - React
 - React-redux
 - Redux-thunk
