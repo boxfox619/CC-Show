@@ -1,7 +1,4 @@
 .cover{
-    width: 400px;
-    height: 45px;
-    display: table;
     background-color: #1998E5;
     border: 2px solid #1998E5;
     float: left;
@@ -9,22 +6,23 @@
 
 .label{
     color: white;
-    display: table-cell;
     vertical-align: middle;
     font-size: 17px;
-    width: 100px;
     margin-left: 1em;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
+    display: block;
 }
 
 .text{
     border : none;
     height: 45px;
     padding-top: 0;
-    display: inline-block;
     vertical-align: middle;
     outline: none;
-    width: 300px;
+    width: calc( 100% - 22px );
+    height: calc( 100% - 32px);
     padding: 0 11px;
     font-size: 17px;
     /* margin-left: 4px; */
