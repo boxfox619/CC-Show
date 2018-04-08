@@ -2,6 +2,7 @@ import React from 'react';
 import TextInput from 'components/Form/TextInput';
 import Toggle from 'components/Form/Toggle';
 import CodeEditor from 'components/Form/CodeEditor';
+import styles from './style.css';
 
 class Editor extends React.Component{
 
@@ -23,8 +24,8 @@ class Editor extends React.Component{
 
     render() {
         return (
-            <div>
-                <div >
+            <div className={styles.asset_editor}>
+                <div>
                     <TextInput label={'제목'} text={this.state.title} onChange={this.titleHandle}/>
                     <TextInput label={'태그'} text={this.state.title} onChange={this.titleHandle}/>
                     <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>

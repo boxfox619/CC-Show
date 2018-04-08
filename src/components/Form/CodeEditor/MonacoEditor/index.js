@@ -14,6 +14,10 @@ export default function CodeEditor({codeType, onChange, value}) {
         readOnly: false,
         cursorStyle: 'line',
         automaticLayout: false,
+        autoClosingBrackets: true,
+        contextmenu: false,
+        disableLayerHinting: false,
+        minimap: {enabled: false},
     };
     const requireConfig = {
         paths: {'vs': '/vs'}
@@ -30,7 +34,7 @@ export default function CodeEditor({codeType, onChange, value}) {
     }
 
     return (
-        <MonacoEditor height="252" width="110%" language={codeType}
+        <MonacoEditor height="252" width="100%" language={codeType}
                       value={code} options={options} onChange={onChangeHandler}
                       requireConfig={requireConfig}
                       editorDidMount={editorDidMount}/>
