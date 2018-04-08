@@ -23,19 +23,13 @@ export default function CodeEditor({codeType, onChange, value}) {
         paths: {'vs': '/vs'}
     }
 
-    const onChangeHandler = (newValue, e) => {
-        this.setState({code: newValue});
-        onChange(newValue);
-    }
-
-
     const editorDidMount = (editor, monaco) => {
         editor.focus();
     }
 
     return (
         <MonacoEditor height="252" width="100%" language={codeType}
-                      value={code} options={options} onChange={onChangeHandler}
+                      value={code} options={options} onChange={onChange}
                       requireConfig={requireConfig}
                       editorDidMount={editorDidMount}/>
     );

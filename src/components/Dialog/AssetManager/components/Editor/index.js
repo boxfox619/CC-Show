@@ -30,12 +30,14 @@ class Editor extends React.Component{
                     <TextInput label={'태그'} text={this.state.title} onChange={this.titleHandle}/>
                     <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
                 </div>
-                <CodeEditor
-                    onChangeCode={this.codeHandle}
-                    html={this.state.html}
-                    css={this.state.css}
-                    js={this.state.js}
-                />
+                <div>
+                    <CodeEditor
+                        onChangeCode={this.codeHandle}
+                        html={this.state.html}
+                        css={this.state.css}
+                        js={this.state.js}
+                    />
+                </div>
             </div>
         );
     }
