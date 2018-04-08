@@ -1,8 +1,14 @@
 import React from 'react';
+import classnames from 'classnames';
 import TextInput from 'components/Form/TextInput';
 import Toggle from 'components/Form/Toggle';
 import CodeEditor from 'components/Form/CodeEditor';
 import styles from './style.css';
+
+const title = [
+    'Asset Detail',
+    'Asset Code'
+]
 
 class Editor extends React.Component{
 
@@ -14,23 +20,28 @@ class Editor extends React.Component{
             content: '',
             css: '',
             html: '',
-            js: ''
+            js: '',
+            selectedPage: 0
         };
         this.codeHandle = this.codeHandle.bind(this);
         this.saveAsset = this.saveAsset.bind(this);
         this.titleHandle = this.titleHandle.bind(this);
         this.openToStoreHandle = this.openToStoreHandle.bind(this);
+        this.visible = this.visible.bind(this);
+        this.prev = this.prev.bind(this);
+        this.next = this.next.bind(this);
     }
 
     render() {
         return (
             <div className={styles.asset_editor}>
-                <div>
+                <div className={styles.title}>{title[this.state.selectedPage]}</div>
+                <div className={classnames(styles.page, this.visible(0))}>
                     <TextInput label={'제목'} text={this.state.title} onChange={this.titleHandle}/>
                     <TextInput label={'태그'} text={this.state.title} onChange={this.titleHandle}/>
                     <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
                 </div>
-                <div>
+                <div className={classnames(styles.page, this.visible(1))}>
                     <CodeEditor
                         onChangeCode={this.codeHandle}
                         html={this.state.html}
@@ -38,8 +49,33 @@ class Editor extends React.Component{
                         js={this.state.js}
                     />
                 </div>
+                <ul className={styles.bottom_controller}>
+                    <li className={(this.state.selectedPage > 0) ? '' : styles.hide} onClick={this.prev}>이전</li>
+                    <li className={(this.state.selectedPage != title.length-1) ? '' : styles.hide} onClick={this.next}>다음</li>
+                </ul>
             </div>
         );
+    }
+
+    prev(){
+        let currentPage = this.state.selectedPage;
+        if (currentPage > 0) {
+            this.setState({selectedPage: currentPage - 1});
+        }
+    }
+
+    next(){
+        let currentPage = this.state.selectedPage;
+        if (currentPage < title.length - 1 ) {
+            this.setState({selectedPage: currentPage + 1});
+        }
+    }
+
+    visible(page){
+        if(page==this.state.selectedPage){
+            return styles.visible;
+        }
+        return '';
     }
 
     titleHandle(e) {

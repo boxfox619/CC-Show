@@ -1,2 +1,52 @@
-.asset_editor{
+ul.bottom_controller{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    text-align: right;
+    background: #ffffff;
+    z-index: 150;
+}
+
+ul.bottom_controller li{
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 10px;
+    font-weight: bold;
+    height: 100%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+ul.bottom_controller li:last-child{
+    margin-right: 20px;
+    font-family: 'NanumSquare', sans-serif;
+}
+
+
+ul.bottom_controller li:hover{
+    color: #12aaeb;
+}
+
+ul.bottom_controller li.hide{
+    opacity: 0;
+    cursor: default;
+}
+
+.title{
+    padding: 15px 20px;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.page{
+    display: none;
+}
+
+.page.visible{
+    display: block;
 }
