@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import TextInput from 'components/Form/TextInput';
+import TextArea from 'components/Form/TextArea';
 import Toggle from 'components/Form/Toggle';
 import CodeEditor from 'components/Form/CodeEditor';
 import styles from './style.css';
@@ -37,9 +38,15 @@ class Editor extends React.Component{
             <div className={styles.asset_editor}>
                 <div className={styles.title}>{title[this.state.selectedPage]}</div>
                 <div className={classnames(styles.page, this.visible(0))}>
-                    <TextInput label={'제목'} text={this.state.title} onChange={this.titleHandle}/>
-                    <TextInput label={'태그'} text={this.state.title} onChange={this.titleHandle}/>
-                    <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
+                    <div className={styles.thumbnail}>
+
+                    </div>
+                    <div className={styles.form}>
+                        <TextInput label={'제목'} text={this.state.title} onChange={this.titleHandle}/>
+                        <TextInput label={'태그'} text={this.state.title} onChange={this.titleHandle}/>
+                        <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
+                    </div>
+                    <TextArea label={'설명'} text={this.state.title} onChange={this.titleHandle} width={'calc( 100% - 5px )'} height={'500px'}/>
                 </div>
                 <div className={classnames(styles.page, this.visible(1))}>
                     <CodeEditor
