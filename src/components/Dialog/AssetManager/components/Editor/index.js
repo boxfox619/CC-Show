@@ -37,16 +37,16 @@ class Editor extends React.Component{
         return (
             <div className={styles.asset_editor}>
                 <div className={styles.title}>{title[this.state.selectedPage]}</div>
-                <div className={classnames(styles.page, this.visible(0))}>
+                <div className={classnames(styles.page, styles.first, this.visible(0))}>
                     <div className={styles.thumbnail}>
-
+                        <img />
                     </div>
                     <div className={styles.form}>
-                        <TextInput label={'제목'} text={this.state.title} onChange={this.titleHandle}/>
-                        <TextInput label={'태그'} text={this.state.title} onChange={this.titleHandle}/>
+                        <TextInput label={'제목'} text={this.state.title} width={'100%'} height={'45px'} onChange={this.titleHandle}/>
+                        <TextInput label={'태그'} text={this.state.title} width={'100%'} height={'45px'} onChange={this.titleHandle}/>
                         <Toggle text={'스토어에 공개'} checked={this.state.openToStore} onChange={this.openToStoreHandle}/>
                     </div>
-                    <TextArea label={'설명'} text={this.state.title} onChange={this.titleHandle} width={'calc( 100% - 5px )'} height={'500px'}/>
+                    <TextArea label={'설명'} text={this.state.title} onChange={this.titleHandle} width={'calc( 100% - 5px )'} height={'300px'}/>
                 </div>
                 <div className={classnames(styles.page, this.visible(1))}>
                     <CodeEditor
@@ -54,7 +54,7 @@ class Editor extends React.Component{
                         html={this.state.html}
                         css={this.state.css}
                         js={this.state.js}
-                    />
+                    />M
                 </div>
                 <ul className={styles.bottom_controller}>
                     <li className={(this.state.selectedPage > 0) ? '' : styles.hide} onClick={this.prev}>이전</li>

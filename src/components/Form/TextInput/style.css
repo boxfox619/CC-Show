@@ -1,6 +1,4 @@
 .cover{
-    width: 400px;
-    height: 45px;
     display: table;
     background-color: #1998E5;
     border: 2px solid #1998E5;
@@ -19,12 +17,12 @@
 
 .text{
     border : none;
-    height: 45px;
     padding-top: 0;
     display: inline-block;
     vertical-align: middle;
     outline: none;
-    width: 300px;
+    width: calc( 100% - 22px );
+    height: 100%;
     padding: 0 11px;
     font-size: 17px;
     /* margin-left: 4px; */
