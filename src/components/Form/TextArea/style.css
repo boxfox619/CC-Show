@@ -1,10 +1,12 @@
-.cover{
+.cover {
     background-color: #1998E5;
-    border: 2px solid #1998E5;
+    border: 4px solid #1998E5;
+    border-bottom-width: 2px;
     float: left;
+    border-radius: 1px;
 }
 
-.label{
+.label {
     color: white;
     vertical-align: middle;
     font-size: 17px;
@@ -15,16 +17,14 @@
     display: block;
 }
 
-.text{
-    border : none;
-    height: 45px;
+.text {
+    border: none;
     padding-top: 0;
-    vertical-align: middle;
+    vertical-align: top;
     outline: none;
-    width: calc( 100% - 22px );
-    height: calc( 100% - 32px);
-    padding: 0 11px;
+    width: calc(100% - 22px);
+    height: calc(100% - 54px);
+    padding: 11px 11px;
     font-size: 17px;
-    /* margin-left: 4px; */
-    /* text-align: center; */
+    border-radius: 5px;
 }
