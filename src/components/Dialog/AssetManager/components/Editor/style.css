@@ -61,12 +61,77 @@ ul.bottom_controller li.hide{
 }
 
 .content .thumbnail{
-    width: 250px;
+    cursor: pointer;
+    border: 2px solid #12aaeb;
+    position: relative;
+}
+
+.content .thumbnail:after{
+    content: 'image';
+    font-size: 10pt;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content .thumbnail.main{
+    width: 350px;
     height: 200px;
     margin-right: 10px;
     display: table-cell;
-    background: #666666;
+}
+
+.content ul.thumbnails{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 439px;
+    height: 100px;
+    list-style: none;
+    margin: 0;
+    padding: 2px;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.content ul.thumbnails li{
+    width: 140px;
+    height: calc( 100% - 2px );
+    margin-right: 3px;
+    display: inline-block;
+}
+
+.thumbnails::-webkit-scrollbar
+{
+    width: 5px;
+}
+
+.thumbnails::-webkit-scrollbar-thumb
+{
+    background-color: #12aaeb;
+}
+
+.content .add_thumbnail{
+    height: 103px;
+    width: 40px;
+    background: #12aaeb;
+    display: inline-block;
+    position: relative;
     cursor: pointer;
+}
+
+.content .add_thumbnail:after{
+    content: '+';
+    color: white;
+    position: absolute;
+    font-size: 20pt;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content .add_thumbnail:hover{
+    background: #1898E5;
 }
 
 .content .form{

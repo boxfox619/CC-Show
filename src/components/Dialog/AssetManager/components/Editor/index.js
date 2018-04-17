@@ -41,11 +41,18 @@ class Editor extends React.Component{
                 <div className={styles.title}>{title[this.state.selectedPage]}</div>
                 <div className={classnames(styles.page, styles.first, this.visible(0))}>
                     <div className={styles.content}>
-                        <img onClick={this.onUpdateThumbnail} className={styles.thumbnail}/>
+                        <div onClick={this.onUpdateThumbnail} className={classnames(styles.thumbnail, styles.main)}/>
                         <div className={styles.form}>
                             <TextInput label={'제목'} text={this.state.title} width={'100%'} height={'45px'} onChange={this.titleHandle}/>
                             <TextInput label={'태그'} text={this.state.title} width={'70%'} height={'45px'} onChange={this.titleHandle}/>
                             <Toggle text={'스토어에 공개'} checked={this.state.openToStore} width={'30%'} onChange={this.openToStoreHandle}/>
+                            <ul className={styles.thumbnails}>
+                                <li className={styles.thumbnail}></li>
+                                <li className={styles.thumbnail}></li>
+                                <li className={styles.thumbnail}></li>
+                                <li className={styles.thumbnail}></li>
+                            </ul>
+                            <div className={styles.add_thumbnail}></div>
                         </div>
                     </div>
                     <TextArea label={'설명'} text={this.state.title} onChange={this.titleHandle} width={'calc( 100% - 5px )'} height={'300px'}/>
