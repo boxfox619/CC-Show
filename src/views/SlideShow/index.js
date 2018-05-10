@@ -26,10 +26,10 @@ class SlideShow extends React.Component{
     let renderingSlides = (slides, currentSlideIdx) =>{
       if(slides.length>0){
         return slides.map((slide,idx)=>{
-          return <Slide visible={idx == currentSlideIdx} slide={slide}/>
+          return <Slide visible={idx == currentSlideIdx} slide={slide} />
         })
       }else{
-        return (<img className={styles.loader} src="/images/progress.gif"/>);
+        return (<img className={styles.loader} src='/images/progress.gif' />);
       }
     }
     return (

@@ -25,33 +25,32 @@ class SlideManager extends React.Component {
             return slides.map((slide, idx) => {
                 let active = idx == this.props.currentSlideIndex;
                 return (
-                    <SlidePreviewCard
-                        active={active}
-                        slide={slide}
-                        idx={idx}
-                        key={idx+'-'+slide.id}
-                        shareSlide={this.props.editorActions.shareSlide}
-                        copySlide={this.props.editorActions.copySlide}
-                        deleteSlide={this.props.editorActions.deleteSlide}
-                        onClick={() => this.props.editorActions.selectSlide(slide.id)}
+                  <SlidePreviewCard
+                    active={active}
+                    slide={slide}
+                    idx={idx}
+                    key={idx+'-'+slide.id}
+                    shareSlide={this.props.editorActions.shareSlide}
+                    copySlide={this.props.editorActions.copySlide}
+                    deleteSlide={this.props.editorActions.deleteSlide}
+                    onClick={() => this.props.editorActions.selectSlide(slide.id)}
                     />)
             })
         };
 
         return (
-            <div className={this.props.className}>
-                <div className={styles.inner}>
-                    <div className={styles.title}>
+          <div className={this.props.className}>
+            <div className={styles.inner}>
+              <div className={styles.title}>
                         슬라이드 리스트
-                    </div>
-                    <div className={styles.hide} onClick={this.props.uiActions.toggleSlideManager}>
-                    </div>
-                    <DraggableCardList onExchangeSlide={this.props.editorActions.exchangeSlide}>
-                        {renderSlidePreviews(this.props.slides)}
-                    </DraggableCardList>
-                    <SlideCreator createSlide={this.props.editorActions.createSlide}/>
-                </div>
+              </div>
+              <div className={styles.hide} onClick={this.props.uiActions.toggleSlideManager} />
+              <DraggableCardList onExchangeSlide={this.props.editorActions.exchangeSlide}>
+                {renderSlidePreviews(this.props.slides)}
+              </DraggableCardList>
+              <SlideCreator createSlide={this.props.editorActions.createSlide} />
             </div>
+          </div>
         );
     }
 }

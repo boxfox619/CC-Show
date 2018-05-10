@@ -17,20 +17,20 @@ class VideoController extends React.Component {
 
     render() {
         return (
-            <ControllerWrapper title="비디오">
-                <div className={styles.items}>
-                    <div className={styles.control_item + ' ' + styles.URL_controller}>
-                        <span className={styles.attribute_item_title}>URL :</span>
-                        <input type="text" value={this.props.url} className={styles.attribute_item_input}
-                               style={{'textAlign': 'left'}} onChange={this.setUrl}/>
-                    </div>
-                    <div
-                        className={styles.control_item + ' ' + styles.video_preview_toggle + ' ' + ((this.props.preview) ? styles.active : '')}
-                        onClick={this.togglePreview}>
+          <ControllerWrapper title='비디오'>
+            <div className={styles.items}>
+              <div className={styles.control_item + ' ' + styles.URL_controller}>
+                <span className={styles.attribute_item_title}>URL :</span>
+                <input type='text' value={this.props.url} className={styles.attribute_item_input}
+                  style={{'textAlign': 'left'}} onChange={this.setUrl} />
+              </div>
+              <div
+                className={styles.control_item + ' ' + styles.video_preview_toggle + ' ' + ((this.props.preview) ? styles.active : '')}
+                onClick={this.togglePreview}>
                         미리보기
-                    </div>
-                </div>
-            </ControllerWrapper>
+              </div>
+            </div>
+          </ControllerWrapper>
         )
     }
 

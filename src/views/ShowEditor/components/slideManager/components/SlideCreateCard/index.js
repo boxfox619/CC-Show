@@ -13,10 +13,10 @@ class SlideCreateCard extends React.Component {
 
     render() {
         return (
-            <div onClick={this.props.createSlide} className={styles.slideCreateCard}>
-                <div className={styles.description}>새 슬라이드</div>
-                <img src="/images/ic_add_white.png"/>
-            </div>
+          <div onClick={this.props.createSlide} className={styles.slideCreateCard}>
+            <div className={styles.description}>새 슬라이드</div>
+            <img src='/images/ic_add_white.png' />
+          </div>
         );
     }
 }

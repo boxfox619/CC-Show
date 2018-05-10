@@ -18,19 +18,19 @@ class ControllerWrapper extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className={styles.fliping_controller_section}>
-                    <div className={styles.controller_sub_wrapper}>
-                        <div className={styles.controller_sub_title}>{this.props.title}
-                            <img onClick={() => this.setState({toggle: !this.state.toggle})}
-                                 src={(this.state.toggle) ? "/images/ic_arrow_down.png" : "/images/ic_arrow_up.png"}
-                                 className={styles.show_items_button}/>
-                        </div>
-                    </div>
-                    {this.state.toggle && this.props.children}
+          <div>
+            <div className={styles.fliping_controller_section}>
+              <div className={styles.controller_sub_wrapper}>
+                <div className={styles.controller_sub_title}>{this.props.title}
+                  <img onClick={() => this.setState({toggle: !this.state.toggle})}
+                    src={(this.state.toggle) ? "/images/ic_arrow_down.png" : "/images/ic_arrow_up.png"}
+                    className={styles.show_items_button} />
                 </div>
-                <hr className={styles.controller_hr}/>
+              </div>
+              {this.state.toggle && this.props.children}
             </div>
+            <hr className={styles.controller_hr} />
+          </div>
         );
     }
 }

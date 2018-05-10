@@ -61,69 +61,69 @@ class BasicController extends React.Component {
 
     render() {
         return (
-            <div>
-                <ControllerWrapper title={'속성'}>
-                    <div className={styles.items}>
-                        <div>
-                            <div className={styles.control_item}>
-                                <span className={styles.attribute_item_title}>H :</span>
-                                <input type="text" className={styles.attribute_item_input} value={this.props.height}
-                                       onChange={this.setHeight}/>
-                            </div>
-                            <div className={styles.control_item}>
-                                <span className={styles.attribute_item_title}>W :</span>
-                                <input type="text" className={styles.attribute_item_input} value={this.props.width}
-                                       onChange={this.setWidth}/>
-                            </div>
-                        </div>
-                        <div>
-                            <div className={styles.control_item}>
-                                <span className={styles.attribute_item_title}>X :</span>
-                                <input type="text" className={styles.attribute_item_input} value={this.props.x}
-                                       onChange={this.setX_location}/>
-                            </div>
-                            <div className={styles.control_item}>
-                                <span className={styles.attribute_item_title}>Y :</span>
-                                <input type="text" className={styles.attribute_item_input} value={this.props.y}
-                                       onChange={this.setY_location}/>
-                            </div>
-                        </div>
-                        <div className={styles.control_item}>
-                            <span className={styles.attribute_item_title}>A :</span>
-                            <input type="text" className={styles.attribute_item_input} value={this.props.angle}
-                                   onChange={this.setAngle}/>
-                        </div>
-                    </div>
-                </ControllerWrapper>
+          <div>
+            <ControllerWrapper title={'속성'}>
+              <div className={styles.items}>
+                <div>
+                  <div className={styles.control_item}>
+                    <span className={styles.attribute_item_title}>H :</span>
+                    <input type='text' className={styles.attribute_item_input} value={this.props.height}
+                      onChange={this.setHeight} />
+                  </div>
+                  <div className={styles.control_item}>
+                    <span className={styles.attribute_item_title}>W :</span>
+                    <input type='text' className={styles.attribute_item_input} value={this.props.width}
+                      onChange={this.setWidth} />
+                  </div>
+                </div>
+                <div>
+                  <div className={styles.control_item}>
+                    <span className={styles.attribute_item_title}>X :</span>
+                    <input type='text' className={styles.attribute_item_input} value={this.props.x}
+                      onChange={this.setX_location} />
+                  </div>
+                  <div className={styles.control_item}>
+                    <span className={styles.attribute_item_title}>Y :</span>
+                    <input type='text' className={styles.attribute_item_input} value={this.props.y}
+                      onChange={this.setY_location} />
+                  </div>
+                </div>
+                <div className={styles.control_item}>
+                  <span className={styles.attribute_item_title}>A :</span>
+                  <input type='text' className={styles.attribute_item_input} value={this.props.angle}
+                    onChange={this.setAngle} />
+                </div>
+              </div>
+            </ControllerWrapper>
 
-                <ControllerWrapper title={'도형'}>
-                    <div className={styles.items}>
-                        <div className={styles.control_item}>
-                            <span className={styles.attribute_item_title}><img src="/images/ic_color.png"/></span>
-                            <div className={styles.change_color} onClick={this.backgroundColorClickHandler}
-                                 style={this.props.backgroundColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.backgroundColor}}></div>
-                        </div>
-                        <div className={styles.control_item}>
-                            <span className={styles.attribute_item_title}><img src="/images/ic_line.png"/></span>
-                            <div className={styles.attribute_both_input_area}>
-                                <div className={styles.change_color} onClick={this.borderColorClickHandler}
-                                     style={this.props.borderColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.borderColor}}></div>
-                                <input type="text" className={styles.attribute_item_input}
-                                       onChange={this.setBorderWidth} value={this.props.borderWidth}/>
-                            </div>
-                        </div>
-                    </div>
-                </ControllerWrapper>
+            <ControllerWrapper title={'도형'}>
+              <div className={styles.items}>
+                <div className={styles.control_item}>
+                  <span className={styles.attribute_item_title}><img src='/images/ic_color.png' /></span>
+                  <div className={styles.change_color} onClick={this.backgroundColorClickHandler}
+                    style={this.props.backgroundColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.backgroundColor}} />
+                </div>
+                <div className={styles.control_item}>
+                  <span className={styles.attribute_item_title}><img src='/images/ic_line.png' /></span>
+                  <div className={styles.attribute_both_input_area}>
+                    <div className={styles.change_color} onClick={this.borderColorClickHandler}
+                      style={this.props.borderColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.borderColor}} />
+                    <input type='text' className={styles.attribute_item_input}
+                      onChange={this.setBorderWidth} value={this.props.borderWidth} />
+                  </div>
+                </div>
+              </div>
+            </ControllerWrapper>
 
-                <ControllerWrapper title={'스타일'}>
-                    <div className={styles.items}>
-                        <div id={styles.input_style}>
-                            <textarea onChange={this.setStyle} rows="" cols=""
-                                      value={JSON.stringify(this.props.style, null, 4)}></textarea>
-                        </div>
-                    </div>
-                </ControllerWrapper>
-            </div>
+            <ControllerWrapper title={'스타일'}>
+              <div className={styles.items}>
+                <div id={styles.input_style}>
+                  <textarea onChange={this.setStyle} rows='' cols=''
+                    value={JSON.stringify(this.props.style, null, 4)} />
+                </div>
+              </div>
+            </ControllerWrapper>
+          </div>
         )
     }
 

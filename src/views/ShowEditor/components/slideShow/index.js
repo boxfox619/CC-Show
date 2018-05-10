@@ -6,6 +6,13 @@ import * as slideActions from 'services/editor/slide/actions';
 
 import styles from './style.css';
 
+const propTypes = {
+  slides: React.PropTypes.array.isRequired,
+  showId: React.PropTypes.string.isRequired,
+  className: React.PropTypes.string.isRequired,
+  setSlideNote: React.PropTypes.func.isRequired
+}
+
 class SlideShow extends React.Component{
     constructor(props){
         super(props);
@@ -22,43 +29,42 @@ class SlideShow extends React.Component{
       let showNote = this.props.slides[this.state.selectedSlide].note;
       showNote = (showNote== undefined)?'':showNote;
           return(
-              <div className={this.props.className}>
-                <header>
-                  <h1>SLIDE SHOW</h1>
-                </header>
-                <content className={styles.slideShow}>
-                    <div className={styles.slide_contents}>
-                        <div onClick={()=>this.doSlide(-1)} className={styles.slideController+' '+styles.prev_slide}>
-                            <img src="/images/ic_arrow_left_big.png"/>
-                        </div>
+            <div className={this.props.className}>
+              <header>
+                <h1>SLIDE SHOW</h1>
+              </header>
+              <content className={styles.slideShow}>
+                <div className={styles.slide_contents}>
+                  <div onClick={()=>this.doSlide(-1)} className={styles.slideController+' '+styles.prev_slide}>
+                    <img src='/images/ic_arrow_left_big.png' />
+                  </div>
 
-                        <img className={styles.slide} src={this.props.slides[this.state.selectedSlide].thumbnail}/>
+                  <img className={styles.slide} src={this.props.slides[this.state.selectedSlide].thumbnail} />
 
-                        <div onClick={()=>this.doSlide(+1)} className={styles.slideController+' '+styles.next_slide}>
-                            <img src="/images/ic_arrow_right_big.png"/>
-                        </div>
-                    <div>
+                  <div onClick={()=>this.doSlide(+1)} className={styles.slideController+' '+styles.next_slide}>
+                    <img src='/images/ic_arrow_right_big.png' />
+                  </div>
+                  <div />
+                </div>
+                <div className={styles.slideSubContents}>
+                  <div className={styles.slideShowNote}>
+                    <textarea type='text' onChange={this.slideNoteChangeHandler} className={styles.slideShowNote_content} placeholder='쇼 노트를 입력하세요' value={showNote} />
+                  </div>
+                  <hr className={styles.split} />
+                  <div className={styles.slideNumberWrapper}>
+                    <div className={styles.slideNumberContext}>
+                      <img onClick={()=>this.doSlide(-1)} className={styles.prev_slide+' '+styles.slideController} src='/images/ic_arrow_left_small.png' />
+                      <div className={styles.slideNumberContext_counter}>{this.state.selectedSlide+1}/{this.props.slides.length}</div>
+                      <img onClick={()=>this.doSlide(+1)} className={styles.next_slide+' '+styles.slideController} src='/images/ic_arrow_right_small.png' />
                     </div>
+                    <div className={styles.slideOptionButton}>
+                      <img src='/images/ic_fullscreen.png' onClick={()=>window.open("/show/play/?show="+this.props.showId, "_blank")} />
+                      <img src='/images/ic_slide_show.png' />
                     </div>
-                    <div className={styles.slideSubContents}>
-                        <div className={styles.slideShowNote}>
-                            <textarea type="text" onChange={this.slideNoteChangeHandler} className={styles.slideShowNote_content} placeholder="쇼 노트를 입력하세요" value={showNote}/>
-                        </div>
-                        <hr className={styles.split}/>
-                        <div className={styles.slideNumberWrapper}>
-                            <div className={styles.slideNumberContext}>
-                                <img onClick={()=>this.doSlide(-1)} className={styles.prev_slide+' '+styles.slideController} src="/images/ic_arrow_left_small.png"/>
-                                <div className={styles.slideNumberContext_counter}>{this.state.selectedSlide+1}/{this.props.slides.length}</div>
-                                <img onClick={()=>this.doSlide(+1)} className={styles.next_slide+' '+styles.slideController} src="/images/ic_arrow_right_small.png"/>
-                            </div>
-                            <div className={styles.slideOptionButton}>
-                              <img src="/images/ic_fullscreen.png" onClick={()=>window.open("/show/play/?show="+this.props.showId, "_blank")}/>
-                              <img src="/images/ic_slide_show.png"/>
-                            </div>
-                        </div>
-                    </div>
-                </content>
-              </div>
+                  </div>
+                </div>
+              </content>
+            </div>
           )
     }
 
@@ -91,4 +97,5 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ ...slideActions }, dispatch);
 }
 
+SlideShow.propTypes = propTypes;
 export default connect(mapStateToProps, mapDispatchToProps)(SlideShow);

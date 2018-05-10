@@ -21,6 +21,16 @@ import styles from './style.css';
 import {connect} from 'react-redux';
 import * as assetTypes from "../../services/editor/asset/assetTypes";
 
+const propTypes = {
+  visibleSlideManager: React.PropTypes.bool.isRequired,
+  showData: React.PropTypes.object.isRequired,
+  account: React.PropTypes.object.isRequired,
+  uiActions: React.PropTypes.object.isRequired,
+  editorActions: React.PropTypes.object.isRequired,
+  ui: React.PropTypes.object.isRequired,
+  showId: React.PropTypes.string.isRequired
+}
+
 class ShowEditor extends React.Component {
 
     constructor(props) {
@@ -40,45 +50,43 @@ class ShowEditor extends React.Component {
             if (this.props.ui.dialog != undefined) {
                 switch (this.props.ui.dialog) {
                     case dialogs.ASSET_STORE:
-                        return (<AssetStore className={styles.modal}/>);
-                    case dialogs.ACCOUNT_WITH_SNS:
-                        return (<AccountDialog className={styles.modal}/>);
+                        return (<AssetStore className={styles.modal} />);
                     case dialogs.COLOR_PICKER:
-                        return (<ColorPicker className={styles.modal}/>)
+                        return (<ColorPicker className={styles.modal} />)
                     case dialogs.SLIDE_SHOW:
-                        return (<SlideShow className={styles.modal}/>);
+                        return (<SlideShow className={styles.modal} />);
                     case dialogs.PROGRESS:
-                        return (<ProgressDialog className={styles.modal}/>);
+                        return (<ProgressDialog className={styles.modal} />);
                 }
             }
         }
         let contextDisabled = this.checkContextDisabled();
         return (
-            <div ref={root => {this.root = root}} className={styles.showEditor}>
-                <SideController className={styles.sideController}
-                                buttonMap={this.sideControllerActions}
-                                account={this.props.account}/>
-                <AssetStore className={styles.modal}/>
-                <SlideManager
-                    className={classnames(styles.slideManager, (this.props.visibleSlideManager ? styles.show : ''))}
-                    slides={this.props.showData.slides}
-                    currentSlideIndex={this.props.showData.selectedSlide}
-                    uiActions={this.props.uiActions}
-                    editorActions={this.props.editorActions}
+          <div ref={root => {this.root = root}} className={styles.showEditor}>
+            <SideController className={styles.sideController}
+              buttonMap={this.sideControllerActions}
+              account={this.props.account} />
+            <AssetStore className={styles.modal} />
+            <SlideManager
+              className={classnames(styles.slideManager, (this.props.visibleSlideManager ? styles.show : ''))}
+              slides={this.props.showData.slides}
+              currentSlideIndex={this.props.showData.selectedSlide}
+              uiActions={this.props.uiActions}
+              editorActions={this.props.editorActions}
                 />
-                {renderDialogs()}
-                <div onClick={this.handleClick} className={classnames(styles.contextWrap, (contextDisabled ? styles.disabled : ''))}>
-                    <div className={styles.contextSpace}>
-                        <SlideContext
-                            className={styles.slideContext}
-                            onModified={() => this.props.editorActions.saveShowDataAfterTimeout(this.props.showId)}
-                            showData={this.props.showData}
-                            editorActions={this.props.editorActions}
+            {renderDialogs()}
+            <div onClick={this.handleClick} className={classnames(styles.contextWrap, (contextDisabled ? styles.disabled : ''))}>
+              <div className={styles.contextSpace}>
+                <SlideContext
+                  className={styles.slideContext}
+                  onModified={() => this.props.editorActions.saveShowDataAfterTimeout(this.props.showId)}
+                  showData={this.props.showData}
+                  editorActions={this.props.editorActions}
                         />
-                    </div>
-                </div>
-                <AssetController className={styles.assetController}/>
+              </div>
             </div>
+            <AssetController className={styles.assetController} />
+          </div>
         );
     }
 
@@ -156,5 +164,7 @@ const mapDispatchToProps = (dispatch) => {
         editorActions : bindActionCreators(editorActions, dispatch)
     };
 }
+
+ShowEditor.propTypes = propTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowEditor);

@@ -6,7 +6,7 @@ const propTypes = {
     onChange: React.PropTypes.func.isRequired
 }
 
-export default function CodeEditor({codeType, onChange, value}) {
+export default function CodeEditor({codeType, onChange}) {
     const code = value;
     const options = {
         selectOnLineNumbers: true,
@@ -23,15 +23,15 @@ export default function CodeEditor({codeType, onChange, value}) {
         paths: {'vs': '/vs'}
     }
 
-    const editorDidMount = (editor, monaco) => {
+    const editorDidMount = (editor) => {
         editor.focus();
     }
 
     return (
-        <MonacoEditor height="252" width="100%" language={codeType}
-                      value={code} options={options} onChange={onChange}
-                      requireConfig={requireConfig}
-                      editorDidMount={editorDidMount}/>
+      <MonacoEditor height='252' width='100%' language={codeType}
+        value={code} options={options} onChange={onChange}
+        requireConfig={requireConfig}
+        editorDidMount={editorDidMount} />
     );
 
 }

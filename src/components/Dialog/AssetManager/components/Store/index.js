@@ -12,18 +12,19 @@ const tabs = [
     {name: '보관함', filter: 'saved'}];
 
 const propTypes = {
-    onCloseDialog: React.PropTypes.func.isRequired,
-    onCreateCustomAsset: React.PropTypes.func.isRequired,
-    onLookupAssetDetail: React.PropTypes.func.isRequired
+  className: React.PropTypes.string.isRequired,
+  onCloseDialog: React.PropTypes.func.isRequired,
+  onCreateCustomAsset: React.PropTypes.func.isRequired,
+  onLookupAssetDetail: React.PropTypes.func.isRequired
 }
 
 function renderActionItem(_self) {
     if (_self.state.activeTab == tabs.length - 1) {
         return (
-            <ActionItem
-                img={'/images/ic_add_white.png'}
-                text={'새 에셋 만들기'}
-                onClick={_self.props.onCreateCustomAsset}
+          <ActionItem
+            img={'/images/ic_add_white.png'}
+            text={'새 에셋 만들기'}
+            onClick={_self.props.onCreateCustomAsset}
             />);
     }
 }
@@ -31,16 +32,16 @@ function renderActionItem(_self) {
 function renderAssetItems (_self){
     return _self.state.assets.map((asset) => {
         return (
-            <AssetItem
-                key={'assetitem' + asset.id}
-                onDelete={() => _self.deleteAsset(asset.id)}
-                onClick={() => _self.props.onLookupAssetDetail(asset)}
-                onUse={() => _self.useAsset(asset.id)}
-                id={asset.id}
-                title={asset.title}
-                subTitle={asset.user}
-                star={asset.star}
-                thumbnail={asset.thumbnail}
+          <AssetItem
+            key={'assetitem' + asset.id}
+            onDelete={() => _self.deleteAsset(asset.id)}
+            onClick={() => _self.props.onLookupAssetDetail(asset)}
+            onUse={() => _self.useAsset(asset.id)}
+            id={asset.id}
+            title={asset.title}
+            subTitle={asset.user}
+            star={asset.star}
+            thumbnail={asset.thumbnail}
             />)
     });
 }
@@ -74,20 +75,20 @@ class AssetStore extends React.Component {
 
     render() {
         return (
-            <div className={this.props.className}>
-                <header>
-                    <h1>ASSET STORE</h1>
-                    <tabholder>
-                        {renderTabs(this)}
-                    </tabholder>
-                </header>
-                <content>
-                    <div style={{'padding': '20px 2.5%'}}>
-                        {renderAssetItems(this)}
-                        {renderActionItem(this)}
-                    </div>
-                </content>
-            </div>
+          <div className={this.props.className}>
+            <header>
+              <h1>ASSET STORE</h1>
+              <tabholder>
+                {renderTabs(this)}
+              </tabholder>
+            </header>
+            <content>
+              <div style={{'padding': '20px 2.5%'}}>
+                {renderAssetItems(this)}
+                {renderActionItem(this)}
+              </div>
+            </content>
+          </div>
         );
     }
 

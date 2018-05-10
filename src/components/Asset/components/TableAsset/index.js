@@ -1,9 +1,7 @@
 import React from 'react';
 
 const propTypes = {
-  styles: React.PropTypes.object.isRequired,
-  value: React.PropTypes.string.isRequired,
-  attrs: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired
 };
 
 class TableAsset extends React.Component{
@@ -14,11 +12,10 @@ class TableAsset extends React.Component{
   render() {
     return(
       <table style={{'borderSpacing':'0', 'padding':'0', ...this.props.styles}}>
-        <tbody>
-        </tbody>
+        <tbody />
       </table>
     )
   }
 }
-
+TableAsset.propTypes = propTypes;
 export default TableAsset;

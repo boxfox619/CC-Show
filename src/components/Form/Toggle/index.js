@@ -14,11 +14,11 @@ class Toggle extends React.Component{
 
     render(){
       return(
-        <div className = {styles.toggle_div}>
-          <input type = "checkbox"  className = {styles.modebox} checked={this.props.checked} onChange={this.props.onChange}/>
-            <label className = {styles.modeboxlabel}>
-                <span className = {styles.toggle_span}>{this.props.text}</span>
-            </label>
+        <div className={styles.toggle_div}>
+          <input type='checkbox'  className={styles.modebox} checked={this.props.checked} onChange={this.props.onChange} />
+          <label className={styles.modeboxlabel}>
+            <span className={styles.toggle_span}>{this.props.text}</span>
+          </label>
         </div>
       );
     }

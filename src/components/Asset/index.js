@@ -32,10 +32,10 @@ const renderSelectorDot = (width, height)=>{
     const topRightAttr = {'target': 'topright'};
     const bottomLeftAttr = {'target': 'bottomleft'};
     const bottomRightAttr = {'target': 'bottomright'};
-        return (<div><selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot}/>
-            <selectordot {...topRightAttr} style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+width+' + 3.5px)'}} className={styles.selectorDot}/>
-            <selectordot {...bottomLeftAttr} style={{'cursor': 'ne-resize', 'top': 'calc('+height+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot}/>
-            <selectordot {...bottomRightAttr} style={{'cursor': 'nw-resize', 'top': 'calc('+height+' + 3.5px)', 'left': 'calc('+width+' + 3.5px)'}} className={styles.selectorDot}/>
+        return (<div><selectordot {...topLeftAttr} style={{'cursor': 'nw-resize', 'top':'0px', 'left':'0px'}} className={styles.selectorDot} />
+          <selectordot {...topRightAttr} style={{'cursor': 'ne-resize', 'top':'0px', 'left':'calc('+width+' + 3.5px)'}} className={styles.selectorDot} />
+          <selectordot {...bottomLeftAttr} style={{'cursor': 'ne-resize', 'top': 'calc('+height+' + 3.5px)', 'left':'0px'}} className={styles.selectorDot} />
+          <selectordot {...bottomRightAttr} style={{'cursor': 'nw-resize', 'top': 'calc('+height+' + 3.5px)', 'left': 'calc('+width+' + 3.5px)'}} className={styles.selectorDot} />
         </div>)
 }
 
@@ -45,10 +45,10 @@ let renderSelectorLine = (width, height)=>{
     const bottomAttr = {'target': 'bottom'};
     const leftAttr = {'target': 'left'};
     const rightAttr = {'target': 'right'};
-        return (<div><selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer}/>
-            <selectorline {...bottomAttr} style={{'top': 'calc('+height+' + 7px)'}} className={styles.horizontalResizer}/>
-            <selectorline {...leftAttr} style={{'left': '3px'}} className={styles.verticalResizer}/>
-            <selectorline {...rightAttr} style={{'left': 'calc('+width+' + 7px)'}} className={styles.verticalResizer}/>
+        return (<div><selectorline {...topAttr} style={{'top': '3px'}} className={styles.horizontalResizer} />
+          <selectorline {...bottomAttr} style={{'top': 'calc('+height+' + 7px)'}} className={styles.horizontalResizer} />
+          <selectorline {...leftAttr} style={{'left': '3px'}} className={styles.verticalResizer} />
+          <selectorline {...rightAttr} style={{'left': 'calc('+width+' + 7px)'}} className={styles.verticalResizer} />
         </div>);
 }
 
@@ -103,23 +103,23 @@ class Asset extends React.Component{
       }
       const AssetContext = assetTag;
       return (
-          <asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
-              <div style={{
+        <asset id={this.props.attribute.id} style={this.getStyle()} className={styles.asset}>
+          <div style={{
                   'width': this.props.attribute.width,
                   'height': this.props.attribute.height,
                   'padding': '6px',
                   'position': 'absolute'
               }}>
-                  {this.props.isSelected && renderSelectorLine(this.props.attribute.width, this.props.attribute.height)}
-                  <AssetContext
-                      handleChange={this.handleInputChange}
-                      styles={this.getClearStyle()}
-                      attrs={attrs}
-                      value={this.props.attribute.value}
+            {this.props.isSelected && renderSelectorLine(this.props.attribute.width, this.props.attribute.height)}
+            <AssetContext
+              handleChange={this.handleInputChange}
+              styles={this.getClearStyle()}
+              attrs={attrs}
+              value={this.props.attribute.value}
                   />
-                  {this.props.isSelected && renderSelectorDot(this.props.attribute.width, this.props.attribute.height)}
-              </div>
-          </asset>
+            {this.props.isSelected && renderSelectorDot(this.props.attribute.width, this.props.attribute.height)}
+          </div>
+        </asset>
       );
   }
 

@@ -9,16 +9,16 @@ import store from './store';
 
 function renderAppInElement(el) {
   ReactDOM.render(
-      <Provider store = {store}>
-        <Router history = {browserHistory}>
-          <div>
-            <Route exact path = "/" component = {Editor}/>
-            <Route exact path = "/editor" component = {Editor}/>
-            <Route exact path = "/show" component = {ShowList}/>
-            <Route exact path = "/show/play" component = {SlideShow}/>
-          </div>
-        </Router>
-      </Provider>, el);
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <div>
+          <Route exact path='/' component={Editor} />
+          <Route exact path='/editor' component={Editor} />
+          <Route exact path='/show' component={ShowList} />
+          <Route exact path='/show/play' component={SlideShow} />
+        </div>
+      </Router>
+    </Provider>, el);
 }
 
 

@@ -39,48 +39,48 @@ class AssetEditor extends React.Component {
 
     render() {
         return (
-            <div className={this.props.className}>
-                <div className={styles.content}>
-                    <div className={styles.code}>
-                        <div className={styles.codeArea}>
-                            <div className={styles.topArea}>
-                                <span className={styles.topLan}>HTML</span>
-                            </div>
-                            <MonacoEditor codeType={'html'} onChange={(code) => this.props.onChangeCode('html', code)}
-                                          value={this.state.html}/>
-                        </div>
-                        <div className={styles.codeArea}>
-                            <div className={styles.topArea}>
-                                <span className={styles.topLan}>CSS</span>
-                            </div>
-                            <MonacoEditor codeType={'css'} onChange={(code) => this.props.onChangeCode('css', code)}
-                                          value={this.state.css}/>
-
-                        </div>
-                        <div className={styles.codeArea}>
-                            <div className={styles.topArea}>
-                                <span className={styles.topLan}>JS</span>
-                            </div>
-                            <MonacoEditor codeType={'javascript'}
-                                          onChange={(code) => this.props.onChangeCode('js', code)}
-                                          value={this.state.js}/>
-
-                        </div>
-                    </div>
-
-                    <div className={styles.preview}>
-                        <div className={styles.preTop}>
-                            <span className={styles.preLan}>PREVIEW</span>
-                        </div>
-                        <AssetCanvas
-                            className={styles.previewArea}
-                            assets={this.getPreviewAsset()}
-                            selectedAssetIndex={this.state.selectedAsset}
-                            onAssetSelected={this.assetSelected}
-                            onChangeAttributes={this.setAttributes}/>
-                    </div>
+          <div className={this.props.className}>
+            <div className={styles.content}>
+              <div className={styles.code}>
+                <div className={styles.codeArea}>
+                  <div className={styles.topArea}>
+                    <span className={styles.topLan}>HTML</span>
+                  </div>
+                  <MonacoEditor codeType={'html'} onChange={(code) => this.props.onChangeCode('html', code)}
+                    value={this.state.html} />
                 </div>
+                <div className={styles.codeArea}>
+                  <div className={styles.topArea}>
+                    <span className={styles.topLan}>CSS</span>
+                  </div>
+                  <MonacoEditor codeType={'css'} onChange={(code) => this.props.onChangeCode('css', code)}
+                    value={this.state.css} />
+
+                </div>
+                <div className={styles.codeArea}>
+                  <div className={styles.topArea}>
+                    <span className={styles.topLan}>JS</span>
+                  </div>
+                  <MonacoEditor codeType={'javascript'}
+                    onChange={(code) => this.props.onChangeCode('js', code)}
+                    value={this.state.js} />
+
+                </div>
+              </div>
+
+              <div className={styles.preview}>
+                <div className={styles.preTop}>
+                  <span className={styles.preLan}>PREVIEW</span>
+                </div>
+                <AssetCanvas
+                  className={styles.previewArea}
+                  assets={this.getPreviewAsset()}
+                  selectedAssetIndex={this.state.selectedAsset}
+                  onAssetSelected={this.assetSelected}
+                  onChangeAttributes={this.setAttributes} />
+              </div>
             </div>
+          </div>
         );
     }
 

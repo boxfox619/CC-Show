@@ -9,20 +9,25 @@ import styles from './style.css';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
+const propTypes = {
+  className: React.PropTypes.string.isRequired,
+  color: React.PropTypes.string.isRequired,
+  colorType: React.PropTypes.string.isRequired,
+  releaseDialog: React.PropTypes.func.isRequired,
+  setSelectedAssetStyle: React.PropTypes.func.isRequired
+}
+
 class ColorPicker extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
-            <div className={this.props.className} style={{'width': 'auto', 'height': 'auto'}}>
-                <SketchPicker
-                    style={{'box-shadow': 'none'}} color={this.props.color}
-                    onChangeComplete={color => this.props.setSelectedAssetStyle(this.props.colorType, color.hex)}
+          <div className={this.props.className} style={{'width': 'auto', 'height': 'auto'}}>
+            <SketchPicker
+              style={{'box-shadow': 'none'}} color={this.props.color}
+              onChangeComplete={color => this.props.setSelectedAssetStyle(this.props.colorType, color.hex)}
                 />
-                <div className={styles.closer} onClick={this.props.releaseDialog}>닫기</div>
-            </div>
+            <div className={styles.closer} onClick={this.props.releaseDialog}>닫기</div>
+          </div>
         )
     }
 }
@@ -37,5 +42,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({...assetsActions, ...uiActions}, dispatch);
 }
+
+ColorPicker.propTypes = propTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(ColorPicker);

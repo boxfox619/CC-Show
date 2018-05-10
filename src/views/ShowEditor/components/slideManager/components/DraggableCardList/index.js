@@ -18,22 +18,22 @@ class DragableCardList extends React.Component {
 
     render() {
         return (
-            <ul onDragOver={this.dragOver}>
-                {this.renderChilds(this.props.children)}
-            </ul>
+          <ul onDragOver={this.dragOver}>
+            {this.renderChilds(this.props.children)}
+          </ul>
         )
     }
 
     renderChilds(childs) {
         return childs.map((slide, idx) => {
             return (
-                <li data-id={idx}
-                    key={'slide' + slide.key}
-                    draggable="true"
-                    onDragEnd={this.dragEnd}
-                    onDragStart={this.dragStart}>
-                    {slide}
-                </li>)
+              <li data-id={idx}
+                key={'slide' + slide.key}
+                draggable='true'
+                onDragEnd={this.dragEnd}
+                onDragStart={this.dragStart}>
+                {slide}
+              </li>)
         });
     }
 

@@ -12,7 +12,7 @@ class AssetItem extends React.Component{
     return (
       <div onClick={this.props.onClick} className={styles.asset +' '+styles.actionItem}>
         <div className={styles.description}>{this.props.text}</div>
-        <img src={this.props.img}/>
+        <img src={this.props.img} />
       </div>
     );
   }

@@ -14,7 +14,7 @@ class SlideActionButton extends React.Component{
 
   render(){
     return (
-      <img className={this.props.className} onClick={this.props.onClick} src={'/images/ic_'+this.props.icon+'_white.png'}/>
+      <img className={this.props.className} onClick={this.props.onClick} src={'/images/ic_'+this.props.icon+'_white.png'} />
     );
   }
 }

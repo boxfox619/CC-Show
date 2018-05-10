@@ -14,6 +14,16 @@ import BasicController from './components/basicController';
 import styles from './style.css';
 import {bindActionCreators} from "redux";
 
+const propTypes = {
+  className: React.PropTypes.string.isRequried,
+  setSelectedAssetAttribute: React.PropTypes.func.isRequired,
+  setSelectedAssetStyle: React.PropTypes.func.isRequired,
+  showColorPicker: React.PropTypes.func.isRequired,
+  setSelectedAssetImage: React.PropTypes.func.isRequired,
+  setSelectedAssetAttribute: React.PropTypes.func.isRequired,
+  selectedAsset: React.PropTypes.object.isRequired
+}
+
 class AssetController extends React.Component {
     constructor(prop) {
         super(prop);
@@ -28,31 +38,30 @@ class AssetController extends React.Component {
             switch (selectedAsset.type) {
                 case assetTypes.TYPE_TEXT:
                     return (
-                            <TextController
-                                style={selectedAsset.style}
-                                onChangeAttribute={this.props.setSelectedAssetAttribute}
-                                onChangeStyle={this.props.setSelectedAssetStyle}
-                                showColorPicker={this.props.showColorPicker}/>
+                      <TextController style={selectedAsset.style}
+                        onChangeAttribute={this.props.setSelectedAssetAttribute}
+                        onChangeStyle={this.props.setSelectedAssetStyle}
+                        showColorPicker={this.props.showColorPicker} />
                     )
                 case assetTypes.TYPE_VIDEO:
                     return (
-                            <VideoController
-                                url={selectedAsset.value}
-                                preview={selectedAsset.preview}
-                                onChangeAttribute={this.props.setSelectedAssetAttribute}/>
+                      <VideoController
+                        url={selectedAsset.value}
+                        preview={selectedAsset.preview}
+                        onChangeAttribute={this.props.setSelectedAssetAttribute} />
                     )
                 case assetTypes.TYPE_SHAPE:
                     return (
-                        <ShapeController
-                            shape={selectedAsset.value}
-                            onChangeAttribute={this.onChangeAttribute}/>
+                      <ShapeController
+                        shape={selectedAsset.value}
+                        onChangeAttribute={this.onChangeAttribute} />
                     )
                 case assetTypes.TYPE_IMAGE:
                     return (
-                        <ImageController
-                            selectedAsset={this.props.selectedAsset}
-                            onChangeImage={this.props.setSelectedAssetImage}
-                            onChangeAttribute={this.props.setSelectedAssetAttribute}/>
+                      <ImageController
+                        selectedAsset={this.props.selectedAsset}
+                        onChangeImage={this.props.setSelectedAssetImage}
+                        onChangeAttribute={this.props.setSelectedAssetAttribute} />
                     )
                 case assetTypes.TYPE_CUSTOM:
                     return;
@@ -60,33 +69,33 @@ class AssetController extends React.Component {
         };
         if (!!selectedAsset)
             return (
-                <div>
-                    {renderSubController()}
-                    <BasicController
-                        width={parseInt(selectedAsset.width)}
-                        height={parseInt(selectedAsset.height)}
-                        x={parseInt(selectedAsset.x)}
-                        y={parseInt(selectedAsset.y)}
-                        angle={parseInt(selectedAsset.angle)}
-                        backgroundColor={selectedAsset.style['background-color']}
-                        borderColor={selectedAsset.style['border-color']}
-                        borderWidth={parseInt(selectedAsset.style['border-width'])}
-                        style={selectedAsset.style}
-                        onChangeAttribute={this.props.setSelectedAssetAttribute}
-                        onChangeStyle={this.props.setSelectedAssetStyle}
-                        showColorPicker={this.props.showColorPicker}/>
-                </div>
+              <div>
+                {renderSubController()}
+                <BasicController
+                  width={parseInt(selectedAsset.width)}
+                  height={parseInt(selectedAsset.height)}
+                  x={parseInt(selectedAsset.x)}
+                  y={parseInt(selectedAsset.y)}
+                  angle={parseInt(selectedAsset.angle)}
+                  backgroundColor={selectedAsset.style['background-color']}
+                  borderColor={selectedAsset.style['border-color']}
+                  borderWidth={parseInt(selectedAsset.style['border-width'])}
+                  style={selectedAsset.style}
+                  onChangeAttribute={this.props.setSelectedAssetAttribute}
+                  onChangeStyle={this.props.setSelectedAssetStyle}
+                  showColorPicker={this.props.showColorPicker} />
+              </div>
             )
     }
 
     render() {
         return (
-            <div className={this.props.className}>
-                <div className={styles.title}>
-                    <div>Asset Controller</div>
-                </div>
-                {this.renderController(this.props.selectedAsset)}
+          <div className={this.props.className}>
+            <div className={styles.title}>
+              <div>Asset Controller</div>
             </div>
+            {this.renderController(this.props.selectedAsset)}
+          </div>
         )
     }
 }
@@ -116,5 +125,7 @@ const mapDispatchToProps = (dispatch) => {
         ...uiActions
     }, dispatch);
 }
+
+AssetController.propTypes = propTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(AssetController);
