@@ -9,7 +9,7 @@ export const load = (filter, callback) => {
     result['result'] = false;
     callback(result);
   });
-}
+};
 
 export const deleteAsset = (assetID, callback) => {
   let result = {'result' : true};
@@ -19,4 +19,4 @@ export const deleteAsset = (assetID, callback) => {
     result['result'] = false;
     callback(result);
   });
-}
+};

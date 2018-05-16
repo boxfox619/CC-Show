@@ -6,64 +6,58 @@ import AssetStore from './components/Store';
 
 import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';
-import Editor from "./components/Editor";
+import Editor from './components/Editor';
 
 const propTypes = {
-  className: React.PropTypes.string.isRequired,
-  toggleAssetManager: React.PropTypes.func.isRequired,
-  createCustomAsset: React.PropTypes.func.isRequired
-}
+  className: React.PropTypes.string.isRequired
+};
 
 class AssetManager extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            lookupAsset: null,
-            mode: 'editor'
+  constructor(props) {
+    super(props);
+    this.state = {
+      lookupAsset: null,
+      mode: 'editor'
+    };
+
+    this.lookupAssetDetail = this.lookupAssetDetail.bind(this);
+  }
+
+  render() {
+    let renderContent = () => {
+      if (this.state.mode === 'default') {
+        if (!this.state.lookupAsset) {
+          return (
+            <AssetStore
+              className={this.props.className}
+              closeDialog={this.props.toggleAssetManager}
+              createCustomAsset={this.props.createCustomAsset}
+            />);
+        } else {
+          return (<AssetDetail asset={this.state.lookupAsset} />);
         }
-        this.lookupAssetDetail = this.lookupAssetDetail.bind(this);
-    }
+      } else {
+        return (<Editor />);
+      }
+    };
+    return (
+      <div className={this.props.className}>
+        {renderContent()}
+      </div>
+    );
+  }
 
-    render() {
-        let renderContent = () => {
-            if (this.state.mode === 'default') {
-                if (!this.state.lookupAsset) {
-                    return (
-                      <AssetStore
-                        onCloseDialog={this.props.toggleAssetManager}
-                        onCreateCustomAsset={this.props.createCustomAsset}
-                        onLookupAssetDetail={this.lookupAssetDetail}
-                        />);
-                } else {
-                    return (<AssetDetail asset={this.state.lookupAsset} />);
-                }
-            } else {
-                return (<Editor />)
-            }
-        }
-        return (
-          <div className={this.props.className}>
-            {renderContent()}
-          </div>
-        );
-    }
+  lookupAssetDetail(asset) {
+    this.setState({lookupAsset: asset});
+  }
 
-    lookupAssetDetail(asset) {
-        console.log('adasas'+ asset);
-        this.setState({lookupAsset: asset});
-    }
-
-}
-
-const mapStateToProps = (state) => {
-    return {}
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({...assetsActions, ...uiActions}, dispatch);
-}
+  return bindActionCreators({...assetsActions, ...uiActions}, dispatch);
+};
 
 AssetManager.propTypes = propTypes;
 
-export default connect(mapStateToProps, mapDispatchToProps)(AssetManager);
+export default connect(() => {}, mapDispatchToProps)(AssetManager);
