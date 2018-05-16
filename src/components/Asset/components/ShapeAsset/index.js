@@ -108,9 +108,12 @@ class ShapeAsset extends React.Component{
     const ShapeAsset = assetTag;
     return (
       <div style={{'cursor':'move'}}>
-        <ShapeAsset attrs={this.props.attrs}/>
+        <ShapeAsset attrs={this.props.attrs} />
       </div>
     )
   }
 }
+
+ShapeAsset.propTypes = propTypes;
+
 export default ShapeAsset;

@@ -15,7 +15,7 @@ class CustomAsset extends React.Component{
 
   render() {
     return (
-      <div style={this.props.styles} dangerouslySetInnerHTML={ {__html: this.props.value}}/>
+      <div style={this.props.styles} dangerouslySetInnerHTML={ {__html: this.props.value}} />
     )
   }
 

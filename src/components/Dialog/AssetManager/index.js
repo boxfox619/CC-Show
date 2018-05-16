@@ -8,6 +8,12 @@ import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';
 import Editor from "./components/Editor";
 
+const propTypes = {
+  className: React.PropTypes.string.isRequired,
+  toggleAssetManager: React.PropTypes.func.isRequired,
+  createCustomAsset: React.PropTypes.func.isRequired
+}
+
 class AssetManager extends React.Component {
 
     constructor(props) {
@@ -16,7 +22,6 @@ class AssetManager extends React.Component {
             lookupAsset: null,
             mode: 'editor'
         }
-
         this.lookupAssetDetail = this.lookupAssetDetail.bind(this);
     }
 
@@ -25,22 +30,22 @@ class AssetManager extends React.Component {
             if (this.state.mode === 'default') {
                 if (!this.state.lookupAsset) {
                     return (
-                        <AssetStore
-                            onCloseDialog={this.props.toggleAssetManager}
-                            onCreateCustomAsset={this.props.createCustomAsset}
-                            onLookupAssetDetail={this.lookupAssetDetail}
+                      <AssetStore
+                        onCloseDialog={this.props.toggleAssetManager}
+                        onCreateCustomAsset={this.props.createCustomAsset}
+                        onLookupAssetDetail={this.lookupAssetDetail}
                         />);
                 } else {
-                    return (<AssetDetail asset={this.state.lookupAsset}/>);
+                    return (<AssetDetail asset={this.state.lookupAsset} />);
                 }
             } else {
-                return (<Editor/>)
+                return (<Editor />)
             }
         }
         return (
-            <div className={this.props.className}>
-                {renderContent()}
-            </div>
+          <div className={this.props.className}>
+            {renderContent()}
+          </div>
         );
     }
 
@@ -58,5 +63,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({...assetsActions, ...uiActions}, dispatch);
 }
+
+AssetManager.propTypes = propTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(AssetManager);

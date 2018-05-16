@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const propTypes = {
-    styles: React.PropTypes.object.isRequired,
-    value: React.PropTypes.string.isRequired,
-    attrs: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired,
+  value: React.PropTypes.string.isRequired,
+  attrs: React.PropTypes.object.isRequired,
+  handleChange: React.PropTypes.func.isRequired
 };
 
 class TextAsset extends React.Component {
@@ -22,12 +23,11 @@ class TextAsset extends React.Component {
             }
         }
         return (
-            <div id={this.props.attrs.id}
-                 name={this.props.attrs.id}
-                 contentEditable={this.props.attrs.controlable}
-                 style={{...styleObj}}
-                 dangerouslySetInnerHTML={{__html: this.props.value}}>
-            </div>
+          <div id={this.props.attrs.id}
+            name={this.props.attrs.id}
+            contentEditable={this.props.attrs.controlable}
+            style={{...styleObj}}
+            dangerouslySetInnerHTML={{__html: this.props.value}} />
         )
     }
 

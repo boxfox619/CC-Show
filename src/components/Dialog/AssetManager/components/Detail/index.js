@@ -28,19 +28,16 @@ class Detail extends React.Component{
     }
     render() {
         return (
-            <div className={styles.asset_detail}>
-                <h1 className={styles.title}>{this.props.asset.title}</h1>
-                <div className={styles.description}>{this.props.asset.content}</div>
-                <AssetCanvas
-                    className={styles.previewArea}
-                    assets={this.getPreviewAsset()}
-                    selectedAssetIndex={this.state.selectedAsset}
-                    onAssetSelected={() => {}}
-                    onChangeAttributes={this.setAttributes}/>
-
-
-
-            </div>
+          <div className={styles.asset_detail}>
+            <h1 className={styles.title}>{this.props.asset.title}</h1>
+            <div className={styles.description}>{this.props.asset.content}</div>
+            <AssetCanvas
+              className={styles.previewArea}
+              assets={this.getPreviewAsset()}
+              selectedAssetIndex={this.state.selectedAsset}
+              onAssetSelected={() => {}}
+              onChangeAttributes={this.setAttributes} />
+          </div>
         );
     }
 

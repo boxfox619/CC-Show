@@ -14,9 +14,9 @@ class Slide extends React.Component {
     return (<div style={{'display': visible ? 'block' : 'none'}}>
       {slide.assets.map((asset) => {
             return <Asset
-                controlable={false}
-                key={slide.id + '-' + asset.id + '-' + slide.id}
-                attribute={Loader.convertStyleSize(asset)}
+              controlable={false}
+              key={slide.id + '-' + asset.id + '-' + slide.id}
+              attribute={Loader.convertStyleSize(asset)}
             />
           }
       )}

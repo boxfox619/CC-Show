@@ -33,7 +33,7 @@ class ShowListContext extends React.Component{
     let renderShowList = (showList) =>{
       if(showList==undefined) return;
       if(showList.length == 0){
-        return (<div onClick={this.createShow} className={styles.tempShow}>발표자료가 없습니다<br/>새 발표자료 만들기</div>);
+        return (<div onClick={this.createShow} className={styles.tempShow}>발표자료가 없습니다<br />새 발표자료 만들기</div>);
       }else
       return showList.map((show)=>{
         return (<ShowItem key={show.id} name={show.name} thumbnail={show.thumbnail} open={()=>this.openShow(show.id)} share={()=>this.shareShow(show.id)} delete={()=>this.deleteShow(show.id)} />)
@@ -49,7 +49,7 @@ class ShowListContext extends React.Component{
       }else if(job=='share'){
         msg = '이 링크로 발표자료를 공유할 수 있어요!!';
       }
-      return <Dialog msg={msg} text={this.state.text} callback={this.dialogCallback}/>
+      return <Dialog msg={msg} text={this.state.text} callback={this.dialogCallback} />
     }
     return (
       <div style={{'marginTop':headerHeight}} className={styles.context}>
