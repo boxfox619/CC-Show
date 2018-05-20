@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './style.css';
+import * as FormService from "../services/FormComponentService";
 
 const propTypes = {
   text: React.PropTypes.string.isRequired,
@@ -14,10 +15,10 @@ class Toggle extends React.Component{
 
     render(){
       return(
-        <div className={styles.toggle_div}>
-          <input type='checkbox'  className={styles.modebox} checked={this.props.checked} onChange={this.props.onChange} />
-          <label className={styles.modeboxlabel}>
-            <span className={styles.toggle_span}>{this.props.text}</span>
+        <div className={styles.toggle} style={FormService.createStyleObject(this.props)}>
+          <input type='checkbox' checked={this.props.checked} onChange={()=>this.props.onChange(!this.props.checked)} />
+          <label>
+            <span className={styles.toggle}>{this.props.text}</span>
           </label>
         </div>
       );
