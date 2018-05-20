@@ -3,17 +3,13 @@
     padding: 3px 11px;
     background-color: #ffffff;
     border: solid 1px #898989;
-
-    /* shared font styles */
     font-size: 1em;
     line-height: 1.2;
-
-    /* clicking anywhere will focus the input */
     cursor: text;
 }
 
 .react-tags.is-focused {
-    border-color: #B1B1B1;
+    border-color: #898989;
 }
 
 .react-tags__selected {
@@ -25,24 +21,24 @@
     box-sizing: border-box;
     margin: 0 6px 0 0;
     padding: 6px 8px;
-    border: 1px solid #D1D1D1;
     border-radius: 2px;
-    background: #F1F1F1;
-
-    /* match the font styles */
+    border: 1px solid #ffffff;
+    background: #898989;
     font-size: inherit;
     line-height: inherit;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 .react-tags__selected-tag:after {
     content: '\2715';
-    color: #AAA;
+    color: #ffffff;
     margin-left: 8px;
 }
 
 .react-tags__selected-tag:hover,
 .react-tags__selected-tag:focus {
-    border-color: #B1B1B1;
+    border: 1px solid #898989;
 }
 
 .react-tags__search {

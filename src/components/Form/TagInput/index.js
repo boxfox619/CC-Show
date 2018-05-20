@@ -2,12 +2,14 @@ import React from 'react';
 import TagsInput from 'react-tag-autocomplete';
 import styles from './style.css';
 import * as FormService from '../services/FormComponentService';
+import LabelText from '../LabelText';
 
 const propTypes = {
     onChange: React.PropTypes.func.isRequired,
     tags: React.PropTypes.array.isRequired,
     suggestions: React.PropTypes.array.isRequired,
-    placeholder: React.PropTypes.string
+    placeholder: React.PropTypes.string,
+    label: React.PropTypes.string
 };
 
 const defaultProps = {
@@ -25,10 +27,14 @@ class TagInput extends React.Component {
 
     render() {
         return (
-          <div
-            style={FormService.createStyleObject(this.props)}>
-            <TagsInput
-              classNames={{
+          <div>
+            {!!this.props.label &&
+              <LabelText text={this.props.label} />
+              }
+            <div
+              style={FormService.createStyleObject(this.props)}>
+              <TagsInput
+                classNames={{
                         root: styles['react-tags'],
                         rootFocused: styles['is-focused'],
                         selected: styles['react-tags__selected'],
@@ -40,14 +46,15 @@ class TagInput extends React.Component {
                         suggestionActive: styles['is-active'],
                         suggestionDisabled: styles['is-disabled']
                     }}
-              tags={this.props.tags}
-              suggestions={this.props.suggestions}
-              handleDelete={this.deleteTag}
-              handleAddition={this.addTag}
-              placeholder={this.props.placeholder}
-              autoresize={false}
-              allowNew
+                tags={this.props.tags}
+                suggestions={this.props.suggestions}
+                handleDelete={this.deleteTag}
+                handleAddition={this.addTag}
+                placeholder={this.props.placeholder}
+                autoresize={false}
+                allowNew
                 />
+            </div>
           </div>
         );
     }
