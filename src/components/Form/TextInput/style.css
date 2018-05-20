@@ -1,3 +1,7 @@
+.cover{
+    font-size: 17px;
+}
+
 .text{
     border : none;
     padding-top: 0;
@@ -7,7 +11,7 @@
     width: calc( 100% - 24px );
     height: 100%;
     padding: 0 11px;
-    font-size: 17px;
+    font-size: 1em;
     background-color: #ffffff;
     border: solid 1px #898989;
     /* margin-left: 4px; */

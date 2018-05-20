@@ -21,7 +21,6 @@ class TextInput extends React.Component {
 
     constructor(prop) {
         super(prop);
-        this.createCustomStyle = this.createCustomStyle.bind(this);
     };
 
     render() {
@@ -30,24 +29,17 @@ class TextInput extends React.Component {
             {!!this.props.label &&
             <LabelText text={this.props.label} />
                 }
-            <input
-              type='text'
-              className={classnames(styles.text, this.props.className)}
-              style={this.createCustomStyle((FormService.createStyleObject(this.props)))}
-              placeholder={this.props.placeholder}
-              onChange={(e) => this.props.onChange(e.target.value)}
-              value={this.props.text}
+            <div className={styles.cover} style={FormService.createStyleObject(this.props)}>
+              <input
+                type='text'
+                className={classnames(styles.text, this.props.className)}
+                placeholder={this.props.placeholder}
+                onChange={(e) => this.props.onChange(e.target.value)}
+                value={this.props.text}
           />
+            </div>
           </div>
         );
-    }
-
-    createCustomStyle(style){
-        let tmpStyle = {...style};
-        if(!!tmpStyle.width){
-            tmpStyle['width'] = 'calc('+tmpStyle.width+' - 24px)';
-        }
-        return tmpStyle;
     }
 }
 
