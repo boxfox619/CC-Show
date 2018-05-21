@@ -1,0 +1,134 @@
+.modal{
+    position: fixed;
+    z-index: 4;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-animation: modaldown 0.5s forwards;
+}
+
+@-webkit-keyframes modaldown{
+    from { top: -100%; }
+    to { top: 50%; }
+}
+
+.modal content{
+    position: absolute;
+    overflow-y: auto;
+    height: calc( 100% - 25px);
+    width: 100%;
+}
+
+.modal content::-webkit-scrollbar-track
+{
+    background-color: #ffffff;
+}
+
+.modal content::-webkit-scrollbar
+{
+    width: 5px;
+    background-color: #ffffff;
+}
+
+.modal content::-webkit-scrollbar-thumb
+{
+    background-color: #5D87B5;
+}
+
+
+.modal header{
+    position: relative;
+    color: #12AAEB;
+    padding: 10px 30px 0 30px;
+    width: calc( 100% - 60px );
+}
+
+.modal header tabholder{
+    position: absolute;
+    text-align: right;
+    display: table;
+    table-layout: fixed;
+    width: 50%;
+    top: 10px;
+    right: 10px;
+    height: 25px;
+}
+
+.modal header tabholder > *{
+    display: table-cell;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    line-height: 25px;
+    padding: 0 10px;
+    color: #D1DBE1;
+}
+
+.modal header tabholder activetab{
+    color: #12AAEB;
+}
+
+.modal header tabholder activetab:after{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    bottom: -10px;
+    left: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-color: #12AAEB;
+    width: calc( 100% - 40px );
+    height: 0px;
+}
+
+.modal header tabholder > *:hover{
+    color: #12AAEB;
+    cursor: pointer;
+}
+
+.modal header tabholder > *:hover:after{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    bottom: -10px;
+    left: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-color: #12AAEB;
+    width: calc( 100% - 40px );
+    height: 0px;
+}
+
+.modal header tabholder > *:before{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    left: 0px;
+    border-left-style: dashed;
+    border-left-width: 1px;
+    border-color: #D1DBE1;
+    height: 100%;
+}
+
+.modal header tabholder > *:first-child:before{
+    display: none;
+    border-left-width: 0px;
+}
+
+.modal header h1{
+    display: inline-block;
+    text-align: center;
+    height: 27px;
+    width: 200px;
+    font-size: 0.8em;
+    padding: 0;
+    margin: 0;
+    border-bottom: solid #12AAEB 3px;
+}

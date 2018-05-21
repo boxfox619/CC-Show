@@ -7,10 +7,7 @@ import AssetStore from './components/Store';
 import * as assetsActions from 'services/editor/asset/actions';
 import * as uiActions from 'services/ui/actions';
 import Editor from './components/Editor';
-
-const propTypes = {
-  className: React.PropTypes.string.isRequired
-};
+import modalStyles from '../style.css';
 
 class AssetManager extends React.Component {
 
@@ -42,7 +39,7 @@ class AssetManager extends React.Component {
       }
     };
     return (
-      <div className={this.props.className}>
+      <div className={modalStyles.modal}>
         {renderContent()}
       </div>
     );
@@ -58,6 +55,4 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({...assetsActions, ...uiActions}, dispatch);
 };
 
-AssetManager.propTypes = propTypes;
-
-export default connect(() => {}, mapDispatchToProps)(AssetManager);
+export default connect(undefined, mapDispatchToProps)(AssetManager);

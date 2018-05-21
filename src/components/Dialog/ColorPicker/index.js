@@ -5,6 +5,7 @@ import * as assetsActions from 'services/editor/asset/actions';
 import {colorPicker} from 'services/ui/colorPicker';
 
 import styles from './style.css';
+import modalStyles from '../style.css';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -21,7 +22,7 @@ class ColorPicker extends React.Component {
 
     render() {
         return (
-          <div className={this.props.className} style={{'width': 'auto', 'height': 'auto'}}>
+          <div className={modalStyles.modal}>
             <SketchPicker
               style={{'box-shadow': 'none'}} color={this.props.color}
               onChangeComplete={color => this.props.setSelectedAssetStyle(this.props.colorType, color.hex)}

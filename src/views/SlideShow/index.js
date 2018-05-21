@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Asset from '../../components/Asset';
+import Asset from 'components/Asset';
 
 import styles from './style.css';
 
 import * as DomController from './services/dom';
-import * as Loader from './services/ShowLoader'
-import Slide from "./services/Slide";
+import * as Loader from './services/ShowLoader';
+import Slide from './services/Slide';
 
 class SlideShow extends React.Component{
 
@@ -16,7 +16,7 @@ class SlideShow extends React.Component{
     this.state={
       currentSlide: 0,
       slides:[]
-    }
+    };
 
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.doSlide = this.doSlide.bind(this);
@@ -26,17 +26,19 @@ class SlideShow extends React.Component{
     let renderingSlides = (slides, currentSlideIdx) =>{
       if(slides.length>0){
         return slides.map((slide,idx)=>{
-          return <Slide visible={idx == currentSlideIdx} slide={slide} />
-        })
+          return <Slide slide={slide} visible={idx == currentSlideIdx} />;
+        });
       }else{
-        return (<img className={styles.loader} src='/images/progress.gif' />);
+        return (<img className={styles.loader}
+          src="/images/progress.gif"
+        />);
       }
-    }
+    };
     return (
       <div className={styles.context}>
         {renderingSlides(this.state.slides, this.state.currentSlide)}
       </div>
-    )
+    );
   }
 
   doSlide(change){
@@ -51,9 +53,9 @@ class SlideShow extends React.Component{
     DomController.initSlideShow.bind(this);
     Loader.load(function(slides){
       if(slides){
-        this.setState({slides})
+        this.setState({slides});
       }
-    }.bind(this))
+    }.bind(this));
   }
 
   handleKeyDown(e){

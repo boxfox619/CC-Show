@@ -5,12 +5,7 @@ import styles from './style.css';
 
 const propTypes = {
   className: React.PropTypes.string.isRequired,
-  buttonMap: React.PropTypes.array.isRequired,
-  account: {
-    name: React.PropTypes.string,
-    email: React.PropTypes.string,
-    profile: React.PropTypes.string
-  }
+  buttonMap: React.PropTypes.array.isRequired
 }
 
 const renderGroup = (groups) => {

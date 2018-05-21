@@ -23,12 +23,8 @@ import * as assetTypes from "../../services/editor/asset/assetTypes";
 
 const propTypes = {
   visibleSlideManager: React.PropTypes.bool.isRequired,
-  showData: React.PropTypes.object.isRequired,
-  account: React.PropTypes.object.isRequired,
   uiActions: React.PropTypes.object.isRequired,
-  editorActions: React.PropTypes.object.isRequired,
-  ui: React.PropTypes.object.isRequired,
-  showId: React.PropTypes.string.isRequired
+  editorActions: React.PropTypes.object.isRequired
 }
 
 class ShowEditor extends React.Component {
@@ -50,13 +46,13 @@ class ShowEditor extends React.Component {
             if (this.props.ui.dialog != undefined) {
                 switch (this.props.ui.dialog) {
                     case dialogs.ASSET_STORE:
-                        return (<AssetStore className={styles.modal} />);
+                        return (<AssetStore />);
                     case dialogs.COLOR_PICKER:
-                        return (<ColorPicker className={styles.modal} />)
+                        return (<ColorPicker />)
                     case dialogs.SLIDE_SHOW:
-                        return (<SlideShow className={styles.modal} />);
+                        return (<SlideShow />);
                     case dialogs.PROGRESS:
-                        return (<ProgressDialog className={styles.modal} />);
+                        return (<ProgressDialog />);
                 }
             }
         }

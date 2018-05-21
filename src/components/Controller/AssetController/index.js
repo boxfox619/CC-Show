@@ -15,13 +15,12 @@ import styles from './style.css';
 import {bindActionCreators} from "redux";
 
 const propTypes = {
-  className: React.PropTypes.string.isRequried,
+  className: React.PropTypes.string.isRequired,
   setSelectedAssetAttribute: React.PropTypes.func.isRequired,
   setSelectedAssetStyle: React.PropTypes.func.isRequired,
   showColorPicker: React.PropTypes.func.isRequired,
   setSelectedAssetImage: React.PropTypes.func.isRequired,
   setSelectedAssetAttribute: React.PropTypes.func.isRequired,
-  selectedAsset: React.PropTypes.object.isRequired
 }
 
 class AssetController extends React.Component {

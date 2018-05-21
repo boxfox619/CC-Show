@@ -1,10 +1,7 @@
 import React from 'react';
 
 import styles from './style.css';
-
-const propTypes = {
-  className: React.PropTypes.string.isRequired
-}
+import modalStyles from '../style.css';
 
 class ProgressDialog extends React.Component{
   constructor(props){
@@ -13,7 +10,7 @@ class ProgressDialog extends React.Component{
 
   render() {
     return (
-      <div className={this.props.className+' '+styles.customize}>
+      <div className={modalStyles.modal+' '+styles.customize}>
         <div className={styles.container}>
           <div className={styles.progress}>
             <span />
@@ -30,7 +27,5 @@ class ProgressDialog extends React.Component{
     )
   }
 }
-
-ProgressDialog.propTypes = propTypes;
 
 export default ProgressDialog;

@@ -21,11 +21,11 @@ class DialogHeader extends React.Component {
     let renderTabs = () => {
       return this.props.tabs.map((tab, idx) => {
         if (idx == this.state.activeTab) {
-          return (<activetab key={'tab' + idx}>{tab.name}</activetab>);
+          return (<activetab key={'tab' + idx}>{tab}</activetab>);
         } else {
           return (<tab key={'tab' + idx}
             onClick={() => this.selectTab(tab, idx)}
-          >{tab.name}</tab>);
+          >{tab}</tab>);
         }
       });
     };
