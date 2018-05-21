@@ -21,9 +21,14 @@
 }
 
 .content .thumbnail:after{
-    content: 'image';
+    content: '';
+    background: url("/svg/ic_picture.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     font-size: 10pt;
     position: absolute;
+    width: 40%;
+    height: 40%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -35,21 +40,48 @@
     border-width: 0 0 1px 0;
 }
 
-.content ul.thumbnails{
+.content .thumbnails{
+    position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
     width: 100%;
     height: 50px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
     margin-bottom: -4px;
-    white-space: nowrap;
     display: inline-block;
 }
 
-.content ul.thumbnails li{
-    width: 70px;
+.content .thumbnails .btn{
+    width: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    position: absolute;
+    background: white;
+    cursor: pointer;
+    line-height: 50px;
+}
+
+.content .thumbnails .btn:first-child:after{
+    content: '<';
+}
+
+.content .thumbnails .btn:last-child:after{
+    content: '>';
+}
+
+.content .thumbnails ul{
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    white-space: nowrap;
+    transform: translateX(30px);
+}
+
+.content .thumbnails ul li{
+    width: 71.71px;
     height: 100%;
     display: inline-block;
 }

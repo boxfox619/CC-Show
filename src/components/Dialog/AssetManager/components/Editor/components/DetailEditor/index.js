@@ -35,12 +35,22 @@ class DetailEditor extends React.Component{
             <div className={classnames(styles.thumbnail, styles.main)}
               onClick={this.onUpdateThumbnail}
                 />
-            <ul className={styles.thumbnails}>
-              <li className={styles.thumbnail} />
-              <li className={styles.thumbnail} />
-              <li className={styles.thumbnail} />
-              <li className={styles.thumbnail} />
-            </ul>
+            <div className={styles.thumbnails}>
+              <div className={styles.btn} />
+              <ul>
+                <li className={styles.thumbnail} />
+                <li className={styles.thumbnail} />
+                <li className={styles.thumbnail} />
+                <li className={styles.thumbnail} />
+                <li className={styles.thumbnail} />
+                <li className={styles.thumbnail} />
+                <li className={styles.thumbnail} />
+                <li className={styles.thumbnail} />
+                <li className={styles.thumbnail} />
+                <li className={styles.thumbnail} />
+              </ul>
+              <div className={styles.btn} style={{'right':'0', 'top': '0'}} />
+            </div>
           </div>
           <div className={styles.form}>
             <TextInput
