@@ -26,19 +26,31 @@ class DetailEditor extends React.Component{
 
   constructor(props){
     super(props);
+
+    this.state = {
+        thumbnailPosition: 0
+    }
+    this.prev = this.prev.bind(this);
+      this.next = this.next.bind(this);
   }
 
   render() {
       let renderSubThumbnails = () => {
-          if (this.props.thumbnails.length > 1) {
-              return this.props.thumbnails.splice(0, 1).map((thumbnail, idx) => {
-                  return (
-                    <li className={styles.thumbnail} onClick={() => this.onUpdateThumbnail(idx+1)}>
-                      <img src={thumbnail} />
-                    </li>
-                  );
-              });
+          let items = [];
+          let idx = 1;
+          let thumbnailsLength = this.props.thumbnails.length;
+          let max = (thumbnailsLength > 7)? thumbnailsLength+1 : 7;
+          for (; idx <= max; idx++) {
+              let currentIdx = idx;
+              items.push(
+                <li key={thumbnailsLength+'-'+idx} className={styles.thumbnail} onClick={() => this.onUpdateThumbnail(currentIdx)}>
+                  {thumbnailsLength > currentIdx &&
+                  <img src={this.props.thumbnails[currentIdx]} />}
+                </li>);
+
           }
+          console.log(this.state.thumbnailPosition);
+          return <ul style={{'transform' : 'translateX( calc( 30px - '+this.state.thumbnailPosition * 71.71 +'px))'}}>{items}</ul>;
       }
     return (
       <div className={styles.content}>
@@ -46,16 +58,14 @@ class DetailEditor extends React.Component{
           <div className={styles.thumbnail_form}>
             <div className={classnames(styles.thumbnail, styles.main)}
               onClick={() => this.onUpdateThumbnail(0)}>
-                {this.props.thumbnails.length > 0 &&
+              { this.props.thumbnails.length > 0 &&
                 (<img src={this.props.thumbnails[0]} />)
                 }
             </div>
             <div className={styles.thumbnails}>
-              <div className={styles.btn} />
-              <ul>
-                {renderSubThumbnails()}
-              </ul>
-              <div className={styles.btn} style={{'right':'0', 'top': '0'}} />
+              <div className={styles.btn} onClick={this.prev} />
+              {renderSubThumbnails()}
+              <div className={styles.btn} onClick={this.next} style={{'right':'0', 'top': '0'}} />
             </div>
           </div>
           <div className={styles.form}>
@@ -112,11 +122,35 @@ class DetailEditor extends React.Component{
     );
   }
 
+  prev(){
+      if(this.state.thumbnailPosition < this.props.thumbnails.length-7){
+          this.setState({thumbnailPosition: this.state.thumbnailPosition+1});
+      }
+  }
+
+  next(){
+      if(this.state.thumbnailPosition > 0){
+          this.setState({thumbnailPosition: this.state.thumbnailPosition-1});
+      }
+  }
+
     onUpdateThumbnail(idx) {
-        ImageService.getImage((result) => {
-            if (result.result) {
+        if (idx < this.props.thumbnails.length) {
+            let thumbnails = this.props.thumbnails;
+            thumbnails.splice(idx, 1);
+            this.props.onUpdateThumbnails(thumbnails);
+            if(this.state.thumbnailPosition >= this.props.thumbnails.length-7){
+                this.next();
             }
-        });
+        } else {
+            ImageService.getImage((result) => {
+                if (result.result) {
+                    let thumbnails = this.props.thumbnails;
+                    thumbnails.push(result.data);
+                    this.props.onUpdateThumbnails(thumbnails);
+                }
+            });
+        }
     }
 }
 

@@ -52,7 +52,6 @@ let renderSelectorLine = (width, height)=>{
         </div>);
 }
 
-
 class Asset extends React.Component{
 
   constructor(props){

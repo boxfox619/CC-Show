@@ -19,7 +19,6 @@ const propTypes = {
   setSelectedAssetAttribute: React.PropTypes.func.isRequired,
   setSelectedAssetStyle: React.PropTypes.func.isRequired,
   showColorPicker: React.PropTypes.func.isRequired,
-  setSelectedAssetImage: React.PropTypes.func.isRequired,
   setSelectedAssetAttribute: React.PropTypes.func.isRequired,
 }
 
