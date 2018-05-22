@@ -6,6 +6,7 @@ import Toggle from 'components/Form/Toggle';
 import styles from './style.css';
 import TagInput from 'components/Form/TagInput';
 import LabelText from "../../../../../../Form/LabelText";
+import ImageService from "../../../../../../../services/image.service";
 
 const propTypes = {
   title: React.PropTypes.string.isRequired,
@@ -28,26 +29,31 @@ class DetailEditor extends React.Component{
   }
 
   render() {
+      let renderSubThumbnails = () => {
+          if (this.props.thumbnails.length > 1) {
+              return this.props.thumbnails.splice(0, 1).map((thumbnail, idx) => {
+                  return (
+                    <li className={styles.thumbnail} onClick={() => this.onUpdateThumbnail(idx+1)}>
+                      <img src={thumbnail} />
+                    </li>
+                  );
+              });
+          }
+      }
     return (
       <div className={styles.content}>
         <div className={styles.top}>
           <div className={styles.thumbnail_form}>
             <div className={classnames(styles.thumbnail, styles.main)}
-              onClick={this.onUpdateThumbnail}
-                />
+              onClick={() => this.onUpdateThumbnail(0)}>
+                {this.props.thumbnails.length > 0 &&
+                (<img src={this.props.thumbnails[0]} />)
+                }
+            </div>
             <div className={styles.thumbnails}>
               <div className={styles.btn} />
               <ul>
-                <li className={styles.thumbnail} />
-                <li className={styles.thumbnail} />
-                <li className={styles.thumbnail} />
-                <li className={styles.thumbnail} />
-                <li className={styles.thumbnail} />
-                <li className={styles.thumbnail} />
-                <li className={styles.thumbnail} />
-                <li className={styles.thumbnail} />
-                <li className={styles.thumbnail} />
-                <li className={styles.thumbnail} />
+                {renderSubThumbnails()}
               </ul>
               <div className={styles.btn} style={{'right':'0', 'top': '0'}} />
             </div>
@@ -74,7 +80,7 @@ class DetailEditor extends React.Component{
               <LabelText text={'스토어 공개범위'} />
               <Toggle
                 checked={this.props.openToStore}
-                onChange={()=>this.props.onToggleStore(!this.props.openToStore)}
+                onChange={()=>this.props.onToggleStore(true)}
                 text={'공개'}
                 width={'175px'}
                 height={'35px'}
@@ -83,7 +89,7 @@ class DetailEditor extends React.Component{
                 />
               <Toggle
                 checked={!this.props.openToStore}
-                onChange={()=>this.props.onToggleStore(!this.props.openToStore)}
+                onChange={()=>this.props.onToggleStore(false)}
                 text={'공개안함'}
                 width={'175px'}
                 height={'35px'}
@@ -105,9 +111,13 @@ class DetailEditor extends React.Component{
       </div>
     );
   }
-  onUpdateThumbnail() {
 
-  }
+    onUpdateThumbnail(idx) {
+        ImageService.getImage((result) => {
+            if (result.result) {
+            }
+        });
+    }
 }
 
 DetailEditor.propTypes = propTypes;
