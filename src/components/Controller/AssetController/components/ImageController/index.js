@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from '../../style.css';
 import ControllerWrapper from '../ControllerWrapper/index';
+import ImageService from 'services/image.service';
 
 const propTypes = {
     onChangeImage: React.PropTypes.func.isRequired,
-    onChangeAttribute: React.PropTypes.func.isRequired,
-    selectedAsset: React.PropTypes.object.isRequired
 }
 
 class ImageController extends React.Component {
@@ -14,7 +13,6 @@ class ImageController extends React.Component {
 
         this.setImageUrl = this.setImageUrl.bind(this);
         this.loadLocalImage = this.loadLocalImage.bind(this);
-        this.imageOnLoaded = this.imageOnLoaded.bind(this);
     }
 
     render() {
@@ -30,27 +28,20 @@ class ImageController extends React.Component {
         )
     }
 
-  imageOnLoaded(e) {
-    let data = e.target.result;
-    this.props.onChangeImage(this.props.selectedAsset.id, data);
-  }
-
   loadLocalImage() {
-    var fr = new FileReader();
-    fr.onload = this.imageOnLoaded;
-    var inputElement = document.createElement("input");
-    inputElement.type = "file";
-    inputElement.addEventListener("change", function () {
-      fr.readAsDataURL(inputElement.files[0]);
-    });
-    inputElement.dispatchEvent(new MouseEvent("click"));
+      ImageService.getImage((result)=>{
+          if(result.result){
+              this.props.onChangeImage(result.data);
+          }
+      });
   }
 
   setImageUrl(event) {
     let {value} = event.target;
-    this.props.onChangeAttribute('value', value);
+    this.props.onChangeImage(value);
   }
 }
 
 ImageController.propTypes = propTypes;
+
 export default ImageController;

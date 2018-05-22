@@ -1,7 +1,5 @@
 import * as assetTypes from './assetTypes';
 
-export * from './middleware/actions';
-
 export const ASSET_SET_MULTIPLE_ATTRIBUTE = 'ASSET_SET_MULTIPLE_ATTRIBUTE';
 export const ASSET_SET_STYLE = 'ASSET_SET_STYLE';
 export const ASSET_CREATE = "ASSET_CREATE";

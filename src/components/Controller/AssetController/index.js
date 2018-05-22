@@ -58,9 +58,7 @@ class AssetController extends React.Component {
                 case assetTypes.TYPE_IMAGE:
                     return (
                       <ImageController
-                        selectedAsset={this.props.selectedAsset}
-                        onChangeImage={this.props.setSelectedAssetImage}
-                        onChangeAttribute={this.props.setSelectedAssetAttribute} />
+                        onChangeImage={(url)=>this.props.setSelectedAssetAttribute('value', url)} />
                     )
                 case assetTypes.TYPE_CUSTOM:
                     return;
