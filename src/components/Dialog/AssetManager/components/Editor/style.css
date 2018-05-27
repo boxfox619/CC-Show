@@ -42,3 +42,11 @@ ul.bottom_controller li.hide{
     font-size: 15pt;
     font-weight: bold;
 }
+
+.codeEditor{
+    width: 1000px;
+}
+
+.codeEditor.invisible{
+    display: none;
+}

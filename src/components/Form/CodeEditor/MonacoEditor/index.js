@@ -3,11 +3,11 @@ import MonacoEditor from 'react-monaco-editor';
 
 const propTypes = {
     codeType: React.PropTypes.string.isRequired,
-    onChange: React.PropTypes.func.isRequired
+    onChange: React.PropTypes.func.isRequired,
+    code: React.PropTypes.string.isRequired
 }
 
-export default function CodeEditor({codeType, onChange}) {
-    const code = value;
+export default function CodeEditor({codeType, onChange, code}) {
     const options = {
         selectOnLineNumbers: true,
         roundedSelection: false,

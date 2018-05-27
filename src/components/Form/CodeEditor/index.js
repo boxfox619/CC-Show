@@ -12,7 +12,7 @@ const propTypes = {
     html: React.PropTypes.string.isRequired,
 }
 
-class AssetEditor extends React.Component {
+class CodeEditor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -47,14 +47,14 @@ class AssetEditor extends React.Component {
                     <span className={styles.topLan}>HTML</span>
                   </div>
                   <MonacoEditor codeType={'html'} onChange={(code) => this.props.onChangeCode('html', code)}
-                    value={this.state.html} />
+                                code={this.state.html} />
                 </div>
                 <div className={styles.codeArea}>
                   <div className={styles.topArea}>
                     <span className={styles.topLan}>CSS</span>
                   </div>
                   <MonacoEditor codeType={'css'} onChange={(code) => this.props.onChangeCode('css', code)}
-                    value={this.state.css} />
+                                code={this.state.css} />
 
                 </div>
                 <div className={styles.codeArea}>
@@ -63,7 +63,7 @@ class AssetEditor extends React.Component {
                   </div>
                   <MonacoEditor codeType={'javascript'}
                     onChange={(code) => this.props.onChangeCode('js', code)}
-                    value={this.state.js} />
+                                code={this.state.js} />
 
                 </div>
               </div>
@@ -118,6 +118,6 @@ class AssetEditor extends React.Component {
     }
 }
 
-AssetEditor.propTypes = propTypes;
+CodeEditor.propTypes = propTypes;
 
-export default AssetEditor;
+export default CodeEditor;

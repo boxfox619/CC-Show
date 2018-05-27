@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './style.css';
 import DialogHeader from 'components/Dialog/components/Header';
 import DetailEditor from './components/DetailEditor';
+import CodeEditor from "components/Form/CodeEditor";
+import classnames from 'classnames';
 
 const tabs = ['DETAIL', 'CODE'];
 
@@ -51,6 +53,13 @@ class Editor extends React.Component{
             content={this.state.content}
           />
         }
+        <CodeEditor
+          className={classnames(styles.codeEditor, (this.state.selectedTab == 1)? '': styles.invisible)}
+          onChangeCode={(type, code) => this.setState({[type]: code})}
+          html={this.state.html}
+          css={this.state.css}
+          js={this.state.js}
+        />
       </div>
     );
   }
