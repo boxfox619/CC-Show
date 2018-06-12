@@ -5,8 +5,9 @@ import TextArea from 'components/Form/TextArea';
 import Toggle from 'components/Form/Toggle';
 import styles from './style.css';
 import TagInput from 'components/Form/TagInput';
-import LabelText from "../../../../../../Form/LabelText";
-import ImageService from "../../../../../../../services/image.service";
+import LabelText from "components/Form/LabelText";
+import Button from "components/Form/Button";
+import ImageService from "services/image.service";
 
 const propTypes = {
   title: React.PropTypes.string.isRequired,
@@ -111,13 +112,14 @@ class DetailEditor extends React.Component{
         <LabelText text={'부가설명'} />
         <hr className={styles.underline} />
         <TextArea
-          height={'200px'}
+          height={'170px'}
           placeholder={'내용을 입력하세요'}
           onChange={this.props.onUpdateContent}
           text={this.props.content}
           width={'100%'}
           fontSize={'13px'}
           />
+          <Button label={"임시저장"} margin={'15px 0 0 0'} width={'160px'} onClick={()=>{}} />
       </div>
     );
   }

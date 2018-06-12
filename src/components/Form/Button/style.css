@@ -1,0 +1,23 @@
+div.button{
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    font-size: 17px;
+    color: #ffffff;
+    border-radius: 2px;
+    transition: all .15s ease;
+    background-color: #c8c8c8;
+    cursor: pointer;
+}
+
+div.button:hover{
+    background-color: #777777;
+}
+
+span.button{
+    font-size: 1em;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
