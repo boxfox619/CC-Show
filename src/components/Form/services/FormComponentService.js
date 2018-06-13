@@ -3,6 +3,11 @@ export const createStyleObject = (props) => {
         width: props.width,
         height: props.height,
         fontSize: props.fontSize,
-        margin: props.margin
+        margin: props.margin,
+        position: props.position,
+        left: props.left,
+        right: props.right,
+        top: props.top,
+        bottom: props.bottom
     }
 }

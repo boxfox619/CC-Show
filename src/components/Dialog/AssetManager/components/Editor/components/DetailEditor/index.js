@@ -6,7 +6,6 @@ import Toggle from 'components/Form/Toggle';
 import styles from './style.css';
 import TagInput from 'components/Form/TagInput';
 import LabelText from "components/Form/LabelText";
-import Button from "components/Form/Button";
 import ImageService from "services/image.service";
 
 const propTypes = {
@@ -119,7 +118,6 @@ class DetailEditor extends React.Component{
           width={'100%'}
           fontSize={'13px'}
           />
-          <Button label={"임시저장"} margin={'15px 0 0 0'} width={'160px'} onClick={()=>{}} />
       </div>
     );
   }

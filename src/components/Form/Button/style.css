@@ -21,3 +21,11 @@ span.button{
     vertical-align: middle;
     text-align: center;
 }
+
+.button.blue{
+    background-color: #12aaeb;
+}
+
+.button.blue:hover{
+    background-color: #1288eb;
+}

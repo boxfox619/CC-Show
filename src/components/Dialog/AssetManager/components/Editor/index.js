@@ -3,6 +3,7 @@ import styles from './style.css';
 import DialogHeader from 'components/Dialog/components/Header';
 import DetailEditor from './components/DetailEditor';
 import CodeEditor from "components/Form/CodeEditor";
+import Button from 'components/Form/Button';
 import classnames from 'classnames';
 
 const tabs = ['DETAIL', 'CODE'];
@@ -39,6 +40,7 @@ class Editor extends React.Component{
           tabs={tabs}
           title={'ASSET EDITOR'}
         />
+        <div style={{'padding': '16px'}}>
         {this.state.selectedTab == 0 &&
           <DetailEditor
             onToggleStore={(openToStore)=>this.setState({openToStore})}
@@ -60,6 +62,15 @@ class Editor extends React.Component{
           css={this.state.css}
           js={this.state.js}
         />
+
+          <div style={{'position': 'relative'}}>
+              <Button label={"임시저장"} margin={'15px 0 0 0'} width={'150px'} onClick={()=>{}} />
+              <div style={{'position': 'absolute', 'right': '0px', 'top': '0px'}}>
+                  <Button label={"취소"} margin={'15px 2px 0 2px'} width={'150px'} onClick={()=>{}} />
+                  <Button label={"등록"} thema={'blue'} margin={'15px 2px 0 2px'} width={'150px'} onClick={()=>{}} />
+              </div>
+          </div>
+        </div>
       </div>
     );
   }

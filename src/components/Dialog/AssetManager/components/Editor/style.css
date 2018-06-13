@@ -45,6 +45,8 @@ ul.bottom_controller li.hide{
 
 .codeEditor{
     width: 1000px;
+    border: solid 1px #c8c8c8;
+    border-radius: 7px;
 }
 
 .codeEditor.invisible{
