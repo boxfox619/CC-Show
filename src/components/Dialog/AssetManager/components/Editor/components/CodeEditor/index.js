@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './style.css';
 
-import AssetCanvas from 'components/AssetCanvas';
+import AssetCanvas from 'components/AssetCanvas/index';
 import * as assetTypes from 'services/editor/asset/assetTypes';
-import MonacoEditor from './MonacoEditor';
+import MonacoEditor from './MonacoEditor/index';
 
 const propTypes = {
     onChangeCode: React.PropTypes.func.isRequired,
