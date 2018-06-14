@@ -4,6 +4,7 @@ import DialogHeader from 'components/Dialog/components/Header';
 import DetailEditor from './components/DetailEditor';
 import CodeEditor from "./components/CodeEditor";
 import Button from 'components/Form/Button';
+import RequestService from '../../services/request';
 import classnames from 'classnames';
 
 const tabs = ['DETAIL', 'CODE'];
@@ -78,12 +79,14 @@ class Editor extends React.Component{
   }
 
   cancel(){
-
+    this.props.closeDialog();
   }
 
-  save(){
+    save() {
+        RequestService.saveAsset({...this.state, 'assetId': this.props.assetId}, (res) => {
 
-  }
+        });
+    }
 
   selectTab(tab, idx){
     this.setState({selectedTab: idx});

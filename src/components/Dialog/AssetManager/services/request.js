@@ -20,3 +20,13 @@ export const deleteAsset = (assetID, callback) => {
     callback(result);
   });
 };
+
+export const saveAsset = (data, callback) =>{
+    let result = {'result': true};
+    axios.post('/store', data).then(response => {
+        callback(result);
+    }).catch(e => {
+        result['result'] = false;
+        callback(result);
+    });
+}

@@ -32,10 +32,12 @@ class AssetManager extends React.Component {
               createCustomAsset={this.props.createCustomAsset}
             />);
         } else {
-          return (<AssetDetail asset={this.state.lookupAsset} />);
+          return (<AssetDetail asset={this.state.lookupAsset}
+                               closeDialog={this.props.toggleAssetManager} />);
         }
       } else {
-        return (<Editor />);
+        return (<Editor
+            closeDialog={this.props.toggleAssetManager} />);
       }
     };
     return (
