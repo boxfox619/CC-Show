@@ -19,7 +19,8 @@ const propTypes = {
     onUpdateContent: React.PropTypes.func.isRequired,
   onUpdateTags: React.PropTypes.func.isRequired,
   onToggleStore: React.PropTypes.func.isRequired,
-  onUpdateThumbnails: React.PropTypes.func.isRequired
+  onUpdateThumbnails: React.PropTypes.func.isRequired,
+    className: React.PropTypes.string
 };
 
 class DetailEditor extends React.Component{
@@ -49,17 +50,16 @@ class DetailEditor extends React.Component{
                 </li>);
 
           }
-          console.log(this.state.thumbnailPosition);
           return <ul style={{'transform' : 'translateX( calc( 30px - '+this.state.thumbnailPosition * 71.71 +'px))'}}>{items}</ul>;
       }
     return (
-      <div className={styles.content}>
+      <div className={classnames(styles.content, this.props.className)}>
         <div className={styles.top}>
           <div className={styles.thumbnail_form}>
             <div className={classnames(styles.thumbnail, styles.main)}
               onClick={() => this.onUpdateThumbnail(0)}>
-              { this.props.thumbnails.length > 0 &&
-                (<img src={this.props.thumbnails[0]} />)
+                {this.props.thumbnails.length > 0 &&
+                    (<img src={this.props.thumbnails[0]}/>)
                 }
             </div>
             <div className={styles.thumbnails}>

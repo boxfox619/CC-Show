@@ -27,7 +27,7 @@ class ImageService {
         let result = {'result': false};
         axios.post('/assets/image', {data}).then(response => {
             result['result'] = true;
-            result['data'] = data;
+            result['data'] = response.data;
             callback(result);
         }).catch(e => {
             callback(result);

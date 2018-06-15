@@ -9,6 +9,11 @@ import classnames from 'classnames';
 
 const tabs = ['DETAIL', 'CODE'];
 
+const propTypes = {
+  closeDialog: React.PropTypes.func.isRequired,
+    assetId: React.PropTypes.string
+}
+
 class Editor extends React.Component{
 
   constructor(props){
@@ -22,15 +27,9 @@ class Editor extends React.Component{
       css: '',
       html: '',
       js: '',
-      selectedTab: 0
+      selectedTab: tabs[0]
     };
-    this.codeHandle = this.codeHandle.bind(this);
-    this.saveAsset = this.saveAsset.bind(this);
-    this.titleHandle = this.titleHandle.bind(this);
-    this.openToStoreHandle = this.openToStoreHandle.bind(this);
     this.visible = this.visible.bind(this);
-    this.onUpdateThumbnail = this.onUpdateThumbnail.bind(this);
-    this.selectTab = this.selectTab.bind(this);
     this.cancel = this.cancel.bind(this);
     this.save = this.save.bind(this);
   }
@@ -39,13 +38,13 @@ class Editor extends React.Component{
     return (
       <div>
         <DialogHeader
-          onTabSelected={this.selectTab}
+          onTabSelected={(idx) => this.setState({selectedTab: idx})}
           tabs={tabs}
           title={'ASSET EDITOR'}
         />
         <div style={{'padding': '16px'}}>
-        {this.state.selectedTab == 0 &&
           <DetailEditor
+            className={this.visible('DETAIL')}
             onToggleStore={(openToStore)=>this.setState({openToStore})}
             onUpdateTags={(tags)=>this.setState({tags})}
             onUpdateThumbnails={(thumbnails)=>this.setState({thumbnails})}
@@ -57,66 +56,45 @@ class Editor extends React.Component{
             title={this.state.title}
             content={this.state.content}
           />
-        }
-        <CodeEditor
-          className={classnames(styles.codeEditor, (this.state.selectedTab == 1)? '': styles.invisible)}
-          onChangeCode={(type, code) => this.setState({[type]: code})}
-          html={this.state.html}
-          css={this.state.css}
-          js={this.state.js}
+          <CodeEditor
+            className={classnames(styles.codeEditor, this.visible('CODE'))}
+            onChangeCode={(type, code) => this.setState({[type]: code})}
+            html={this.state.html}
+            css={this.state.css}
+            js={this.state.js}
         />
 
           <div style={{'position': 'relative'}}>
-              <Button label={"임시저장"} margin={'15px 0 0 0'} width={'150px'} onClick={()=>this.save(false)} />
-              <div style={{'position': 'absolute', 'right': '0px', 'top': '0px'}}>
-                  <Button label={"취소"} margin={'15px 2px 0 2px'} width={'150px'} onClick={this.cancel} />
-                  <Button label={"등록"} thema={'blue'} margin={'15px 2px 0 2px'} width={'150px'} onClick={()=>this.save(true)} />
-              </div>
+            <Button label={"임시저장"} margin={'15px 0 0 0'} width={'150px'} onClick={()=>this.save(false)} />
+            <div style={{'position': 'absolute', 'right': '0px', 'top': '0px'}}>
+              <Button label={"취소"} margin={'15px 2px 0 2px'} width={'150px'} onClick={this.cancel} />
+              <Button label={"등록"} thema={'blue'} margin={'15px 2px 0 2px'} width={'150px'} onClick={()=>this.save(true)} />
+            </div>
           </div>
         </div>
       </div>
     );
   }
 
-  cancel(){
-    this.props.closeDialog();
-  }
+    cancel() {
+        this.props.closeDialog();
+    }
 
-    save() {
+    save(upload) {
+    console.log(this.state);
         RequestService.saveAsset({...this.state, 'assetId': this.props.assetId}, (res) => {
 
         });
     }
 
-  selectTab(tab, idx){
-    this.setState({selectedTab: idx});
-  }
-
-  onUpdateThumbnail() {
-
-  }
-
   visible(page){
-    if(page==this.state.selectedPage){
-      return styles.visible;
+    if(page!==this.state.selectedTab){
+      return styles.invisible;
     }
     return '';
   }
-
-  titleHandle(e) {
-    this.setState({title: e.target.value});
-  }
-
-  openToStoreHandle(e) {
-    this.setState({openToStore: e.target.checked});
-  }
-
-  codeHandle(type, code) {
-    this.setState({[type]: code});
-  }
-
-  saveAsset() {
-  }
 }
+
+Editor.propTypes = propTypes;
 
 export default Editor;

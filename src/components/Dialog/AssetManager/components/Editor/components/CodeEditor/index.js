@@ -46,8 +46,7 @@ class CodeEditor extends React.Component {
                   <div className={styles.topArea}>
                     <span className={styles.topLan}>HTML</span>
                   </div>
-                  <MonacoEditor codeType={'html'} onChange={(code) => this.props.onChangeCode('html', code)}
-                                code={this.state.html} />
+                  <MonacoEditor codeType={'html'} onChange={(code) => this.props.onChangeCode('html', code)} code={this.state.html} />
                 </div>
                 <div className={styles.codeArea}>
                   <div className={styles.topArea}>

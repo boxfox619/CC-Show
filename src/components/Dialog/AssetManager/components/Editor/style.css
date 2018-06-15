@@ -49,6 +49,6 @@ ul.bottom_controller li.hide{
     border-radius: 7px;
 }
 
-.codeEditor.invisible{
+.invisible{
     display: none;
 }
