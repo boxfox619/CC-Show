@@ -81,7 +81,7 @@ class Editor extends React.Component{
     }
 
     save(upload) {
-    console.log(this.state);
+
         RequestService.saveAsset({...this.state, 'assetId': this.props.assetId}, (res) => {
 
         });

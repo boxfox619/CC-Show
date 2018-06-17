@@ -10,6 +10,7 @@ const propTypes = {
     css: React.PropTypes.string.isRequired,
     js: React.PropTypes.string.isRequired,
     html: React.PropTypes.string.isRequired,
+    className: React.PropTypes.string
 }
 
 class CodeEditor extends React.Component {
@@ -46,14 +47,17 @@ class CodeEditor extends React.Component {
                   <div className={styles.topArea}>
                     <span className={styles.topLan}>HTML</span>
                   </div>
-                  <MonacoEditor codeType={'html'} onChange={(code) => this.props.onChangeCode('html', code)} code={this.state.html} />
+                  <MonacoEditor codeType={'html'}
+                    onChange={(code) => this.props.onChangeCode('html', code)}
+                    value={this.state.html} />
                 </div>
                 <div className={styles.codeArea}>
                   <div className={styles.topArea}>
                     <span className={styles.topLan}>CSS</span>
                   </div>
-                  <MonacoEditor codeType={'css'} onChange={(code) => this.props.onChangeCode('css', code)}
-                                code={this.state.css} />
+                  <MonacoEditor codeType={'css'}
+                    onChange={(code) => this.props.onChangeCode('css', code)}
+                    value={this.state.css} />
 
                 </div>
                 <div className={styles.codeArea}>
@@ -62,7 +66,7 @@ class CodeEditor extends React.Component {
                   </div>
                   <MonacoEditor codeType={'javascript'}
                     onChange={(code) => this.props.onChangeCode('js', code)}
-                                code={this.state.js} />
+                    value={this.state.js} />
 
                 </div>
               </div>

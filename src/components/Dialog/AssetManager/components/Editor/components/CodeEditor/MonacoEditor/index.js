@@ -7,7 +7,7 @@ const propTypes = {
     code: React.PropTypes.string.isRequired
 }
 
-export default function CodeEditor({codeType, onChange, code}) {
+export default function CodeEditor({codeType, onChange, value}) {
     const options = {
         selectOnLineNumbers: true,
         roundedSelection: false,
@@ -29,7 +29,7 @@ export default function CodeEditor({codeType, onChange, code}) {
 
     return (
       <MonacoEditor height='252' width='100%' language={codeType}
-        value={code} options={options} onChange={onChange}
+        value={value} options={options} onChange={onChange}
         requireConfig={requireConfig}
         editorDidMount={editorDidMount} />
     );

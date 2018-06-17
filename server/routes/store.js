@@ -7,27 +7,6 @@ module.exports = function(realm) {
         return req.connection.remoteAddress.split(":").pop();
     }
 
-    function simpleImagesToArray(realmResult){
-      return imagesToArray(realmResult).map(x => {
-        let asset = {
-          id: x.id,
-          title: x.title,
-          user: x.user,
-          star: x.star,
-          thumbnail: x.thumbnail
-        };
-        return asset;
-      });
-    }
-
-    function imagesToArray(realmResult){
-      return realmResult.map(x => {
-        let asset = JSON.parse(JSON.stringify(x));
-        asset.images = JSON.parse(asset.images);
-        return asset;
-      });
-    }
-
     const router = express.Router();
 
     router.get('/', (req, res) => {
@@ -74,7 +53,7 @@ module.exports = function(realm) {
         return realm.write(()=>{
           let asset = realm.objects('Asset').filtered('id='+req.query.assetId)[0];
           asset.view += 1;
-          return res.json(imagesToArray(asset));
+          return res.json(asset);
         });
       }else{
         return res.status(400).end("Asset doesn't exists!");
@@ -106,26 +85,33 @@ module.exports = function(realm) {
             if(req.body.assetId){
               let asset = realm.objects('Asset').filtered('id=$0',req.body.assetId)[0];
               if(asset.user===JSON.parse(req.signedCookies.user).id){
-                return realm.write(()=>{
-                  asset.title = req.body.title;
-                  asset.openToStore = req.body.openToStore;
-                  asset.thumbnail = req.body.thumbnail;
-                  asset.images = JSON.stringify(req.body.images);
-                  return res.status(200).end();
-                });
+                  return realm.write(() => {
+                      asset.title = req.body.title;
+                      asset.openToStore = req.body.openToStore;
+                      asset.thumbnails = req.body.thumbnail;
+                      asset.tags = req.body.tags;
+                      asset.css = req.body.css;
+                      asset.js = req.body.js;
+                      asset.html = req.body.html;
+                      return res.status(200).end();
+                  });
               }else{
                 return res.status(400).end('You are not own this asset');
               }
             }else{
               let id = realm.objects('Asset').length;
                realm.create('Asset', {
-                id,
-                user: JSON.parse(req.signedCookies.user).id,
-                date: new Date(),
-                title: req.body.title,
-                openToStore: req.body.openToStore,
-                thumbnail: req.body.thumbnail,
-                content: req.body.content,
+                   id,
+                   user: JSON.parse(req.signedCookies.user).id,
+                   date: new Date(),
+                   title: req.body.title,
+                   openToStore: req.body.openToStore,
+                   thumbnails: req.body.thumbnail,
+                   content: req.body.content,
+                   tags: req.body.tags,
+                   css: req.body.css,
+                   js: req.body.js,
+                   html: req.body.html
               });
             }
 

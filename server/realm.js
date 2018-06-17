@@ -11,35 +11,14 @@ const AssetSchema = {
         date: {type: 'date'},
         star: {type: 'float', default: 0},
         openToStore: {type: 'bool', default: false},
-        thumbnail: {type: 'string', default: ''},
-        content: {type: 'string', default: ''}
+        thumbnails: {type: 'string?[]', default: []},
+        content: {type: 'string', default: ''},
+        tags: {type: 'string?[]', default: []},
+        html: {type: 'string', default: ''},
+        css: {type:'string', default: ''},
+        js: {type: 'string', default: ''}
     }
 };
-
-const AssetScriptSchema = {
-  name: 'AssetScript',
-  primaryKey: 'id',
-  properties: {
-    id: {type: 'int', indexed: true },
-    html: {type: 'string', default: ''},
-    css: {type:'string', default: ''},
-    js: {type: 'string', default: ''}
-  }
-}
-
-const SimpleAssetSchema = {
-  name: 'SimpleAsset',
-  primaryKey: 'id',
-  properties: {
-    id: {type: 'int', indexed: true },
-    user: {type: 'string', default: 'rlatjdfo112@naver.com'},
-    title: {type: 'string', default: '이름없는 에셋'},
-    star: {type: 'int', default: 5},
-    thumbnail: {type: 'string', default: '/images/ic_cc_show.png'},
-    source: {type: 'string', default: '<div class="test"></div>'}
-  }
-}
-
 
 const UserSchema = {
   name: 'User',
