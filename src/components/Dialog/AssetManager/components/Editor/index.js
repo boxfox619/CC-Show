@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './style.css';
 import DialogHeader from 'components/Dialog/components/Header';
 import DetailEditor from './components/DetailEditor';
-import CodeEditor from "./components/CodeEditor";
+import CodeEditor from './components/CodeEditor';
 import Button from 'components/Form/Button';
 import RequestService from '../../services/request';
 import classnames from 'classnames';
@@ -11,7 +11,7 @@ const tabs = ['DETAIL', 'CODE'];
 
 const propTypes = {
   closeDialog: React.PropTypes.func.isRequired,
-    assetId: React.PropTypes.string
+  assetId: React.PropTypes.string
 }
 
 class Editor extends React.Component{
@@ -45,30 +45,43 @@ class Editor extends React.Component{
         <div style={{'padding': '16px'}}>
           <DetailEditor
             className={this.visible('DETAIL')}
+            content={this.state.content}
             onToggleStore={(openToStore)=>this.setState({openToStore})}
+            onUpdateContent={(content)=>this.setState({content})}
             onUpdateTags={(tags)=>this.setState({tags})}
             onUpdateThumbnails={(thumbnails)=>this.setState({thumbnails})}
             onUpdateTitle={(title)=>this.setState({title})}
-            onUpdateContent={(content)=>this.setState({content})}
             openToStore={this.state.openToStore}
             tags={this.state.tags}
             thumbnails={this.state.thumbnails}
             title={this.state.title}
-            content={this.state.content}
           />
           <CodeEditor
             className={classnames(styles.codeEditor, this.visible('CODE'))}
-            onChangeCode={(type, code) => this.setState({[type]: code})}
-            html={this.state.html}
             css={this.state.css}
+            html={this.state.html}
             js={this.state.js}
-        />
+            onChangeCode={(type, code) => this.setState({[type]: code})}
+          />
 
           <div style={{'position': 'relative'}}>
-            <Button label={"임시저장"} margin={'15px 0 0 0'} width={'150px'} onClick={()=>this.save(false)} />
+            <Button label={'임시저장'}
+              margin={'15px 0 0 0'}
+              onClick={()=>this.save(false)}
+              width={'150px'}
+            />
             <div style={{'position': 'absolute', 'right': '0px', 'top': '0px'}}>
-              <Button label={"취소"} margin={'15px 2px 0 2px'} width={'150px'} onClick={this.cancel} />
-              <Button label={"등록"} thema={'blue'} margin={'15px 2px 0 2px'} width={'150px'} onClick={()=>this.save(true)} />
+              <Button label={'취소'}
+                margin={'15px 2px 0 2px'}
+                onClick={this.cancel}
+                width={'150px'}
+              />
+              <Button label={'등록'}
+                margin={'15px 2px 0 2px'}
+                onClick={()=>this.save(true)}
+                thema={'blue'}
+                width={'150px'}
+              />
             </div>
           </div>
         </div>
@@ -76,16 +89,16 @@ class Editor extends React.Component{
     );
   }
 
-    cancel() {
-        this.props.closeDialog();
-    }
+  cancel() {
+    this.props.closeDialog();
+  }
 
-    save(upload) {
+  save(upload) {
 
-        RequestService.saveAsset({...this.state, 'assetId': this.props.assetId}, (res) => {
+    RequestService.saveAsset({...this.state, 'assetId': this.props.assetId}, (res) => {
 
-        });
-    }
+    });
+  }
 
   visible(page){
     if(page!==this.state.selectedTab){

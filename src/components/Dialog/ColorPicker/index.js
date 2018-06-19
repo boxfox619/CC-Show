@@ -20,28 +20,32 @@ const propTypes = {
 
 class ColorPicker extends React.Component {
 
-    render() {
-        return (
-          <div className={modalStyles.modal}>
-            <SketchPicker
-              style={{'box-shadow': 'none'}} color={this.props.color}
-              onChangeComplete={color => this.props.setSelectedAssetStyle(this.props.colorType, color.hex)}
-                />
-            <div className={styles.closer} onClick={this.props.releaseDialog}>닫기</div>
-          </div>
-        )
-    }
+  render() {
+    return (
+      <div className={modalStyles.modal}>
+        <SketchPicker
+          color={this.props.color}
+          onChangeComplete={color => this.props.setSelectedAssetStyle(this.props.colorType, color.hex)}
+          style={{'box-shadow': 'none'}}
+        />
+        <div className={styles.closer}
+          onClick={this.props.releaseDialog}>
+            닫기
+        </div>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
-    return {
-        color: state.ui.colorPicker.defaultColor,
-        colorType: state.ui.colorPicker.styleClass
-    }
+  return {
+    color: state.ui.colorPicker.defaultColor,
+    colorType: state.ui.colorPicker.styleClass
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({...assetsActions, ...uiActions}, dispatch);
+  return bindActionCreators({...assetsActions, ...uiActions}, dispatch);
 }
 
 ColorPicker.propTypes = propTypes;

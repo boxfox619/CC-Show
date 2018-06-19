@@ -1,17 +1,18 @@
 import React from 'react';
 
-class IndexPage extends React.Component{
+class IndexPage extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
-    this.state={}
+    this.state = {}
   }
 
-  render(){
+  render() {
     return (
-      <div />
+      <div/>
     )
   }
 }
+
 export default (IndexPage);

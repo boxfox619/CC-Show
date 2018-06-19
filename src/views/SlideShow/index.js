@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Asset from 'components/Asset';
-
 import styles from './style.css';
 
 import * as DomController from './services/dom';

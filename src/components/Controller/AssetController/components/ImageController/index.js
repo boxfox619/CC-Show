@@ -4,36 +4,37 @@ import ControllerWrapper from '../ControllerWrapper/index';
 import ImageService from 'services/image.service';
 
 const propTypes = {
-    onChangeImage: React.PropTypes.func.isRequired,
+  onChangeImage: React.PropTypes.func.isRequired,
 }
 
 class ImageController extends React.Component {
-    constructor(prop) {
-        super(prop);
+  constructor(prop) {
+    super(prop);
 
-        this.setImageUrl = this.setImageUrl.bind(this);
-        this.loadLocalImage = this.loadLocalImage.bind(this);
-    }
+    this.setImageUrl = this.setImageUrl.bind(this);
+    this.loadLocalImage = this.loadLocalImage.bind(this);
+  }
 
-    render() {
-        return (
-          <ControllerWrapper title='이미지'>
-            <div className={styles.items}>
-              <div className={styles.control_item + ' ' + styles.image_loader}
-                onClick={this.loadLocalImage}>
+  render() {
+    return (
+      <ControllerWrapper title="이미지">
+        <div className={styles.items}>
+          <div className={styles.control_item + ' ' + styles.image_loader}
+            onClick={this.loadLocalImage}
+          >
                         이미지 불러오기
-              </div>
-            </div>
-          </ControllerWrapper>
-        )
-    }
+          </div>
+        </div>
+      </ControllerWrapper>
+    )
+  }
 
   loadLocalImage() {
-      ImageService.getImage((result)=>{
-          if(result.result){
-              this.props.onChangeImage(result.data);
-          }
-      });
+    ImageService.getImage((result)=>{
+      if(result.result){
+        this.props.onChangeImage(result.data);
+      }
+    });
   }
 
   setImageUrl(event) {

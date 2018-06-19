@@ -24,8 +24,7 @@ class DialogHeader extends React.Component {
           return (<activetab key={'tab' + idx}>{tab}</activetab>);
         } else {
           return (<tab key={'tab' + idx}
-            onClick={() => this.selectTab(tab, idx)}
-          >{tab}</tab>);
+            onClick={() => this.selectTab(tab, idx)}>{tab}</tab>);
         }
       });
     };

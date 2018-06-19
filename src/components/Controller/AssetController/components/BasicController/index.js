@@ -5,170 +5,195 @@ import ControllerWrapper from '../ControllerWrapper/index'
 
 
 const propTypes = {
-    onChangeAttribute: React.PropTypes.func.isRequired,
-    onChangeStyle: React.PropTypes.func.isRequired,
-    showColorPicker: React.PropTypes.func.isRequired,
-    width: React.PropTypes.number.isRequired,
-    height: React.PropTypes.number.isRequired,
-    x: React.PropTypes.number.isRequired,
-    y: React.PropTypes.number.isRequired,
-    angle: React.PropTypes.number.isRequired,
-    backgroundColor: React.PropTypes.string.isRequired,
-    borderColor: React.PropTypes.string.isRequired,
-    borderWidth: React.PropTypes.number.isRequired,
-    style: React.PropTypes.object.isRequired
+  onChangeAttribute: React.PropTypes.func.isRequired,
+  onChangeStyle: React.PropTypes.func.isRequired,
+  showColorPicker: React.PropTypes.func.isRequired,
+  width: React.PropTypes.number.isRequired,
+  height: React.PropTypes.number.isRequired,
+  x: React.PropTypes.number.isRequired,
+  y: React.PropTypes.number.isRequired,
+  angle: React.PropTypes.number.isRequired,
+  backgroundColor: React.PropTypes.string.isRequired,
+  borderColor: React.PropTypes.string.isRequired,
+  borderWidth: React.PropTypes.number.isRequired,
+  style: React.PropTypes.object.isRequired
 }
 
 const defaultProps = {
-    width: 50,
-    height: 50,
-    x: 0,
-    y: 0,
-    angle: 0,
-    backgroundColor: 'rgba(0,0,0,0)',
-    borderColor: 'rgba(0,0,0,0)',
-    borderWidth: 1,
-    style: {}
+  width: 50,
+  height: 50,
+  x: 0,
+  y: 0,
+  angle: 0,
+  backgroundColor: 'rgba(0,0,0,0)',
+  borderColor: 'rgba(0,0,0,0)',
+  borderWidth: 1,
+  style: {}
 }
 
 const getPixel = (e) => {
-    let val = e.target.value;
-    if (!val || val.length == 0) {
-        val = 0;
-    }
-    return val + 'px';
+  let val = e.target.value;
+  if (!val || val.length == 0) {
+    val = 0;
+  }
+  return val + 'px';
 }
 
 class BasicController extends React.Component {
-    constructor(prop) {
-        super(prop);
-        this.state = {
-            attribute: true,
-            shape: true,
-            style: true,
-        };
+  constructor(prop) {
+    super(prop);
+    this.state = {
+      attribute: true,
+      shape: true,
+      style: true,
+    };
 
-        this.setWidth = this.setWidth.bind(this);
-        this.setHeight = this.setHeight.bind(this);
-        this.setX_location = this.setX_location.bind(this);
-        this.setY_location = this.setY_location.bind(this);
-        this.setAngle = this.setAngle.bind(this);
-        this.setStyle = this.setStyle.bind(this);
-        this.setBorderWidth = this.setBorderWidth.bind(this);
-        this.borderColorClickHandler = this.borderColorClickHandler.bind(this);
-        this.backgroundColorClickHandler = this.backgroundColorClickHandler.bind(this);
-    }
+    this.setWidth = this.setWidth.bind(this);
+    this.setHeight = this.setHeight.bind(this);
+    this.setX_location = this.setX_location.bind(this);
+    this.setY_location = this.setY_location.bind(this);
+    this.setAngle = this.setAngle.bind(this);
+    this.setStyle = this.setStyle.bind(this);
+    this.setBorderWidth = this.setBorderWidth.bind(this);
+    this.borderColorClickHandler = this.borderColorClickHandler.bind(this);
+    this.backgroundColorClickHandler = this.backgroundColorClickHandler.bind(this);
+  }
 
-    render() {
-        return (
-          <div>
-            <ControllerWrapper title={'속성'}>
-              <div className={styles.items}>
-                <div>
-                  <div className={styles.control_item}>
-                    <span className={styles.attribute_item_title}>H :</span>
-                    <input type='text' className={styles.attribute_item_input} value={this.props.height}
-                      onChange={this.setHeight} />
-                  </div>
-                  <div className={styles.control_item}>
-                    <span className={styles.attribute_item_title}>W :</span>
-                    <input type='text' className={styles.attribute_item_input} value={this.props.width}
-                      onChange={this.setWidth} />
-                  </div>
-                </div>
-                <div>
-                  <div className={styles.control_item}>
-                    <span className={styles.attribute_item_title}>X :</span>
-                    <input type='text' className={styles.attribute_item_input} value={this.props.x}
-                      onChange={this.setX_location} />
-                  </div>
-                  <div className={styles.control_item}>
-                    <span className={styles.attribute_item_title}>Y :</span>
-                    <input type='text' className={styles.attribute_item_input} value={this.props.y}
-                      onChange={this.setY_location} />
-                  </div>
-                </div>
-                <div className={styles.control_item}>
-                  <span className={styles.attribute_item_title}>A :</span>
-                  <input type='text' className={styles.attribute_item_input} value={this.props.angle}
-                    onChange={this.setAngle} />
-                </div>
+  render() {
+    return (
+      <div>
+        <ControllerWrapper title={'속성'}>
+          <div className={styles.items}>
+            <div>
+              <div className={styles.control_item}>
+                <span className={styles.attribute_item_title}>H :</span>
+                <input className={styles.attribute_item_input}
+                  onChange={this.setHeight}
+                  type="text"
+                  value={this.props.height}
+                />
               </div>
-            </ControllerWrapper>
-
-            <ControllerWrapper title={'도형'}>
-              <div className={styles.items}>
-                <div className={styles.control_item}>
-                  <span className={styles.attribute_item_title}><img src='/images/ic_color.png' /></span>
-                  <div className={styles.change_color} onClick={this.backgroundColorClickHandler}
-                    style={this.props.backgroundColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.backgroundColor}} />
-                </div>
-                <div className={styles.control_item}>
-                  <span className={styles.attribute_item_title}><img src='/images/ic_line.png' /></span>
-                  <div className={styles.attribute_both_input_area}>
-                    <div className={styles.change_color} onClick={this.borderColorClickHandler}
-                      style={this.props.borderColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.borderColor}} />
-                    <input type='text' className={styles.attribute_item_input}
-                      onChange={this.setBorderWidth} value={this.props.borderWidth} />
-                  </div>
-                </div>
+              <div className={styles.control_item}>
+                <span className={styles.attribute_item_title}>W :</span>
+                <input className={styles.attribute_item_input}
+                  onChange={this.setWidth}
+                  type="text"
+                  value={this.props.width}
+                />
               </div>
-            </ControllerWrapper>
-
-            <ControllerWrapper title={'스타일'}>
-              <div className={styles.items}>
-                <div id={styles.input_style}>
-                  <textarea onChange={this.setStyle} rows='' cols=''
-                    value={JSON.stringify(this.props.style, null, 4)} />
-                </div>
+            </div>
+            <div>
+              <div className={styles.control_item}>
+                <span className={styles.attribute_item_title}>X :</span>
+                <input className={styles.attribute_item_input}
+                  onChange={this.setX_location}
+                  type="text"
+                  value={this.props.x}
+                />
               </div>
-            </ControllerWrapper>
+              <div className={styles.control_item}>
+                <span className={styles.attribute_item_title}>Y :</span>
+                <input className={styles.attribute_item_input}
+                  onChange={this.setY_location}
+                  type="text"
+                  value={this.props.y}
+                />
+              </div>
+            </div>
+            <div className={styles.control_item}>
+              <span className={styles.attribute_item_title}>A :</span>
+              <input className={styles.attribute_item_input}
+                onChange={this.setAngle}
+                type="text"
+                value={this.props.angle}
+              />
+            </div>
           </div>
-        )
-    }
+        </ControllerWrapper>
 
-    setHeight(event) {
-        let val = getPixel(event);
-        this.props.onChangeAttribute('height', val);
-    }
+        <ControllerWrapper title={'도형'}>
+          <div className={styles.items}>
+            <div className={styles.control_item}>
+              <span className={styles.attribute_item_title}><img src="/images/ic_color.png" /></span>
+              <div className={styles.change_color}
+                onClick={this.backgroundColorClickHandler}
+                style={this.props.backgroundColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.backgroundColor}}
+              />
+            </div>
+            <div className={styles.control_item}>
+              <span className={styles.attribute_item_title}><img src="/images/ic_line.png" /></span>
+              <div className={styles.attribute_both_input_area}>
+                <div className={styles.change_color}
+                  onClick={this.borderColorClickHandler}
+                  style={this.props.borderColor === 'white' ? {border: '1px solid #5D87B5'} : {backgroundColor: this.props.borderColor}}
+                />
+                <input className={styles.attribute_item_input}
+                  onChange={this.setBorderWidth}
+                  type="text"
+                  value={this.props.borderWidth}
+                />
+              </div>
+            </div>
+          </div>
+        </ControllerWrapper>
 
-    setWidth(event) {
-        let val = getPixel(event);
-        this.props.onChangeAttribute('width', val);
-    }
+        <ControllerWrapper title={'스타일'}>
+          <div className={styles.items}>
+            <div id={styles.input_style}>
+              <textarea cols=""
+                onChange={this.setStyle}
+                rows=""
+                value={JSON.stringify(this.props.style, null, 4)}
+              />
+            </div>
+          </div>
+        </ControllerWrapper>
+      </div>
+    )
+  }
 
-    setX_location(event) {
-        let val = getPixel(event);
-        this.props.onChangeAttribute('x', val);
-    }
+  setHeight(event) {
+    let val = getPixel(event);
+    this.props.onChangeAttribute('height', val);
+  }
 
-    setY_location(event) {
-        let val = getPixel(event);
-        this.props.onChangeAttribute('y', val);
-    }
+  setWidth(event) {
+    let val = getPixel(event);
+    this.props.onChangeAttribute('width', val);
+  }
 
-    setStyle(event) {
-        let {value} = event.target;
-        this.props.onChangeAttribute('style', JSON.parse(value));
-    }
+  setX_location(event) {
+    let val = getPixel(event);
+    this.props.onChangeAttribute('x', val);
+  }
 
-    setAngle(event) {
-        let val = parseInt(event.target.value);
-        this.props.onChangeAttribute('angle', val);
-    }
+  setY_location(event) {
+    let val = getPixel(event);
+    this.props.onChangeAttribute('y', val);
+  }
 
-    setBorderWidth(event) {
-        let val = getPixel(event);
-        this.props.onChangeStyle('border-width', val);
-    }
+  setStyle(event) {
+    let {value} = event.target;
+    this.props.onChangeAttribute('style', JSON.parse(value));
+  }
 
-    backgroundColorClickHandler() {
-        this.props.showColorPicker('background-color', this.props.backgroundColor);
-    }
+  setAngle(event) {
+    let val = parseInt(event.target.value);
+    this.props.onChangeAttribute('angle', val);
+  }
 
-    borderColorClickHandler() {
-        this.props.showColorPicker('border-color', this.props.borderColor);
-    }
+  setBorderWidth(event) {
+    let val = getPixel(event);
+    this.props.onChangeStyle('border-width', val);
+  }
+
+  backgroundColorClickHandler() {
+    this.props.showColorPicker('background-color', this.props.backgroundColor);
+  }
+
+  borderColorClickHandler() {
+    this.props.showColorPicker('border-color', this.props.borderColor);
+  }
 }
 
 BasicController.propTypes = propTypes;

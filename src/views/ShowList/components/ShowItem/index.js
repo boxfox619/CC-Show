@@ -23,20 +23,30 @@ class ShowItem extends React.Component{
   render(){
     let renderThumbnail = function(){
       if(this.props.thumbnail!=undefined&&this.props.thumbnail.length>0)
-      return (
-        <img className={styles.thumbnail} src={this.props.thumbnail} />
-      );
+        return (
+          <img className={styles.thumbnail}
+            src={this.props.thumbnail}
+          />
+        );
     }.bind(this);
     return (
-      <div onClick={this.props.open} className={styles.showItem}>
+      <div className={styles.showItem}
+        onClick={this.props.open}
+      >
         {renderThumbnail()}
         <div className={styles.footer}>
           <div className={styles.texts}>
             <div className={styles.title}>{this.props.name}</div>
           </div>
           <div className={styles.buttons}>
-            <div onClick={this.onShare} id={styles.share} className={styles.imgBtn} />
-            <div onClick={this.onDelete}  id={styles.delete} className={styles.imgBtn} />
+            <div className={styles.imgBtn}
+              id={styles.share}
+              onClick={this.onShare}
+            />
+            <div className={styles.imgBtn}
+              id={styles.delete}
+              onClick={this.onDelete}
+            />
           </div>
         </div>
       </div>

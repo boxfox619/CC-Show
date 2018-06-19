@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Asset from 'components/Asset';
-import * as Loader from "../ShowLoader";
+import * as Loader from '../ShowLoader';
 
 const propTypes = {
   slide: React.PropTypes.object.isRequired,
@@ -13,12 +13,12 @@ class Slide extends React.Component {
     let slide = this.props.slide;
     return (<div style={{'display': visible ? 'block' : 'none'}}>
       {slide.assets.map((asset) => {
-            return <Asset
-              controlable={false}
-              key={slide.id + '-' + asset.id + '-' + slide.id}
-              attribute={Loader.convertStyleSize(asset)}
-            />
-          }
+        return <Asset
+          attribute={Loader.convertStyleSize(asset)}
+          controlable={false}
+          key={slide.id + '-' + asset.id + '-' + slide.id}
+        />
+      }
       )}
     </div>);
   }

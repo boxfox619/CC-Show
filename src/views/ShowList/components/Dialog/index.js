@@ -21,20 +21,33 @@ class Dialog extends React.Component{
   render(){
     let renderInput = function() {
       if(this.props.text ==undefined){
-        return (<input onChange={(e)=>{this.setState({value: e.target.value})}} type='text' className={styles.input} />);
+        return (<input className={styles.input}
+          onChange={(e)=>{this.setState({value: e.target.value})}}
+          type="text"
+                />);
       }else{
-        return (<input type='text' className={styles.input} readOnly value={this.props.text} />);
+        return (<input className={styles.input}
+          readOnly
+          type="text"
+          value={this.props.text}
+        />);
       }
     }.bind(this);
     return (
-      <div onClick={()=>this.props.callback()} className={styles.modal_wrapper}>
-        <div onClick={(e)=>{e.stopPropagation()}} className={styles.modal}>
+      <div className={styles.modal_wrapper}
+        onClick={()=>this.props.callback()}
+      >
+        <div className={styles.modal}
+          onClick={(e)=>{e.stopPropagation()}}
+        >
           <div className={styles.modal_header}>{this.props.msg}</div>
           <div className={styles.modal_content}>
             <div className={styles.input_wrapper}>
               {renderInput()}
             </div>
-            <div onClick={()=>this.props.callback(this.state.value)} className={styles.bottomGroup}>
+            <div className={styles.bottomGroup}
+              onClick={()=>this.props.callback(this.state.value)}
+            >
           확인
             </div>
           </div>

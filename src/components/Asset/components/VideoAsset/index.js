@@ -13,7 +13,10 @@ class VideoAsset extends React.Component{
     let code = getVideoCode(this.props.value);
     let renderVideo = (visible) =>{
       if(visible)
-        return (<iframe style={{'width':'100%','height':'100%'}} src={'https://www.youtube.com/embed/' + code} frameBorder='0' />);
+        return (<iframe frameBorder="0"
+          src={'https://www.youtube.com/embed/' + code}
+          style={{'width':'100%','height':'100%'}}
+        />);
       else return (<div className={styles.blankVideo}><img src={'/images/ic_play_circle_outline_white.png'} /></div>);
     }
     return (
@@ -25,7 +28,7 @@ class VideoAsset extends React.Component{
 }
 
 function getVideoCode(url){
-  return url.split("?v=")[1];
+  return url.split('?v=')[1];
 }
 
 VideoAsset.propTypes = propTypes;

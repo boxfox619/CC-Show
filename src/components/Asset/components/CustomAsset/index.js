@@ -8,17 +8,17 @@ const propTypes = {
 };
 
 function generateRandomCode(howMany, chars) {
-    chars = chars
-        || "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
-    var rnd = crypto.randomBytes(howMany)
-        , value = new Array(howMany)
-        , len = chars.length;
+  chars = chars
+        || 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789';
+  var rnd = crypto.randomBytes(howMany)
+    , value = new Array(howMany)
+    , len = chars.length;
 
-    for (var i = 0; i < howMany; i++) {
-        value[i] = chars[rnd[i] % len]
-    };
+  for (var i = 0; i < howMany; i++) {
+    value[i] = chars[rnd[i] % len]
+  }
 
-    return value.join('');
+  return value.join('');
 }
 
 
@@ -36,7 +36,9 @@ class CustomAsset extends React.Component{
 
   render() {
     return (
-      <div style={this.props.styles} dangerouslySetInnerHTML={{__html: this.state.code}} />
+      <div dangerouslySetInnerHTML={{__html: this.state.code}}
+        style={this.props.styles}
+      />
     )
   }
 
@@ -50,10 +52,10 @@ class CustomAsset extends React.Component{
 
   componentDidMount(){
     axios.get('/store/simple/?id='+this.props.value)
-    .then(response => {
-      this.setState({code : response.data.code});
-    }).catch(err => {
-    });
+      .then(response => {
+        this.setState({code : response.data.code});
+      }).catch(err => {
+      });
   }
 }
 

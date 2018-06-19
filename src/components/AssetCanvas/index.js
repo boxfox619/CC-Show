@@ -65,22 +65,23 @@ class AssetCanvas extends React.Component {
           isSelected = true;
         }
         return (<Asset
-          key={asset.id}
-          isSelected={isSelected}
-          doubleClicked={this.state.doubleClicked}
-          onChangeAttributes={this.props.onChangeAttributes}
           attribute={asset}
+          doubleClicked={this.state.doubleClicked}
+          isSelected={isSelected}
+          key={asset.id}
+          onChangeAttributes={this.props.onChangeAttributes}
         />)
       })
     };
     return (
       <scanvas
         className={this.props.className}
+        onDoubleClick={this.handleDoubleClickItem}
         onMouseDown={this.handleMouseDown}
+        onMouseLeave={this.handleMouseRelese}
         onMouseMove={this.handleMouseMove}
         onMouseUp={this.handleMouseRelese}
-        onMouseLeave={this.handleMouseRelese}
-        onDoubleClick={this.handleDoubleClickItem}>
+      >
         {renderingAssets(this.props.assets)}
       </scanvas>
     );
@@ -118,12 +119,12 @@ class AssetCanvas extends React.Component {
         let devY = (this.resizeTarget.includes('top')) ? this.state.yInElement
             - e.pageY : e.pageY - this.state.yInElement;
         let currentX = parseInt(
-            this.percentHeightToPixel(this.selectedAsset.x));
+          this.percentHeightToPixel(this.selectedAsset.x));
         let currentY = parseInt(this.percentWidthToPixel(this.selectedAsset.y));
         let currentWidth = parseInt(
-            this.percentWidthToPixel(this.selectedAsset.width));
+          this.percentWidthToPixel(this.selectedAsset.width));
         let currentHeight = parseInt(
-            this.percentHeightToPixel(this.selectedAsset.height));
+          this.percentHeightToPixel(this.selectedAsset.height));
         let afterHeight = currentHeight + devY + 'px';
         let afterWidth = currentWidth + devX + 'px';
         let afterX = currentX - devX + 'px';
@@ -190,7 +191,7 @@ class AssetCanvas extends React.Component {
   handleMouseDown(e) {
     document.activeElement.blur();
 
-    if (!!getAssetNode(TAG_ASSET, e.target)) {
+    if (getAssetNode(TAG_ASSET, e.target)) {
       if (this.selectedAssetId == getAssetNode(TAG_ASSET, e.target).id
           && this.state.doubleClicked) {
         return;

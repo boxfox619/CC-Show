@@ -12,10 +12,10 @@ function renderAppInElement(el) {
     <Provider store={store}>
       <Router history={browserHistory}>
         <div>
-          <Route exact path='/' component={Editor} />
-          <Route exact path='/editor' component={Editor} />
-          <Route exact path='/show' component={ShowList} />
-          <Route exact path='/show/play' component={SlideShow} />
+          <Route component={Editor} exact path="/"/>
+          <Route component={Editor} exact path="/editor"/>
+          <Route component={ShowList} exact path="/show"/>
+          <Route component={SlideShow} exact path="/show/play"/>
         </div>
       </Router>
     </Provider>, el);

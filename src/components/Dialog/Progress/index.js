@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './style.css';
 import modalStyles from '../style.css';
 
-class ProgressDialog extends React.Component{
+class ProgressDialog extends React.Component {
   constructor(props){
     super(props);
   }

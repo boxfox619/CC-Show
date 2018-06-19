@@ -33,11 +33,19 @@ class ShowListContext extends React.Component{
     let renderShowList = (showList) =>{
       if(showList==undefined) return;
       if(showList.length == 0){
-        return (<div onClick={this.createShow} className={styles.tempShow}>발표자료가 없습니다<br />새 발표자료 만들기</div>);
+        return (<div className={styles.tempShow}
+          onClick={this.createShow}
+        >발표자료가 없습니다<br />새 발표자료 만들기</div>);
       }else
-      return showList.map((show)=>{
-        return (<ShowItem key={show.id} name={show.name} thumbnail={show.thumbnail} open={()=>this.openShow(show.id)} share={()=>this.shareShow(show.id)} delete={()=>this.deleteShow(show.id)} />)
-      });
+        return showList.map((show)=>{
+          return (<ShowItem delete={()=>this.deleteShow(show.id)}
+            key={show.id}
+            name={show.name}
+            open={()=>this.openShow(show.id)}
+            share={()=>this.shareShow(show.id)}
+            thumbnail={show.thumbnail}
+          />)
+        });
     }
     let renderShowDialog = (job)=>{
       if(job==undefined) return;
@@ -49,10 +57,15 @@ class ShowListContext extends React.Component{
       }else if(job=='share'){
         msg = '이 링크로 발표자료를 공유할 수 있어요!!';
       }
-      return <Dialog msg={msg} text={this.state.text} callback={this.dialogCallback} />
+      return <Dialog callback={this.dialogCallback}
+        msg={msg}
+        text={this.state.text}
+      />
     }
     return (
-      <div style={{'marginTop':headerHeight}} className={styles.context}>
+      <div className={styles.context}
+        style={{'marginTop':headerHeight}}
+      >
         <div className={styles.showlist}>{renderShowList(this.state.showList)}</div>
         {renderShowDialog(this.state.job)}
       </div>
@@ -87,7 +100,7 @@ class ShowListContext extends React.Component{
   }
 
   renameShow(){
-      this.setState({job: 'rename'});
+    this.setState({job: 'rename'});
   }
 
   createShow(){
@@ -99,7 +112,7 @@ class ShowListContext extends React.Component{
   }
 
   shareShow(id){
-    let host = "http://"+window.location.hostname;
+    let host = 'http://'+window.location.hostname;
     this.setState({job: 'share', text: host+'/show/play/?show='+id});
   }
 

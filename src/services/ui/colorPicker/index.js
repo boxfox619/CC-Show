@@ -3,5 +3,4 @@ const colorPicker =  {
   FILL_COLOR: 'FillColor',
   BORDER_COLOR: 'BorderColor'
 }
-
 export default colorPicker;

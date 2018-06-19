@@ -13,11 +13,12 @@ class GradientButton extends React.Component {
 
   render() {
     return (
-        <div className={styles.clickableButton} onClick={this.props.onClick}>
-          <div>
-            {this.props.label}
-          </div>
+      <div className={styles.clickableButton}
+        onClick={this.props.onClick}>
+        <div>
+          {this.props.label}
         </div>
+      </div>
     );
   }
 }

@@ -38,72 +38,72 @@ class ShapeAsset extends React.Component{
   render() {
     let assetTag = Square
     switch(this.props.value){
-    case 'square' :
-      assetTag = Square
-      break;
-    case 'roundSquare' :
-      assetTag = RoundSquare
-      break;
-    case 'ellipse' :
-      assetTag = Ellipse
-      break;
-    case 'triangle' :
-      assetTag = Triangle
-      break;
-    case 'diamond' :
-      assetTag = Diamond
-      break;
-    case 'pentagon' :
-      assetTag = Pentagon
-      break;
-    case 'hexagon' :
-      assetTag = Hexagon
-      break;
-    case 'octagon' :
-      assetTag = Octagon
-      break;
-    case 'star' :
-      assetTag = Star
-      break;
-    case 'heart' :
-      assetTag = Heart
-      break;
-    case 'moon' :
-      assetTag = Moon
-      break;
-    case 'spade' :
-      assetTag = Spade
-      break;
-    case 'clover' :
-      assetTag = Clover
-      break;
-    case 'stain' :
-      assetTag = Stain
-      break;
-    case 'arrow1' :
-      assetTag = Arrow1
-      break;
-    case 'arrow2' :
-      assetTag = Arrow2
-      break;
-    case 'arrow3' :
-      assetTag = Arrow3
-      break;
-    case 'arrow4' :
-      assetTag = Arrow4
-      break;
-    case 'arrow5' :
-      assetTag = Arrow5
-      break;
-    case 'arrow6' :
-      assetTag = Arrow6
-      break;
-    case 'arrow7' :
-      assetTag = Arrow7
-      break;
-    case 'arrow8' :
-      assetTag = Arrow8
-      break;
+      case 'square' :
+        assetTag = Square
+        break;
+      case 'roundSquare' :
+        assetTag = RoundSquare
+        break;
+      case 'ellipse' :
+        assetTag = Ellipse
+        break;
+      case 'triangle' :
+        assetTag = Triangle
+        break;
+      case 'diamond' :
+        assetTag = Diamond
+        break;
+      case 'pentagon' :
+        assetTag = Pentagon
+        break;
+      case 'hexagon' :
+        assetTag = Hexagon
+        break;
+      case 'octagon' :
+        assetTag = Octagon
+        break;
+      case 'star' :
+        assetTag = Star
+        break;
+      case 'heart' :
+        assetTag = Heart
+        break;
+      case 'moon' :
+        assetTag = Moon
+        break;
+      case 'spade' :
+        assetTag = Spade
+        break;
+      case 'clover' :
+        assetTag = Clover
+        break;
+      case 'stain' :
+        assetTag = Stain
+        break;
+      case 'arrow1' :
+        assetTag = Arrow1
+        break;
+      case 'arrow2' :
+        assetTag = Arrow2
+        break;
+      case 'arrow3' :
+        assetTag = Arrow3
+        break;
+      case 'arrow4' :
+        assetTag = Arrow4
+        break;
+      case 'arrow5' :
+        assetTag = Arrow5
+        break;
+      case 'arrow6' :
+        assetTag = Arrow6
+        break;
+      case 'arrow7' :
+        assetTag = Arrow7
+        break;
+      case 'arrow8' :
+        assetTag = Arrow8
+        break;
     }
     const ShapeAsset = assetTag;
     return (
