@@ -3,7 +3,7 @@ import AssetItem from './components/action-item/index';
 import ActionItem from './components/asset-item/index';
 
 import * as Request from '../../services/request';
-import DialogHeader from '../Header';
+import DialogHeader from '../header';
 
 const tabs = [
   {name: '추천', filter: 'recommend'},
