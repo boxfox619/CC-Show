@@ -42,20 +42,21 @@ class TextAsset extends React.Component {
   }
 
   componentDidMount() {
-    let config = {
-      toolbar: [
-        {name: 'styles', items: ['Font', 'FontSize']},
-        {name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike']},
-        {name: 'paragraph', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']},
-        {name: 'colors', items: ['TextColor', 'BGColor']}
-      ]
-    };
+      let config = {
+          toolbar: [
+              {name: 'styles', items: ['Font', 'FontSize']},
+              {name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike']},
+              {name: 'paragraph', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']},
+              {name: 'colors', items: ['TextColor', 'BGColor']}
+          ]
+      };
     if (this.props.attrs.controlable && typeof CKEDITOR !== 'undefined') {
       let instance = CKEDITOR.inline(this.props.attrs.id, config);
       instance.on('change', function () {
         let data = instance.getData();
         this.props.handleChange(data);
       }.bind(this));
+      CKEDITOR.on('instanceReady', function(ck) { ck.editor.removeMenuItem('paste'); });
       CKEDITOR.disableAutoInline = true;
     }
   }
