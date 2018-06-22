@@ -4,7 +4,7 @@ import MonacoEditor from 'react-monaco-editor';
 const propTypes = {
   codeType: React.PropTypes.string.isRequired,
   onChange: React.PropTypes.func.isRequired,
-  code: React.PropTypes.string.isRequired
+    value: React.PropTypes.string.isRequired
 }
 
 export default function CodeEditor({codeType, onChange, value}) {
@@ -29,13 +29,13 @@ export default function CodeEditor({codeType, onChange, value}) {
 
   return (
     <MonacoEditor editorDidMount={editorDidMount}
-      height="252"
+      height='252'
       language={codeType}
       onChange={onChange}
       options={options}
       requireConfig={requireConfig}
       value={value}
-      width="100%"
+      width='100%'
     />
   );
 

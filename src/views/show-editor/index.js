@@ -1,25 +1,25 @@
 import React from 'react';
+import classnames from 'classnames';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+import styles from './style.css';
 import SideController from './components/side-controller';
 import AssetController from './components/asset-controller';
-import AssetManager from 'components/dialog/asset-manager';
 import SlideContext from './components/slide-context';
 import SlideManager from './components/slide-manager';
+import AssetManager from 'components/dialog/asset-manager';
 import ColorPicker from 'components/dialog/color-picker';
 import SlideShow from './components/slide-show-dialog';
 import ProgressDialog from 'components/dialog/progress';
-import dialogs from 'services/ui/dialogs';
 
 import * as editorActions from 'services/editor/actions';
 import * as uiActions from 'services/ui/actions';
 import * as accountActions from 'services/account/actions';
 
-import classnames from 'classnames';
-
-import {bindActionCreators} from 'redux';
-
-import styles from './style.css';
-import {connect} from 'react-redux';
-import * as assetTypes from 'services/editor/asset/assetTypes';
+import {getSelectedAsset} from "services/slide.state.util";
+import KeyService from "./services/key.manage.service";
+import dialogs from 'services/ui/dialogs';
 
 class ShowEditor extends React.Component {
 
@@ -28,34 +28,20 @@ class ShowEditor extends React.Component {
 
     this.state = {showId: undefined};
 
+    this.renderDialog = this.renderDialog.bind(this);
     this.checkContextDisabled = this.checkContextDisabled.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.onUnload = this.onUnload.bind(this);
   }
 
   render() {
-    let renderDialogs = () => {
-      if (this.props.ui.dialog != undefined) {
-        switch (this.props.ui.dialog) {
-          case dialogs.ASSET_STORE:
-            return (<AssetManager />);
-          case dialogs.COLOR_PICKER:
-            return (<ColorPicker />)
-          case dialogs.SLIDE_SHOW:
-            return (<SlideShow />);
-          case dialogs.PROGRESS:
-            return (<ProgressDialog />);
-        }
-      }
-    }
     let contextDisabled = this.checkContextDisabled();
     return (
       <div className={styles.showEditor}
         ref={root => {this.root = root}}
       >
         <SideController account={this.props.account}
-          buttonMap={this.sideControllerActions}
           className={styles.sideController}
+          editorActions={this.props.editorActions}
+          uiActions={this.props.uiActions}
         />
         <SlideManager
           className={classnames(styles.slideManager, (this.props.visibleSlideManager ? styles.show : ''))}
@@ -64,7 +50,7 @@ class ShowEditor extends React.Component {
           slides={this.props.showData.slides}
           uiActions={this.props.uiActions}
         />
-        {renderDialogs()}
+        {this.renderDialog(this.props.ui.dialog)}
         <div className={classnames(styles.contextWrap, (contextDisabled ? styles.disabled : ''))}>
           <div className={styles.contextSpace}>
             <SlideContext
@@ -75,50 +61,37 @@ class ShowEditor extends React.Component {
             />
           </div>
         </div>
-        <AssetController className={styles.assetController} />
+        <AssetController
+          selectedAsset={this.props.selectedAsset}
+          onChangeAttribute={this.props.editorActions.setSelectedAssetAttribute}
+          onChangeStyle={this.props.editorActions.setSelectedAssetStyle}
+          showColorPicker={this.props.uiActions.showColorPicker} />
       </div>
     );
   }
 
-  get sideControllerActions(){
-    return [
-      [
-        { label: '텍스트',  action: () => this.props.editorActions.createAssetByType(assetTypes.TYPE_TEXT) },
-        { label: '이미지',  action: () => this.props.editorActions.createAssetByType(assetTypes.TYPE_IMAGE) },
-        { label: '비디오',  action: () => this.props.editorActions.createAssetByType(assetTypes.TYPE_VIDEO) },
-        { label: '도형',  action: () => this.props.editorActions.createAssetByType(assetTypes.TYPE_SHAPE) },
-        { label: '표',  action: () => this.props.editorActions.createAssetByType(assetTypes.TYPE_TABLE) },
-        { label: '기타',  action: () => this.props.uiActions.toggleAssetStore() }
-      ],
-      [
-        { label: '슬라이드 리스트',  action: () => this.props.uiActions.toggleSlideManager() },
-        { label: '슬라이드 쇼',  action: () => this.props.uiActions.toggleSlideShow() }
-      ]
-    ];
-  }
+    renderDialog(dialog) {
+        if (dialog) {
+            switch (dialog) {
+                case dialogs.ASSET_STORE:
+                    return (<AssetManager />);
+                case dialogs.COLOR_PICKER:
+                    return (<ColorPicker />)
+                case dialogs.SLIDE_SHOW:
+                    return (<SlideShow />);
+                case dialogs.PROGRESS:
+                    return (<ProgressDialog />);
+            }
+        }
+    }
 
   componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown, true);
-    window.addEventListener('beforeunload', this.onUnload);
+      KeyService.registerKey({...this.props.editorActions, ...this.props.uiActions}, this.props.showId);
     this.props.editorActions.loadShowData();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown);
-    window.removeEventListener('beforeunload', this.onUnload)
-  }
-
-  handleKeyDown(e) {
-    if (e.keyCode === 27) {
-      this.props.uiActions.releaseDialog();
-    } else if ((e.which == 83 && e.ctrlKey)) {
-      this.props.editorActions.saveShowData(this.props.showId);
-      e.preventDefault()
-    }
-  }
-
-  onUnload(event) {
-    return event.returnValue = '발표자료를 저장하셨나요? (Ctrl + S)';
+    KeyService.unregisterKey();
   }
 
   checkContextDisabled() {
@@ -137,7 +110,8 @@ const mapStateToProps = (state) => {
     showData: state.editor,
     account: state.account,
     visibleSlideManager: state.ui.visibleSlideManager,
-    showId: state.editor.showId
+    showId: state.editor.showId,
+      selectedAsset: getSelectedAsset(state)
   }
 }
 

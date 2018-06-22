@@ -3,7 +3,7 @@ import styles from './style.css';
 
 import AssetCanvas from 'components/asset-canvas';
 import * as assetTypes from 'services/editor/asset/assetTypes';
-import MonacoEditor from './monacoEditor.component';
+import MonacoEditor from './monaco.editor.component';
 
 const propTypes = {
   onChangeCode: React.PropTypes.func.isRequired,

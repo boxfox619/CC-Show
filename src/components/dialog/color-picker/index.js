@@ -10,7 +10,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 const propTypes = {
-  className: React.PropTypes.string.isRequired,
   color: React.PropTypes.string.isRequired,
   colorType: React.PropTypes.string.isRequired,
   releaseDialog: React.PropTypes.func.isRequired,
