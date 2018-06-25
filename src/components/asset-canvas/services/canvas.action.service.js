@@ -136,32 +136,32 @@ export const resize = (state, e) =>{
 }
 
 export const down = (state, e) => {
-  document.activeElement.blur();
-  let state = {};
+    document.activeElement.blur();
+    let modifyState = {};
 
-  if (getAssetNode(TAG_ASSET, e.target)) {
-    if (state.selectedAssetId == getAssetNode(TAG_ASSET, e.target).id && this.state.doubleClicked) {
-      return;
+    if (getAssetNode(TAG_ASSET, e.target)) {
+        if (state.selectedAssetId == getAssetNode(TAG_ASSET, e.target).id && this.state.doubleClicked) {
+            return;
+        }
+        if (e.target.tagName == TAG_COL_RESIZER) {
+            return;
+        }
+        modifyState.doubleClicked = false;
+        modifyState.selectedAssetId = getAssetNode(TAG_ASSET, e.target).id;
+        modifyState.mouseAction = 'move';
+        if (e.target.tagName == TAG_SELECTORDOT || e.target.tagName
+            == TAG_SELECTORLINE) {
+            modifyState.mouseAction = 'resize';
+            modifyState.resizeTarget = e.target.getAttribute('target');
+        }
+        modifyState.xInElement = e.pageX;
+        modifyState.yInElement = e.pageY;
+        e.preventDefault();
+    } else {
+        modifyState.doubleClicked = false;
+        modifyState.selectedAssetId = undefined;
+        e.preventDefault();
+        clearSelection();
     }
-    if (e.target.tagName == TAG_COL_RESIZER) {
-      return;
-    }
-    state.doubleClicked = false;
-    state.selectedAssetId = getAssetNode(TAG_ASSET, e.target).id;
-    state.mouseAction = 'move';
-    if (e.target.tagName == TAG_SELECTORDOT || e.target.tagName
-        == TAG_SELECTORLINE) {
-      state.mouseAction = 'resize';
-      state.resizeTarget = e.target.getAttribute('target');
-    }
-    state.xInElement = e.pageX;
-    state.yInElement = e.pageY;
-    e.preventDefault();
-  } else {
-    state.doubleClicked = false;
-    state.selectedAssetId = undefined;
-    e.preventDefault();
-    clearSelection();
-  }
-  return state;
+    return modifyState;
 }

@@ -7,7 +7,6 @@ import * as assetTypes from 'services/editor/asset/assetTypes';
 import TextAsset from './components/text-asset';
 import ImageAsset from './components/image-asset';
 import VideoAsset from './components/video-asset';
-import TableAsset from './components/table-asset';
 import CustomAsset from './components/custom-asset';
 import ShapeAsset from './components/shape-asset';
 import PreviewAsset from './components/preview-asset';
@@ -112,9 +111,6 @@ class Asset extends React.Component{
       case assetTypes.TYPE_SHAPE:
         assetTag = ShapeAsset;
         attrs = this.props.attribute;
-        break;
-      case assetTypes.TYPE_TABLE:
-        assetTag = TableAsset;
         break;
       case assetTypes.TYPE_CUSTOM:
         assetTag = CustomAsset;
