@@ -1,6 +1,6 @@
 import React from 'react';
 import Asset from 'components/asset';
-import CanvasActionService from './services/canvas.action.service';
+import * as CanvasActionService from './services/canvas.action.service';
 
 const propTypes = {
   className: React.PropTypes.string,
@@ -71,25 +71,28 @@ class AssetCanvas extends React.Component {
 
   handleMouseMove(e) {
     if (this.props.selectedAssetIndex != undefined && this.state.mouseAction != 'none') {
-      if (this.selectedAsset.type == 'ASSET_TYPE_VIDEO' && this.selectedAsset.preview) {
+      if (this.state.selectedAsset.type == 'ASSET_TYPE_VIDEO' && this.state.selectedAsset.preview) {
         this.setState({mouseAction: 'none'});
         return;
       }
       if (this.state.mouseAction == 'move') {
-        let result = CanvasActionService.move(this,state, e);
-        this.props.onChangeAttributes(result.attr);
+        let result = CanvasActionService.move(e, this.state, this.props.assets[this.props.selectedAssetIndex]);
+        this.props.onChangeAttributes(result.attrs);
         this.setState(result.state);
       } else if (this.state.mouseAction == 'resize') {
-        let result = CanvasActionService.resize(this,state, e);
-        this.props.onChangeAttributes(result.attr);
-        this.setState(result.state);
+        let result = CanvasActionService.resize(e, this.state, this.props.assets[this.props.selectedAssetIndex]);
+          if (!!result) {
+              this.props.onChangeAttributes(result.attrs);
+              this.setState(result.state);
+          }
       }
       this.props.onModified();
     }
   }
 
   handleMouseDown(e) {
-    let state = CanvasActionService.down(this,state, e);
+    let state = CanvasActionService.down(e, this.state);
+    this.setState(state);
     this.props.onAssetSelected(state.selectedAssetId);
     this.props.onModified();
   }
