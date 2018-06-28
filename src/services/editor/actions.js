@@ -1,6 +1,7 @@
 import {toggleProgressDialog} from "services/ui/actions";
 import {actionTypes, updateSlideThumbnail} from './slide/actions';
 import {updateAccountData} from '../account/actions';
+import {getScanvas} from "../dom.service";
 import domtoimage from "dom-to-image";
 import axios from "axios/index";
 
@@ -23,9 +24,9 @@ export const saveShowData = (showId) => {
         let filter = (node) => {
             return (node.tagName !== 'SELECTORLINE' && node.tagName !== 'SELECTORDOT')
         };
-        let node = document.getElementsByTagName('scanvas')[0];
+        let canvas = getScanvas();
         let currentSilde = getState().editor.selectedSlide;
-        domtoimage.toPng(node, {filter: filter}).then(function (dataUrl) {
+        domtoimage.toPng(canvas, {filter: filter}).then(function (dataUrl) {
             dispatch(updateSlideThumbnail(currentSilde, dataUrl));
             if (showId != undefined) {
                 dispatch(toggleProgressDialog());

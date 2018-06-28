@@ -1,3 +1,4 @@
+import { clearSelection, getScanvas } from "../../../services/dom.service";
 const TAG_ASSET = 'ASSET';
 const TAG_COL_RESIZER = 'COL-RESIZER';
 const TAG_SELECTORDOT = 'SELECTORDOT';
@@ -12,14 +13,6 @@ function getAssetNode(parent, child) {
         node = node.parentNode;
     }
     return null;
-}
-
-function clearSelection() {
-    if (window.getSelection) {
-        window.getSelection().removeAllRanges();
-    } else if (document.selection) {
-        document.selection.empty();
-    }
 }
 
 function percentHeightToPixel(val) {
@@ -57,11 +50,6 @@ function pixelWidthToPercent(val) {
         return parseInt(val) / parseInt(getScanvas().offsetWidth) * 100 + '%';
     }
     return val;
-}
-
-function getScanvas() {
-    let scanvas = document.getElementsByTagName('scanvas')[0];
-    return scanvas;
 }
 
 export const move = (e, state, selectedAsset) => {
