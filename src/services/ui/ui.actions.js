@@ -1,4 +1,4 @@
-import dialogs from './dialogs';
+import dialogs from './model/dialog';
 
 export const TOGGLE_DIALOG = 'TOGGLE_DIALOG';
 export const RELEASE_DIALOG = 'RELEASE_DIALOG';

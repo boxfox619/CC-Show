@@ -13,13 +13,13 @@ import ColorPicker from 'components/dialog/color-picker';
 import SlideShow from './components/slide-show-dialog';
 import ProgressDialog from 'components/dialog/progress';
 
-import * as editorActions from 'services/editor/actions';
-import * as uiActions from 'services/ui/actions';
-import * as accountActions from 'services/account/actions';
+import * as editorActions from 'services/editor/editor.actions';
+import * as uiActions from 'services/ui/ui.actions';
+import * as accountActions from 'services/account/account.actions';
 
 import {getSelectedAsset} from "services/slide.state.util";
 import KeyService from "./services/key.manage.service";
-import dialogs from 'services/ui/dialogs';
+import dialogs from 'services/ui/model';
 
 class ShowEditor extends React.Component {
 
@@ -56,7 +56,7 @@ class ShowEditor extends React.Component {
             <SlideContext
               className={styles.slideContext}
               editorActions={this.props.editorActions}
-              onModified={() => this.props.editorActions.saveShowDataAfterTimeout(this.props.showId)}
+              onModified={() => this.props.editorActions.saveShowAfterTimeout(this.props.showId)}
               showData={this.props.showData}
             />
           </div>
@@ -87,7 +87,7 @@ class ShowEditor extends React.Component {
 
   componentDidMount() {
       KeyService.registerKey({...this.props.editorActions, ...this.props.uiActions}, this.props.showId);
-    this.props.editorActions.loadShowData();
+    this.props.editorActions.loadShow();
   }
 
   componentWillUnmount() {

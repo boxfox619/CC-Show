@@ -1,7 +1,7 @@
 import React from 'react';
 import {SketchPicker} from 'react-color';
-import * as uiActions from 'services/ui/actions';
-import * as assetsActions from 'services/editor/asset/actions';
+import * as uiActions from 'services/ui/ui.actions';
+import * as assetsActions from 'services/editor/asset/asset.actions';
 
 import styles from './style.css';
 import modalStyles from '../style.css';

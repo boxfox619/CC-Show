@@ -1,4 +1,4 @@
-import { actionTypes } from './actions';
+import { actionTypes } from './account.actions';
 
 const initialState = {
   name: 'Guest',

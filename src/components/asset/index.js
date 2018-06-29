@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './style.css';
 
-import * as assetTypes from 'services/editor/asset/assetTypes';
+import * as assetTypes from 'services/editor/asset/asset.types';
 
 import TextAsset from './components/text-asset';
 import ImageAsset from './components/image-asset';

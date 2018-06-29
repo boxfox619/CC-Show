@@ -5,8 +5,8 @@ import AssetDetail from './components/detail';
 import AssetStore from './components/store';
 import AssetEditor from './components/editor';
 
-import * as assetsActions from 'services/editor/asset/actions';
-import * as uiActions from 'services/ui/actions';
+import * as assetsActions from 'services/editor/asset/asset.actions';
+import * as uiActions from 'services/ui/ui.actions';
 import modalStyles from '../style.css';
 
 class AssetManager extends React.Component {

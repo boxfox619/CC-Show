@@ -1,6 +1,6 @@
-import asset from './asset/reducer';
-import slide from './slide/reducer';
-import {INIT_SHOW_DATA} from './actions';
+import asset from './asset/asset.reducer';
+import slide from './slide/slide.reducer';
+import {INIT_SHOW_DATA} from './editor.actions';
 
 const initialState = {
     sizeUnit: 'px',

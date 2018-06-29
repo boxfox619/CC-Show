@@ -1,4 +1,4 @@
-import * as assetTypes from './assetTypes';
+import * as assetTypes from './asset.types';
 
 export const ASSET_SET_MULTIPLE_ATTRIBUTE = 'ASSET_SET_MULTIPLE_ATTRIBUTE';
 export const ASSET_SET_STYLE = 'ASSET_SET_STYLE';

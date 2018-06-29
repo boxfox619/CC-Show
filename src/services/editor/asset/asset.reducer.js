@@ -1,7 +1,7 @@
-import * as actionTypes from './actions';
+import * as actionTypes from './asset.actions';
 import update from 'react-addons-update';
+import {createAssetReducer as create} from './asset.create.reducer';
 import {insertItem} from '../util';
-import {createAssetReducer as create} from './create';
 
 const updateAsset = (state, updateData) => {
     let currentSlide = state.slides[state.selectedSlide];
@@ -17,7 +17,6 @@ const updateAsset = (state, updateData) => {
 }
 
 const updateCurrentSlide = (state, updateData) => {
-
     return {
         ...state,
         slides: update(

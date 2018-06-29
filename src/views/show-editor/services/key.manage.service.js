@@ -27,7 +27,7 @@ class KeyService {
         if (e.keyCode === 27) {
             this.actions.releaseDialog();
         } else if ((e.which == 83 && e.ctrlKey)) {
-            this.actions.saveShowData(this.showId);
+            this.actions.saveShow(this.showId);
             e.preventDefault()
         }
     }

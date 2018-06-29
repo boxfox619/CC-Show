@@ -1,5 +1,5 @@
-import {setSelectedAssetAttribute} from 'services/editor/asset/actions';
-import {toggleProgressDialog} from 'services/ui/actions';
+import {setSelectedAssetAttribute} from 'services/editor/asset/asset.actions';
+import {toggleProgressDialog} from 'services/ui/ui.actions';
 import {loadLocalImage} from "./dom.service";
 import axios from 'axios';
 import store from '../store';

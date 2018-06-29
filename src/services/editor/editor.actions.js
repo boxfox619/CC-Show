@@ -1,15 +1,15 @@
-import {toggleProgressDialog} from "services/ui/actions";
-import {actionTypes, updateSlideThumbnail} from './slide/actions';
-import {updateAccountData} from '../account/actions';
+import {toggleProgressDialog} from "services/ui/ui.actions";
+import {actionTypes, updateSlideThumbnail} from './slide/slide.actions';
+import {updateAccountData} from '../account/account.actions';
 import {getScanvas} from "../dom.service";
 import domtoimage from "dom-to-image";
 import axios from "axios/index";
 
-export * from './slide/actions';
-export * from './asset/actions';
+export * from './slide/slide.actions';
+export * from './asset/asset.actions';
 export const INIT_SHOW_DATA = 'INIT_SHOW_DATA';
 
-const uploadShowData = (showId, showData, callback) => {
+const uploadShow = (showId, showData, callback) => {
     let result = {'result': false};
     axios.post('/show/data', {showId, showData}).then(response => {
         result['result'] = true;
@@ -19,7 +19,7 @@ const uploadShowData = (showId, showData, callback) => {
     });
 }
 
-export const saveShowData = (showId) => {
+export const saveShow = (showId) => {
     return (dispatch, getState) => {
         let filter = (node) => {
             return (node.tagName !== 'SELECTORLINE' && node.tagName !== 'SELECTORDOT')
@@ -30,7 +30,7 @@ export const saveShowData = (showId) => {
             dispatch(updateSlideThumbnail(currentSilde, dataUrl));
             if (showId != undefined) {
                 dispatch(toggleProgressDialog());
-                uploadShowData(showId, getState().editor, function (response) {
+                uploadShow(showId, getState().editor, function (response) {
                     dispatch(toggleProgressDialog());
                 });
             }
@@ -41,7 +41,7 @@ export const saveShowData = (showId) => {
     };
 };
 
-export const initShowData = (showId, data) => {
+export const initShow = (showId, data) => {
     return {
         type: INIT_SHOW_DATA,
         showId,
@@ -63,13 +63,13 @@ const load = (callback) => {
     });
 }
 
-export const loadShowData = () => {
+export const loadShow = () => {
     return (dispatch, getState) => {
         dispatch(toggleProgressDialog());
         load(function (response) {
             if (response.result == true) {
                 dispatch(updateAccountData(response.data.account.email, response.data.account.nickname, response.data.account.profile));
-                dispatch(initShowData(response.showId, response.data.showData));
+                dispatch(initShow(response.showId, response.data.showData));
             }
             dispatch(toggleProgressDialog());
         });
@@ -77,11 +77,11 @@ export const loadShowData = () => {
 }
 
 let timeoutId = undefined;
-export const saveShowDataAfterTimeout = (showId) => {
+export const saveShowAfterTimeout = (showId) => {
     return (dispatch, getState) => {
         if (timeoutId) clearTimeout(timeoutId);
         timeoutId = setTimeout(function () {
-            dispatch(saveShowData(showId));
+            dispatch(saveShow(showId));
         }, 1000);
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './style.css';
 import AssetCanvas from 'components/asset-canvas';
-import * as assetTypes from 'services/editor/asset/assetTypes';
+import * as assetTypes from 'services/editor/asset/asset.types';
 
 const propTypes = {
   asset: React.PropTypes.object.isRequired
