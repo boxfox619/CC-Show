@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, browserHistory } from 'react-router-dom';
-import Editor from 'views/show-editor';
-import ShowList from 'views/show-list';
-import SlideShow from 'views/slide-show';
+import Editor from 'src/containers/show-editor';
+import ShowList from 'src/containers/show-list';
+import SlideShow from 'src/containers/slide-show';
 import { Provider } from 'react-redux';
 import store from './store';
 
