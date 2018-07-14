@@ -19,7 +19,7 @@ import * as accountActions from 'services/account/account.actions';
 
 import {getSelectedAsset} from "services/slide.state.util";
 import KeyService from "./services/key.manage.service";
-import dialogs from 'services/ui/model';
+import dialogs from 'services/ui/model/dialog';
 
 class ShowEditor extends React.Component {
 

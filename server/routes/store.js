@@ -53,7 +53,10 @@ module.exports = function(realm) {
         return realm.write(()=>{
           let asset = realm.objects('Asset').filtered('id='+req.query.assetId)[0];
           asset.view += 1;
-          return res.json(asset);
+          let copiedAsset = {...asset};
+          copiedAsset.thumbnails = asset.thumbnails.map(strObj => strObj.value);
+          copiedAsset.tags = asset.tags.map(strObj => strObj.value);
+          return res.json(copiedAsset);
         });
       }else{
         return res.status(400).end("Asset doesn't exists!");
@@ -88,8 +91,8 @@ module.exports = function(realm) {
                   return realm.write(() => {
                       asset.title = req.body.title;
                       asset.openToStore = req.body.openToStore;
-                      asset.thumbnails = req.body.thumbnail;
-                      asset.tags = req.body.tags;
+                      asset.thumbnails = req.body.thumbnails.map(url => {value: url});
+                      asset.tags = req.body.tags.map(tag => {value: tag});
                       asset.css = req.body.css;
                       asset.js = req.body.js;
                       asset.html = req.body.html;
@@ -106,9 +109,9 @@ module.exports = function(realm) {
                    date: new Date(),
                    title: req.body.title,
                    openToStore: req.body.openToStore,
-                   thumbnails: req.body.thumbnail,
+                   thumbnails: req.body.thumbnails.map(url => {value: url}),
                    content: req.body.content,
-                   tags: req.body.tags,
+                   tags: req.body.tags.map(tag => {value: tag}),
                    css: req.body.css,
                    js: req.body.js,
                    html: req.body.html
