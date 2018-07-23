@@ -1,5 +1,6 @@
 import React from 'react';
-import Asset from 'components/asset';
+import Asset from './components/asset';
+import Guideline from './components/guideline';
 import * as CanvasActionService from './services/canvas.action.service';
 
 const propTypes = {
@@ -34,23 +35,31 @@ class AssetCanvas extends React.Component {
   }
 
   render() {
-    let renderingAssets = (assets) => {
-      let idx = 0;
-      return assets.map((asset) => {
-        let isSelected = false;
-        if (this.props.selectedAssetIndex == idx++) {
-          this.selectedAsset = asset;
-          isSelected = true;
-        }
-        return (<Asset
-          attribute={asset}
-          doubleClicked={this.state.doubleClicked}
-          isSelected={isSelected}
-          key={asset.id}
-          onChangeAttributes={this.props.onChangeAttributes}
-        />)
-      })
-    };
+      let renderingAssets = (assets) => {
+          return assets.map((asset, idx) => {
+              let isSelected = false;
+              if (this.props.selectedAssetIndex == idx) {
+                  isSelected = true;
+              }
+              return (
+                <Asset
+                  attribute={asset}
+                  doubleClicked={this.state.doubleClicked}
+                  isSelected={isSelected}
+                  key={asset.id}
+                  onChangeAttributes={this.props.onChangeAttributes}
+                  />
+              )
+          })
+      };
+      let renderingGuideLine = (assets) => {
+          if (this.props.selectedAssetIndex > 0) {
+              let guidelines = CanvasActionService.calGuideLine(assets, this.props.selectedAssetIndex);
+              return guidelines.map((guideline) => {
+                  return (<Guideline attribute={guideline} />)
+              })
+          }
+      }
     return (
       <scanvas
         className={this.props.className}
@@ -61,6 +70,7 @@ class AssetCanvas extends React.Component {
         onMouseUp={this.handleMouseRelese}
       >
         {renderingAssets(this.props.assets)}
+        {renderingGuideLine(this.props.assets)}
       </scanvas>
     );
   }

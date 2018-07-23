@@ -41,6 +41,7 @@ p {
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
+    z-index: 99;
     background-color: #038AFD;
 }
 

@@ -4,6 +4,7 @@ const TAG_COL_RESIZER = 'COL-RESIZER';
 const TAG_SELECTORDOT = 'SELECTORDOT';
 const TAG_SELECTORLINE = 'SELECTORLINE';
 
+
 function getAssetNode(parent, child) {
     var node = child.parentNode;
     while (node != null) {
@@ -50,6 +51,38 @@ function pixelWidthToPercent(val) {
         return parseInt(val) / parseInt(getScanvas().offsetWidth) * 100 + '%';
     }
     return val;
+}
+
+export const calGuideLine = (assets, selectedIndex) => {
+    let guidelines = []
+    let selectedAsset = assets[selectedIndex];
+    let selectedAssetX = parseInt(selectedAsset.x);
+    let selectedAssetY = parseInt(selectedAsset.y);
+    let selectedAssetWidth = parseInt(selectedAsset.width);
+    let selectedAssetHeight = parseInt(selectedAsset.height);
+    assets.map((asset, idx) => {
+        if (selectedIndex != idx) {
+            let assetX = parseInt(asset.x);
+            let assetY = parseInt(asset.y);
+            let assetWidth = parseInt(asset.width);
+            let assetHeight = parseInt(asset.height);
+            console.log((selectedAssetY + selectedAssetHeight) == (assetY + assetHeight));
+            if (selectedAssetX == assetX) {
+                guidelines.push({left: selectedAssetX + 6 + 'px'});
+            }
+            if (selectedAssetY == assetY) {
+                guidelines.push({top: selectedAssetY + 6 + 'px'});
+            }
+            if ((selectedAssetX + selectedAssetWidth) == (assetX + assetWidth)) {
+                guidelines.push({left: selectedAssetX + selectedAssetWidth + 11 + 'px'});
+            }
+            if ((selectedAssetY + selectedAssetHeight) == (assetY + assetHeight)) {
+                guidelines.push({top: selectedAssetY + selectedAssetHeight + 11 + 'px'});
+            }
+        }
+    });
+    console.log(guidelines)
+    return guidelines;
 }
 
 export const move = (e, state, selectedAsset) => {

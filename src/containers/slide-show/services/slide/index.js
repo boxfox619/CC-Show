@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Asset from 'components/asset';
+import Asset from 'components/asset-canvas/components/asset';
 import * as Loader from '../show-loader';
 
 const propTypes = {

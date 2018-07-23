@@ -1,0 +1,14 @@
+.guideline {
+    position: absolute;
+    background: greenyellow;
+}
+
+.vertical {
+    height: 100vh;
+    width: 2px;
+}
+
+.horizontal {
+    width: 100vw;
+    height: 2px;
+}
