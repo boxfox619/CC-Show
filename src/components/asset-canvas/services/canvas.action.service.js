@@ -72,16 +72,16 @@ export const calGuideLine = (assets, selectedIndex) => {
             let height = Math.max(selectedAssetYEnd, assetY + assetHeight) - minY + 12;
             let minX = Math.min(selectedAssetX, assetX);
             let width = Math.max(selectedAssetXEnd, assetX + assetWidth) - minX + 12;
-            if (selectedAssetX == assetX) {
+            if (selectedAssetX == assetX  || selectedAssetX == (assetX + assetWidth)) {
                 guidelines.push({left: selectedAssetX + 6 + 'px', top: minY, height});
             }
-            if (selectedAssetY == assetY) {
+            if (selectedAssetY == assetY || selectedAssetY == (assetY + assetHeight)) {
                 guidelines.push({top: selectedAssetY + 6 + 'px', left: minX, width});
             }
-            if ((selectedAssetXEnd) == (assetX + assetWidth)) {
+            if ((selectedAssetXEnd) == (assetX + assetWidth) || selectedAssetXEnd == assetX) {
                 guidelines.push({left: selectedAssetXEnd + 10 + 'px', top: minY, height});
             }
-            if ((selectedAssetYEnd) == (assetY + assetHeight)) {
+            if ((selectedAssetYEnd) == (assetY + assetHeight) || selectedAssetYEnd == assetY) {
                 guidelines.push({top: selectedAssetYEnd + 10 + 'px', left: minX, width});
             }
         }
@@ -89,28 +89,33 @@ export const calGuideLine = (assets, selectedIndex) => {
     return guidelines;
 }
 
-export const calPositionX = (x, assets) => {
-    let result = x;
+export const calPosition = (type, position, size, assets) => {
     let sub = 100;
+    let result = position;
+    let endPosition = position + size;
     assets.map(asset => {
-        let assetX = parseInt(asset.x);
-        let abs = Math.abs(x - assetX);
-        console.log(abs);
-        if (abs <= 2 && sub > Math.abs(x - assetX)) {
-            result = assetX;
+        let assetPosition = parseInt(asset[type]);
+        let assetSize = parseInt(asset[type == 'x' ? 'width' : 'height']);
+        let assetEndPosition = assetPosition + assetSize;
+        let abs = Math.abs(position - assetPosition);
+        if (abs <= 2 && sub > abs) {
+            result = assetPosition;
+            return;
         }
-    })
-    return result;
-}
-
-export const calPositionY = (y, assets) => {
-    let result = y;
-    let sub = 100;
-    assets.map(asset => {
-        let assetY = parseInt(asset.y);
-        let abs = Math.abs(y - assetY);
-        if (abs <= 2 && sub > Math.abs(y - assetY)) {
-            result = assetY;
+        abs = Math.abs(endPosition - assetEndPosition);
+        if (abs <= 3 && sub > abs) {
+            result = position - (endPosition - assetEndPosition);
+            return;
+        }
+        abs = Math.abs(position - assetEndPosition);
+        if (abs <= 3 && sub > abs) {
+            result = assetEndPosition;
+            return;
+        }
+        abs = Math.abs(endPosition - assetPosition);
+        if (abs <= 3 && sub > abs) {
+            result = assetPosition - size;
+            return;
         }
     })
     return result;
@@ -122,8 +127,8 @@ export const move = (e, state, assets, selectedAssetIdx) => {
     let y = e.pageY;
     let afterX = parseInt(percentWidthToPixel(selectedAsset.x)) + (x - state.xInElement);
     let afterY = parseInt(percentHeightToPixel(selectedAsset.y)) + (y - state.yInElement);
-    afterX = calPositionX(afterX, assets.filter((a, i) => i!=selectedAssetIdx));
-    afterY = calPositionY(afterY, assets.filter((a, i) => i!=selectedAssetIdx));
+    afterX = calPosition('x', afterX, parseInt(selectedAsset.width), assets.filter((v, i) => i != selectedAssetIdx));
+    afterY = calPosition('y', afterY, parseInt(selectedAsset.height), assets.filter((v, i) => i != selectedAssetIdx));
     afterX = afterX + 'px';
     afterY = afterY + 'px';
     if (selectedAsset.x.endsWith('%')) {
@@ -142,13 +147,13 @@ export const resize = (e, state, selectedAsset) => {
     let currentX = parseInt(percentHeightToPixel(selectedAsset.x));
     let currentY = parseInt(percentWidthToPixel(selectedAsset.y));
     let currentWidth = parseInt(percentWidthToPixel(parseInt(selectedAsset.width)+'px'));
-    let currentHeight = parseInt(percentHeightToPixel(parseInt(selectedAsset.height)+'px'));
+    let currentHeight = parseInt(percentHeightToPixel(parseInt(selectedAsset.height) + 'px'));
     let afterHeight = currentHeight + devY + 'px';
     let afterWidth = currentWidth + devX + 'px';
     let afterX = currentX - devX + 'px';
     let afterY = currentY - devY + 'px';
-    if (parseInt(afterWidth) < 5 || parseInt(afterHeight) < 5) {
-        return;
+if (parseInt(afterWidth) < 5 || parseInt(afterHeight) < 5) {
+    return;
     }
     if (selectedAsset.x.endsWith('%')) {
         afterY = pixelHeightToPercent(afterY);
