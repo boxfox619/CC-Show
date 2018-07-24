@@ -12,11 +12,12 @@ import ShapeAsset from './components/shape-asset';
 import PreviewAsset from './components/preview-asset';
 
 const propTypes = {
-  attribute: React.PropTypes.object,
-  isSelected: React.PropTypes.bool,
-  onChangeAttributes: React.PropTypes.func,
-  controlable: React.PropTypes.bool,
-  doubleClicked: React.PropTypes.bool
+    attribute: React.PropTypes.object,
+    isSelected: React.PropTypes.bool,
+    onChangeAttributes: React.PropTypes.func,
+    controlable: React.PropTypes.bool,
+    onMouseHover: React.PropTypes.func,
+    doubleClicked: React.PropTypes.bool
 }
 
 const defaultProps = {
@@ -129,6 +130,8 @@ class Asset extends React.Component{
       <asset className={styles.asset}
         id={this.props.attribute.id}
         style={this.getStyle()}
+        onMouseOver={() => this.props.onMouseHover(true)}
+        onMouseOut={() => this.props.onMouseHover(false)}
       >
         <div style={{
           'width': this.props.attribute.width,

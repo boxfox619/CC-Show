@@ -1,14 +1,15 @@
 .guideline {
     position: absolute;
-    background: greenyellow;
 }
 
 .vertical {
     height: 2px;
     width: 2px;
+    border-left: dashed #038AFD 2px;
 }
 
 .horizontal {
     width: 2px;
     height: 2px;
+    border-top: dashed #038AFD 2px;
 }

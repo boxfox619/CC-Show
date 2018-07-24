@@ -22,11 +22,12 @@ class AssetCanvas extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mouseAction: 'none',
-      doubleClicked: false,
-      xInElement: 0,
-      yInElement: 0,
-      selectedAssetId: undefined
+        mouseAction: 'none',
+        hoveredAsset: -1,
+        doubleClicked: false,
+        xInElement: 0,
+        yInElement: 0,
+        selectedAssetId: undefined
     };
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -43,18 +44,19 @@ class AssetCanvas extends React.Component {
               }
               return (
                 <Asset
-                  attribute={asset}
-                  doubleClicked={this.state.doubleClicked}
-                  isSelected={isSelected}
                   key={asset.id}
+                  attribute={asset}
+                  isSelected={isSelected}
+                  onMouseHover={(hover)=>this.setState({hoveredAsset: hover ? idx : -1})}
+                  doubleClicked={this.state.doubleClicked}
                   onChangeAttributes={this.props.onChangeAttributes}
                   />
               )
           })
       };
       let renderingGuideLine = (assets) => {
-          if (this.props.selectedAssetIndex > 0) {
-              let guidelines = CanvasActionService.calGuideLine(assets, this.props.selectedAssetIndex);
+          if (this.state.hoveredAsset >= 0) {
+              let guidelines = CanvasActionService.calGuideLine(assets, this.state.hoveredAsset);
               return guidelines.map((guideline) => {
                   return (<Guideline attribute={guideline} />)
               })
@@ -70,7 +72,7 @@ class AssetCanvas extends React.Component {
         onMouseUp={this.handleMouseRelese}
       >
         {renderingAssets(this.props.assets)}
-        {renderingGuideLine(this.props.assets)}
+        {this.state.hoveredAsset >= 0 && renderingGuideLine(this.props.assets)}
       </scanvas>
     );
   }
@@ -86,7 +88,7 @@ class AssetCanvas extends React.Component {
         return;
       }
       if (this.state.mouseAction == 'move') {
-        let result = CanvasActionService.move(e, this.state, this.props.assets[this.props.selectedAssetIndex]);
+        let result = CanvasActionService.move(e, this.state, this.props.assets, this.props.selectedAssetIndex);
         this.props.onChangeAttributes(result.attrs);
         this.setState(result.state);
       } else if (this.state.mouseAction == 'resize') {

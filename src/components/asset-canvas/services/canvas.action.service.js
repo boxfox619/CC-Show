@@ -69,9 +69,9 @@ export const calGuideLine = (assets, selectedIndex) => {
             let assetWidth = parseInt(asset.width);
             let assetHeight = parseInt(asset.height);
             let minY = Math.min(selectedAssetY, assetY);
-            let height = Math.max(selectedAssetYEnd, assetY + assetHeight) - minY;
+            let height = Math.max(selectedAssetYEnd, assetY + assetHeight) - minY + 12;
             let minX = Math.min(selectedAssetX, assetX);
-            let width = Math.max(selectedAssetXEnd, assetX + assetWidth) - minX;
+            let width = Math.max(selectedAssetXEnd, assetX + assetWidth) - minX + 12;
             if (selectedAssetX == assetX) {
                 guidelines.push({left: selectedAssetX + 6 + 'px', top: minY, height});
             }
@@ -79,24 +79,53 @@ export const calGuideLine = (assets, selectedIndex) => {
                 guidelines.push({top: selectedAssetY + 6 + 'px', left: minX, width});
             }
             if ((selectedAssetXEnd) == (assetX + assetWidth)) {
-                guidelines.push({left: selectedAssetXEnd + 11 + 'px', top: minY, height});
+                guidelines.push({left: selectedAssetXEnd + 10 + 'px', top: minY, height});
             }
             if ((selectedAssetYEnd) == (assetY + assetHeight)) {
-                guidelines.push({top: selectedAssetYEnd + 11 + 'px', left: minX, width});
+                guidelines.push({top: selectedAssetYEnd + 10 + 'px', left: minX, width});
             }
         }
     });
-    console.log(guidelines)
     return guidelines;
 }
 
-export const move = (e, state, selectedAsset) => {
+export const calPositionX = (x, assets) => {
+    let result = x;
+    let sub = 100;
+    assets.map(asset => {
+        let assetX = parseInt(asset.x);
+        let abs = Math.abs(x - assetX);
+        console.log(abs);
+        if (abs <= 2 && sub > Math.abs(x - assetX)) {
+            result = assetX;
+        }
+    })
+    return result;
+}
+
+export const calPositionY = (y, assets) => {
+    let result = y;
+    let sub = 100;
+    assets.map(asset => {
+        let assetY = parseInt(asset.y);
+        let abs = Math.abs(y - assetY);
+        if (abs <= 2 && sub > Math.abs(y - assetY)) {
+            result = assetY;
+        }
+    })
+    return result;
+}
+
+export const move = (e, state, assets, selectedAssetIdx) => {
+    let selectedAsset = assets[selectedAssetIdx];
     let x = e.pageX;
     let y = e.pageY;
-    let afterX = parseInt(percentWidthToPixel(selectedAsset.x))
-        + (x - state.xInElement) + 'px';
-    let afterY = parseInt(percentHeightToPixel(selectedAsset.y))
-        + (y - state.yInElement) + 'px';
+    let afterX = parseInt(percentWidthToPixel(selectedAsset.x)) + (x - state.xInElement);
+    let afterY = parseInt(percentHeightToPixel(selectedAsset.y)) + (y - state.yInElement);
+    afterX = calPositionX(afterX, assets.filter((a, i) => i!=selectedAssetIdx));
+    afterY = calPositionY(afterY, assets.filter((a, i) => i!=selectedAssetIdx));
+    afterX = afterX + 'px';
+    afterY = afterY + 'px';
     if (selectedAsset.x.endsWith('%')) {
         afterX = pixelWidthToPercent(afterX);
         afterY = pixelHeightToPercent(afterY);
