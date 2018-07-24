@@ -60,24 +60,29 @@ export const calGuideLine = (assets, selectedIndex) => {
     let selectedAssetY = parseInt(selectedAsset.y);
     let selectedAssetWidth = parseInt(selectedAsset.width);
     let selectedAssetHeight = parseInt(selectedAsset.height);
+    let selectedAssetXEnd = selectedAssetX + selectedAssetWidth;
+    let selectedAssetYEnd = selectedAssetY + selectedAssetHeight;
     assets.map((asset, idx) => {
         if (selectedIndex != idx) {
             let assetX = parseInt(asset.x);
             let assetY = parseInt(asset.y);
             let assetWidth = parseInt(asset.width);
             let assetHeight = parseInt(asset.height);
-            console.log((selectedAssetY + selectedAssetHeight) == (assetY + assetHeight));
+            let minY = Math.min(selectedAssetY, assetY);
+            let height = Math.max(selectedAssetYEnd, assetY + assetHeight) - minY;
+            let minX = Math.min(selectedAssetX, assetX);
+            let width = Math.max(selectedAssetXEnd, assetX + assetWidth) - minX;
             if (selectedAssetX == assetX) {
-                guidelines.push({left: selectedAssetX + 6 + 'px'});
+                guidelines.push({left: selectedAssetX + 6 + 'px', top: minY, height});
             }
             if (selectedAssetY == assetY) {
-                guidelines.push({top: selectedAssetY + 6 + 'px'});
+                guidelines.push({top: selectedAssetY + 6 + 'px', left: minX, width});
             }
-            if ((selectedAssetX + selectedAssetWidth) == (assetX + assetWidth)) {
-                guidelines.push({left: selectedAssetX + selectedAssetWidth + 11 + 'px'});
+            if ((selectedAssetXEnd) == (assetX + assetWidth)) {
+                guidelines.push({left: selectedAssetXEnd + 11 + 'px', top: minY, height});
             }
-            if ((selectedAssetY + selectedAssetHeight) == (assetY + assetHeight)) {
-                guidelines.push({top: selectedAssetY + selectedAssetHeight + 11 + 'px'});
+            if ((selectedAssetYEnd) == (assetY + assetHeight)) {
+                guidelines.push({top: selectedAssetYEnd + 11 + 'px', left: minX, width});
             }
         }
     });

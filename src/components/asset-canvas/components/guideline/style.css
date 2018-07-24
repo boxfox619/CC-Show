@@ -4,11 +4,11 @@
 }
 
 .vertical {
-    height: 100vh;
+    height: 2px;
     width: 2px;
 }
 
 .horizontal {
-    width: 100vw;
+    width: 2px;
     height: 2px;
 }

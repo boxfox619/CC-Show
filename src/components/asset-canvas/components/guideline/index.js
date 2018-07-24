@@ -14,7 +14,7 @@ class Guideline extends React.Component{
     }
 
     render(){
-        let type = (!!this.props.attribute.left)? styles.vertical : styles.horizontal;
+        let type = (!!this.props.attribute.height)? styles.vertical : styles.horizontal;
         return (
           <div className={classnames(styles.guideline, type)} style={this.props.attribute} />
         );
