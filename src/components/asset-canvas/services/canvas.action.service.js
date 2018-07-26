@@ -1,4 +1,5 @@
-import { clearSelection, getScanvas } from "../../../services/dom.service";
+import {clearSelection, getScanvas} from "../../../services/dom.service";
+import {calMagneticPosition, calMagneticSize} from "./canvas.guideline.service";
 const TAG_ASSET = 'ASSET';
 const TAG_COL_RESIZER = 'COL-RESIZER';
 const TAG_SELECTORDOT = 'SELECTORDOT';
@@ -53,82 +54,15 @@ function pixelWidthToPercent(val) {
     return val;
 }
 
-export const calGuideLine = (assets, selectedIndex) => {
-    let guidelines = []
-    let selectedAsset = assets[selectedIndex];
-    let selectedAssetX = parseInt(selectedAsset.x);
-    let selectedAssetY = parseInt(selectedAsset.y);
-    let selectedAssetWidth = parseInt(selectedAsset.width);
-    let selectedAssetHeight = parseInt(selectedAsset.height);
-    let selectedAssetXEnd = selectedAssetX + selectedAssetWidth;
-    let selectedAssetYEnd = selectedAssetY + selectedAssetHeight;
-    assets.map((asset, idx) => {
-        if (selectedIndex != idx) {
-            let assetX = parseInt(asset.x);
-            let assetY = parseInt(asset.y);
-            let assetWidth = parseInt(asset.width);
-            let assetHeight = parseInt(asset.height);
-            let minY = Math.min(selectedAssetY, assetY);
-            let height = Math.max(selectedAssetYEnd, assetY + assetHeight) - minY + 12;
-            let minX = Math.min(selectedAssetX, assetX);
-            let width = Math.max(selectedAssetXEnd, assetX + assetWidth) - minX + 12;
-            if (selectedAssetX == assetX  || selectedAssetX == (assetX + assetWidth)) {
-                guidelines.push({left: selectedAssetX + 6 + 'px', top: minY, height});
-            }
-            if (selectedAssetY == assetY || selectedAssetY == (assetY + assetHeight)) {
-                guidelines.push({top: selectedAssetY + 6 + 'px', left: minX, width});
-            }
-            if ((selectedAssetXEnd) == (assetX + assetWidth) || selectedAssetXEnd == assetX) {
-                guidelines.push({left: selectedAssetXEnd + 10 + 'px', top: minY, height});
-            }
-            if ((selectedAssetYEnd) == (assetY + assetHeight) || selectedAssetYEnd == assetY) {
-                guidelines.push({top: selectedAssetYEnd + 10 + 'px', left: minX, width});
-            }
-        }
-    });
-    return guidelines;
-}
-
-export const calPosition = (type, position, size, assets) => {
-    let sub = 100;
-    let result = position;
-    let endPosition = position + size;
-    assets.map(asset => {
-        let assetPosition = parseInt(asset[type]);
-        let assetSize = parseInt(asset[type == 'x' ? 'width' : 'height']);
-        let assetEndPosition = assetPosition + assetSize;
-        let abs = Math.abs(position - assetPosition);
-        if (abs <= 2 && sub > abs) {
-            result = assetPosition;
-            return;
-        }
-        abs = Math.abs(endPosition - assetEndPosition);
-        if (abs <= 3 && sub > abs) {
-            result = position - (endPosition - assetEndPosition);
-            return;
-        }
-        abs = Math.abs(position - assetEndPosition);
-        if (abs <= 3 && sub > abs) {
-            result = assetEndPosition;
-            return;
-        }
-        abs = Math.abs(endPosition - assetPosition);
-        if (abs <= 3 && sub > abs) {
-            result = assetPosition - size;
-            return;
-        }
-    })
-    return result;
-}
-
 export const move = (e, state, assets, selectedAssetIdx) => {
     let selectedAsset = assets[selectedAssetIdx];
+    let otherAssets = assets.filter((v, i) => i != selectedAssetIdx);
     let x = e.pageX;
     let y = e.pageY;
     let afterX = parseInt(percentWidthToPixel(selectedAsset.x)) + (x - state.xInElement);
     let afterY = parseInt(percentHeightToPixel(selectedAsset.y)) + (y - state.yInElement);
-    afterX = calPosition('x', afterX, parseInt(selectedAsset.width), assets.filter((v, i) => i != selectedAssetIdx));
-    afterY = calPosition('y', afterY, parseInt(selectedAsset.height), assets.filter((v, i) => i != selectedAssetIdx));
+    afterX = calMagneticPosition('x', afterX, parseInt(selectedAsset.width), otherAssets);
+    afterY = calMagneticPosition('y', afterY, parseInt(selectedAsset.height), otherAssets);
     afterX = afterX + 'px';
     afterY = afterY + 'px';
     if (selectedAsset.x.endsWith('%')) {
@@ -141,20 +75,31 @@ export const move = (e, state, assets, selectedAssetIdx) => {
     };
 }
 
-export const resize = (e, state, selectedAsset) => {
+export const resize = (e, state, assets, selectedAssetIdx) => {
+    let selectedAsset = assets[selectedAssetIdx];
+    let otherAssets = assets.filter((v, i) => i != selectedAssetIdx);
     let devX = (state.resizeTarget.includes('left')) ? state.xInElement - e.pageX : e.pageX - state.xInElement;
     let devY = (state.resizeTarget.includes('top')) ? state.yInElement - e.pageY : e.pageY - state.yInElement;
     let currentX = parseInt(percentHeightToPixel(selectedAsset.x));
     let currentY = parseInt(percentWidthToPixel(selectedAsset.y));
     let currentWidth = parseInt(percentWidthToPixel(parseInt(selectedAsset.width)+'px'));
     let currentHeight = parseInt(percentHeightToPixel(parseInt(selectedAsset.height) + 'px'));
-    let afterHeight = currentHeight + devY + 'px';
-    let afterWidth = currentWidth + devX + 'px';
-    let afterX = currentX - devX + 'px';
-    let afterY = currentY - devY + 'px';
-if (parseInt(afterWidth) < 5 || parseInt(afterHeight) < 5) {
-    return;
+    let afterHeight = currentHeight + devY;
+    let afterWidth = currentWidth + devX;
+    let afterX = currentX - devX;
+    let afterY = currentY - devY;
+    afterWidth = calMagneticSize('x', afterX, afterWidth, otherAssets);
+    afterHeight = calMagneticSize('y', afterY, afterHeight, otherAssets);
+    afterX = calMagneticPosition('x', afterX, afterWidth, otherAssets);
+    afterY = calMagneticPosition('y', afterY, afterHeight, otherAssets);
+
+    if (afterWidth < 5 || afterHeight < 5) {
+        return;
     }
+    afterWidth += 'px';
+    afterHeight += 'px';
+    afterX += 'px';
+    afterY += 'px';
     if (selectedAsset.x.endsWith('%')) {
         afterY = pixelHeightToPercent(afterY);
         afterX = pixelWidthToPercent(afterX);

@@ -2,6 +2,7 @@ import React from 'react';
 import Asset from './components/asset';
 import Guideline from './components/guideline';
 import * as CanvasActionService from './services/canvas.action.service';
+import * as CanvasGuidelineService from './services/canvas.guideline.service';
 
 const propTypes = {
   className: React.PropTypes.string,
@@ -56,7 +57,7 @@ class AssetCanvas extends React.Component {
       };
       let renderingGuideLine = (assets) => {
           if (this.state.hoveredAsset >= 0) {
-              let guidelines = CanvasActionService.calGuideLine(assets, this.state.hoveredAsset);
+              let guidelines = CanvasGuidelineService.calGuideLine(assets, this.state.hoveredAsset);
               return guidelines.map((guideline) => {
                   return (<Guideline attribute={guideline} />)
               })
@@ -92,7 +93,7 @@ class AssetCanvas extends React.Component {
         this.props.onChangeAttributes(result.attrs);
         this.setState(result.state);
       } else if (this.state.mouseAction == 'resize') {
-        let result = CanvasActionService.resize(e, this.state, this.props.assets[this.props.selectedAssetIndex]);
+        let result = CanvasActionService.resize(e, this.state, this.props.assets, this.props.selectedAssetIndex);
           if (!!result) {
               this.props.onChangeAttributes(result.attrs);
               this.setState(result.state);
