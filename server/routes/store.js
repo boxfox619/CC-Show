@@ -53,7 +53,7 @@ module.exports = function(realm) {
         return realm.write(()=>{
           let asset = realm.objects('Asset').filtered('id='+req.query.assetId)[0];
           asset.view += 1;
-          let copiedAsset = {...asset};
+          let copiedAsset = JSON.parse(JSON.stringify(asset));
           copiedAsset.thumbnails = asset.thumbnails.map(strObj => strObj.value);
           copiedAsset.tags = asset.tags.map(strObj => strObj.value);
           return res.json(copiedAsset);

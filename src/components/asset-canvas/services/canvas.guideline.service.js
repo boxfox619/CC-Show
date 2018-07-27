@@ -85,7 +85,7 @@ export const calMagneticSize = (type, position, size, assets) => {
         }
         abs = Math.abs(endPosition - assetEndPosition);
         if (abs <= 3 && sub > abs) {
-            result = assetEndPosition - assetPosition;
+            result = assetEndPosition - position;
             return;
         }
 

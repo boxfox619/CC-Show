@@ -84,8 +84,8 @@ export const resize = (e, state, assets, selectedAssetIdx) => {
     let currentY = parseInt(percentWidthToPixel(selectedAsset.y));
     let currentWidth = parseInt(percentWidthToPixel(parseInt(selectedAsset.width)+'px'));
     let currentHeight = parseInt(percentHeightToPixel(parseInt(selectedAsset.height) + 'px'));
-    let afterHeight = currentHeight + devY;
     let afterWidth = currentWidth + devX;
+    let afterHeight = currentHeight + devY;
     let afterX = currentX - devX;
     let afterY = currentY - devY;
     afterWidth = calMagneticSize('x', afterX, afterWidth, otherAssets);
