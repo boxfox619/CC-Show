@@ -1,5 +1,6 @@
 import {clearSelection, getScanvas} from "../../../services/dom.service";
 import {calMagneticPosition, calMagneticSize} from "./canvas.guideline.service";
+
 const TAG_ASSET = 'ASSET';
 const TAG_COL_RESIZER = 'COL-RESIZER';
 const TAG_SELECTORDOT = 'SELECTORDOT';
@@ -88,14 +89,21 @@ export const resize = (e, state, assets, selectedAssetIdx) => {
     let afterHeight = currentHeight + devY;
     let afterX = currentX - devX;
     let afterY = currentY - devY;
-    afterWidth = calMagneticSize('x', afterX, afterWidth, otherAssets);
-    afterHeight = calMagneticSize('y', afterY, afterHeight, otherAssets);
-    afterX = calMagneticPosition('x', afterX, afterWidth, otherAssets);
-    afterY = calMagneticPosition('y', afterY, afterHeight, otherAssets);
-
-    if (afterWidth < 5 || afterHeight < 5) {
-        return;
-    }
+      if (selectedAsset.width != afterWidth) {
+        afterWidth = calMagneticSize('x', afterX, afterWidth, otherAssets);
+      }
+      if (selectedAsset.height != afterHeight) {
+        afterHeight = calMagneticSize('y', afterY, afterHeight, otherAssets);
+      }
+      if (selectedAsset.x != afterX) {
+        afterX = calMagneticPosition('x', afterX, afterWidth, otherAssets);
+      }
+      if (selectedAsset.y != afterY) {
+        afterY = calMagneticPosition('y', afterY, afterHeight, otherAssets);
+      }
+      if (afterWidth < 5 || afterHeight < 5) {
+          return;
+      }
     afterWidth += 'px';
     afterHeight += 'px';
     afterX += 'px';

@@ -63,9 +63,6 @@ export const calMagneticPosition = (type, position, size, assets) => {
             result = assetPosition - size;
             return;
         }
-
-
-
     })
     return result;
 }
