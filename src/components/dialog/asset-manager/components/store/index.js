@@ -2,7 +2,7 @@ import React from 'react';
 import AssetItem from './components/action-item/index';
 import ActionItem from './components/asset-item/index';
 
-import * as Request from '../../services/request';
+import * as Request from '../../services/request.service';
 import DialogHeader from '../header';
 
 const tabs = [

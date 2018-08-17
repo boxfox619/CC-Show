@@ -63,7 +63,7 @@ module.exports = function(realm) {
       }
     });
 
-    router.post('/create/', (req, res)=>{
+    router.post('/', (req, res)=>{
     console.log(colors.green('[REQ]'),getIP(req), 'new asset');
       if(!!req.signedCookies.user){
           return realm.write(()=>{
@@ -81,7 +81,7 @@ module.exports = function(realm) {
       }
     });
 
-    router.put('/update/', (req, res)=>{
+    router.put('/', (req, res)=>{
     console.log(colors.green('[REQ]'),getIP(req), 'asset update', req.body.assetId);
       if(!!req.signedCookies.user){
           if(!!req.body.assetId&&realm.objects('Asset').filtered('id=$0',req.body.assetId).length>0){

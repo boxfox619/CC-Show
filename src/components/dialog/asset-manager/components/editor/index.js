@@ -4,14 +4,14 @@ import DialogHeader from '../header';
 import DetailEditor from './components/detail';
 import CodeEditor from './components/code';
 import Button from 'components/form/button';
-import RequestService from '../../services/request';
+import RequestService from '../../services/request.service';
 import classnames from 'classnames';
 
 const tabs = ['DETAIL', 'CODE'];
 
 const propTypes = {
-  closeDialog: React.PropTypes.func.isRequired,
-  assetId: React.PropTypes.string
+  finish: React.PropTypes.func.isRequired,
+  assetId: React.PropTypes.number
 }
 
 class Editor extends React.Component{
@@ -65,11 +65,6 @@ class Editor extends React.Component{
           />
 
           <div style={{'position': 'relative'}}>
-            <Button label={'임시저장'}
-              margin={'15px 0 0 0'}
-              onClick={()=>this.save(false)}
-              width={'150px'}
-            />
             <div style={{'position': 'absolute', 'right': '0px', 'top': '0px'}}>
               <Button label={'취소'}
                 margin={'15px 2px 0 2px'}
@@ -78,7 +73,7 @@ class Editor extends React.Component{
               />
               <Button label={'등록'}
                 margin={'15px 2px 0 2px'}
-                onClick={()=>this.save(true)}
+                onClick={()=>this.save()}
                 thema={'blue'}
                 width={'150px'}
               />
@@ -89,14 +84,35 @@ class Editor extends React.Component{
     );
   }
 
-  cancel() {
-    this.props.closeDialog();
+  componentDidMount(){
+    if(!this.props.assetId){
+      RequestService.createAsset((result)=>{
+        if(result.result){
+          this.setState({assetId: result});
+        }
+      });
+    }
   }
 
-  save(upload) {
+  get assetId(){
+    if(!this.props.assetId){
+      return this.state.assetId;
+    }else{
+      return this.props.assetId;
+    }
+  }
 
-    RequestService.saveAsset({...this.state, 'assetId': this.props.assetId}, (res) => {
+  cancel() {
+    this.props.finish();
+  }
 
+  save() {
+    RequestService.saveAsset({...this.state, 'assetId': this.assetId}, (res) => {
+      if(res.success){
+        this.props.finish();
+      }else{
+        //@TODO show upload error
+      }
     });
   }
 

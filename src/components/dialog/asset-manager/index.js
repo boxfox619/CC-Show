@@ -9,13 +9,18 @@ import * as assetsActions from 'services/editor/asset/asset.actions';
 import * as uiActions from 'services/ui/ui.actions';
 import modalStyles from '../style.css';
 
+const AssetManagerMode = {
+  EDITOR : 'editor',
+  DEFAULT: 'default'
+}
+
 class AssetManager extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       lookupAsset: null,
-      mode: 'editor'
+      mode: AssetManagerMode.DEFAULT
     };
 
     this.lookupAssetDetail = this.lookupAssetDetail.bind(this);
@@ -23,7 +28,7 @@ class AssetManager extends React.Component {
 
   render() {
     let renderContent = () => {
-      if (this.state.mode === 'default') {
+      if (this.state.mode === AssetManagerMode.DEFAULT) {
         if (!this.state.lookupAsset) {
           return (
             <AssetStore
@@ -37,10 +42,10 @@ class AssetManager extends React.Component {
               closeDialog={this.props.toggleAssetManager}
             />);
         }
-      } else {
+      } else if(this.state.mode === AssetManagerMode.EDITOR) {
         return (
           <AssetEditor
-            closeDialog={this.props.toggleAssetManager}
+            finish={this.setState({mode: AssetManagerMode.DEFAULT})}
           />);
       }
     };
