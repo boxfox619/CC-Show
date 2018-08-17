@@ -29,7 +29,7 @@
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.2.2",
     "react-tag-autocomplete": "^5.5.1",
-    "realm": "^1.12.0",
+    "realm": "^2.14.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "request": "^2.81.0",
