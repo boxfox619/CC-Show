@@ -13,13 +13,13 @@ import ColorPicker from 'components/dialog/color-picker';
 import SlideShow from './components/slide-show-dialog';
 import ProgressDialog from 'components/dialog/progress';
 
-import * as editorActions from 'services/editor/editor.actions';
-import * as uiActions from 'services/ui/ui.actions';
-import * as accountActions from 'services/account/account.actions';
+import * as editorActions from 'reducers/editor/editor.actions';
+import * as uiActions from 'reducers/ui/ui.actions';
+import * as accountActions from 'reducers/account/account.actions';
 
 import {getSelectedAsset} from "services/slide.state.util";
 import KeyService from "./services/key.manage.service";
-import dialogs from 'services/ui/model/dialog';
+import dialogs from 'constants/dialogs';
 
 class ShowEditor extends React.Component {
 

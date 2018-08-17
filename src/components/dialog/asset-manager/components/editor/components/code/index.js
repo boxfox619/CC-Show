@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './style.css';
 
 import AssetCanvas from 'components/asset-canvas';
-import * as assetTypes from 'services/editor/asset/asset.types';
+import * as assetTypes from 'constants/assetTypes';
 import MonacoEditor from './monaco.editor.component';
 
 const propTypes = {

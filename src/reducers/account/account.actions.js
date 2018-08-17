@@ -1,11 +1,8 @@
-export const actionTypes = {
-  UPDATE_DATA : "UPDATE_DATA"
-};
-
+import * as types from 'constants/actionTypes';
 
 export const updateAccountData = (email, name, profile) => {
   return {
-    type: actionTypes.UPDATE_DATA,
+    type: types.UPDATE_ACCOUNT_DATA,
     email,
     name,
     profile

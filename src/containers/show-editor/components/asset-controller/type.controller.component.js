@@ -1,5 +1,5 @@
 import React from 'react';
-import * as assetTypes from 'services/editor/asset/asset.types';
+import * as assetTypes from 'constants/assetTypes';
 import TextController from './components/text-controller';
 import VideoController from './components/video-controller';
 import ImageController from './components/image-controller';

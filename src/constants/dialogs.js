@@ -1,4 +1,4 @@
-const dialogs =  {
+const Dialogs =  {
   SLIDE_MANAGER: 'SlideManager',
   ASSET_STORE: 'AssetStore',
   ASSET_EDITOR: 'CodeEditor',
@@ -7,4 +7,4 @@ const dialogs =  {
   COLOR_PICKER: 'COLOR_PICKER'
 }
 
-export default dialogs;
+export default Dialogs;

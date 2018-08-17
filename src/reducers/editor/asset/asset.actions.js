@@ -1,18 +1,9 @@
-import * as assetTypes from './asset.types';
-
-export const ASSET_SET_MULTIPLE_ATTRIBUTE = 'ASSET_SET_MULTIPLE_ATTRIBUTE';
-export const ASSET_SET_STYLE = 'ASSET_SET_STYLE';
-export const ASSET_CREATE = "ASSET_CREATE";
-export const ASSET_SELECTED = "ASSET_SELECTED";
-export const ASSET_COPY = 'ASSET_COPY';
-export const ASSET_PASTE = 'ASSET_PASTE';
-export const ASSET_SORT = 'ASSET_SORT';
-export const ASSET_DELETE = 'ASSET_DELETE';
-export const ASSET_SET_ATTRIBUTE = "ASSET_SET_ATTRIBUTE";
+import * as assetTypes from 'constants/assetTypes';
+import * as types from 'constants/actionTypes';
 
 export const createAsset = (assetType, value, style = {}) => {
     return {
-        type: ASSET_CREATE,
+        type: types.ASSET_CREATE,
         assetType,
         value,
         style
@@ -21,7 +12,7 @@ export const createAsset = (assetType, value, style = {}) => {
 
 export const setSelectedAssetAttribute = (attrName, attr) => {
     return {
-        type: ASSET_SET_ATTRIBUTE,
+        type: types.ASSET_SET_ATTRIBUTE,
         attrName,
         attr
     }
@@ -29,7 +20,7 @@ export const setSelectedAssetAttribute = (attrName, attr) => {
 
 export const setSelectedAssetStyle = (styleName, style) => {
     return {
-        type: ASSET_SET_STYLE,
+        type: types.ASSET_SET_STYLE,
         styleName,
         style
     }
@@ -42,7 +33,7 @@ export const setSelectedAssetAttributes = (attrs) => {
         };
     });
     return {
-        type: ASSET_SET_MULTIPLE_ATTRIBUTE,
+        type: types.ASSET_SET_MULTIPLE_ATTRIBUTE,
         attrs
     }
 }
@@ -51,8 +42,8 @@ export const setSelectedAssetAttributes = (attrs) => {
 
 export const createCustomAsset = (assetId) => {
     return {
-        type: ASSET_CREATE,
-        assetType: assetTypes.TYPE_CUSTOM,
+        type: types.ASSET_CREATE,
+        assettype: types.assetTypes.TYPE_CUSTOM,
         value: assetId
     }
 }
@@ -78,14 +69,14 @@ export const createAssetByType = (type) => {
 
 export const assetSelected = (assetId) => {
     return {
-        type: ASSET_SELECTED,
+        type: types.ASSET_SELECTED,
         assetId
     }
 };
 
 export function pasteAsset(x, y) {
     return {
-        type: ASSET_PASTE,
+        type: types.ASSET_PASTE,
         x,
         y
     }
@@ -93,7 +84,7 @@ export function pasteAsset(x, y) {
 
 export function sortFirstAsset(id) {
     return {
-        type: ASSET_SORT,
+        type: types.ASSET_SORT,
         id,
         to: 'min'
     }
@@ -101,7 +92,7 @@ export function sortFirstAsset(id) {
 
 export function sortLastAsset(id) {
     return {
-        type: ASSET_SORT,
+        type: types.ASSET_SORT,
         id,
         to: 'max'
     }
@@ -109,7 +100,7 @@ export function sortLastAsset(id) {
 
 export function sortBackAsset(id) {
     return {
-        type: ASSET_SORT,
+        type: types.ASSET_SORT,
         id,
         to: 'front'
     }
@@ -117,7 +108,7 @@ export function sortBackAsset(id) {
 
 export function sortFrontAsset(id) {
     return {
-        type: ASSET_SORT,
+        type: types.ASSET_SORT,
         target: id,
         to: 'back'
     }
@@ -125,7 +116,7 @@ export function sortFrontAsset(id) {
 
 export function copyAsset(id) {
     return {
-        type: ASSET_COPY,
+        type: types.ASSET_COPY,
         id
     }
 }
@@ -139,7 +130,7 @@ export function cutAsset(id) {
 
 export function deleteAsset(id) {
     return {
-        type: ASSET_DELETE,
+        type: types.ASSET_DELETE,
         id
     }
 }

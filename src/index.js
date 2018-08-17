@@ -5,7 +5,7 @@ import Editor from 'containers/show-editor';
 import ShowList from 'containers/show-list';
 import SlideShow from 'containers/slide-show';
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './constants/store';
 
 function renderAppInElement(el) {
   ReactDOM.render(

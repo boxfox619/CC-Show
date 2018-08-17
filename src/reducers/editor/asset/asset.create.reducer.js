@@ -1,4 +1,4 @@
-import * as assetTypes from "./asset.types";
+import * as assetTypes from "constants/assetTypes";
 import update from "react-addons-update";
 
 const defaultAsset = {

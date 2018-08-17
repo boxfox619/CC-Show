@@ -2,7 +2,7 @@ import React from 'react';
 import GradientButton from 'components/form/button-gradient';
 
 import styles from './style.css';
-import * as assetTypes from "../../../../services/editor/asset/asset.types";
+import * as assetTypes from "constants/assetTypes";
 
 const propTypes = {
     className: React.PropTypes.string.isRequired,

@@ -1,4 +1,4 @@
-import * as assetTypes from 'services/editor/asset/asset.types';
+import * as assetTypes from 'constants/assetTypes';
 import axios from 'axios';
 
 export const load = (callback) => {

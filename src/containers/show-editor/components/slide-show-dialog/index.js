@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as slideActions from 'services/editor/slide/slide.actions';
+import * as slideActions from 'reducers/editor/slide/slide.actions';
 
 import styles from './style.css';
 

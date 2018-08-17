@@ -1,5 +1,5 @@
 import * as actionTypes from './ui.actions';
-import dialogs from './model/dialog';
+import dialogs from 'constants/dialogs';
 
 const initialState = {
   dialog: undefined,

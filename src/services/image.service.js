@@ -1,8 +1,8 @@
-import {setSelectedAssetAttribute} from 'services/editor/asset/asset.actions';
-import {toggleProgressDialog} from 'services/ui/ui.actions';
+import {setSelectedAssetAttribute} from 'reducers/editor/asset/asset.actions';
+import {toggleProgressDialog} from 'reducers/ui/ui.actions';
 import {loadLocalImage} from "./dom.service";
 import axios from 'axios';
-import store from '../store';
+import store from '../constants/store';
 
 class ImageService {
   getImage(callback){

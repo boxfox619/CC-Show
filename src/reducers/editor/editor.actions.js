@@ -1,13 +1,13 @@
-import {toggleProgressDialog} from "services/ui/ui.actions";
+import {toggleProgressDialog} from "reducers/ui/ui.actions";
 import {actionTypes, updateSlideThumbnail} from './slide/slide.actions';
 import {updateAccountData} from '../account/account.actions';
-import {getScanvas} from "../dom.service";
+import {getScanvas} from "../../services/dom.service";
 import domtoimage from "dom-to-image";
 import axios from "axios/index";
 
 export * from './slide/slide.actions';
 export * from './asset/asset.actions';
-export const INIT_SHOW_DATA = 'INIT_SHOW_DATA';
+import * as types from 'constants/actionTypes';
 
 const uploadShow = (showId, showData, callback) => {
     let result = {'result': false};
@@ -43,7 +43,7 @@ export const saveShow = (showId) => {
 
 export const initShow = (showId, data) => {
     return {
-        type: INIT_SHOW_DATA,
+        type: types.INIT_SHOW_DATA,
         showId,
         data
     }

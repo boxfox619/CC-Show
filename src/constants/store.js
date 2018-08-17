@@ -1,4 +1,4 @@
-import reducer from 'services/reducer';
+import reducer from 'reducers/reducer';
 import { createStore, applyMiddleware , compose} from 'redux';
 import ReduxThunk from 'redux-thunk';;
 
