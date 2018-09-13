@@ -25,7 +25,6 @@ npm run dev
 ### Dependencies
 - [axios](https://www.npmjs.com/package/axios)
 - [dom-to-image](https://www.npmjs.com/package/dom-to-image)
-- [dom-to-image](https://www.npmjs.com/package/dom-to-image)
 - [immutable](https://www.npmjs.com/package/immutable)
 - [redux](https://www.npmjs.com/package/redux)
 - [redux-thunk](https://www.npmjs.com/package/redux-thunk)
