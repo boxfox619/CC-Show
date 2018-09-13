@@ -1,4 +1,4 @@
-import * as actionTypes from './asset.actions';
+import * as actionTypes from 'constants/actionTypes';
 import update from 'react-addons-update';
 import {createAssetReducer as create} from './asset.create.reducer';
 import {insertItem} from '../util';

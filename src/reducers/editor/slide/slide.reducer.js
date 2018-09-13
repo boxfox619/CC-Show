@@ -1,5 +1,5 @@
 import update from 'react-addons-update';
-import * as actionTypes from './slide.actions';
+import * as actionTypes from 'constants/actionTypes';
 import {insertItem} from '../util';
 
 const initialState = {

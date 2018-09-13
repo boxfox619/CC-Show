@@ -1,4 +1,4 @@
-import { actionTypes } from './account.actions';
+import * as actionTypes from 'constants/actionTypes';
 
 const initialState = {
   name: 'Guest',
@@ -8,7 +8,7 @@ const initialState = {
 
 const account = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.UPDATE_DATA:
+    case actionTypes.UPDATE_ACCOUNT_DATA:
       return {
         name: action.name,
         email: action.email,

@@ -94,7 +94,7 @@ class Editor extends React.Component{
     }
   }
 
-  get assetId(){
+  getAssetId(){
     if(!this.props.assetId){
       return this.state.assetId;
     }else{
@@ -107,7 +107,7 @@ class Editor extends React.Component{
   }
 
   save() {
-    RequestService.saveAsset({...this.state, 'assetId': this.assetId}, (res) => {
+    RequestService.saveAsset({...this.state, 'assetId': this.getAssetId()}, (res) => {
       if(res.success){
         this.props.finish();
       }else{

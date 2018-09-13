@@ -1,6 +1,6 @@
 import asset from './asset/asset.reducer';
 import slide from './slide/slide.reducer';
-import {INIT_SHOW_DATA} from './editor.actions';
+import * as actionTypes from 'constants/actionTypes';
 
 const initialState = {
     sizeUnit: 'px',
@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
     state = asset(state, action);
     state = slide(state, action);
     switch (action.type) {
-        case INIT_SHOW_DATA:
+        case actionTypes.INIT_SHOW_DATA:
             return {
                 ...action.data,
                 showId: action.showId

@@ -1,5 +1,5 @@
 import {toggleProgressDialog} from "reducers/ui/ui.actions";
-import {actionTypes, updateSlideThumbnail} from './slide/slide.actions';
+import {updateSlideThumbnail} from './slide/slide.actions';
 import {updateAccountData} from '../account/account.actions';
 import {getScanvas} from "../../services/dom.service";
 import domtoimage from "dom-to-image";
