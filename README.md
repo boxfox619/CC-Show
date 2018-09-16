@@ -31,4 +31,4 @@ npm run dev
 - [redux-thunk](https://www.npmjs.com/package/redux-thunk)
  
  ## Contributing
-코드가 개발자를 닮아 많이 못 생겼습니다. 개발자가 매우 악덕 사장이니 주의하세요. pull request는 언제든지 환영합니다!
+코드가 개발자를 닮아 많이 못 생겼습니다. pull request는 언제든지 환영합니다!
