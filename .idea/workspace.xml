@@ -1,0 +1,1215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ae617362-a909-429f-aa10-ef94ad5d61c8" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintrc" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/asseteditor.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/css/fonts/NanumSquareB.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/css/fonts/NanumSquareEB_0.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/css/fonts/NanumSquareL.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/css/fonts/NanumSquareR_0.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/css/javascript.fullPage.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/AppIcon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/bg/intro.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/bg_active.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_add_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow1_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow2_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow3_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow4.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow4_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow5.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow5_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow6.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow6_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow7.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow7_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow8.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow8_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow_down.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow_left.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow_left_big.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow_left_small.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow_right_big.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow_right_small.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_arrow_up.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_between.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_bookmark_red.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_bookmark_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_cc_show.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_check_circle_dark.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_check_circle_light.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_check_circle_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_clover.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_clover_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_color.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_copy_gray.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_copy_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_delete_gray.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_delete_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_diamond.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_diamond_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_ellipse.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_ellipse_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_ellipse_gray.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_ellipse_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_flag_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_align_center.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_align_center_apply.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_align_justify.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_align_justify_apply.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_align_left.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_align_left_apply.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_align_right.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_align_right_apply.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_bold.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_bold_apply.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_italic.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_italic_apply.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_line.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_size.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_strikethrough.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_strikethrough_apply.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_underlined.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_format_underlined_apply.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_fullscreen.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_heart.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_heart_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_hexagon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_hexagon_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_line.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_moon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_moon_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_move_in_box_gray.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_move_in_box_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_octagon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_octagon_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_pentagon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_pentagon_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_play_circle_outline_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_right_arrow_black.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_roundSquare.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_roundSquare_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_share_gray.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_share_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_slide_show.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_spade.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_spade_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_square.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_square_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_stain.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_stain_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_star.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_star_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_star_white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_star_yellow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_triangle.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/ic_triangle_50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/login_img.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_bottom_bar_cc_show.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_build.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_cart.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_cc_show.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_dehaze.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_facebook.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_github.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_html.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_left_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_pdf.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_right_arrow.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_share.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/main/ic_shopping.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/progress.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/thumbnail_test.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/images/tmpprofile.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/js/ckeditor.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/js/javascript.fullPage.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/main.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/pptlist.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/resources/fonts/NanumBarunGothic.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/resources/fonts/훈새마을운동R.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/slideshow.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/arrow1.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/arrow2.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/arrow3.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/arrow4.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/arrow5.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/arrow6.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/arrow7.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/arrow8.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/clover.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/diamond.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/ellipse.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/heart.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/hexagon.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/ic_picture.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/moon.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/octagon.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/pentagon.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/roundSquare.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/spade.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/square.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/stain.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/star.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/svg/triangle.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/base/worker/workerMain.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/bat.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/coffee.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/cpp.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/csharp.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/css.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/dockerfile.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/fsharp.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/go.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/handlebars.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/html.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/ini.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/java.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/less.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/lua.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/markdown.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/msdax.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/objective-c.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/php.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/postiats.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/powershell.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/pug.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/python.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/r.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/razor.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/ruby.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/sb.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/scss.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/solidity.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/sql.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/swift.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/vb.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/xml.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/basic-languages/src/yaml.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/contrib/suggest/browser/media/String_16x.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/contrib/suggest/browser/media/String_inverse_16x.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.de.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.es.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.fr.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.hu.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.it.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.ja.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.ko.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.pt-br.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.ru.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.tr.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.zh-cn.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/editor.main.nls.zh-tw.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/editor/standalone/browser/quickOpen/symbol-sprite.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/language/css/cssMode.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/language/css/cssWorker.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/language/html/htmlMode.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/language/html/htmlWorker.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/language/json/jsonMode.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/language/json/jsonWorker.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/language/typescript/lib/typescriptServices.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/language/typescript/src/mode.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/language/typescript/src/worker.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/public/vs/loader.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/server/main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/server/realm.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/server/routes/account.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/server/routes/assets.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/server/routes/show.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/server/routes/store.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/custom-asset/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/image-asset/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/preview-asset/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Arrow1.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Arrow2.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Arrow3.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Arrow4.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Arrow5.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Arrow6.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Arrow7.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Arrow8.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Clover.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Diamond.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Ellipse.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Heart.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Hexagon.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Moon.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Octagon.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Pentagon.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/RoundSquare.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Spade.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Square.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Stain.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Star.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/components/Triangle.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/shape-asset/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/text-asset/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/video-asset/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/components/video-asset/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/asset/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/guideline/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/components/guideline/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/services/canvas.action.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/services/canvas.guideline.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/asset-canvas/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/detail/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/detail/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/editor/components/code/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/editor/components/code/monaco.editor.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/editor/components/code/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/editor/components/detail/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/editor/components/detail/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/editor/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/editor/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/header/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/store/components/action-item/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/store/components/action-item/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/store/components/asset-item/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/store/components/asset-item/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/components/store/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/asset-manager/services/request.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/color-picker/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/color-picker/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/progress/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/progress/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/dialog/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/button-gradient/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/button-gradient/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/button-toggle/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/button-toggle/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/button/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/button/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/input-tag/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/input-tag/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/input-text/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/input-text/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/label-text/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/label-text/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/services/form.component.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/textarea/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/textarea/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/constants/actionTypes.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/constants/assetTypes.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/constants/dialogs.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/constants/store.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/main-page/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/main-page/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/asset-controller/components/basic-controller/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/asset-controller/components/controller-wrapper/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/asset-controller/components/controller-wrapper/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/asset-controller/components/image-controller/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/asset-controller/components/shape-controller/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/asset-controller/components/text-controller/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/asset-controller/components/video-controller/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/asset-controller/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/asset-controller/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/asset-controller/type.controller.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/side-controller/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/side-controller/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-context/components/context-menu/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-context/components/context-menu/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-context/components/title-field/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-context/components/title-field/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-context/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-manager/components/draggable-card-list/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-manager/components/slide-action-button/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-manager/components/slide-create-card/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-manager/components/slide-create-card/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-manager/components/slide-preview-card/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-manager/components/slide-preview-card/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-manager/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-manager/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-show-dialog/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/components/slide-show-dialog/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/services/key.manage.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-editor/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-list/components/dialog/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-list/components/dialog/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-list/components/show-item/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-list/components/show-item/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-list/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-list/services/request.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/show-list/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/slide-show/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/slide-show/services/dom.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/slide-show/services/show-loader/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/slide-show/services/slide/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/containers/slide-show/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/passPropsToChild/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/reduxConnect/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/account/account.actions.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/account/account.reducer.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/editor/asset/asset.actions.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/editor/asset/asset.create.reducer.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/editor/asset/asset.reducer.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/editor/editor.actions.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/editor/editor.reducer.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/editor/slide/slide.actions.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/editor/slide/slide.reducer.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/editor/util.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/ui/ui.actions.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/ui/ui.reducer.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/services/dom.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/services/image.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/services/slide.state.util.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/webpack.dev.config.js" afterPath="" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/AssetRenderer/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="82" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/CustomAsset/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ImageAsset/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/PreviewAsset/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ShapeAsset/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Arrow1.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ShapeAsset/components/Arrow1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/TextAsset/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1023">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/VideoAsset/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>FormService</find>
+      <find>getTheme</find>
+      <find>modalStyles</find>
+      <find>modal</find>
+      <find>closer</find>
+      <find>customize</find>
+      <find>tabs</find>
+      <find>visible</find>
+      <find>getAssetId</find>
+      <find>activetab</find>
+      <find>AssetCanvas</find>
+      <find>hoveredAsset =</find>
+      <find>hoveredAsset =</find>
+      <find>hoveredAsset:</find>
+      <find>hoveredAsset</find>
+      <find>renderSelectorLine</find>
+      <find>controllerVisible</find>
+      <find>createAttrs</find>
+      <find>getClearStyle</find>
+      <find>controlable</find>
+      <find>generateRandomCode</find>
+      <find>axios</find>
+      <find>clearCode</find>
+      <find>React.</find>
+      <find>getVideoCode</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../CoupleKit2" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Couplekit-Backend" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Vertx-Server-Library-2" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../hayoou_ETH_android-master" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/components/Form/Button/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Form/GradientButton/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Form/ToggleButton/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Form/TextInput/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Form/LabelText/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Form/TextArea/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Form/TagInput/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Dialog/ColorPicker/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Dialog/Progress/index.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetEditor/index.js" />
+        <option value="$PROJECT_DIR$/src/components/TabHeader/index.js" />
+        <option value="$PROJECT_DIR$/src/components/CodeEditor/index.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetCanvas/components/AssetRenderer/index.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetCanvas/index.js" />
+        <option value="$PROJECT_DIR$/src/lib/constants/AssetTypes.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/CustomAsset/index.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ImageAsset/index.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/PreviewAsset/index.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ShapeAsset/index.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/TextAsset/index.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/text-asset.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/index.js" />
+        <option value="$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/VideoAsset/index.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-3254" />
+    <option name="y" value="1234" />
+    <option name="width" value="3384" />
+    <option name="height" value="1933" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CC-Show" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CC-Show" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CC-Show" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CC-Show" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CC-Show" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CC-Show" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CC-Show" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CC-Show" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="C:\Users\rlatj\Desktop\Programming\Project\cc-show-new\node_modules\eslint" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rlatj\Desktop\Programming\Project\cc-show-new\src\components" />
+      <recent name="C:\Users\rlatj\Desktop\Programming\Project\cc-show-new\src\components\Dialog" />
+      <recent name="C:\Users\rlatj\Desktop\Programming\Project\cc-show-new\src\components\Form\TextArea" />
+      <recent name="C:\Users\rlatj\Desktop\Programming\Project\cc-show-new\src\components\Form" />
+      <recent name="C:\Users\rlatj\Desktop\Programming\Project\cc-show-new\src\components\Form\Button" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rlatj\Desktop\Programming\Project\cc-show-new\src\redux" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae617362-a909-429f-aa10-ef94ad5d61c8" name="Default" comment="" />
+      <created>1540380072388</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1540380072388</updated>
+      <workItem from="1540380077667" duration="11575000" />
+      <workItem from="1540475141409" duration="127000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11702000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-3254" y="1234" width="3384" height="1933" extended-state="0" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2529052" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/AssetRenderer/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/CustomAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ImageAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/PreviewAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ShapeAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ShapeAsset/components/Arrow1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/TextAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1023">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/VideoAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logo.svg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2940">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react/index.js" />
+    <entry file="file://$PROJECT_DIR$/src/components/Form/GradientButton/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Form/TagInput/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Form/Button/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="28" column="19" lean-forward="true" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/UserModel.js" />
+    <entry file="file://$PROJECT_DIR$/src/components/Form/ToggleButton/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Form/TextInput/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Form/TextArea/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Form/TextArea/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Form/GradientButton/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Form/LabelText/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Form/TagInput/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Dialog/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Form/Button/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Dialog/Progress/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Dialog/Progress/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Dialog/ColorPicker/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetEditor/components/detail/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Dialog/ColorPicker/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetEditor/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/services/canvas.guideline.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CodeEditor/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/services/canvas.action.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="57" column="13" lean-forward="false" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="789">
+          <caret line="57" column="37" lean-forward="false" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/TabHeader/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="23" column="43" lean-forward="false" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/constants/AssetTypes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/AssetRenderer/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/CustomAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ImageAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/PreviewAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ShapeAsset/components/Arrow1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/TextAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1023">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/ShapeAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/text-asset.js" />
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/components/VideoAsset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AssetCanvas/components/Asset/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
