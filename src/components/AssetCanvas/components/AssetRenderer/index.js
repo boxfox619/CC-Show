@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Asset from '../asset';
-import Guideline from '../guideline';
+import Asset from '../Asset';
+import Guideline from '../Guideline';
 import * as CanvasGuidelineService from "../../services/canvas.guideline.service";
 
 export default class AssetRenderer extends Component {

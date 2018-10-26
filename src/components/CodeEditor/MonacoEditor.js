@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MonacoEditor from 'react-monaco-editor';
 
 const propTypes = {
-  codeType: React.PropTypes.string.isRequired,
-  onChange: React.PropTypes.func.isRequired,
-    value: React.PropTypes.string.isRequired
+  codeType: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired
 }
 
 export default function CodeEditor({codeType, onChange, value}) {

@@ -1,11 +1,10 @@
-import {clearSelection, getScanvas} from "../../../services/dom.service";
+import {clearSelection, getScanvas} from "services/dom.service";
 import {calMagneticPosition, calMagneticSize} from "./canvas.guideline.service";
 
 const TAG_ASSET = 'ASSET';
 const TAG_COL_RESIZER = 'COL-RESIZER';
 const TAG_SELECTORDOT = 'SELECTORDOT';
 const TAG_SELECTORLINE = 'SELECTORLINE';
-
 
 function getAssetNode(parent, child) {
     var node = child.parentNode;
