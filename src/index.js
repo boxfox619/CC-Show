@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from './store/store';
+import store from './core/store/store';
 import routes from './routes';
 
 ReactDOM.render(<App store={store} routes={routes.default(store)}/>, document.getElementById('root'));
