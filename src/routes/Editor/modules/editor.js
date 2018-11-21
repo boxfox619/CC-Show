@@ -31,7 +31,7 @@ const ACTION_HANDLERS = {
     [INIT_SHOW_DATA]: (state, action) => ({...action.data, showId: action.showId}),
     [SET_SIZE_UNIT]: (state, action) => update(state, {sizeUnit: {$set: action.unit}}),
     [SET_POSITION_UNIT]: (state, action) => action.id(state, {positionUnit: {$set: action.unit}}),
-    [SELECT_SLIDE]: (state, action) => update(state, {selectedSlide: {$set: action.id}}),
+    [SELECT_SLIDE]: (state, action) => update(state, {selectedSlideId: {$set: action.id}}),
     [CREATE_NEW_SLIDE]: (state) => update(state, {slideIdx: {$set: state.slideIdx+1}, slides: {$push: [slide.initialState]}}),
     [DELETE_SLIDE]: (state, action) => update(state,{slides: {$splice: [state.slides.findIndex(s => s.id !== action.id), 1]}}),
     [COPY_SLIDE]: (state, action) => update(state, {slides: {$push : [...state.slides.filter(s => s.id !== action.id)]}}),
@@ -44,7 +44,7 @@ const ACTION_HANDLERS = {
 const initialState = {
     sizeUnit: 'px',
     positionUnit: 'px',
-    selectedSlide: 0,
+    selectedSlideId: 0,
     slideIdx: 0,
     cachedAsset: undefined,
     slides: [...slide.initialState]
