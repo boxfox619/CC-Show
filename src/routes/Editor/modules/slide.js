@@ -27,6 +27,7 @@ export const currentSlideIdx = (state) => getSlideIdx(state, state.selectedSlide
 export const getSlideIdx = (state, id) => state.slides.findIndex(s => s.id === id);
 export const updateCurrentSlide = (state, changes) => ({slides: {[currentSlideIdx(state)]: changes}});
 export const updateSlide = (state, id, changes) => ({slides: {[getSlideIdx(id)]: changes}});
+export const getCurrentSlide = (state) => state.slides[currentSlideIdx(state)];
 
 export const ACTION_HANDLERS = {
     [SELECT_SLIDE]: (state, action) => ({selectedSlideId: {$set: action.id}}),
@@ -35,7 +36,7 @@ export const ACTION_HANDLERS = {
     [COPY_SLIDE]: (state, action) => ({slides: {$push : [...state.slides.filter(s => s.id !== action.id)]}}),
     [SET_SLIDE_NAME]: (state, action) => updateSlide(state, action.id, {name: {$set: action.name}}),
     [SET_SLIDE_THUMBNAIL]: (state, action) => updateSlide(state, action.id, {thumbnail: action.thumbnail}),
-    [MOVE_SLIDE]: (state, action) => ({slides: {$set: state.slides.splice(action.to, 0, state.slides.splice(action.from, 1)[0])}}),
+    [MOVE_SLIDE]: (state, action) => ({slides: {$splice: [[action.from, 1], [action.to, 0, state.slides[action.from]]]}}),
     [SET_SLIDE_NOTE]: (state, action) => updateCurrentSlide(state, {note: {$set: action.note}}),
 };
 
@@ -45,6 +46,5 @@ export const initialState = {
     thumbnail: '',
     note: '',
     selectedAssetId: undefined,
-    slideIdx: 0,
     assets: []
 }

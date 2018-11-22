@@ -1,5 +1,6 @@
-import {currentSlideIdx, updateCurrentSlide} from "./slide";
+import {currentSlideIdx, updateCurrentSlide, getCurrentSlide} from "./slide";
 import {mapToImmutable} from '../../../core/store/reducers';
+import {ASSET_CREATE_HANDLER} from 'src/routes/Editor/modules/asset-creater';
 
 export const ASSET_CREATE = 'EDITOR.ASSET.ASSET_CREATE';
 export const ASSET_SET_ATTRIBUTE = 'EDITOR.ASSET.ASSET_SET_ATTRIBUTE';
@@ -35,12 +36,12 @@ export const currentAssetIdx = (state) => {
 // Action Handlers
 // ------------------------------------
 export const ACTION_HANDLERS = {
-    [ASSET_CREATE]: (state, action) => updateAssets(state, {$push: {}}),
+    [ASSET_CREATE]: (state, action) => updateAssets(state, {$push: ASSET_CREATE_HANDLER[action.type](state,action)}),
     [ASSET_SET_ATTRIBUTE]: (state, action) => updateCurrentAsset(state, mapToImmutable(action.attributeMap)),
     [ASSET_SET_STYLE]: (state, action) => updateCurrentAsset(state, {style: mapToImmutable(action.styleMap)}),
     [SELECT_ASSET]: (state, action) => updateCurrentSlide(state, {selectAssetIdx: {$set: action.id}}),
     [PASTE_ASSET]: (state, action) => updateAssets(state, {$push: {...state.cachedAsset}}),
     [COPY_ASSET]: (state, action) => ({cachedAsset : {$set: {...state.slides[currentSlideIdx(state)].assets[currentAssetIdx(state)]}}}),
-    [SORT_ASSET]: (state, action) => {},
+    [SORT_ASSET]: (state, action) => updateAssets(state, {$splice: [[action.from, 1], [action.to, 0, getCurrentSlide(state).assets[action.from]]]}),
     [DELETE_ASSET]: (state, action) => updateAssets(state, {$splice: [currentAssetIdx(state), 1] }),
 }

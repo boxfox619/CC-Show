@@ -36,6 +36,7 @@ const initialState = {
     positionUnit: 'px',
     selectedSlideId: 0,
     slideIdx: 0,
+    assetIdx: 0,
     cachedAsset: undefined,
     slides: [...slide.initialState]
 };
