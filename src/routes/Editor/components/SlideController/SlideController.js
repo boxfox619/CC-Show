@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import GradientButton from 'components/form/button-gradient';
 
 import styles from './styles.css';
@@ -6,9 +7,9 @@ import * as assetTypes from "constants/assetTypes";
 
 class SideController extends React.Component {
     static propTypes = {
-        className: React.PropTypes.string.isRequired,
-        editorActions: React.PropTypes.object.isRequired,
-        uiActions: React.PropTypes.object.isRequired
+        className: PropTypes.string.isRequired,
+        editorActions: PropTypes.object.isRequired,
+        uiActions: PropTypes.object.isRequired
     };
     render() {
         return (

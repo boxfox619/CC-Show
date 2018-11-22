@@ -1,0 +1,30 @@
+.inner{
+    padding: 20px 13px;
+    min-height: calc( 100% - 40px );
+}
+
+.title{
+    font-size : 12px;
+    color : #5D87B5;
+    font-weight : bold;
+    vertical-align: middle;
+    display: table;
+}
+
+.title:before {
+    content: "";
+    display: table-cell;
+    vertical-align: middle;
+    background: url("/images/ic_ellipse_gray.png") no-repeat left center;
+    width: 23px;
+}
+
+.hide{
+    background: url("/images/ic_arrow_left.png") no-repeat left center;
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+}

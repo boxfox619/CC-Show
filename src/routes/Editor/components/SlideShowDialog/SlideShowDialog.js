@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './style.css';
 
 export default class SlideShowDialog extends React.Component {
     static propTypes = {
-        slides: React.PropTypes.array.isRequired,
-        showId: React.PropTypes.string.isRequired,
-        setSlideNote: React.PropTypes.func.isRequired
+        slides: PropTypes.array.isRequired,
+        showId: PropTypes.string.isRequired,
+        setSlideNote: PropTypes.func.isRequired
     };
 
     constructor(props) {
