@@ -1,4 +1,3 @@
-// https://github.com/davezuko/react-redux-starter-kit/blob/master/src/routes/Counter/modules/counter.js
 
 // ------------------------------------
 // Action Handlers
