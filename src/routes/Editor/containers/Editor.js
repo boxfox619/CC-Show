@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 class Editor extends React.Component {
 
+    render() {}
 
 }
 

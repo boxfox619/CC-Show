@@ -1,0 +1,231 @@
+#asset-controller{
+    z-index: 3;
+    /*min-width: 14em;
+    max-width: 14em;*/
+    min-height: 40em;
+    height: 100vh;
+    background-color: white;
+    position: relative;
+    box-shadow: 0 1px 7px 4px rgba(0, 0, 0, 0.26);
+    min-width: 300px;
+    overflow: hidden  ;
+}
+
+
+#asset-controller::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+    background-color: #ffffff;
+}
+
+#asset-controller::-webkit-scrollbar
+{
+    width: 1px;
+    background-color: #ffffff;
+}
+
+#asset-controller::-webkit-scrollbar-thumb
+{
+    background-color: #5D87B5;
+}
+
+.controller-wrapper {
+
+}
+
+.controller-wrapper .title {
+    position: relative;
+    width: 100%;
+    font-size: 13px;
+    color: #5682b2;
+    font-family: NanumSquareEB;
+    font-weight: bold;
+    vertical-align: middle;
+    display: table;
+}
+
+.controller-wrapper .title:before {
+    content: "";
+    display: table-cell;
+    vertical-align: middle;
+    background: url('/images/ic_ellipse_gray.png') no-repeat left center;
+    width: 20px;
+}
+
+.controller-wrapper .content {
+    margin: 20px;
+    margin-bottom: 10px;
+}
+
+.controller-wrapper .bottom-line {
+    border-top: 3px dotted #5a84b3;
+    background-color: #fff;
+    opacity: 0.3;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.controller-wrapper .flip-button {
+    position: absolute;
+    cursor: pointer;
+    width: 10px;
+    margin: 3px;
+    right: 0;
+}
+
+.controller-container {
+    height: 100%;
+    width: 90%;
+    padding: 0;
+    margin: auto;
+
+}
+
+.controller-container .controller {
+    display: inline-table;
+    border: 1.8px solid #5682b2;
+    border-radius: 20px;
+    padding: 3px 5px 3px 5px;
+    margin: 3px;
+    width: 110px;
+    height: 20px;
+}
+
+.controller-container .controller .title {
+    border: 0;
+    margin: 0 0 0 5px;
+    width: 24px;
+    max-width: 37px;
+    font-size: 13px;
+    color: #5a84b3;
+    height: 100%;
+    display: flex;
+    float: left;
+    align-items: center;
+    font-family: NanumSquareEB;
+}
+
+.controller-container .controller .input {
+    width: 10px;
+    min-width: calc(100% - 55px);
+    height: 100%;
+    text-align: right;
+    border: 0;
+    display: inline;
+    outline-width: 0;
+    float: right;
+    margin-right: 5px;
+}
+
+.color-picker {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    border: solid #5682b2 1.2px;
+    float: right;
+    display: inline-block;
+}
+
+.shape-container {
+    width: 218px;
+}
+
+.shape-container .shape-image {
+    margin-top: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#text-attribute-controller {
+
+    width: 90%;
+    margin: auto;
+}
+
+#text-attribute-controller img {
+    cursor: pointer;
+    margin-top: 15px;
+    margin-right: 13px;
+    width: 17px;
+    height: 18px;
+}
+
+#css-editor {
+    width: 300px;
+    border: 0;
+    border-radius: 20px;
+    margin: auto;
+    padding: 5px;
+}
+
+#css-editor textarea {
+    width: 98%;
+    height: 180px;
+    border: 0;
+}
+
+textarea:focus {
+    outline: 0;
+}
+
+#image-loader {
+    width: 90%;
+    margin: auto;
+    color: #5a84b3;
+    padding-top: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+#image-loader:hover {
+    background: #73a5dd;
+    color: white;
+}
+
+#video-url {
+    width: 90%;
+    height: 20px;
+    margin: 0;
+    display: table;
+    padding: 5px 0 5px 2px;
+    margin: 3px;
+}
+
+#video-url {
+    width: 90%;
+    height: 20px;
+    margin: 0;
+    display: table;
+    padding: 5px 0 5px 2px;
+    margin: 3px;
+}
+
+#video-url .title {
+    width: 34px;
+}
+
+#video-preview-toggle {
+    width: 90%;
+    color: #5a84b3;
+    padding-top: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+
+#video-preview-toggle.active{
+    background: #73a5dd;
+    color: white;
+}
+#video-preview-toggle.active:hover{
+    background: #ffffff;
+    color: #5a84b3;
+}
+
+#video-preview-toggle:hover{
+    background: #73a5dd;
+    color: white;
+}

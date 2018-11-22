@@ -31,10 +31,10 @@ const createClearAsset = (state, action) => {
     }
 };
 
-export const createAsset = (state,action) =>{
+export const createAsset = (state, action) => {
     let asset = createClearAsset(state, action);
     state.assetId = state.assetId + 1; //@TODO check this code is working
-    if(action.assetType === assetTypes.TYPE_TEXT){
+    if (action.assetType === assetTypes.TYPE_TEXT) {
         asset.style = {
             ...asset.style,
             'font-family': '굴림',
@@ -47,12 +47,12 @@ export const createAsset = (state,action) =>{
             'letter-spacing': '0px',
             'line-height': 'normal'
         };
-    }else if(action.assetType === assetTypes.TYPE_VIDEO) {
+    } else if (action.assetType === assetTypes.TYPE_VIDEO) {
         asset.preview = false;
         asset.videoController = false;
         asset.videoLoop = false;
         asset.videoAutoplay = false;
-    }else if(action.assetType === assetTypes.TYPE_SHAPE) {
+    } else if (action.assetType === assetTypes.TYPE_SHAPE) {
         asset.style = {
             ...asset.style,
             'border-color': '#5a84b3',
