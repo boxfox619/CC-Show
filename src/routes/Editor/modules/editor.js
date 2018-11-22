@@ -1,6 +1,7 @@
 // https://github.com/davezuko/react-redux-starter-kit/blob/master/src/routes/Counter/modules/counter.js
-import update from 'immutability-helper';
+import {mapToImmutable} from '../../../core/store/reducers';
 import * as slide from './slide';
+import * as asset from './asset';
 
 // ------------------------------------
 // Constants
@@ -20,10 +21,11 @@ export const setPositionUnit = (unit) => ({type: SET_POSITION_UNIT, unit});
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-    [INIT_SHOW_DATA]: (state, action) => ({...action.data, showId: action.showId}),
-    [SET_SIZE_UNIT]: (state, action) => update(state, {sizeUnit: {$set: action.unit}}),
-    [SET_POSITION_UNIT]: (state, action) => action.id(state, {positionUnit: {$set: action.unit}}),
-    ...slide.ACTION_HANDLERS
+    [INIT_SHOW_DATA]: (state, action) => ({...mapToImmutable(action.data), showId: action.showId}),
+    [SET_SIZE_UNIT]: (state, action) => ({sizeUnit: {$set: action.unit}}),
+    [SET_POSITION_UNIT]: (state, action) => ({positionUnit: {$set: action.unit}}),
+    ...slide.ACTION_HANDLERS,
+    ...asset.ACTION_HANDLERS
 }
 
 // ------------------------------------
@@ -39,5 +41,5 @@ const initialState = {
 };
 export default editorReducer = (state = initialState, action) => {
     const handler = ACTION_HANDLERS[action.type];
-    return handler ? handler(state, action) : state
+    return handler ? update(handler(state, action)) : state
 }
