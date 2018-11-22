@@ -1,0 +1,126 @@
+.slide-show{
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    height: 96%;
+    padding-top: 0.5%;
+}
+.slide-contents {
+    background-color: gray;
+    height: 75%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.slide-contents img.slide{
+    position: absolute;
+    background: #ffffff;
+    height: 414px;
+    width: 720px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.botton-container {
+    height: 25%;
+    margin: 0;
+    padding: 0;
+}
+
+.slide-controller{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.prev-slide{
+    cursor: pointer;
+    left: 10px;
+}
+
+.next-slide{
+    cursor: pointer;
+    right: 10px;
+}
+.show-note {
+    height: 60%;
+    width: 100%;
+    position: relative;
+}
+
+.show-note .content {
+    position: absolute;
+    border: 0;
+    height: calc( 60% );
+    width: 95%;
+    margin: 20px;
+    resize: none;
+    outline: none;
+}
+
+.slideShowNote_content::-webkit-scrollbar-track
+{
+    background-color: #ffffff;
+}
+
+.slideShowNote_content::-webkit-scrollbar
+{
+    width: 5px;
+    background-color: #ffffff;
+}
+
+.slideShowNote_content::-webkit-scrollbar-thumb
+{
+    background-color: #5D87B5;
+}
+
+.slide-number-wrapper {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 6.5%;
+}
+
+.slide-number-context {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+}
+
+.slide-number-context .counter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide-option-button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100%;
+    top:0;
+    right:0;
+}
+
+.slide-option-button img{
+    height: 60%;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.split {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin: auto;
+}
