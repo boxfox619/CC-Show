@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './style.css';
 
-import AssetCanvas from 'components';
-import * as assetTypes from 'lib/constants/assetTypes';
+import AssetCanvas from 'core/components';
+import * as assetTypes from 'core/lib/constants/assetTypes';
 import MonacoEditor from './MonacoEditor';
 
 export default class CodeEditor extends Component {

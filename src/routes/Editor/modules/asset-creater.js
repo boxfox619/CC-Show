@@ -1,4 +1,4 @@
-import * as assetTypes from "constants/assetTypes";
+import * as assetTypes from "core/lib/constants/assetTypes";
 
 const defaultAsset = {
     id: '',
@@ -31,7 +31,7 @@ const createClearAsset = (state, action) => {
     }
 };
 
-export const createAsset = (state, action) => {
+export const createAssetByType = (state, action) => {
     let asset = createClearAsset(state, action);
     state.assetId = state.assetId + 1; //@TODO check this code is working
     if (action.assetType === assetTypes.TYPE_TEXT) {

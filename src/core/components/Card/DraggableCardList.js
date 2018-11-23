@@ -1,6 +1,6 @@
 import React from 'react';
 
-var placeholder = document.createElement('li');
+const placeholder = document.createElement('li');
 placeholder.className = 'placeholder';
 
 export default class DraggableCardList extends React.Component {

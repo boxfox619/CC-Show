@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './style.css';
 
-import {PlusCard, ImageActionCard, DraggableCardList} from 'components';
+import {PlusCard, ImageActionCard, DraggableCardList} from 'core/components';
 
 export default class SlideManager extends React.Component {
 

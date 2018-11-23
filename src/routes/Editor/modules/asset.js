@@ -1,6 +1,6 @@
 import {currentSlideIdx, updateCurrentSlide, getCurrentSlide} from "./slide";
-import {mapToImmutable} from '../../../core/store/reducers';
-import {ASSET_CREATE_HANDLER} from 'src/routes/Editor/modules/asset-creater';
+import {mapToImmutable} from 'core/store/reducers';
+import {createAssetByType} from './asset-creater';
 
 export const ASSET_CREATE = 'EDITOR.ASSET.ASSET_CREATE';
 export const ASSET_SET_ATTRIBUTE = 'EDITOR.ASSET.ASSET_SET_ATTRIBUTE';
@@ -36,7 +36,7 @@ export const currentAssetIdx = (state) => {
 // Action Handlers
 // ------------------------------------
 export const ACTION_HANDLERS = {
-    [ASSET_CREATE]: (state, action) => updateAssets(state, {$push: ASSET_CREATE_HANDLER[action.type](state,action)}),
+    [ASSET_CREATE]: (state, action) => updateAssets(state, {$push: createAssetByType(state, action)}),
     [ASSET_SET_ATTRIBUTE]: (state, action) => updateCurrentAsset(state, mapToImmutable(action.attributeMap)),
     [ASSET_SET_STYLE]: (state, action) => updateCurrentAsset(state, {style: mapToImmutable(action.styleMap)}),
     [SELECT_ASSET]: (state, action) => updateCurrentSlide(state, {selectAssetIdx: {$set: action.id}}),

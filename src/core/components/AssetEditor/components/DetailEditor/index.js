@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {TextInput, TextArea, Toggle, TagInput, LabelText} from 'components';
+import {TextInput, TextArea, Toggle, TagInput, LabelText} from 'core/components';
 import styles from './style.css';
 import ImageService from 'services/image.service';
 
