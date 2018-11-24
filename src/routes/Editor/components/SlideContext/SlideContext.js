@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ContextMenu from './components/context-menu';
+import * as contextMenu from 'ContextMenuActions';
 import TitleField from './components/title-field';
-import AssetCanvas from 'core/components/AssetCanvas';
+import {AssetCanvas, ContextMenu} from '../../../../core/components';
 
 export default class SlideContext extends React.Component {
 
@@ -11,11 +11,10 @@ export default class SlideContext extends React.Component {
         onModified: PropTypes.func.isRequired,
         showData: PropTypes.object.isRequired,
         editorActions: PropTypes.object.isRequired
-    }
+    };
 
     constructor(props) {
         super(props);
-
         this.state = {doubleClicked: false};
     }
 
@@ -29,20 +28,21 @@ export default class SlideContext extends React.Component {
             assets = currentSlide.assets;
         }
         return (
-            <div className={this.props.className} id={'SlideContext'}>
+            <div className={this.props.className} ref={context => this.contextComponent = context}>
                 <TitleField
                     currentSlideIndex={showData.selectedSlide}
                     onChange={this.props.editorActions.renameCurrentSlide}
                     title={currentSlide.name}
                 />
                 <ContextMenu
-                    actions={this.props.editorActions}
-                    cachedAsset={this.props.showData.cachedAsset}
+                    context={this.contextComponent}
+                    actions={contextMenu.getContextActions().bind(this)}
+                    handleContextMenu={e => this.props.selectAsset(contextMenu.handleContextMenu(e))}
                 />
                 <AssetCanvas
                     assets={assets}
-                    onAssetSelected={this.props.editorActions.assetSelected}
-                    onChangeAttributes={this.props.editorActions.setSelectedAssetAttributes}
+                    onAssetSelected={this.props.selectAsset}
+                    onChangeAttributes={this.props.setSelectedAssetAttribute}
                     onModified={this.props.onModified}
                     selectedAssetIndex={selectedAssetIndex}
                 />

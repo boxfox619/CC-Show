@@ -18,3 +18,5 @@ export TextInput from './Form/TextInput';
 export ImageActionCard from "./Card/ImageActionCard/ImageActionCard";
 export PlusCard from './Card/PlusCard/PlusCard';
 export DraggableCardList from './Card/DraggableCardList';
+
+export ContextMenu from './ContextMenu/ContextMenu';
