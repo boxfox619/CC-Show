@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {SketchPicker} from 'react-color';
 
 import styles from './style.css';
-import modalStyles from '../style.css';
+import Dialog from "../Dialog";
 
 export default class ColorPicker extends Component {
 
@@ -15,7 +15,7 @@ export default class ColorPicker extends Component {
 
     render() {
         return (
-            <div className={modalStyles.modal}>
+            <Dialog>
                 <SketchPicker
                     color={this.props.color}
                     onChangeComplete={color => this.props.colorSelected(color.hex)}
@@ -25,7 +25,7 @@ export default class ColorPicker extends Component {
                      onClick={this.props.releaseDialog}>
                     닫기
                 </div>
-            </div>
+            </Dialog>
         )
     }
 }
