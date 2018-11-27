@@ -14,14 +14,11 @@ export default class ContextMenu extends React.Component {
         handleContextMenu: (event) => {}
     };
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible: false,
-            x: 0,
-            y: 0,
-        }
-    }
+    state = {
+        visible: false,
+        x: 0,
+        y: 0,
+    };
 
     componentDidMount = () => {
         this.props.context.addEventListener('contextmenu', this.handleContextMenu);

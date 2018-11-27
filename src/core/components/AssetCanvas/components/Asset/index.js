@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './style.css';
 
-import * as assetTypes from '../../../../lib/constants/AssetTypes';
+import * as assetTypes from '../../../../../lib/constants/AssetTypes';
 
 import TextAsset from './components/TextAsset';
 import ImageAsset from './components/ImageAsset';

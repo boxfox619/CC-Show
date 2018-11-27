@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './style.css';
 
-import {PlusCard, ImageActionCard, DraggableCardList} from 'core/components';
+import {PlusCard, ImageActionCard, DraggableCardList} from '../../../../core/components';
 
 export default class SlideManager extends React.Component {
 
@@ -36,9 +36,7 @@ export default class SlideManager extends React.Component {
                     <div className={styles.title}>
                         슬라이드 리스트
                     </div>
-                    <div className={styles.hide}
-                         onClick={this.props.uiActions.toggleSlideManager}
-                    />
+                    <div className={styles.hide} onClick={this.props.uiActions.toggleSlideManager}/>
                     <DraggableCardList onExchangeSlide={this.props.editorActions.exchangeSlide}>
                         {renderSlidePreviews(this.props.slides)}
                     </DraggableCardList>

@@ -13,13 +13,14 @@ export default class AssetCanvas extends Component {
         className: PropTypes.string,
         assets: PropTypes.array.isRequired,
         onModified: PropTypes.func.isRequired,
-        selectedAssetIndex: PropTypes.number,
+        selectedAssetId: PropTypes.number,
         onAssetSelected: PropTypes.func.isRequired,
         onChangeAttributes: PropTypes.func.isRequired
     };
 
     props = {
         className: '',
+        assets: [],
         onModified: () => {
         }
     };
@@ -47,17 +48,18 @@ export default class AssetCanvas extends Component {
     }
 
     handleMouseMove = (e) => {
-        if (this.props.selectedAssetIndex !== undefined && this.state.mouseAction !== ASSET_ACTION_NONE) {
+        let currentAsset = this.props.assets.find(a => a.id === this.props.selectedAssetId);
+        if (!!currentAsset && this.state.mouseAction !== ASSET_ACTION_NONE) {
             if (this.state.selectedAsset.type === 'ASSET_TYPE_VIDEO' && this.state.selectedAsset.preview) {
                 this.setState({mouseAction: ASSET_ACTION_NONE});
                 return;
             }
             if (this.state.mouseAction === ASSET_ACTION_MOVE) {
-                let result = CanvasActionService.move(e, this.state, this.props.assets, this.props.selectedAssetIndex);
+                let result = CanvasActionService.move(e, this.state, currentAsset);
                 this.props.onChangeAttributes(result.attrs);
                 this.setState(result.state);
             } else if (this.state.mouseAction === ASSET_ACTION_RESIZE) {
-                let result = CanvasActionService.resize(e, this.state, this.props.assets, this.props.selectedAssetIndex);
+                let result = CanvasActionService.resize(e, this.state, this.props.assets, currentAsset);
                 if (!!result) {
                     this.props.onChangeAttributes(result.attrs);
                     this.setState(result.state);

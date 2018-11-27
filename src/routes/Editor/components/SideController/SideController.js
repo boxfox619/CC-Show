@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GradientButton from 'components/form/button-gradient';
+import {GradientButton} from '../../../../core/components/index';
 
 import styles from './styles.css';
-import * as assetTypes from "constants/assetTypes";
+import * as assetTypes from "../../../../lib/constants/AssetTypes";
 
-class SideController extends React.Component {
+export default class SideController extends React.Component {
     static propTypes = {
         className: PropTypes.string.isRequired,
         editorActions: PropTypes.object.isRequired,
@@ -50,7 +50,7 @@ const getButtonMap = (editorActions, uiActions) =>{
     ];
 };
 
-export const renderGroup = (editorActions, uiActions) => {
+const renderGroup = (editorActions, uiActions) => {
     let buttonMap = getButtonMap(editorActions, uiActions);
     return buttonMap.map((group, idx) => {
         return (

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { browserHistory, Router } from 'react-router'
+import PropTypes from 'prop-types';
+import { browserHistory, Router } from 'react-router';
 
 class App extends Component {
     static propTypes = {

@@ -23,8 +23,7 @@ export default class DraggableCardList extends React.Component {
                     draggable="true"
                     key={'slide' + slide.key}
                     onDragEnd={this.dragEnd}
-                    onDragStart={this.dragStart}
-                >
+                    onDragStart={this.dragStart}>
                     {slide}
                 </li>)
         });

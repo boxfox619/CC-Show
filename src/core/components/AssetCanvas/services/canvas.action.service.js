@@ -54,9 +54,8 @@ function pixelWidthToPercent(val) {
     return val;
 }
 
-export const move = (e, state, assets, selectedAssetIdx) => {
-    let selectedAsset = assets[selectedAssetIdx];
-    let otherAssets = assets.filter((v, i) => i != selectedAssetIdx);
+export const move = (e, state, assets, selectedAsset) => {
+    let otherAssets = assets.filter(a => a.id !== selectedAsset.id);
     let x = e.pageX;
     let y = e.pageY;
     let afterX = parseInt(percentWidthToPixel(selectedAsset.x)) + (x - state.xInElement);
@@ -75,9 +74,8 @@ export const move = (e, state, assets, selectedAssetIdx) => {
     };
 }
 
-export const resize = (e, state, assets, selectedAssetIdx) => {
-    let selectedAsset = assets[selectedAssetIdx];
-    let otherAssets = assets.filter((v, i) => i != selectedAssetIdx);
+export const resize = (e, state, assets, selectedAsset) => {
+    let otherAssets = assets.filter(a => a.id !== selectedAsset.id);
     let devX = (state.resizeTarget.includes('left')) ? state.xInElement - e.pageX : e.pageX - state.xInElement;
     let devY = (state.resizeTarget.includes('top')) ? state.yInElement - e.pageY : e.pageY - state.yInElement;
     let currentX = parseInt(percentHeightToPixel(selectedAsset.x));
@@ -88,16 +86,16 @@ export const resize = (e, state, assets, selectedAssetIdx) => {
     let afterHeight = currentHeight + devY;
     let afterX = currentX - devX;
     let afterY = currentY - devY;
-      if (selectedAsset.width != afterWidth) {
+      if (selectedAsset.width !== afterWidth) {
         afterWidth = calMagneticSize('x', afterX, afterWidth, otherAssets);
       }
-      if (selectedAsset.height != afterHeight) {
+      if (selectedAsset.height !== afterHeight) {
         afterHeight = calMagneticSize('y', afterY, afterHeight, otherAssets);
       }
-      if (selectedAsset.x != afterX) {
+      if (selectedAsset.x !== afterX) {
         afterX = calMagneticPosition('x', afterX, afterWidth, otherAssets);
       }
-      if (selectedAsset.y != afterY) {
+      if (selectedAsset.y !== afterY) {
         afterY = calMagneticPosition('y', afterY, afterHeight, otherAssets);
       }
       if (afterWidth < 5 || afterHeight < 5) {
@@ -166,18 +164,17 @@ export const down = (e, state) => {
     let modifyState = {};
 
     if (getAssetNode(TAG_ASSET, e.target)) {
-        if (state.selectedAssetId == getAssetNode(TAG_ASSET, e.target).id && state.doubleClicked) {
+        if (state.selectedAssetId === getAssetNode(TAG_ASSET, e.target).id && state.doubleClicked) {
             return;
         }
-        if (e.target.tagName == TAG_COL_RESIZER) {
+        if (e.target.tagName === TAG_COL_RESIZER) {
             return;
         }
         modifyState.doubleClicked = false;
         modifyState.selectedAsset = getAssetNode(TAG_ASSET, e.target);
         modifyState.selectedAssetId = modifyState.selectedAsset.id;
         modifyState.mouseAction = 'move';
-        if (e.target.tagName == TAG_SELECTORDOT || e.target.tagName
-            == TAG_SELECTORLINE) {
+        if (e.target.tagName === TAG_SELECTORDOT || e.target.tagName === TAG_SELECTORLINE) {
             modifyState.mouseAction = 'resize';
             modifyState.resizeTarget = e.target.getAttribute('target');
         }

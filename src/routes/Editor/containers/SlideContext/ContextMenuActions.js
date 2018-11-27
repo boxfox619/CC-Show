@@ -1,4 +1,4 @@
-export const getContextActions = () => {
+export const getContextMenuActions = () => {
     return (
         [[
             {label: '복사', subLabel: 'Ctrl + C', enable: !!this.props.selectedAssetId, onClick: copyAsset.bind(this)},
