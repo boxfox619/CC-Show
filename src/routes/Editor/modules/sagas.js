@@ -1,7 +1,7 @@
 import {delay} from 'redux-saga'
 import {call, put, fork, take, all} from 'redux-saga/effects'
 import axios from 'axios';
-import {SAVE_SHOW_DATA} from './editor';
+import {SAVE_SHOW_DATA, TOGGLE_PROGRESS_DIALOG} from './editor';
 import {SET_SLIDE_THUMBNAIL} from "./slide";
 
 const selectorFilter = (node) => {
@@ -11,14 +11,14 @@ const selectorFilter = (node) => {
 export function* saveShowAfterTimeout(canvas, showData) {
     yield call(delay, 1000);
     try {
-        //yield put({type: TOGGLE_PROGRESS_DIALOG});
+        yield put({type: TOGGLE_PROGRESS_DIALOG});
         let {dataUrl} = yield domtoimage.toPng(canvas, {filter: selectorFilter});
         yield put({type: SET_SLIDE_THUMBNAIL, thumbnail: dataUrl});
         let response = yield axios.post('/show/data', showData);
     } catch (e) {
         console.log(e);
     } finally {
-        //yield put({type: TOGGLE_PROGRESS_DIALOG, state: false});
+        yield put({type: TOGGLE_PROGRESS_DIALOG, state: false});
     }
     yield done
 }

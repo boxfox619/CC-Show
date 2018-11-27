@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from 'styles.css';
+import styles from './styles.css';
 import ControllerWrapper from 'components/ControllerWrapper';
 
 export default class VideoController extends React.Component {

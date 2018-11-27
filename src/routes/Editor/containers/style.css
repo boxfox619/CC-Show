@@ -1,0 +1,167 @@
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+body {
+    margin:0;
+    padding:0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'NanumSquare', sans-serif;
+    overflow: hidden;
+}
+
+body::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+    background-color: #ffffff;
+}
+
+body::-webkit-scrollbar
+{
+    width: 1px;
+    background-color: #ffffff;
+}
+
+body::-webkit-scrollbar-thumb
+{
+    background-color: #5D87B5;
+}
+
+.show-editor{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.side-controller{
+    z-index: 3;
+    min-width: 12em;
+    max-width: 12em;
+    height: 100vh;
+    min-height: 40em;
+    background-color: white;
+    position: relative;
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.26);
+}
+
+.slide-manager{
+    position: fixed;
+    z-index: 2;
+    top:0;
+    left: -10%;
+    background: #F5F5F6;
+    min-width: 14em;
+    height: 100vh;
+    overflow-y: scroll;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.slide-manager ul{
+    height: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+.slide-manager::-webkit-scrollbar {width: 0px; height: 8px;}
+
+.slide-manager.show{
+    left: -2em;
+    transform: translate(100%,0);
+    -webkit-transform: translate(100%,0);
+    -o-transform: translate(100%,0);
+    -moz-transform: translate(100%,0);
+}
+
+.context-wrap{
+    z-index: 1;
+    background-color: #ECEEF2;
+    max-height: 100%;
+    min-height: 40em;
+    width: 100%;
+    max-width: calc(100% - 24em);
+    position: relative;
+    overflow: scroll;
+}
+
+.context-wrap.disabled:after{
+    content:'';
+    position: fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    -webkit-animation: fadein 0.4s forwards;
+}
+
+@-webkit-keyframes fadein{
+    from { background-color: rgba(0, 0, 0, 0); }
+    to { background-color: rgba(0, 0, 0, 0.7); }
+}
+
+.context-wrap::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+    background-color: #ffffff;
+}
+
+.context-wrap::-webkit-scrollbar
+{
+    width: 5px;
+    height: 5px;
+    background-color: #ffffff;
+}
+
+.context-wrap::-webkit-scrollbar-thumb
+{
+    background-color: #5D87B5;
+}
+
+.context-space{
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width:1480px){
+    .context-space{
+        height: 720px;
+        width: 1220px;
+    }
+}
+
+.slide-context {
+    height:620px;
+    width: 1080px;
+    background-color: rgba(255, 255, 255, 1);
+    position: relative;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select:none;
+    user-select:none;
+    -o-user-select:none;
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.slide-context scanvas{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+.side-controller ul{
+    list-style-type: none;
+    padding: 0;
+}

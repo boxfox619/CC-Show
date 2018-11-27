@@ -1,43 +1,39 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
-import BasicController from 'BasicController';
-import AssetTypeController from 'AssetTypeController';
+import BasicController from './BasicController';
+import AssetTypeController from './AssetTypeController';
 
-import styles from 'styles.css';
+import styles from './styles.css';
+import {getCurrentAsset, setSelectedAssetAttribute, setSelectedAssetStyle} from "../../modules/asset";
 
-class AssetController extends React.Component {
-    static propTypes = {
-        selectedAsset: PropTypes.object,
-        onChangeAttribute: PropTypes.func.isRequired,
-        onChangeStyle: PropTypes.func.isRequired,
-        showColorPicker: PropTypes.func.isRequired,
-    }
-    constructor(prop) {
-        super(prop);
+class Index extends React.Component {
+    constructor(props) {
+        super(props);
         this.state = {
             text: true,
             video: true
         }
     }
+
     renderController = (selectedAsset) => {
         if (!!selectedAsset)
             return (
                 <div>
                     <AssetTypeController
                         selectedAsset={selectedAsset}
-                        onChangeAttribute={this.props.onChangeAttribute}
-                        onChangeStyle={this.props.onChangeStyle}
-                        showColorPicker={this.props.showColorPicker} />
+                        onChangeAttribute={this.props.setSelectedAssetAttribute}
+                        onChangeStyle={this.props.setSelectedAssetStyle}
+                        showColorPicker={this.showColorPicker} />
                     <BasicController
                         angle={parseInt(selectedAsset.angle)}
                         backgroundColor={selectedAsset.style['background-color']}
                         borderColor={selectedAsset.style['border-color']}
                         borderWidth={parseInt(selectedAsset.style['border-width'])}
                         height={parseInt(selectedAsset.height)}
-                        onChangeAttribute={this.props.onChangeAttribute}
-                        onChangeStyle={this.props.onChangeStyle}
-                        showColorPicker={this.props.showColorPicker}
+                        onChangeAttribute={this.props.setSelectedAssetAttribute}
+                        onChangeStyle={this.props.setSelectedAssetStyle}
+                        showColorPicker={this.showColorPicker}
                         style={selectedAsset.style}
                         width={parseInt(selectedAsset.width)}
                         x={parseInt(selectedAsset.x)}
@@ -45,7 +41,7 @@ class AssetController extends React.Component {
                     />
                 </div>
             )
-    }
+    };
 
     render() {
         return (
@@ -57,8 +53,19 @@ class AssetController extends React.Component {
             </div>
         )
     }
+
+    showColorPicker = () =>{
+        //@TODO show color picker
+    }
 }
 
-AssetController.propTypes = propTypes;
+const mapDispatchToProps = {
+    setSelectedAssetAttribute,
+    setSelectedAssetStyle
+};
 
-export default AssetController;
+const mapStateToProps = (state) => ({
+    selectedAsset: getCurrentAsset(state)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index)

@@ -4,9 +4,6 @@ import Dialog from '../Dialog';
 import styles from './style.css';
 
 export default class ProgressDialog extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

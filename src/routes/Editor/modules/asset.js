@@ -27,7 +27,11 @@ export const deleteSelectedAsset = () => ({type: DELETE_ASSET});
 // Action Handler Utils
 // ------------------------------------
 export const updateAssets = (state, changes) => updateCurrentSlide(state, {assets: changes});
-export const updateCurrentAsset = (state, changes) => updateAssets(state, {[currentAssetIdx(state)] : changes});
+export const updateCurrentAsset = (state, changes) => updateAssets(state, {[currentAssetIdx(state)]: changes});
+export const getCurrentAsset = (state) => {
+    let idx = currentAssetIdx(state);
+    return (!!idx) ? state.slides[currentSlideIdx(state)].assets[idx] : undefined;
+};
 export const currentAssetIdx = (state) => {
     let currentSlide = state.slides[currentSlideIdx(state)];
     return currentSlide.assets.findIndex(asset => asset.id === currentSlide.selectedAssetId);
@@ -41,7 +45,7 @@ export const ACTION_HANDLERS = {
     [ASSET_SET_STYLE]: (state, action) => updateCurrentAsset(state, {style: mapToImmutable(action.styleMap)}),
     [SELECT_ASSET]: (state, action) => updateCurrentSlide(state, {selectAssetIdx: {$set: action.id}}),
     [PASTE_ASSET]: (state, action) => updateAssets(state, {$push: {...state.cachedAsset}}),
-    [COPY_ASSET]: (state, action) => ({cachedAsset : {$set: {...state.slides[currentSlideIdx(state)].assets[currentAssetIdx(state)]}}}),
+    [COPY_ASSET]: (state, action) => ({cachedAsset: {$set: {...state.slides[currentSlideIdx(state)].assets[currentAssetIdx(state)]}}}),
     [SORT_ASSET]: (state, action) => updateAssets(state, {$splice: [[action.from, 1], [action.to, 0, getCurrentSlide(state).assets[action.from]]]}),
-    [DELETE_ASSET]: (state, action) => updateAssets(state, {$splice: [currentAssetIdx(state), 1] }),
+    [DELETE_ASSET]: (state, action) => updateAssets(state, {$splice: [currentAssetIdx(state), 1]}),
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import * as assetTypes from 'constants/assetTypes';
-import TextController from 'TextController';
-import VideoController from 'VideoController';
-import ImageController from 'ImageController';
-import ShapeController from 'ShapeController';
+import TextController from 'src/routes/Editor/containers/AssetController/TextController';
+import VideoController from 'src/routes/Editor/containers/AssetController/VideoController';
+import ImageController from 'src/routes/Editor/containers/AssetController/ImageController';
+import ShapeController from 'src/routes/Editor/containers/AssetController/ShapeController';
 
 const propTypes = {
     selectedAsset: React.PropTypes.object.isRequired,
