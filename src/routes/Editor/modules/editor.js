@@ -1,5 +1,6 @@
 // https://github.com/davezuko/react-redux-starter-kit/blob/master/src/routes/Counter/modules/counter.js
 import {mapToImmutable} from '../../../core/store/reducers';
+import {update} from 'immutability-helper';
 import sagas from './sagas';
 import * as slide from './slide';
 import * as asset from './asset';

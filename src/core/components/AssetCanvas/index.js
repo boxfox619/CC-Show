@@ -21,8 +21,10 @@ export default class AssetCanvas extends Component {
     props = {
         className: '',
         assets: [],
-        onModified: () => {
-        }
+        onModified: () => {},
+        selectedAssetId: () => {},
+        onAssetSelected: () => {},
+        onChangeAttributes: () => {}
     };
 
     constructor(props) {
