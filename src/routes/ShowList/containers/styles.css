@@ -1,0 +1,51 @@
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+body {
+    margin:0;
+    font-family: 'NanumSquare', sans-serif;
+}
+
+.context{
+    width: 100vw;
+    height: 100vh;
+    background: -webkit-linear-gradient(right, #00daef, #bc67ff);
+    background: linear-gradient(270deg, #00daef, #bc67ff);
+    background-size: 200% 200%;
+    -webkit-animation: MoveGrad 5s ease infinite;
+    animation: MoveGrad 5s ease infinite;
+    overflow: hidden;
+}
+
+@-webkit-keyframes MoveGrad {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes MoveGrad {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.context{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+.header {
+
+}

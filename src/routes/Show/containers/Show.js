@@ -15,7 +15,7 @@ class Show extends React.Component {
         let renderingSlides = (slides, currentSlideIdx) => {
             if (slides.length > 0) {
                 return slides.map((slide, idx) => {
-                    return (<Slide slide={slide} visible={idx == currentSlideIdx}/>);
+                    return (<Slide slide={slide} visible={idx === currentSlideIdx}/>);
                 });
             } else {
                 return (<img className={styles.loader} src="/images/progress.gif"/>);

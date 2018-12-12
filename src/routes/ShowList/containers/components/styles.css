@@ -1,0 +1,95 @@
+.show-list{
+    padding-top: 20px;
+    position: relative;
+    width: 100%;
+    overflow-y: auto;
+    min-height: calc(100% - 160px);
+    max-height: calc(100% - 160px);
+    text-align: center;
+}
+
+.show-list::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+    background-color: #ffffff;
+}
+
+.show-list::-webkit-scrollbar
+{
+    width: 4px;
+    background-color: #ffffff;
+}
+
+.show-list::-webkit-scrollbar-thumb
+{
+    background-color: #5D87B5;
+}
+
+
+.show-list .temp-show{
+    color: gray;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 45px;
+    font-size: 30px;
+    padding: 100px 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: color 0.5s ease-in-out;
+}
+
+.show-list .temp-show:hover{
+    color: white;
+}
+
+
+.modal-header{
+    height: 25%;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.modal-content{
+    position: relative;
+    height: 75%;
+}
+
+.modal-content .input-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 50px);
+}
+
+.modal-content .input {
+    text-align: center;
+    width: 100%;
+    margin-top: 3px;
+    height: 30px;
+    font-size: 20px;
+    border: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal-content .input:focus {
+    outline: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.9);
+}
+
+.modal-content .bottom-group{
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    color: white;
+    line-height: 50px;
+    background: rgb(50, 79, 165);
+    position: absolute;
+    cursor: pointer;
+}
+
+.modal-content .bottom-group:hover{
+    background: rgba(50, 79, 165, 0.9);
+}

@@ -18,7 +18,7 @@ export default class AssetCanvas extends Component {
         onChangeAttributes: PropTypes.func.isRequired
     };
 
-    props = {
+    static defaultProps = {
         className: '',
         assets: [],
         onModified: () => {},

@@ -10,10 +10,8 @@ export default class Slide extends React.Component {
     };
     render() {
         let {slide, visible} =  this.props;
-        return (<div style={{'display': visible ? 'block' : 'none'}}>
-            <AssetCanvas
-                assets={slide.assets}
-            />
+        return (<div style={{'right': visible ? '0' : '100%'}}>
+            <AssetCanvas assets={slide.assets}/>
         </div>);
     }
 }

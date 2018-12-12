@@ -1,5 +1,5 @@
 import {LOAD_SHOW_DATA, SET_SHOW_DATA} from './show';
-import {call, put, fork, take, all} from 'redux-saga/effects';
+import {put, fork, take} from 'redux-saga/effects';
 import axios from 'axios';
 
 export function* loadShowData() {
@@ -13,10 +13,8 @@ export function* loadShowData() {
     } catch (e) {
         console.log(e);
     }
-    yield done
 }
 
-//debounce save delay
 export function* watchLoadShow() {
     let task;
     while (true) {
