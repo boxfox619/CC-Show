@@ -6,6 +6,7 @@ HTML, CSS, JavaScript로 발표자료를 만들어보자!
 
 
 ## Building 
+node version : 8.9
 ```bash
 npm install
 npm run build
