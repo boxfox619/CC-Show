@@ -10,6 +10,7 @@ export const dialogs = {
   ASSET_EDITOR: 'AssetEditor',
   ACCOUNT_WITH_SNS: 'AccountDialog',
   COLOR_PICKER: 'ColorPicker',
+  PROGRESS: 'Progress',
   SLIDE_SHOW: 'SLIDE_SHOW'
 }
 
@@ -32,10 +33,11 @@ export const toggleAssetStore = () => {
   }
 }
 
-export const toggleAssetEditor = () => {
+export const toggleAssetEditor = (assetId) => {
   return {
     type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.ASSET_EDITOR
+    target: dialogs.ASSET_EDITOR,
+    assetId
   }
 }
 
@@ -46,11 +48,10 @@ export const toggleSlideShow = () => {
   }
 }
 
-export const toggleAccountDialog = () => {
-
+export const toggleProgressDialog = () => {
   return {
     type: actionTypes.TOGGLE_DIALOG,
-    target: dialogs.ACCOUNT_WITH_SNS
+    target: dialogs.PROGRESS
   }
 }
 

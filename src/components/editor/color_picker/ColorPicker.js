@@ -44,7 +44,7 @@ class ColorPicker extends React.Component{
          }
       }
     return (
-      <div className={this.props.className}>
+      <div className={this.props.className} style={{'width':'auto', 'height':'auto'}}>
         <SketchPicker style={{'box-shadow':'none'}} color={kindOfColor()} onChangeComplete={kindsOfcolorPicker()}/>
         <div className={styles.closer} onClick={this.props.releaseDialog}>닫기</div>
       </div>

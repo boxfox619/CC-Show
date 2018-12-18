@@ -4,7 +4,8 @@
 
 <head>
   <meta charset="utf-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="./js/javascript.fullPage.js"></script>
   <script src="./js/main.js"></script>
@@ -18,9 +19,6 @@
   <header>
     <ul>
       <li style="float:left"><a class="titleIcon" href=""><img src="./images/main/ic_cc_show.png"/></a></li>
-      <li><a class="navIcon" href="#about"><img src="./images/main/ic_dehaze.png"/></a></li>
-      <li><a href="#about">EN</a></li>
-      <li><a href="#about">KO</a></li>
     </ul>
   </header>
   <div class="login_modal_wrapper">
@@ -56,18 +54,7 @@
             <p class="login_button" id="login">로그인</p>
             <p class="signup_button">계정이 없으신가요?</p>
           </div>
-          <div class="another_login_wrapper">
-            <div id="naver_login" class="another_login">
-              <p class="login_button">네이버로 로그인</p>
-            </div>
-            <div id="facebook_login" class="another_login">
-              <p class="login_button">페이스북으로 로그인</p>
-            </div>
-            <div id="google_login" class="another_login">
-              <p class="login_button">구글로 로그인</p>
-            </div>
           </div>
-        </div>
 
         <div class="signup" style="display: none;">
           <p id="signup_msg" style="color: red; text-align: center; height: 1em;"></p>

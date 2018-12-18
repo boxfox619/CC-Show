@@ -26,6 +26,7 @@ class AssetStore extends React.Component{
     this.getActiveTab = this.getActiveTab.bind(this);
     this.loadItems = this.loadItems.bind(this);
     this.useAsset = this.useAsset.bind(this);
+    this.deleteAsset = this.deleteAsset.bind(this);
   }
 
   render(){
@@ -41,7 +42,7 @@ class AssetStore extends React.Component{
 
     let renderAssetItems = (assets) =>{
       return assets.map((asset)=>{
-        return (<AssetItem key={'assetitem'+asset.id} useAsset={()=>this.useAsset(asset.id)} id={asset.id} title={asset.title} subTitle={asset.user} star={asset.star} thumbnail={asset.thumbnail}/>)
+        return (<AssetItem key={'assetitem'+asset.id} deleteAsset={()=>this.deleteAsset(asset.id)} useAsset={()=>this.useAsset(asset.id)} id={asset.id} title={asset.title} subTitle={asset.user} star={asset.star} thumbnail={asset.thumbnail}/>)
       });
     }
 
@@ -95,6 +96,12 @@ class AssetStore extends React.Component{
         ...this.state,
         assets: response.data
       });
+    });
+  }
+
+  deleteAsset(assetID){
+    axios.get('/store/simple/delete/?id='+assetID).then(response => {
+      this.loadItems(tabs[this.state.activeTab].filter);
     });
   }
 

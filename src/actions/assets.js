@@ -280,7 +280,6 @@ export function setAssetTextColor(textColor) {
 }
 
 export function setAssetFillColor(fillColor) {
-  console.log(fillColor);
   return{
     type: actionTypes.ASSET_SET_FILL_COLOR,
     fillColor
@@ -296,7 +295,6 @@ export function setAssetBorderColor(borderColor) {
 
 export function setAssetEdgeWeight(weight) {
   weight+='px';
-  console.log(weight);
   return{
     type: actionTypes.ASSET_SET_BORDER_WEIGHT,
     weight

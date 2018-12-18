@@ -25,15 +25,15 @@ module.exports = function(realm) {
         console.log(colors.green('[REQ]'),getIP(req), 'load asset filter=', req.query.filter);
         switch(req.query.filter){
           case 'recommend':
-            return res.json(imagesToArray(realm.objects('SimpleAsset')));
+            return res.json(imagesToArray(realm.objects('SimpleAsset').sorted('id',true)));
           case 'new':
-            return res.json(imagesToArray(realm.objects('SimpleAsset')));
+            return res.json(imagesToArray(realm.objects('SimpleAsset').sorted('id',true)));
           case 'popular':
-            return res.json(imagesToArray(realm.objects('SimpleAsset')));
+            return res.json(imagesToArray(realm.objects('SimpleAsset').sorted('id',true)));
           case 'liked':
-            return res.json(imagesToArray(realm.objects('SimpleAsset')));
+            return res.json(imagesToArray(realm.objects('SimpleAsset').sorted('id',true)));
           case 'saved':
-            return res.json(imagesToArray(realm.objects('SimpleAsset')));
+            return res.json(imagesToArray(realm.objects('SimpleAsset').sorted('id',true)));
           break;
         }
 
@@ -94,7 +94,7 @@ module.exports = function(realm) {
     router.post('/simple/create/', (req, res)=>{
     console.log(colors.green('[REQ]'),getIP(req), 'new asset');
         if(!!req.signedCookies.user){
-          let id = realm.objects('SimpleAsset').length;
+          let id = new Date().getTime();
           return realm.write(()=>{
             realm.create('SimpleAsset', {
               id,
@@ -116,6 +116,18 @@ module.exports = function(realm) {
           let asset = realm.objects('SimpleAsset').filtered('id=$0',parseInt(req.query.id))[0];
           let html = asset.source;
           return res.json({code : html});
+        }else{
+          return res.status(400).end('Target not found');
+        }
+    });
+
+    router.get('/simple/delete', (req, res)=>{
+        console.log(colors.green('[REQ]'),getIP(req), 'asset delete', req.query.id);
+        if(!!req.query.id&&realm.objects('SimpleAsset').filtered('id=$0',parseInt(req.query.id)).length>0){
+          return realm.write(() => {
+            realm.delete(realm.objects('SimpleAsset').filtered('id=$0',parseInt(req.query.id))[0]);
+            return res.status(200).end('Success');
+          });
         }else{
           return res.status(400).end('Target not found');
         }

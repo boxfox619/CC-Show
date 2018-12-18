@@ -7,11 +7,18 @@ const initialState = {
   colorPicker: undefined
 }
 
+function getUiParameter(action, state){
+  if(action.target==dialogs.ASSET_EDITOR){
+    return action.assetId
+  }
+}
+
 const ui = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.TOGGLE_DIALOG:
       return {
         ...state,
+        uiParameter : getUiParameter(action, state),
         dialog : (state.dialog!=action.target)? action.target : undefined,
         colorPicker : (state.colorPicker===action.colorPicker)? state.colorPicker : action.colorPicker
       };

@@ -1,0 +1,50 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  cursor: wait;
+}
+
+.customize{
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.progress{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.progress span{
+  transition: all 500ms ease;
+  background: #3bafe0;
+  height: 30px;
+  width: 15px;
+  display: inline-block;
+  border-radius: 15px;
+  margin: 0 2px;
+  animation: wave 2s ease  infinite;
+}
+
+.progress span:nth-child(1){  animation-delay: 0; }
+.progress span:nth-child(2){  animation-delay: 100ms; }
+.progress span:nth-child(3){  animation-delay: 200ms; }
+.progress span:nth-child(4){  animation-delay: 300ms; }
+.progress span:nth-child(5){  animation-delay: 400ms; }
+.progress span:nth-child(6){  animation-delay: 500ms; }
+.progress span:nth-child(7){  animation-delay: 600ms; }
+.progress span:nth-child(8){  animation-delay: 700ms; }
+
+@keyframes wave{
+  0%, 40%, 100% {
+    transform: translate(0, 0);
+    background-color: #3bafe0;
+  }
+  10% {
+    transform: translate(0, -15px);
+    background-color: #c727eb;
+  }
+}

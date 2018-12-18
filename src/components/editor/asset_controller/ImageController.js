@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions/assets';
+import * as uiActions from '../../../actions/ui';
+
+import axios from 'axios';
 
 import { bindActionCreators } from 'redux';
 import styles from './AssetController.css';
@@ -48,7 +51,17 @@ class ImageController extends React.Component{
     loadImage(){
       var fr = new FileReader();
       fr.onload = (e)=> {
-        this.props.setAssetImage(e.target.result);
+        let data = e.target.result;
+        this.props.toggleProgressDialog();
+        axios.post('/assets/image', {data}).then(response => {
+          console.log(response.data);
+          this.props.setAssetImage(response.data);
+          this.props.toggleProgressDialog();
+        })
+        .catch(e =>{
+          console.log(e);
+          this.props.toggleProgressDialog();
+        });
       };
       var inputElement = document.createElement("input");
       inputElement.type = "file";
@@ -88,6 +101,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ ...actions }, dispatch);
+    return bindActionCreators({ ...actions, ...uiActions }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ImageController);

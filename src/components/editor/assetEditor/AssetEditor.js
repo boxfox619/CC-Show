@@ -127,7 +127,7 @@ class AssetEditor extends React.Component{
                 <span className = {styles.topLan}>HTML</span>
               </div>
               <div className = {styles.sideBar}></div>
-              <CodeMirror  className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.handleChange1} value= '' />
+              <CodeMirror value={this.state.html} className={styles.codeEditor} options={{lineNumbers: true, mode: 'htmlmixed' }} onChange = {this.handleChange1}  />
             </div>
             <div className = {styles.cssArea}>
               <div className = {styles.topArea}>
@@ -189,6 +189,11 @@ class AssetEditor extends React.Component{
     //     license: this.props.data.license
     //   });
     // }
+    if(this.props.assetId){
+      axios.get('/store/simple/?id='+this.props.assetId).then(response => {
+          this.setState({html : response.data.code})
+      });
+    }
   }
 
   submit(){
@@ -327,7 +332,8 @@ class AssetEditor extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    visible : state.ui.visibleAssetEditor
+    visible : state.ui.visibleAssetEditor,
+    assetId : state.ui.uiParameter
   }
 }
 
